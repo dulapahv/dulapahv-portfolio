@@ -1,0 +1,35 @@
+{
+  "success": {
+    "style": {
+      "border": "2px solid #fff",
+      "color": "#fff",
+      "background": "#00b74a"
+    },
+    "iconTheme": {
+      "primary": "#fff",
+      "secondary": "#00b74a"
+    }
+  },
+  "error": {
+    "style": {
+      "border": "2px solid #fff",
+      "color": "#fff",
+      "background": "#fa4e4d"
+    },
+    "iconTheme": {
+      "primary": "#fff",
+      "secondary": "#fa4e4d"
+    }
+  },
+  "loading": {
+    "style": {
+      "border": "2px solid #fff",
+      "color": "#fff",
+      "background": "#e4992d"
+    },
+    "iconTheme": {
+      "primary": "#fff",
+      "secondary": "#e4992d"
+    }
+  }
+}
