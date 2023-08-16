@@ -63,6 +63,19 @@ module.exports = {
       animation: {
         'fade-in':
           'fade-in 0.75s cubic-bezier(0.190, 1.000, 0.220, 1.000) both',
+        'slide-text-left-1': 'slide-text-left-1 14s linear infinite',
+        'slide-text-left-2': 'slide-text-left-2 12s linear infinite',
+        'slide-text-left-3': 'slide-text-left-3 10s linear infinite',
+        'slide-text-left-4': 'slide-text-left-4 8s linear infinite',
+        'slide-text-left-5': 'slide-text-left-5 6s linear infinite',
+        'slide-text-right-1': 'slide-text-right-1 14s linear infinite',
+        'slide-text-right-2': 'slide-text-right-2 12s linear infinite',
+        'slide-text-right-3': 'slide-text-right-3 10s linear infinite',
+        'slide-text-right-4': 'slide-text-right-4 8s linear infinite',
+        'slide-text-right-5': 'slide-text-right-5 6s linear infinite',
+        'puff-in-center':
+          'puff-in-center 0.7s cubic-bezier(0.190, 1.000, 0.220, 1.000) both',
+        'fade-out': 'fade-out 1s cubic-bezier(0.190, 1.000, 0.220, 1.000) both',
       },
       keyframes: {
         'fade-in': {
@@ -70,6 +83,122 @@ module.exports = {
             opacity: '0',
           },
           to: {
+            opacity: '1',
+          },
+        },
+        'fade-out': {
+          '0%': {
+            opacity: '1',
+          },
+          to: {
+            opacity: '0',
+          },
+        },
+        'slide-text-left-1': {
+          '0%': {
+            transform: 'translateX(100%)',
+          },
+          to: {
+            transform: 'translateX(-100%)',
+          },
+        },
+        'slide-text-left-2': {
+          '0%': {
+            transform: 'translateX(100%)',
+          },
+          to: {
+            transform: 'translateX(-100%)',
+          },
+        },
+        'slide-text-left-3': {
+          '0%': {
+            transform: 'translateX(100%)',
+          },
+          to: {
+            transform: 'translateX(-100%)',
+          },
+        },
+        'slide-text-left-4': {
+          '0%': {
+            transform: 'translateX(100%)',
+          },
+          to: {
+            transform: 'translateX(-100%)',
+          },
+        },
+        'slide-text-left-5': {
+          '0%': {
+            transform: 'translateX(100%)',
+          },
+          to: {
+            transform: 'translateX(-100%)',
+          },
+        },
+        'slide-text-left-6': {
+          '0%': {
+            transform: 'translateX(100%)',
+          },
+          to: {
+            transform: 'translateX(-100%)',
+          },
+        },
+        'slide-text-right-1': {
+          '0%': {
+            transform: 'translateX(-100%)',
+          },
+          to: {
+            transform: 'translateX(100%)',
+          },
+        },
+        'slide-text-right-2': {
+          '0%': {
+            transform: 'translateX(-100%)',
+          },
+          to: {
+            transform: 'translateX(100%)',
+          },
+        },
+        'slide-text-right-3': {
+          '0%': {
+            transform: 'translateX(-100%)',
+          },
+          to: {
+            transform: 'translateX(100%)',
+          },
+        },
+        'slide-text-right-4': {
+          '0%': {
+            transform: 'translateX(-100%)',
+          },
+          to: {
+            transform: 'translateX(100%)',
+          },
+        },
+        'slide-text-right-5': {
+          '0%': {
+            transform: 'translateX(-100%)',
+          },
+          to: {
+            transform: 'translateX(100%)',
+          },
+        },
+        'slide-text-right-6': {
+          '0%': {
+            transform: 'translateX(-100%)',
+          },
+          to: {
+            transform: 'translateX(100%)',
+          },
+        },
+        'puff-in-center': {
+          '0%': {
+            transform: 'scale(4)',
+            filter: 'blur(4px)',
+            opacity: '0',
+          },
+          to: {
+            transform: 'scale(1)',
+            filter: 'blur(0)',
             opacity: '1',
           },
         },

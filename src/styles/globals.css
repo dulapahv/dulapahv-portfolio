@@ -3,14 +3,21 @@
 @tailwind utilities;
 
 * {
-  /* outline: 1px solid #f00 !important; */
+  /*outline: 1px solid #f00 !important;*/
   white-space: pre-line;
   scroll-behavior: smooth;
 }
 
+html,
+body {
+  margin: 0;
+  height: 100%;
+  /*overflow: hidden;*/
+}
+
 ::-webkit-scrollbar {
-  /*width: 8px;
-  height: 8px;*/
+  width: 8px;
+  height: 8px;
   display: none;
 }
 

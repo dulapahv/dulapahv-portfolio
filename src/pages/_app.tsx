@@ -1,14 +1,12 @@
 import React from 'react';
 
-import { Toaster } from 'react-hot-toast';
 import { ThemeProvider } from 'next-themes';
 import { useTranslation } from 'next-i18next';
 import { appWithTranslation } from 'next-i18next';
 
+import { Nav } from '@/components';
 import { AppProps } from 'next/app';
-import { Footer, Nav } from '@/components';
 import { Kanit, Open_Sans } from 'next/font/google';
-import ToastTheme from '@/components/ToastTheme.json';
 
 import '@/styles/globals.css';
 
@@ -29,16 +27,14 @@ function MyApp({ Component, pageProps }: AppProps) {
           i18n.language === 'en' ? open_sans.className : kanit.className
         }`}
       >
-        <div>
-          <Toaster />
-        </div>
         <ThemeProvider defaultTheme='dark'>
-          <div className='flex flex-col h-screen bg-WHITE dark:bg-neutral-800'>
-            <Nav />
+          <div className='min-h-screen flex flex-col bg-WHITE dark:bg-neutral-800'>
             <div className='flex-grow'>
               <Component {...pageProps} />
             </div>
-            <Footer />
+            <div className='fixed bottom-0 right-0'>
+              <Nav />
+            </div>
           </div>
         </ThemeProvider>
       </div>

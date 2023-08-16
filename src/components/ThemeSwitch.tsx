@@ -13,6 +13,7 @@ const ThemeSwitch = (props: Props) => {
   const { t } = useTranslation();
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme, resolvedTheme } = useTheme();
+  const [y, setY] = useState(window.scrollY);
 
   // When mounted on client, now we can show the UI
   useEffect(() => setMounted(true), []);
@@ -20,7 +21,7 @@ const ThemeSwitch = (props: Props) => {
   return (
     <>
       <button
-        className='btn absolute bottom-48 right-16 sm:bottom-[196px] sm:right-[64px] bg-YELLOW hover:bg-YELLOW w-20 h-20 sm:w-[88px] sm:h-[88px] rotate-45 hover:ring-offset-[3px] hover:ring-offset-black/50 hover:ring-2 ring-YELLOW-300 active:!rotate-45 text-WHITE animate-none active:scale-95'
+        className='btn absolute bottom-48 right-16 sm:bottom-[196px] sm:right-[64px] bg-YELLOW hover:bg-YELLOW w-20 h-20 sm:w-[88px] sm:h-[88px] rotate-45 hover:ring-offset-[3px] hover:ring-offset-black/30 dark:hover:ring-offset-black/80 hover:ring-2 ring-YELLOW-300 active:!rotate-45 text-WHITE animate-none active:scale-95'
         onClick={() => {
           setTheme(
             theme === 'dark' || resolvedTheme === 'dark' ? 'light' : 'dark'
