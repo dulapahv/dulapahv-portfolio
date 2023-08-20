@@ -10,7 +10,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        WHITE: '#f4f3f3',
+        WHITE: '#f7f7f7',
+        BLACK: '#2b2b2b',
         RED: {
           DEFAULT: '#fb568a',
           100: '#fde2e8',
@@ -73,9 +74,17 @@ module.exports = {
         'slide-text-right-3': 'slide-text-right-3 10s linear infinite',
         'slide-text-right-4': 'slide-text-right-4 8s linear infinite',
         'slide-text-right-5': 'slide-text-right-5 6s linear infinite',
-        'puff-in-center':
-          'puff-in-center 0.7s cubic-bezier(0.190, 1.000, 0.220, 1.000) both',
+        'puff-out-center':
+          'puff-out-center 1.5s cubic-bezier(0.190, 1.000, 0.220, 1.000) both',
         'fade-out': 'fade-out 1s cubic-bezier(0.190, 1.000, 0.220, 1.000) both',
+        'clip-in-left':
+          'clip-in-left 0.9s cubic-bezier(0.645, 0.045, 0.355, 1.000) both',
+        'clip-in-right':
+          'clip-in-right 0.9s cubic-bezier(0.645, 0.045, 0.355, 1.000) both',
+        'rotate-in-2-cw':
+          'rotate-in-2-cw 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both',
+        'shake-vertical':
+          'shake-vertical 25s cubic-bezier(0.455, 0.030, 0.515, 0.955) both infinite',
       },
       keyframes: {
         'fade-in': {
@@ -190,16 +199,59 @@ module.exports = {
             transform: 'translateX(100%)',
           },
         },
-        'puff-in-center': {
+        'puff-out-center': {
           '0%': {
-            transform: 'scale(4)',
-            filter: 'blur(4px)',
+            transform: 'scale(0)',
             opacity: '0',
+            filter: 'blur(8px)',
           },
           to: {
             transform: 'scale(1)',
-            filter: 'blur(0)',
             opacity: '1',
+            filter: 'blur(0px)',
+          },
+        },
+        'clip-in-left': {
+          '0%': {
+            clipPath: 'polygon(0 0, 0 0, 0 100%, 0% 100%)',
+          },
+          to: {
+            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+          },
+        },
+        'clip-in-right': {
+          '0%': {
+            clipPath: 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)',
+          },
+          to: {
+            clipPath: 'polygon(100% 0, 0 0, 0 100%, 100% 100%)',
+          },
+        },
+        'rotate-in-2-cw': {
+          '0%': {
+            transform: 'rotate(-45deg)',
+            opacity: '0',
+          },
+          to: {
+            transform: 'rotate(0)',
+            opacity: '1',
+          },
+        },
+        'shake-vertical': {
+          '0%,to': {
+            transform: 'translateY(0)',
+          },
+          '10%,30%,50%,70%': {
+            transform: 'translateY(-15px)',
+          },
+          '20%,40%,60%': {
+            transform: 'translateY(15px)',
+          },
+          '80%': {
+            transform: 'translateY(13.4px)',
+          },
+          '90%': {
+            transform: 'translateY(-13.4px)',
           },
         },
       },

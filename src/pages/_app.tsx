@@ -28,7 +28,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         }`}
       >
         <ThemeProvider defaultTheme='dark'>
-          <div className='min-h-screen flex flex-col bg-WHITE dark:bg-neutral-800'>
+          <div className='min-h-screen flex flex-col bg-WHITE dark:bg-BLACK'>
             <div className='flex-grow'>
               <Component {...pageProps} />
             </div>

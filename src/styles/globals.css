@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 * {
-  /*outline: 1px solid #f00 !important;*/
+  /* outline: 1px solid #f00 !important; */
   white-space: pre-line;
   scroll-behavior: smooth;
 }
