@@ -4,16 +4,17 @@ import { useTheme } from 'next-themes';
 import { useTranslation } from 'next-i18next';
 
 import Image from 'next/image';
-import { Turnstile } from '@marsidev/react-turnstile';
+import { Turnstile, TurnstileInstance } from '@marsidev/react-turnstile';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const Contact = () => {
   const { t } = useTranslation();
-  const { theme, setTheme, resolvedTheme } = useTheme();
+  const { resolvedTheme } = useTheme();
+  const [otherErrorMsg, setOtherErrorMsg] = useState('');
 
   const Header = () => {
     return (
-      <div className='flex flex-col animate-fade-in overflow-x-hidden pb-28'>
+      <div className='flex flex-col animate-fade-in overflow-x-hidden pb-44'>
         <div className='w-screen relative z-[1]'>
           <div className='absolute rounded-full w-14 h-14 bg-PURPLE animate-shake-vertical animation-delay-1200 opacity-70 left-[-1.5%] top-40'></div>
           <div className='absolute rounded-full w-4 h-4 bg-RED animate-shake-vertical opacity-70 left-[8%] top-40'></div>
@@ -42,56 +43,238 @@ const Contact = () => {
     );
   };
 
-  const Content = () => {
-    const [status, setStatus] = useState('');
-    const turnstileRef = useRef<HTMLDivElement>(null);
+  interface Msg {
+    email: {
+      label: string;
+      link: string;
+    };
+    discord: {
+      label: string;
+      link: string;
+    };
+    facebook: {
+      label: string;
+      link: string;
+    };
+  }
 
-    const handleSuccess = async (token: string) => {
-      console.log(token);
+  const Content = () => {
+    const [captchaStatus, setCaptchaStatus] = useState('');
+    const [msg, setMsg] = useState<Msg>({
+      email: {
+        label: '',
+        link: '',
+      },
+      discord: {
+        label: '',
+        link: '',
+      },
+      facebook: {
+        label: '',
+        link: '',
+      },
+    });
+
+    const captchaInstance = useRef<TurnstileInstance>(null);
+    const captchaRef = useRef<HTMLDivElement>(null);
+    const msgRef = useRef<HTMLDivElement>(null);
+
+    const handleCaptchaSuccess = async (token: string) => {
       try {
         const response = await fetch(
-          'http://ict11.ce.kmitl.ac.th/dulapahv/verify/validate-captcha',
+          `https://ict11.ce.kmitl.ac.th/dulapahv/verify/validate-captcha?token=${token}`,
           {
-            method: 'POST',
+            method: 'GET',
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ token }), // Use object shorthand syntax
           }
         );
         const result = await response.json();
         if (result.success) {
-          // Perform any actions you want after successful validation
-          console.log('Validation successful');
+          handleTokenSuccess(result);
         } else {
-          // Handle validation failure
-          console.log('Validation failed');
+          handleTokenError(result);
         }
       } catch (error) {
-        // Handle error
-        console.error('Error:', error);
+        handleTokenError(error);
+      }
+    };
+
+    const handleTokenSuccess = (result: any) => {
+      setCaptchaStatus('success');
+      setMsg(result.message);
+    };
+
+    const handleTokenError = (result: any) => {
+      setCaptchaStatus('other');
+      setOtherErrorMsg(result.message);
+    };
+
+    const Msg = () => {
+      switch (captchaStatus) {
+        case 'error':
+          return (
+            <div className='text-BLACK dark:text-WHITE text-lg font-medium flex flex-col gap-4 items-center'>
+              <p>Something went wrong, click here to try again</p>
+              <button
+                className='btn bg-neutral-300'
+                onClick={() => {
+                  captchaInstance.current!.render();
+                  setCaptchaStatus('');
+                }}
+              >
+                Try again
+              </button>
+            </div>
+          );
+        case 'expired':
+          captchaInstance.current!.remove();
+          return (
+            <div className='text-BLACK dark:text-WHITE text-lg font-medium flex flex-col gap-4 items-center'>
+              <p>Your session has expired, click here to try again</p>
+              <button
+                className='btn bg-neutral-300'
+                onClick={() => {
+                  captchaInstance.current!.render();
+                  setCaptchaStatus('');
+                }}
+              >
+                Try again
+              </button>
+            </div>
+          );
+        case 'invalidToken':
+          captchaInstance.current!.remove();
+          return (
+            <div className='text-BLACK dark:text-WHITE text-lg font-medium flex flex-col gap-4 items-center'>
+              <p>{t('Invalid token, click here to try again')}</p>
+              <button
+                className='btn bg-neutral-300'
+                onClick={() => {
+                  captchaInstance.current!.render();
+                  setCaptchaStatus('');
+                }}
+              >
+                {t('Try again')}
+              </button>
+            </div>
+          );
+        case 'success':
+          setTimeout(() => {
+            captchaInstance.current!.remove();
+            captchaRef.current!.classList.add('hidden');
+            msgRef.current!.classList.toggle('hidden');
+          }, 1200);
+          break;
+        case 'other':
+          captchaInstance.current!.remove();
+          return (
+            <div className='text-BLACK dark:text-WHITE text-lg font-medium flex flex-col gap-4 items-center'>
+              <p>{t('Something went wrong, please try again later')}</p>
+              {otherErrorMsg && <p>({otherErrorMsg})</p>}
+              <button
+                className='btn bg-neutral-300'
+                onClick={() => {
+                  captchaInstance.current!.render();
+                  setCaptchaStatus('');
+                }}
+              >
+                {t('Try again')}
+              </button>
+            </div>
+          );
+        default:
+          return (
+            <div className='text-BLACK dark:text-WHITE text-lg font-medium flex flex-col gap-4 items-center'>
+              <p>{t('Checking that you are not a robot...')}</p>
+              <span className='loading loading-dots loading-lg'></span>
+            </div>
+          );
       }
     };
 
     return (
-      <div className='h-screen relative'>
-        <div className='flex flex-col items-center gap-4' ref={turnstileRef}>
-          <h2 className='text-BLACK dark:text-WHITE text-lg'>
-            {status === 'expired'
-              ? 'Your session has expired. Please refresh the page and try again.'
-              : status === 'error'
-              ? 'There was an error. Please refresh the page and try again.'
-              : 'Checking your browser, please wait...'}
-          </h2>
-          <Turnstile
-            siteKey='1x00000000000000000000AA' // 0x4AAAAAAACYFWWcTzhCNWz4
-            onError={() => setStatus('error')}
-            onExpire={() => setStatus('expired')}
-            onSuccess={handleSuccess}
-            options={{
-              theme: resolvedTheme === 'dark' ? 'dark' : 'light',
-            }}
-          />
+      <div className='relative'>
+        <div className='flex justify-center'>
+          <div
+            className='flex flex-col items-center animate-slide-in-fwd-bottom'
+            ref={captchaRef}
+          >
+            <div className='pb-4'>
+              <Msg />
+            </div>
+            <Turnstile
+              siteKey='0x4AAAAAAACYFWWcTzhCNWz4' // 0x4AAAAAAACYFWWcTzhCNWz4 1x00000000000000000000AA
+              onError={() => setCaptchaStatus('error')}
+              onExpire={() => {
+                setCaptchaStatus('expired');
+              }}
+              onSuccess={handleCaptchaSuccess}
+              options={{
+                theme: resolvedTheme === 'dark' ? 'dark' : 'light',
+              }}
+              ref={captchaInstance}
+            />
+          </div>
+          <div className='hidden' ref={msgRef}>
+            <div className='flex gap-4'>
+              <div className='card w-96 bg-[#c5231c] shadow-xl animate-slide-in-fwd-bottom'>
+                <div className='card-body text-WHITE'>
+                  <h2 className='card-title'>Email</h2>
+                  <p>{msg.email.label}</p>
+                  <div className='card-actions justify-end'>
+                    <a
+                      href={msg.email.link}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
+                      <button className='btn bg-WHITE border-none text-BLACK'>
+                        {t('Contact')}
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className='card w-96 bg-[#6062f0] shadow-xl animate-slide-in-fwd-bottom animation-delay-100'>
+                <div className='card-body text-WHITE'>
+                  <h2 className='card-title'>
+                    Discord
+                    <div className='badge badge-warning'>{t('Preferred')}</div>
+                  </h2>
+                  <p>{msg.discord.label}</p>
+                  <div className='card-actions justify-end'>
+                    <a
+                      href={msg.discord.link}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
+                      <button className='btn bg-WHITE border-none text-BLACK'>
+                        {t('Contact')}
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className='card w-96 bg-[#3474f0] shadow-xl animate-slide-in-fwd-bottom animation-delay-200'>
+                <div className='card-body text-WHITE'>
+                  <h2 className='card-title'>Facebook</h2>
+                  <p>{msg.facebook.label}</p>
+                  <div className='card-actions justify-end'>
+                    <a
+                      href={msg.facebook.link}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
+                      <button className='btn bg-WHITE border-none text-BLACK'>
+                        {t('Contact')}
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );

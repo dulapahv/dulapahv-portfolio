@@ -14,6 +14,7 @@ import ThemeSwitch from './ThemeSwitch';
 const Nav = () => {
   const { t, i18n } = useTranslation();
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isIconToggle, setIsIconToggle] = useState(false);
 
   const navItemRef1 = useRef<HTMLDivElement>(null);
   const navItemRef2 = useRef<HTMLDivElement>(null);
@@ -22,9 +23,7 @@ const Nav = () => {
   const navItemRef5 = useRef<HTMLDivElement>(null);
   const navBackdropRef = useRef<HTMLDivElement>(null);
 
-  const handleOpenNav = () => {
-    
-  }
+  const handleOpenNav = () => {};
 
   const handleCloseNav = () => {
     navItemRef1.current!.classList.add('animate-fade-out');
