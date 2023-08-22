@@ -116,7 +116,7 @@ const Contact = () => {
         case 'error':
           return (
             <div className='text-BLACK dark:text-WHITE text-lg font-medium flex flex-col gap-4 items-center'>
-              <p>Something went wrong, click here to try again</p>
+              <p>Failed to verify. Click here to try again</p>
               <button
                 className='btn bg-neutral-300'
                 onClick={() => {
@@ -132,7 +132,7 @@ const Contact = () => {
           captchaInstance.current!.remove();
           return (
             <div className='text-BLACK dark:text-WHITE text-lg font-medium flex flex-col gap-4 items-center'>
-              <p>Your session has expired, click here to try again</p>
+              <p>Your session has expired. Click here to try again</p>
               <button
                 className='btn bg-neutral-300'
                 onClick={() => {
@@ -148,7 +148,7 @@ const Contact = () => {
           captchaInstance.current!.remove();
           return (
             <div className='text-BLACK dark:text-WHITE text-lg font-medium flex flex-col gap-4 items-center'>
-              <p>{t('Invalid token, click here to try again')}</p>
+              <p>{t('Invalid token. Click here to try again')}</p>
               <button
                 className='btn bg-neutral-300'
                 onClick={() => {
