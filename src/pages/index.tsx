@@ -8,6 +8,7 @@ import { TbMinusVertical } from 'react-icons/tb';
 import { Kanit, Noto_Sans_JP } from 'next/font/google';
 import { BsArrowDownCircleFill } from 'react-icons/bs';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { motion } from 'framer-motion';
 
 const kanit = Kanit({
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
@@ -115,16 +116,20 @@ const Index = () => {
 
   const AboutMe = () => {
     return (
-      <div className='flex flex-col animate-fade-in overflow-x-hidden'>
+      <div className='flex flex-col animate-clip-in-right overflow-x-hidden'>
         <div className='w-screen relative'>
           <div className='absolute rounded-full w-4 h-4 bg-PURPLE animate-shake-vertical animation-delay-1200 opacity-70 left-[3%] top-72'></div>
           <div className='absolute rounded-full w-8 h-8 bg-RED animate-shake-vertical opacity-70 left-[5%] top-96'></div>
           <div className='absolute rounded-full w-14 h-14 bg-BLUE animate-shake-vertical animation-delay-400 opacity-70 left-[2%] top-[30rem]'></div>
           <div className='absolute rounded-full w-10 h-10 bg-YELLOW animate-shake-vertical animation-delay-800 opacity-70 left-[8%] top-[35rem]'></div>
         </div>
-        <div
+        <motion.div
           className='flex flex-col h-fit bg-PURPLE/60 ml-32 rounded-bl-3xl p-16 gap-8 my-16 scroll-my-16'
           ref={EducationSectionRef}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          whileInView={{ x: 50 }}
         >
           <h1 className='bg-PURPLE w-fit px-3 text-WHITE uppercase text-4xl font-semibold tracking-[0.2em] p-3 first-letter:text-RED'>
             {t('About Me')}
@@ -181,7 +186,7 @@ const Index = () => {
               me.
             </p>
           </div>
-        </div>
+        </motion.div>
       </div>
     );
   };
