@@ -1,20 +1,32 @@
-name: CD
+name: Build and Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main # Change this to your main branch name
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/setup-node@v1
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-          node-version: 12
-      - run: npm install -g yarn
-      - run: |
-            cd ..
-            yarn --frozen-lockfile
-      - run: |
-            cd ..
-            yarn build
+          node-version: 14
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build the Next.js app
+        run: yarn build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          # github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out # Adjust the path to your Next.js build output
+
