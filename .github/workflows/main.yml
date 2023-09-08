@@ -15,4 +15,6 @@ jobs:
       - run: |
             cd ..
             yarn install --frozen-lockfile
-      - run: yarn build
+      - run: |
+            cd ..
+            yarn build
