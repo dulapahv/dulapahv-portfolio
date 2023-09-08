@@ -13,6 +13,9 @@ jobs:
           node-version: 12
       - run: npm install -g yarn
       - run: |
+          pwd  # Print current directory
+          ls   # List contents of the current directory
+      - run: |
           cd $GITHUB_WORKSPACE
           yarn install --frozen-lockfile
       - run: |
