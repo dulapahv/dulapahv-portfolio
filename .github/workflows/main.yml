@@ -7,13 +7,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: .
     steps:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
       - run: npm install -g yarn
-      - run: yarn install --frozen-lockfile
+      - run: |
+            cd ..
+            yarn install --frozen-lockfile
       - run: yarn build
