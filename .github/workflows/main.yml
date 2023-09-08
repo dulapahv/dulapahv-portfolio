@@ -2,7 +2,7 @@ name: CD
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
@@ -12,5 +12,9 @@ jobs:
         with:
           node-version: 12
       - run: npm install -g yarn
-      - run: yarn install --frozen-lockfile
-      - run: yarn build
+      - run: |
+          cd $GITHUB_WORKSPACE
+          yarn install --frozen-lockfile
+      - run: |
+          cd $GITHUB_WORKSPACE
+          yarn build
