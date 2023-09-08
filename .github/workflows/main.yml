@@ -12,5 +12,9 @@ jobs:
         with:
           node-version: 12
       - run: npm install -g yarn
-      - run: yarn --frozen-lockfile --cwd $GITHUB_WORKSPACE
-      - run: yarn build --cwd $GITHUB_WORKSPACE
+      - run: |
+            cd ..
+            yarn --frozen-lockfile
+      - run: |
+            cd ..
+            yarn build
