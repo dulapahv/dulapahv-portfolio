@@ -1,6 +1,7 @@
 {
   "name": "dulapahv-portfolio",
   "version": "0.1.0",
+  "homepage": "/dulapahv/portfolio/",
   "private": true,
   "scripts": {
     "dev": "next dev",
