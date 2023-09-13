@@ -94,7 +94,7 @@ const Contact = () => {
     const handleCaptchaSuccess = async (token: string) => {
       try {
         const response = await fetch(
-          `https://ict11.ce.kmitl.ac.th/dulapahv/verify/validate-captcha?token=${token}`,
+          `https://verify.dulapahv.dev/validate-captcha?token=${token}`,
           {
             method: 'GET',
             headers: {
