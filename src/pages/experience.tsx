@@ -1,9 +1,6 @@
 import React from 'react';
 
-import { useTranslation } from 'next-i18next';
-
 import { Kanit, Noto_Sans_JP } from 'next/font/google';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const kanit = Kanit({
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
@@ -21,8 +18,6 @@ const KanitFont = kanit.className;
 const NotoSansJPFont = noto_sans_jp.className;
 
 const Experience = () => {
-  const { t } = useTranslation();
-
   const ScrollingTextBg = () => {
     return (
       <div className='flex flex-col justify-center animate-fade-in h-screen overflow-hidden'>
@@ -144,17 +139,5 @@ const Experience = () => {
     </>
   );
 };
-
-export async function getStaticProps(context: any) {
-  // extract the locale identifier from the URL
-  const { locale } = context;
-
-  return {
-    props: {
-      // pass the translation props to the page component
-      ...(await serverSideTranslations(locale)),
-    },
-  };
-}
 
 export default Experience;
