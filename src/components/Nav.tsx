@@ -1,7 +1,5 @@
 import React, { useState, useRef } from 'react';
 
-import { useTranslation } from 'next-i18next';
-
 import Link from 'next/link';
 import router from 'next/router';
 import { CgProfile } from 'react-icons/cg';
@@ -12,7 +10,6 @@ import { RiSparkling2Fill, RiSparkling2Line } from 'react-icons/ri';
 import ThemeSwitch from './ThemeSwitch';
 
 const Nav = () => {
-  const { t, i18n } = useTranslation();
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   const navItemRef1 = useRef<HTMLDivElement>(null);
@@ -45,28 +42,12 @@ const Nav = () => {
             >
               <div className='-rotate-45 w-fit flex flex-col items-center'>
                 <CgProfile className='w-8 h-auto my-1' />
-                <p className='capitalize'>{t('Profile')}</p>
+                <p className='capitalize'>Profile</p>
               </div>
             </button>
           </Link>
         </div>
-        <div className='animate-fade-in animation-delay-50' ref={navItemRef2}>
-          <button
-            className='btn absolute bottom-8 right-24 sm:bottom-7 sm:right-[96px] bg-YELLOW hover:bg-YELLOW w-20 h-20 sm:w-[88px] sm:h-[88px] rotate-45 hover:ring-offset-[3px] hover:ring-offset-black/60 hover:ring-2 ring-YELLOW-300 active:!rotate-45 text-WHITE animate-none active:scale-95'
-            onClick={() => {
-              router.replace(router.asPath, router.asPath, {
-                locale: i18n.language === 'en' ? 'th' : 'en',
-              });
-            }}
-          >
-            <div className='-rotate-45 w-fit flex flex-col items-center'>
-              <h1 className='text-2xl font-bold'>
-                {i18n.language === 'en' ? 'ENG' : 'ไทย'}
-              </h1>
-              <p className='capitalize'>TH/EN</p>
-            </div>
-          </button>
-        </div>
+        {/* TODO: Modify animation delay */}
         <div className='animate-fade-in animation-delay-100' ref={navItemRef3}>
           <ThemeSwitch />
         </div>
@@ -78,7 +59,7 @@ const Nav = () => {
             >
               <div className='-rotate-45 w-fit flex flex-col items-center'>
                 <LiaAtomSolid className='w-8 h-auto' />
-                <p className='capitalize'>{t('Experience')}</p>
+                <p className='capitalize'>Experience</p>
               </div>
             </button>
           </Link>
@@ -91,7 +72,7 @@ const Nav = () => {
             >
               <div className='-rotate-45 w-fit flex flex-col items-center'>
                 <BiSolidContact className='w-8 h-auto my-1' />
-                <p className='capitalize'>{t('Contact')}</p>
+                <p className='capitalize'>Contact</p>
               </div>
             </button>
           </Link>

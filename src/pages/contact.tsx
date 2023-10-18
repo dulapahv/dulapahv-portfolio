@@ -1,17 +1,14 @@
 import React, { useRef, useState } from 'react';
 
 import { useTheme } from 'next-themes';
-import { useTranslation } from 'next-i18next';
 
 import Image from 'next/image';
 import { BsDiscord, BsSteam } from 'react-icons/bs';
 import { MdEmail } from 'react-icons/md';
 import { FaFacebookSquare } from 'react-icons/fa';
 import { Turnstile, TurnstileInstance } from '@marsidev/react-turnstile';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const Contact = () => {
-  const { t } = useTranslation();
   const { resolvedTheme } = useTheme();
   const [otherErrorMsg, setOtherErrorMsg] = useState('');
 
@@ -160,7 +157,7 @@ const Contact = () => {
           captchaInstance.current!.remove();
           return (
             <div className='text-BLACK dark:text-WHITE text-lg font-medium flex flex-col gap-4 items-center'>
-              <p>{t('Invalid token. Click here to try again')}</p>
+              <p>Invalid token. Click here to try again</p>
               <button
                 className='btn bg-neutral-300'
                 onClick={() => {
@@ -168,7 +165,7 @@ const Contact = () => {
                   setCaptchaStatus('');
                 }}
               >
-                {t('Try again')}
+                Try again
               </button>
             </div>
           );
@@ -183,7 +180,7 @@ const Contact = () => {
           captchaInstance.current!.remove();
           return (
             <div className='text-BLACK dark:text-WHITE text-lg font-medium flex flex-col gap-4 items-center'>
-              <p>{t('Something went wrong, please try again later')}</p>
+              <p>Something went wrong, please try again later</p>
               {otherErrorMsg && <p>({otherErrorMsg})</p>}
               <button
                 className='btn bg-neutral-300'
@@ -192,14 +189,14 @@ const Contact = () => {
                   setCaptchaStatus('');
                 }}
               >
-                {t('Try again')}
+                Try again
               </button>
             </div>
           );
         default:
           return (
             <div className='text-BLACK dark:text-WHITE text-lg font-medium flex flex-col gap-4 items-center'>
-              <p>{t('Checking that you are not a robot...')}</p>
+              <p>Checking that you are not a robot...</p>
               <span className='loading loading-dots loading-lg'></span>
             </div>
           );
@@ -251,7 +248,7 @@ const Contact = () => {
                       rel='noopener noreferrer'
                     >
                       <button className='btn min-h-0 h-10 bg-RED hover:bg-RED/90 border-none text-WHITE after:content-["_↗"]'>
-                        {t('Contact')}
+                        Contact
                       </button>
                     </a>
                   </div>
@@ -277,7 +274,7 @@ const Contact = () => {
                       rel='noopener noreferrer'
                     >
                       <button className='btn min-h-0 h-10 bg-BLUE hover:bg-BLUE/90 border-none text-WHITE after:content-["_↗"]'>
-                        {t('Contact')}
+                        Contact
                       </button>
                     </a>
                   </div>
@@ -303,7 +300,7 @@ const Contact = () => {
                       rel='noopener noreferrer'
                     >
                       <button className='btn min-h-0 h-10 bg-YELLOW hover:bg-YELLOW/90 border-none text-WHITE after:content-["_↗"]'>
-                        {t('Contact')}
+                        Contact
                       </button>
                     </a>
                   </div>
@@ -329,7 +326,7 @@ const Contact = () => {
                       rel='noopener noreferrer'
                     >
                       <button className='btn min-h-0 h-10 bg-PURPLE hover:bg-PURPLE/90 border-none text-WHITE after:content-["_↗"]'>
-                        {t('Contact')}
+                        Contact
                       </button>
                     </a>
                   </div>
@@ -355,17 +352,5 @@ const Contact = () => {
     </>
   );
 };
-
-export async function getStaticProps(context: any) {
-  // extract the locale identifier from the URL
-  const { locale } = context;
-
-  return {
-    props: {
-      // pass the translation props to the page component
-      ...(await serverSideTranslations(locale)),
-    },
-  };
-}
 
 export default Contact;

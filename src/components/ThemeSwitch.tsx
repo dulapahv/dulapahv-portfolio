@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 
 import { useTheme } from 'next-themes';
-import { useTranslation } from 'next-i18next';
 
 import { MdDarkMode, MdLightMode } from 'react-icons/md';
 
@@ -10,7 +9,6 @@ interface Props {
 }
 
 const ThemeSwitch = (props: Props) => {
-  const { t } = useTranslation();
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme, resolvedTheme } = useTheme();
   const [y, setY] = useState(window.scrollY);
@@ -36,7 +34,7 @@ const ThemeSwitch = (props: Props) => {
               <MdLightMode className='w-8 h-auto my-1' />
             )}
           </div>
-          <p className='capitalize'>{t('Theme')}</p>
+          <p className='capitalize'>Theme</p>
         </div>
       </button>
     </>

@@ -1,13 +1,10 @@
 import React, { useRef } from 'react';
 
-import { useTranslation } from 'next-i18next';
-
 import Link from 'next/link';
 import Image from 'next/image';
 import { TbMinusVertical } from 'react-icons/tb';
 import { Kanit, Noto_Sans_JP } from 'next/font/google';
 import { BsArrowDownCircleFill } from 'react-icons/bs';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { motion } from 'framer-motion';
 
 const kanit = Kanit({
@@ -22,26 +19,23 @@ const noto_sans_jp = Noto_Sans_JP({
   subsets: ['latin', 'latin'],
 });
 
-const KanitFont = kanit.className;
 const NotoSansJPFont = noto_sans_jp.className;
 
 const Index = () => {
-  const { t, i18n } = useTranslation();
-
   const EducationSectionRef = useRef<HTMLDivElement>(null);
 
   const Header = () => {
     return (
       <div className='flex flex-col animate-fade-in overflow-x-hidden'>
         <div className='w-screen relative'>
-          <video
+          {/* <video
             autoPlay
             loop
             muted
             className='w-screen blur absolute object-cover h-screen'
           >
             <source src='/videos/bg_video.mp4' type='video/mp4' />
-          </video>
+          </video> */}
           <div className='absolute rounded-full w-4 h-4 bg-RED animate-shake-vertical opacity-70 left-[8%] top-64'></div>
           <div className='absolute rounded-full w-8 h-8 bg-BLUE animate-shake-vertical animation-delay-400 opacity-70 left-[13%] top-44'></div>
           <div className='absolute rounded-full w-16 h-16 bg-YELLOW animate-shake-vertical animation-delay-800 opacity-70 left-[36%] top-32'></div>
@@ -52,17 +46,13 @@ const Index = () => {
           <div className='absolute rounded-full w-8 h-8 bg-YELLOW animate-shake-vertical animation-delay-800 opacity-70 left-[84%] top-[53rem]'></div>
           <div className='absolute rounded-full w-16 h-16 bg-BLUE animate-shake-vertical animation-delay-400 opacity-70 left-[97%] top-[32rem]'></div>
         </div>
-        <div className='flex flex-col lg:flex-row h-screen items-center justify-center gap-8 lg:gap-0 lg:justify-around z-[1] overflow-hidden'>
+        <div className='flex flex-col lg:flex-row h-screen items-center gap-8 lg:gap-0 lg:justify-around z-[1] overflow-hidden'>
           <div className='w-fit flex flex-col gap-10 lg:gap-20 mx-8'>
             <div className='animate-clip-in-left animation-delay-100'>
               <h1
-                className={`bg-BLUE text-3xl md:text-4xl lg:text-5xl text-WHITE uppercase font-bold p-3 pl-6 text-center ${
-                  i18n.language === 'en'
-                    ? 'tracking-[0.2em]'
-                    : 'tracking-[0.35em]'
-                } [text-shadow:0_0_5px_#54f1ff]`}
+                className={`bg-BLUE text-3xl md:text-4xl lg:text-5xl text-WHITE uppercase font-bold p-3 pl-6 tracking-[0.2em] [text-shadow:0_0_5px_#54f1ff]`}
               >
-                {t('Dulapah Vibulsanti')}
+                Dulapah Vibulsanti
               </h1>
               <h2 className='bg-WHITE text-BLACK flex flex-wrap items-center px-3 w-fit text-sm md:text-base'>
                 NEXT.JS <TbMinusVertical /> TAILWINDCSS <TbMinusVertical />{' '}
@@ -72,13 +62,13 @@ const Index = () => {
             </div>
             <div className='flex flex-col gap-4'>
               <h3 className='bg-RED text-WHITE items-center uppercase px-3 py-1 w-fit font-medium text-base md:text-lg animate-clip-in-left animation-delay-100 -rotate-6 [text-shadow:0_0_5px_#c3456d]'>
-                {t('Software Engineer')}
+                Software Engineer
               </h3>
               <h3 className='bg-YELLOW text-WHITE items-center uppercase px-3 py-1 w-fit font-medium text-base md:text-lg animate-clip-in-left animation-delay-200 -rotate-6 [text-shadow:0_0_5px_#917833]'>
-                {t('Frontend Developer')}
+                Frontend Developer
               </h3>
               <h3 className='bg-PURPLE text-WHITE items-center uppercase px-3 py-1 w-fit font-medium text-base md:text-lg animate-clip-in-left animation-delay-300 -rotate-6 [text-shadow:0_0_5px_#7948c7]'>
-                {t('Pursuing Fullstack Developer')}
+                Pursuing Fullstack Developer
               </h3>
             </div>
           </div>
@@ -108,7 +98,7 @@ const Index = () => {
             />
             <button className='absolute btn btn-sm btn-circle pointer-events-none animate-ping z-0 drop-shadow-md'></button>
           </div>
-          <p className='text-xs'>{t('Scroll to see more')}</p>
+          <p className='text-xs'>Scroll to see more</p>
         </div>
       </div>
     );
@@ -132,7 +122,7 @@ const Index = () => {
           whileInView={{ x: 50 }}
         >
           <h1 className='bg-PURPLE w-fit px-3 text-WHITE uppercase text-4xl font-semibold tracking-[0.2em] p-3 first-letter:text-RED'>
-            {t('About Me')}
+            About Me
           </h1>
           <div className='flex flex-col gap-2'>
             <div className='w-10 h-[2px] bg-BLUE flex flex-col'></div>
@@ -196,7 +186,7 @@ const Index = () => {
       <div className='flex flex-col items-center h-fit gap-8 py-8'>
         <div className='flex flex-col items-center gap-6 py-8'>
           <h1 className='text-BLACK dark:text-WHITE text-4xl uppercase tracking-[0.2em] font-semibold first-letter:text-RED'>
-            {t('Education')}
+            Education
           </h1>
           <div className='w-14 h-[2px] bg-BLUE flex flex-col'></div>
         </div>
@@ -258,7 +248,7 @@ const Index = () => {
   return (
     <>
       <div
-        className='fixed w-[15rem] sm:w-[20rem] md:w-[30rem] lg:w-[40rem] [background-size:105%] sm:[background-size:79%] md:[background-size:53%] lg:[background-size:40%] bg-repeat dark:bg-black/60 h-screen overflow-hidden dark:bg-blend-multiply z-0'
+        className='fixed w-[15rem] sm:w-[20rem] md:w-[30rem] lg:w-[40rem] [background-size:105%] sm:[background-size:79%] md:[background-size:53%] lg:[background-size:40%] bg-repeat dark:bg-black/60 h-screen overflow-hidden dark:mix-blend-overlay z-0'
         style={{
           backgroundImage: `url(/images/bg_pattern.png)`,
         }}
@@ -269,17 +259,5 @@ const Index = () => {
     </>
   );
 };
-
-export async function getStaticProps(context: any) {
-  // extract the locale identifier from the URL
-  const { locale } = context;
-
-  return {
-    props: {
-      // pass the translation props to the page component
-      ...(await serverSideTranslations(locale)),
-    },
-  };
-}
 
 export default Index;
