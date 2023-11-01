@@ -1,6 +1,6 @@
 import React from 'react';
-import { ExpCard } from '@/components';
-
+import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { Kanit, Noto_Sans_JP } from 'next/font/google';
 
 const kanit = Kanit({
@@ -18,7 +18,7 @@ const noto_sans_jp = Noto_Sans_JP({
 const KanitFont = kanit.className;
 const NotoSansJPFont = noto_sans_jp.className;
 
-const Experience = () => {
+const Aboutme = () => {
   const ScrollingTextBg = () => {
     return (
       <div
@@ -117,26 +117,85 @@ const Experience = () => {
 
   return (
     <div
-      className='flex flex-col gap-8 py-8 justify-center animate-fade-in overflow-hidden'
-      id='experience'
+      className='flex flex-col animate-clip-in-right overflow-x-hidden'
+      id='aboutme'
     >
-      <div className='flex flex-col items-center gap-6 py-8'>
-        <h1 className='text-BLACK dark:text-WHITE text-4xl uppercase tracking-[0.2em] font-semibold first-letter:text-RED'>
-          Work Experience
-        </h1>
-        <div className='w-14 h-[2px] bg-BLUE flex flex-col'></div>
+      <div className='w-screen relative'>
+        <div className='absolute rounded-full w-4 h-4 bg-PURPLE animate-shake-vertical animation-delay-1200 opacity-70 left-[3%] top-72'></div>
+        <div className='absolute rounded-full w-8 h-8 bg-RED animate-shake-vertical opacity-70 left-[5%] top-96'></div>
+        <div className='absolute rounded-full w-14 h-14 bg-BLUE animate-shake-vertical animation-delay-400 opacity-70 left-[2%] top-[30rem]'></div>
+        <div className='absolute rounded-full w-10 h-10 bg-YELLOW animate-shake-vertical animation-delay-800 opacity-70 left-[8%] top-[35rem]'></div>
       </div>
       <div className='relative'>
         <ScrollingTextBg />
-        <div className='absolute top-0 px-12 flex flex-col gap-y-4'>
-          <ExpCard />
-          <ExpCard />
-          <ExpCard />
-          <ExpCard />
+        <div className='absolute top-0'>
+          <motion.div
+            className='flex flex-col h-fit backdrop-blur bg-PURPLE/60 ml-32 rounded-bl-3xl p-16 gap-8 my-16 scroll-my-16'
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            whileInView={{ x: 50 }}
+          >
+            <h1 className='bg-PURPLE w-fit px-3 text-WHITE uppercase text-4xl font-semibold tracking-[0.2em] p-3 first-letter:text-RED'>
+              About Me
+            </h1>
+            <div className='flex flex-col gap-2'>
+              <div className='w-10 h-[2px] bg-BLUE flex flex-col'></div>
+
+              <p className='text-WHITE text-xl text-justify'>
+                I am a student at{' '}
+                <a
+                  href='https://www.gla.ac.uk/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='text-YELLOW after:content-["_↗"]'
+                >
+                  University of Glasgow
+                </a>{' '}
+                and{' '}
+                <a
+                  href='https://www.kmitl.ac.th/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='text-YELLOW after:content-["_↗"]'
+                >
+                  King Mongkut&apos;s Institute of Technology Ladkrabang
+                </a>{' '}
+                on a double degree program in Software Engineering. I am
+                currently studying in the third year of my degree at the
+                University of Glasgow.
+              </p>
+            </div>
+            <div className='flex flex-col gap-2'>
+              <div className='w-10 h-[2px] bg-BLUE flex flex-col'></div>
+              <p className='text-WHITE text-xl text-justify'>
+                I am a hard-working and enthusiastic person who is willing to
+                learn new things and take on new challenges. I am interested in
+                web development, especially frontend development.
+              </p>
+            </div>
+            <div className='flex flex-col gap-2'>
+              <div className='w-10 h-[2px] bg-BLUE flex flex-col'></div>
+              <p className='text-WHITE text-xl text-justify'>
+                I have experience in developing websites using ReactJS, NextJS
+                and TailwindCSS. You can learn more about my experience{' '}
+                <Link
+                  href='/experience'
+                  className='text-YELLOW after:content-["_↗"]'
+                >
+                  here
+                </Link>
+                . I am also interested in UX/UI design and have experience in
+                designing websites using Figma. I am pursuing to be a fullstack
+                developer and I am looking forward to where my career will take
+                me.
+              </p>
+            </div>
+          </motion.div>
         </div>
       </div>
     </div>
   );
 };
 
-export default Experience;
+export default Aboutme;

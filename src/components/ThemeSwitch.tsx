@@ -11,7 +11,6 @@ interface Props {
 const ThemeSwitch = (props: Props) => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme, resolvedTheme } = useTheme();
-  const [y, setY] = useState(window.scrollY);
 
   // When mounted on client, now we can show the UI
   useEffect(() => setMounted(true), []);

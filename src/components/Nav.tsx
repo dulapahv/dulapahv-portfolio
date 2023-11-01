@@ -1,7 +1,5 @@
 import React, { useState, useRef } from 'react';
 
-import Link from 'next/link';
-import router from 'next/router';
 import { CgProfile } from 'react-icons/cg';
 import { LiaAtomSolid } from 'react-icons/lia';
 import { BiSolidContact } from 'react-icons/bi';
@@ -35,47 +33,67 @@ const Nav = () => {
     return (
       <div className='relative z-50'>
         <div className='animate-fade-in' ref={navItemRef1}>
-          <Link href='/'>
-            <button
-              className='btn absolute bottom-24 right-8 sm:right-[28px] bg-PURPLE hover:bg-PURPLE w-20 h-20 sm:w-[88px] sm:h-[88px] rotate-45 hover:ring-offset-[3px] hover:ring-offset-black/60 hover:ring-2 ring-PURPLE-300 active:!rotate-45 text-WHITE animate-none active:scale-95'
-              onClick={() => setIsNavOpen(false)}
-            >
-              <div className='-rotate-45 w-fit flex flex-col items-center'>
-                <CgProfile className='w-8 h-auto my-1' />
-                <p className='capitalize'>Profile</p>
-              </div>
-            </button>
-          </Link>
+          <button
+            className='btn absolute bottom-24 right-8 sm:right-[28px] bg-PURPLE hover:bg-PURPLE w-20 h-20 sm:w-[88px] sm:h-[88px] rotate-45 hover:ring-offset-[3px] hover:ring-offset-black/60 hover:ring-2 ring-PURPLE-300 active:!rotate-45 text-WHITE animate-none active:scale-95'
+            onClick={() => {
+              handleCloseNav();
+              const education = document.getElementById('education');
+              education?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
+            <div className='-rotate-45 w-fit flex flex-col items-center'>
+              <CgProfile className='w-8 h-auto my-1' />
+              <p className='capitalize'>Education</p>
+            </div>
+          </button>
         </div>
-        {/* TODO: Modify animation delay */}
+        <div className='animate-fade-in animation-delay-75' ref={navItemRef2}>
+          <button
+            className='btn absolute bottom-8 right-24 sm:bottom-7 sm:right-[96px] bg-RED hover:bg-RED w-20 h-20 sm:w-[88px] sm:h-[88px] rotate-45 hover:ring-offset-[3px] hover:ring-offset-black/60 hover:ring-2 ring-RED-300 active:!rotate-45 text-WHITE animate-none active:scale-95'
+            onClick={() => {
+              handleCloseNav();
+              const education = document.getElementById('experience');
+              education?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
+            <div className='-rotate-45 w-fit flex flex-col items-center'>
+              <LiaAtomSolid className='w-8 h-auto' />
+              <p className='capitalize'>Experience</p>
+            </div>
+          </button>
+        </div>
         <div className='animate-fade-in animation-delay-100' ref={navItemRef3}>
           <ThemeSwitch />
         </div>
         <div className='animate-fade-in animation-delay-150' ref={navItemRef4}>
-          <Link href='/experience'>
-            <button
-              className='btn absolute bottom-32 right-32 sm:bottom-[128px] sm:right-[132px] bg-RED hover:bg-RED w-20 h-20 sm:w-[88px] sm:h-[88px] rotate-45 hover:ring-offset-[3px] hover:ring-offset-black/60 hover:ring-2 ring-RED-300 active:!rotate-45 text-WHITE animate-none active:scale-95'
-              onClick={() => setIsNavOpen(false)}
-            >
-              <div className='-rotate-45 w-fit flex flex-col items-center'>
-                <LiaAtomSolid className='w-8 h-auto' />
-                <p className='capitalize'>Experience</p>
-              </div>
-            </button>
-          </Link>
+          <button
+            className='btn absolute bottom-32 right-32 sm:bottom-[128px] sm:right-[132px] bg-BLUE hover:bg-BLUE w-20 h-20 sm:w-[88px] sm:h-[88px] rotate-45 hover:ring-offset-[3px] hover:ring-offset-black/60 hover:ring-2 ring-BLUE-300 active:!rotate-45 text-WHITE animate-none active:scale-95'
+            onClick={() => {
+              handleCloseNav();
+              const education = document.getElementById('skill');
+              education?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
+            <div className='-rotate-45 w-fit flex flex-col items-center'>
+              <CgProfile className='w-8 h-auto my-1' />
+              <p className='capitalize'>Skill</p>
+            </div>
+          </button>
         </div>
         <div className='animate-fade-in animation-delay-200' ref={navItemRef5}>
-          <Link href='/contact'>
-            <button
-              className='btn absolute bottom-16 right-48 sm:bottom-[60px] sm:right-[200px] bg-BLUE hover:bg-BLUE w-20 h-20 sm:w-[88px] sm:h-[88px] rotate-45 hover:ring-offset-[3px] hover:ring-offset-black/60 hover:ring-2 ring-BLUE-300 active:!rotate-45 text-WHITE animate-none active:scale-95'
-              onClick={() => setIsNavOpen(false)}
-            >
-              <div className='-rotate-45 w-fit flex flex-col items-center'>
-                <BiSolidContact className='w-8 h-auto my-1' />
-                <p className='capitalize'>Contact</p>
-              </div>
-            </button>
-          </Link>
+          <button
+            className='btn absolute bottom-16 right-48 sm:bottom-[60px] sm:right-[200px] bg-YELLOW hover:bg-YELLOW w-20 h-20 sm:w-[88px] sm:h-[88px] rotate-45 hover:ring-offset-[3px] hover:ring-offset-black/60 hover:ring-2 ring-YELLOW-300 active:!rotate-45 text-WHITE animate-none active:scale-95'
+            onClick={() => {
+              handleCloseNav();
+              const education = document.getElementById('project');
+              education?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
+            <div className='-rotate-45 w-fit flex flex-col items-center'>
+              <BiSolidContact className='w-8 h-auto my-1' />
+              <p className='capitalize'>Project</p>
+            </div>
+          </button>
         </div>
       </div>
     );

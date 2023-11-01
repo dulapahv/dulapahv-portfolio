@@ -1,6 +1,6 @@
 import React from 'react'
 
-const LoadingModal = () => {
+const ProjectCard = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const LoadingModal = () => {
   )
 }
 
-export default LoadingModal
+export default ProjectCard
