@@ -1,9 +1,42 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import Image from 'next/image';
 import { TbMinusVertical } from 'react-icons/tb';
 import { BsArrowDownCircleFill } from 'react-icons/bs';
+import { Turnstile, TurnstileInstance } from '@marsidev/react-turnstile';
+import { useTheme } from 'next-themes';
 
 const Header = () => {
+  const captchaInstance = useRef<TurnstileInstance>(null);
+  const { resolvedTheme } = useTheme();
+  const [isRevealEmail, setIsRevealEmail] = useState(false);
+  const [email, setEmail] = useState('' as string);
+
+  const handleCaptchaSuccess = async (token: string) => {
+    const modal = document!.getElementById('my_modal_2') as HTMLDialogElement;
+    modal.close();
+    try {
+      const response = await fetch(
+        `https://verify.dulapahv.dev/validate-captcha?token=${token}`,
+        {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+      const result = await response.json();
+      if (result.success) {
+        // handleTokenSuccess(result);
+        console.log(result.message);
+        setEmail(result.message.email.label);
+      } else {
+        // handleTokenError(result);
+      }
+    } catch (error) {
+      // handleTokenError(error);
+    }
+  };
+
   return (
     <div className='flex flex-col animate-fade-in overflow-x-hidden'>
       <div className='w-screen relative'>
@@ -49,9 +82,48 @@ const Header = () => {
                 GitHub
               </a>
               <span className='select-none'>&nbsp;&nbsp;&nbsp;</span>
-              <p>contact@dulapahv.dev</p>
+              {email ? (
+                email
+              ) : (
+                <button
+                  className='btn btn-ghost min-h-0 h-[24px] p-0 leading-3 hover:bg-transparent capitalize font-normal text-base underline'
+                  onClick={() => {
+                    setIsRevealEmail(true);
+                    const modal = document!.getElementById(
+                      'my_modal_2'
+                    ) as HTMLDialogElement;
+                    modal.showModal();
+                  }}
+                >
+                  Reveal Email
+                </button>
+              )}
             </h3>
           </div>
+          <dialog id='my_modal_2' className='modal'>
+            {isRevealEmail && (
+              <>
+                <div className='modal-box w-fit p-0'>
+                  <Turnstile
+                    siteKey='0x4AAAAAAACYFWWcTzhCNWz4' // 0x4AAAAAAACYFWWcTzhCNWz4 1x00000000000000000000AA
+                    onError={() => console.log('Error!')}
+                    onExpire={() => {
+                      console.log('Expired!');
+                      // captchaInstance.current?.reset();
+                    }}
+                    onSuccess={handleCaptchaSuccess}
+                    options={{
+                      theme: resolvedTheme === 'dark' ? 'dark' : 'light',
+                    }}
+                    ref={captchaInstance}
+                  />
+                </div>
+                <form method='dialog' className='modal-backdrop'>
+                  <button>close</button>
+                </form>
+              </>
+            )}
+          </dialog>
           <div className='flex flex-col gap-4'>
             <h3 className='bg-RED text-WHITE items-center uppercase px-3 py-1 w-fit font-medium text-base md:text-lg animate-clip-in-left animation-delay-100 -rotate-6 [text-shadow:0_0_5px_#c3456d]'>
               Software Engineer
