@@ -21,6 +21,10 @@ const Header = () => {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': 'https://dulapahv.dev',
+            'Access-Control-Allow-Methods': 'GET',
+            'Access-Control-Allow-Headers':
+              'Origin, X-Requested-With, Content-Type, Accept',
           },
         }
       );
