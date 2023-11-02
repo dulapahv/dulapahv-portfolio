@@ -25,11 +25,32 @@ const Header = () => {
             >
               Dulapah Vibulsanti
             </h1>
-            <h2 className='bg-WHITE text-BLACK flex flex-wrap items-center px-3 w-fit text-sm md:text-base'>
+            <h2 className='bg-BLACK/50 dark:bg-WHITE/50 text-WHITE flex flex-wrap items-center px-3 w-fit text-sm md:text-base'>
               NEXT.JS <TbMinusVertical /> TAILWINDCSS <TbMinusVertical />{' '}
-              TYPESCRIPT <TbMinusVertical /> FIGMA <TbMinusVertical /> REST APIs{' '}
-              <TbMinusVertical /> OOP
+              TYPESCRIPT <TbMinusVertical /> FIGMA <TbMinusVertical /> PYTHON{' '}
+              <TbMinusVertical /> C/C++
             </h2>
+            <h3 className='bg-BLACK/10 dark:bg-WHITE text-BLACK flex flex-wrap items-center px-3 w-fit text-sm md:text-base'>
+              <a
+                href='https://www.linkedin.com/in/dulapahv/'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='after:content-["_↗"]'
+              >
+                LinkedIn
+              </a>
+              <span className='select-none'>&nbsp;&nbsp;&nbsp;</span>
+              <a
+                href='https://github.com/dulapahv/'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='after:content-["_↗"]'
+              >
+                GitHub
+              </a>
+              <span className='select-none'>&nbsp;&nbsp;&nbsp;</span>
+              <p>contact@dulapahv.dev</p>
+            </h3>
           </div>
           <div className='flex flex-col gap-4'>
             <h3 className='bg-RED text-WHITE items-center uppercase px-3 py-1 w-fit font-medium text-base md:text-lg animate-clip-in-left animation-delay-100 -rotate-6 [text-shadow:0_0_5px_#c3456d]'>
