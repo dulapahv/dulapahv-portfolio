@@ -34,7 +34,7 @@ const Nav = () => {
       <div className='relative z-50'>
         <div className='animate-fade-in' ref={navItemRef1}>
           <button
-            className='btn absolute bottom-24 right-8 sm:right-[28px] bg-PURPLE hover:bg-PURPLE w-20 h-20 sm:w-[88px] sm:h-[88px] rotate-45 hover:ring-offset-[3px] hover:ring-offset-black/60 hover:ring-2 ring-PURPLE-300 active:!rotate-45 text-WHITE animate-none active:scale-95'
+            className='btn absolute bottom-[80px] sm:bottom-[96px] right-[20px] sm:right-[28px] bg-PURPLE hover:bg-PURPLE w-20 h-20 sm:w-[88px] sm:h-[88px] rotate-45 hover:ring-offset-[3px] hover:ring-offset-black/60 hover:ring-2 ring-PURPLE-300 active:!rotate-45 text-WHITE animate-none active:scale-95'
             onClick={() => {
               handleCloseNav();
               const section = document.getElementById('education');
@@ -49,7 +49,7 @@ const Nav = () => {
         </div>
         <div className='animate-fade-in animation-delay-75' ref={navItemRef2}>
           <button
-            className='btn absolute bottom-8 right-24 sm:bottom-7 sm:right-[96px] bg-RED hover:bg-RED w-20 h-20 sm:w-[88px] sm:h-[88px] rotate-45 hover:ring-offset-[3px] hover:ring-offset-black/60 hover:ring-2 ring-RED-300 active:!rotate-45 text-WHITE animate-none active:scale-95'
+            className='btn absolute bottom-[20px] sm:bottom-[28px] right-[80px] sm:right-[96px] bg-RED hover:bg-RED w-20 h-20 sm:w-[88px] sm:h-[88px] rotate-45 hover:ring-offset-[3px] hover:ring-offset-black/60 hover:ring-2 ring-RED-300 active:!rotate-45 text-WHITE animate-none active:scale-95'
             onClick={() => {
               handleCloseNav();
               const section = document.getElementById('experience');
@@ -67,7 +67,7 @@ const Nav = () => {
         </div>
         <div className='animate-fade-in animation-delay-150' ref={navItemRef4}>
           <button
-            className='btn absolute bottom-32 right-32 sm:bottom-[128px] sm:right-[132px] bg-BLUE hover:bg-BLUE w-20 h-20 sm:w-[88px] sm:h-[88px] rotate-45 hover:ring-offset-[3px] hover:ring-offset-black/60 hover:ring-2 ring-BLUE-300 active:!rotate-45 text-WHITE animate-none active:scale-95'
+            className='btn absolute bottom-[112px] sm:bottom-[128px] right-[110px] sm:right-[132px] bg-BLUE hover:bg-BLUE w-20 h-20 sm:w-[88px] sm:h-[88px] rotate-45 hover:ring-offset-[3px] hover:ring-offset-black/60 hover:ring-2 ring-BLUE-300 active:!rotate-45 text-WHITE animate-none active:scale-95'
             onClick={() => {
               handleCloseNav();
               const section = document.getElementById('skill');
@@ -82,7 +82,7 @@ const Nav = () => {
         </div>
         <div className='animate-fade-in animation-delay-200' ref={navItemRef5}>
           <button
-            className='btn absolute bottom-16 right-48 sm:bottom-[60px] sm:right-[200px] bg-YELLOW hover:bg-YELLOW w-20 h-20 sm:w-[88px] sm:h-[88px] rotate-45 hover:ring-offset-[3px] hover:ring-offset-black/60 hover:ring-2 ring-YELLOW-300 active:!rotate-45 text-WHITE animate-none active:scale-95'
+            className='btn absolute bottom-[52px] sm:bottom-[60px] right-[170px] sm:right-[200px] bg-YELLOW hover:bg-YELLOW w-20 h-20 sm:w-[88px] sm:h-[88px] rotate-45 hover:ring-offset-[3px] hover:ring-offset-black/60 hover:ring-2 ring-YELLOW-300 active:!rotate-45 text-WHITE animate-none active:scale-95'
             onClick={() => {
               handleCloseNav();
               const section = document.getElementById('project');
@@ -102,7 +102,7 @@ const Nav = () => {
   return (
     <>
       <button
-        className={`btn relative w-32 h-32 bg-BLUE hover:bg-BLUE active:!translate-x-1 active:!translate-y-1 z-50 ${
+        className={`btn relative w-28 sm:w-32 h-28 sm:h-32 bg-BLUE hover:bg-BLUE active:!translate-x-1 active:!translate-y-1 z-50 ${
           isNavOpen ? 'text-YELLOW' : 'text-WHITE'
         } hover:text-YELLOW [clip-path:polygon(100%_0,_0_100%,_100%_100%)] rounded-none drop-shadow-lg`}
         onClick={() => {

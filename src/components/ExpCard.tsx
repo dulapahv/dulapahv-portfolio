@@ -48,7 +48,7 @@ const ExpCard = ({
       </div>
       <div className='flex flex-col lg:flex-row rounded-md px-4 sm:px-8 md:px-16 lg:px-24 h-full min-h-[28rem] z-10'>
         <div
-          className={`lg:my-0 mx-0 lg:mx-4 lg:w-1/2 ${
+          className={`mt-3 lg:mt-0 mx-0 lg:mx-4 lg:w-1/2 ${
             isReversed ? 'order-2' : 'order-2 lg:order-1'
           }`}
         >
@@ -87,9 +87,9 @@ const ExpCard = ({
             height={632}
             className={`${
               isReversed
-                ? 'lg:rounded-none lg:rounded-br-3xl'
-                : 'lg:rounded-none lg:rounded-bl-3xl'
-            } rounded-t-2xl md:rounded-t-3xl w-full h-80 lg:h-full object-cover lg:shadow-xl`}
+                ? 'rounded-br-3xl'
+                : 'rounded-bl-3xl'
+            } w-full h-80 lg:h-full object-cover lg:shadow-xl`}
           />
           {isReversed ? (
             <div className='absolute bg-BLUE w-screen h-36 -bottom-16 right-32 opacity-50 animate-clip-in-left -z-10'></div>
