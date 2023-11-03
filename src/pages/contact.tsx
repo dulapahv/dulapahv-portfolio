@@ -3,9 +3,9 @@ import React, { useRef, useState } from 'react';
 import { useTheme } from 'next-themes';
 
 import Image from 'next/image';
-import { BsDiscord, BsSteam } from 'react-icons/bs';
 import { MdEmail } from 'react-icons/md';
 import { FaFacebookSquare } from 'react-icons/fa';
+import { BsDiscord, BsSteam } from 'react-icons/bs';
 import { Turnstile, TurnstileInstance } from '@marsidev/react-turnstile';
 
 const Contact = () => {

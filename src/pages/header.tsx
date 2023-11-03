@@ -1,19 +1,23 @@
 import React, { useRef, useState } from 'react';
+
+import { useTheme } from 'next-themes';
+
 import Image from 'next/image';
 import { TbMinusVertical } from 'react-icons/tb';
 import { BsArrowDownCircleFill } from 'react-icons/bs';
 import { Turnstile, TurnstileInstance } from '@marsidev/react-turnstile';
-import { useTheme } from 'next-themes';
 
 const Header = () => {
   const captchaInstance = useRef<TurnstileInstance>(null);
   const { resolvedTheme } = useTheme();
   const [isRevealEmail, setIsRevealEmail] = useState(false);
   const [email, setEmail] = useState('' as string);
+  const [isFetchingEmail, setIsFetchingEmail] = useState(false);
 
   const handleCaptchaSuccess = async (token: string) => {
     const modal = document!.getElementById('my_modal_2') as HTMLDialogElement;
     modal.close();
+    setIsFetchingEmail(true);
     try {
       const response = await fetch(
         `https://verify.dulapahv.dev/validate-captcha?token=${token}`,
@@ -21,28 +25,26 @@ const Header = () => {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': 'https://dulapahv.dev',
-            'Access-Control-Allow-Methods': 'GET',
-            'Access-Control-Allow-Headers':
-              'Origin, X-Requested-With, Content-Type, Accept',
           },
         }
       );
       const result = await response.json();
       if (result.success) {
-        // handleTokenSuccess(result);
+        setIsFetchingEmail(false);
         console.log(result.message);
         setEmail(result.message.email.label);
       } else {
-        // handleTokenError(result);
+        setIsFetchingEmail(false);
+        setEmail(result.message);
       }
     } catch (error) {
-      // handleTokenError(error);
+      setIsFetchingEmail(false);
+      setEmail('Cannot connect to server!');
     }
   };
 
   return (
-    <div className='flex flex-col animate-fade-in overflow-x-hidden'>
+    <div className='flex flex-col animate-fade-in overflow-hidden'>
       <div className='w-screen relative'>
         <div className='absolute rounded-full w-4 h-4 bg-RED animate-shake-vertical opacity-70 left-[8%] top-64'></div>
         <div className='absolute rounded-full w-8 h-8 bg-BLUE animate-shake-vertical animation-delay-400 opacity-70 left-[13%] top-44'></div>
@@ -54,11 +56,11 @@ const Header = () => {
         <div className='absolute rounded-full w-8 h-8 bg-YELLOW animate-shake-vertical animation-delay-800 opacity-70 left-[84%] top-[53rem]'></div>
         <div className='absolute rounded-full w-16 h-16 bg-BLUE animate-shake-vertical animation-delay-400 opacity-70 left-[97%] top-[32rem]'></div>
       </div>
-      <div className='flex flex-col lg:flex-row h-screen items-center gap-8 lg:gap-0 lg:justify-around z-[1] overflow-hidden'>
-        <div className='w-fit flex flex-col gap-10 lg:gap-20 mx-8'>
+      <div className='flex flex-col pt-4 md:pt-8 lg:pt-0 lg:flex-row min-h-screen h-fit items-center gap-8 lg:gap-0 lg:justify-around z-[1] overflow-hidden'>
+        <div className='w-fit flex flex-col gap-10 lg:gap-20 mx-4 md:mx-8'>
           <div className='animate-clip-in-left animation-delay-100'>
             <h1
-              className={`bg-BLUE text-3xl md:text-4xl lg:text-5xl text-WHITE uppercase font-bold p-3 pl-6 tracking-[0.2em] [text-shadow:0_0_5px_#54f1ff]`}
+              className={`bg-BLUE text-3xl md:text-4xl lg:text-5xl text-WHITE uppercase font-bold p-3 pl-3 lg:pl-6 tracking-[0.2em] [text-shadow:0_0_5px_#54f1ff]`}
             >
               Dulapah Vibulsanti
             </h1>
@@ -89,25 +91,35 @@ const Header = () => {
               {email ? (
                 email
               ) : (
-                <button
-                  className='btn btn-ghost min-h-0 h-[24px] p-0 leading-3 hover:bg-transparent capitalize font-normal text-base underline'
-                  onClick={() => {
-                    setIsRevealEmail(true);
-                    const modal = document!.getElementById(
-                      'my_modal_2'
-                    ) as HTMLDialogElement;
-                    modal.showModal();
-                  }}
-                >
-                  Reveal Email
-                </button>
+                <>
+                  {isFetchingEmail ? (
+                    <span className='loading loading-bars loading-sm align-middle'></span>
+                  ) : (
+                    <button
+                      className='btn btn-ghost min-h-0 h-[24px] p-0 leading-3 hover:bg-transparent capitalize font-normal text-base underline'
+                      onClick={() => {
+                        setIsRevealEmail(true);
+                        const modal = document!.getElementById(
+                          'my_modal_2'
+                        ) as HTMLDialogElement;
+                        modal.showModal();
+                      }}
+                    >
+                      Reveal Email
+                    </button>
+                  )}
+                </>
               )}
             </h3>
           </div>
           <dialog id='my_modal_2' className='modal'>
             {isRevealEmail && (
               <>
-                <div className='modal-box w-fit p-0'>
+                <div className='modal-box w-fit p-0 bg-WHITE dark:bg-BLACK rounded-none'>
+                  <h1 className='text-BLACK dark:text-WHITE text-center'>
+                    <span className='loading loading-bars loading-sm mr-2 align-middle'></span>
+                    Verifying...
+                  </h1>
                   <Turnstile
                     siteKey='0x4AAAAAAACYFWWcTzhCNWz4' // 0x4AAAAAAACYFWWcTzhCNWz4 1x00000000000000000000AA
                     onError={() => console.log('Error!')}
@@ -129,18 +141,18 @@ const Header = () => {
             )}
           </dialog>
           <div className='flex flex-col gap-4'>
-            <h3 className='bg-RED text-WHITE items-center uppercase px-3 py-1 w-fit font-medium text-base md:text-lg animate-clip-in-left animation-delay-100 -rotate-6 [text-shadow:0_0_5px_#c3456d]'>
+            <h3 className='bg-RED text-WHITE items-center uppercase px-3 py-1 w-fit font-medium text-sm sm:text-base md:text-lg animate-clip-in-left animation-delay-100 -rotate-6 [text-shadow:0_0_5px_#c3456d]'>
               Software Engineer
             </h3>
-            <h3 className='bg-YELLOW text-WHITE items-center uppercase px-3 py-1 w-fit font-medium text-base md:text-lg animate-clip-in-left animation-delay-200 -rotate-6 [text-shadow:0_0_5px_#917833]'>
+            <h3 className='bg-YELLOW text-WHITE items-center uppercase px-3 py-1 w-fit font-medium text-sm sm:text-base md:text-lg animate-clip-in-left animation-delay-200 -rotate-6 [text-shadow:0_0_5px_#917833]'>
               Frontend Developer
             </h3>
-            <h3 className='bg-PURPLE text-WHITE items-center uppercase px-3 py-1 w-fit font-medium text-base md:text-lg animate-clip-in-left animation-delay-300 -rotate-6 [text-shadow:0_0_5px_#7948c7]'>
+            <h3 className='bg-PURPLE text-WHITE items-center uppercase px-3 py-1 w-fit font-medium text-sm sm:text-base md:text-lg animate-clip-in-left animation-delay-300 -rotate-6 [text-shadow:0_0_5px_#7948c7]'>
               Pursuing Fullstack Developer
             </h3>
           </div>
         </div>
-        <div className='relative'>
+        <div className='relative mt-4 lg:mt-0'>
           <div className='absolute bg-BLUE w-screen h-36 -bottom-16 left-32 opacity-50 animate-clip-in-right'></div>
           <div className='flex mx-8 w-64 min-[375px]:w-72 min-[425px]:w-80 sm:w-96 md:w-[26rem] lg:w-auto'>
             <div className='animate-clip-in-left animation-delay-300 z-[1] w-fit'>

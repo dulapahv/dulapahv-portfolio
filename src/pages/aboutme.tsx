@@ -1,6 +1,5 @@
 import React from 'react';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
+
 import { Kanit, Noto_Sans_JP } from 'next/font/google';
 
 const kanit = Kanit({
@@ -21,10 +20,7 @@ const NotoSansJPFont = noto_sans_jp.className;
 const Aboutme = () => {
   const ScrollingTextBg = () => {
     return (
-      <div
-        className='flex flex-col justify-center animate-fade-in overflow-hidden'
-        id='experience'
-      >
+      <div className='flex flex-col justify-center animate-fade-in overflow-hidden'>
         <div className='flex flex-col justify-evenly mt-12 dark:text-white text-base sm:text-lg md:text-xl lg:text-2xl font-semibold !opacity-90 animate-puff-out-center animation-delay-1000'>
           <p className='text-center animate-slide-text-right-5'>NextJS</p>
           <p className='text-center animate-slide-text-left-2 animation-delay-1000 text-BLUE font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl'>
@@ -117,7 +113,7 @@ const Aboutme = () => {
 
   return (
     <div
-      className='flex flex-col animate-clip-in-right overflow-x-hidden'
+      className='flex flex-col animate-clip-in-right overflow-hidden'
       id='aboutme'
     >
       <div className='w-screen relative'>
@@ -128,15 +124,15 @@ const Aboutme = () => {
       </div>
       <div className='relative'>
         <ScrollingTextBg />
-        <div className='absolute top-20'>
-          <div className='flex flex-col h-fit backdrop-blur bg-PURPLE/60 ml-32 rounded-bl-3xl p-16 gap-8 my-16 scroll-my-16'>
-            <h1 className='bg-PURPLE w-fit px-3 text-WHITE uppercase text-4xl font-semibold tracking-[0.2em] p-3 first-letter:text-RED'>
+        <div className='absolute top-0 lg:top-20'>
+          <div className='flex flex-col h-fit backdrop-blur bg-PURPLE/60 ml-4 sm:ml-8 md:ml-12 lg:ml-16 rounded-bl-3xl p-4 sm:p-8 md:p-6 lg:md-12 gap-4 md:gap-8 my-2 sm:my-4 md:my-8 lg:my-16 scroll-my-16'>
+            <h1 className='bg-PURPLE w-fit px-3 text-WHITE uppercase text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold tracking-[0.2em] p-1 md:p-3 first-letter:text-RED'>
               About Me
             </h1>
             <div className='flex flex-col gap-2'>
               <div className='w-10 h-[2px] bg-BLUE flex flex-col'></div>
 
-              <p className='text-WHITE text-xl text-justify'>
+              <p className='text-WHITE text-xs min-[425px]:text-sm sm:text-base md:text-lg lg:text-xl text-justify'>
                 I am an experienced Full Stack Developer with a keen interest in
                 creating intuitive and robust web applications. While I
                 specialize in Front End technologies like Next.js and React.js,
@@ -149,7 +145,7 @@ const Aboutme = () => {
             </div>
             <div className='flex flex-col gap-2'>
               <div className='w-10 h-[2px] bg-BLUE flex flex-col'></div>
-              <p className='text-WHITE text-xl text-justify'>
+              <p className='text-WHITE text-xs min-[425px]:text-sm sm:text-base md:text-lg lg:text-xl text-justify'>
                 My educational background is a testament to my commitment to the
                 field of software engineering. I hold a double degree, with a
                 BSc Honours in Software Engineering from the{' '}
@@ -177,7 +173,7 @@ const Aboutme = () => {
             </div>
             <div className='flex flex-col gap-2'>
               <div className='w-10 h-[2px] bg-BLUE flex flex-col'></div>
-              <p className='text-WHITE text-xl text-justify'>
+              <p className='text-WHITE text-xs min-[425px]:text-sm sm:text-base md:text-lg lg:text-xl text-justify'>
                 I thrive on innovation and problem-solving. My project portfolio
                 includes applications like Kanbaru, a kanban-style project
                 management tool designed to streamline task organization, and

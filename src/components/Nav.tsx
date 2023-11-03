@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef, useState } from 'react';
 
 import { CgProfile } from 'react-icons/cg';
 import { LiaAtomSolid } from 'react-icons/lia';
@@ -37,8 +37,8 @@ const Nav = () => {
             className='btn absolute bottom-24 right-8 sm:right-[28px] bg-PURPLE hover:bg-PURPLE w-20 h-20 sm:w-[88px] sm:h-[88px] rotate-45 hover:ring-offset-[3px] hover:ring-offset-black/60 hover:ring-2 ring-PURPLE-300 active:!rotate-45 text-WHITE animate-none active:scale-95'
             onClick={() => {
               handleCloseNav();
-              const education = document.getElementById('education');
-              education?.scrollIntoView({ behavior: 'smooth' });
+              const section = document.getElementById('education');
+              section?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
             <div className='-rotate-45 w-fit flex flex-col items-center'>
@@ -52,8 +52,8 @@ const Nav = () => {
             className='btn absolute bottom-8 right-24 sm:bottom-7 sm:right-[96px] bg-RED hover:bg-RED w-20 h-20 sm:w-[88px] sm:h-[88px] rotate-45 hover:ring-offset-[3px] hover:ring-offset-black/60 hover:ring-2 ring-RED-300 active:!rotate-45 text-WHITE animate-none active:scale-95'
             onClick={() => {
               handleCloseNav();
-              const education = document.getElementById('experience');
-              education?.scrollIntoView({ behavior: 'smooth' });
+              const section = document.getElementById('experience');
+              section?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
             <div className='-rotate-45 w-fit flex flex-col items-center'>
@@ -70,8 +70,8 @@ const Nav = () => {
             className='btn absolute bottom-32 right-32 sm:bottom-[128px] sm:right-[132px] bg-BLUE hover:bg-BLUE w-20 h-20 sm:w-[88px] sm:h-[88px] rotate-45 hover:ring-offset-[3px] hover:ring-offset-black/60 hover:ring-2 ring-BLUE-300 active:!rotate-45 text-WHITE animate-none active:scale-95'
             onClick={() => {
               handleCloseNav();
-              const education = document.getElementById('skill');
-              education?.scrollIntoView({ behavior: 'smooth' });
+              const section = document.getElementById('skill');
+              section?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
             <div className='-rotate-45 w-fit flex flex-col items-center'>
@@ -85,8 +85,8 @@ const Nav = () => {
             className='btn absolute bottom-16 right-48 sm:bottom-[60px] sm:right-[200px] bg-YELLOW hover:bg-YELLOW w-20 h-20 sm:w-[88px] sm:h-[88px] rotate-45 hover:ring-offset-[3px] hover:ring-offset-black/60 hover:ring-2 ring-YELLOW-300 active:!rotate-45 text-WHITE animate-none active:scale-95'
             onClick={() => {
               handleCloseNav();
-              const education = document.getElementById('project');
-              education?.scrollIntoView({ behavior: 'smooth' });
+              const section = document.getElementById('project');
+              section?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
             <div className='-rotate-45 w-fit flex flex-col items-center'>
