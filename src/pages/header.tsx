@@ -46,15 +46,15 @@ const Header = () => {
   return (
     <div className='flex flex-col animate-fade-in overflow-hidden'>
       <div className='w-screen relative'>
-        <div className='absolute rounded-full w-4 h-4 bg-RED animate-shake-vertical opacity-70 left-[8%] top-64'></div>
-        <div className='absolute rounded-full w-8 h-8 bg-BLUE animate-shake-vertical animation-delay-400 opacity-70 left-[13%] top-44'></div>
-        <div className='absolute rounded-full w-16 h-16 bg-YELLOW animate-shake-vertical animation-delay-800 opacity-70 left-[36%] top-32'></div>
-        <div className='absolute rounded-full w-12 h-12 bg-PURPLE animate-shake-vertical animation-delay-1200 opacity-70 left-[68%] top-32'></div>
-        <div className='absolute rounded-full w-8 h-8 bg-YELLOW animate-shake-vertical animation-delay-800 opacity-70 left-[4%] top-[40rem]'></div>
-        <div className='absolute rounded-full w-12 h-12 bg-PURPLE animate-shake-vertical animation-delay-1200 opacity-70 -left-[1%] top-[44rem]'></div>
-        <div className='absolute rounded-full w-12 h-12 bg-RED animate-shake-vertical opacity-70 left-[26%] top-[48rem]'></div>
-        <div className='absolute rounded-full w-8 h-8 bg-YELLOW animate-shake-vertical animation-delay-800 opacity-70 left-[84%] top-[53rem]'></div>
-        <div className='absolute rounded-full w-16 h-16 bg-BLUE animate-shake-vertical animation-delay-400 opacity-70 left-[97%] top-[32rem]'></div>
+        <div className='absolute rounded-full w-4 h-4 bg-RED animate-shake-vertical opacity-70 left-[8%] top-[256px]'></div>
+        <div className='absolute rounded-full w-8 h-8 bg-BLUE animate-shake-vertical animation-delay-400 opacity-70 left-[13%] top-[176px]'></div>
+        <div className='absolute rounded-full w-16 h-16 bg-YELLOW animate-shake-vertical animation-delay-800 opacity-70 left-[36%] top-[128px]'></div>
+        <div className='absolute rounded-full w-12 h-12 bg-PURPLE animate-shake-vertical animation-delay-1200 opacity-70 left-[68%] top-[128px]'></div>
+        <div className='absolute rounded-full w-8 h-8 bg-YELLOW animate-shake-vertical animation-delay-800 opacity-70 left-[4%] top-[640px]'></div>
+        <div className='absolute rounded-full w-12 h-12 bg-PURPLE animate-shake-vertical animation-delay-1200 opacity-70 -left-[1%] top-[704px]'></div>
+        <div className='absolute rounded-full w-12 h-12 bg-RED animate-shake-vertical opacity-70 left-[26%] top-[768px]'></div>
+        <div className='absolute rounded-full w-8 h-8 bg-YELLOW animate-shake-vertical animation-delay-800 opacity-70 left-[84%] top-[848px]'></div>
+        <div className='absolute rounded-full w-16 h-16 bg-BLUE animate-shake-vertical animation-delay-400 opacity-70 left-[97%] top-[512px]'></div>
       </div>
       <div className='flex flex-col pt-4 md:pt-8 lg:pt-0 lg:flex-row min-h-screen h-fit items-center gap-8 lg:gap-0 lg:justify-around z-[1] overflow-hidden'>
         <div className='w-fit flex flex-col gap-10 lg:gap-20 mx-4 md:mx-8'>
@@ -65,7 +65,7 @@ const Header = () => {
               Dulapah Vibulsanti
             </h1>
             <h2 className='bg-BLACK/50 dark:bg-WHITE/50 text-WHITE flex flex-wrap items-center px-3 w-fit text-sm md:text-base'>
-              NEXT.JS <TbMinusVertical /> TAILWINDCSS <TbMinusVertical />{' '}
+              NEXT.JS <TbMinusVertical /> TAILWIND CSS <TbMinusVertical />{' '}
               TYPESCRIPT <TbMinusVertical /> FIGMA <TbMinusVertical /> PYTHON{' '}
               <TbMinusVertical /> C/C++
             </h2>

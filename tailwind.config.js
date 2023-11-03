@@ -90,6 +90,10 @@ module.exports = {
           'scale-up-center 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both',
         'slide-in-fwd-bottom':
           'slide-in-fwd-bottom 0.7s cubic-bezier(0.190, 1.000, 0.220, 1.000) both',
+        'zoom-in-center':
+          'zoom-in-center 0.7s cubic-bezier(0.190, 1.000, 0.220, 1.000) both',
+        'zoom-out-center':
+          'zoom-out-center 0.7s cubic-bezier(0.190, 1.000, 0.220, 1.000) both',
       },
       keyframes: {
         'fade-in': {
@@ -275,6 +279,22 @@ module.exports = {
           to: {
             transform: 'translateZ(0) translateY(0)',
             opacity: '1',
+          },
+        },
+        'zoom-in-center': {
+          '0%': {
+            transform: 'scale(1)',
+          },
+          to: {
+            transform: 'scale(1.1)',
+          },
+        },
+        'zoom-out-center': {
+          '0%': {
+            transform: 'scale(1.1)',
+          },
+          to: {
+            transform: 'scale(1)',
           },
         },
       },
