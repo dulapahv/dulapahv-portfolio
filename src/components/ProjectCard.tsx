@@ -45,16 +45,16 @@ const ProjectCard = ({
       </figure>
       <dialog id={id} className='modal'>
         <div className='modal-box bg-WHITE dark:bg-BLACK cursor-default max-w-7xl p-0 w-fit rounded-md'>
-          {/* <form method='dialog'>
-            <button className='btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-BLACK dark:text-WHITE dark:hover:bg-WHITE/10 focus:outline-none'>
+          <form method='dialog'>
+            <button className='btn btn-sm btn-circle btn-ghost absolute right-2 top-1 text-RED hover:text-WHITE hover:bg-RED  focus:outline-none'>
               ✕
             </button>
-          </form> */}
+          </form>
           <ul className='flex flex-col items-center'>
             {Array.from(Array(size).keys()).map((item, index) => (
               <li key={index}>
                 <h1 className='text-BLACK dark:text-WHITE m-2'>
-                  {text[index]}
+                  {index + 1}. {text[index]}
                 </h1>
                 <Image
                   src={`/images/proj/${path}/${index + 1}.png`}

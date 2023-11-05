@@ -19,19 +19,16 @@ const Project = () => {
           id='proj-portfolio'
           title='Portfolio Website'
           description='A revamped portfolio website from previous React.js, JavaScript, and pure CSS to Next.js, TypeScript, Tailwind CSS and DaisyUI. This website is a personal project to showcase my skills and experience, as well as to share my knowledge and experience with others.'
-          path='test'
-          size={10}
+          path='portfolio'
+          size={7}
           text={[
-            'test1',
-            'test2',
-            'test3',
-            'test4',
-            'test5',
-            'test6',
-            'test7',
-            'test8',
-            'test9',
-            'test10',
+            'Header',
+            'Navigation panel',
+            'About me',
+            'Education',
+            'Experience',
+            'Skill',
+            'Project',
           ]}
           url='https://github.com/dulapahv/dulapahv-portfolio'
           new
@@ -44,16 +41,16 @@ const Project = () => {
           path='kanbaru'
           size={10}
           text={[
-            'Main Menu',
-            'test2',
-            'test3',
-            'test4',
-            'test5',
-            'test6',
-            'test7',
-            'test8',
-            'test9',
-            'test10',
+            'Overview page',
+            'Overview page (empty)',
+            'Add panel',
+            'Add card',
+            'Add board',
+            'Rearrange cards',
+            'Card description',
+            'Board settings',
+            'App settings',
+            'About page',
           ]}
           url='https://github.com/dulapahv/Kanbaru'
           badge={['Python', 'Qt', 'Firebase', 'Pickle']}
@@ -65,21 +62,21 @@ const Project = () => {
           path='mystudyplan'
           size={15}
           text={[
-            'test1',
-            'test2',
-            'test3',
-            'test4',
-            'test5',
-            'test6',
-            'test7',
-            'test8',
-            'test9',
-            'test10',
-            'test11',
-            'test12',
-            'test13',
-            'test14',
-            'test15',
+            'Project cover image',
+            'Login/Register page',
+            'Overview page',
+            'Calendar page',
+            'Tasks page',
+            'Add task',
+            'Exams page',
+            'Add exam',
+            'Schedule page',
+            'Add class',
+            'Manage subjects',
+            'Color palette',
+            'View class',
+            'View task',
+            'View exam',
           ]}
           url='https://github.com/dulapahv/MyStudyPlan'
           badge={['Java', 'Java Swing', 'Firebase']}
@@ -91,26 +88,26 @@ const Project = () => {
           path='calclab'
           size={20}
           text={[
-            'test1',
-            'test2',
-            'test3',
-            'test4',
-            'test5',
-            'test6',
-            'test7',
-            'test8',
-            'test9',
-            'test10',
-            'test11',
-            'test12',
-            'test13',
-            'test14',
-            'test15',
-            'test16',
-            'test17',
-            'test18',
-            'test19',
-            'test20',
+            'Calculator and graph page',
+            'Calculator (scientific)',
+            'Graph plotter',
+            'History (empty)',
+            'History (with entries)',
+            'Tools selection menu',
+            'Date comparator',
+            'Currency converter',
+            'Volume converter',
+            'Length converter',
+            'Weight and mass converter',
+            'Temperature converter',
+            'Energy converter',
+            'Area converter',
+            'Speed converter',
+            'Time converter',
+            'Power converter',
+            'Data converter',
+            'Pressure converter',
+            'Angle converter',
           ]}
           url='https://github.com/dulapahv/CalcLab'
           badge={['Python', 'Tkinter', 'Turtle Graphics']}
@@ -122,18 +119,18 @@ const Project = () => {
           path='matrix'
           size={12}
           text={[
-            'test1',
-            'test2',
-            'test3',
-            'test4',
-            'test5',
-            'test6',
-            'test7',
-            'test8',
-            'test9',
-            'test10',
-            'test11',
-            'test12',
+            'Define matrix',
+            'Select a matrix to define',
+            'Input matrix through the terminal/command line',
+            'Suppose we have a file containing comma-separated values',
+            'We just specify the delimiter as a , and simply press enter',
+            'View stored matrix',
+            'Select a matrix to view',
+            'Perform arithmetic',
+            'Select operation',
+            'Answer',
+            'output.txt',
+            'output.csv',
           ]}
           url='https://github.com/dulapahv/Matrix-Arithmetic'
           badge={['C']}
@@ -145,18 +142,18 @@ const Project = () => {
           path='nekoparaiten'
           size={12}
           text={[
-            'test1',
-            'test2',
-            'test3',
-            'test4',
-            'test5',
-            'test6',
-            'test7',
-            'test8',
-            'test9',
-            'test10',
-            'test11',
-            'test12',
+            'Main menu',
+            'Sync page',
+            'Firebase realtime database hierarchy',
+            'Story',
+            'Instruction page',
+            'Countdown page',
+            'Game page',
+            'Pause page',
+            'Result page (without login)',
+            'Result page - new record (with login)',
+            'Result page (with login)',
+            'Leaderboard page',
           ]}
           url='https://github.com/dulapahv/Nekoparaiten'
           badge={['Python', 'Tkinter', 'Firebase', 'Bootstrap']}
@@ -168,19 +165,19 @@ const Project = () => {
           path='acemath'
           size={13}
           text={[
-            'test1',
-            'test2',
-            'test3',
-            'test4',
-            'test5',
-            'test6',
-            'test7',
-            'test8',
-            'test9',
-            'test10',
-            'test11',
-            'test12',
-            'test13',
+            'Main menu page',
+            'Create account prompt',
+            'Create account page',
+            'Create account successful',
+            'Firebase realtime database hierarchy',
+            'Login page',
+            'Login successful page',
+            'Select difficulty page',
+            'Countdown page',
+            'Game page',
+            'Result page',
+            'Profile page',
+            'Leaderboard page',
           ]}
           url='https://github.com/dulapahv/AceMath'
           badge={['Python', 'Tkinter', 'Firebase']}

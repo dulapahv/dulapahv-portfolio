@@ -10,6 +10,16 @@
       "type": "image/x-icon"
     },
     {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
       "purpose": "maskable",
       "sizes": "512x512",
       "src": "icon512_maskable.png",
@@ -26,8 +36,8 @@
   "display": "standalone",
   "dir": "auto",
   "lang": "en-US",
-  "start_url": ".",
-  "scope": ".",
+  "start_url": "https://dulapahv.dev/",
+  "scope": "https://dulapahv.dev/",
   "description": "DulapahV's Portfolio, a website that contains my personal information, education, experiences, skills, and projects",
   "id": "https://dulapahv.dev/"
 }

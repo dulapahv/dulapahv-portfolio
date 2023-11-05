@@ -16,6 +16,7 @@ const Experience = () => {
       </div>
       <div className='flex flex-col gap-8 lg:gap-16 -mt-8 lg:-mt-16'>
         <ExpCard
+          id='exp-kees'
           title="King Mongkut's Institute of Technology Ladkrabang (KMITL)"
           location='Bangkok, Thailand'
           date='Feb 2023 - Present'
@@ -27,8 +28,25 @@ const Experience = () => {
             'Implemented authentication system with email verification, integrated Cloudflare Turnstile CAPTCHA for bot management, and introduced token-based user sessions to eliminate the need for repetitive logins.',
             "Improved website performance by introducing reusable components, resulting in reduced load times and enhancing the codebase's efficiency and maintainability, ensuring a seamless user experience and long-term stability.",
           ]}
+          path='kees'
+          size={12}
+          text={[
+            'Homepage',
+            'Program page',
+            'User profile page',
+            'Security page',
+            'Enrollment page',
+            'Timetable page',
+            'Certificate page',
+            'Transcript page',
+            'Admin console dashboard',
+            'Programs management page',
+            'Edit news page',
+            'Email verification page (with Cloudflare Turnstile CAPTCHA)',
+          ]}
         />
         <ExpCard
+          id='gistda'
           title='Geo-Informatics and Space Technology Development Agency (GISTDA)'
           location='Bangkok, Thailand'
           date='Jun 2023 - Aug 2023'
@@ -40,9 +58,20 @@ const Experience = () => {
             'Designed and developed API capable of executing dynamic URL queries, all while ensuring robust protection against SQL injection vulnerabilities.',
             'Leveraged NGINX reverse proxy deployment to enable external URL connections to an internal server, seamlessly serving the website and its associated API for an optimized user experience.',
           ]}
+          path='gistda'
+          size={6}
+          text={[
+            'Overview page',
+            'Analysis page',
+            'Expanded analysis page (dark mode)',
+            'Expanded analysis page - continued (dark mode)',
+            'Expanded analysis page (light mode)',
+            'Expanded analysis page - continued (light mode)',
+          ]}
           reversed
         />
         <ExpCard
+          id='ta-c'
           title="King Mongkut's Institute of Technology Ladkrabang (KMITL)"
           location='Bangkok, Thailand'
           date='Jan 2023 - Jun 2023'
@@ -52,8 +81,12 @@ const Experience = () => {
             'Supervised and facilitated lab sessions for 50-60 first-year students, delivering tailored technical assistance and guidance to address their queries, both in the laboratory setting and via additional support.',
             "Assessed and provided comprehensive feedback on homework assignments, and lab exercises, contributing to the refinement of students' technical proficiency and academic achievement.",
           ]}
+          path='ta-c'
+          size={1}
+          text={['View inside the room']}
         />
         <ExpCard
+          id='ta-rust'
           title="King Mongkut's Institute of Technology Ladkrabang (KMITL)"
           location='Bangkok, Thailand'
           date='Aug 2022 - Dec 2022'
@@ -63,6 +96,9 @@ const Experience = () => {
             'Supervised and facilitated lab sessions for 50-60 first-year students, delivering tailored technical assistance and guidance to address their queries, both in the laboratory setting and via additional support.',
             "Assessed and provided comprehensive feedback on homework assignments, and lab exercises, contributing to the refinement of students' technical proficiency and academic achievement.",
           ]}
+          path='ta-rust'
+          size={1}
+          text={['View inside the room']}
           reversed
         />
       </div>

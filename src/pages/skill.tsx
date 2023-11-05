@@ -66,79 +66,6 @@ const Skill = () => {
               </div>
               <div className='flex flex-col gap-y-6'>
                 <h1 className='relative text-BLACK dark:text-WHITE flex items-center gap-x-2 text-base sm:text-lg [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"]'>
-                  Database Management System
-                  <div className='absolute left-0 -bottom-2 w-32'>
-                    <div className='grid grid-cols-4'>
-                      <div className='h-[2px] bg-RED'></div>
-                      <div className='h-[2px] bg-BLUE'></div>
-                      <div className='h-[2px] bg-YELLOW'></div>
-                      <div className='h-[2px] bg-PURPLE'></div>
-                    </div>
-                  </div>
-                </h1>
-                <div className='flex gap-3 items-center flex-wrap'>
-                  <SkillIcon src='/dbms/postgresql.svg' alt='PostgreSQL' />
-                  <SkillIcon
-                    src='/dbms/sqlite.svg'
-                    alt='SQLite'
-                    tooltip='SQLite'
-                  />
-                </div>
-              </div>
-              <div className='flex flex-col gap-y-6'>
-                <h1 className='relative text-BLACK dark:text-WHITE flex items-center gap-x-2 text-base sm:text-lg [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"]'>
-                  DevOps
-                  <div className='absolute left-0 -bottom-2 w-32'>
-                    <div className='grid grid-cols-4'>
-                      <div className='h-[2px] bg-RED'></div>
-                      <div className='h-[2px] bg-BLUE'></div>
-                      <div className='h-[2px] bg-YELLOW'></div>
-                      <div className='h-[2px] bg-PURPLE'></div>
-                    </div>
-                  </div>
-                </h1>
-                <div className='flex gap-3 items-center flex-wrap'>
-                  <SkillIcon
-                    src='/devops/docker.svg'
-                    width={72}
-                    height={72}
-                    alt='Docker'
-                  />
-                </div>
-                <div className='flex flex-col gap-y-6'>
-                  <h1 className='relative text-BLACK dark:text-WHITE flex items-center gap-x-2 text-base sm:text-lg [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"]'>
-                    Others
-                    <div className='absolute left-0 -bottom-2 w-32'>
-                      <div className='grid grid-cols-4'>
-                        <div className='h-[2px] bg-RED'></div>
-                        <div className='h-[2px] bg-BLUE'></div>
-                        <div className='h-[2px] bg-YELLOW'></div>
-                        <div className='h-[2px] bg-PURPLE'></div>
-                      </div>
-                    </div>
-                  </h1>
-                  <div className='flex gap-3 items-center flex-wrap'>
-                    <SkillIcon
-                      src='/other/qt.svg'
-                      alt='Qt'
-                    />
-                    <SkillIcon
-                      src='/other/bash.svg'
-                      alt='Bash'
-                    />
-                    <SkillIcon
-                      src='/other/vercel.svg'
-                      width={144}
-                      height={144}
-                      alt='Vercel'
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className='flex flex-col gap-4'>
-              <div className='flex flex-col gap-y-6'>
-                <h1 className='relative text-BLACK dark:text-WHITE flex items-center gap-x-2 text-base sm:text-lg [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"]'>
                   Web Development {'('}Front End{')'}
                   <div className='absolute left-0 -bottom-2 w-32'>
                     <div className='grid grid-cols-4'>
@@ -224,6 +151,73 @@ const Skill = () => {
                     width={172}
                     height={172}
                     alt='Postman'
+                  />
+                </div>
+              </div>
+            </div>
+            <div className='flex flex-col gap-4'>
+              <div className='flex flex-col gap-y-6'>
+                <h1 className='relative text-BLACK dark:text-WHITE flex items-center gap-x-2 text-base sm:text-lg [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"]'>
+                  Database Management System
+                  <div className='absolute left-0 -bottom-2 w-32'>
+                    <div className='grid grid-cols-4'>
+                      <div className='h-[2px] bg-RED'></div>
+                      <div className='h-[2px] bg-BLUE'></div>
+                      <div className='h-[2px] bg-YELLOW'></div>
+                      <div className='h-[2px] bg-PURPLE'></div>
+                    </div>
+                  </div>
+                </h1>
+                <div className='flex gap-3 items-center flex-wrap'>
+                  <SkillIcon src='/dbms/postgresql.svg' alt='PostgreSQL' />
+                  <SkillIcon
+                    src='/dbms/sqlite.svg'
+                    alt='SQLite'
+                    tooltip='SQLite'
+                  />
+                </div>
+              </div>
+              <div className='flex flex-col gap-y-6'>
+                <h1 className='relative text-BLACK dark:text-WHITE flex items-center gap-x-2 text-base sm:text-lg [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"]'>
+                  DevOps
+                  <div className='absolute left-0 -bottom-2 w-32'>
+                    <div className='grid grid-cols-4'>
+                      <div className='h-[2px] bg-RED'></div>
+                      <div className='h-[2px] bg-BLUE'></div>
+                      <div className='h-[2px] bg-YELLOW'></div>
+                      <div className='h-[2px] bg-PURPLE'></div>
+                    </div>
+                  </div>
+                </h1>
+                <div className='flex gap-3 items-center flex-wrap'>
+                  <SkillIcon
+                    src='/devops/docker.svg'
+                    width={72}
+                    height={72}
+                    alt='Docker'
+                  />
+                </div>
+              </div>
+              <div className='flex flex-col gap-y-6'>
+                <h1 className='relative text-BLACK dark:text-WHITE flex items-center gap-x-2 text-base sm:text-lg [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"]'>
+                  Others
+                  <div className='absolute left-0 -bottom-2 w-32'>
+                    <div className='grid grid-cols-4'>
+                      <div className='h-[2px] bg-RED'></div>
+                      <div className='h-[2px] bg-BLUE'></div>
+                      <div className='h-[2px] bg-YELLOW'></div>
+                      <div className='h-[2px] bg-PURPLE'></div>
+                    </div>
+                  </div>
+                </h1>
+                <div className='flex gap-3 items-center flex-wrap'>
+                  <SkillIcon src='/other/qt.svg' alt='Qt' />
+                  <SkillIcon src='/other/bash.svg' alt='Bash' />
+                  <SkillIcon
+                    src='/other/vercel.svg'
+                    width={144}
+                    height={144}
+                    alt='Vercel'
                   />
                 </div>
               </div>

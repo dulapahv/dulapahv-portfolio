@@ -16,7 +16,7 @@ const Education = () => {
       </div>
       <div className='flex relative'>
         <Image
-          src='/images/uofg_campus.png'
+          src='/images/edu/uofg.png'
           width={1915}
           height={632}
           alt='University of Glasgow'
@@ -41,7 +41,7 @@ const Education = () => {
       </div>
       <div className='flex relative'>
         <Image
-          src='/images/kmitl_campus.jpg'
+          src='/images/edu/kmitl.png'
           width={1440}
           height={720}
           alt="King Mongkut's Institute of Technology Ladkrabang"
@@ -63,7 +63,7 @@ const Education = () => {
       </div>
       <div className='flex relative'>
         <Image
-          src='/images/sk_school.png'
+          src='/images/edu/sk.png'
           width={5622}
           height={3748}
           alt='Suankularb Wittayalai School'

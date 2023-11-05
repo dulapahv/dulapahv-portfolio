@@ -171,7 +171,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className='relative bottom-16 text-RED z-[1] text-2xl text-center flex flex-col items-center gap-1'>
+      <div className='relative bottom-32 text-RED z-[1] text-2xl text-center flex flex-col items-center gap-1'>
         <div className='animate-bounce flex flex-col items-center'>
           <BsArrowDownCircleFill
             className='btn btn-sm btn-circle text-RED cursor-pointer z-[1] drop-shadow-md'

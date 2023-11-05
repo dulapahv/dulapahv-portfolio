@@ -4,22 +4,30 @@ import Image from 'next/image';
 import { TbMinusVertical } from 'react-icons/tb';
 
 interface ExpCardProps {
+  id: string;
   title: string;
   location: string;
   date: string;
   position: string;
   tech: string;
   detail: string[];
+  path: string;
+  size: number;
+  text: string[];
   reversed?: boolean;
 }
 
 const ExpCard = ({
+  id,
   title,
   location,
   date,
   position,
   tech,
   detail,
+  path,
+  size,
+  text,
   reversed: isReversed = false,
 }: ExpCardProps) => {
   return (
@@ -80,35 +88,50 @@ const ExpCard = ({
         </div>
         <div
           className={`lg:w-1/2 ${
-            isReversed ? 'order-1' : 'order-1 lg:order-2'
-          } relative cursor-pointer after:content-["View_more_images"] after:pt-2 after:pl-4 after:bottom-0 after:bg-BLACK/70 after:w-fit after:pr-4 after:rounded-tr-3xl hover:after:rounded-none hover:after:w-full after:h-10 after:absolute after:text-WHITE after:pointer-events-none`}
+            isReversed ? 'order-1 after:rounded-br-3xl hover:after:rounded-br-3xl' : 'order-1 lg:order-2 after:rounded-bl-3xl hover:after:rounded-bl-3xl'
+          } relative cursor-pointer after:content-["View_more_images"] after:pt-2 after:pl-4 after:bottom-0 after:bg-BLACK/70 after:w-fit after:pr-4 after:rounded-tr-xl hover:after:rounded-none hover:after:w-full after:h-10 after:absolute after:text-WHITE after:pointer-events-none`}
           onClick={() => {
-            const modal = document.getElementById(
-              'expModal'
-            ) as HTMLDialogElement;
+            const modal = document.getElementById(id) as HTMLDialogElement;
             modal?.showModal();
           }}
         >
           <Image
-            src='/images/uofg_campus.png'
-            alt='KMITL'
+            src={`/images/exp/${path}/cover.png`}
             width={1915}
             height={632}
+            alt={path + ' cover'}
             className={`${
               isReversed ? 'rounded-br-3xl' : 'rounded-bl-3xl'
-            } w-full h-80 lg:h-full object-cover lg:shadow-xl hover:brightness-[.85]`}
+            } w-full max-h-[30rem] lg:h-full object-cover lg:shadow-xl hover:brightness-[.85]`}
           />
-          <dialog id='expModal' className='modal'>
-            <div className='modal-box bg-WHITE dark:bg-BLACK cursor-default max-w-7xl'>
+          <dialog id={id} className='modal'>
+            <div className='modal-box bg-WHITE dark:bg-BLACK cursor-default max-w-7xl p-0 w-fit rounded-md'>
               <form method='dialog'>
-                <button className='btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-BLACK dark:text-WHITE dark:hover:bg-WHITE/10'>
+                <button className='btn btn-sm btn-circle btn-ghost absolute right-2 top-1 text-RED hover:text-WHITE hover:bg-RED  focus:outline-none'>
                   ✕
                 </button>
               </form>
-              <ul></ul>
+              <ul className='flex flex-col items-center'>
+                {Array.from(Array(size).keys()).map((item, index) => (
+                  <li key={index}>
+                    <h1 className='text-BLACK dark:text-WHITE m-2'>
+                      {index + 1}. {text[index]}
+                    </h1>
+                    <Image
+                      src={`/images/exp/${path}/${index + 1}.png`}
+                      width={750}
+                      height={500}
+                      alt={path + ' ' + index + 1}
+                    />
+                  </li>
+                ))}
+              </ul>
             </div>
             <form method='dialog' className='modal-backdrop !cursor-default'>
-              <button aria-label='Close'></button>
+              <button
+                aria-label='Close'
+                className='focus:outline-none'
+              ></button>
             </form>
           </dialog>
           {isReversed ? (
