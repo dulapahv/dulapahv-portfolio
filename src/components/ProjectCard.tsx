@@ -29,31 +29,53 @@ const ProjectCard = ({
           ) as HTMLDialogElement;
           modal?.showModal();
         }}
-        className='cursor-pointer after:content-["View_more_images"] after:pt-[2px] after:pl-2 after:top-[226px] after:bg-BLACK/60 after:w-full after:h-6 after:absolute after:text-WHITE after:text-sm after:pointer-events-none'
+        className='cursor-pointer after:content-["View_more_images"] after:pt-[2px] after:pl-2 after:pr-2 after:top-[226px] after:bg-BLACK/60 after:w-fit hover:after:w-full after:h-6 after:left-0 after:absolute after:rounded-tr-lg hover:after:rounded-none after:text-WHITE after:text-sm after:pointer-events-none'
       >
         <Image
-          src='/images/sk_school.png'
-          width={5622}
-          height={3748}
+          src='/images/proj/kanbaru/1.png'
+          width={1541}
+          height={1063}
           alt='Suankularb Wittayalai School'
-          className='w-screen bg-clip-content object-cover h-[250px]'
+          className='w-screen bg-clip-content object-cover h-[250px] hover:brightness-[.85]'
         />
       </figure>
       <dialog id='projectModal' className='modal'>
-        <div className='modal-box bg-WHITE dark:bg-BLACK cursor-default'>
+        <div className='modal-box bg-WHITE dark:bg-BLACK cursor-default max-w-7xl'>
           <form method='dialog'>
             <button className='btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-BLACK dark:text-WHITE dark:hover:bg-WHITE/10'>
               ✕
             </button>
           </form>
-          <h3 className='font-bold text-lg text-BLACK dark:text-WHITE'>
-            Hello!
-          </h3>
-          <p className='py-4 text-BLACK dark:text-WHITE'>
-            Press ESC key or click on ✕ button to close
-          </p>
+          <ul>
+            <li>
+              <Image
+                src='/images/proj/kanbaru/1.png'
+                width={1541}
+                height={1063}
+                alt='Suankularb Wittayalai School'
+              />
+            </li>
+            <li>
+              <Image
+                src='/images/proj/kanbaru/2.png'
+                width={1541}
+                height={1063}
+                alt='Suankularb Wittayalai School'
+              />
+            </li>
+            <li>
+              <Image
+                src='/images/proj/kanbaru/3.png'
+                width={1541}
+                height={1063}
+                alt='Suankularb Wittayalai School'
+              />
+            </li>
+          </ul>
         </div>
-        <form method='dialog' className='modal-backdrop !cursor-default'></form>
+        <form method='dialog' className='modal-backdrop !cursor-default'>
+          <button aria-label='Close'></button>
+        </form>
       </dialog>
       <div className='relative card-body'>
         <div className='absolute left-0 top-0 w-full'>

@@ -1,0 +1,33 @@
+{
+  "name": "DulapahV's Portfolio",
+  "short_name": "DulapahV's Portfolio",
+  "theme_color": "#34dcdd",
+  "background_color": "#2b2b2b",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "purpose": "maskable",
+      "sizes": "512x512",
+      "src": "icon512_maskable.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "512x512",
+      "src": "icon512_rounded.png",
+      "type": "image/png"
+    }
+  ],
+  "orientation": "any",
+  "display": "standalone",
+  "dir": "auto",
+  "lang": "en-US",
+  "start_url": ".",
+  "scope": ".",
+  "description": "DulapahV's Portfolio, a website that contains my personal information, education, experiences, skills, and projects",
+  "id": "https://dulapahv.dev/"
+}

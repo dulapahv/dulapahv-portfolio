@@ -81,10 +81,10 @@ const ExpCard = ({
         <div
           className={`lg:w-1/2 ${
             isReversed ? 'order-1' : 'order-1 lg:order-2'
-          } relative cursor-pointer after:content-["View_more_images"] after:pt-2 after:pl-4 after:bottom-0 after:bg-BLACK/70 after:w-full after:h-10 after:absolute after:text-WHITE after:pointer-events-none`}
+          } relative cursor-pointer after:content-["View_more_images"] after:pt-2 after:pl-4 after:bottom-0 after:bg-BLACK/70 after:w-fit after:pr-4 after:rounded-tr-3xl hover:after:rounded-none hover:after:w-full after:h-10 after:absolute after:text-WHITE after:pointer-events-none`}
           onClick={() => {
             const modal = document.getElementById(
-              'projectModal'
+              'expModal'
             ) as HTMLDialogElement;
             modal?.showModal();
           }}
@@ -96,8 +96,21 @@ const ExpCard = ({
             height={632}
             className={`${
               isReversed ? 'rounded-br-3xl' : 'rounded-bl-3xl'
-            } w-full h-80 lg:h-full object-cover lg:shadow-xl`}
+            } w-full h-80 lg:h-full object-cover lg:shadow-xl hover:brightness-[.85]`}
           />
+          <dialog id='expModal' className='modal'>
+            <div className='modal-box bg-WHITE dark:bg-BLACK cursor-default max-w-7xl'>
+              <form method='dialog'>
+                <button className='btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-BLACK dark:text-WHITE dark:hover:bg-WHITE/10'>
+                  ✕
+                </button>
+              </form>
+              <ul></ul>
+            </div>
+            <form method='dialog' className='modal-backdrop !cursor-default'>
+              <button aria-label='Close'></button>
+            </form>
+          </dialog>
           {isReversed ? (
             <div className='absolute bg-BLUE w-screen h-36 -bottom-16 right-32 opacity-50 animate-clip-in-left -z-10'></div>
           ) : (

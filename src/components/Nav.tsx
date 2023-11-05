@@ -108,6 +108,7 @@ const Nav = () => {
         onClick={() => {
           isNavOpen ? handleCloseNav() : setIsNavOpen(true);
         }}
+        aria-label='Open Navigation'
       >
         {isNavOpen ? (
           <RiSparkling2Fill className='relative left-6 top-6 w-10 h-auto animate-scale-up-center' />

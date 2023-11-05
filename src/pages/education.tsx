@@ -4,7 +4,10 @@ import Image from 'next/image';
 
 const Education = () => {
   return (
-    <div className='relative flex flex-col items-center h-fit gap-8 py-8' id='education'>
+    <div
+      className='relative flex flex-col items-center h-fit gap-8 py-8'
+      id='education'
+    >
       <div className='flex flex-col items-center gap-6 py-8'>
         <h1 className='text-BLACK dark:text-WHITE text-2xl min-[375px]:text-3xl sm:text-4xl uppercase tracking-[0.2em] font-semibold first-letter:text-RED'>
           Education
@@ -27,7 +30,7 @@ const Education = () => {
           <p className='text-sm sm:text-base md:text-lg mt-2 leading-4'>
             BSc Honours in Software Engineering {'('}Double Degree{')'}
           </p>
-          <p className='text-sm sm:text-base italic leading-4 mt-1'>
+          <p className='text-sm sm:text-base italic leading-4 mt-1 sm:mt-0'>
             Specialized in Parallel and Distributed Systems
           </p>
           <p className='text-sm sm:text-base md:text-lg mt-2'>

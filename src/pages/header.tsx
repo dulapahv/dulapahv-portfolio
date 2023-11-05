@@ -16,7 +16,9 @@ const Header = () => {
   const [isFetchingEmail, setIsFetchingEmail] = useState(false);
 
   const handleCaptchaSuccess = async (token: string) => {
-    const modal = document!.getElementById('turnstileModal') as HTMLDialogElement;
+    const modal = document!.getElementById(
+      'turnstileModal'
+    ) as HTMLDialogElement;
     modal.close();
     setIsFetchingEmail(true);
     try {
@@ -178,7 +180,10 @@ const Header = () => {
               education?.scrollIntoView({ behavior: 'smooth' });
             }}
           />
-          <button className='absolute btn btn-sm btn-circle pointer-events-none animate-ping z-0 drop-shadow-md'></button>
+          <button
+            className='absolute btn btn-sm btn-circle pointer-events-none animate-ping z-0 drop-shadow-md'
+            aria-label='Scroll to see more'
+          ></button>
         </div>
         <p className='text-xs'>Scroll to see more</p>
       </div>
