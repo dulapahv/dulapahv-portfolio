@@ -30,9 +30,17 @@ const Skill = () => {
         <div className='relative grid grid-cols-1 justify-items-center lg:justify-items-stretch'>
           <div className='flex flex-col lg:flex-row lg:justify-around gap-4 mx-4'>
             <div className='flex flex-col gap-y-4'>
-              <div className='flex flex-col gap-y-4'>
-                <h1 className='text-BLACK dark:text-WHITE flex items-center gap-x-2 text-base sm:text-lg [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"]'>
+              <div className='flex flex-col gap-y-6'>
+                <h1 className='relative text-BLACK dark:text-WHITE flex items-center gap-x-2 text-base sm:text-lg [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"]'>
                   Programming Languages
+                  <div className='absolute left-0 -bottom-2 w-32'>
+                    <div className='grid grid-cols-4'>
+                      <div className='h-[2px] bg-RED'></div>
+                      <div className='h-[2px] bg-BLUE'></div>
+                      <div className='h-[2px] bg-YELLOW'></div>
+                      <div className='h-[2px] bg-PURPLE'></div>
+                    </div>
+                  </div>
                 </h1>
                 <div className='flex gap-3 items-center flex-wrap'>
                   <SkillIcon src='/lang/ts.svg' alt='TypeScript' />
@@ -56,9 +64,17 @@ const Skill = () => {
                   <SkillIcon src='/lang/rs.svg' alt='Rust' />
                 </div>
               </div>
-              <div className='flex flex-col gap-y-4'>
-                <h1 className='text-BLACK dark:text-WHITE flex items-center gap-x-2 text-base sm:text-lg [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"]'>
+              <div className='flex flex-col gap-y-6'>
+                <h1 className='relative text-BLACK dark:text-WHITE flex items-center gap-x-2 text-base sm:text-lg [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"]'>
                   Database Management System
+                  <div className='absolute left-0 -bottom-2 w-32'>
+                    <div className='grid grid-cols-4'>
+                      <div className='h-[2px] bg-RED'></div>
+                      <div className='h-[2px] bg-BLUE'></div>
+                      <div className='h-[2px] bg-YELLOW'></div>
+                      <div className='h-[2px] bg-PURPLE'></div>
+                    </div>
+                  </div>
                 </h1>
                 <div className='flex gap-3 items-center flex-wrap'>
                   <SkillIcon src='/dbms/postgresql.svg' alt='PostgreSQL' />
@@ -69,9 +85,17 @@ const Skill = () => {
                   />
                 </div>
               </div>
-              <div className='flex flex-col gap-y-4'>
-                <h1 className='text-BLACK dark:text-WHITE flex items-center gap-x-2 text-base sm:text-lg [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"]'>
+              <div className='flex flex-col gap-y-6'>
+                <h1 className='relative text-BLACK dark:text-WHITE flex items-center gap-x-2 text-base sm:text-lg [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"]'>
                   DevOps
+                  <div className='absolute left-0 -bottom-2 w-32'>
+                    <div className='grid grid-cols-4'>
+                      <div className='h-[2px] bg-RED'></div>
+                      <div className='h-[2px] bg-BLUE'></div>
+                      <div className='h-[2px] bg-YELLOW'></div>
+                      <div className='h-[2px] bg-PURPLE'></div>
+                    </div>
+                  </div>
                 </h1>
                 <div className='flex gap-3 items-center flex-wrap'>
                   <SkillIcon
@@ -81,31 +105,49 @@ const Skill = () => {
                     alt='Docker'
                   />
                 </div>
-                <div className='flex flex-col gap-y-4'>
-                  <h1 className='text-BLACK dark:text-WHITE flex items-center gap-x-2 text-base sm:text-lg [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"]'>
+                <div className='flex flex-col gap-y-6'>
+                  <h1 className='relative text-BLACK dark:text-WHITE flex items-center gap-x-2 text-base sm:text-lg [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"]'>
                     Others
+                    <div className='absolute left-0 -bottom-2 w-32'>
+                      <div className='grid grid-cols-4'>
+                        <div className='h-[2px] bg-RED'></div>
+                        <div className='h-[2px] bg-BLUE'></div>
+                        <div className='h-[2px] bg-YELLOW'></div>
+                        <div className='h-[2px] bg-PURPLE'></div>
+                      </div>
+                    </div>
                   </h1>
                   <div className='flex gap-3 items-center flex-wrap'>
                     <SkillIcon
                       src='/other/qt.svg'
-                      width={64}
-                      height={64}
                       alt='Qt'
                     />
                     <SkillIcon
                       src='/other/bash.svg'
-                      width={64}
-                      height={64}
                       alt='Bash'
+                    />
+                    <SkillIcon
+                      src='/other/vercel.svg'
+                      width={144}
+                      height={144}
+                      alt='Vercel'
                     />
                   </div>
                 </div>
               </div>
             </div>
             <div className='flex flex-col gap-4'>
-              <div className='flex flex-col gap-y-4'>
-                <h1 className='text-BLACK dark:text-WHITE flex items-center gap-x-2 text-base sm:text-lg [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"]'>
+              <div className='flex flex-col gap-y-6'>
+                <h1 className='relative text-BLACK dark:text-WHITE flex items-center gap-x-2 text-base sm:text-lg [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"]'>
                   Web Development {'('}Front End{')'}
+                  <div className='absolute left-0 -bottom-2 w-32'>
+                    <div className='grid grid-cols-4'>
+                      <div className='h-[2px] bg-RED'></div>
+                      <div className='h-[2px] bg-BLUE'></div>
+                      <div className='h-[2px] bg-YELLOW'></div>
+                      <div className='h-[2px] bg-PURPLE'></div>
+                    </div>
+                  </div>
                 </h1>
                 <div className='flex gap-3 items-center flex-wrap'>
                   <SkillIcon
@@ -124,34 +166,56 @@ const Skill = () => {
                   <SkillIcon src='/web_front/figma.svg' alt='Figma' />
                 </div>
               </div>
-              <div className='flex flex-col gap-y-4'>
-                <h1 className='text-BLACK dark:text-WHITE flex items-center gap-x-2 text-base sm:text-lg [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"]'>
+              <div className='flex flex-col gap-y-6'>
+                <h1 className='relative text-BLACK dark:text-WHITE flex items-center gap-x-2 text-base sm:text-lg [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"]'>
                   Web Development {'('}Back End{')'}
+                  <div className='absolute left-0 -bottom-2 w-32'>
+                    <div className='grid grid-cols-4'>
+                      <div className='h-[2px] bg-RED'></div>
+                      <div className='h-[2px] bg-BLUE'></div>
+                      <div className='h-[2px] bg-YELLOW'></div>
+                      <div className='h-[2px] bg-PURPLE'></div>
+                    </div>
+                  </div>
                 </h1>
-                <div className='flex gap-3 flex-wrap'>
+                <div className='flex gap-3 flex-wrap items-center'>
                   <SkillIcon
                     src='/web_back/expressjs.svg'
-                    width={169}
-                    height={169}
+                    width={132}
+                    height={132}
                     alt='Express.js'
                   />
                   <SkillIcon
                     src='/web_back/axios.svg'
-                    width={196}
-                    height={196}
+                    width={180}
+                    height={180}
                     alt='Axios'
                   />
                   <SkillIcon
                     src='/web_back/nginx.svg'
+                    width={123}
+                    height={123}
+                    alt='NGINX'
+                  />
+                  <SkillIcon
+                    src='/web_back/firebase.svg'
                     width={132}
                     height={132}
-                    alt='NGINX'
+                    alt='Firebase'
                   />
                 </div>
               </div>
-              <div className='flex flex-col gap-y-4'>
-                <h1 className='text-BLACK dark:text-WHITE flex items-center gap-x-2 text-base sm:text-lg [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"]'>
+              <div className='flex flex-col gap-y-6'>
+                <h1 className='relative text-BLACK dark:text-WHITE flex items-center gap-x-2 text-base sm:text-lg [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"]'>
                   Testing
+                  <div className='absolute left-0 -bottom-2 w-32'>
+                    <div className='grid grid-cols-4'>
+                      <div className='h-[2px] bg-RED'></div>
+                      <div className='h-[2px] bg-BLUE'></div>
+                      <div className='h-[2px] bg-YELLOW'></div>
+                      <div className='h-[2px] bg-PURPLE'></div>
+                    </div>
+                  </div>
                 </h1>
                 <div className='flex gap-3 items-center flex-wrap'>
                   <SkillIcon src='/testing/insomnia.svg' alt='Insomnia' />

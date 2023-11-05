@@ -3,6 +3,7 @@ import React, { useRef, useState } from 'react';
 import { useTheme } from 'next-themes';
 
 import Image from 'next/image';
+import { FiExternalLink } from 'react-icons/fi';
 import { TbMinusVertical } from 'react-icons/tb';
 import { BsArrowDownCircleFill } from 'react-icons/bs';
 import { Turnstile, TurnstileInstance } from '@marsidev/react-turnstile';
@@ -15,7 +16,7 @@ const Header = () => {
   const [isFetchingEmail, setIsFetchingEmail] = useState(false);
 
   const handleCaptchaSuccess = async (token: string) => {
-    const modal = document!.getElementById('my_modal_2') as HTMLDialogElement;
+    const modal = document!.getElementById('turnstileModal') as HTMLDialogElement;
     modal.close();
     setIsFetchingEmail(true);
     try {
@@ -74,18 +75,18 @@ const Header = () => {
                 href='https://www.linkedin.com/in/dulapahv/'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='after:content-["_↗"]'
               >
                 LinkedIn
+                <FiExternalLink className='ml-1 text-BLACK/80 inline mb-1' />
               </a>
               <span className='select-none'>&nbsp;&nbsp;&nbsp;</span>
               <a
                 href='https://github.com/dulapahv/'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='after:content-["_↗"]'
               >
                 GitHub
+                <FiExternalLink className='ml-1 text-BLACK/80 inline mb-1' />
               </a>
               <span className='select-none'>&nbsp;&nbsp;&nbsp;</span>
               {email ? (
@@ -100,7 +101,7 @@ const Header = () => {
                       onClick={() => {
                         setIsRevealEmail(true);
                         const modal = document!.getElementById(
-                          'my_modal_2'
+                          'turnstileModal'
                         ) as HTMLDialogElement;
                         modal.showModal();
                       }}
@@ -112,7 +113,7 @@ const Header = () => {
               )}
             </h3>
           </div>
-          <dialog id='my_modal_2' className='modal'>
+          <dialog id='turnstileModal' className='modal'>
             {isRevealEmail && (
               <>
                 <div className='modal-box w-fit p-0 bg-WHITE dark:bg-BLACK rounded-none'>

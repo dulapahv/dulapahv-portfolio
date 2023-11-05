@@ -11,7 +11,7 @@ const Index = () => {
   return (
     <>
       <div
-        className='fixed w-[15rem] sm:w-[20rem] md:w-[30rem] lg:w-[40rem] [background-size:105%] sm:[background-size:79%] md:[background-size:53%] lg:[background-size:40%] bg-repeat dark:bg-black/40 min-h-screen overflow-hidden dark:mix-blend-overlay z-0'
+        className='fixed w-[15rem] sm:w-[20rem] md:w-[30rem] lg:w-[40rem] [background-size:105%] sm:[background-size:79%] md:[background-size:53%] lg:[background-size:40%] bg-repeat dark:bg-black/40 min-h-screen overflow-hidden dark:brightness-[.33] z-0'
         style={{
           backgroundImage: `url(/images/bg_pattern.png)`,
         }}

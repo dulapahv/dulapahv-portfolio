@@ -40,7 +40,7 @@ const Experience = () => {
             'Designed and developed API capable of executing dynamic URL queries, all while ensuring robust protection against SQL injection vulnerabilities.',
             'Leveraged NGINX reverse proxy deployment to enable external URL connections to an internal server, seamlessly serving the website and its associated API for an optimized user experience.',
           ]}
-          isReversed={true}
+          reversed
         />
         <ExpCard
           title="King Mongkut's Institute of Technology Ladkrabang (KMITL)"
@@ -63,7 +63,7 @@ const Experience = () => {
             'Supervised and facilitated lab sessions for 50-60 first-year students, delivering tailored technical assistance and guidance to address their queries, both in the laboratory setting and via additional support.',
             "Assessed and provided comprehensive feedback on homework assignments, and lab exercises, contributing to the refinement of students' technical proficiency and academic achievement.",
           ]}
-          isReversed={true}
+          reversed
         />
       </div>
     </div>

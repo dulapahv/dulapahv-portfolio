@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const Education = () => {
   return (
-    <div className='flex flex-col items-center h-fit gap-8 py-8' id='education'>
+    <div className='relative flex flex-col items-center h-fit gap-8 py-8' id='education'>
       <div className='flex flex-col items-center gap-6 py-8'>
         <h1 className='text-BLACK dark:text-WHITE text-2xl min-[375px]:text-3xl sm:text-4xl uppercase tracking-[0.2em] font-semibold first-letter:text-RED'>
           Education

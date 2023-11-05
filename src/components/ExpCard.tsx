@@ -10,7 +10,7 @@ interface ExpCardProps {
   position: string;
   tech: string;
   detail: string[];
-  isReversed?: boolean;
+  reversed?: boolean;
 }
 
 const ExpCard = ({
@@ -20,7 +20,7 @@ const ExpCard = ({
   position,
   tech,
   detail,
-  isReversed = false,
+  reversed: isReversed = false,
 }: ExpCardProps) => {
   return (
     <>
@@ -69,7 +69,10 @@ const ExpCard = ({
           <div className='w-14 h-[2px] bg-gradient-to-r from-RED to-RED-400 flex flex-col mt-4 mb-7'></div>
           <ul className='list-disc list-outside ml-5'>
             {detail?.map((item, index) => (
-              <li key={index} className='text-BLACK dark:text-WHITE'>
+              <li
+                key={index}
+                className='text-BLACK dark:text-WHITE text-justify'
+              >
                 {item}
               </li>
             ))}
@@ -78,7 +81,13 @@ const ExpCard = ({
         <div
           className={`lg:w-1/2 ${
             isReversed ? 'order-1' : 'order-1 lg:order-2'
-          } relative`}
+          } relative cursor-pointer after:content-["View_more_images"] after:pt-2 after:pl-4 after:bottom-0 after:bg-BLACK/70 after:w-full after:h-10 after:absolute after:text-WHITE after:pointer-events-none`}
+          onClick={() => {
+            const modal = document.getElementById(
+              'projectModal'
+            ) as HTMLDialogElement;
+            modal?.showModal();
+          }}
         >
           <Image
             src='/images/uofg_campus.png'
@@ -86,9 +95,7 @@ const ExpCard = ({
             width={1915}
             height={632}
             className={`${
-              isReversed
-                ? 'rounded-br-3xl'
-                : 'rounded-bl-3xl'
+              isReversed ? 'rounded-br-3xl' : 'rounded-bl-3xl'
             } w-full h-80 lg:h-full object-cover lg:shadow-xl`}
           />
           {isReversed ? (

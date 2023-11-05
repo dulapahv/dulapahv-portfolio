@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { FiExternalLink } from 'react-icons/fi';
 import { Kanit, Noto_Sans_JP } from 'next/font/google';
 
 const kanit = Kanit({
@@ -153,18 +154,20 @@ const Aboutme = () => {
                   href='https://www.gla.ac.uk/'
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='text-YELLOW after:content-["_↗"]'
+                  className='text-YELLOW items-center'
                 >
                   University of Glasgow
+                  <FiExternalLink className='ml-1 inline mb-1' />
                 </a>
                 , and a BEng in Software Engineering from{' '}
                 <a
                   href='https://www.kmitl.ac.th/'
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='text-YELLOW after:content-["_↗"]'
+                  className='text-YELLOW'
                 >
                   King Mongkut&apos;s Institute of Technology Ladkrabang (KMITL)
+                  <FiExternalLink className='ml-1 inline mb-1' />
                 </a>
                 . My academic journey has equipped me with a strong theoretical
                 foundation, complemented by practical experience gained through
