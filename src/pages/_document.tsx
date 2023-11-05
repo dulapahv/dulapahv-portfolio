@@ -20,7 +20,7 @@ export default function Document() {
       <meta name='robots' content='index, follow' />
 
       {/* Content Language */}
-      <meta http-equiv='content-language' content='en' />
+      <meta httpEquiv='content-language' content='en' />
 
       {/* Theme and Styling */}
       <meta name='theme-color' content='#34dcdd' />

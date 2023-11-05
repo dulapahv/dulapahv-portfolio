@@ -4,18 +4,24 @@ import Image from 'next/image';
 import { FiExternalLink } from 'react-icons/fi';
 
 interface ProjectCardProps {
+  id: string;
   title: string;
   description: string;
-  src: string;
+  path: string;
+  size: number;
   url: string;
+  text: string[];
   new?: boolean;
   badge?: string[];
 }
 
 const ProjectCard = ({
+  id,
   title,
   description,
-  src,
+  path,
+  size,
+  text,
   url,
   new: isNew = false,
   badge,
@@ -24,57 +30,44 @@ const ProjectCard = ({
     <div className='card card-compact md:card-normal w-96 bg-base-100 rounded-md shadow-lg shadow-BLUE/30 dark:shadow-BLUE/20 dark:bg-neutral-700'>
       <figure
         onClick={() => {
-          const modal = document.getElementById(
-            'projectModal'
-          ) as HTMLDialogElement;
+          const modal = document.getElementById(id) as HTMLDialogElement;
           modal?.showModal();
         }}
         className='cursor-pointer after:content-["View_more_images"] after:pt-[2px] after:pl-2 after:pr-2 after:top-[226px] after:bg-BLACK/60 after:w-fit hover:after:w-full after:h-6 after:left-0 after:absolute after:rounded-tr-lg hover:after:rounded-none after:text-WHITE after:text-sm after:pointer-events-none'
       >
         <Image
-          src='/images/proj/kanbaru/1.png'
+          src={`/images/proj/${path}/1.png`}
           width={1541}
           height={1063}
-          alt='Suankularb Wittayalai School'
+          alt={path + ' cover'}
           className='w-screen bg-clip-content object-cover h-[250px] hover:brightness-[.85]'
         />
       </figure>
-      <dialog id='projectModal' className='modal'>
-        <div className='modal-box bg-WHITE dark:bg-BLACK cursor-default max-w-7xl'>
-          <form method='dialog'>
-            <button className='btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-BLACK dark:text-WHITE dark:hover:bg-WHITE/10'>
+      <dialog id={id} className='modal'>
+        <div className='modal-box bg-WHITE dark:bg-BLACK cursor-default max-w-7xl p-0 w-fit rounded-md'>
+          {/* <form method='dialog'>
+            <button className='btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-BLACK dark:text-WHITE dark:hover:bg-WHITE/10 focus:outline-none'>
               ✕
             </button>
-          </form>
-          <ul>
-            <li>
-              <Image
-                src='/images/proj/kanbaru/1.png'
-                width={1541}
-                height={1063}
-                alt='Suankularb Wittayalai School'
-              />
-            </li>
-            <li>
-              <Image
-                src='/images/proj/kanbaru/2.png'
-                width={1541}
-                height={1063}
-                alt='Suankularb Wittayalai School'
-              />
-            </li>
-            <li>
-              <Image
-                src='/images/proj/kanbaru/3.png'
-                width={1541}
-                height={1063}
-                alt='Suankularb Wittayalai School'
-              />
-            </li>
+          </form> */}
+          <ul className='flex flex-col items-center'>
+            {Array.from(Array(size).keys()).map((item, index) => (
+              <li key={index}>
+                <h1 className='text-BLACK dark:text-WHITE m-2'>
+                  {text[index]}
+                </h1>
+                <Image
+                  src={`/images/proj/${path}/${index + 1}.png`}
+                  width={750}
+                  height={500}
+                  alt={path + ' ' + index + 1}
+                />
+              </li>
+            ))}
           </ul>
         </div>
         <form method='dialog' className='modal-backdrop !cursor-default'>
-          <button aria-label='Close'></button>
+          <button aria-label='Close' className='focus:outline-none'></button>
         </form>
       </dialog>
       <div className='relative card-body'>

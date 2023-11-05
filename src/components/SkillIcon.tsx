@@ -28,7 +28,7 @@ const SkillIcon = ({
         width={width}
         height={height}
         alt={alt}
-        className='hover:animate-zoom-in-center animate-zoom-out-center'
+        className={`hover:animate-zoom-in-center animate-zoom-out-center`}
       />
     </div>
   );
