@@ -134,7 +134,7 @@ const Aboutme = () => {
               <div className='w-10 h-[2px] bg-BLUE flex flex-col'></div>
 
               <p className='text-WHITE text-xs min-[425px]:text-sm sm:text-base md:text-lg lg:text-xl text-justify'>
-                I am an experienced Full Stack Developer with a keen interest in
+                I am an experienced software engineer with a keen interest in
                 creating intuitive and robust web applications. While I
                 specialize in Front End technologies like Next.js and React.js,
                 my journey as a developer has also led me to explore Back End
