@@ -54,7 +54,7 @@ const ExpCard = ({
           } top-[30rem]`}
         ></div>
       </div>
-      <div className='flex flex-col lg:flex-row rounded-md px-4 sm:px-8 md:px-16 lg:px-24 h-full min-h-[28rem] z-10'>
+      <div className='flex flex-col lg:flex-row rounded-md px-4 sm:px-8 md:px-16 lg:px-24 h-full min-h-[28rem] z-10 mb-8'>
         <div
           className={`mt-3 lg:mt-0 mx-0 lg:mx-4 lg:w-1/2 ${
             isReversed ? 'order-2' : 'order-2 lg:order-1'
@@ -89,7 +89,7 @@ const ExpCard = ({
         <div
           className={`lg:w-1/2 ${
             isReversed
-              ? 'order-1 after:rounded-br-3xl hover:after:rounded-br-3xl'
+              ? 'order-1 after:rounded-tr-3xl'
               : 'order-1 lg:order-2 after:rounded-bl-3xl hover:after:rounded-bl-3xl'
           } relative cursor-pointer after:content-["View_more_images"] after:pt-2 after:pl-4 after:bottom-0 after:absolute max-h-[30rem] after:bg-BLACK/70 after:w-fit after:pr-4 after:rounded-tr-xl hover:after:rounded-none hover:after:w-full after:h-10 after:text-WHITE after:pointer-events-none`}
           onClick={() => {
@@ -137,9 +137,9 @@ const ExpCard = ({
             </form>
           </dialog>
           {isReversed ? (
-            <div className='absolute bg-BLUE w-screen h-36 -bottom-16 right-32 opacity-50 animate-clip-in-left -z-10'></div>
+            <div className='absolute bg-BLUE w-screen h-36 -bottom-16 right-32 opacity-50 animate-clip-in-left -z-10 pointer-events-none'></div>
           ) : (
-            <div className='absolute bg-BLUE w-screen h-36 -bottom-16 left-32 opacity-50 animate-clip-in-right -z-10'></div>
+            <div className='absolute bg-BLUE w-screen h-36 -bottom-16 left-32 opacity-50 animate-clip-in-right -z-10 pointer-events-none'></div>
           )}
         </div>
       </div>
