@@ -88,8 +88,10 @@ const ExpCard = ({
         </div>
         <div
           className={`lg:w-1/2 ${
-            isReversed ? 'order-1 after:rounded-br-3xl hover:after:rounded-br-3xl' : 'order-1 lg:order-2 after:rounded-bl-3xl hover:after:rounded-bl-3xl'
-          } relative cursor-pointer after:content-["View_more_images"] after:pt-2 after:pl-4 after:bottom-0 after:bg-BLACK/70 after:w-fit after:pr-4 after:rounded-tr-xl hover:after:rounded-none hover:after:w-full after:h-10 after:absolute after:text-WHITE after:pointer-events-none`}
+            isReversed
+              ? 'order-1 after:rounded-br-3xl hover:after:rounded-br-3xl'
+              : 'order-1 lg:order-2 after:rounded-bl-3xl hover:after:rounded-bl-3xl'
+          } relative cursor-pointer after:content-["View_more_images"] after:pt-2 after:pl-4 after:bottom-0 after:absolute max-h-[30rem] after:bg-BLACK/70 after:w-fit after:pr-4 after:rounded-tr-xl hover:after:rounded-none hover:after:w-full after:h-10 after:text-WHITE after:pointer-events-none`}
           onClick={() => {
             const modal = document.getElementById(id) as HTMLDialogElement;
             modal?.showModal();
@@ -102,7 +104,7 @@ const ExpCard = ({
             alt={path + ' cover'}
             className={`${
               isReversed ? 'rounded-br-3xl' : 'rounded-bl-3xl'
-            } w-full max-h-[30rem] lg:h-full object-cover lg:shadow-xl hover:brightness-[.85]`}
+            } w-full lg:h-full object-cover lg:shadow-xl hover:brightness-[.85]`}
           />
           <dialog id={id} className='modal'>
             <div className='modal-box bg-WHITE dark:bg-BLACK cursor-default max-w-7xl p-0 w-fit rounded-md'>
