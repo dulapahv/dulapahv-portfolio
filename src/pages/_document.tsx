@@ -5,15 +5,16 @@ export default function Document() {
   return (
     <Html lang='en'>
       {/* Google Analytics */}
-      <Script
-        async
-        src='https://www.googletagmanager.com/gtag/js?id=G-Q1V5DFC2B7'
-      ></Script>
-      <script>
-        {`window.dataLayer = window.dataLayer || [];
-        function gtag('js', new Date());
-        gtag('config', 'G-Q1V5DFC2B7');`}
-      </script>
+      <Script src='https://www.googletagmanager.com/gtag/js?id=G-Q1V5DFC2B7' />
+      <Script id='google-analytics'>
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-Q1V5DFC2B7');
+        `}
+      </Script>
 
       {/* Standard Meta Tags */}
       <meta charSet='UTF-8' />
