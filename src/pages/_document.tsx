@@ -1,8 +1,20 @@
 import { Head, Html, Main, NextScript } from 'next/document';
+import Script from 'next/script';
 
 export default function Document() {
   return (
     <Html lang='en'>
+      {/* Google Analytics */}
+      <Script
+        async
+        src='https://www.googletagmanager.com/gtag/js?id=G-Q1V5DFC2B7'
+      ></Script>
+      <script>
+        {`window.dataLayer = window.dataLayer || [];
+        function gtag('js', new Date());
+        gtag('config', 'G-Q1V5DFC2B7');`}
+      </script>
+
       {/* Standard Meta Tags */}
       <meta charSet='UTF-8' />
       <meta name='viewport' content='width=device-width, initial-scale=1.0' />

@@ -34,7 +34,6 @@ const Header = () => {
       const result = await response.json();
       if (result.success) {
         setIsFetchingEmail(false);
-        console.log(result.message);
         setEmail(result.message.email.label);
       } else {
         setIsFetchingEmail(false);
@@ -125,9 +124,13 @@ const Header = () => {
                   </h1>
                   <Turnstile
                     siteKey='0x4AAAAAAACYFWWcTzhCNWz4' // 0x4AAAAAAACYFWWcTzhCNWz4 1x00000000000000000000AA
-                    onError={() => console.log('Error!')}
+                    onError={() => {
+                      // TODO: Reset captcha
+                      console.log('Error!');
+                    }}
                     onExpire={() => {
                       console.log('Expired!');
+                      // TODO: Reset captcha
                       // captchaInstance.current?.reset();
                     }}
                     onSuccess={handleCaptchaSuccess}
