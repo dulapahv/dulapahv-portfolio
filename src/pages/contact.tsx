@@ -14,30 +14,30 @@ const Contact = () => {
 
   const Header = () => {
     return (
-      <div className='flex animate-fade-in flex-col overflow-x-hidden pb-20'>
-        <div className='relative z-[1] w-screen'>
-          <div className='absolute left-[-1.5%] top-40 h-14 w-14 animate-shake-vertical rounded-full bg-PURPLE opacity-70 animation-delay-1200'></div>
-          <div className='absolute left-[8%] top-40 h-4 w-4 animate-shake-vertical rounded-full bg-RED opacity-70'></div>
-          <div className='absolute left-[13%] top-24 h-8 w-8 animate-shake-vertical rounded-full bg-BLUE opacity-70 animation-delay-400'></div>
-          <div className='absolute left-[13%] top-64 h-10 w-10 animate-shake-vertical rounded-full bg-RED opacity-70'></div>
-          <div className='absolute left-[36%] top-20 h-14 w-14 animate-shake-vertical rounded-full bg-YELLOW opacity-70 animation-delay-800'></div>
-          <div className='absolute left-[83%] top-72 h-8 w-8 animate-shake-vertical rounded-full bg-PURPLE opacity-70 animation-delay-1200'></div>
-          <div className='absolute left-[89%] top-80 h-8 w-8 animate-shake-vertical rounded-full bg-YELLOW opacity-70 animation-delay-800'></div>
-          <div className='absolute left-[98%] top-56 h-14 w-14 animate-shake-vertical rounded-full bg-BLUE opacity-70 animation-delay-400'></div>
+      <div className="flex animate-fade-in flex-col overflow-x-hidden pb-20">
+        <div className="relative z-[1] w-screen">
+          <div className="absolute left-[-1.5%] top-40 h-14 w-14 animate-shake-vertical rounded-full bg-PURPLE opacity-70 animation-delay-1200"></div>
+          <div className="absolute left-[8%] top-40 h-4 w-4 animate-shake-vertical rounded-full bg-RED opacity-70"></div>
+          <div className="absolute left-[13%] top-24 h-8 w-8 animate-shake-vertical rounded-full bg-BLUE opacity-70 animation-delay-400"></div>
+          <div className="absolute left-[13%] top-64 h-10 w-10 animate-shake-vertical rounded-full bg-RED opacity-70"></div>
+          <div className="absolute left-[36%] top-20 h-14 w-14 animate-shake-vertical rounded-full bg-YELLOW opacity-70 animation-delay-800"></div>
+          <div className="absolute left-[83%] top-72 h-8 w-8 animate-shake-vertical rounded-full bg-PURPLE opacity-70 animation-delay-1200"></div>
+          <div className="absolute left-[89%] top-80 h-8 w-8 animate-shake-vertical rounded-full bg-YELLOW opacity-70 animation-delay-800"></div>
+          <div className="absolute left-[98%] top-56 h-14 w-14 animate-shake-vertical rounded-full bg-BLUE opacity-70 animation-delay-400"></div>
         </div>
-        <div className='flex flex-col justify-center gap-8 overflow-hidden lg:flex-row lg:justify-around lg:gap-0'>
-          <h1 className='ml-36 px-32 pt-36 text-5xl font-semibold uppercase tracking-[0.2em] text-BLACK first-letter:text-RED dark:text-WHITE'>
+        <div className="flex flex-col justify-center gap-8 overflow-hidden lg:flex-row lg:justify-around lg:gap-0">
+          <h1 className="ml-36 px-32 pt-36 text-5xl font-semibold uppercase tracking-[0.2em] text-BLACK first-letter:text-RED dark:text-WHITE">
             Contact
           </h1>
-          <div className='flex grow'>
+          <div className="flex grow">
             <Image
-              src='/images/bg_contact.jpg'
+              src="/images/bg_contact.jpg"
               width={1781}
               height={1000}
-              alt='University of Glasgow'
-              className='h-[330px] w-screen rounded-bl-3xl bg-clip-content object-cover opacity-50'
+              alt="University of Glasgow"
+              className="h-[330px] w-screen rounded-bl-3xl bg-clip-content object-cover opacity-50"
             />
-            <div className='absolute h-[330px] w-full rounded-bl-3xl bg-BLUE/10'></div>
+            <div className="absolute h-[330px] w-full rounded-bl-3xl bg-BLUE/10"></div>
           </div>
         </div>
       </div>
@@ -124,10 +124,10 @@ const Contact = () => {
       switch (captchaStatus) {
         case 'error':
           return (
-            <div className='flex flex-col items-center gap-4 text-lg font-medium text-BLACK dark:text-WHITE'>
+            <div className="flex flex-col items-center gap-4 text-lg font-medium text-BLACK dark:text-WHITE">
               <p>Failed to verify. Click here to try again</p>
               <button
-                className='btn bg-neutral-300'
+                className="btn bg-neutral-300"
                 onClick={() => {
                   captchaInstance.current!.render();
                   setCaptchaStatus('');
@@ -140,10 +140,10 @@ const Contact = () => {
         case 'expired':
           captchaInstance.current!.remove();
           return (
-            <div className='flex flex-col items-center gap-4 text-lg font-medium text-BLACK dark:text-WHITE'>
+            <div className="flex flex-col items-center gap-4 text-lg font-medium text-BLACK dark:text-WHITE">
               <p>Your session has expired. Click here to try again</p>
               <button
-                className='btn bg-neutral-300'
+                className="btn bg-neutral-300"
                 onClick={() => {
                   captchaInstance.current!.render();
                   setCaptchaStatus('');
@@ -156,10 +156,10 @@ const Contact = () => {
         case 'invalidToken':
           captchaInstance.current!.remove();
           return (
-            <div className='flex flex-col items-center gap-4 text-lg font-medium text-BLACK dark:text-WHITE'>
+            <div className="flex flex-col items-center gap-4 text-lg font-medium text-BLACK dark:text-WHITE">
               <p>Invalid token. Click here to try again</p>
               <button
-                className='btn bg-neutral-300'
+                className="btn bg-neutral-300"
                 onClick={() => {
                   captchaInstance.current!.render();
                   setCaptchaStatus('');
@@ -179,11 +179,11 @@ const Contact = () => {
         case 'other':
           captchaInstance.current!.remove();
           return (
-            <div className='flex flex-col items-center gap-4 text-lg font-medium text-BLACK dark:text-WHITE'>
+            <div className="flex flex-col items-center gap-4 text-lg font-medium text-BLACK dark:text-WHITE">
               <p>Something went wrong, please try again later</p>
               {otherErrorMsg && <p>({otherErrorMsg})</p>}
               <button
-                className='btn bg-neutral-300'
+                className="btn bg-neutral-300"
                 onClick={() => {
                   captchaInstance.current!.render();
                   setCaptchaStatus('');
@@ -195,26 +195,26 @@ const Contact = () => {
           );
         default:
           return (
-            <div className='flex flex-col items-center gap-4 text-lg font-medium text-BLACK dark:text-WHITE'>
+            <div className="flex flex-col items-center gap-4 text-lg font-medium text-BLACK dark:text-WHITE">
               <p>Checking that you are not a robot...</p>
-              <span className='loading loading-dots loading-lg'></span>
+              <span className="loading loading-dots loading-lg"></span>
             </div>
           );
       }
     };
 
     return (
-      <div className='relative'>
-        <div className='flex justify-center'>
+      <div className="relative">
+        <div className="flex justify-center">
           <div
-            className='flex animate-slide-in-fwd-bottom flex-col items-center'
+            className="flex animate-slide-in-fwd-bottom flex-col items-center"
             ref={captchaRef}
           >
-            <div className='pb-4'>
+            <div className="pb-4">
               <Msg />
             </div>
             <Turnstile
-              siteKey='0x4AAAAAAACYFWWcTzhCNWz4' // 0x4AAAAAAACYFWWcTzhCNWz4 1x00000000000000000000AA
+              siteKey="0x4AAAAAAACYFWWcTzhCNWz4" // 0x4AAAAAAACYFWWcTzhCNWz4 1x00000000000000000000AA
               onError={() => setCaptchaStatus('error')}
               onExpire={() => {
                 setCaptchaStatus('expired');
@@ -226,26 +226,26 @@ const Contact = () => {
               ref={captchaInstance}
             />
           </div>
-          <div className='hidden' ref={msgRef}>
-            <div className='grid grid-cols-2 gap-x-6 gap-y-12'>
-              <div className='flex w-96 animate-slide-in-fwd-bottom rounded-2xl bg-neutral-200 dark:bg-neutral-700'>
-                <div className='absolute -top-8 w-full'>
-                  <div className='flex w-full justify-center'>
-                    <div className='flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-full bg-RED'>
-                      <MdEmail className='text-4xl text-WHITE' />
+          <div className="hidden" ref={msgRef}>
+            <div className="grid grid-cols-2 gap-x-6 gap-y-12">
+              <div className="flex w-96 animate-slide-in-fwd-bottom rounded-2xl bg-neutral-200 dark:bg-neutral-700">
+                <div className="absolute -top-8 w-full">
+                  <div className="flex w-full justify-center">
+                    <div className="flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-full bg-RED">
+                      <MdEmail className="text-4xl text-WHITE" />
                     </div>
                   </div>
                 </div>
-                <div className='card-body mt-4 items-center gap-2 text-center text-WHITE'>
-                  <h2 className='card-title text-RED'>Email</h2>
-                  <p className='text-BLACK dark:text-WHITE'>
+                <div className="card-body mt-4 items-center gap-2 text-center text-WHITE">
+                  <h2 className="card-title text-RED">Email</h2>
+                  <p className="text-BLACK dark:text-WHITE">
                     {msg.email.label}
                   </p>
-                  <div className='card-actions mt-2 justify-end'>
+                  <div className="card-actions mt-2 justify-end">
                     <a
                       href={msg.email.link}
-                      target='_blank'
-                      rel='noopener noreferrer'
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <button className='btn h-10 min-h-0 border-none bg-RED text-WHITE after:content-["_↗"] hover:bg-RED/90'>
                         Contact
@@ -254,24 +254,24 @@ const Contact = () => {
                   </div>
                 </div>
               </div>
-              <div className='flex w-96 animate-slide-in-fwd-bottom rounded-2xl bg-neutral-200 animation-delay-100 dark:bg-neutral-700'>
-                <div className='absolute -top-8 w-full'>
-                  <div className='flex w-full justify-center'>
-                    <div className='flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-full bg-BLUE'>
-                      <BsDiscord className='text-3xl text-WHITE' />
+              <div className="flex w-96 animate-slide-in-fwd-bottom rounded-2xl bg-neutral-200 animation-delay-100 dark:bg-neutral-700">
+                <div className="absolute -top-8 w-full">
+                  <div className="flex w-full justify-center">
+                    <div className="flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-full bg-BLUE">
+                      <BsDiscord className="text-3xl text-WHITE" />
                     </div>
                   </div>
                 </div>
-                <div className='card-body mt-4 items-center gap-2 text-center text-WHITE'>
-                  <h2 className='card-title text-BLUE'>Discord</h2>
-                  <p className='text-BLACK dark:text-WHITE'>
+                <div className="card-body mt-4 items-center gap-2 text-center text-WHITE">
+                  <h2 className="card-title text-BLUE">Discord</h2>
+                  <p className="text-BLACK dark:text-WHITE">
                     {msg.discord.label}
                   </p>
-                  <div className='card-actions mt-2 justify-end'>
+                  <div className="card-actions mt-2 justify-end">
                     <a
                       href={msg.discord.link}
-                      target='_blank'
-                      rel='noopener noreferrer'
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <button className='btn h-10 min-h-0 border-none bg-BLUE text-WHITE after:content-["_↗"] hover:bg-BLUE/90'>
                         Contact
@@ -280,24 +280,24 @@ const Contact = () => {
                   </div>
                 </div>
               </div>
-              <div className='flex w-96 animate-slide-in-fwd-bottom rounded-2xl bg-neutral-200 animation-delay-200 dark:bg-neutral-700'>
-                <div className='absolute -top-8 w-full'>
-                  <div className='flex w-full justify-center'>
-                    <div className='flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-full bg-YELLOW'>
-                      <FaFacebookSquare className='text-3xl text-WHITE' />
+              <div className="flex w-96 animate-slide-in-fwd-bottom rounded-2xl bg-neutral-200 animation-delay-200 dark:bg-neutral-700">
+                <div className="absolute -top-8 w-full">
+                  <div className="flex w-full justify-center">
+                    <div className="flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-full bg-YELLOW">
+                      <FaFacebookSquare className="text-3xl text-WHITE" />
                     </div>
                   </div>
                 </div>
-                <div className='card-body mt-4 items-center gap-2 text-center text-WHITE'>
-                  <h2 className='card-title text-YELLOW'>Facebook</h2>
-                  <p className='text-BLACK dark:text-WHITE'>
+                <div className="card-body mt-4 items-center gap-2 text-center text-WHITE">
+                  <h2 className="card-title text-YELLOW">Facebook</h2>
+                  <p className="text-BLACK dark:text-WHITE">
                     {msg.facebook.label}
                   </p>
-                  <div className='card-actions mt-2 justify-end'>
+                  <div className="card-actions mt-2 justify-end">
                     <a
                       href={msg.facebook.link}
-                      target='_blank'
-                      rel='noopener noreferrer'
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <button className='btn h-10 min-h-0 border-none bg-YELLOW text-WHITE after:content-["_↗"] hover:bg-YELLOW/90'>
                         Contact
@@ -306,24 +306,24 @@ const Contact = () => {
                   </div>
                 </div>
               </div>
-              <div className='flex w-96 animate-slide-in-fwd-bottom rounded-2xl bg-neutral-200 animation-delay-300 dark:bg-neutral-700'>
-                <div className='absolute -top-8 w-full'>
-                  <div className='flex w-full justify-center'>
-                    <div className='flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-full bg-PURPLE'>
-                      <BsSteam className='text-3xl text-WHITE' />
+              <div className="flex w-96 animate-slide-in-fwd-bottom rounded-2xl bg-neutral-200 animation-delay-300 dark:bg-neutral-700">
+                <div className="absolute -top-8 w-full">
+                  <div className="flex w-full justify-center">
+                    <div className="flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-full bg-PURPLE">
+                      <BsSteam className="text-3xl text-WHITE" />
                     </div>
                   </div>
                 </div>
-                <div className='card-body mt-4 items-center gap-2 text-center text-WHITE'>
-                  <h2 className='card-title text-PURPLE'>Steam</h2>
-                  <p className='text-BLACK dark:text-WHITE'>
+                <div className="card-body mt-4 items-center gap-2 text-center text-WHITE">
+                  <h2 className="card-title text-PURPLE">Steam</h2>
+                  <p className="text-BLACK dark:text-WHITE">
                     {msg.steam.label}
                   </p>
-                  <div className='card-actions mt-2 justify-end'>
+                  <div className="card-actions mt-2 justify-end">
                     <a
                       href={msg.steam.link}
-                      target='_blank'
-                      rel='noopener noreferrer'
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <button className='btn h-10 min-h-0 border-none bg-PURPLE text-WHITE after:content-["_↗"] hover:bg-PURPLE/90'>
                         Contact
@@ -342,7 +342,7 @@ const Contact = () => {
   return (
     <>
       <div
-        className='fixed z-0 h-screen w-[15rem] overflow-hidden bg-repeat [background-size:105%] dark:bg-black/60 dark:bg-blend-multiply sm:w-[20rem] sm:[background-size:79%] md:w-[30rem] md:[background-size:53%] lg:w-[40rem] lg:[background-size:40%]'
+        className="fixed z-0 h-screen w-[15rem] overflow-hidden bg-repeat [background-size:105%] dark:bg-black/60 dark:bg-blend-multiply sm:w-[20rem] sm:[background-size:79%] md:w-[30rem] md:[background-size:53%] lg:w-[40rem] lg:[background-size:40%]"
         style={{
           backgroundImage: `url(/images/bg_pattern.png)`,
         }}

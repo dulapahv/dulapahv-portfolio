@@ -22,7 +22,7 @@ const SkillIcon = ({
   }
 
   return (
-    <div className='tooltip' data-tip={tooltip}>
+    <div className="tooltip" data-tip={tooltip}>
       <Image
         src={`/images/${src}`}
         width={width}

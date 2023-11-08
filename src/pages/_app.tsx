@@ -14,12 +14,12 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <div className={`${open_sans.className}`}>
-        <ThemeProvider defaultTheme='dark'>
-          <div className='flex min-h-screen flex-col bg-WHITE dark:bg-BLACK '>
-            <div className='flex-grow'>
+        <ThemeProvider defaultTheme="dark">
+          <div className="flex min-h-screen flex-col bg-WHITE dark:bg-BLACK ">
+            <div className="flex-grow">
               <Component {...pageProps} />
             </div>
-            <div className='fixed bottom-0 right-0'>
+            <div className="fixed bottom-0 right-0">
               <Nav />
             </div>
           </div>

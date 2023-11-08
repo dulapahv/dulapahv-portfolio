@@ -32,7 +32,7 @@ const ExpCard = ({
 }: ExpCardProps) => {
   return (
     <>
-      <div className='relative w-screen'>
+      <div className="relative w-screen">
         <div
           className={`absolute h-4 w-4 animate-shake-vertical rounded-full bg-PURPLE opacity-70 animation-delay-1200 ${
             isReversed ? 'left-[96%]' : 'left-[3%]'
@@ -54,32 +54,32 @@ const ExpCard = ({
           } top-[30rem]`}
         ></div>
       </div>
-      <div className='z-10 mb-8 flex h-full min-h-[28rem] flex-col rounded-md px-4 sm:px-8 md:px-16 lg:flex-row lg:px-24'>
+      <div className="z-10 mb-8 flex h-full min-h-[28rem] flex-col rounded-md px-4 sm:px-8 md:px-16 lg:flex-row lg:px-24">
         <div
           className={`mx-0 mt-3 lg:mx-4 lg:mt-0 lg:w-1/2 ${
             isReversed ? 'order-2' : 'order-2 lg:order-1'
           }`}
         >
-          <h1 className='bg-RED px-2 py-1 text-lg font-bold text-WHITE'>
+          <h1 className="bg-RED px-2 py-1 text-lg font-bold text-WHITE">
             {title}
           </h1>
-          <h2 className='flex flex-wrap items-center font-light text-YELLOW-800 dark:text-YELLOW'>
+          <h2 className="flex flex-wrap items-center font-light text-YELLOW-800 dark:text-YELLOW">
             {location}{' '}
-            <TbMinusVertical className='text-BLACK dark:text-WHITE' /> {date}
+            <TbMinusVertical className="text-BLACK dark:text-WHITE" /> {date}
           </h2>
-          <h3 className='flex flex-wrap items-center text-BLACK dark:text-WHITE'>
-            <span className='bg-gradient-to-r from-BLUE from-10% via-PURPLE via-30% to-RED bg-clip-text font-semibold italic text-transparent'>
+          <h3 className="flex flex-wrap items-center text-BLACK dark:text-WHITE">
+            <span className="bg-gradient-to-r from-BLUE from-10% via-PURPLE via-30% to-RED bg-clip-text font-semibold italic text-transparent">
               {position}
             </span>
             <TbMinusVertical />
-            <span className='text-BLACK dark:text-WHITE'>{tech} </span>
+            <span className="text-BLACK dark:text-WHITE">{tech} </span>
           </h3>
-          <div className='mb-7 mt-4 flex h-[2px] w-14 flex-col bg-gradient-to-r from-RED to-RED-400'></div>
-          <ul className='ml-5 list-outside list-disc'>
+          <div className="mb-7 mt-4 flex h-[2px] w-14 flex-col bg-gradient-to-r from-RED to-RED-400"></div>
+          <ul className="ml-5 list-outside list-disc">
             {detail?.map((item, index) => (
               <li
                 key={index}
-                className='text-justify text-BLACK dark:text-WHITE'
+                className="text-justify text-BLACK dark:text-WHITE"
               >
                 {item}
               </li>
@@ -106,17 +106,17 @@ const ExpCard = ({
               isReversed ? 'rounded-br-3xl' : 'rounded-bl-3xl'
             } w-full object-cover hover:brightness-[.85] lg:h-full lg:shadow-xl`}
           />
-          <dialog id={id} className='modal'>
-            <div className='modal-box w-fit max-w-7xl cursor-default rounded-md bg-WHITE p-0 dark:bg-BLACK'>
-              <form method='dialog'>
-                <button className='btn btn-circle btn-ghost btn-sm absolute right-2 top-1 text-RED hover:bg-RED hover:text-WHITE  focus:outline-none'>
+          <dialog id={id} className="modal">
+            <div className="modal-box w-fit max-w-7xl cursor-default rounded-md bg-WHITE p-0 dark:bg-BLACK">
+              <form method="dialog">
+                <button className="btn btn-circle btn-ghost btn-sm absolute right-2 top-1 text-RED hover:bg-RED hover:text-WHITE  focus:outline-none">
                   ✕
                 </button>
               </form>
-              <ul className='flex flex-col items-center'>
+              <ul className="flex flex-col items-center">
                 {Array.from(Array(size).keys()).map((item, index) => (
                   <li key={index}>
-                    <h1 className='m-2 text-BLACK dark:text-WHITE'>
+                    <h1 className="m-2 text-BLACK dark:text-WHITE">
                       {index + 1}. {text[index]}
                     </h1>
                     <Image
@@ -129,17 +129,17 @@ const ExpCard = ({
                 ))}
               </ul>
             </div>
-            <form method='dialog' className='modal-backdrop !cursor-default'>
+            <form method="dialog" className="modal-backdrop !cursor-default">
               <button
-                aria-label='Close'
-                className='focus:outline-none'
+                aria-label="Close"
+                className="focus:outline-none"
               ></button>
             </form>
           </dialog>
           {isReversed ? (
-            <div className='pointer-events-none absolute -bottom-16 right-32 -z-10 h-36 w-screen animate-clip-in-left bg-BLUE opacity-50'></div>
+            <div className="pointer-events-none absolute -bottom-16 right-32 -z-10 h-36 w-screen animate-clip-in-left bg-BLUE opacity-50"></div>
           ) : (
-            <div className='pointer-events-none absolute -bottom-16 left-32 -z-10 h-36 w-screen animate-clip-in-right bg-BLUE opacity-50'></div>
+            <div className="pointer-events-none absolute -bottom-16 left-32 -z-10 h-36 w-screen animate-clip-in-right bg-BLUE opacity-50"></div>
           )}
         </div>
       </div>
