@@ -5,16 +5,16 @@ import { ExpCard } from '@/components';
 const Experience = () => {
   return (
     <div
-      className='flex flex-col gap-8 py-8 justify-center animate-fade-in overflow-hidden'
+      className='flex animate-fade-in flex-col justify-center gap-8 overflow-hidden py-8'
       id='experience'
     >
       <div className='flex flex-col items-center gap-16 py-8'>
-        <h1 className='text-BLACK dark:text-WHITE text-2xl min-[375px]:text-3xl sm:text-4xl uppercase tracking-[0.2em] font-semibold first-letter:text-RED'>
+        <h1 className='text-2xl font-semibold uppercase tracking-[0.2em] text-BLACK first-letter:text-RED dark:text-WHITE min-[375px]:text-3xl sm:text-4xl'>
           Work Experience
         </h1>
-        <div className='w-14 h-[2px] bg-gradient-to-r from-BLUE to-BLUE-400 flex flex-col'></div>
+        <div className='flex h-[2px] w-14 flex-col bg-gradient-to-r from-BLUE to-BLUE-400'></div>
       </div>
-      <div className='flex flex-col gap-8 lg:gap-16 -mt-8 lg:-mt-16'>
+      <div className='-mt-8 flex flex-col gap-8 lg:-mt-16 lg:gap-16'>
         <ExpCard
           id='exp-kees'
           title="King Mongkut's Institute of Technology Ladkrabang (KMITL)"

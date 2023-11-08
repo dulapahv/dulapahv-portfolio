@@ -1,7 +1,5 @@
 import React from 'react';
 
-import Script from 'next/script';
-
 import Skill from './skill';
 import Header from './header';
 import AboutMe from './aboutme';
@@ -13,7 +11,7 @@ const Index = () => {
   return (
     <>
       <div
-        className='fixed w-[15rem] sm:w-[20rem] md:w-[30rem] lg:w-[40rem] [background-size:105%] sm:[background-size:79%] md:[background-size:53%] lg:[background-size:40%] bg-repeat dark:bg-black/40 min-h-screen overflow-hidden dark:brightness-[.33] z-0'
+        className='fixed z-0 min-h-screen w-[15rem] overflow-hidden bg-repeat [background-size:105%] dark:bg-black/40 dark:brightness-[.33] sm:w-[20rem] sm:[background-size:79%] md:w-[30rem] md:[background-size:53%] lg:w-[40rem] lg:[background-size:40%]'
         style={{
           backgroundImage: `url(/images/bg_pattern.png)`,
         }}

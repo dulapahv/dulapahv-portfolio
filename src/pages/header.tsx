@@ -46,39 +46,39 @@ const Header = () => {
   };
 
   return (
-    <div className='flex flex-col animate-fade-in overflow-hidden'>
-      <div className='w-screen relative'>
-        <div className='absolute rounded-full w-4 h-4 bg-RED animate-shake-vertical opacity-70 left-[8%] top-[256px]'></div>
-        <div className='absolute rounded-full w-8 h-8 bg-BLUE animate-shake-vertical animation-delay-400 opacity-70 left-[13%] top-[176px]'></div>
-        <div className='absolute rounded-full w-16 h-16 bg-YELLOW animate-shake-vertical animation-delay-800 opacity-70 left-[36%] top-[128px]'></div>
-        <div className='absolute rounded-full w-12 h-12 bg-PURPLE animate-shake-vertical animation-delay-1200 opacity-70 left-[68%] top-[128px]'></div>
-        <div className='absolute rounded-full w-8 h-8 bg-YELLOW animate-shake-vertical animation-delay-800 opacity-70 left-[4%] top-[640px]'></div>
-        <div className='absolute rounded-full w-12 h-12 bg-PURPLE animate-shake-vertical animation-delay-1200 opacity-70 -left-[1%] top-[704px]'></div>
-        <div className='absolute rounded-full w-12 h-12 bg-RED animate-shake-vertical opacity-70 left-[26%] top-[768px]'></div>
-        <div className='absolute rounded-full w-8 h-8 bg-YELLOW animate-shake-vertical animation-delay-800 opacity-70 left-[84%] top-[848px]'></div>
-        <div className='absolute rounded-full w-16 h-16 bg-BLUE animate-shake-vertical animation-delay-400 opacity-70 left-[97%] top-[512px]'></div>
+    <div className='flex animate-fade-in flex-col overflow-hidden'>
+      <div className='relative w-screen'>
+        <div className='absolute left-[8%] top-[256px] h-4 w-4 animate-shake-vertical rounded-full bg-RED opacity-70'></div>
+        <div className='absolute left-[13%] top-[176px] h-8 w-8 animate-shake-vertical rounded-full bg-BLUE opacity-70 animation-delay-400'></div>
+        <div className='absolute left-[36%] top-[128px] h-16 w-16 animate-shake-vertical rounded-full bg-YELLOW opacity-70 animation-delay-800'></div>
+        <div className='absolute left-[68%] top-[128px] h-12 w-12 animate-shake-vertical rounded-full bg-PURPLE opacity-70 animation-delay-1200'></div>
+        <div className='absolute left-[4%] top-[640px] h-8 w-8 animate-shake-vertical rounded-full bg-YELLOW opacity-70 animation-delay-800'></div>
+        <div className='absolute -left-[1%] top-[704px] h-12 w-12 animate-shake-vertical rounded-full bg-PURPLE opacity-70 animation-delay-1200'></div>
+        <div className='absolute left-[26%] top-[768px] h-12 w-12 animate-shake-vertical rounded-full bg-RED opacity-70'></div>
+        <div className='absolute left-[84%] top-[848px] h-8 w-8 animate-shake-vertical rounded-full bg-YELLOW opacity-70 animation-delay-800'></div>
+        <div className='absolute left-[97%] top-[512px] h-16 w-16 animate-shake-vertical rounded-full bg-BLUE opacity-70 animation-delay-400'></div>
       </div>
-      <div className='flex flex-col pt-4 md:pt-8 lg:pt-0 lg:flex-row min-h-screen h-fit items-center gap-8 lg:gap-0 lg:justify-around z-[1] overflow-hidden'>
-        <div className='w-fit flex flex-col gap-10 lg:gap-20 mx-4 md:mx-8'>
+      <div className='z-[1] flex h-fit min-h-screen flex-col items-center gap-8 overflow-hidden pt-4 md:pt-8 lg:flex-row lg:justify-around lg:gap-0 lg:pt-0'>
+        <div className='mx-4 flex w-fit flex-col gap-10 md:mx-8 lg:gap-20'>
           <div className='animate-clip-in-left animation-delay-100'>
             <h1
-              className={`bg-BLUE text-3xl md:text-4xl lg:text-5xl text-WHITE uppercase font-bold p-3 pl-3 lg:pl-6 tracking-[0.2em] [text-shadow:0_0_5px_#54f1ff]`}
+              className={`bg-BLUE p-3 pl-3 text-3xl font-bold uppercase tracking-[0.2em] text-WHITE [text-shadow:0_0_5px_#54f1ff] md:text-4xl lg:pl-6 lg:text-5xl`}
             >
               Dulapah Vibulsanti
             </h1>
-            <h2 className='bg-BLACK/50 dark:bg-WHITE/50 text-WHITE flex flex-wrap items-center px-3 w-fit text-sm md:text-base'>
+            <h2 className='flex w-fit flex-wrap items-center bg-BLACK/50 px-3 text-sm text-WHITE dark:bg-WHITE/50 md:text-base'>
               NEXT.JS <TbMinusVertical /> TAILWIND CSS <TbMinusVertical />{' '}
               TYPESCRIPT <TbMinusVertical /> FIGMA <TbMinusVertical /> PYTHON{' '}
               <TbMinusVertical /> C/C++
             </h2>
-            <h3 className='bg-BLACK/10 dark:bg-WHITE text-BLACK flex flex-wrap items-center px-3 w-fit text-sm md:text-base'>
+            <h3 className='flex w-fit flex-wrap items-center bg-BLACK/10 px-3 text-sm text-BLACK dark:bg-WHITE md:text-base'>
               <a
                 href='https://www.linkedin.com/in/dulapahv/'
                 target='_blank'
                 rel='noopener noreferrer'
               >
                 LinkedIn
-                <FiExternalLink className='ml-1 text-BLACK/80 inline mb-1' />
+                <FiExternalLink className='mb-1 ml-1 inline text-BLACK/80' />
               </a>
               <span className='select-none'>&nbsp;&nbsp;&nbsp;</span>
               <a
@@ -87,7 +87,7 @@ const Header = () => {
                 rel='noopener noreferrer'
               >
                 GitHub
-                <FiExternalLink className='ml-1 text-BLACK/80 inline mb-1' />
+                <FiExternalLink className='mb-1 ml-1 inline text-BLACK/80' />
               </a>
               <span className='select-none'>&nbsp;&nbsp;&nbsp;</span>
               {email ? (
@@ -98,7 +98,7 @@ const Header = () => {
                     <span className='loading loading-bars loading-sm align-middle'></span>
                   ) : (
                     <button
-                      className='btn btn-ghost min-h-0 h-[24px] p-0 leading-3 hover:bg-transparent capitalize font-normal text-base underline'
+                      className='btn btn-ghost h-[24px] min-h-0 p-0 text-base font-normal capitalize leading-3 underline hover:bg-transparent'
                       onClick={() => {
                         setIsRevealEmail(true);
                         const modal = document!.getElementById(
@@ -117,8 +117,8 @@ const Header = () => {
           <dialog id='turnstileModal' className='modal'>
             {isRevealEmail && (
               <>
-                <div className='modal-box w-fit p-0 bg-WHITE dark:bg-BLACK rounded-none'>
-                  <h1 className='text-BLACK dark:text-WHITE text-center'>
+                <div className='modal-box w-fit rounded-none bg-WHITE p-0 dark:bg-BLACK'>
+                  <h1 className='text-center text-BLACK dark:text-WHITE'>
                     <span className='loading loading-bars loading-sm mr-2 align-middle'></span>
                     Verifying...
                   </h1>
@@ -147,21 +147,21 @@ const Header = () => {
             )}
           </dialog>
           <div className='flex flex-col gap-4'>
-            <h3 className='bg-RED text-WHITE items-center uppercase px-3 py-1 w-fit font-medium text-sm sm:text-base md:text-lg animate-clip-in-left animation-delay-100 -rotate-6 [text-shadow:0_0_5px_#c3456d]'>
+            <h3 className='w-fit -rotate-6 animate-clip-in-left items-center bg-RED px-3 py-1 text-sm font-medium uppercase text-WHITE animation-delay-100 [text-shadow:0_0_5px_#c3456d] sm:text-base md:text-lg'>
               Software Engineer
             </h3>
-            <h3 className='bg-YELLOW text-WHITE items-center uppercase px-3 py-1 w-fit font-medium text-sm sm:text-base md:text-lg animate-clip-in-left animation-delay-200 -rotate-6 [text-shadow:0_0_5px_#917833]'>
+            <h3 className='w-fit -rotate-6 animate-clip-in-left items-center bg-YELLOW px-3 py-1 text-sm font-medium uppercase text-WHITE animation-delay-200 [text-shadow:0_0_5px_#917833] sm:text-base md:text-lg'>
               Frontend Developer
             </h3>
-            <h3 className='bg-PURPLE text-WHITE items-center uppercase px-3 py-1 w-fit font-medium text-sm sm:text-base md:text-lg animate-clip-in-left animation-delay-300 -rotate-6 [text-shadow:0_0_5px_#7948c7]'>
+            <h3 className='w-fit -rotate-6 animate-clip-in-left items-center bg-PURPLE px-3 py-1 text-sm font-medium uppercase text-WHITE animation-delay-300 [text-shadow:0_0_5px_#7948c7] sm:text-base md:text-lg'>
               Pursuing Fullstack Developer
             </h3>
           </div>
         </div>
         <div className='relative mt-4 lg:mt-0'>
-          <div className='absolute bg-BLUE w-screen h-36 -bottom-16 left-32 opacity-50 animate-clip-in-right'></div>
-          <div className='flex mx-8 w-64 min-[375px]:w-72 min-[425px]:w-80 sm:w-96 md:w-[26rem] lg:w-auto'>
-            <div className='animate-clip-in-left animation-delay-300 z-[1] w-fit'>
+          <div className='absolute -bottom-16 left-32 h-36 w-screen animate-clip-in-right bg-BLUE opacity-50'></div>
+          <div className='mx-8 flex w-64 min-[375px]:w-72 min-[425px]:w-80 sm:w-96 md:w-[26rem] lg:w-auto'>
+            <div className='z-[1] w-fit animate-clip-in-left animation-delay-300'>
               <Image
                 src='/images/profile_pic.jpg'
                 width={500}
@@ -170,21 +170,21 @@ const Header = () => {
                 className='rounded-bl-3xl'
               />
             </div>
-            <div className='absolute bg-BLUE h-full aspect-square animate-clip-in-left z-0 rounded-bl-3xl shadow'></div>
+            <div className='absolute z-0 aspect-square h-full animate-clip-in-left rounded-bl-3xl bg-BLUE shadow'></div>
           </div>
         </div>
       </div>
-      <div className='relative bottom-32 text-RED z-[1] text-2xl text-center flex flex-col items-center gap-1'>
-        <div className='animate-bounce flex flex-col items-center'>
+      <div className='relative bottom-32 z-[1] flex flex-col items-center gap-1 text-center text-2xl text-RED'>
+        <div className='flex animate-bounce flex-col items-center'>
           <BsArrowDownCircleFill
-            className='btn btn-sm btn-circle text-RED cursor-pointer z-[1] drop-shadow-md'
+            className='btn btn-circle btn-sm z-[1] cursor-pointer text-RED drop-shadow-md'
             onClick={() => {
               const education = document.getElementById('aboutme');
               education?.scrollIntoView({ behavior: 'smooth' });
             }}
           />
           <button
-            className='absolute btn btn-sm btn-circle pointer-events-none animate-ping z-0 drop-shadow-md'
+            className='btn btn-circle btn-sm pointer-events-none absolute z-0 animate-ping drop-shadow-md'
             aria-label='Scroll to see more'
           ></button>
         </div>

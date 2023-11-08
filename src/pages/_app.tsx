@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <div className={`${open_sans.className}`}>
         <ThemeProvider defaultTheme='dark'>
-          <div className='min-h-screen flex flex-col bg-WHITE dark:bg-BLACK '>
+          <div className='flex min-h-screen flex-col bg-WHITE dark:bg-BLACK '>
             <div className='flex-grow'>
               <Component {...pageProps} />
             </div>

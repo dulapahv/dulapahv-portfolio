@@ -32,54 +32,54 @@ const ExpCard = ({
 }: ExpCardProps) => {
   return (
     <>
-      <div className='w-screen relative'>
+      <div className='relative w-screen'>
         <div
-          className={`absolute rounded-full w-4 h-4 bg-PURPLE animate-shake-vertical animation-delay-1200 opacity-70 ${
+          className={`absolute h-4 w-4 animate-shake-vertical rounded-full bg-PURPLE opacity-70 animation-delay-1200 ${
             isReversed ? 'left-[96%]' : 'left-[3%]'
           } top-[13rem]`}
         ></div>
         <div
-          className={`absolute rounded-full w-8 h-8 bg-RED animate-shake-vertical opacity-70 ${
+          className={`absolute h-8 w-8 animate-shake-vertical rounded-full bg-RED opacity-70 ${
             isReversed ? 'left-[93.5%]' : 'left-[5%]'
           } top-[19rem]`}
         ></div>
         <div
-          className={`absolute rounded-full w-14 h-14 bg-BLUE animate-shake-vertical animation-delay-400 opacity-70 ${
+          className={`absolute h-14 w-14 animate-shake-vertical rounded-full bg-BLUE opacity-70 animation-delay-400 ${
             isReversed ? 'left-[95%]' : 'left-[2%]'
           } top-[25rem]`}
         ></div>
         <div
-          className={`absolute rounded-full w-10 h-10 bg-YELLOW animate-shake-vertical animation-delay-800 opacity-70 ${
+          className={`absolute h-10 w-10 animate-shake-vertical rounded-full bg-YELLOW opacity-70 animation-delay-800 ${
             isReversed ? 'left-[90%]' : 'left-[8%]'
           } top-[30rem]`}
         ></div>
       </div>
-      <div className='flex flex-col lg:flex-row rounded-md px-4 sm:px-8 md:px-16 lg:px-24 h-full min-h-[28rem] z-10 mb-8'>
+      <div className='z-10 mb-8 flex h-full min-h-[28rem] flex-col rounded-md px-4 sm:px-8 md:px-16 lg:flex-row lg:px-24'>
         <div
-          className={`mt-3 lg:mt-0 mx-0 lg:mx-4 lg:w-1/2 ${
+          className={`mx-0 mt-3 lg:mx-4 lg:mt-0 lg:w-1/2 ${
             isReversed ? 'order-2' : 'order-2 lg:order-1'
           }`}
         >
-          <h1 className='text-WHITE bg-RED font-bold text-lg py-1 px-2'>
+          <h1 className='bg-RED px-2 py-1 text-lg font-bold text-WHITE'>
             {title}
           </h1>
-          <h2 className='text-YELLOW-800 dark:text-YELLOW font-light flex flex-wrap items-center'>
+          <h2 className='flex flex-wrap items-center font-light text-YELLOW-800 dark:text-YELLOW'>
             {location}{' '}
             <TbMinusVertical className='text-BLACK dark:text-WHITE' /> {date}
           </h2>
-          <h3 className='text-BLACK dark:text-WHITE flex flex-wrap items-center'>
-            <span className='italic bg-gradient-to-r from-BLUE from-10% via-PURPLE via-30% to-RED bg-clip-text text-transparent font-semibold'>
+          <h3 className='flex flex-wrap items-center text-BLACK dark:text-WHITE'>
+            <span className='bg-gradient-to-r from-BLUE from-10% via-PURPLE via-30% to-RED bg-clip-text font-semibold italic text-transparent'>
               {position}
             </span>
             <TbMinusVertical />
             <span className='text-BLACK dark:text-WHITE'>{tech} </span>
           </h3>
-          <div className='w-14 h-[2px] bg-gradient-to-r from-RED to-RED-400 flex flex-col mt-4 mb-7'></div>
-          <ul className='list-disc list-outside ml-5'>
+          <div className='mb-7 mt-4 flex h-[2px] w-14 flex-col bg-gradient-to-r from-RED to-RED-400'></div>
+          <ul className='ml-5 list-outside list-disc'>
             {detail?.map((item, index) => (
               <li
                 key={index}
-                className='text-BLACK dark:text-WHITE text-justify'
+                className='text-justify text-BLACK dark:text-WHITE'
               >
                 {item}
               </li>
@@ -90,8 +90,8 @@ const ExpCard = ({
           className={`lg:w-1/2 ${
             isReversed
               ? 'order-1 after:rounded-tr-3xl'
-              : 'order-1 lg:order-2 after:rounded-bl-3xl hover:after:rounded-bl-3xl'
-          } relative cursor-pointer after:content-["View_more_images"] after:pt-2 after:pl-4 after:bottom-0 after:absolute max-h-[30rem] after:bg-BLACK/70 after:w-fit after:pr-4 after:rounded-tr-xl hover:after:rounded-none hover:after:w-full after:h-10 after:text-WHITE after:pointer-events-none`}
+              : 'order-1 after:rounded-bl-3xl hover:after:rounded-bl-3xl lg:order-2'
+          } relative max-h-[30rem] cursor-pointer after:pointer-events-none after:absolute after:bottom-0 after:h-10 after:w-fit after:rounded-tr-xl after:bg-BLACK/70 after:pl-4 after:pr-4 after:pt-2 after:text-WHITE after:content-["View_more_images"] hover:after:w-full hover:after:rounded-none`}
           onClick={() => {
             const modal = document.getElementById(id) as HTMLDialogElement;
             modal?.showModal();
@@ -104,19 +104,19 @@ const ExpCard = ({
             alt={path + ' cover'}
             className={`${
               isReversed ? 'rounded-br-3xl' : 'rounded-bl-3xl'
-            } w-full lg:h-full object-cover lg:shadow-xl hover:brightness-[.85]`}
+            } w-full object-cover hover:brightness-[.85] lg:h-full lg:shadow-xl`}
           />
           <dialog id={id} className='modal'>
-            <div className='modal-box bg-WHITE dark:bg-BLACK cursor-default max-w-7xl p-0 w-fit rounded-md'>
+            <div className='modal-box w-fit max-w-7xl cursor-default rounded-md bg-WHITE p-0 dark:bg-BLACK'>
               <form method='dialog'>
-                <button className='btn btn-sm btn-circle btn-ghost absolute right-2 top-1 text-RED hover:text-WHITE hover:bg-RED  focus:outline-none'>
+                <button className='btn btn-circle btn-ghost btn-sm absolute right-2 top-1 text-RED hover:bg-RED hover:text-WHITE  focus:outline-none'>
                   ✕
                 </button>
               </form>
               <ul className='flex flex-col items-center'>
                 {Array.from(Array(size).keys()).map((item, index) => (
                   <li key={index}>
-                    <h1 className='text-BLACK dark:text-WHITE m-2'>
+                    <h1 className='m-2 text-BLACK dark:text-WHITE'>
                       {index + 1}. {text[index]}
                     </h1>
                     <Image
@@ -137,9 +137,9 @@ const ExpCard = ({
             </form>
           </dialog>
           {isReversed ? (
-            <div className='absolute bg-BLUE w-screen h-36 -bottom-16 right-32 opacity-50 animate-clip-in-left -z-10 pointer-events-none'></div>
+            <div className='pointer-events-none absolute -bottom-16 right-32 -z-10 h-36 w-screen animate-clip-in-left bg-BLUE opacity-50'></div>
           ) : (
-            <div className='absolute bg-BLUE w-screen h-36 -bottom-16 left-32 opacity-50 animate-clip-in-right -z-10 pointer-events-none'></div>
+            <div className='pointer-events-none absolute -bottom-16 left-32 -z-10 h-36 w-screen animate-clip-in-right bg-BLUE opacity-50'></div>
           )}
         </div>
       </div>

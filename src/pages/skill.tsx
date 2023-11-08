@@ -6,34 +6,34 @@ const Skill = () => {
   return (
     <>
       <div
-        className='flex flex-col gap-8 py-8 justify-center overflow-hidden -scroll-my-8'
+        className='flex -scroll-my-8 flex-col justify-center gap-8 overflow-hidden py-8'
         id='skill'
       >
-        <div className='w-screen relative'>
-          <div className='absolute rounded-full w-4 h-4 bg-RED animate-shake-vertical opacity-70 left-[8%] top-[206px]'></div>
-          <div className='absolute rounded-full w-8 h-8 bg-BLUE animate-shake-vertical animation-delay-400 opacity-70 left-[13%] top-[126px]'></div>
-          <div className='absolute rounded-full w-16 h-16 bg-YELLOW animate-shake-vertical animation-delay-800 opacity-70 left-[36%] top-[78px]'></div>
-          <div className='absolute rounded-full w-12 h-12 bg-PURPLE animate-shake-vertical animation-delay-1200 opacity-70 left-[68%] top-[78px]'></div>
-          <div className='absolute rounded-full w-8 h-8 bg-YELLOW animate-shake-vertical animation-delay-800 opacity-70 left-[4%] top-[590px]'></div>
-          <div className='absolute rounded-full w-12 h-12 bg-RED animate-shake-vertical animation-delay-800 opacity-70 left-[54%] top-[600px]'></div>
-          <div className='absolute rounded-full w-12 h-12 bg-PURPLE animate-shake-vertical animation-delay-1200 opacity-70 -left-[1%] top-[754px]'></div>
-          <div className='absolute rounded-full w-8 h-8 bg-RED animate-shake-vertical opacity-70 left-[38%] top-[868px]'></div>
-          <div className='absolute rounded-full w-10 h-10 bg-YELLOW animate-shake-vertical animation-delay-800 opacity-70 left-[84%] top-[940px]'></div>
-          <div className='absolute rounded-full w-16 h-16 bg-BLUE animate-shake-vertical animation-delay-400 opacity-70 left-[97%] top-[462px]'></div>
+        <div className='relative w-screen'>
+          <div className='absolute left-[8%] top-[206px] h-4 w-4 animate-shake-vertical rounded-full bg-RED opacity-70'></div>
+          <div className='absolute left-[13%] top-[126px] h-8 w-8 animate-shake-vertical rounded-full bg-BLUE opacity-70 animation-delay-400'></div>
+          <div className='absolute left-[36%] top-[78px] h-16 w-16 animate-shake-vertical rounded-full bg-YELLOW opacity-70 animation-delay-800'></div>
+          <div className='absolute left-[68%] top-[78px] h-12 w-12 animate-shake-vertical rounded-full bg-PURPLE opacity-70 animation-delay-1200'></div>
+          <div className='absolute left-[4%] top-[590px] h-8 w-8 animate-shake-vertical rounded-full bg-YELLOW opacity-70 animation-delay-800'></div>
+          <div className='absolute left-[54%] top-[600px] h-12 w-12 animate-shake-vertical rounded-full bg-RED opacity-70 animation-delay-800'></div>
+          <div className='absolute -left-[1%] top-[754px] h-12 w-12 animate-shake-vertical rounded-full bg-PURPLE opacity-70 animation-delay-1200'></div>
+          <div className='absolute left-[38%] top-[868px] h-8 w-8 animate-shake-vertical rounded-full bg-RED opacity-70'></div>
+          <div className='absolute left-[84%] top-[940px] h-10 w-10 animate-shake-vertical rounded-full bg-YELLOW opacity-70 animation-delay-800'></div>
+          <div className='absolute left-[97%] top-[462px] h-16 w-16 animate-shake-vertical rounded-full bg-BLUE opacity-70 animation-delay-400'></div>
         </div>
         <div className='relative flex flex-col items-center gap-6 py-8'>
-          <h1 className='text-BLACK dark:text-WHITE text-4xl uppercase tracking-[0.2em] font-semibold first-letter:text-RED'>
+          <h1 className='text-4xl font-semibold uppercase tracking-[0.2em] text-BLACK first-letter:text-RED dark:text-WHITE'>
             Skill
           </h1>
-          <div className='w-14 h-[2px] bg-gradient-to-r from-BLUE to-BLUE-400 flex flex-col'></div>
+          <div className='flex h-[2px] w-14 flex-col bg-gradient-to-r from-BLUE to-BLUE-400'></div>
         </div>
         <div className='relative grid grid-cols-1 justify-items-center lg:justify-items-stretch'>
-          <div className='flex flex-col lg:flex-row lg:justify-around gap-4 mx-4'>
+          <div className='mx-4 flex flex-col gap-4 lg:flex-row lg:justify-around'>
             <div className='flex flex-col gap-y-4'>
               <div className='flex flex-col gap-y-6'>
-                <h1 className='relative text-BLACK dark:text-WHITE flex items-center gap-x-2 text-base sm:text-lg [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"]'>
+                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] dark:text-WHITE sm:text-lg'>
                   Programming Languages
-                  <div className='absolute left-0 -bottom-2 w-32'>
+                  <div className='absolute -bottom-2 left-0 w-32'>
                     <div className='grid grid-cols-4'>
                       <div className='h-[2px] bg-RED'></div>
                       <div className='h-[2px] bg-BLUE'></div>
@@ -42,7 +42,7 @@ const Skill = () => {
                     </div>
                   </div>
                 </h1>
-                <div className='flex gap-3 items-center flex-wrap'>
+                <div className='flex flex-wrap items-center gap-3'>
                   <SkillIcon src='/lang/ts.svg' alt='TypeScript' />
                   <SkillIcon src='/lang/js.svg' alt='JavaScript' />
                   <SkillIcon
@@ -65,9 +65,9 @@ const Skill = () => {
                 </div>
               </div>
               <div className='flex flex-col gap-y-6'>
-                <h1 className='relative text-BLACK dark:text-WHITE flex items-center gap-x-2 text-base sm:text-lg [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"]'>
+                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] dark:text-WHITE sm:text-lg'>
                   Web Development {'('}Front End{')'}
-                  <div className='absolute left-0 -bottom-2 w-32'>
+                  <div className='absolute -bottom-2 left-0 w-32'>
                     <div className='grid grid-cols-4'>
                       <div className='h-[2px] bg-RED'></div>
                       <div className='h-[2px] bg-BLUE'></div>
@@ -76,7 +76,7 @@ const Skill = () => {
                     </div>
                   </div>
                 </h1>
-                <div className='flex gap-3 items-center flex-wrap'>
+                <div className='flex flex-wrap items-center gap-3'>
                   <SkillIcon
                     src='/web_front/nextjs.svg'
                     width={144}
@@ -94,9 +94,9 @@ const Skill = () => {
                 </div>
               </div>
               <div className='flex flex-col gap-y-6'>
-                <h1 className='relative text-BLACK dark:text-WHITE flex items-center gap-x-2 text-base sm:text-lg [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"]'>
+                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] dark:text-WHITE sm:text-lg'>
                   Web Development {'('}Back End{')'}
-                  <div className='absolute left-0 -bottom-2 w-32'>
+                  <div className='absolute -bottom-2 left-0 w-32'>
                     <div className='grid grid-cols-4'>
                       <div className='h-[2px] bg-RED'></div>
                       <div className='h-[2px] bg-BLUE'></div>
@@ -105,7 +105,7 @@ const Skill = () => {
                     </div>
                   </div>
                 </h1>
-                <div className='flex gap-3 flex-wrap items-center'>
+                <div className='flex flex-wrap items-center gap-3'>
                   <SkillIcon
                     src='/web_back/expressjs.svg'
                     width={132}
@@ -133,9 +133,9 @@ const Skill = () => {
                 </div>
               </div>
               <div className='flex flex-col gap-y-6'>
-                <h1 className='relative text-BLACK dark:text-WHITE flex items-center gap-x-2 text-base sm:text-lg [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"]'>
+                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] dark:text-WHITE sm:text-lg'>
                   Testing
-                  <div className='absolute left-0 -bottom-2 w-32'>
+                  <div className='absolute -bottom-2 left-0 w-32'>
                     <div className='grid grid-cols-4'>
                       <div className='h-[2px] bg-RED'></div>
                       <div className='h-[2px] bg-BLUE'></div>
@@ -144,7 +144,7 @@ const Skill = () => {
                     </div>
                   </div>
                 </h1>
-                <div className='flex gap-3 items-center flex-wrap'>
+                <div className='flex flex-wrap items-center gap-3'>
                   <SkillIcon src='/testing/insomnia.svg' alt='Insomnia' />
                   <SkillIcon
                     src='/testing/postman.svg'
@@ -157,9 +157,9 @@ const Skill = () => {
             </div>
             <div className='flex flex-col gap-4'>
               <div className='flex flex-col gap-y-6'>
-                <h1 className='relative text-BLACK dark:text-WHITE flex items-center gap-x-2 text-base sm:text-lg [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"]'>
+                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] dark:text-WHITE sm:text-lg'>
                   Database Management System
-                  <div className='absolute left-0 -bottom-2 w-32'>
+                  <div className='absolute -bottom-2 left-0 w-32'>
                     <div className='grid grid-cols-4'>
                       <div className='h-[2px] bg-RED'></div>
                       <div className='h-[2px] bg-BLUE'></div>
@@ -168,7 +168,7 @@ const Skill = () => {
                     </div>
                   </div>
                 </h1>
-                <div className='flex gap-3 items-center flex-wrap'>
+                <div className='flex flex-wrap items-center gap-3'>
                   <SkillIcon src='/dbms/postgresql.svg' alt='PostgreSQL' />
                   <SkillIcon
                     src='/dbms/sqlite.svg'
@@ -178,9 +178,9 @@ const Skill = () => {
                 </div>
               </div>
               <div className='flex flex-col gap-y-6'>
-                <h1 className='relative text-BLACK dark:text-WHITE flex items-center gap-x-2 text-base sm:text-lg [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"]'>
+                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] dark:text-WHITE sm:text-lg'>
                   DevOps
-                  <div className='absolute left-0 -bottom-2 w-32'>
+                  <div className='absolute -bottom-2 left-0 w-32'>
                     <div className='grid grid-cols-4'>
                       <div className='h-[2px] bg-RED'></div>
                       <div className='h-[2px] bg-BLUE'></div>
@@ -189,7 +189,7 @@ const Skill = () => {
                     </div>
                   </div>
                 </h1>
-                <div className='flex gap-3 items-center flex-wrap'>
+                <div className='flex flex-wrap items-center gap-3'>
                   <SkillIcon
                     src='/devops/docker.svg'
                     width={72}
@@ -199,9 +199,9 @@ const Skill = () => {
                 </div>
               </div>
               <div className='flex flex-col gap-y-6'>
-                <h1 className='relative text-BLACK dark:text-WHITE flex items-center gap-x-2 text-base sm:text-lg [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"]'>
+                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] dark:text-WHITE sm:text-lg'>
                   Others
-                  <div className='absolute left-0 -bottom-2 w-32'>
+                  <div className='absolute -bottom-2 left-0 w-32'>
                     <div className='grid grid-cols-4'>
                       <div className='h-[2px] bg-RED'></div>
                       <div className='h-[2px] bg-BLUE'></div>
@@ -210,7 +210,7 @@ const Skill = () => {
                     </div>
                   </div>
                 </h1>
-                <div className='flex gap-3 items-center flex-wrap'>
+                <div className='flex flex-wrap items-center gap-3'>
                   <SkillIcon src='/other/qt.svg' alt='Qt' />
                   <SkillIcon src='/other/bash.svg' alt='Bash' />
                   <SkillIcon

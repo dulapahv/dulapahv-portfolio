@@ -18,19 +18,19 @@ const ThemeSwitch = (props: Props) => {
   return (
     <>
       <button
-        className='btn absolute bottom-[172px] sm:bottom-[196px] right-[50px] sm:right-[64px] bg-YELLOW hover:bg-YELLOW w-20 h-20 sm:w-[88px] sm:h-[88px] rotate-45 hover:ring-offset-[3px] hover:ring-offset-black/60 hover:ring-2 ring-YELLOW-300 active:!rotate-45 text-WHITE animate-none active:scale-95'
+        className='btn absolute bottom-[172px] right-[50px] h-20 w-20 rotate-45 animate-none bg-YELLOW text-WHITE ring-YELLOW-300 hover:bg-YELLOW hover:ring-2 hover:ring-offset-[3px] hover:ring-offset-black/60 active:!rotate-45 active:scale-95 sm:bottom-[196px] sm:right-[64px] sm:h-[88px] sm:w-[88px]'
         onClick={() => {
           setTheme(
             theme === 'dark' || resolvedTheme === 'dark' ? 'light' : 'dark'
           );
         }}
       >
-        <div className='-rotate-45 w-fit flex flex-col items-center'>
-          <div className='flex flex-row gap-2 justify-center'>
+        <div className='flex w-fit -rotate-45 flex-col items-center'>
+          <div className='flex flex-row justify-center gap-2'>
             {mounted && (theme === 'dark' || resolvedTheme === 'dark') ? (
-              <MdDarkMode className='w-8 h-auto my-1' />
+              <MdDarkMode className='my-1 h-auto w-8' />
             ) : (
-              <MdLightMode className='w-8 h-auto my-1' />
+              <MdLightMode className='my-1 h-auto w-8' />
             )}
           </div>
           <p className='capitalize'>Theme</p>
