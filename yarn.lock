@@ -291,10 +291,10 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@marsidev/react-turnstile@^0.3.2":
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/@marsidev/react-turnstile/-/react-turnstile-0.3.2.tgz#8811a63b64c0b4bd0a3fdd6ff7efaa1c524ed6ed"
-  integrity sha512-NTTmQdVgSFTHZlFRw/6RwG2kveT6J57U8JdjhbSdKcSBEbhqoe9L3wPMbq8g31KCDOm2cYTu/LNavAPbCY1vgA==
+"@marsidev/react-turnstile@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@marsidev/react-turnstile/-/react-turnstile-0.4.0.tgz#1ab8694ee0b219a8f3a137f761fa443708294600"
+  integrity sha512-U0lwTWQhP04AnIdWEbLpF/phpqtblNbrnE4yJMdvGyeOZOTmuHW3wB+V8X+BO55pTXZitp2GgJsrGkbUjwJIeQ==
 
 "@mui/base@5.0.0-beta.23":
   version "5.0.0-beta.23"
