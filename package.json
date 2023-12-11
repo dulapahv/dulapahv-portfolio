@@ -15,7 +15,7 @@
     "@marsidev/react-turnstile": "^0.4.0",
     "@mui/material": "^5.14.17",
     "@sentry/nextjs": "^7.80.0",
-    "@types/node": "20.9.0",
+    "@types/node": "20.10.4",
     "@types/react": "18.2.37",
     "@types/react-dom": "18.2.15",
     "autoprefixer": "10.4.16",
