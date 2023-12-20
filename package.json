@@ -21,7 +21,7 @@
     "@vercel/speed-insights": "^1.0.2",
     "autoprefixer": "10.4.16",
     "daisyui": "^4.4.19",
-    "eslint": "8.53.0",
+    "eslint": "8.56.0",
     "eslint-config-next": "14.0.2",
     "next": "^14.0.4",
     "framer-motion": "^10.16.16",
