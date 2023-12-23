@@ -41,7 +41,7 @@ const Education = () => {
               <div
                 className={`absolute top-12 ${
                   index % 2 === 0
-                    ? 'left-0 rounded-br-xl md:right-0 md:rounded-none md:rounded-bl-xl'
+                    ? 'left-0 rounded-br-xl md:left-auto md:right-0 md:rounded-none md:rounded-bl-xl'
                     : 'rounded-br-xl'
                 } p-3 text-WHITE opacity-80`}
                 style={{ backgroundColor: value.color }}
