@@ -129,10 +129,10 @@ const ExpCard = ({
                 ))}
               </ul>
             </div>
-            <form method="dialog" className="modal-backdrop !cursor-default">
+            <form method="dialog" className="modal-backdrop">
               <button
                 aria-label="Close"
-                className="focus:outline-none"
+                className="!cursor-default focus:outline-none"
               ></button>
             </form>
           </dialog>

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Image from 'next/image';
+import { Tooltip } from '@nextui-org/react';
 
 interface SkillIconProps {
   src: string;
@@ -22,7 +23,7 @@ const SkillIcon = ({
   }
 
   return (
-    <div className="tooltip" data-tip={tooltip}>
+    <Tooltip content={tooltip} closeDelay={0}>
       <Image
         src={`/images/${src}`}
         width={width}
@@ -30,7 +31,7 @@ const SkillIcon = ({
         alt={alt}
         className={`animate-zoom-out-center hover:animate-zoom-in-center`}
       />
-    </div>
+    </Tooltip>
   );
 };
 

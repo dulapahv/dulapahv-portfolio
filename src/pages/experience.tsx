@@ -5,7 +5,7 @@ import { ExpCard } from '@/components';
 const Experience = () => {
   return (
     <div
-      className="flex animate-fade-in flex-col justify-center gap-8 overflow-hidden py-8"
+      className="relative flex animate-fade-in flex-col justify-center gap-8 overflow-hidden py-8"
       id="experience"
     >
       <div className="flex flex-col items-center gap-16 py-8">
@@ -50,7 +50,7 @@ const Experience = () => {
           title="Geo-Informatics and Space Technology Development Agency (GISTDA)"
           location="Bangkok, Thailand"
           date="Jun 2023 - Aug 2023"
-          position="Full stack Developer Intern"
+          position="Full Stack Developer Intern"
           tech="React.js, Tailwind CSS, PostgreSQL, Express.js, Python"
           detail={[
             'Developed a Full Stack website facilitating spatial correlation analysis between crop cultivation and crop residue burning incidents, empowering government and authorities to make decisions in fire prevention and mitigation.',

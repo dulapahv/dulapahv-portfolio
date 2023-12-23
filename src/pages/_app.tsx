@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps }: AppProps) {
               <Component {...pageProps} />
               <SpeedInsights />
             </div>
-            <div className="fixed bottom-0 right-0">
+            <div className="fixed bottom-0 right-0 z-[2147483647]">
               <Nav />
             </div>
           </div>

@@ -1,8 +1,10 @@
 import React, { useRef, useState } from 'react';
 
-import { CgProfile } from 'react-icons/cg';
+import { MdWork } from 'react-icons/md';
+import { MdSchool } from 'react-icons/md';
+import { Tooltip } from '@nextui-org/react';
+import { FaLightbulb } from 'react-icons/fa';
 import { LiaAtomSolid } from 'react-icons/lia';
-import { BiSolidContact } from 'react-icons/bi';
 import { RiSparkling2Fill, RiSparkling2Line } from 'react-icons/ri';
 
 import ThemeSwitch from './ThemeSwitch';
@@ -42,7 +44,7 @@ const Nav = () => {
             }}
           >
             <div className="flex w-fit -rotate-45 flex-col items-center">
-              <CgProfile className="my-1 h-auto w-8" />
+              <MdSchool className="my-1 h-auto w-8" />
               <p className="capitalize">Education</p>
             </div>
           </button>
@@ -57,7 +59,7 @@ const Nav = () => {
             }}
           >
             <div className="flex w-fit -rotate-45 flex-col items-center">
-              <LiaAtomSolid className="h-auto w-8" />
+              <MdWork className="h-auto w-8" />
               <p className="capitalize">Experience</p>
             </div>
           </button>
@@ -75,7 +77,7 @@ const Nav = () => {
             }}
           >
             <div className="flex w-fit -rotate-45 flex-col items-center">
-              <CgProfile className="my-1 h-auto w-8" />
+              <LiaAtomSolid className="my-1 h-auto w-8" />
               <p className="capitalize">Skill</p>
             </div>
           </button>
@@ -90,7 +92,7 @@ const Nav = () => {
             }}
           >
             <div className="flex w-fit -rotate-45 flex-col items-center">
-              <BiSolidContact className="my-1 h-auto w-8" />
+              <FaLightbulb className="my-1 h-auto w-8" />
               <p className="capitalize">Project</p>
             </div>
           </button>
@@ -101,21 +103,28 @@ const Nav = () => {
 
   return (
     <>
-      <button
-        className={`btn relative z-50 h-28 w-28 bg-BLUE hover:bg-BLUE active:!translate-x-1 active:!translate-y-1 sm:h-32 sm:w-32 ${
-          isNavOpen ? 'text-YELLOW' : 'text-WHITE'
-        } rounded-none drop-shadow-lg [clip-path:polygon(100%_0,_0_100%,_100%_100%)] hover:text-YELLOW`}
-        onClick={() => {
-          isNavOpen ? handleCloseNav() : setIsNavOpen(true);
-        }}
-        aria-label="Open Navigation"
+      <Tooltip
+        content="Open Navigation"
+        delay={400}
+        closeDelay={0}
+        placement="left-end"
       >
-        {isNavOpen ? (
-          <RiSparkling2Fill className="relative left-6 top-6 h-auto w-10 animate-scale-up-center" />
-        ) : (
-          <RiSparkling2Line className="relative left-6 top-6 h-auto w-10 animate-scale-up-center" />
-        )}
-      </button>
+        <button
+          className={`btn relative z-50 h-28 w-28 bg-BLUE hover:bg-BLUE active:!translate-x-1 active:!translate-y-1 sm:h-32 sm:w-32 ${
+            isNavOpen ? 'text-YELLOW' : 'text-WHITE'
+          } rounded-none drop-shadow-lg [clip-path:polygon(100%_0,_0_100%,_100%_100%)] hover:text-YELLOW`}
+          onClick={() => {
+            isNavOpen ? handleCloseNav() : setIsNavOpen(true);
+          }}
+          aria-label="Open Navigation"
+        >
+          {isNavOpen ? (
+            <RiSparkling2Fill className="relative left-6 top-6 h-auto w-10 animate-scale-up-center" />
+          ) : (
+            <RiSparkling2Line className="relative left-6 top-6 h-auto w-10 animate-scale-up-center" />
+          )}
+        </button>
+      </Tooltip>
       {isNavOpen && (
         <>
           <NavMenu />
