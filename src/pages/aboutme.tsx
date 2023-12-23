@@ -22,7 +22,7 @@ const Aboutme = () => {
   const ScrollingTextBg = () => {
     return (
       <div className="flex animate-fade-in flex-col justify-center overflow-hidden">
-        <div className="mt-12 flex animate-puff-out-center flex-col justify-evenly text-base font-semibold !opacity-90 animation-delay-1000 dark:text-white sm:text-lg md:text-xl lg:text-2xl">
+        <div className="mt-12 flex animate-puff-out-center flex-col justify-evenly text-base font-semibold !opacity-90 animation-delay-1000 sm:text-lg md:text-xl lg:text-2xl dark:text-white">
           <p className="animate-slide-text-right-5 text-center">NextJS</p>
           <p className="animate-slide-text-left-2 text-center text-lg font-bold text-BLUE animation-delay-1000 sm:text-xl md:text-2xl lg:text-3xl">
             Hi! I&apos;m dulapahv~💕

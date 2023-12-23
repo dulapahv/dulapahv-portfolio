@@ -33,7 +33,7 @@ const Nav = () => {
 
   const NavMenu = () => {
     return (
-      <div className="relative z-50">
+      <div className="relative z-[2147483647]">
         <div className="animate-fade-in" ref={navItemRef1}>
           <button
             className="btn absolute bottom-[80px] right-[20px] h-20 w-20 rotate-45 animate-none bg-PURPLE text-WHITE ring-PURPLE-300 hover:bg-PURPLE hover:ring-2 hover:ring-offset-[3px] hover:ring-offset-black/60 active:!rotate-45 active:scale-95 sm:bottom-[96px] sm:right-[28px] sm:h-[88px] sm:w-[88px]"
@@ -110,7 +110,7 @@ const Nav = () => {
         placement="left-end"
       >
         <button
-          className={`btn relative z-50 h-28 w-28 bg-BLUE hover:bg-BLUE active:!translate-x-1 active:!translate-y-1 sm:h-32 sm:w-32 ${
+          className={`btn relative z-[2147483647] h-28 w-28 bg-BLUE hover:bg-BLUE active:!translate-x-1 active:!translate-y-1 sm:h-32 sm:w-32 ${
             isNavOpen ? 'text-YELLOW' : 'text-WHITE'
           } rounded-none drop-shadow-lg [clip-path:polygon(100%_0,_0_100%,_100%_100%)] hover:text-YELLOW`}
           onClick={() => {
@@ -129,7 +129,7 @@ const Nav = () => {
         <>
           <NavMenu />
           <div
-            className="fixed left-0 top-0 z-40 h-screen w-screen animate-fade-in bg-black/30"
+            className="fixed left-0 top-0 z-[2147483646] h-screen w-screen animate-fade-in bg-black/30"
             onClick={handleCloseNav}
             ref={navBackdropRef}
           ></div>
