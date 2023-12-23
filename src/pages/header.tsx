@@ -7,6 +7,8 @@ import { FiExternalLink } from 'react-icons/fi';
 import { TbMinusVertical } from 'react-icons/tb';
 import { BsArrowDownCircleFill } from 'react-icons/bs';
 import { Turnstile, TurnstileInstance } from '@marsidev/react-turnstile';
+import { IoDocumentOutline } from 'react-icons/io5';
+import { HiOutlineDocument } from 'react-icons/hi2';
 
 const Header = () => {
   const captchaInstance = useRef<TurnstileInstance>(null);
@@ -58,7 +60,7 @@ const Header = () => {
         <div className="absolute left-[84%] top-[848px] h-8 w-8 animate-shake-vertical rounded-full bg-YELLOW opacity-70 animation-delay-800"></div>
         <div className="absolute left-[97%] top-[512px] h-16 w-16 animate-shake-vertical rounded-full bg-BLUE opacity-70 animation-delay-400"></div>
       </div>
-      <div className="z-[1] flex h-fit min-h-screen flex-col items-center gap-8 overflow-hidden pt-4 md:pt-8 lg:flex-row lg:justify-around lg:gap-0 lg:pt-0">
+      <div className="flex h-fit min-h-screen flex-col items-center gap-8 overflow-hidden pt-4 md:pt-8 lg:flex-row lg:justify-around lg:gap-0 lg:pt-0">
         <div className="mx-4 flex w-fit flex-col gap-10 md:mx-8 lg:gap-20">
           <div className="animate-clip-in-left animation-delay-100">
             <h1
@@ -72,23 +74,29 @@ const Header = () => {
               <TbMinusVertical /> C/C++
             </h2>
             <h3 className="flex w-fit flex-wrap items-center bg-BLACK/10 px-3 text-sm text-BLACK dark:bg-WHITE md:text-base">
-              <a
-                href="https://www.linkedin.com/in/dulapahv/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                LinkedIn
-                <FiExternalLink className="mb-1 ml-1 inline text-BLACK/80" />
-              </a>
+              <button className="btn btn-ghost h-[24px] min-h-0 p-0 text-base font-normal capitalize leading-3 hover:bg-transparent">
+                <a
+                  href="https://www.linkedin.com/in/dulapahv/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="-mb-1"
+                >
+                  LinkedIn
+                  <FiExternalLink className="mb-1 ml-1 inline text-BLACK/80" />
+                </a>
+              </button>
               <span className="select-none">&nbsp;&nbsp;&nbsp;</span>
-              <a
-                href="https://github.com/dulapahv/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                GitHub
-                <FiExternalLink className="mb-1 ml-1 inline text-BLACK/80" />
-              </a>
+              <button className="btn btn-ghost h-[24px] min-h-0 p-0 text-base font-normal capitalize leading-3 hover:bg-transparent">
+                <a
+                  href="https://github.com/dulapahv/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="-mb-1"
+                >
+                  GitHub
+                  <FiExternalLink className="mb-1 ml-1 inline text-BLACK/80" />
+                </a>
+              </button>
               <span className="select-none">&nbsp;&nbsp;&nbsp;</span>
               {email ? (
                 email
@@ -113,6 +121,19 @@ const Header = () => {
                 </>
               )}
             </h3>
+            <h4 className="flex w-fit flex-wrap items-center bg-BLACK/10 px-3 text-sm text-BLACK dark:bg-WHITE md:text-base">
+              <button className="btn btn-ghost h-[24px] min-h-0 p-0 text-base font-normal capitalize leading-3 hover:bg-transparent">
+                <a
+                  href="https://gla-my.sharepoint.com/:b:/g/personal/2920990v_student_gla_ac_uk/EYjeFQclguxLgkkEvybx7twBQhjldsjUp0q0l5m1Kt4Sbg?e=tM6J8c"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="-mb-1"
+                >
+                  View Resume
+                  <HiOutlineDocument className="mb-1 ml-1 inline stroke-2 text-BLACK" />
+                </a>
+              </button>
+            </h4>
           </div>
           <dialog id="turnstileModal" className="modal">
             {isRevealEmail && (
@@ -170,7 +191,7 @@ const Header = () => {
                 className="rounded-bl-3xl"
               />
             </div>
-            <div className="absolute z-0 aspect-square h-full animate-clip-in-left rounded-bl-3xl bg-BLUE shadow"></div>
+            <div className="absolute aspect-square h-full animate-clip-in-left rounded-bl-3xl bg-BLUE shadow"></div>
           </div>
         </div>
       </div>

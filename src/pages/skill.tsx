@@ -6,7 +6,7 @@ const Skill = () => {
   return (
     <>
       <div
-        className="flex -scroll-my-8 flex-col justify-center gap-8 overflow-hidden py-8"
+        className="flex flex-col justify-center gap-8 overflow-hidden py-8"
         id="skill"
       >
         <div className="relative w-screen">

@@ -66,8 +66,11 @@ const ProjectCard = ({
             ))}
           </ul>
         </div>
-        <form method="dialog" className="modal-backdrop !cursor-default">
-          <button aria-label="Close" className="focus:outline-none"></button>
+        <form method="dialog" className="modal-backdrop">
+          <button
+            aria-label="Close"
+            className="!cursor-default focus:outline-none"
+          ></button>
         </form>
       </dialog>
       <div className="card-body relative">
