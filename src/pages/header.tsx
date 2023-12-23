@@ -68,12 +68,12 @@ const Header = () => {
             >
               Dulapah Vibulsanti
             </h1>
-            <h2 className="flex w-fit flex-wrap items-center bg-BLACK/50 px-3 text-sm text-WHITE dark:bg-WHITE/50 md:text-base">
+            <h2 className="flex w-fit flex-wrap items-center bg-BLACK/50 px-3 text-sm text-WHITE md:text-base dark:bg-WHITE/50">
               NEXT.JS <TbMinusVertical /> TAILWIND CSS <TbMinusVertical />{' '}
               TYPESCRIPT <TbMinusVertical /> FIGMA <TbMinusVertical /> PYTHON{' '}
               <TbMinusVertical /> C/C++
             </h2>
-            <h3 className="flex w-fit flex-wrap items-center bg-BLACK/10 px-3 text-sm text-BLACK dark:bg-WHITE md:text-base">
+            <h3 className="flex w-fit flex-wrap items-center bg-BLACK/10 px-3 text-sm text-BLACK md:text-base dark:bg-WHITE">
               <button className="btn btn-ghost h-[24px] min-h-0 p-0 text-base font-normal capitalize leading-3 hover:bg-transparent">
                 <a
                   href="https://www.linkedin.com/in/dulapahv/"
@@ -121,7 +121,7 @@ const Header = () => {
                 </>
               )}
             </h3>
-            <h4 className="flex w-fit flex-wrap items-center bg-BLACK/10 px-3 text-sm text-BLACK dark:bg-WHITE md:text-base">
+            <h3 className="flex w-fit flex-wrap items-center bg-BLACK/10 px-3 text-sm text-BLACK md:text-base dark:bg-WHITE">
               <button className="btn btn-ghost h-[24px] min-h-0 p-0 text-base font-normal capitalize leading-3 hover:bg-transparent">
                 <a
                   href="https://gla-my.sharepoint.com/:b:/g/personal/2920990v_student_gla_ac_uk/EYjeFQclguxLgkkEvybx7twBQhjldsjUp0q0l5m1Kt4Sbg?e=tM6J8c"
@@ -133,7 +133,7 @@ const Header = () => {
                   <HiOutlineDocument className="mb-1 ml-1 inline stroke-2 text-BLACK" />
                 </a>
               </button>
-            </h4>
+            </h3>
           </div>
           <dialog id="turnstileModal" className="modal">
             {isRevealEmail && (

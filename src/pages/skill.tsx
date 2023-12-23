@@ -31,7 +31,7 @@ const Skill = () => {
           <div className="mx-4 flex flex-col gap-4 lg:flex-row lg:justify-around">
             <div className="flex flex-col gap-y-4">
               <div className="flex flex-col gap-y-6">
-                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] dark:text-WHITE sm:text-lg'>
+                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
                   Programming Languages
                   <div className="absolute -bottom-2 left-0 w-32">
                     <div className="grid grid-cols-4">
@@ -65,7 +65,7 @@ const Skill = () => {
                 </div>
               </div>
               <div className="flex flex-col gap-y-6">
-                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] dark:text-WHITE sm:text-lg'>
+                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
                   Web Development {'('}Front End{')'}
                   <div className="absolute -bottom-2 left-0 w-32">
                     <div className="grid grid-cols-4">
@@ -94,7 +94,7 @@ const Skill = () => {
                 </div>
               </div>
               <div className="flex flex-col gap-y-6">
-                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] dark:text-WHITE sm:text-lg'>
+                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
                   Web Development {'('}Back End{')'}
                   <div className="absolute -bottom-2 left-0 w-32">
                     <div className="grid grid-cols-4">
@@ -133,7 +133,7 @@ const Skill = () => {
                 </div>
               </div>
               <div className="flex flex-col gap-y-6">
-                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] dark:text-WHITE sm:text-lg'>
+                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
                   Testing
                   <div className="absolute -bottom-2 left-0 w-32">
                     <div className="grid grid-cols-4">
@@ -157,7 +157,7 @@ const Skill = () => {
             </div>
             <div className="flex flex-col gap-4">
               <div className="flex flex-col gap-y-6">
-                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] dark:text-WHITE sm:text-lg'>
+                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
                   Database Management System
                   <div className="absolute -bottom-2 left-0 w-32">
                     <div className="grid grid-cols-4">
@@ -178,7 +178,7 @@ const Skill = () => {
                 </div>
               </div>
               <div className="flex flex-col gap-y-6">
-                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] dark:text-WHITE sm:text-lg'>
+                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
                   DevOps
                   <div className="absolute -bottom-2 left-0 w-32">
                     <div className="grid grid-cols-4">
@@ -199,7 +199,7 @@ const Skill = () => {
                 </div>
               </div>
               <div className="flex flex-col gap-y-6">
-                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] dark:text-WHITE sm:text-lg'>
+                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
                   Others
                   <div className="absolute -bottom-2 left-0 w-32">
                     <div className="grid grid-cols-4">

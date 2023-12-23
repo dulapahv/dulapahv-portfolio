@@ -7,8 +7,6 @@ interface ProjectCardProps {
   id: string;
   title: string;
   description: string;
-  path: string;
-  size: number;
   url: string;
   text: string[];
   new?: boolean;
@@ -19,8 +17,6 @@ const ProjectCard = ({
   id,
   title,
   description,
-  path,
-  size,
   text,
   url,
   new: isNew = false,
@@ -36,10 +32,10 @@ const ProjectCard = ({
         className='cursor-pointer after:pointer-events-none after:absolute after:left-0 after:top-[226px] after:h-6 after:w-fit after:rounded-tr-lg after:bg-BLACK/60 after:pl-2 after:pr-2 after:pt-[2px] after:text-sm after:text-WHITE after:content-["View_more_images"] hover:after:w-full hover:after:rounded-none'
       >
         <Image
-          src={`/images/proj/${path}/1.png`}
+          src={`/images/proj/${id}/1.png`}
           width={1541}
           height={1063}
-          alt={path + ' cover'}
+          alt={id + ' cover'}
           className="h-[250px] w-screen bg-clip-content object-cover hover:brightness-[.85]"
         />
       </figure>
@@ -51,16 +47,16 @@ const ProjectCard = ({
             </button>
           </form>
           <ul className="flex flex-col items-center">
-            {Array.from(Array(size).keys()).map((item, index) => (
+            {text?.map((item, index) => (
               <li key={index}>
                 <h1 className="m-2 text-BLACK dark:text-WHITE">
-                  {index + 1}. {text[index]}
+                  {index + 1}. {item}
                 </h1>
                 <Image
-                  src={`/images/proj/${path}/${index + 1}.png`}
+                  src={`/images/proj/${id}/${index + 1}.png`}
                   width={750}
                   height={500}
-                  alt={path + ' ' + index + 1}
+                  alt={id + ' ' + index + 1}
                 />
               </li>
             ))}

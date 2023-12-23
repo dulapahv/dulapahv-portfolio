@@ -11,8 +11,6 @@ interface ExpCardProps {
   position: string;
   tech: string;
   detail: string[];
-  path: string;
-  size: number;
   text: string[];
   reversed?: boolean;
 }
@@ -25,8 +23,6 @@ const ExpCard = ({
   position,
   tech,
   detail,
-  path,
-  size,
   text,
   reversed: isReversed = false,
 }: ExpCardProps) => {
@@ -98,10 +94,10 @@ const ExpCard = ({
           }}
         >
           <Image
-            src={`/images/exp/${path}/cover.png`}
+            src={`/images/exp/${id}/cover.png`}
             width={1915}
             height={632}
-            alt={path + ' cover'}
+            alt={id + ' cover'}
             className={`${
               isReversed ? 'rounded-br-3xl' : 'rounded-bl-3xl'
             } w-full object-cover hover:brightness-[.85] lg:h-full lg:shadow-xl`}
@@ -114,16 +110,16 @@ const ExpCard = ({
                 </button>
               </form>
               <ul className="flex flex-col items-center">
-                {Array.from(Array(size).keys()).map((item, index) => (
+                {text?.map((item, index) => (
                   <li key={index}>
                     <h1 className="m-2 text-BLACK dark:text-WHITE">
-                      {index + 1}. {text[index]}
+                      {index + 1}. {item}
                     </h1>
                     <Image
-                      src={`/images/exp/${path}/${index + 1}.png`}
+                      src={`/images/exp/${id}/${index + 1}.png`}
                       width={750}
                       height={500}
-                      alt={path + ' ' + index + 1}
+                      alt={id + ' ' + index + 1}
                     />
                   </li>
                 ))}
