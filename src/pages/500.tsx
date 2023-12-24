@@ -6,7 +6,7 @@ const Error500 = () => {
   return (
     <div className="relative">
       <div className="flex h-screen flex-col items-center justify-center gap-y-8 p-4 sm:p-12">
-        <LuServerOff className="h-24 w-24 sm:h-32 sm:w-32" />
+        <LuServerOff className="size-24 sm:size-32" />
         <h1 className="text-center text-3xl font-bold text-RED sm:text-4xl">
           500 - Internal Server Error
         </h1>

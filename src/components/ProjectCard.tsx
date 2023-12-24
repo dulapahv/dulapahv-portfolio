@@ -71,11 +71,11 @@ const ProjectCard = ({
       </dialog>
       <div className="card-body relative">
         <div className="absolute left-0 top-0 w-full">
-          <div className="grid grid-cols-4">
-            <div className="h-[2px] bg-RED"></div>
-            <div className="h-[2px] bg-BLUE"></div>
-            <div className="h-[2px] bg-YELLOW"></div>
-            <div className="h-[2px] bg-PURPLE"></div>
+          <div className="grid grid-cols-4 *:h-[2px]">
+            <div className="bg-RED"></div>
+            <div className="bg-BLUE"></div>
+            <div className="bg-YELLOW"></div>
+            <div className="bg-PURPLE"></div>
           </div>
         </div>
         <div className="card-title relative !mb-0">

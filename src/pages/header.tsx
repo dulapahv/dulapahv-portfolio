@@ -5,10 +5,9 @@ import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import { FiExternalLink } from 'react-icons/fi';
 import { TbMinusVertical } from 'react-icons/tb';
+import { HiOutlineDocument } from 'react-icons/hi2';
 import { BsArrowDownCircleFill } from 'react-icons/bs';
 import { Turnstile, TurnstileInstance } from '@marsidev/react-turnstile';
-import { IoDocumentOutline } from 'react-icons/io5';
-import { HiOutlineDocument } from 'react-icons/hi2';
 
 const Header = () => {
   const captchaInstance = useRef<TurnstileInstance>(null);
@@ -49,16 +48,16 @@ const Header = () => {
 
   return (
     <div className="flex animate-fade-in flex-col overflow-hidden">
-      <div className="relative w-screen">
-        <div className="absolute left-[8%] top-[256px] h-4 w-4 animate-shake-vertical rounded-full bg-RED opacity-70"></div>
-        <div className="absolute left-[13%] top-[176px] h-8 w-8 animate-shake-vertical rounded-full bg-BLUE opacity-70 animation-delay-400"></div>
-        <div className="absolute left-[36%] top-[128px] h-16 w-16 animate-shake-vertical rounded-full bg-YELLOW opacity-70 animation-delay-800"></div>
-        <div className="absolute left-[68%] top-[128px] h-12 w-12 animate-shake-vertical rounded-full bg-PURPLE opacity-70 animation-delay-1200"></div>
-        <div className="absolute left-[4%] top-[640px] h-8 w-8 animate-shake-vertical rounded-full bg-YELLOW opacity-70 animation-delay-800"></div>
-        <div className="absolute -left-[1%] top-[704px] h-12 w-12 animate-shake-vertical rounded-full bg-PURPLE opacity-70 animation-delay-1200"></div>
-        <div className="absolute left-[26%] top-[768px] h-12 w-12 animate-shake-vertical rounded-full bg-RED opacity-70"></div>
-        <div className="absolute left-[84%] top-[848px] h-8 w-8 animate-shake-vertical rounded-full bg-YELLOW opacity-70 animation-delay-800"></div>
-        <div className="absolute left-[97%] top-[512px] h-16 w-16 animate-shake-vertical rounded-full bg-BLUE opacity-70 animation-delay-400"></div>
+      <div className="relative w-screen *:absolute *:rounded-full *:opacity-70">
+        <div className="left-[8%] top-[256px] size-4 animate-shake-vertical bg-RED"></div>
+        <div className="left-[13%] top-[176px] size-8 animate-shake-vertical bg-BLUE animation-delay-400"></div>
+        <div className="left-[36%] top-[128px] size-16 animate-shake-vertical bg-YELLOW animation-delay-800"></div>
+        <div className="left-[68%] top-[128px] size-12 animate-shake-vertical bg-PURPLE animation-delay-1200"></div>
+        <div className="left-[4%] top-[640px] size-8 animate-shake-vertical bg-YELLOW animation-delay-800"></div>
+        <div className="-left-[1%] top-[704px] size-12 animate-shake-vertical bg-PURPLE animation-delay-1200"></div>
+        <div className="left-[26%] top-[768px] size-12 animate-shake-vertical bg-RED"></div>
+        <div className="left-[84%] top-[848px] size-8 animate-shake-vertical bg-YELLOW animation-delay-800"></div>
+        <div className="left-[97%] top-[512px] size-16 animate-shake-vertical bg-BLUE animation-delay-400"></div>
       </div>
       <div className="flex h-fit min-h-screen flex-col items-center gap-8 overflow-hidden pt-4 md:pt-8 lg:flex-row lg:justify-around lg:gap-0 lg:pt-0">
         <div className="mx-4 flex w-fit flex-col gap-10 md:mx-8 lg:gap-20">
@@ -167,14 +166,14 @@ const Header = () => {
               </>
             )}
           </dialog>
-          <div className="flex flex-col gap-4">
-            <h3 className="w-fit -rotate-6 animate-clip-in-left items-center bg-RED px-3 py-1 text-sm font-medium uppercase text-WHITE animation-delay-100 [text-shadow:0_0_5px_#c3456d] sm:text-base md:text-lg">
+          <div className="flex flex-col gap-4 *:w-fit *:-rotate-6 *:items-center *:px-3 *:py-1 *:text-sm *:font-medium *:uppercase *:text-WHITE sm:*:text-base md:*:text-lg">
+            <h3 className="animate-clip-in-left bg-RED animation-delay-100 [text-shadow:0_0_5px_#c3456d]">
               Software Engineer
             </h3>
-            <h3 className="w-fit -rotate-6 animate-clip-in-left items-center bg-YELLOW px-3 py-1 text-sm font-medium uppercase text-WHITE animation-delay-200 [text-shadow:0_0_5px_#917833] sm:text-base md:text-lg">
+            <h3 className="animate-clip-in-left bg-YELLOW animation-delay-200 [text-shadow:0_0_5px_#917833]">
               Frontend Developer
             </h3>
-            <h3 className="w-fit -rotate-6 animate-clip-in-left items-center bg-PURPLE px-3 py-1 text-sm font-medium uppercase text-WHITE animation-delay-300 [text-shadow:0_0_5px_#7948c7] sm:text-base md:text-lg">
+            <h3 className="animate-clip-in-left bg-PURPLE animation-delay-300 [text-shadow:0_0_5px_#7948c7]">
               Pursuing Fullstack Developer
             </h3>
           </div>
