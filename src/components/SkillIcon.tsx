@@ -23,7 +23,13 @@ const SkillIcon = ({
   }
 
   return (
-    <Tooltip content={tooltip} delay={50} closeDelay={100}>
+    <Tooltip
+      content={tooltip}
+      closeDelay={75}
+      classNames={{
+        content: 'selection:bg-fuchsia-300 selection:text-fuchsia-900',
+      }}
+    >
       <Image
         src={`/images/${src}`}
         width={width}

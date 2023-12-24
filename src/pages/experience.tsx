@@ -12,7 +12,7 @@ const Experience = () => {
       id="experience"
     >
       <div className="flex flex-col items-center gap-16 py-8">
-        <h1 className="text-2xl font-semibold uppercase tracking-[0.2em] text-BLACK first-letter:text-RED min-[375px]:text-3xl sm:text-4xl dark:text-WHITE">
+        <h1 className="text-2xl font-semibold uppercase tracking-[0.2em] text-BLACK first-letter:text-RED selection:bg-fuchsia-300 selection:text-fuchsia-900 min-[375px]:text-3xl sm:text-4xl dark:text-WHITE">
           Work Experience
         </h1>
         <div className="flex h-[2px] w-14 flex-col bg-gradient-to-r from-BLUE to-BLUE-400"></div>

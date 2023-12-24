@@ -49,7 +49,7 @@ const ProjectCard = ({
           <ul className="flex flex-col items-center">
             {text?.map((item, index) => (
               <li key={index}>
-                <h1 className="m-2 text-BLACK dark:text-WHITE">
+                <h1 className="m-2 text-BLACK selection:bg-fuchsia-300 selection:text-fuchsia-900 dark:text-WHITE">
                   {index + 1}. {item}
                 </h1>
                 <Image
@@ -80,22 +80,30 @@ const ProjectCard = ({
         </div>
         <div className="card-title relative !mb-0">
           <div className="absolute -top-1 h-[2px] w-8 bg-BLUE"></div>
-          <h1 className="text-BLACK dark:text-WHITE">{title}</h1>
-          {isNew && <div className="badge bg-RED text-WHITE/90">NEW</div>}
+          <h1 className="text-BLACK selection:bg-fuchsia-300 selection:text-fuchsia-900 dark:text-WHITE">
+            {title}
+          </h1>
+          {isNew && (
+            <div className="badge bg-RED text-WHITE/90 selection:bg-fuchsia-300 selection:text-fuchsia-900">
+              NEW
+            </div>
+          )}
         </div>
         {badge && (
           <div className="card-actions">
             {badge.map((item, index) => (
               <div
                 key={index}
-                className="badge badge-outline border-BLACK text-BLACK dark:border-WHITE dark:text-WHITE"
+                className="badge badge-outline border-BLACK text-BLACK selection:bg-fuchsia-300 selection:text-fuchsia-900 dark:border-WHITE dark:text-WHITE"
               >
                 {item}
               </div>
             ))}
           </div>
         )}
-        <p className="text-justify text-BLACK dark:text-WHITE">{description}</p>
+        <p className="text-justify text-BLACK selection:bg-fuchsia-300 selection:text-fuchsia-900 dark:text-WHITE">
+          {description}
+        </p>
         <div className="card-actions justify-end">
           <a href={url} target="_blank" rel="noopener noreferrer">
             <button className="btn border-[1.5px] border-b-PURPLE border-l-RED border-r-BLUE border-t-YELLOW bg-transparent text-BLACK ring-BLUE ring-offset-2 hover:border-transparent hover:bg-BLUE hover:ring-[1.5px] dark:text-WHITE dark:ring-offset-neutral-700">

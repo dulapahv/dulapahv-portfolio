@@ -13,7 +13,7 @@ const Education = () => {
       id="education"
     >
       <div className="flex flex-col items-center gap-6 py-8">
-        <h1 className="text-2xl font-semibold uppercase tracking-[0.2em] text-BLACK first-letter:text-RED min-[375px]:text-3xl sm:text-4xl dark:text-WHITE">
+        <h1 className="text-2xl font-semibold uppercase tracking-[0.2em] text-BLACK first-letter:text-RED selection:bg-fuchsia-300 selection:text-fuchsia-900 min-[375px]:text-3xl sm:text-4xl dark:text-WHITE">
           Education
         </h1>
         <div className="flex h-[2px] w-14 flex-col bg-gradient-to-r from-BLUE to-BLUE-400"></div>
@@ -23,14 +23,16 @@ const Education = () => {
           <li key={key}>
             {index !== 0 && <hr className="rounded-none bg-RED" />}
             <div className="timeline-middle">
-              <MdSchool className="h-6 w-6 rounded-full bg-RED p-[3px] text-WHITE" />
+              <MdSchool className="size-6 rounded-full bg-RED p-[3px] text-WHITE" />
             </div>
             <div
               className={`relative mb-10 !self-start ${
                 index % 2 === 0 ? 'timeline-start md:text-end' : 'timeline-end'
               }`}
             >
-              <time className="text-lg">{value.date}</time>
+              <time className="text-lg selection:bg-fuchsia-300 selection:text-fuchsia-900">
+                {value.date}
+              </time>
               <Image
                 src={`/images/edu/${key}.png`}
                 width={value.width}
@@ -46,20 +48,22 @@ const Education = () => {
                 } p-3 text-WHITE opacity-80`}
                 style={{ backgroundColor: value.color }}
               >
-                <h2 className="text-lg font-semibold leading-6 sm:text-xl md:text-2xl">
+                <h2 className="text-lg/6 font-semibold selection:bg-fuchsia-300 selection:text-fuchsia-900 sm:text-xl md:text-2xl">
                   {value.title}
                 </h2>
-                <p className="text-xs">{value.location}</p>
-                <p className="mt-2 text-sm leading-4 sm:text-base md:text-lg">
+                <p className="text-xs selection:bg-fuchsia-300 selection:text-fuchsia-900">
+                  {value.location}
+                </p>
+                <p className="mt-2 text-sm/4 selection:bg-fuchsia-300 selection:text-fuchsia-900 sm:text-base md:text-lg">
                   {value.degree}
                 </p>
                 {value.specialization && (
-                  <p className="mt-1 text-sm italic leading-4 sm:mt-0 sm:text-base">
+                  <p className="mt-1 text-sm/4 italic selection:bg-fuchsia-300 selection:text-fuchsia-900 sm:mt-0 sm:text-base">
                     Specialized in {value.specialization}
                   </p>
                 )}
                 {value.gpa && (
-                  <p className="text-sm sm:text-base md:text-lg">
+                  <p className="text-sm selection:bg-fuchsia-300 selection:text-fuchsia-900 sm:text-base md:text-lg">
                     GPA: {value.gpa}
                   </p>
                 )}
@@ -76,7 +80,7 @@ const Education = () => {
                 {value.achievement.map((item, index) => (
                   <li
                     key={index}
-                    className="text-justify text-BLACK dark:text-WHITE"
+                    className="text-justify text-BLACK selection:bg-fuchsia-300 selection:text-fuchsia-900 dark:text-WHITE"
                   >
                     {item}
                   </li>

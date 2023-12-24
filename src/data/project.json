@@ -1,7 +1,7 @@
 {
   "portfolio": {
     "title": "Portfolio Website",
-    "description": "A revamped portfolio website from previous React.js, JavaScript, and pure CSS to Next.js, TypeScript, Tailwind CSS and DaisyUI. This website is a personal project to showcase my skills and experience, as well as to share my knowledge and experience with others.",
+    "description": "A revamped portfolio website from previous React.js, JavaScript, and pure CSS to Next.js, TypeScript, Tailwind CSS, DaisyUI, and NextUI. This website is a personal project to showcase my skills and experience, as well as to share my knowledge and experience with others.",
     "text": [
       "Header",
       "Navigation panel",
@@ -12,7 +12,7 @@
       "Project"
     ],
     "url": "https://github.com/dulapahv/dulapahv-portfolio",
-    "badge": ["Next.js", "TypeScript", "Tailwind CSS", "DaisyUI"]
+    "badge": ["Next.js", "TypeScript", "Tailwind CSS", "DaisyUI", "NextUI"]
   },
   "kanbaru": {
     "title": "Kanbaru",
