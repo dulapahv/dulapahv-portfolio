@@ -23,7 +23,7 @@ const Education = () => {
           <li key={key}>
             {index !== 0 && <hr className="rounded-none bg-RED" />}
             <div className="timeline-middle">
-              <MdSchool className="h-6 w-6 rounded-full bg-RED p-[3px]" />
+              <MdSchool className="h-6 w-6 rounded-full bg-RED p-[3px] text-WHITE" />
             </div>
             <div
               className={`relative mb-10 !self-start ${

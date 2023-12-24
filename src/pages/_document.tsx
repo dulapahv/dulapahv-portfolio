@@ -30,6 +30,9 @@ export default function Document() {
       <meta name="background-color" content="#2b2b2b" />
       <meta name="color-scheme" content="dark light" />
 
+      {/* Disable Dark Reader Plugin */}
+      <meta name="darkreader" content="NO-DARKREADER-PLUGIN" />
+
       {/* More Descriptive Description */}
       <meta
         name="description"
