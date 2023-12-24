@@ -81,24 +81,24 @@ const Education = () => {
                     {item}
                   </li>
                 ))}
-                <div className="hidden md:flex">
+                <div className="hidden *:absolute *:rounded-full *:opacity-70 md:flex">
                   <div
-                    className={`absolute h-4 w-4 animate-shake-vertical rounded-full bg-PURPLE opacity-70 animation-delay-1200 ${
+                    className={`size-4 animate-shake-vertical bg-PURPLE animation-delay-1200 ${
                       index % 2 === 0 ? 'left-[90%]' : 'left-[8%]'
                     } top-[22rem]`}
                   ></div>
                   <div
-                    className={`absolute h-8 w-8 animate-shake-vertical rounded-full bg-RED opacity-70 ${
+                    className={`size-8 animate-shake-vertical bg-RED ${
                       index % 2 === 0 ? 'left-[80%]' : 'left-[18%]'
                     } top-[30rem]`}
                   ></div>
                   <div
-                    className={`absolute h-14 w-14 animate-shake-vertical rounded-full bg-BLUE opacity-70 animation-delay-400 ${
+                    className={`size-14 animate-shake-vertical bg-BLUE animation-delay-400 ${
                       index % 2 === 0 ? 'left-[65%]' : 'left-[33%]'
                     } top-[25rem]`}
                   ></div>
                   <div
-                    className={`absolute h-10 w-10 animate-shake-vertical rounded-full bg-YELLOW opacity-70 animation-delay-800 ${
+                    className={`size-10 animate-shake-vertical bg-YELLOW animation-delay-800 ${
                       index % 2 === 0 ? 'left-[55%]' : 'left-[43%]'
                     } top-[30rem]`}
                   ></div>

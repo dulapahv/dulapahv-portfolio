@@ -9,17 +9,17 @@ const Skill = () => {
         className="flex flex-col justify-center gap-8 overflow-hidden py-8"
         id="skill"
       >
-        <div className="relative w-screen">
-          <div className="absolute left-[8%] top-[206px] h-4 w-4 animate-shake-vertical rounded-full bg-RED opacity-70"></div>
-          <div className="absolute left-[13%] top-[126px] h-8 w-8 animate-shake-vertical rounded-full bg-BLUE opacity-70 animation-delay-400"></div>
-          <div className="absolute left-[36%] top-[78px] h-16 w-16 animate-shake-vertical rounded-full bg-YELLOW opacity-70 animation-delay-800"></div>
-          <div className="absolute left-[68%] top-[78px] h-12 w-12 animate-shake-vertical rounded-full bg-PURPLE opacity-70 animation-delay-1200"></div>
-          <div className="absolute left-[4%] top-[590px] h-8 w-8 animate-shake-vertical rounded-full bg-YELLOW opacity-70 animation-delay-800"></div>
-          <div className="absolute left-[54%] top-[600px] h-12 w-12 animate-shake-vertical rounded-full bg-RED opacity-70 animation-delay-800"></div>
-          <div className="absolute -left-[1%] top-[754px] h-12 w-12 animate-shake-vertical rounded-full bg-PURPLE opacity-70 animation-delay-1200"></div>
-          <div className="absolute left-[38%] top-[868px] h-8 w-8 animate-shake-vertical rounded-full bg-RED opacity-70"></div>
-          <div className="absolute left-[84%] top-[940px] h-10 w-10 animate-shake-vertical rounded-full bg-YELLOW opacity-70 animation-delay-800"></div>
-          <div className="absolute left-[97%] top-[462px] h-16 w-16 animate-shake-vertical rounded-full bg-BLUE opacity-70 animation-delay-400"></div>
+        <div className="relative w-screen *:absolute *:rounded-full *:opacity-70">
+          <div className="left-[8%] top-[206px] size-4 animate-shake-vertical bg-RED"></div>
+          <div className="left-[13%] top-[126px] size-8 animate-shake-vertical bg-BLUE animation-delay-400"></div>
+          <div className="left-[36%] top-[78px] size-16 animate-shake-vertical bg-YELLOW animation-delay-800"></div>
+          <div className="left-[68%] top-[78px] size-12 animate-shake-vertical bg-PURPLE animation-delay-1200"></div>
+          <div className="left-[4%] top-[590px] size-8 animate-shake-vertical bg-YELLOW animation-delay-800"></div>
+          <div className="left-[54%] top-[600px] size-12 animate-shake-vertical bg-RED animation-delay-800"></div>
+          <div className="-left-[1%] top-[754px] size-12 animate-shake-vertical bg-PURPLE animation-delay-1200"></div>
+          <div className="left-[38%] top-[868px] size-8 animate-shake-vertical bg-RED"></div>
+          <div className="left-[84%] top-[940px] size-10 animate-shake-vertical bg-YELLOW animation-delay-800"></div>
+          <div className="left-[97%] top-[462px] size-16 animate-shake-vertical bg-BLUE animation-delay-400"></div>
         </div>
         <div className="relative flex flex-col items-center gap-6 py-8">
           <h1 className="text-4xl font-semibold uppercase tracking-[0.2em] text-BLACK first-letter:text-RED dark:text-WHITE">
@@ -34,11 +34,11 @@ const Skill = () => {
                 <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
                   Programming Languages
                   <div className="absolute -bottom-2 left-0 w-32">
-                    <div className="grid grid-cols-4">
-                      <div className="h-[2px] bg-RED"></div>
-                      <div className="h-[2px] bg-BLUE"></div>
-                      <div className="h-[2px] bg-YELLOW"></div>
-                      <div className="h-[2px] bg-PURPLE"></div>
+                    <div className="grid grid-cols-4 *:h-[2px]">
+                      <div className="bg-RED"></div>
+                      <div className="bg-BLUE"></div>
+                      <div className="bg-YELLOW"></div>
+                      <div className="bg-PURPLE"></div>
                     </div>
                   </div>
                 </h1>
@@ -68,11 +68,11 @@ const Skill = () => {
                 <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
                   Web Development {'('}Front End{')'}
                   <div className="absolute -bottom-2 left-0 w-32">
-                    <div className="grid grid-cols-4">
-                      <div className="h-[2px] bg-RED"></div>
-                      <div className="h-[2px] bg-BLUE"></div>
-                      <div className="h-[2px] bg-YELLOW"></div>
-                      <div className="h-[2px] bg-PURPLE"></div>
+                    <div className="grid grid-cols-4 *:h-[2px]">
+                      <div className="bg-RED"></div>
+                      <div className="bg-BLUE"></div>
+                      <div className="bg-YELLOW"></div>
+                      <div className="bg-PURPLE"></div>
                     </div>
                   </div>
                 </h1>
@@ -97,11 +97,11 @@ const Skill = () => {
                 <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
                   Web Development {'('}Back End{')'}
                   <div className="absolute -bottom-2 left-0 w-32">
-                    <div className="grid grid-cols-4">
-                      <div className="h-[2px] bg-RED"></div>
-                      <div className="h-[2px] bg-BLUE"></div>
-                      <div className="h-[2px] bg-YELLOW"></div>
-                      <div className="h-[2px] bg-PURPLE"></div>
+                    <div className="grid grid-cols-4 *:h-[2px]">
+                      <div className="bg-RED"></div>
+                      <div className="bg-BLUE"></div>
+                      <div className="bg-YELLOW"></div>
+                      <div className="bg-PURPLE"></div>
                     </div>
                   </div>
                 </h1>
@@ -136,11 +136,11 @@ const Skill = () => {
                 <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
                   Testing
                   <div className="absolute -bottom-2 left-0 w-32">
-                    <div className="grid grid-cols-4">
-                      <div className="h-[2px] bg-RED"></div>
-                      <div className="h-[2px] bg-BLUE"></div>
-                      <div className="h-[2px] bg-YELLOW"></div>
-                      <div className="h-[2px] bg-PURPLE"></div>
+                    <div className="grid grid-cols-4 *:h-[2px]">
+                      <div className="bg-RED"></div>
+                      <div className="bg-BLUE"></div>
+                      <div className="bg-YELLOW"></div>
+                      <div className="bg-PURPLE"></div>
                     </div>
                   </div>
                 </h1>
@@ -160,11 +160,11 @@ const Skill = () => {
                 <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
                   Database Management System
                   <div className="absolute -bottom-2 left-0 w-32">
-                    <div className="grid grid-cols-4">
-                      <div className="h-[2px] bg-RED"></div>
-                      <div className="h-[2px] bg-BLUE"></div>
-                      <div className="h-[2px] bg-YELLOW"></div>
-                      <div className="h-[2px] bg-PURPLE"></div>
+                    <div className="grid grid-cols-4 *:h-[2px]">
+                      <div className="bg-RED"></div>
+                      <div className="bg-BLUE"></div>
+                      <div className="bg-YELLOW"></div>
+                      <div className="bg-PURPLE"></div>
                     </div>
                   </div>
                 </h1>
@@ -181,11 +181,11 @@ const Skill = () => {
                 <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
                   DevOps
                   <div className="absolute -bottom-2 left-0 w-32">
-                    <div className="grid grid-cols-4">
-                      <div className="h-[2px] bg-RED"></div>
-                      <div className="h-[2px] bg-BLUE"></div>
-                      <div className="h-[2px] bg-YELLOW"></div>
-                      <div className="h-[2px] bg-PURPLE"></div>
+                    <div className="grid grid-cols-4 *:h-[2px]">
+                      <div className="bg-RED"></div>
+                      <div className="bg-BLUE"></div>
+                      <div className="bg-YELLOW"></div>
+                      <div className="bg-PURPLE"></div>
                     </div>
                   </div>
                 </h1>
@@ -202,11 +202,11 @@ const Skill = () => {
                 <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
                   Others
                   <div className="absolute -bottom-2 left-0 w-32">
-                    <div className="grid grid-cols-4">
-                      <div className="h-[2px] bg-RED"></div>
-                      <div className="h-[2px] bg-BLUE"></div>
-                      <div className="h-[2px] bg-YELLOW"></div>
-                      <div className="h-[2px] bg-PURPLE"></div>
+                    <div className="grid grid-cols-4 *:h-[2px]">
+                      <div className="bg-RED"></div>
+                      <div className="bg-BLUE"></div>
+                      <div className="bg-YELLOW"></div>
+                      <div className="bg-PURPLE"></div>
                     </div>
                   </div>
                 </h1>

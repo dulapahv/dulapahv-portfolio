@@ -22,63 +22,57 @@ const Aboutme = () => {
   const ScrollingTextBg = () => {
     return (
       <div className="flex animate-fade-in flex-col justify-center overflow-hidden">
-        <div className="mt-12 flex animate-puff-out-center flex-col justify-evenly text-base font-semibold !opacity-90 animation-delay-1000 sm:text-lg md:text-xl lg:text-2xl dark:text-white">
-          <p className="animate-slide-text-right-5 text-center">NextJS</p>
-          <p className="animate-slide-text-left-2 text-center text-lg font-bold text-BLUE animation-delay-1000 sm:text-xl md:text-2xl lg:text-3xl">
+        <div className="mt-12 flex animate-puff-out-center flex-col justify-evenly text-base font-semibold !opacity-90 animation-delay-1000 *:text-center sm:text-lg md:text-xl lg:text-2xl dark:text-white">
+          <p className="animate-slide-text-right-5">NextJS</p>
+          <p className="animate-slide-text-left-2 text-lg font-bold text-BLUE animation-delay-1000 sm:text-xl md:text-2xl lg:text-3xl">
             Hi! I&apos;m dulapahv~💕
           </p>
-          <p className="animate-slide-text-left-4 text-center">TypeScript</p>
-          <p className="animate-slide-text-right-4 text-center animation-delay-400">
+          <p className="animate-slide-text-left-4">TypeScript</p>
+          <p className="animate-slide-text-right-4 animation-delay-400">
             <span className={KanitFont}>สวัสดี</span>! dulapahv{' '}
             <span className={KanitFont}>เองน้า</span>~💕
           </p>
-          <p className="animate-slide-text-left-2 text-center animation-delay-700">
+          <p className="animate-slide-text-left-2 animation-delay-700">
             Python
           </p>
-          <p className="animate-slide-text-right-5 text-center">PostgreSQL</p>
-          <p className="animate-slide-text-left-1 text-center">HTML</p>
-          <p className="animate-slide-text-right-1 text-center text-lg font-bold text-RED sm:text-xl md:text-2xl lg:text-3xl">
+          <p className="animate-slide-text-right-5">PostgreSQL</p>
+          <p className="animate-slide-text-left-1">HTML</p>
+          <p className="animate-slide-text-right-1 text-lg font-bold text-RED sm:text-xl md:text-2xl lg:text-3xl">
             A frontend developer🖼️
           </p>
-          <p className="animate-slide-text-right-2 text-center">CSS</p>
-          <p className="animate-slide-text-right-3 text-center animation-delay-1000">
+          <p className="animate-slide-text-right-2">CSS</p>
+          <p className="animate-slide-text-right-3 animation-delay-1000">
             <span className={NotoSansJPFont}>こんにちは</span>! dulapahv{' '}
             <span className={NotoSansJPFont}>です</span>~💕
           </p>
-          <p className="animate-slide-text-left-3 text-center animation-delay-900">
+          <p className="animate-slide-text-left-3 animation-delay-900">
             JavaScript
           </p>
-          <p className="animate-slide-text-right-2 text-center">C</p>
-          <p className="animate-slide-text-left-5 text-center animation-delay-300">
-            C++
-          </p>
-          <p className="animate-slide-text-right-3 text-center animation-delay-200">
+          <p className="animate-slide-text-right-2">C</p>
+          <p className="animate-slide-text-left-5 animation-delay-300">C++</p>
+          <p className="animate-slide-text-right-3 animation-delay-200">
             <span className={KanitFont}>เราคือ</span> Frontend Developer{' '}
             <span className={KanitFont}>นะ</span>~🖼️
           </p>
-          <p className="animate-slide-text-right-5 text-center animation-delay-600">
-            Java
-          </p>
-          <p className="animate-slide-text-right-1 text-center animation-delay-1000">
+          <p className="animate-slide-text-right-5 animation-delay-600">Java</p>
+          <p className="animate-slide-text-right-1 animation-delay-1000">
             ReactJS
           </p>
-          <p className="animate-slide-text-left-1 text-center text-lg font-bold text-YELLOW animation-delay-200 sm:text-xl md:text-2xl lg:text-3xl">
+          <p className="animate-slide-text-left-1 text-lg font-bold text-YELLOW animation-delay-200 sm:text-xl md:text-2xl lg:text-3xl">
             Pursuing fullstack developer💯
           </p>
-          <p className="animate-slide-text-right-4 text-center animation-delay-200">
+          <p className="animate-slide-text-right-4 animation-delay-200">
             <span className={NotoSansJPFont}>
               わたしはフロントエンドデベロッパーです
             </span>
             ~🖼️
           </p>
-          <p className="animate-slide-text-left-2 text-center animation-delay-400">
-            NGINX
-          </p>
+          <p className="animate-slide-text-left-2 animation-delay-400">NGINX</p>
           <p className="animate-slide-text-right-5 text-right animation-delay-1000">
             <span className={KanitFont}>เรากำลังเรียนรู้เพื่อเป็น</span>{' '}
             Fullstack Developer💯
           </p>
-          <p className="animate-slide-text-right-2 text-center animation-delay-600">
+          <p className="animate-slide-text-right-2 animation-delay-600">
             Linux
           </p>
           <p className="animate-slide-text-right-1 text-right animation-delay-800">
@@ -87,21 +81,19 @@ const Aboutme = () => {
             </span>
             ~💯
           </p>
-          <p className="animate-slide-text-left-3 text-center">Figma</p>
-          <p className="animate-slide-text-right-2 text-center text-lg font-bold text-PURPLE animation-delay-100 sm:text-xl md:text-2xl lg:text-3xl">
+          <p className="animate-slide-text-left-3">Figma</p>
+          <p className="animate-slide-text-right-2 text-lg font-bold text-PURPLE animation-delay-100 sm:text-xl md:text-2xl lg:text-3xl">
             Thanks for visiting my website!😊
           </p>
-          <p className="animate-slide-text-left-5 text-center">TailwindCSS</p>
-          <p className="animate-slide-text-right-3 text-center animation-delay-1000">
+          <p className="animate-slide-text-left-5">TailwindCSS</p>
+          <p className="animate-slide-text-right-3 animation-delay-1000">
             <span className={KanitFont}>
               ขอบคุณที่เข้ามาเยี่ยมชมเว็บไซต์ของเรานะ
             </span>
             ~😊
           </p>
-          <p className="animate-slide-text-left-4 text-center animation-delay-200">
-            UX/UI
-          </p>
-          <p className="animate-slide-text-right-4 text-center animation-delay-400">
+          <p className="animate-slide-text-left-4 animation-delay-200">UX/UI</p>
+          <p className="animate-slide-text-right-4 animation-delay-400">
             <span className={NotoSansJPFont}>
               私のウェブサイトをご覧いただきありがとうございます
             </span>
@@ -117,11 +109,11 @@ const Aboutme = () => {
       className="flex animate-clip-in-right flex-col overflow-hidden"
       id="aboutme"
     >
-      <div className="relative w-screen">
-        <div className="absolute left-[3%] top-[33rem] h-4 w-4 animate-shake-vertical rounded-full bg-PURPLE opacity-70 animation-delay-1200"></div>
-        <div className="absolute left-[5%] top-[39rem] h-8 w-8 animate-shake-vertical rounded-full bg-RED opacity-70"></div>
-        <div className="absolute left-[2%] top-[45rem] h-14 w-14 animate-shake-vertical rounded-full bg-BLUE opacity-70 animation-delay-400"></div>
-        <div className="absolute left-[8%] top-[50rem] h-10 w-10 animate-shake-vertical rounded-full bg-YELLOW opacity-70 animation-delay-800"></div>
+      <div className="relative w-screen *:absolute *:rounded-full *:opacity-70">
+        <div className="left-[3%] top-[33rem] size-4 animate-shake-vertical bg-PURPLE animation-delay-1200"></div>
+        <div className="left-[5%] top-[39rem] size-8 animate-shake-vertical bg-RED"></div>
+        <div className="left-[2%] top-[45rem] size-14 animate-shake-vertical bg-BLUE animation-delay-400"></div>
+        <div className="left-[8%] top-[50rem] size-10 animate-shake-vertical bg-YELLOW animation-delay-800"></div>
       </div>
       <div className="relative">
         <ScrollingTextBg />
@@ -132,7 +124,6 @@ const Aboutme = () => {
             </h1>
             <div className="flex flex-col gap-2">
               <div className="flex h-[2px] w-10 flex-col bg-BLUE"></div>
-
               <p className="text-justify text-xs text-WHITE min-[425px]:text-sm sm:text-base md:text-lg lg:text-xl">
                 I am an experienced software engineer with a keen interest in
                 creating intuitive and robust web applications. While I

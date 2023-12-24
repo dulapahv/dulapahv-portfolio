@@ -28,24 +28,24 @@ const ExpCard = ({
 }: ExpCardProps) => {
   return (
     <>
-      <div className="relative w-screen">
+      <div className="relative w-screen *:absolute *:rounded-full *:opacity-70">
         <div
-          className={`absolute h-4 w-4 animate-shake-vertical rounded-full bg-PURPLE opacity-70 animation-delay-1200 ${
+          className={`size-4 animate-shake-vertical bg-PURPLE animation-delay-1200 ${
             isReversed ? 'left-[96%]' : 'left-[3%]'
           } top-[13rem]`}
         ></div>
         <div
-          className={`absolute h-8 w-8 animate-shake-vertical rounded-full bg-RED opacity-70 ${
+          className={`size-8 animate-shake-vertical bg-RED ${
             isReversed ? 'left-[93.5%]' : 'left-[5%]'
           } top-[19rem]`}
         ></div>
         <div
-          className={`absolute h-14 w-14 animate-shake-vertical rounded-full bg-BLUE opacity-70 animation-delay-400 ${
+          className={`size-14 animate-shake-vertical bg-BLUE animation-delay-400 ${
             isReversed ? 'left-[95%]' : 'left-[2%]'
           } top-[25rem]`}
         ></div>
         <div
-          className={`absolute h-10 w-10 animate-shake-vertical rounded-full bg-YELLOW opacity-70 animation-delay-800 ${
+          className={`size-10 animate-shake-vertical bg-YELLOW animation-delay-800 ${
             isReversed ? 'left-[90%]' : 'left-[8%]'
           } top-[30rem]`}
         ></div>
