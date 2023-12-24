@@ -62,18 +62,16 @@ const Header = () => {
       <div className="flex h-fit min-h-screen flex-col items-center gap-8 overflow-hidden pt-4 md:pt-8 lg:flex-row lg:justify-around lg:gap-0 lg:pt-0">
         <div className="mx-4 flex w-fit flex-col gap-10 md:mx-8 lg:gap-20">
           <div className="animate-clip-in-left animation-delay-100">
-            <h1
-              className={`bg-BLUE p-3 pl-3 text-3xl font-bold uppercase tracking-[0.2em] text-WHITE [text-shadow:0_0_5px_#54f1ff] md:text-4xl lg:pl-6 lg:text-5xl`}
-            >
+            <h1 className="bg-BLUE p-3 pl-3 text-3xl font-bold uppercase tracking-[0.2em] text-WHITE [text-shadow:0_0_5px_#54f1ff] selection:bg-fuchsia-300 selection:text-fuchsia-900 selection:[text-shadow:none] md:text-4xl lg:pl-6 lg:text-5xl">
               Dulapah Vibulsanti
             </h1>
-            <h2 className="flex w-fit flex-wrap items-center bg-BLACK/50 px-3 text-sm text-WHITE md:text-base dark:bg-WHITE/50">
+            <h2 className="flex w-fit flex-wrap items-center bg-BLACK/50 px-3 text-sm text-WHITE selection:bg-fuchsia-300 selection:text-fuchsia-900 md:text-base dark:bg-WHITE/50">
               NEXT.JS <TbMinusVertical /> TAILWIND CSS <TbMinusVertical />{' '}
               TYPESCRIPT <TbMinusVertical /> FIGMA <TbMinusVertical /> PYTHON{' '}
               <TbMinusVertical /> C/C++
             </h2>
-            <h3 className="flex w-fit flex-wrap items-center bg-BLACK/10 px-3 text-sm text-BLACK md:text-base dark:bg-WHITE">
-              <button className="btn btn-ghost h-[24px] min-h-0 p-0 text-base font-normal capitalize leading-3 hover:bg-transparent">
+            <div className="flex w-fit flex-wrap items-center bg-BLACK/10 px-3 text-sm text-BLACK md:text-base dark:bg-WHITE">
+              <button className="btn btn-ghost h-[24px] min-h-0 p-0 text-base/3 font-normal capitalize hover:bg-transparent">
                 <a
                   href="https://www.linkedin.com/in/dulapahv/"
                   target="_blank"
@@ -85,7 +83,7 @@ const Header = () => {
                 </a>
               </button>
               <span className="select-none">&nbsp;&nbsp;&nbsp;</span>
-              <button className="btn btn-ghost h-[24px] min-h-0 p-0 text-base font-normal capitalize leading-3 hover:bg-transparent">
+              <button className="btn btn-ghost h-[24px] min-h-0 p-0 text-base/3 font-normal capitalize hover:bg-transparent">
                 <a
                   href="https://github.com/dulapahv/"
                   target="_blank"
@@ -98,14 +96,16 @@ const Header = () => {
               </button>
               <span className="select-none">&nbsp;&nbsp;&nbsp;</span>
               {email ? (
-                email
+                <p className="text-BLACK selection:bg-fuchsia-300 selection:text-fuchsia-900">
+                  {email}
+                </p>
               ) : (
                 <>
                   {isFetchingEmail ? (
                     <span className="loading loading-bars loading-sm align-middle"></span>
                   ) : (
                     <button
-                      className="btn btn-ghost h-[24px] min-h-0 p-0 text-base font-normal capitalize leading-3 underline hover:bg-transparent"
+                      className="btn btn-ghost h-[24px] min-h-0 p-0 text-base/3 font-normal capitalize underline hover:bg-transparent"
                       onClick={() => {
                         setIsRevealEmail(true);
                         const modal = document!.getElementById(
@@ -119,9 +119,9 @@ const Header = () => {
                   )}
                 </>
               )}
-            </h3>
+            </div>
             <h3 className="flex w-fit flex-wrap items-center bg-BLACK/10 px-3 text-sm text-BLACK md:text-base dark:bg-WHITE">
-              <button className="btn btn-ghost h-[24px] min-h-0 p-0 text-base font-normal capitalize leading-3 hover:bg-transparent">
+              <button className="btn btn-ghost h-[24px] min-h-0 p-0 text-base/3 font-normal capitalize hover:bg-transparent">
                 <a
                   href="https://gla-my.sharepoint.com/:b:/g/personal/2920990v_student_gla_ac_uk/EYjeFQclguxLgkkEvybx7twBQhjldsjUp0q0l5m1Kt4Sbg?e=tM6J8c"
                   target="_blank"
@@ -138,7 +138,7 @@ const Header = () => {
             {isRevealEmail && (
               <>
                 <div className="modal-box w-fit rounded-none bg-WHITE p-0 dark:bg-BLACK">
-                  <h1 className="text-center text-BLACK dark:text-WHITE">
+                  <h1 className="text-center text-BLACK selection:bg-fuchsia-300 selection:text-fuchsia-900 dark:text-WHITE">
                     <span className="loading loading-bars loading-sm mr-2 align-middle"></span>
                     Verifying...
                   </h1>
@@ -166,7 +166,7 @@ const Header = () => {
               </>
             )}
           </dialog>
-          <div className="flex flex-col gap-4 *:w-fit *:-rotate-6 *:items-center *:px-3 *:py-1 *:text-sm *:font-medium *:uppercase *:text-WHITE sm:*:text-base md:*:text-lg">
+          <div className="flex flex-col gap-4 *:w-fit *:-rotate-6 *:items-center *:px-3 *:py-1 *:text-sm *:font-medium *:uppercase *:text-WHITE *:selection:bg-fuchsia-300 *:selection:text-fuchsia-900 *:selection:[text-shadow:none] sm:*:text-base md:*:text-lg">
             <h3 className="animate-clip-in-left bg-RED animation-delay-100 [text-shadow:0_0_5px_#c3456d]">
               Software Engineer
             </h3>
@@ -208,7 +208,9 @@ const Header = () => {
             aria-label="Scroll to see more"
           ></button>
         </div>
-        <p className="text-xs">Scroll to see more</p>
+        <p className="text-xs selection:bg-fuchsia-300 selection:text-fuchsia-900">
+          Scroll to see more
+        </p>
       </div>
     </div>
   );

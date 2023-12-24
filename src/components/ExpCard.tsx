@@ -56,14 +56,14 @@ const ExpCard = ({
             isReversed ? 'order-2' : 'order-2 lg:order-1'
           }`}
         >
-          <h1 className="bg-RED px-2 py-1 text-lg font-bold text-WHITE">
+          <h1 className="bg-RED px-2 py-1 text-lg font-bold text-WHITE selection:bg-fuchsia-300 selection:text-fuchsia-900">
             {title}
           </h1>
-          <h2 className="flex flex-wrap items-center font-light text-YELLOW-800 dark:text-YELLOW">
+          <h2 className="flex flex-wrap items-center font-light text-YELLOW-800 selection:bg-fuchsia-300 selection:text-fuchsia-900 dark:text-YELLOW">
             {location}{' '}
             <TbMinusVertical className="text-BLACK dark:text-WHITE" /> {date}
           </h2>
-          <h3 className="flex flex-wrap items-center text-BLACK dark:text-WHITE">
+          <h3 className="flex flex-wrap items-center text-BLACK selection:bg-fuchsia-300 selection:text-fuchsia-900 dark:text-WHITE">
             <span className="bg-gradient-to-r from-BLUE from-10% via-PURPLE via-30% to-RED bg-clip-text font-semibold italic text-transparent">
               {position}
             </span>
@@ -75,7 +75,7 @@ const ExpCard = ({
             {detail?.map((item, index) => (
               <li
                 key={index}
-                className="text-justify text-BLACK dark:text-WHITE"
+                className="text-justify text-BLACK selection:bg-fuchsia-300 selection:text-fuchsia-900 dark:text-WHITE"
               >
                 {item}
               </li>
@@ -112,7 +112,7 @@ const ExpCard = ({
               <ul className="flex flex-col items-center">
                 {text?.map((item, index) => (
                   <li key={index}>
-                    <h1 className="m-2 text-BLACK dark:text-WHITE">
+                    <h1 className="m-2 text-BLACK selection:bg-fuchsia-300 selection:text-fuchsia-900 dark:text-WHITE">
                       {index + 1}. {item}
                     </h1>
                     <Image
