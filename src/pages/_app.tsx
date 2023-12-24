@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { ThemeProvider } from 'next-themes';
 
-import { Nav } from '@/components';
 import { AppProps } from 'next/app';
 import { Open_Sans } from 'next/font/google';
 import { SpeedInsights } from '@vercel/speed-insights/next';
@@ -12,6 +11,10 @@ import '@/styles/globals.css';
 const open_sans = Open_Sans({ subsets: ['latin'] });
 
 function MyApp({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    import('no-darkreader');
+  }, []);
+
   return (
     <>
       <div className={`${open_sans.className}`}>
@@ -20,9 +23,6 @@ function MyApp({ Component, pageProps }: AppProps) {
             <div className="flex-grow">
               <Component {...pageProps} />
               <SpeedInsights />
-            </div>
-            <div className="fixed bottom-0 right-0 z-[2147483647]">
-              <Nav />
             </div>
           </div>
         </ThemeProvider>
