@@ -12,7 +12,7 @@ const Error500 = () => {
         </h1>
         <p className="text-center text-lg">
           Sorry, there is an internal server error. Please refresh this page or
-          try again later
+          try again later.
         </p>
       </div>
     </div>
