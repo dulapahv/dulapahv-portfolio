@@ -4,15 +4,11 @@
 
 * {
   /* outline: 1px solid #f00 !important; */
-  /* white-space: pre-line; */
   scroll-behavior: smooth;
 }
 
-html,
-body {
-  margin: 0;
-  height: 100%;
-  /*overflow: hidden;*/
+*::selection {
+  @apply bg-fuchsia-300 text-fuchsia-900 [text-shadow:none];
 }
 
 ::-webkit-scrollbar {

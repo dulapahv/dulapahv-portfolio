@@ -12,7 +12,7 @@ const Project = () => {
       id="project"
     >
       <div className="flex flex-col items-center gap-6 py-8">
-        <h1 className="text-4xl font-semibold uppercase tracking-[0.2em] text-BLACK first-letter:text-RED selection:bg-fuchsia-300 selection:text-fuchsia-900 dark:text-WHITE">
+        <h1 className="text-4xl font-semibold uppercase tracking-[0.2em] text-BLACK first-letter:text-RED dark:text-WHITE">
           Project
         </h1>
         <div className="flex h-[2px] w-14 flex-col bg-gradient-to-r from-BLUE to-BLUE-400"></div>
