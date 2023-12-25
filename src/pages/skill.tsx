@@ -22,7 +22,7 @@ const Skill = () => {
           <div className="left-[97%] top-[462px] size-16 animate-shake-vertical bg-BLUE animation-delay-400"></div>
         </div>
         <div className="relative flex flex-col items-center gap-6 py-8">
-          <h1 className="text-4xl font-semibold uppercase tracking-[0.2em] text-BLACK first-letter:text-RED selection:bg-fuchsia-300 selection:text-fuchsia-900 dark:text-WHITE">
+          <h1 className="text-4xl font-semibold uppercase tracking-[0.2em] text-BLACK first-letter:text-RED dark:text-WHITE">
             Skill
           </h1>
           <div className="flex h-[2px] w-14 flex-col bg-gradient-to-r from-BLUE to-BLUE-400"></div>
@@ -31,7 +31,7 @@ const Skill = () => {
           <div className="mx-4 flex flex-col gap-4 lg:flex-row lg:justify-around">
             <div className="flex flex-col gap-y-4">
               <div className="flex flex-col gap-y-6">
-                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] selection:bg-fuchsia-300 selection:text-fuchsia-900 before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
+                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
                   Programming Languages
                   <div className="absolute -bottom-2 left-0 w-32">
                     <div className="grid grid-cols-4 *:h-[2px]">
@@ -65,7 +65,7 @@ const Skill = () => {
                 </div>
               </div>
               <div className="flex flex-col gap-y-6">
-                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] selection:bg-fuchsia-300 selection:text-fuchsia-900 before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
+                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
                   Web Development {'('}Front End{')'}
                   <div className="absolute -bottom-2 left-0 w-32">
                     <div className="grid grid-cols-4 *:h-[2px]">
@@ -100,7 +100,7 @@ const Skill = () => {
                 </div>
               </div>
               <div className="flex flex-col gap-y-6">
-                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] selection:bg-fuchsia-300 selection:text-fuchsia-900 before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
+                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
                   Web Development {'('}Back End{')'}
                   <div className="absolute -bottom-2 left-0 w-32">
                     <div className="grid grid-cols-4 *:h-[2px]">
@@ -139,7 +139,7 @@ const Skill = () => {
                 </div>
               </div>
               <div className="flex flex-col gap-y-6">
-                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] selection:bg-fuchsia-300 selection:text-fuchsia-900 before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
+                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
                   Testing
                   <div className="absolute -bottom-2 left-0 w-32">
                     <div className="grid grid-cols-4 *:h-[2px]">
@@ -163,7 +163,7 @@ const Skill = () => {
             </div>
             <div className="flex flex-col gap-4">
               <div className="flex flex-col gap-y-6">
-                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] selection:bg-fuchsia-300 selection:text-fuchsia-900 before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
+                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
                   Database Management System
                   <div className="absolute -bottom-2 left-0 w-32">
                     <div className="grid grid-cols-4 *:h-[2px]">
@@ -184,7 +184,7 @@ const Skill = () => {
                 </div>
               </div>
               <div className="flex flex-col gap-y-6">
-                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] selection:bg-fuchsia-300 selection:text-fuchsia-900 before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
+                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
                   DevOps
                   <div className="absolute -bottom-2 left-0 w-32">
                     <div className="grid grid-cols-4 *:h-[2px]">
@@ -205,7 +205,7 @@ const Skill = () => {
                 </div>
               </div>
               <div className="flex flex-col gap-y-6">
-                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] selection:bg-fuchsia-300 selection:text-fuchsia-900 before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
+                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
                   Others
                   <div className="absolute -bottom-2 left-0 w-32">
                     <div className="grid grid-cols-4 *:h-[2px]">
