@@ -1,8 +1,24 @@
 import React from 'react';
 
+import { cubicBezier, motion } from 'framer-motion';
+
 import { SkillIcon } from '@/components';
 
 const Skill = () => {
+  const skillHeader = (text: string) => (
+    <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
+      {text}
+      <div className="absolute -bottom-2 left-0 w-32">
+        <div className="grid grid-cols-4 *:h-[2px]">
+          <div className="bg-RED"></div>
+          <div className="bg-BLUE"></div>
+          <div className="bg-YELLOW"></div>
+          <div className="bg-PURPLE"></div>
+        </div>
+      </div>
+    </h1>
+  );
+
   return (
     <>
       <div
@@ -22,26 +38,42 @@ const Skill = () => {
           <div className="left-[97%] top-[462px] size-16 animate-shake-vertical bg-BLUE animation-delay-400"></div>
         </div>
         <div className="relative flex flex-col items-center gap-6 py-8">
-          <h1 className="text-4xl font-semibold uppercase tracking-[0.2em] text-BLACK first-letter:text-RED dark:text-WHITE">
+          <motion.h1
+            className="text-4xl font-semibold uppercase tracking-[0.2em] text-BLACK first-letter:text-RED dark:text-WHITE"
+            initial={{
+              transform: 'scale(.5)',
+              transformOrigin: '50% 100%',
+              opacity: 0,
+            }}
+            whileInView={{
+              transform: 'scale(1)',
+              transformOrigin: '50% 100%',
+              opacity: 1,
+            }}
+            transition={{
+              ease: cubicBezier(0.19, 1.0, 0.22, 1.0),
+              duration: 0.5,
+            }}
+            viewport={{ once: true }}
+          >
             Skill
-          </h1>
+          </motion.h1>
           <div className="flex h-[2px] w-14 flex-col bg-gradient-to-r from-BLUE to-BLUE-400"></div>
         </div>
         <div className="relative grid grid-cols-1 justify-items-center lg:justify-items-stretch">
           <div className="mx-4 flex flex-col gap-4 lg:flex-row lg:justify-around">
             <div className="flex flex-col gap-y-4">
-              <div className="flex flex-col gap-y-6">
-                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
-                  Programming Languages
-                  <div className="absolute -bottom-2 left-0 w-32">
-                    <div className="grid grid-cols-4 *:h-[2px]">
-                      <div className="bg-RED"></div>
-                      <div className="bg-BLUE"></div>
-                      <div className="bg-YELLOW"></div>
-                      <div className="bg-PURPLE"></div>
-                    </div>
-                  </div>
-                </h1>
+              <motion.div
+                className="flex flex-col gap-y-6"
+                initial={{ transform: 'translateY(50px)', opacity: 0 }}
+                whileInView={{
+                  transform: 'translateY(0)',
+                  opacity: 1,
+                }}
+                transition={{ ease: 'easeOut', duration: 0.7, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                {skillHeader('Programming Language')}
                 <div className="flex flex-wrap items-center gap-3">
                   <SkillIcon src="/lang/ts.svg" alt="TypeScript" />
                   <SkillIcon src="/lang/js.svg" alt="JavaScript" />
@@ -63,19 +95,18 @@ const Skill = () => {
                   <SkillIcon src="/lang/r.svg" alt="R" />
                   <SkillIcon src="/lang/rs.svg" alt="Rust" />
                 </div>
-              </div>
-              <div className="flex flex-col gap-y-6">
-                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
-                  Web Development {'('}Front End{')'}
-                  <div className="absolute -bottom-2 left-0 w-32">
-                    <div className="grid grid-cols-4 *:h-[2px]">
-                      <div className="bg-RED"></div>
-                      <div className="bg-BLUE"></div>
-                      <div className="bg-YELLOW"></div>
-                      <div className="bg-PURPLE"></div>
-                    </div>
-                  </div>
-                </h1>
+              </motion.div>
+              <motion.div
+                className="flex flex-col gap-y-6"
+                initial={{ transform: 'translateY(50px)', opacity: 0 }}
+                whileInView={{
+                  transform: 'translateY(0)',
+                  opacity: 1,
+                }}
+                transition={{ ease: 'easeOut', duration: 0.7, delay: 0.3 }}
+                viewport={{ once: true }}
+              >
+                {skillHeader('Web Development (Front End)')}
                 <div className="flex flex-wrap items-center gap-3">
                   <SkillIcon
                     src="/web_front/nextjs.svg"
@@ -98,19 +129,18 @@ const Skill = () => {
                   />
                   <SkillIcon src="/web_front/figma.svg" alt="Figma" />
                 </div>
-              </div>
-              <div className="flex flex-col gap-y-6">
-                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
-                  Web Development {'('}Back End{')'}
-                  <div className="absolute -bottom-2 left-0 w-32">
-                    <div className="grid grid-cols-4 *:h-[2px]">
-                      <div className="bg-RED"></div>
-                      <div className="bg-BLUE"></div>
-                      <div className="bg-YELLOW"></div>
-                      <div className="bg-PURPLE"></div>
-                    </div>
-                  </div>
-                </h1>
+              </motion.div>
+              <motion.div
+                className="flex flex-col gap-y-6"
+                initial={{ transform: 'translateY(50px)', opacity: 0 }}
+                whileInView={{
+                  transform: 'translateY(0)',
+                  opacity: 1,
+                }}
+                transition={{ ease: 'easeOut', duration: 0.7, delay: 0.4 }}
+                viewport={{ once: true }}
+              >
+                {skillHeader('Web Development (Back End)')}
                 <div className="flex flex-wrap items-center gap-3">
                   <SkillIcon
                     src="/web_back/expressjs.svg"
@@ -137,19 +167,18 @@ const Skill = () => {
                     alt="Firebase"
                   />
                 </div>
-              </div>
-              <div className="flex flex-col gap-y-6">
-                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
-                  Testing
-                  <div className="absolute -bottom-2 left-0 w-32">
-                    <div className="grid grid-cols-4 *:h-[2px]">
-                      <div className="bg-RED"></div>
-                      <div className="bg-BLUE"></div>
-                      <div className="bg-YELLOW"></div>
-                      <div className="bg-PURPLE"></div>
-                    </div>
-                  </div>
-                </h1>
+              </motion.div>
+              <motion.div
+                className="flex flex-col gap-y-6"
+                initial={{ transform: 'translateY(50px)', opacity: 0 }}
+                whileInView={{
+                  transform: 'translateY(0)',
+                  opacity: 1,
+                }}
+                transition={{ ease: 'easeOut', duration: 0.7, delay: 0.5 }}
+                viewport={{ once: true }}
+              >
+                {skillHeader('Testing')}
                 <div className="flex flex-wrap items-center gap-3">
                   <SkillIcon src="/testing/insomnia.svg" alt="Insomnia" />
                   <SkillIcon
@@ -159,21 +188,20 @@ const Skill = () => {
                     alt="Postman"
                   />
                 </div>
-              </div>
+              </motion.div>
             </div>
             <div className="flex flex-col gap-4">
-              <div className="flex flex-col gap-y-6">
-                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
-                  Database Management System
-                  <div className="absolute -bottom-2 left-0 w-32">
-                    <div className="grid grid-cols-4 *:h-[2px]">
-                      <div className="bg-RED"></div>
-                      <div className="bg-BLUE"></div>
-                      <div className="bg-YELLOW"></div>
-                      <div className="bg-PURPLE"></div>
-                    </div>
-                  </div>
-                </h1>
+              <motion.div
+                className="flex flex-col gap-y-6"
+                initial={{ transform: 'translateY(50px)', opacity: 0 }}
+                whileInView={{
+                  transform: 'translateY(0)',
+                  opacity: 1,
+                }}
+                transition={{ ease: 'easeOut', duration: 0.7, delay: 0.6 }}
+                viewport={{ once: true }}
+              >
+                {skillHeader('Database Management System')}
                 <div className="flex flex-wrap items-center gap-3">
                   <SkillIcon src="/dbms/postgresql.svg" alt="PostgreSQL" />
                   <SkillIcon
@@ -182,19 +210,18 @@ const Skill = () => {
                     tooltip="SQLite"
                   />
                 </div>
-              </div>
-              <div className="flex flex-col gap-y-6">
-                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
-                  DevOps
-                  <div className="absolute -bottom-2 left-0 w-32">
-                    <div className="grid grid-cols-4 *:h-[2px]">
-                      <div className="bg-RED"></div>
-                      <div className="bg-BLUE"></div>
-                      <div className="bg-YELLOW"></div>
-                      <div className="bg-PURPLE"></div>
-                    </div>
-                  </div>
-                </h1>
+              </motion.div>
+              <motion.div
+                className="flex flex-col gap-y-6"
+                initial={{ transform: 'translateY(50px)', opacity: 0 }}
+                whileInView={{
+                  transform: 'translateY(0)',
+                  opacity: 1,
+                }}
+                transition={{ ease: 'easeOut', duration: 0.7, delay: 0.7 }}
+                viewport={{ once: true }}
+              >
+                {skillHeader('DevOps')}
                 <div className="flex flex-wrap items-center gap-3">
                   <SkillIcon
                     src="/devops/docker.svg"
@@ -203,19 +230,18 @@ const Skill = () => {
                     alt="Docker"
                   />
                 </div>
-              </div>
-              <div className="flex flex-col gap-y-6">
-                <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
-                  Others
-                  <div className="absolute -bottom-2 left-0 w-32">
-                    <div className="grid grid-cols-4 *:h-[2px]">
-                      <div className="bg-RED"></div>
-                      <div className="bg-BLUE"></div>
-                      <div className="bg-YELLOW"></div>
-                      <div className="bg-PURPLE"></div>
-                    </div>
-                  </div>
-                </h1>
+              </motion.div>
+              <motion.div
+                className="flex flex-col gap-y-6"
+                initial={{ transform: 'translateY(50px)', opacity: 0 }}
+                whileInView={{
+                  transform: 'translateY(0)',
+                  opacity: 1,
+                }}
+                transition={{ ease: 'easeOut', duration: 0.7, delay: 0.8 }}
+                viewport={{ once: true }}
+              >
+                {skillHeader('Others')}
                 <div className="flex flex-wrap items-center gap-3">
                   <SkillIcon src="/other/qt.svg" alt="Qt" />
                   <SkillIcon src="/other/bash.svg" alt="Bash" />
@@ -226,7 +252,7 @@ const Skill = () => {
                     alt="Vercel"
                   />
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>

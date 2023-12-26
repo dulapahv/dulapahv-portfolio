@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { cubicBezier, motion } from 'framer-motion';
+
 import Image from 'next/image';
 import { education } from '@/data';
 import { MdSchool } from 'react-icons/md';
@@ -13,22 +15,64 @@ const Education = () => {
       id="education"
     >
       <div className="flex flex-col items-center gap-6 py-8">
-        <h1 className="text-2xl font-semibold uppercase tracking-[0.2em] text-BLACK first-letter:text-RED min-[375px]:text-3xl sm:text-4xl dark:text-WHITE">
+        <motion.h1
+          className="text-2xl font-semibold uppercase tracking-[0.2em] text-BLACK first-letter:text-RED min-[375px]:text-3xl sm:text-4xl dark:text-WHITE"
+          initial={{
+            transform: 'scale(.5)',
+            transformOrigin: '50% 100%',
+            opacity: 0,
+          }}
+          whileInView={{
+            transform: 'scale(1)',
+            transformOrigin: '50% 100%',
+            opacity: 1,
+          }}
+          transition={{
+            ease: cubicBezier(0.19, 1.0, 0.22, 1.0),
+            duration: 0.5,
+          }}
+          viewport={{ once: true }}
+        >
           Education
-        </h1>
+        </motion.h1>
         <div className="flex h-[2px] w-14 flex-col bg-gradient-to-r from-BLUE to-BLUE-400"></div>
       </div>
       <ul className="timeline timeline-vertical timeline-snap-icon px-4 max-md:timeline-compact sm:px-8 md:px-12 lg:px-16">
         {educations.map(([key, value], index) => (
           <li key={key}>
-            {index !== 0 && <hr className="rounded-none bg-RED" />}
-            <div className="timeline-middle">
+            {index !== 0 && (
+              <motion.hr
+                className="rounded-none bg-RED"
+                initial={{ clipPath: 'polygon(0 0, 100% 0%, 100% 0, 0 0)' }}
+                whileInView={{
+                  clipPath: 'polygon(0 0, 100% 0%, 100% 100%, 0 100%)',
+                }}
+                transition={{ duration: 0.7 }}
+                viewport={{ once: true }}
+              />
+            )}
+            <motion.div
+              className="timeline-middle"
+              initial={{ opacity: 0 }}
+              whileInView={{
+                opacity: 1,
+              }}
+              transition={{ ease: 'easeOut', duration: 0.7 }}
+              viewport={{ once: true }}
+            >
               <MdSchool className="size-6 rounded-full bg-RED p-[3px] text-WHITE" />
-            </div>
-            <div
+            </motion.div>
+            <motion.div
               className={`relative mb-10 !self-start ${
                 index % 2 === 0 ? 'timeline-start md:text-end' : 'timeline-end'
               }`}
+              initial={{ transform: 'translateY(100px)', opacity: 0 }}
+              whileInView={{
+                transform: 'translateY(0)',
+                opacity: 1,
+              }}
+              transition={{ ease: 'easeOut', duration: 0.5 }}
+              viewport={{ once: true }}
             >
               <time className="text-lg">{value.date}</time>
               <Image
@@ -64,7 +108,7 @@ const Education = () => {
                   </p>
                 )}
               </div>
-            </div>
+            </motion.div>
             <div
               className={`${
                 index % 2 === 0
@@ -74,12 +118,23 @@ const Education = () => {
             >
               <ul className="ml-5 list-outside list-disc">
                 {value.achievement.map((item, index) => (
-                  <li
+                  <motion.li
                     key={index}
                     className="text-justify text-BLACK dark:text-WHITE"
+                    initial={{ transform: 'translateY(100px)', opacity: 0 }}
+                    whileInView={{
+                      transform: 'translateY(0)',
+                      opacity: 1,
+                    }}
+                    transition={{
+                      ease: 'easeOut',
+                      duration: 0.5,
+                      delay: index * 0.1,
+                    }}
+                    viewport={{ once: true }}
                   >
                     {item}
-                  </li>
+                  </motion.li>
                 ))}
                 <div className="hidden *:absolute *:rounded-full *:opacity-70 md:flex">
                   <div
@@ -106,7 +161,15 @@ const Education = () => {
               </ul>
             </div>
             {index !== educations.length - 1 && (
-              <hr className="rounded-none bg-RED" />
+              <motion.hr
+                className="rounded-none bg-RED"
+                initial={{ clipPath: 'polygon(0 0, 100% 0%, 100% 0, 0 0)' }}
+                whileInView={{
+                  clipPath: 'polygon(0 0, 100% 0%, 100% 100%, 0 100%)',
+                }}
+                transition={{ ease: 'easeOut', duration: 2 }}
+                viewport={{ once: true }}
+              />
             )}
           </li>
         ))}

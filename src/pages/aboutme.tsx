@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { cubicBezier, motion } from 'framer-motion';
+
 import { FiExternalLink } from 'react-icons/fi';
 import { Kanit, Noto_Sans_JP } from 'next/font/google';
 
@@ -105,10 +107,7 @@ const Aboutme = () => {
   };
 
   return (
-    <div
-      className="flex animate-clip-in-right flex-col overflow-hidden"
-      id="aboutme"
-    >
+    <div className="flex flex-col overflow-hidden" id="aboutme">
       <div className="relative w-screen *:absolute *:rounded-full *:opacity-70">
         <div className="left-[3%] top-[33rem] size-4 animate-shake-vertical bg-PURPLE animation-delay-1200"></div>
         <div className="left-[5%] top-[39rem] size-8 animate-shake-vertical bg-RED"></div>
@@ -119,12 +118,37 @@ const Aboutme = () => {
         <ScrollingTextBg />
         <div className="absolute top-0 lg:top-20">
           <div className="lg:md-12 my-2 ml-4 flex h-fit scroll-my-16 flex-col gap-4 rounded-bl-3xl bg-PURPLE/60 p-4 backdrop-blur sm:my-4 sm:ml-8 sm:p-8 md:my-8 md:ml-12 md:gap-8 md:p-6 lg:my-16 lg:ml-16">
-            <h1 className="w-fit bg-PURPLE p-1 px-3 text-xl font-semibold uppercase tracking-[0.2em] text-WHITE first-letter:text-RED sm:text-2xl md:p-3 md:text-3xl lg:text-4xl">
+            <motion.h1
+              className="w-fit bg-PURPLE p-1 px-3 text-xl font-semibold uppercase tracking-[0.2em] text-WHITE first-letter:text-RED sm:text-2xl md:p-3 md:text-3xl lg:text-4xl"
+              initial={{
+                transform: 'scale(.5)',
+                transformOrigin: '50% 100%',
+                opacity: 0,
+              }}
+              whileInView={{
+                transform: 'scale(1)',
+                transformOrigin: '50% 100%',
+                opacity: 1,
+              }}
+              transition={{
+                ease: cubicBezier(0.19, 1.0, 0.22, 1.0),
+                duration: 0.5,
+              }}
+              viewport={{ once: true }}
+            >
               About Me
-            </h1>
+            </motion.h1>
             <div className="flex flex-col gap-2">
               <div className="flex h-[2px] w-10 flex-col bg-BLUE"></div>
-              <p className="text-justify text-xs text-WHITE min-[425px]:text-sm sm:text-base md:text-lg lg:text-xl">
+              <motion.p
+                className="text-justify text-xs text-WHITE min-[425px]:text-sm sm:text-base md:text-lg lg:text-xl"
+                initial={{ clipPath: 'polygon(0 0, 0 0, 0 100%, 0% 100%)' }}
+                whileInView={{
+                  clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+                }}
+                transition={{ ease: 'easeOut', duration: 1, delay: 0.1 }}
+                viewport={{ once: true }}
+              >
                 I am an experienced software engineer with a keen interest in
                 creating intuitive and robust web applications. While I
                 specialize in Front End technologies like Next.js and React.js,
@@ -133,11 +157,19 @@ const Aboutme = () => {
                 continuous journey to become a well-rounded Full Stack
                 Developer, combining both Front End and Back End expertise to
                 deliver comprehensive solutions.
-              </p>
+              </motion.p>
             </div>
             <div className="flex flex-col gap-2">
               <div className="flex h-[2px] w-10 flex-col bg-BLUE"></div>
-              <p className="text-justify text-xs text-WHITE min-[425px]:text-sm sm:text-base md:text-lg lg:text-xl">
+              <motion.p
+                className="text-justify text-xs text-WHITE min-[425px]:text-sm sm:text-base md:text-lg lg:text-xl"
+                initial={{ clipPath: 'polygon(0 0, 0 0, 0 100%, 0% 100%)' }}
+                whileInView={{
+                  clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+                }}
+                transition={{ ease: 'easeOut', duration: 1, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
                 My educational background is a testament to my commitment to the
                 field of software engineering. I hold a double degree, with a
                 BSc Honours in Software Engineering from the{' '}
@@ -168,11 +200,19 @@ const Aboutme = () => {
                 . My academic journey has equipped me with a strong theoretical
                 foundation, complemented by practical experience gained through
                 internships and projects.
-              </p>
+              </motion.p>
             </div>
             <div className="flex flex-col gap-2">
               <div className="flex h-[2px] w-10 flex-col bg-BLUE"></div>
-              <p className="text-justify text-xs text-WHITE min-[425px]:text-sm sm:text-base md:text-lg lg:text-xl">
+              <motion.p
+                className="text-justify text-xs text-WHITE min-[425px]:text-sm sm:text-base md:text-lg lg:text-xl"
+                initial={{ clipPath: 'polygon(0 0, 0 0, 0 100%, 0% 100%)' }}
+                whileInView={{
+                  clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+                }}
+                transition={{ ease: 'easeOut', duration: 1, delay: 0.3 }}
+                viewport={{ once: true }}
+              >
                 I thrive on innovation and problem-solving. My project portfolio
                 includes applications like Kanbaru, a kanban-style project
                 management tool designed to streamline task organization, and
@@ -182,7 +222,7 @@ const Aboutme = () => {
                 tackle complex challenges in the software development domain. I
                 am continuously looking for opportunities to leverage my skills
                 and knowledge to contribute to exciting and impactful projects.
-              </p>
+              </motion.p>
             </div>
           </div>
         </div>

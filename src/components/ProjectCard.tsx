@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { motion } from 'framer-motion';
+
 import Image from 'next/image';
 import { FiExternalLink } from 'react-icons/fi';
 
@@ -23,7 +25,16 @@ const ProjectCard = ({
   badge,
 }: ProjectCardProps) => {
   return (
-    <div className="card card-compact w-96 rounded-md bg-base-100 shadow-lg shadow-BLUE/30 md:card-normal dark:bg-neutral-700 dark:shadow-BLUE/20">
+    <motion.div
+      className="card card-compact w-96 rounded-md bg-base-100 shadow-lg shadow-BLUE/30 md:card-normal dark:bg-neutral-700 dark:shadow-BLUE/20"
+      initial={{ transform: 'translateY(50px)', opacity: 0 }}
+      whileInView={{
+        transform: 'translateY(0)',
+        opacity: 1,
+      }}
+      transition={{ ease: 'easeOut', duration: 0.7 }}
+      viewport={{ once: true }}
+    >
       <figure
         onClick={() => {
           const modal = document.getElementById(id) as HTMLDialogElement;
@@ -105,7 +116,7 @@ const ProjectCard = ({
           </a>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

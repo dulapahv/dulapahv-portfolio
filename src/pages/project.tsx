@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { cubicBezier, motion } from 'framer-motion';
+
 import { project } from '@/data';
 import { ProjectCard } from '@/components';
 
@@ -12,9 +14,26 @@ const Project = () => {
       id="project"
     >
       <div className="flex flex-col items-center gap-6 py-8">
-        <h1 className="text-4xl font-semibold uppercase tracking-[0.2em] text-BLACK first-letter:text-RED dark:text-WHITE">
+        <motion.h1
+          className="text-4xl font-semibold uppercase tracking-[0.2em] text-BLACK first-letter:text-RED dark:text-WHITE"
+          initial={{
+            transform: 'scale(.5)',
+            transformOrigin: '50% 100%',
+            opacity: 0,
+          }}
+          whileInView={{
+            transform: 'scale(1)',
+            transformOrigin: '50% 100%',
+            opacity: 1,
+          }}
+          transition={{
+            ease: cubicBezier(0.19, 1.0, 0.22, 1.0),
+            duration: 0.5,
+          }}
+          viewport={{ once: true }}
+        >
           Project
-        </h1>
+        </motion.h1>
         <div className="flex h-[2px] w-14 flex-col bg-gradient-to-r from-BLUE to-BLUE-400"></div>
       </div>
       <div className="flex flex-wrap justify-center gap-x-6 gap-y-16">
