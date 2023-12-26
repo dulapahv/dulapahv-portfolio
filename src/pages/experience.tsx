@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { cubicBezier, motion } from 'framer-motion';
+
 import { experience } from '@/data/';
 import { ExpCard } from '@/components';
 
@@ -12,9 +14,26 @@ const Experience = () => {
       id="experience"
     >
       <div className="flex flex-col items-center gap-16 py-8">
-        <h1 className="text-2xl font-semibold uppercase tracking-[0.2em] text-BLACK first-letter:text-RED min-[375px]:text-3xl sm:text-4xl dark:text-WHITE">
+        <motion.h1
+          className="text-2xl font-semibold uppercase tracking-[0.2em] text-BLACK first-letter:text-RED min-[375px]:text-3xl sm:text-4xl dark:text-WHITE"
+          initial={{
+            transform: 'scale(.5)',
+            transformOrigin: '50% 100%',
+            opacity: 0,
+          }}
+          whileInView={{
+            transform: 'scale(1)',
+            transformOrigin: '50% 100%',
+            opacity: 1,
+          }}
+          transition={{
+            ease: cubicBezier(0.19, 1.0, 0.22, 1.0),
+            duration: 0.5,
+          }}
+          viewport={{ once: true }}
+        >
           Work Experience
-        </h1>
+        </motion.h1>
         <div className="flex h-[2px] w-14 flex-col bg-gradient-to-r from-BLUE to-BLUE-400"></div>
       </div>
       <div className="-mt-8 flex flex-col gap-8 lg:-mt-16 lg:gap-16">

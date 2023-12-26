@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { cubicBezier, motion } from 'framer-motion';
+
 import Image from 'next/image';
 import { TbMinusVertical } from 'react-icons/tb';
 
@@ -51,10 +53,19 @@ const ExpCard = ({
         ></div>
       </div>
       <div className="z-10 mb-8 flex h-full min-h-[28rem] flex-col rounded-md px-4 sm:px-8 md:px-16 lg:flex-row lg:px-24">
-        <div
+        <motion.div
           className={`mx-0 mt-3 lg:mx-4 lg:mt-0 lg:w-1/2 ${
             isReversed ? 'order-2' : 'order-2 lg:order-1'
           }`}
+          initial={{ clipPath: 'polygon(0 0, 0 0, 0 100%, 0% 100%)' }}
+          whileInView={{
+            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+          }}
+          transition={{
+            ease: cubicBezier(0.25, 0.46, 0.45, 0.94),
+            duration: 0.7,
+          }}
+          viewport={{ once: true }}
         >
           <h1 className="bg-RED px-2 py-1 text-lg font-bold text-WHITE">
             {title}
@@ -81,8 +92,8 @@ const ExpCard = ({
               </li>
             ))}
           </ul>
-        </div>
-        <div
+        </motion.div>
+        <motion.div
           className={`lg:w-1/2 ${
             isReversed
               ? 'order-1 after:rounded-tr-3xl'
@@ -92,6 +103,13 @@ const ExpCard = ({
             const modal = document.getElementById(id) as HTMLDialogElement;
             modal?.showModal();
           }}
+          initial={{ transform: 'translateY(100px)', opacity: 0 }}
+          whileInView={{
+            transform: 'translateY(0)',
+            opacity: 1,
+          }}
+          transition={{ ease: 'easeOut', duration: 0.5 }}
+          viewport={{ once: true }}
         >
           <Image
             src={`/images/exp/${id}/cover.png`}
@@ -133,11 +151,29 @@ const ExpCard = ({
             </form>
           </dialog>
           {isReversed ? (
-            <div className="pointer-events-none absolute -bottom-16 right-32 -z-10 h-36 w-screen animate-clip-in-left bg-BLUE opacity-50"></div>
+            <motion.div
+              className="pointer-events-none absolute -bottom-16 right-32 -z-10 h-36 w-screen animate-clip-in-left bg-BLUE opacity-50"
+              initial={{ clipPath: 'polygon(0 0, 0 0, 0 100%, 0% 100%)' }}
+              whileInView={{
+                clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+              }}
+              transition={{ ease: 'easeOut', duration: 0.7 }}
+              viewport={{ once: true }}
+            ></motion.div>
           ) : (
-            <div className="pointer-events-none absolute -bottom-16 left-32 -z-10 h-36 w-screen animate-clip-in-right bg-BLUE opacity-50"></div>
+            <motion.div
+              className="pointer-events-none absolute -bottom-16 left-32 -z-10 h-36 w-screen animate-clip-in-right bg-BLUE opacity-50"
+              initial={{
+                clipPath: 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)',
+              }}
+              whileInView={{
+                clipPath: 'polygon(100% 0, 0 0, 0 100%, 100% 100%)',
+              }}
+              transition={{ ease: 'easeOut', duration: 0.7 }}
+              viewport={{ once: true }}
+            ></motion.div>
           )}
-        </div>
+        </motion.div>
       </div>
     </>
   );
