@@ -13,7 +13,7 @@ const Experience = () => {
       className="relative flex animate-fade-in flex-col justify-center gap-8 overflow-hidden py-8"
       id="experience"
     >
-      <div className="flex flex-col items-center gap-16 py-8">
+      <div className="flex flex-col items-center gap-6 py-8">
         <motion.h1
           className="text-2xl font-semibold uppercase tracking-[0.2em] text-BLACK first-letter:text-RED min-[375px]:text-3xl sm:text-4xl dark:text-WHITE"
           initial={{
