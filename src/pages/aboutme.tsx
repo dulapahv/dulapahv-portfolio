@@ -6,13 +6,13 @@ import { FiExternalLink } from 'react-icons/fi';
 import { Kanit, Noto_Sans_JP } from 'next/font/google';
 
 const kanit = Kanit({
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  weight: ['600', '700'],
   style: ['normal', 'italic'],
   subsets: ['latin', 'thai'],
 });
 
 const noto_sans_jp = Noto_Sans_JP({
-  weight: ['100', '300', '400', '500', '700', '900'],
+  weight: ['600', '700'],
   style: ['normal'],
   subsets: ['latin', 'latin'],
 });
