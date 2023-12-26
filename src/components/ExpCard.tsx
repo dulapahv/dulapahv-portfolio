@@ -52,9 +52,9 @@ const ExpCard = ({
           } top-[30rem]`}
         ></div>
       </div>
-      <div className="z-10 mb-8 flex h-full min-h-[28rem] flex-col rounded-md px-4 sm:px-8 md:px-16 lg:flex-row lg:px-24">
+      <div className="mb-8 flex h-full min-h-[28rem] flex-col rounded-md px-4 sm:px-8 md:px-16 lg:flex-row lg:px-24">
         <motion.div
-          className={`mx-0 mt-3 lg:mx-4 lg:mt-0 lg:w-1/2 ${
+          className={`z-10 mx-0 mt-3 lg:mx-4 lg:mt-0 lg:w-1/2 ${
             isReversed ? 'order-2' : 'order-2 lg:order-1'
           }`}
           initial={{ clipPath: 'polygon(0 0, 0 0, 0 100%, 0% 100%)' }}
