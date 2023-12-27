@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { cubicBezier, motion } from 'framer-motion';
 
@@ -8,7 +8,8 @@ import {
   Modal,
   ModalBody,
   ModalContent,
-  ModalHeader,
+  ScrollShadow,
+  Skeleton,
   useDisclosure,
 } from '@nextui-org/react';
 
@@ -36,9 +37,10 @@ const ExpCard = ({
   reversed: isReversed = false,
 }: ExpCardProps) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const [isLoaded, setIsLoaded] = useState(false);
 
-  return (
-    <>
+  const Floaties = () => {
+    return (
       <div className="relative w-screen *:absolute *:rounded-full *:opacity-70">
         <div
           className={`size-4 animate-shake-vertical bg-PURPLE animation-delay-1200 ${
@@ -61,6 +63,12 @@ const ExpCard = ({
           } top-[30rem]`}
         ></div>
       </div>
+    );
+  };
+
+  return (
+    <>
+      <Floaties />
       <div className="mb-8 flex h-full min-h-[28rem] flex-col rounded-md px-4 sm:px-8 md:px-16 lg:flex-row lg:px-24">
         <motion.div
           className={`z-10 mx-0 mt-3 lg:mx-4 lg:mt-0 lg:w-1/2 ${
@@ -124,7 +132,7 @@ const ExpCard = ({
             alt={id + ' cover'}
             className={`${
               isReversed ? 'rounded-br-3xl' : 'rounded-bl-3xl'
-            } w-full object-cover hover:brightness-[.85] lg:h-full lg:shadow-xl`}
+            } w-full object-cover hover:brightness-[.85] active:brightness-75 lg:h-full lg:shadow-xl`}
           />
           {isReversed ? (
             <motion.div
@@ -157,32 +165,35 @@ const ExpCard = ({
           size="3xl"
           classNames={{
             wrapper: 'z-[2147483647] overflow-hidden',
+            body: 'p-4 pt-1',
             backdrop: 'z-[2147483647]',
             closeButton:
-              'btn btn-circle btn-ghost btn-sm text-RED hover:bg-RED hover:text-WHITE active:bg-RED/80 text-lg p-0',
+              'btn btn-circle btn-ghost btn-sm z-[2147483647] p-0 text-lg text-RED hover:bg-RED hover:text-WHITE active:bg-RED/80 md:fixed md:text-2xl',
           }}
         >
           <ModalContent>
-            <>
-              <ModalHeader />
-              <ModalBody>
+            <ModalBody>
+              <ScrollShadow size={20}>
                 <ul className="flex flex-col items-center">
                   {text?.map((item, index) => (
                     <li key={index}>
                       <h1 className="m-2 text-BLACK dark:text-WHITE">
                         {index + 1}. {item}
                       </h1>
-                      <Image
-                        src={`/images/exp/${id}/${index + 1}.png`}
-                        width={750}
-                        height={500}
-                        alt={id + ' ' + index + 1}
-                      />
+                      <Skeleton isLoaded={isLoaded} className="rounded-lg">
+                        <Image
+                          src={`/images/exp/${id}/${index + 1}.png`}
+                          width={750}
+                          height={500}
+                          alt={id + ' ' + index + 1}
+                          onLoad={() => setIsLoaded(true)}
+                        />
+                      </Skeleton>
                     </li>
                   ))}
                 </ul>
-              </ModalBody>
-            </>
+              </ScrollShadow>
+            </ModalBody>
           </ModalContent>
         </Modal>
       </div>
