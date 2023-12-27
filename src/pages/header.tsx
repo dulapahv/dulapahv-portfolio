@@ -8,6 +8,12 @@ import { TbMinusVertical } from 'react-icons/tb';
 import { HiOutlineDocument } from 'react-icons/hi2';
 import { BsArrowDownCircleFill } from 'react-icons/bs';
 import { Turnstile, TurnstileInstance } from '@marsidev/react-turnstile';
+import {
+  Modal,
+  ModalBody,
+  ModalContent,
+  useDisclosure,
+} from '@nextui-org/react';
 
 const Header = () => {
   const captchaInstance = useRef<TurnstileInstance>(null);
@@ -15,12 +21,10 @@ const Header = () => {
   const [isRevealEmail, setIsRevealEmail] = useState(false);
   const [email, setEmail] = useState('' as string);
   const [isFetchingEmail, setIsFetchingEmail] = useState(false);
+  const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
 
   const handleCaptchaSuccess = async (token: string) => {
-    const modal = document!.getElementById(
-      'turnstileModal'
-    ) as HTMLDialogElement;
-    modal.close();
+    onClose();
     setIsFetchingEmail(true);
     try {
       const response = await fetch(
@@ -106,10 +110,7 @@ const Header = () => {
                       className="btn btn-ghost h-[24px] min-h-0 p-0 text-base/3 font-normal capitalize underline hover:bg-transparent"
                       onClick={() => {
                         setIsRevealEmail(true);
-                        const modal = document!.getElementById(
-                          'turnstileModal'
-                        ) as HTMLDialogElement;
-                        modal.showModal();
+                        onOpen();
                       }}
                     >
                       Reveal Email
@@ -132,38 +133,47 @@ const Header = () => {
               </button>
             </h3>
           </div>
-          <dialog id="turnstileModal" className="modal">
-            {isRevealEmail && (
-              <>
-                <div className="modal-box w-fit rounded-none bg-WHITE p-0 dark:bg-BLACK">
-                  <h1 className="text-center text-BLACK dark:text-WHITE">
-                    <span className="loading loading-bars loading-sm mr-2 align-middle"></span>
-                    Verifying...
-                  </h1>
-                  <Turnstile
-                    siteKey="0x4AAAAAAACYFWWcTzhCNWz4" // 0x4AAAAAAACYFWWcTzhCNWz4 1x00000000000000000000AA
-                    onError={() => {
-                      // TODO: Reset captcha
-                      console.log('Error!');
-                    }}
-                    onExpire={() => {
-                      console.log('Expired!');
-                      // TODO: Reset captcha
-                      // captchaInstance.current?.reset();
-                    }}
-                    onSuccess={handleCaptchaSuccess}
-                    options={{
-                      theme: resolvedTheme === 'dark' ? 'dark' : 'light',
-                    }}
-                    ref={captchaInstance}
-                  />
-                </div>
-                <form method="dialog" className="modal-backdrop">
-                  <button>close</button>
-                </form>
-              </>
-            )}
-          </dialog>
+          <Modal
+            isOpen={isOpen}
+            onOpenChange={onOpenChange}
+            hideCloseButton
+            isDismissable={false}
+            size="xs"
+            classNames={{
+              wrapper: 'z-[2147483647] overflow-hidden',
+              backdrop: 'z-[2147483647]',
+            }}
+          >
+            <ModalContent>
+              <ModalBody>
+                {isRevealEmail && (
+                  <div className="flex flex-col items-center gap-y-4">
+                    <h1 className="text-center text-BLACK dark:text-WHITE">
+                      <span className="loading loading-bars loading-sm mr-2 align-middle"></span>
+                      Verifying...
+                    </h1>
+                    <Turnstile
+                      siteKey="0x4AAAAAAACYFWWcTzhCNWz4" // 0x4AAAAAAACYFWWcTzhCNWz4 1x00000000000000000000AA
+                      onError={() => {
+                        // TODO: Reset captcha
+                        console.log('Error!');
+                      }}
+                      onExpire={() => {
+                        console.log('Expired!');
+                        // TODO: Reset captcha
+                        // captchaInstance.current?.reset();
+                      }}
+                      onSuccess={handleCaptchaSuccess}
+                      options={{
+                        theme: resolvedTheme === 'dark' ? 'dark' : 'light',
+                      }}
+                      ref={captchaInstance}
+                    />
+                  </div>
+                )}
+              </ModalBody>
+            </ModalContent>
+          </Modal>
           <div className="flex flex-col gap-4 *:w-fit *:-rotate-6 *:items-center *:px-3 *:py-1 *:text-sm *:font-medium *:uppercase *:text-WHITE sm:*:text-base md:*:text-lg">
             <h3 className="animate-clip-in-left bg-RED animation-delay-100 [text-shadow:0_0_5px_#c3456d]">
               Software Engineer
