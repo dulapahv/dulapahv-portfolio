@@ -50,8 +50,8 @@ const Header = () => {
     }
   };
 
-  return (
-    <div className="flex animate-fade-in flex-col overflow-hidden">
+  const Floaties = () => {
+    return (
       <div className="relative w-screen *:absolute *:rounded-full *:opacity-70">
         <div className="left-[8%] top-[256px] size-4 animate-shake-vertical bg-RED"></div>
         <div className="left-[13%] top-[176px] size-8 animate-shake-vertical bg-BLUE animation-delay-400"></div>
@@ -63,6 +63,12 @@ const Header = () => {
         <div className="left-[84%] top-[848px] size-8 animate-shake-vertical bg-YELLOW animation-delay-800"></div>
         <div className="left-[97%] top-[512px] size-16 animate-shake-vertical bg-BLUE animation-delay-400"></div>
       </div>
+    );
+  };
+
+  return (
+    <header className="flex animate-fade-in flex-col overflow-hidden">
+      <Floaties />
       <div className="flex h-fit min-h-screen flex-col items-center gap-8 overflow-hidden pt-4 md:pt-8 lg:flex-row lg:justify-around lg:gap-0 lg:pt-0">
         <div className="mx-4 flex w-fit flex-col gap-10 md:mx-8 lg:gap-20">
           <div className="animate-clip-in-left animation-delay-100">
@@ -86,7 +92,7 @@ const Header = () => {
                   <FiExternalLink className="mb-1 ml-1 inline text-BLACK/80" />
                 </a>
               </button>
-              <span className="select-none">&nbsp;&nbsp;&nbsp;</span>
+              <span className="select-none">&emsp;</span>
               <button className="btn btn-ghost h-[24px] min-h-0 select-text border-0 p-0 text-base/3 font-normal capitalize hover:bg-transparent">
                 <a
                   href="https://github.com/dulapahv/"
@@ -98,7 +104,7 @@ const Header = () => {
                   <FiExternalLink className="mb-1 ml-1 inline text-BLACK/80" />
                 </a>
               </button>
-              <span className="select-none">&nbsp;&nbsp;&nbsp;</span>
+              <span className="select-none">&emsp;</span>
               {email ? (
                 <p className="text-BLACK">{email}</p>
               ) : (
@@ -150,9 +156,12 @@ const Header = () => {
                 {isRevealEmail && (
                   <div className="flex flex-col items-center gap-y-4">
                     <h1 className="text-center text-BLACK dark:text-WHITE">
-                      <span className="loading loading-bars loading-sm mr-2 align-middle"></span>
-                      Verifying...
+                      Please verify Captcha
                     </h1>
+                    <div className="relative flex gap-x-2 py-5">
+                      <span className="loading loading-spinner loading-md"></span>
+                      <p>Loading Captcha...</p>
+                    </div>
                     <Turnstile
                       siteKey="0x4AAAAAAACYFWWcTzhCNWz4" // 0x4AAAAAAACYFWWcTzhCNWz4 1x00000000000000000000AA
                       onError={() => {
@@ -169,6 +178,7 @@ const Header = () => {
                         theme: resolvedTheme === 'dark' ? 'dark' : 'light',
                       }}
                       ref={captchaInstance}
+                      className="absolute bottom-[10px]"
                     />
                   </div>
                 )}
@@ -219,7 +229,7 @@ const Header = () => {
         </div>
         <p className="text-xs">Scroll to see more</p>
       </div>
-    </div>
+    </header>
   );
 };
 
