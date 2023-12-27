@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { motion } from 'framer-motion';
 
@@ -8,7 +8,8 @@ import {
   Modal,
   ModalBody,
   ModalContent,
-  ModalHeader,
+  ScrollShadow,
+  Skeleton,
   useDisclosure,
 } from '@nextui-org/react';
 
@@ -32,6 +33,7 @@ const ProjectCard = ({
   badge,
 }: ProjectCardProps) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const [isLoaded, setIsLoaded] = useState(false);
 
   return (
     <motion.div
@@ -53,7 +55,7 @@ const ProjectCard = ({
           width={1541}
           height={1063}
           alt={id + ' cover'}
-          className="h-[250px] w-screen bg-clip-content object-cover hover:brightness-[.85]"
+          className="h-[250px] w-screen bg-clip-content object-cover hover:brightness-[.85] active:brightness-75"
         />
       </figure>
       <Modal
@@ -63,32 +65,35 @@ const ProjectCard = ({
         size="3xl"
         classNames={{
           wrapper: 'z-[2147483647] overflow-hidden',
+          body: 'p-4 pt-1',
           backdrop: 'z-[2147483647]',
           closeButton:
-            'btn btn-circle btn-ghost btn-sm text-RED hover:bg-RED hover:text-WHITE active:bg-RED/80 text-lg p-0',
+            'btn btn-circle btn-ghost btn-sm z-[2147483647] p-0 text-lg text-RED hover:bg-RED hover:text-WHITE active:bg-RED/80 md:fixed md:text-2xl',
         }}
       >
         <ModalContent>
-          <>
-            <ModalHeader />
-            <ModalBody>
+          <ModalBody>
+            <ScrollShadow size={20}>
               <ul className="flex flex-col items-center">
                 {text?.map((item, index) => (
                   <li key={index}>
                     <h1 className="m-2 text-BLACK dark:text-WHITE">
                       {index + 1}. {item}
                     </h1>
-                    <Image
-                      src={`/images/proj/${id}/${index + 1}.png`}
-                      width={750}
-                      height={500}
-                      alt={id + ' ' + index + 1}
-                    />
+                    <Skeleton isLoaded={isLoaded} className="rounded-lg">
+                      <Image
+                        src={`/images/proj/${id}/${index + 1}.png`}
+                        width={750}
+                        height={500}
+                        alt={id + ' ' + index + 1}
+                        onLoad={() => setIsLoaded(true)}
+                      />
+                    </Skeleton>
                   </li>
                 ))}
               </ul>
-            </ModalBody>
-          </>
+            </ScrollShadow>
+          </ModalBody>
         </ModalContent>
       </Modal>
       <div className="card-body relative">
