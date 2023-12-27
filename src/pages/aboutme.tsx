@@ -2,7 +2,7 @@ import React from 'react';
 
 import { cubicBezier, motion } from 'framer-motion';
 
-import { FiExternalLink } from 'react-icons/fi';
+import { aboutme } from '@/data';
 import { Kanit, Noto_Sans_JP } from 'next/font/google';
 
 const kanit = Kanit({
@@ -149,14 +149,7 @@ const Aboutme = () => {
                 transition={{ ease: 'easeOut', duration: 1, delay: 0.1 }}
                 viewport={{ once: true }}
               >
-                I am an experienced software engineer with a keen interest in
-                creating intuitive and robust web applications. While I
-                specialize in Front End technologies like Next.js and React.js,
-                my journey as a developer has also led me to explore Back End
-                development with technologies like Express.js. I&apos;m on a
-                continuous journey to become a well-rounded Full Stack
-                Developer, combining both Front End and Back End expertise to
-                deliver comprehensive solutions.
+                {aboutme[0]}
               </motion.p>
             </div>
             <div className="flex flex-col gap-2">
@@ -170,36 +163,7 @@ const Aboutme = () => {
                 transition={{ ease: 'easeOut', duration: 1, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                My educational background is a testament to my commitment to the
-                field of software engineering. I hold a double degree, with a
-                BSc Honours in Software Engineering from the{' '}
-                <button className="btn btn-ghost h-[24px] min-h-0 select-text border-0 p-0 text-xs font-normal capitalize text-WHITE hover:bg-transparent min-[425px]:text-sm sm:text-base md:text-lg lg:text-xl">
-                  <a
-                    href="https://www.gla.ac.uk/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="-mb-1 items-center text-YELLOW"
-                  >
-                    University of Glasgow
-                    <FiExternalLink className="mb-1 ml-1 inline" />
-                  </a>
-                </button>
-                , and a BEng in Software Engineering from{' '}
-                <button className="btn btn-ghost h-[24px] min-h-0 select-text border-0 p-0 text-xs font-normal capitalize text-WHITE hover:bg-transparent min-[425px]:text-sm sm:text-base md:text-lg lg:text-xl">
-                  <a
-                    href="https://www.kmitl.ac.th/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="-mb-1 items-center text-YELLOW"
-                  >
-                    King Mongkut&apos;s Institute of Technology Ladkrabang
-                    (KMITL)
-                    <FiExternalLink className="mb-1 ml-1 inline" />
-                  </a>
-                </button>
-                . My academic journey has equipped me with a strong theoretical
-                foundation, complemented by practical experience gained through
-                internships and projects.
+                {aboutme[1]}
               </motion.p>
             </div>
             <div className="flex flex-col gap-2">
@@ -213,15 +177,7 @@ const Aboutme = () => {
                 transition={{ ease: 'easeOut', duration: 1, delay: 0.3 }}
                 viewport={{ once: true }}
               >
-                I thrive on innovation and problem-solving. My project portfolio
-                includes applications like Kanbaru, a kanban-style project
-                management tool designed to streamline task organization, and
-                MyStudyPlan, an academic tracking application that centralizes
-                class assignments, tasks, and exams. These projects showcase my
-                dedication to enhancing user experiences and my ability to
-                tackle complex challenges in the software development domain. I
-                am continuously looking for opportunities to leverage my skills
-                and knowledge to contribute to exciting and impactful projects.
+                {aboutme[2]}
               </motion.p>
             </div>
           </div>
