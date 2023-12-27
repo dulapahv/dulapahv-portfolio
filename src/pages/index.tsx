@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Nav, Footer } from '@/components';
 
 import Skill from './skill';

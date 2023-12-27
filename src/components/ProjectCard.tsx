@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { motion } from 'framer-motion';
 
@@ -32,8 +32,9 @@ const ProjectCard = ({
   new: isNew = false,
   badge,
 }: ProjectCardProps) => {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [isLoaded, setIsLoaded] = useState(false);
+
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
     <motion.div

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { cubicBezier, motion } from 'framer-motion';
 
@@ -36,8 +36,9 @@ const ExpCard = ({
   text,
   reversed: isReversed = false,
 }: ExpCardProps) => {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [isLoaded, setIsLoaded] = useState(false);
+
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   const Floaties = () => {
     return (

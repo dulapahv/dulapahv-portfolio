@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 import { MdWork } from 'react-icons/md';
 import { MdSchool } from 'react-icons/md';
@@ -10,14 +10,14 @@ import { RiSparkling2Fill, RiSparkling2Line } from 'react-icons/ri';
 import ThemeSwitch from './ThemeSwitch';
 
 const Nav = () => {
-  const [isNavOpen, setIsNavOpen] = useState(false);
-
   const navItemRef1 = useRef<HTMLDivElement>(null);
   const navItemRef2 = useRef<HTMLDivElement>(null);
   const navItemRef3 = useRef<HTMLDivElement>(null);
   const navItemRef4 = useRef<HTMLDivElement>(null);
   const navItemRef5 = useRef<HTMLDivElement>(null);
   const navBackdropRef = useRef<HTMLDivElement>(null);
+
+  const [isNavOpen, setIsNavOpen] = useState(false);
 
   const handleCloseNav = () => {
     navItemRef1.current!.classList.add('animate-fade-out');

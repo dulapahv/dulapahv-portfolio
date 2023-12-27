@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
 import { TiHome } from 'react-icons/ti';
 import { useRouter } from 'next/router';

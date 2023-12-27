@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { cubicBezier, motion } from 'framer-motion';
 
 import { project } from '@/data';
