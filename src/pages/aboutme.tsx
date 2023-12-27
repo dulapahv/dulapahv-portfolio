@@ -166,7 +166,6 @@ const Aboutme = () => {
             ))}
           </div>
         </div>
-        Floaties
       </div>
     </div>
   );
