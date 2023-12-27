@@ -205,7 +205,7 @@ const Header = () => {
           <div className="absolute -bottom-16 left-32 h-36 w-screen animate-clip-in-right bg-BLUE opacity-50"></div>
           <div className="mx-8 flex w-64 min-[375px]:w-72 min-[425px]:w-80 sm:w-96 md:w-[26rem] lg:w-auto">
             <div className="z-[1] w-fit animate-clip-in-left animation-delay-300">
-              <Skeleton isLoaded={isLoaded} className="rounded-lg">
+              <Skeleton isLoaded={isLoaded}>
                 <Image
                   src="/images/profile_pic.jpg"
                   width={500}
