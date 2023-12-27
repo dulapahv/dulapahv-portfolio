@@ -1,7 +1,7 @@
-import React from 'react';
+import { useState } from 'react';
 
 import Image from 'next/image';
-import { Tooltip } from '@nextui-org/react';
+import { Skeleton, Tooltip } from '@nextui-org/react';
 
 interface SkillIconProps {
   src: string;
@@ -18,6 +18,8 @@ const SkillIcon = ({
   alt,
   tooltip,
 }: SkillIconProps) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   if (!tooltip) {
     tooltip = alt;
   }
@@ -30,13 +32,18 @@ const SkillIcon = ({
         content: 'selection:bg-fuchsia-300 selection:text-fuchsia-900',
       }}
     >
-      <Image
-        src={`/images/${src}`}
-        width={width}
-        height={height}
-        alt={alt}
-        className={`animate-zoom-out-center hover:animate-zoom-in-center`}
-      />
+      <Skeleton
+        isLoaded={isLoaded}
+        className="animate-zoom-out-center hover:animate-zoom-in-center"
+      >
+        <Image
+          src={`/images/${src}`}
+          width={width}
+          height={height}
+          alt={alt}
+          onLoad={() => setIsLoaded(true)}
+        />
+      </Skeleton>
     </Tooltip>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 import { useTheme } from 'next-themes';
 
@@ -12,15 +12,19 @@ import {
   Modal,
   ModalBody,
   ModalContent,
+  Skeleton,
   useDisclosure,
 } from '@nextui-org/react';
 
 const Header = () => {
   const captchaInstance = useRef<TurnstileInstance>(null);
-  const { resolvedTheme } = useTheme();
-  const [isRevealEmail, setIsRevealEmail] = useState(false);
+
   const [email, setEmail] = useState('' as string);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [isRevealEmail, setIsRevealEmail] = useState(false);
   const [isFetchingEmail, setIsFetchingEmail] = useState(false);
+
+  const { resolvedTheme } = useTheme();
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
 
   const handleCaptchaSuccess = async (token: string) => {
@@ -201,13 +205,16 @@ const Header = () => {
           <div className="absolute -bottom-16 left-32 h-36 w-screen animate-clip-in-right bg-BLUE opacity-50"></div>
           <div className="mx-8 flex w-64 min-[375px]:w-72 min-[425px]:w-80 sm:w-96 md:w-[26rem] lg:w-auto">
             <div className="z-[1] w-fit animate-clip-in-left animation-delay-300">
-              <Image
-                src="/images/profile_pic.jpg"
-                width={500}
-                height={500}
-                alt="profile_pic"
-                className="rounded-bl-3xl"
-              />
+              <Skeleton isLoaded={isLoaded} className="rounded-lg">
+                <Image
+                  src="/images/profile_pic.jpg"
+                  width={500}
+                  height={500}
+                  alt="profile_pic"
+                  className="rounded-bl-3xl"
+                  onLoad={() => setIsLoaded(true)}
+                />
+              </Skeleton>
             </div>
             <div className="absolute aspect-square h-full animate-clip-in-left rounded-bl-3xl bg-BLUE shadow"></div>
           </div>

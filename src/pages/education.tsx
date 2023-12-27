@@ -1,12 +1,15 @@
-import React from 'react';
+import { useState } from 'react';
 
 import { cubicBezier, motion } from 'framer-motion';
 
 import Image from 'next/image';
 import { education } from '@/data';
 import { MdSchool } from 'react-icons/md';
+import { Skeleton } from '@nextui-org/react';
 
 const Education = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   const educations = Object.entries(education);
 
   const Floaties = ({ index }: { index: number }) => {
@@ -102,13 +105,16 @@ const Education = () => {
               viewport={{ once: true }}
             >
               <time className="text-lg">{value.date}</time>
-              <Image
-                src={`/images/edu/${key}.png`}
-                width={value.width}
-                height={value.height}
-                alt={value.title}
-                className="h-[500px] w-screen rounded bg-clip-content object-cover"
-              />
+              <Skeleton isLoaded={isLoaded} className="rounded-lg">
+                <Image
+                  src={`/images/edu/${key}.png`}
+                  width={value.width}
+                  height={value.height}
+                  alt={value.title}
+                  className="h-[500px] w-screen rounded bg-clip-content object-cover"
+                  onLoad={() => setIsLoaded(true)}
+                />
+              </Skeleton>
               <div
                 className={`absolute top-12 ${
                   index % 2 === 0
