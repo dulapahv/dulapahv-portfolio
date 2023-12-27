@@ -32,6 +32,7 @@ const ProjectCard = ({
   new: isNew = false,
   badge,
 }: ProjectCardProps) => {
+  const [isCoverLoaded, setIsCoverLoaded] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -51,13 +52,16 @@ const ProjectCard = ({
         onClick={onOpen}
         className='cursor-pointer after:pointer-events-none after:absolute after:left-0 after:top-[226px] after:h-6 after:w-fit after:rounded-tr-lg after:bg-BLACK/60 after:pl-2 after:pr-2 after:pt-[2px] after:text-sm after:text-WHITE after:content-["View_more_images"] hover:after:w-full hover:after:rounded-none'
       >
-        <Image
-          src={`/images/proj/${id}/1.png`}
-          width={1541}
-          height={1063}
-          alt={id + ' cover'}
-          className="h-[250px] w-screen bg-clip-content object-cover hover:brightness-[.85] active:brightness-75"
-        />
+        <Skeleton isLoaded={isCoverLoaded}>
+          <Image
+            src={`/images/proj/${id}/1.png`}
+            width={1541}
+            height={1063}
+            alt={id + ' cover'}
+            onLoad={() => setIsCoverLoaded(true)}
+            className="h-[250px] w-screen bg-clip-content object-cover hover:brightness-[.85] active:brightness-75"
+          />
+        </Skeleton>
       </figure>
       <Modal
         isOpen={isOpen}
