@@ -4,6 +4,13 @@ import { motion } from 'framer-motion';
 
 import Image from 'next/image';
 import { FiExternalLink } from 'react-icons/fi';
+import {
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalHeader,
+  useDisclosure,
+} from '@nextui-org/react';
 
 interface ProjectCardProps {
   id: string;
@@ -24,6 +31,8 @@ const ProjectCard = ({
   new: isNew = false,
   badge,
 }: ProjectCardProps) => {
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+
   return (
     <motion.div
       className="card card-compact w-96 rounded-md bg-base-100 shadow-lg shadow-BLUE/30 md:card-normal dark:bg-neutral-700 dark:shadow-BLUE/20"
@@ -36,10 +45,7 @@ const ProjectCard = ({
       viewport={{ once: true }}
     >
       <figure
-        onClick={() => {
-          const modal = document.getElementById(id) as HTMLDialogElement;
-          modal?.showModal();
-        }}
+        onClick={onOpen}
         className='cursor-pointer after:pointer-events-none after:absolute after:left-0 after:top-[226px] after:h-6 after:w-fit after:rounded-tr-lg after:bg-BLACK/60 after:pl-2 after:pr-2 after:pt-[2px] after:text-sm after:text-WHITE after:content-["View_more_images"] hover:after:w-full hover:after:rounded-none'
       >
         <Image
@@ -50,36 +56,41 @@ const ProjectCard = ({
           className="h-[250px] w-screen bg-clip-content object-cover hover:brightness-[.85]"
         />
       </figure>
-      <dialog id={id} className="modal">
-        <div className="modal-box w-fit max-w-7xl cursor-default rounded-md bg-WHITE p-0 dark:bg-BLACK">
-          <form method="dialog">
-            <button className="btn btn-circle btn-ghost btn-sm absolute right-2 top-1 text-RED hover:bg-RED hover:text-WHITE  focus:outline-none">
-              ✕
-            </button>
-          </form>
-          <ul className="flex flex-col items-center">
-            {text?.map((item, index) => (
-              <li key={index}>
-                <h1 className="m-2 text-BLACK dark:text-WHITE">
-                  {index + 1}. {item}
-                </h1>
-                <Image
-                  src={`/images/proj/${id}/${index + 1}.png`}
-                  width={750}
-                  height={500}
-                  alt={id + ' ' + index + 1}
-                />
-              </li>
-            ))}
-          </ul>
-        </div>
-        <form method="dialog" className="modal-backdrop">
-          <button
-            aria-label="Close"
-            className="!cursor-default focus:outline-none"
-          ></button>
-        </form>
-      </dialog>
+      <Modal
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
+        scrollBehavior="inside"
+        size="3xl"
+        classNames={{
+          wrapper: 'z-[2147483647] overflow-hidden',
+          backdrop: 'z-[2147483647]',
+          closeButton:
+            'btn btn-circle btn-ghost btn-sm text-RED hover:bg-RED hover:text-WHITE active:bg-RED/80 text-lg p-0',
+        }}
+      >
+        <ModalContent>
+          <>
+            <ModalHeader />
+            <ModalBody>
+              <ul className="flex flex-col items-center">
+                {text?.map((item, index) => (
+                  <li key={index}>
+                    <h1 className="m-2 text-BLACK dark:text-WHITE">
+                      {index + 1}. {item}
+                    </h1>
+                    <Image
+                      src={`/images/proj/${id}/${index + 1}.png`}
+                      width={750}
+                      height={500}
+                      alt={id + ' ' + index + 1}
+                    />
+                  </li>
+                ))}
+              </ul>
+            </ModalBody>
+          </>
+        </ModalContent>
+      </Modal>
       <div className="card-body relative">
         <div className="absolute left-0 top-0 w-full">
           <div className="grid grid-cols-4 *:h-[2px]">

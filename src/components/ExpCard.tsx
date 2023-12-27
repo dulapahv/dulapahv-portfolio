@@ -4,6 +4,13 @@ import { cubicBezier, motion } from 'framer-motion';
 
 import Image from 'next/image';
 import { TbMinusVertical } from 'react-icons/tb';
+import {
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalHeader,
+  useDisclosure,
+} from '@nextui-org/react';
 
 interface ExpCardProps {
   id: string;
@@ -28,6 +35,8 @@ const ExpCard = ({
   text,
   reversed: isReversed = false,
 }: ExpCardProps) => {
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+
   return (
     <>
       <div className="relative w-screen *:absolute *:rounded-full *:opacity-70">
@@ -99,10 +108,7 @@ const ExpCard = ({
               ? 'order-1 after:rounded-tr-3xl'
               : 'order-1 after:rounded-bl-3xl hover:after:rounded-bl-3xl lg:order-2'
           } relative max-h-[30rem] cursor-pointer after:pointer-events-none after:absolute after:bottom-0 after:h-10 after:w-fit after:rounded-tr-xl after:bg-BLACK/70 after:pl-4 after:pr-4 after:pt-2 after:text-WHITE after:content-["View_more_images"] hover:after:w-full hover:after:rounded-none`}
-          onClick={() => {
-            const modal = document.getElementById(id) as HTMLDialogElement;
-            modal?.showModal();
-          }}
+          onClick={onOpen}
           initial={{ transform: 'translateY(100px)', opacity: 0 }}
           whileInView={{
             transform: 'translateY(0)',
@@ -120,36 +126,6 @@ const ExpCard = ({
               isReversed ? 'rounded-br-3xl' : 'rounded-bl-3xl'
             } w-full object-cover hover:brightness-[.85] lg:h-full lg:shadow-xl`}
           />
-          <dialog id={id} className="modal">
-            <div className="modal-box w-fit max-w-7xl cursor-default rounded-md bg-WHITE p-0 dark:bg-BLACK">
-              <form method="dialog">
-                <button className="btn btn-circle btn-ghost btn-sm absolute right-2 top-1 text-RED hover:bg-RED hover:text-WHITE  focus:outline-none">
-                  ✕
-                </button>
-              </form>
-              <ul className="flex flex-col items-center">
-                {text?.map((item, index) => (
-                  <li key={index}>
-                    <h1 className="m-2 text-BLACK dark:text-WHITE">
-                      {index + 1}. {item}
-                    </h1>
-                    <Image
-                      src={`/images/exp/${id}/${index + 1}.png`}
-                      width={750}
-                      height={500}
-                      alt={id + ' ' + index + 1}
-                    />
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <form method="dialog" className="modal-backdrop">
-              <button
-                aria-label="Close"
-                className="!cursor-default focus:outline-none"
-              ></button>
-            </form>
-          </dialog>
           {isReversed ? (
             <motion.div
               className="pointer-events-none absolute -bottom-16 right-32 -z-10 h-36 w-screen animate-clip-in-left bg-BLUE opacity-50"
@@ -174,6 +150,41 @@ const ExpCard = ({
             ></motion.div>
           )}
         </motion.div>
+        <Modal
+          isOpen={isOpen}
+          onOpenChange={onOpenChange}
+          scrollBehavior="inside"
+          size="3xl"
+          classNames={{
+            wrapper: 'z-[2147483647] overflow-hidden',
+            backdrop: 'z-[2147483647]',
+            closeButton:
+              'btn btn-circle btn-ghost btn-sm text-RED hover:bg-RED hover:text-WHITE active:bg-RED/80 text-lg p-0',
+          }}
+        >
+          <ModalContent>
+            <>
+              <ModalHeader />
+              <ModalBody>
+                <ul className="flex flex-col items-center">
+                  {text?.map((item, index) => (
+                    <li key={index}>
+                      <h1 className="m-2 text-BLACK dark:text-WHITE">
+                        {index + 1}. {item}
+                      </h1>
+                      <Image
+                        src={`/images/exp/${id}/${index + 1}.png`}
+                        width={750}
+                        height={500}
+                        alt={id + ' ' + index + 1}
+                      />
+                    </li>
+                  ))}
+                </ul>
+              </ModalBody>
+            </>
+          </ModalContent>
+        </Modal>
       </div>
     </>
   );
