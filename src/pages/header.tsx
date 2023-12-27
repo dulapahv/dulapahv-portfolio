@@ -139,6 +139,7 @@ const Header = () => {
             hideCloseButton
             isDismissable={false}
             size="xs"
+            placement="center"
             classNames={{
               wrapper: 'z-[2147483647] overflow-hidden',
               backdrop: 'z-[2147483647]',
