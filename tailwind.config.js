@@ -84,14 +84,10 @@ module.exports = {
           'clip-in-left 0.9s cubic-bezier(0.645, 0.045, 0.355, 1.000) both',
         'clip-in-right':
           'clip-in-right 0.9s cubic-bezier(0.645, 0.045, 0.355, 1.000) both',
-        'rotate-in-2-cw':
-          'rotate-in-2-cw 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both',
         'shake-vertical':
           'shake-vertical 25s cubic-bezier(0.455, 0.030, 0.515, 0.955) both infinite',
         'scale-up-center':
           'scale-up-center 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both',
-        'slide-in-fwd-bottom':
-          'slide-in-fwd-bottom 0.7s cubic-bezier(0.190, 1.000, 0.220, 1.000) both',
         'zoom-in-center':
           'zoom-in-center 0.7s cubic-bezier(0.190, 1.000, 0.220, 1.000) both',
         'zoom-out-center':
@@ -238,16 +234,6 @@ module.exports = {
             clipPath: 'polygon(100% 0, 0 0, 0 100%, 100% 100%)',
           },
         },
-        'rotate-in-2-cw': {
-          '0%': {
-            transform: 'rotate(-45deg)',
-            opacity: '0',
-          },
-          to: {
-            transform: 'rotate(0)',
-            opacity: '1',
-          },
-        },
         'shake-vertical': {
           '0%,to': {
             transform: 'translateY(0)',
@@ -271,16 +257,6 @@ module.exports = {
           },
           to: {
             transform: 'scale(1)',
-          },
-        },
-        'slide-in-fwd-bottom': {
-          '0%': {
-            transform: 'translateZ(-1400px) translateY(800px)',
-            opacity: '0',
-          },
-          to: {
-            transform: 'translateZ(0) translateY(0)',
-            opacity: '1',
           },
         },
         'zoom-in-center': {
