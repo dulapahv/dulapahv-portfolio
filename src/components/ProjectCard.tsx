@@ -32,10 +32,18 @@ const ProjectCard = ({
   new: isNew = false,
   badge,
 }: ProjectCardProps) => {
-  const [isCoverLoaded, setIsCoverLoaded] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isCoverImgLoaded, setIsCoverImgLoaded] = useState(false);
+  const [isImgLoaded, setIsImgLoaded] = useState(
+    Array(text.length).fill(false)
+  );
 
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
+
+  const handleImgLoad = (index: number) => {
+    const updatedLoaded = [...isImgLoaded];
+    updatedLoaded[index] = true;
+    setIsImgLoaded(updatedLoaded);
+  };
 
   return (
     <motion.div
@@ -52,13 +60,13 @@ const ProjectCard = ({
         onClick={onOpen}
         className='cursor-pointer after:pointer-events-none after:absolute after:left-0 after:top-[226px] after:h-6 after:w-fit after:rounded-tr-lg after:bg-BLACK/60 after:pl-2 after:pr-2 after:pt-[2px] after:text-sm after:text-WHITE after:content-["View_more_images"] hover:after:w-full hover:after:rounded-none'
       >
-        <Skeleton isLoaded={isCoverLoaded}>
+        <Skeleton isLoaded={isCoverImgLoaded}>
           <Image
             src={`/images/proj/${id}/1.png`}
             width={1541}
             height={1063}
             alt={id + ' cover'}
-            onLoad={() => setIsCoverLoaded(true)}
+            onLoad={() => setIsCoverImgLoaded(true)}
             className="h-[250px] w-screen bg-clip-content object-cover hover:brightness-[.85] active:brightness-75"
           />
         </Skeleton>
@@ -85,13 +93,16 @@ const ProjectCard = ({
                     <h1 className="m-2 text-BLACK dark:text-WHITE">
                       {index + 1}. {item}
                     </h1>
-                    <Skeleton isLoaded={isLoaded} className="rounded-lg">
+                    <Skeleton
+                      isLoaded={isImgLoaded[index]}
+                      className="rounded-lg"
+                    >
                       <Image
                         src={`/images/proj/${id}/${index + 1}.png`}
                         width={750}
                         height={500}
                         alt={id + ' ' + index + 1}
-                        onLoad={() => setIsLoaded(true)}
+                        onLoad={() => handleImgLoad(index)}
                       />
                     </Skeleton>
                   </li>

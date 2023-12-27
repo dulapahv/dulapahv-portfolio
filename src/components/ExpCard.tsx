@@ -36,10 +36,18 @@ const ExpCard = ({
   text,
   reversed: isReversed = false,
 }: ExpCardProps) => {
-  const [isCoverLoaded, setIsCoverLoaded] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isCoverImgLoaded, setIsCoverImgLoaded] = useState(false);
+  const [isImgLoaded, setIsImgLoaded] = useState(
+    Array(text.length).fill(false)
+  );
 
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
+
+  const handleImgLoad = (index: number) => {
+    const updatedLoaded = [...isImgLoaded];
+    updatedLoaded[index] = true;
+    setIsImgLoaded(updatedLoaded);
+  };
 
   const Floaties = () => {
     return (
@@ -127,18 +135,17 @@ const ExpCard = ({
           transition={{ ease: 'easeOut', duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <Skeleton isLoaded={isCoverLoaded}>
-            <Image
-              src={`/images/exp/${id}/cover.png`}
-              width={1915}
-              height={632}
-              alt={id + ' cover'}
-              onLoad={() => setIsCoverLoaded(true)}
-              className={`${
-                isReversed ? 'rounded-br-3xl' : 'rounded-bl-3xl'
-              } w-full object-cover hover:brightness-[.85] active:brightness-75 lg:h-full lg:shadow-xl`}
-            />
-          </Skeleton>
+          {/* TODO: Implement skeleton here without messing up layout */}
+          <Image
+            src={`/images/exp/${id}/cover.png`}
+            width={1915}
+            height={632}
+            alt={id + ' cover'}
+            onLoad={() => setIsCoverImgLoaded(true)}
+            className={`${
+              isReversed ? 'rounded-br-3xl' : 'rounded-bl-3xl'
+            } w-full object-cover hover:brightness-[.85] active:brightness-75 lg:h-full lg:shadow-xl`}
+          />
           {isReversed ? (
             <motion.div
               className="pointer-events-none absolute -bottom-16 right-32 -z-10 h-36 w-screen animate-clip-in-left bg-BLUE opacity-50"
@@ -185,13 +192,16 @@ const ExpCard = ({
                       <h1 className="m-2 text-BLACK dark:text-WHITE">
                         {index + 1}. {item}
                       </h1>
-                      <Skeleton isLoaded={isLoaded} className="rounded-lg">
+                      <Skeleton
+                        isLoaded={isImgLoaded[index]}
+                        className="rounded-lg"
+                      >
                         <Image
                           src={`/images/exp/${id}/${index + 1}.png`}
                           width={750}
                           height={500}
                           alt={id + ' ' + index + 1}
-                          onLoad={() => setIsLoaded(true)}
+                          onLoad={() => handleImgLoad(index)}
                         />
                       </Skeleton>
                     </li>
