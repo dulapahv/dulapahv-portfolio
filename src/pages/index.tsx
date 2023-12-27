@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Nav } from '@/components';
+import { Nav, Footer } from '@/components';
 
 import Skill from './skill';
 import Header from './header';
@@ -24,6 +24,7 @@ const Index = () => {
       <Experience />
       <Skill />
       <Project />
+      <Footer />
       <div className="fixed bottom-0 right-0 z-[2147483647]">
         <Nav />
       </div>
