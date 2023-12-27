@@ -5,19 +5,38 @@ import { cubicBezier, motion } from 'framer-motion';
 import { SkillIcon } from '@/components';
 
 const Skill = () => {
-  const skillHeader = (text: string) => (
-    <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
-      {text}
-      <div className="absolute -bottom-2 left-0 w-32">
-        <div className="grid grid-cols-4 *:h-[2px]">
-          <div className="bg-RED"></div>
-          <div className="bg-BLUE"></div>
-          <div className="bg-YELLOW"></div>
-          <div className="bg-PURPLE"></div>
+  const SkillHeader = ({ text }: { text: string }) => {
+    return (
+      <h1 className='relative flex items-center gap-x-2 text-base text-BLACK [text-shadow:0_0_5px_#f7f7f7] before:content-["<"] after:content-[">"] sm:text-lg dark:text-WHITE'>
+        {text}
+        <div className="absolute -bottom-2 left-0 w-32">
+          <div className="grid grid-cols-4 *:h-[2px]">
+            <div className="bg-RED"></div>
+            <div className="bg-BLUE"></div>
+            <div className="bg-YELLOW"></div>
+            <div className="bg-PURPLE"></div>
+          </div>
         </div>
+      </h1>
+    );
+  };
+
+  const Floaties = () => {
+    return (
+      <div className="relative w-screen *:absolute *:rounded-full *:opacity-70">
+        <div className="left-[8%] top-[206px] size-4 animate-shake-vertical bg-RED"></div>
+        <div className="left-[13%] top-[126px] size-8 animate-shake-vertical bg-BLUE animation-delay-400"></div>
+        <div className="left-[36%] top-[78px] size-16 animate-shake-vertical bg-YELLOW animation-delay-800"></div>
+        <div className="left-[68%] top-[78px] size-12 animate-shake-vertical bg-PURPLE animation-delay-1200"></div>
+        <div className="left-[4%] top-[590px] size-8 animate-shake-vertical bg-YELLOW animation-delay-800"></div>
+        <div className="left-[54%] top-[600px] size-12 animate-shake-vertical bg-RED animation-delay-800"></div>
+        <div className="-left-[1%] top-[754px] size-12 animate-shake-vertical bg-PURPLE animation-delay-1200"></div>
+        <div className="left-[38%] top-[868px] size-8 animate-shake-vertical bg-RED"></div>
+        <div className="left-[84%] top-[940px] size-10 animate-shake-vertical bg-YELLOW animation-delay-800"></div>
+        <div className="left-[97%] top-[462px] size-16 animate-shake-vertical bg-BLUE animation-delay-400"></div>
       </div>
-    </h1>
-  );
+    );
+  };
 
   return (
     <>
@@ -25,18 +44,7 @@ const Skill = () => {
         className="flex flex-col justify-center gap-8 overflow-hidden py-8"
         id="skill"
       >
-        <div className="relative w-screen *:absolute *:rounded-full *:opacity-70">
-          <div className="left-[8%] top-[206px] size-4 animate-shake-vertical bg-RED"></div>
-          <div className="left-[13%] top-[126px] size-8 animate-shake-vertical bg-BLUE animation-delay-400"></div>
-          <div className="left-[36%] top-[78px] size-16 animate-shake-vertical bg-YELLOW animation-delay-800"></div>
-          <div className="left-[68%] top-[78px] size-12 animate-shake-vertical bg-PURPLE animation-delay-1200"></div>
-          <div className="left-[4%] top-[590px] size-8 animate-shake-vertical bg-YELLOW animation-delay-800"></div>
-          <div className="left-[54%] top-[600px] size-12 animate-shake-vertical bg-RED animation-delay-800"></div>
-          <div className="-left-[1%] top-[754px] size-12 animate-shake-vertical bg-PURPLE animation-delay-1200"></div>
-          <div className="left-[38%] top-[868px] size-8 animate-shake-vertical bg-RED"></div>
-          <div className="left-[84%] top-[940px] size-10 animate-shake-vertical bg-YELLOW animation-delay-800"></div>
-          <div className="left-[97%] top-[462px] size-16 animate-shake-vertical bg-BLUE animation-delay-400"></div>
-        </div>
+        <Floaties />
         <div className="relative flex flex-col items-center gap-6 py-8">
           <motion.h1
             className="text-4xl font-semibold uppercase tracking-[0.2em] text-BLACK first-letter:text-RED dark:text-WHITE"
@@ -73,7 +81,7 @@ const Skill = () => {
                 transition={{ ease: 'easeOut', duration: 0.7, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                {skillHeader('Programming Language')}
+                <SkillHeader text="Programming Language" />
                 <div className="flex flex-wrap items-center gap-3">
                   <SkillIcon src="/lang/ts.svg" alt="TypeScript" />
                   <SkillIcon src="/lang/js.svg" alt="JavaScript" />
@@ -106,7 +114,7 @@ const Skill = () => {
                 transition={{ ease: 'easeOut', duration: 0.7, delay: 0.3 }}
                 viewport={{ once: true }}
               >
-                {skillHeader('Web Development (Front End)')}
+                <SkillHeader text="Web Development (Front End)" />
                 <div className="flex flex-wrap items-center gap-3">
                   <SkillIcon
                     src="/web_front/nextjs.svg"
@@ -140,7 +148,7 @@ const Skill = () => {
                 transition={{ ease: 'easeOut', duration: 0.7, delay: 0.4 }}
                 viewport={{ once: true }}
               >
-                {skillHeader('Web Development (Back End)')}
+                <SkillHeader text="Web Development (Back End)" />
                 <div className="flex flex-wrap items-center gap-3">
                   <SkillIcon
                     src="/web_back/expressjs.svg"
@@ -178,7 +186,7 @@ const Skill = () => {
                 transition={{ ease: 'easeOut', duration: 0.7, delay: 0.5 }}
                 viewport={{ once: true }}
               >
-                {skillHeader('Testing')}
+                <SkillHeader text="Testing" />
                 <div className="flex flex-wrap items-center gap-3">
                   <SkillIcon src="/testing/insomnia.svg" alt="Insomnia" />
                   <SkillIcon
@@ -201,7 +209,7 @@ const Skill = () => {
                 transition={{ ease: 'easeOut', duration: 0.7, delay: 0.6 }}
                 viewport={{ once: true }}
               >
-                {skillHeader('Database Management System')}
+                <SkillHeader text="Database Management System" />
                 <div className="flex flex-wrap items-center gap-3">
                   <SkillIcon src="/dbms/postgresql.svg" alt="PostgreSQL" />
                   <SkillIcon
@@ -221,7 +229,7 @@ const Skill = () => {
                 transition={{ ease: 'easeOut', duration: 0.7, delay: 0.7 }}
                 viewport={{ once: true }}
               >
-                {skillHeader('DevOps')}
+                <SkillHeader text="DevOps" />
                 <div className="flex flex-wrap items-center gap-3">
                   <SkillIcon
                     src="/devops/docker.svg"
@@ -241,7 +249,7 @@ const Skill = () => {
                 transition={{ ease: 'easeOut', duration: 0.7, delay: 0.8 }}
                 viewport={{ once: true }}
               >
-                {skillHeader('Others')}
+                <SkillHeader text="Others" />
                 <div className="flex flex-wrap items-center gap-3">
                   <SkillIcon src="/other/qt.svg" alt="Qt" />
                   <SkillIcon src="/other/bash.svg" alt="Bash" />

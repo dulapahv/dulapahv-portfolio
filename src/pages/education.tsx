@@ -9,6 +9,33 @@ import { MdSchool } from 'react-icons/md';
 const Education = () => {
   const educations = Object.entries(education);
 
+  const Floaties = ({ index }: { index: number }) => {
+    return (
+      <div className="hidden *:absolute *:rounded-full *:opacity-70 md:flex">
+        <div
+          className={`size-4 animate-shake-vertical bg-PURPLE animation-delay-1200 ${
+            index % 2 === 0 ? 'left-[90%]' : 'left-[8%]'
+          } top-[22rem]`}
+        ></div>
+        <div
+          className={`size-8 animate-shake-vertical bg-RED ${
+            index % 2 === 0 ? 'left-[80%]' : 'left-[18%]'
+          } top-[30rem]`}
+        ></div>
+        <div
+          className={`size-14 animate-shake-vertical bg-BLUE animation-delay-400 ${
+            index % 2 === 0 ? 'left-[65%]' : 'left-[33%]'
+          } top-[25rem]`}
+        ></div>
+        <div
+          className={`size-10 animate-shake-vertical bg-YELLOW animation-delay-800 ${
+            index % 2 === 0 ? 'left-[55%]' : 'left-[43%]'
+          } top-[30rem]`}
+        ></div>
+      </div>
+    );
+  };
+
   return (
     <div
       className="relative flex h-fit flex-col items-center gap-8 py-8"
@@ -136,29 +163,8 @@ const Education = () => {
                     {item}
                   </motion.li>
                 ))}
-                <div className="hidden *:absolute *:rounded-full *:opacity-70 md:flex">
-                  <div
-                    className={`size-4 animate-shake-vertical bg-PURPLE animation-delay-1200 ${
-                      index % 2 === 0 ? 'left-[90%]' : 'left-[8%]'
-                    } top-[22rem]`}
-                  ></div>
-                  <div
-                    className={`size-8 animate-shake-vertical bg-RED ${
-                      index % 2 === 0 ? 'left-[80%]' : 'left-[18%]'
-                    } top-[30rem]`}
-                  ></div>
-                  <div
-                    className={`size-14 animate-shake-vertical bg-BLUE animation-delay-400 ${
-                      index % 2 === 0 ? 'left-[65%]' : 'left-[33%]'
-                    } top-[25rem]`}
-                  ></div>
-                  <div
-                    className={`size-10 animate-shake-vertical bg-YELLOW animation-delay-800 ${
-                      index % 2 === 0 ? 'left-[55%]' : 'left-[43%]'
-                    } top-[30rem]`}
-                  ></div>
-                </div>
               </ul>
+              <Floaties index={index} />
             </div>
             {index !== educations.length - 1 && (
               <motion.hr
