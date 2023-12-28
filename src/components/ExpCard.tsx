@@ -135,17 +135,24 @@ const ExpCard = ({
           transition={{ ease: 'easeOut', duration: 0.5 }}
           viewport={{ once: true }}
         >
-          {/* TODO: Implement skeleton here without messing up layout */}
-          <Image
-            src={`/images/exp/${id}/cover.png`}
-            width={1915}
-            height={632}
-            alt={id + ' cover'}
-            onLoad={() => setIsCoverImgLoaded(true)}
-            className={`${
-              isReversed ? 'rounded-br-3xl' : 'rounded-bl-3xl'
-            } w-full object-cover hover:brightness-[.85] active:brightness-75 lg:h-full lg:shadow-xl`}
-          />
+          <Skeleton
+            isLoaded={isCoverImgLoaded}
+            classNames={{
+              base: 'h-full',
+              content: 'h-full',
+            }}
+          >
+            <Image
+              src={`/images/exp/${id}/cover.png`}
+              width={1915}
+              height={632}
+              alt={id + ' cover'}
+              onLoad={() => setIsCoverImgLoaded(true)}
+              className={`${
+                isReversed ? 'rounded-br-3xl' : 'rounded-bl-3xl'
+              } w-full object-cover hover:brightness-[.85] active:brightness-75 lg:h-full lg:shadow-xl`}
+            />
+          </Skeleton>
           {isReversed ? (
             <motion.div
               className="pointer-events-none absolute -bottom-16 right-32 -z-10 h-36 w-screen animate-clip-in-left bg-BLUE opacity-50"
