@@ -8,9 +8,17 @@ import { MdSchool } from 'react-icons/md';
 import { Skeleton } from '@nextui-org/react';
 
 const Education = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
-
   const educations = Object.entries(education);
+
+  const [isImgLoaded, setIsImgLoaded] = useState(
+    Array(educations.length).fill(false)
+  );
+
+  const handleImgLoad = (index: number) => {
+    const updatedLoaded = [...isImgLoaded];
+    updatedLoaded[index] = true;
+    setIsImgLoaded(updatedLoaded);
+  };
 
   const Floaties = ({ index }: { index: number }) => {
     return (
@@ -105,14 +113,14 @@ const Education = () => {
               viewport={{ once: true }}
             >
               <time className="text-lg">{value.date}</time>
-              <Skeleton isLoaded={isLoaded} className="rounded-lg">
+              <Skeleton isLoaded={isImgLoaded[index]} className="rounded-lg">
                 <Image
                   src={`/images/edu/${key}.png`}
                   width={value.width}
                   height={value.height}
                   alt={value.title}
                   className="h-[500px] w-screen rounded bg-clip-content object-cover"
-                  onLoad={() => setIsLoaded(true)}
+                  onLoad={() => handleImgLoad(index)}
                 />
               </Skeleton>
               <div
