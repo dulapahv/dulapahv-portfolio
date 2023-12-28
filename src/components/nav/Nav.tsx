@@ -7,14 +7,14 @@ import { FaLightbulb } from 'react-icons/fa';
 import { LiaAtomSolid } from 'react-icons/lia';
 import { RiSparkling2Fill, RiSparkling2Line } from 'react-icons/ri';
 
-import ThemeSwitch from './ThemeSwitch';
+import { ThemeSwitch } from '.';
 
 const Nav = () => {
-  const navItemRef1 = useRef<HTMLDivElement>(null);
-  const navItemRef2 = useRef<HTMLDivElement>(null);
-  const navItemRef3 = useRef<HTMLDivElement>(null);
-  const navItemRef4 = useRef<HTMLDivElement>(null);
-  const navItemRef5 = useRef<HTMLDivElement>(null);
+  const navItemRef1 = useRef<HTMLLIElement>(null);
+  const navItemRef2 = useRef<HTMLLIElement>(null);
+  const navItemRef3 = useRef<HTMLLIElement>(null);
+  const navItemRef4 = useRef<HTMLLIElement>(null);
+  const navItemRef5 = useRef<HTMLLIElement>(null);
   const navBackdropRef = useRef<HTMLDivElement>(null);
 
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -33,8 +33,8 @@ const Nav = () => {
 
   const NavMenu = () => {
     return (
-      <div className="relative z-[2147483647]">
-        <div className="animate-fade-in" ref={navItemRef1}>
+      <ul className="relative z-[2147483647]">
+        <li className="animate-fade-in" ref={navItemRef1}>
           <button
             className="btn absolute bottom-[80px] right-[20px] size-20 rotate-45 animate-none bg-PURPLE text-WHITE ring-PURPLE-300 hover:bg-PURPLE hover:ring-2 hover:ring-offset-[3px] hover:ring-offset-black/60 active:!rotate-45 active:scale-95 sm:bottom-[96px] sm:right-[28px] sm:h-[88px] sm:w-[88px]"
             onClick={() => {
@@ -48,8 +48,8 @@ const Nav = () => {
               <p className="capitalize">Education</p>
             </div>
           </button>
-        </div>
-        <div className="animate-fade-in animation-delay-75" ref={navItemRef2}>
+        </li>
+        <li className="animate-fade-in animation-delay-75" ref={navItemRef2}>
           <button
             className="btn absolute bottom-[20px] right-[80px] size-20 rotate-45 animate-none bg-RED text-WHITE ring-RED-300 hover:bg-RED hover:ring-2 hover:ring-offset-[3px] hover:ring-offset-black/60 active:!rotate-45 active:scale-95 sm:bottom-[28px] sm:right-[96px] sm:h-[88px] sm:w-[88px]"
             onClick={() => {
@@ -63,11 +63,11 @@ const Nav = () => {
               <p className="capitalize">Experience</p>
             </div>
           </button>
-        </div>
-        <div className="animate-fade-in animation-delay-100" ref={navItemRef3}>
+        </li>
+        <li className="animate-fade-in animation-delay-100" ref={navItemRef3}>
           <ThemeSwitch />
-        </div>
-        <div className="animate-fade-in animation-delay-150" ref={navItemRef4}>
+        </li>
+        <li className="animate-fade-in animation-delay-150" ref={navItemRef4}>
           <button
             className="btn absolute bottom-[112px] right-[110px] size-20 rotate-45 animate-none bg-BLUE text-WHITE ring-BLUE-300 hover:bg-BLUE hover:ring-2 hover:ring-offset-[3px] hover:ring-offset-black/60 active:!rotate-45 active:scale-95 sm:bottom-[128px] sm:right-[132px] sm:h-[88px] sm:w-[88px]"
             onClick={() => {
@@ -81,8 +81,8 @@ const Nav = () => {
               <p className="capitalize">Skill</p>
             </div>
           </button>
-        </div>
-        <div className="animate-fade-in animation-delay-200" ref={navItemRef5}>
+        </li>
+        <li className="animate-fade-in animation-delay-200" ref={navItemRef5}>
           <button
             className="btn absolute bottom-[52px] right-[170px] size-20 rotate-45 animate-none bg-YELLOW text-WHITE ring-YELLOW-300 hover:bg-YELLOW hover:ring-2 hover:ring-offset-[3px] hover:ring-offset-black/60 active:!rotate-45 active:scale-95 sm:bottom-[60px] sm:right-[200px] sm:h-[88px] sm:w-[88px]"
             onClick={() => {
@@ -96,13 +96,13 @@ const Nav = () => {
               <p className="capitalize">Project</p>
             </div>
           </button>
-        </div>
-      </div>
+        </li>
+      </ul>
     );
   };
 
   return (
-    <>
+    <nav>
       <Tooltip
         content="Open Navigation"
         delay={400}
@@ -138,7 +138,7 @@ const Nav = () => {
           ></div>
         </>
       )}
-    </>
+    </nav>
   );
 };
 

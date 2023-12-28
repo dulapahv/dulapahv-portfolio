@@ -112,7 +112,7 @@ const ProjectCard = ({
           </ModalBody>
         </ModalContent>
       </Modal>
-      <div className="card-body relative">
+      <section className="card-body relative">
         <div className="absolute left-0 top-0 w-full">
           <div className="grid grid-cols-4 *:h-[2px]">
             <div className="bg-RED"></div>
@@ -147,7 +147,7 @@ const ProjectCard = ({
             </button>
           </a>
         </div>
-      </div>
+      </section>
     </motion.div>
   );
 };

@@ -13,6 +13,8 @@ import {
   useDisclosure,
 } from '@nextui-org/react';
 
+import { Floaties } from '.';
+
 interface ExpCardProps {
   id: string;
   title: string;
@@ -22,7 +24,7 @@ interface ExpCardProps {
   tech: string;
   detail: string[];
   text: string[];
-  reversed?: boolean;
+  isReversed?: boolean;
 }
 
 const ExpCard = ({
@@ -34,7 +36,7 @@ const ExpCard = ({
   tech,
   detail,
   text,
-  reversed: isReversed = false,
+  isReversed = false,
 }: ExpCardProps) => {
   const [isCoverImgLoaded, setIsCoverImgLoaded] = useState(false);
   const [isImgLoaded, setIsImgLoaded] = useState(
@@ -49,38 +51,11 @@ const ExpCard = ({
     setIsImgLoaded(updatedLoaded);
   };
 
-  const Floaties = () => {
-    return (
-      <div className="relative w-screen *:absolute *:rounded-full *:opacity-70">
-        <div
-          className={`size-4 animate-shake-vertical bg-PURPLE animation-delay-1200 ${
-            isReversed ? 'left-[96%]' : 'left-[3%]'
-          } top-[13rem]`}
-        ></div>
-        <div
-          className={`size-8 animate-shake-vertical bg-RED ${
-            isReversed ? 'left-[93.5%]' : 'left-[5%]'
-          } top-[19rem]`}
-        ></div>
-        <div
-          className={`size-14 animate-shake-vertical bg-BLUE animation-delay-400 ${
-            isReversed ? 'left-[95%]' : 'left-[2%]'
-          } top-[25rem]`}
-        ></div>
-        <div
-          className={`size-10 animate-shake-vertical bg-YELLOW animation-delay-800 ${
-            isReversed ? 'left-[90%]' : 'left-[8%]'
-          } top-[30rem]`}
-        ></div>
-      </div>
-    );
-  };
-
   return (
     <>
-      <Floaties />
+      <Floaties isReversed={isReversed} />
       <div className="mb-8 flex h-full min-h-[28rem] flex-col rounded-md px-4 sm:px-8 md:px-16 lg:flex-row lg:px-24">
-        <motion.div
+        <motion.section
           className={`z-10 mx-0 mt-3 lg:mx-4 lg:mt-0 lg:w-1/2 ${
             isReversed ? 'order-2' : 'order-2 lg:order-1'
           }`}
@@ -119,8 +94,8 @@ const ExpCard = ({
               </li>
             ))}
           </ul>
-        </motion.div>
-        <motion.div
+        </motion.section>
+        <motion.figure
           className={`lg:w-1/2 ${
             isReversed
               ? 'order-1 after:rounded-tr-3xl'
@@ -176,7 +151,7 @@ const ExpCard = ({
               viewport={{ once: true }}
             ></motion.div>
           )}
-        </motion.div>
+        </motion.figure>
         <Modal
           isOpen={isOpen}
           onOpenChange={onOpenChange}

@@ -4,11 +4,7 @@ import { useTheme } from 'next-themes';
 
 import { MdDarkMode, MdLightMode } from 'react-icons/md';
 
-interface Props {
-  forceWhite?: boolean;
-}
-
-const ThemeSwitch = (props: Props) => {
+const ThemeSwitch = () => {
   const [mounted, setMounted] = useState(false);
 
   const { theme, setTheme, resolvedTheme } = useTheme();
@@ -26,13 +22,11 @@ const ThemeSwitch = (props: Props) => {
         }}
       >
         <div className="flex w-fit -rotate-45 flex-col items-center">
-          <div className="flex flex-row justify-center gap-2">
-            {mounted && (theme === 'dark' || resolvedTheme === 'dark') ? (
-              <MdDarkMode className="my-1 h-auto w-8" />
-            ) : (
-              <MdLightMode className="my-1 h-auto w-8" />
-            )}
-          </div>
+          {mounted && (theme === 'dark' || resolvedTheme === 'dark') ? (
+            <MdDarkMode className="my-1 h-auto w-8" />
+          ) : (
+            <MdLightMode className="my-1 h-auto w-8" />
+          )}
           <p className="capitalize">Theme</p>
         </div>
       </button>

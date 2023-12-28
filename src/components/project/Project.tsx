@@ -1,13 +1,14 @@
 import { cubicBezier, motion } from 'framer-motion';
 
 import { project } from '@/data';
-import { ProjectCard } from '@/components';
+
+import { ProjectCard } from '.';
 
 const Project = () => {
   const projects = Object.entries(project);
 
   return (
-    <div
+    <section
       className="relative flex flex-col justify-center gap-8 py-8"
       id="project"
     >
@@ -48,7 +49,7 @@ const Project = () => {
           />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -16,6 +16,8 @@ import {
   useDisclosure,
 } from '@nextui-org/react';
 
+import { Floaties } from '.';
+
 const Header = () => {
   const captchaInstance = useRef<TurnstileInstance>(null);
 
@@ -54,28 +56,12 @@ const Header = () => {
     }
   };
 
-  const Floaties = () => {
-    return (
-      <div className="relative w-screen *:absolute *:rounded-full *:opacity-70">
-        <div className="left-[8%] top-[256px] size-4 animate-shake-vertical bg-RED"></div>
-        <div className="left-[13%] top-[176px] size-8 animate-shake-vertical bg-BLUE animation-delay-400"></div>
-        <div className="left-[36%] top-[128px] size-16 animate-shake-vertical bg-YELLOW animation-delay-800"></div>
-        <div className="left-[68%] top-[128px] size-12 animate-shake-vertical bg-PURPLE animation-delay-1200"></div>
-        <div className="left-[4%] top-[640px] size-8 animate-shake-vertical bg-YELLOW animation-delay-800"></div>
-        <div className="-left-[1%] top-[704px] size-12 animate-shake-vertical bg-PURPLE animation-delay-1200"></div>
-        <div className="left-[26%] top-[768px] size-12 animate-shake-vertical bg-RED"></div>
-        <div className="left-[84%] top-[848px] size-8 animate-shake-vertical bg-YELLOW animation-delay-800"></div>
-        <div className="left-[97%] top-[512px] size-16 animate-shake-vertical bg-BLUE animation-delay-400"></div>
-      </div>
-    );
-  };
-
   return (
     <header className="flex animate-fade-in flex-col overflow-hidden">
       <Floaties />
       <div className="flex h-fit min-h-screen flex-col items-center gap-8 overflow-hidden pt-4 md:pt-8 lg:flex-row lg:justify-around lg:gap-0 lg:pt-0">
         <div className="mx-4 flex w-fit flex-col gap-10 md:mx-8 lg:gap-20">
-          <div className="animate-clip-in-left animation-delay-100">
+          <section className="animate-clip-in-left animation-delay-100">
             <h1 className="bg-BLUE p-3 pl-3 text-3xl font-bold uppercase tracking-[0.2em] text-WHITE [text-shadow:0_0_5px_#54f1ff] md:text-4xl lg:pl-6 lg:text-5xl">
               Dulapah Vibulsanti
             </h1>
@@ -142,7 +128,7 @@ const Header = () => {
                 </a>
               </button>
             </h3>
-          </div>
+          </section>
           <Modal
             isOpen={isOpen}
             onOpenChange={onOpenChange}
@@ -189,7 +175,7 @@ const Header = () => {
               </ModalBody>
             </ModalContent>
           </Modal>
-          <div className="flex flex-col gap-4 *:w-fit *:-rotate-6 *:items-center *:px-3 *:py-1 *:text-sm *:font-medium *:uppercase *:text-WHITE sm:*:text-base md:*:text-lg">
+          <section className="flex flex-col gap-4 *:w-fit *:-rotate-6 *:items-center *:px-3 *:py-1 *:text-sm *:font-medium *:uppercase *:text-WHITE sm:*:text-base md:*:text-lg">
             <h3 className="animate-clip-in-left bg-RED animation-delay-100 [text-shadow:0_0_5px_#c3456d]">
               Software Engineer
             </h3>
@@ -199,9 +185,9 @@ const Header = () => {
             <h3 className="animate-clip-in-left bg-PURPLE animation-delay-300 [text-shadow:0_0_5px_#7948c7]">
               Pursuing Fullstack Developer
             </h3>
-          </div>
+          </section>
         </div>
-        <div className="relative mt-4 lg:mt-0">
+        <figure className="relative mt-4 lg:mt-0">
           <div className="absolute -bottom-16 left-32 h-36 w-screen animate-clip-in-right bg-BLUE opacity-50"></div>
           <div className="mx-8 flex w-64 min-[375px]:w-72 min-[425px]:w-80 sm:w-96 md:w-[26rem] lg:w-auto">
             <div className="z-[1] w-fit animate-clip-in-left animation-delay-300">
@@ -213,12 +199,13 @@ const Header = () => {
                   alt="profile_pic"
                   className="rounded-bl-3xl"
                   onLoad={() => setIsLoaded(true)}
+                  priority
                 />
               </Skeleton>
             </div>
             <div className="absolute aspect-square h-full animate-clip-in-left rounded-bl-3xl bg-BLUE shadow"></div>
           </div>
-        </div>
+        </figure>
       </div>
       <div className="relative bottom-32 z-[1] flex flex-col items-center gap-1 text-center text-2xl text-RED">
         <div className="flex animate-bounce flex-col items-center">

@@ -7,6 +7,8 @@ import { education } from '@/data';
 import { MdSchool } from 'react-icons/md';
 import { Skeleton } from '@nextui-org/react';
 
+import { Floaties } from '.';
+
 const Education = () => {
   const educations = Object.entries(education);
 
@@ -20,35 +22,8 @@ const Education = () => {
     setIsImgLoaded(updatedLoaded);
   };
 
-  const Floaties = ({ index }: { index: number }) => {
-    return (
-      <div className="hidden *:absolute *:rounded-full *:opacity-70 md:flex">
-        <div
-          className={`size-4 animate-shake-vertical bg-PURPLE animation-delay-1200 ${
-            index % 2 === 0 ? 'left-[90%]' : 'left-[8%]'
-          } top-[22rem]`}
-        ></div>
-        <div
-          className={`size-8 animate-shake-vertical bg-RED ${
-            index % 2 === 0 ? 'left-[80%]' : 'left-[18%]'
-          } top-[30rem]`}
-        ></div>
-        <div
-          className={`size-14 animate-shake-vertical bg-BLUE animation-delay-400 ${
-            index % 2 === 0 ? 'left-[65%]' : 'left-[33%]'
-          } top-[25rem]`}
-        ></div>
-        <div
-          className={`size-10 animate-shake-vertical bg-YELLOW animation-delay-800 ${
-            index % 2 === 0 ? 'left-[55%]' : 'left-[43%]'
-          } top-[30rem]`}
-        ></div>
-      </div>
-    );
-  };
-
   return (
-    <div
+    <section
       className="relative flex h-fit flex-col items-center gap-8 py-8"
       id="education"
     >
@@ -100,7 +75,7 @@ const Education = () => {
             >
               <MdSchool className="size-6 rounded-full bg-RED p-[3px] text-WHITE" />
             </motion.div>
-            <motion.div
+            <motion.figure
               className={`relative mb-10 !self-start ${
                 index % 2 === 0 ? 'timeline-start md:text-end' : 'timeline-end'
               }`}
@@ -123,7 +98,7 @@ const Education = () => {
                   onLoad={() => handleImgLoad(index)}
                 />
               </Skeleton>
-              <div
+              <figcaption
                 className={`absolute top-12 ${
                   index % 2 === 0
                     ? 'left-0 rounded-br-xl md:left-auto md:right-0 md:rounded-none md:rounded-bl-xl'
@@ -148,9 +123,9 @@ const Education = () => {
                     GPA: {value.gpa}
                   </p>
                 )}
-              </div>
-            </motion.div>
-            <div
+              </figcaption>
+            </motion.figure>
+            <section
               className={`${
                 index % 2 === 0
                   ? 'timeline-end'
@@ -178,8 +153,8 @@ const Education = () => {
                   </motion.li>
                 ))}
               </ul>
-              <Floaties index={index} />
-            </div>
+              <Floaties isReversed={index % 2 === 1} />
+            </section>
             {index !== educations.length - 1 && (
               <motion.hr
                 className="rounded-none bg-RED"
@@ -194,7 +169,7 @@ const Education = () => {
           </li>
         ))}
       </ul>
-    </div>
+    </section>
   );
 };
 

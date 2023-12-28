@@ -1,11 +1,13 @@
-import { Nav, Footer } from '@/components';
-
-import Skill from './skill';
-import Header from './header';
-import AboutMe from './aboutme';
-import Project from './project';
-import Education from './education';
-import Experience from './experience';
+import {
+  AboutMe,
+  Education,
+  Experience,
+  Footer,
+  Header,
+  Nav,
+  Project,
+  Skill,
+} from '@/components';
 
 const Index = () => {
   return (

@@ -1,13 +1,14 @@
 import { cubicBezier, motion } from 'framer-motion';
 
 import { experience } from '@/data/';
-import { ExpCard } from '@/components';
+
+import { ExpCard } from '.';
 
 const Experience = () => {
   const experiences = Object.entries(experience);
 
   return (
-    <div
+    <section
       className="relative flex animate-fade-in flex-col justify-center gap-8 overflow-hidden py-8"
       id="experience"
     >
@@ -46,11 +47,11 @@ const Experience = () => {
             tech={exp.tech}
             detail={exp.detail}
             text={exp.text}
-            reversed={index % 2 === 1}
+            isReversed={index % 2 === 1}
           />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
