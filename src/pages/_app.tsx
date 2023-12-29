@@ -69,7 +69,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="darkreader" content="NO-DARKREADER-PLUGIN" />
 
         {/* Social Media Meta Tags */}
-        <meta property="twitter:image" content="/ogp.png" />
+        <meta property="twitter:image" content="https://dulapahv.dev/ogp.png" />
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:title" content="DulapahV's Portfolio" />
         <meta
@@ -82,7 +82,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           property="og:description"
           content="This website is a personal project to showcase my skills and experience, as well as to share my knowledge and experience with others."
         />
-        <meta property="og:image" content="/ogp.png" />
+        <meta property="og:image" content="https://dulapahv.dev/ogp.png" />
         <meta property="og:url" content="https://dulapahv.dev/" />
         <meta property="og:type" content="Portfolio" />
         <meta property="og:locale" content="en_US" />
