@@ -34,7 +34,9 @@ const SkillIcon = ({
     >
       <Skeleton
         isLoaded={isLoaded}
-        className="animate-zoom-out-center hover:animate-zoom-in-center"
+        classNames={{
+          base: 'animate-zoom-out-center hover:animate-zoom-in-center',
+        }}
       >
         <Image
           src={`/images/${src}`}
