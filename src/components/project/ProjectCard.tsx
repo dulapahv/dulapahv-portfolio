@@ -95,7 +95,9 @@ const ProjectCard = ({
                     </h1>
                     <Skeleton
                       isLoaded={isImgLoaded[index]}
-                      className="rounded-lg"
+                      classNames={{
+                        base: 'rounded-lg',
+                      }}
                     >
                       <Image
                         src={`/images/proj/${id}/${index + 1}.png`}

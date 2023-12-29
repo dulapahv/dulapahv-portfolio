@@ -113,7 +113,9 @@ const ExpCard = ({
           <Skeleton
             isLoaded={isCoverImgLoaded}
             classNames={{
-              base: 'h-full',
+              base: `h-full shadow-xl ${
+                isReversed ? 'rounded-br-3xl' : 'rounded-bl-3xl'
+              }`,
               content: 'h-full',
             }}
           >
@@ -123,9 +125,7 @@ const ExpCard = ({
               height={632}
               alt={id + ' cover'}
               onLoad={() => setIsCoverImgLoaded(true)}
-              className={`${
-                isReversed ? 'rounded-br-3xl' : 'rounded-bl-3xl'
-              } w-full object-cover hover:brightness-[.85] active:brightness-75 lg:h-full lg:shadow-xl`}
+              className="h-full object-cover hover:brightness-[.85] active:brightness-75"
             />
           </Skeleton>
           {isReversed ? (
@@ -176,7 +176,9 @@ const ExpCard = ({
                       </h1>
                       <Skeleton
                         isLoaded={isImgLoaded[index]}
-                        className="rounded-lg"
+                        classNames={{
+                          base: 'rounded-lg',
+                        }}
                       >
                         <Image
                           src={`/images/exp/${id}/${index + 1}.png`}

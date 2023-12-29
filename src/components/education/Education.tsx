@@ -88,7 +88,12 @@ const Education = () => {
               viewport={{ once: true }}
             >
               <time className="text-lg">{value.date}</time>
-              <Skeleton isLoaded={isImgLoaded[index]} className="rounded-lg">
+              <Skeleton
+                isLoaded={isImgLoaded[index]}
+                classNames={{
+                  base: 'rounded',
+                }}
+              >
                 <Image
                   src={`/images/edu/${key}.png`}
                   width={value.width}
