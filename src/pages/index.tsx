@@ -47,7 +47,7 @@ const Index = () => {
         {/* More Descriptive Description */}
         <meta
           name="description"
-          content="DulapahV's Portfolio, a website that contains my personal information, education, experiences, skills, and projects"
+          content="This website is a personal project to showcase my skills and experience, as well as to share my knowledge and experience with others."
         />
 
         {/* Icons and Manifest */}
@@ -58,12 +58,7 @@ const Index = () => {
         {/* Title */}
         <title>DulapahV&apos;s Portfolio</title>
       </Head>
-      <div
-        className="fixed z-0 min-h-screen w-[15rem] overflow-hidden bg-repeat [background-size:105%] sm:w-[20rem] sm:[background-size:79%] md:w-[30rem] md:[background-size:53%] lg:w-[40rem] lg:[background-size:40%] dark:bg-black/40 dark:brightness-[.33]"
-        style={{
-          backgroundImage: `url(/images/bg_pattern.png)`,
-        }}
-      ></div>
+      <div className="bg-bg_pattern fixed z-0 min-h-screen w-[15rem] overflow-hidden bg-repeat [background-size:105%] sm:w-[20rem] sm:[background-size:79%] md:w-[30rem] md:[background-size:53%] lg:w-[40rem] lg:[background-size:40%] dark:bg-black/40 dark:brightness-[.33]"></div>
       <Header />
       <AboutMe />
       <Education />
