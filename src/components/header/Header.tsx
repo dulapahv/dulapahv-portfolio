@@ -199,7 +199,7 @@ const Header = () => {
                   alt="profile_pic"
                   className="rounded-bl-3xl"
                   onLoad={() => setIsLoaded(true)}
-                  // priority  /* Using priority makes <title> empty. Will report. */
+                  priority
                 />
               </Skeleton>
             </div>
