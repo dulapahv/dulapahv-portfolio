@@ -133,7 +133,6 @@ const Header = () => {
             isOpen={isOpen}
             onOpenChange={onOpenChange}
             hideCloseButton
-            isDismissable={false}
             size="xs"
             placement="center"
             classNames={{
