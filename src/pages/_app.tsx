@@ -19,9 +19,15 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
+        {/* Title */}
+        <title>DulapahV&apos;s Portfolio</title>
+
         {/* Standard Meta Tags */}
         <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2, user-scalable=no"
+        />
         <meta name="description" content="DulapahV's Portfolio" />
         <meta
           name="keywords"
@@ -33,10 +39,23 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="page-topic" content="Portfolio" />
         <meta name="page-type" content="Portfolio" />
         <meta name="audience" content="Everyone" />
+        <meta name="url" content="https://dulapahv.dev/" />
         <meta name="robots" content="index, follow" />
 
         {/* Content Language */}
         <meta httpEquiv="content-language" content="en" />
+
+        {/* More Descriptive Description */}
+        <meta
+          name="description"
+          content="This website is a personal project to showcase my skills and experience, as well as to share my knowledge and experience with others."
+        />
+
+        {/* Icons and Manifest */}
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+        <link rel="manifest" href="/manifest.json" />
 
         {/* Theme and Styling */}
         <meta name="theme-color" content="#34dcdd" />
@@ -49,19 +68,27 @@ function MyApp({ Component, pageProps }: AppProps) {
         {/* Disable Dark Reader Plugin */}
         <meta name="darkreader" content="NO-DARKREADER-PLUGIN" />
 
-        {/* More Descriptive Description */}
+        {/* Social Media Meta Tags */}
+        <meta property="twitter:image" content="/ogp.png" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" content="DulapahV's Portfolio" />
         <meta
-          name="description"
+          property="twitter:description"
           content="This website is a personal project to showcase my skills and experience, as well as to share my knowledge and experience with others."
         />
 
-        {/* Icons and Manifest */}
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-        <link rel="manifest" href="/manifest.json" />
+        <meta property="og:title" content="DulapahV's Portfolio" />
+        <meta
+          property="og:description"
+          content="This website is a personal project to showcase my skills and experience, as well as to share my knowledge and experience with others."
+        />
+        <meta property="og:image" content="/ogp.png" />
+        <meta property="og:url" content="https://dulapahv.dev/" />
+        <meta property="og:type" content="Portfolio" />
+        <meta property="og:locale" content="en_US" />
 
-        {/* Title */}
-        <title>DulapahV&apos;s Portfolio</title>
+        {/* Canonical link */}
+        <link rel="canonical" href="https://dulapahv.dev/" />
       </Head>
       <div className={`${open_sans.className}`}>
         <ThemeProvider defaultTheme="dark">
