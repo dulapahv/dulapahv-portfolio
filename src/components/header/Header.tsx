@@ -96,7 +96,7 @@ const Header = () => {
               </button>
               <span className="select-none">&emsp;</span>
               {email ? (
-                <p className="text-BLACK">{email}</p>
+                <p className="select-all text-BLACK">{email}</p>
               ) : (
                 <>
                   {isFetchingEmail ? (
