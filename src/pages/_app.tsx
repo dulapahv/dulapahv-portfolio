@@ -24,10 +24,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
         {/* Standard Meta Tags */}
         <meta charSet="UTF-8" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2, user-scalable=no"
-        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content="DulapahV's Portfolio" />
         <meta
           name="keywords"
