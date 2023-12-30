@@ -143,7 +143,7 @@ const Header = ({ sectionRef }: HeaderProps) => {
                 {isRevealEmail && (
                   <div className="flex flex-col items-center gap-y-4">
                     <h1 className="text-center text-BLACK dark:text-WHITE">
-                      Beep boop, boop beep?
+                      Beep boop. Boop beep?
                     </h1>
                     <div className="relative flex gap-x-2 py-5">
                       <span className="loading loading-spinner loading-md"></span>
