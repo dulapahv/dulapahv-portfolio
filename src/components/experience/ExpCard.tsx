@@ -100,7 +100,7 @@ const ExpCard = ({
             isReversed
               ? 'order-1 after:rounded-tr-3xl'
               : 'order-1 after:rounded-bl-3xl hover:after:rounded-bl-3xl lg:order-2'
-          } relative max-h-[30rem] cursor-pointer after:pointer-events-none after:absolute after:bottom-0 after:h-10 after:w-fit after:rounded-tr-xl after:bg-BLACK/70 after:pl-4 after:pr-4 after:pt-2 after:text-WHITE after:content-["View_more_images"] hover:after:w-full hover:after:rounded-none`}
+          } cursor-pointer after:pointer-events-none after:absolute after:bottom-0 after:h-10 after:w-fit after:rounded-tr-xl after:bg-BLACK/70 after:pl-4 after:pr-4 after:pt-2 after:text-WHITE after:content-["View_more_images"] hover:after:w-full hover:after:rounded-none`}
           onClick={onOpen}
           initial={{ transform: 'translateY(100px)', opacity: 0 }}
           whileInView={{

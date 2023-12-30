@@ -108,9 +108,6 @@ const Nav = () => {
         delay={400}
         closeDelay={75}
         placement="left-end"
-        classNames={{
-          content: 'selection:bg-fuchsia-300 selection:text-fuchsia-900',
-        }}
       >
         <button
           className={`btn relative z-[2147483647] size-28 bg-BLUE hover:bg-BLUE active:!translate-x-1 active:!translate-y-1 sm:h-32 sm:w-32 ${

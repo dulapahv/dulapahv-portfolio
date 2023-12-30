@@ -25,13 +25,7 @@ const SkillIcon = ({
   }
 
   return (
-    <Tooltip
-      content={tooltip}
-      closeDelay={75}
-      classNames={{
-        content: 'selection:bg-fuchsia-300 selection:text-fuchsia-900',
-      }}
-    >
+    <Tooltip content={tooltip} closeDelay={75}>
       <Skeleton
         isLoaded={isLoaded}
         classNames={{
