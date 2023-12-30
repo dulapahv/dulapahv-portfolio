@@ -1,3 +1,5 @@
+import { useRef } from 'react';
+
 import {
   AboutMe,
   Education,
@@ -10,19 +12,30 @@ import {
 } from '@/components';
 
 const Index = () => {
+  const aboutmeRef = useRef<HTMLDivElement>(null);
+  const educationRef = useRef<HTMLDivElement>(null);
+  const experienceRef = useRef<HTMLDivElement>(null);
+  const skillRef = useRef<HTMLDivElement>(null);
+  const projectRef = useRef<HTMLDivElement>(null);
+
   return (
     <>
-      <div className="bg-bg_pattern fixed z-0 min-h-screen w-[15rem] overflow-hidden bg-repeat [background-size:105%] sm:w-[20rem] sm:[background-size:79%] md:w-[30rem] md:[background-size:53%] lg:w-[40rem] lg:[background-size:40%] dark:bg-black/40 dark:brightness-[.33]"></div>
-      <Header />
-      <AboutMe />
-      <Education />
-      <Experience />
-      <Skill />
-      <Project />
+      <div className="fixed z-0 min-h-screen w-[15rem] overflow-hidden bg-bg_pattern bg-repeat [background-size:105%] sm:w-[20rem] sm:[background-size:79%] md:w-[30rem] md:[background-size:53%] lg:w-[40rem] lg:[background-size:40%] dark:bg-black/40 dark:brightness-[.33]"></div>
+      <Header sectionRef={aboutmeRef} />
+      <AboutMe ref={aboutmeRef} />
+      <Education ref={educationRef} />
+      <Experience ref={experienceRef} />
+      <Skill ref={skillRef} />
+      <Project ref={projectRef} />
       <Footer />
-      <div className="fixed bottom-0 right-0 z-[2147483647]">
-        <Nav />
-      </div>
+      <Nav
+        sectionRef={{
+          education: educationRef,
+          experience: experienceRef,
+          skill: skillRef,
+          project: projectRef,
+        }}
+      />
     </>
   );
 };

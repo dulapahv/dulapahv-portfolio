@@ -1,12 +1,22 @@
+import { forwardRef, useImperativeHandle, useRef } from 'react';
+
 import { cubicBezier, motion } from 'framer-motion';
 
 import { SkillHeader, SkillIcon, Floaties } from '.';
 
-const Skill = () => {
+const Skill = forwardRef((props, ref) => {
+  const skillRef = useRef<HTMLDivElement>(null);
+
+  useImperativeHandle(ref, () => ({
+    scrollIntoView: () => {
+      skillRef.current!.scrollIntoView();
+    },
+  }));
+
   return (
-    <div
+    <section
       className="flex flex-col justify-center gap-8 overflow-hidden py-8"
-      id="skill"
+      ref={skillRef}
     >
       <Floaties />
       <div className="relative flex flex-col items-center gap-6 py-8">
@@ -228,8 +238,10 @@ const Skill = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
-};
+});
+
+Skill.displayName = 'Skill';
 
 export default Skill;

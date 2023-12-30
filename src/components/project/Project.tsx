@@ -1,16 +1,26 @@
+import { forwardRef, useImperativeHandle, useRef } from 'react';
+
 import { cubicBezier, motion } from 'framer-motion';
 
 import { project } from '@/data';
 
 import { ProjectCard } from '.';
 
-const Project = () => {
+const Project = forwardRef((props, ref) => {
+  const projectRef = useRef<HTMLDivElement>(null);
+
   const projects = Object.entries(project);
+
+  useImperativeHandle(ref, () => ({
+    scrollIntoView: () => {
+      projectRef.current!.scrollIntoView();
+    },
+  }));
 
   return (
     <section
       className="relative flex flex-col justify-center gap-8 py-8"
-      id="project"
+      ref={projectRef}
     >
       <div className="flex flex-col items-center gap-6 py-8">
         <motion.h1
@@ -51,6 +61,8 @@ const Project = () => {
       </div>
     </section>
   );
-};
+});
+
+Project.displayName = 'Project';
 
 export default Project;

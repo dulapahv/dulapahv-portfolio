@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { forwardRef, useImperativeHandle, useRef, useState } from 'react';
 
 import { cubicBezier, motion } from 'framer-motion';
 
@@ -9,7 +9,9 @@ import { Skeleton } from '@nextui-org/react';
 
 import { Floaties } from '.';
 
-const Education = () => {
+const Education = forwardRef((props, ref) => {
+  const educationRef = useRef<HTMLDivElement>(null);
+
   const educations = Object.entries(education);
 
   const [isImgLoaded, setIsImgLoaded] = useState(
@@ -22,10 +24,16 @@ const Education = () => {
     setIsImgLoaded(updatedLoaded);
   };
 
+  useImperativeHandle(ref, () => ({
+    scrollIntoView: () => {
+      educationRef.current!.scrollIntoView();
+    },
+  }));
+
   return (
     <section
       className="relative flex h-fit flex-col items-center gap-8 py-8"
-      id="education"
+      ref={educationRef}
     >
       <div className="flex flex-col items-center gap-6 py-8">
         <motion.h1
@@ -176,6 +184,8 @@ const Education = () => {
       </ul>
     </section>
   );
-};
+});
+
+Education.displayName = 'Education';
 
 export default Education;

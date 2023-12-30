@@ -1,12 +1,22 @@
+import { forwardRef, useImperativeHandle, useRef } from 'react';
+
 import { cubicBezier, motion } from 'framer-motion';
 
 import { aboutme } from '@/data';
 
 import { Floaties, ScrollingText } from '.';
 
-const AboutMe = () => {
+const AboutMe = forwardRef((props, ref) => {
+  const aboutmeRef = useRef<HTMLDivElement>(null);
+
+  useImperativeHandle(ref, () => ({
+    scrollIntoView: () => {
+      aboutmeRef.current!.scrollIntoView();
+    },
+  }));
+
   return (
-    <section className="flex flex-col overflow-hidden" id="aboutme">
+    <section className="flex flex-col overflow-hidden" ref={aboutmeRef}>
       <Floaties />
       <div className="relative">
         <ScrollingText />
@@ -57,6 +67,8 @@ const AboutMe = () => {
       </div>
     </section>
   );
-};
+});
+
+AboutMe.displayName = 'AboutMe';
 
 export default AboutMe;

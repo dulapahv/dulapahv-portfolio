@@ -1,16 +1,26 @@
+import { forwardRef, useImperativeHandle, useRef } from 'react';
+
 import { cubicBezier, motion } from 'framer-motion';
 
 import { experience } from '@/data/';
 
 import { ExpCard } from '.';
 
-const Experience = () => {
+const Experience = forwardRef((props, ref) => {
+  const experienceRef = useRef<HTMLDivElement>(null);
+
   const experiences = Object.entries(experience);
+
+  useImperativeHandle(ref, () => ({
+    scrollIntoView: () => {
+      experienceRef.current!.scrollIntoView();
+    },
+  }));
 
   return (
     <section
       className="relative flex animate-fade-in flex-col justify-center gap-8 overflow-hidden py-8"
-      id="experience"
+      ref={experienceRef}
     >
       <div className="flex flex-col items-center gap-6 py-8">
         <motion.h1
@@ -53,6 +63,8 @@ const Experience = () => {
       </div>
     </section>
   );
-};
+});
+
+Experience.displayName = 'Experience';
 
 export default Experience;
