@@ -43,7 +43,7 @@ const Project = forwardRef((props, ref) => {
         >
           Project
         </motion.h1>
-        <div className="flex h-[2px] w-14 flex-col bg-gradient-to-r from-BLUE to-BLUE-400"></div>
+        <div className="flex h-[2px] w-14 flex-col bg-gradient-to-r from-BLUE to-BLUE-400" />
       </div>
       <div className="flex flex-wrap justify-center gap-x-6 gap-y-16">
         {projects.map(([id, proj], index) => (

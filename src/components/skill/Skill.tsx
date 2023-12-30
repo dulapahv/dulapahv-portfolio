@@ -40,7 +40,7 @@ const Skill = forwardRef((props, ref) => {
         >
           Skill
         </motion.h1>
-        <div className="flex h-[2px] w-14 flex-col bg-gradient-to-r from-BLUE to-BLUE-400"></div>
+        <div className="flex h-[2px] w-14 flex-col bg-gradient-to-r from-BLUE to-BLUE-400" />
       </div>
       <div className="relative grid grid-cols-1 justify-items-center lg:justify-items-stretch">
         <div className="mx-4 flex flex-col gap-4 lg:flex-row lg:justify-around">

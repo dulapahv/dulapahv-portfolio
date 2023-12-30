@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { RefObject, useRef, useState } from 'react';
 
 import { Tooltip } from '@nextui-org/react';
 import { RiSparkling2Fill, RiSparkling2Line } from 'react-icons/ri';
@@ -7,10 +7,10 @@ import { NavMenu, NavMenuRef } from '.';
 
 interface NavProps {
   sectionRef: {
-    education: React.RefObject<HTMLDivElement>;
-    experience: React.RefObject<HTMLDivElement>;
-    skill: React.RefObject<HTMLDivElement>;
-    project: React.RefObject<HTMLDivElement>;
+    education: RefObject<HTMLDivElement>;
+    experience: RefObject<HTMLDivElement>;
+    skill: RefObject<HTMLDivElement>;
+    project: RefObject<HTMLDivElement>;
   };
 }
 
@@ -70,7 +70,7 @@ const Nav = ({ sectionRef }: NavProps) => {
             className="fixed left-0 top-0 z-[2147483646] h-screen w-screen animate-fade-in bg-black/30"
             onClick={handleCloseNav}
             ref={navBackdropRef}
-          ></div>
+          />
         </>
       )}
     </nav>

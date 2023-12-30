@@ -56,7 +56,7 @@ const Education = forwardRef((props, ref) => {
         >
           Education
         </motion.h1>
-        <div className="flex h-[2px] w-14 flex-col bg-gradient-to-r from-BLUE to-BLUE-400"></div>
+        <div className="flex h-[2px] w-14 flex-col bg-gradient-to-r from-BLUE to-BLUE-400" />
       </div>
       <ul className="timeline timeline-vertical timeline-snap-icon px-4 max-md:timeline-compact sm:px-8 md:px-12 lg:px-16">
         {educations.map(([key, value], index) => (

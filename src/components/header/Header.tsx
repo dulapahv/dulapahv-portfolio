@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { RefObject, useState } from 'react';
 
 import Image from 'next/image';
 import { FiExternalLink } from 'react-icons/fi';
@@ -16,7 +16,7 @@ import {
 import { Captcha, Floaties } from '.';
 
 interface HeaderProps {
-  sectionRef: React.RefObject<HTMLDivElement>;
+  sectionRef: RefObject<HTMLDivElement>;
 }
 
 const Header = ({ sectionRef }: HeaderProps) => {
@@ -98,7 +98,7 @@ const Header = ({ sectionRef }: HeaderProps) => {
               ) : (
                 <>
                   {isFetchingEmail ? (
-                    <span className="loading loading-bars loading-sm align-middle"></span>
+                    <span className="loading loading-bars loading-sm align-middle" />
                   ) : (
                     <button
                       className="btn btn-ghost h-[24px] min-h-0 p-0 text-base/3 font-normal capitalize underline hover:bg-transparent"
@@ -146,7 +146,7 @@ const Header = ({ sectionRef }: HeaderProps) => {
                       Beep boop. Boop beep?
                     </h1>
                     <div className="relative flex gap-x-2 py-5">
-                      <span className="loading loading-spinner loading-md"></span>
+                      <span className="loading loading-spinner loading-md" />
                       <p>Loading Captcha...</p>
                     </div>
                     <Captcha onCaptchaSuccess={handleCaptchaSuccess} />
@@ -168,22 +168,26 @@ const Header = ({ sectionRef }: HeaderProps) => {
           </section>
         </div>
         <figure className="relative mt-4 lg:mt-0">
-          <div className="absolute -bottom-16 left-32 h-36 w-screen animate-clip-in-right bg-BLUE opacity-50"></div>
+          <div className="absolute -bottom-16 left-32 h-36 w-screen animate-clip-in-right bg-BLUE opacity-50" />
           <div className="mx-8 flex w-64 min-[375px]:w-72 min-[425px]:w-80 sm:w-96 md:w-[26rem] lg:w-auto">
             <div className="z-[1] w-fit animate-clip-in-left animation-delay-300">
-              <Skeleton isLoaded={isLoaded}>
+              <Skeleton
+                isLoaded={isLoaded}
+                classNames={{
+                  base: 'rounded-bl-3xl',
+                }}
+              >
                 <Image
                   src="/images/profile_pic.jpg"
                   width={500}
                   height={500}
                   alt="profile_pic"
-                  className="rounded-bl-3xl"
                   onLoad={() => setIsLoaded(true)}
                   priority
                 />
               </Skeleton>
             </div>
-            <div className="absolute aspect-square h-full animate-clip-in-left rounded-bl-3xl bg-BLUE shadow"></div>
+            <div className="absolute aspect-square h-full animate-clip-in-left rounded-bl-3xl bg-BLUE shadow" />
           </div>
         </figure>
       </div>
@@ -198,7 +202,7 @@ const Header = ({ sectionRef }: HeaderProps) => {
           <button
             className="btn btn-circle btn-sm pointer-events-none absolute z-0 animate-ping drop-shadow-md"
             aria-label="Scroll to see more"
-          ></button>
+          />
         </div>
         <p className="text-xs">Scroll to see more</p>
       </div>

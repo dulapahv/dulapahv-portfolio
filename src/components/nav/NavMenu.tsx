@@ -1,4 +1,4 @@
-import { forwardRef, useImperativeHandle, useRef } from 'react';
+import { forwardRef, RefObject, useImperativeHandle, useRef } from 'react';
 
 import { MdWork } from 'react-icons/md';
 import { MdSchool } from 'react-icons/md';
@@ -14,10 +14,10 @@ export interface NavMenuRef {
 interface NavMenuProps {
   callback: () => void;
   sectionRef: {
-    education: React.RefObject<HTMLDivElement>;
-    experience: React.RefObject<HTMLDivElement>;
-    skill: React.RefObject<HTMLDivElement>;
-    project: React.RefObject<HTMLDivElement>;
+    education: RefObject<HTMLDivElement>;
+    experience: RefObject<HTMLDivElement>;
+    skill: RefObject<HTMLDivElement>;
+    project: RefObject<HTMLDivElement>;
   };
 }
 

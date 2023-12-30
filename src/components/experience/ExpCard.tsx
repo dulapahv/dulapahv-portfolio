@@ -83,7 +83,7 @@ const ExpCard = ({
             <TbMinusVertical />
             <span className="text-BLACK dark:text-WHITE">{tech} </span>
           </h3>
-          <div className="mb-7 mt-4 flex h-[2px] w-14 flex-col bg-gradient-to-r from-RED to-RED-400"></div>
+          <div className="mb-7 mt-4 flex h-[2px] w-14 flex-col bg-gradient-to-r from-RED to-RED-400" />
           <ul className="ml-5 list-outside list-disc">
             {detail?.map((item, index) => (
               <li
@@ -137,7 +137,7 @@ const ExpCard = ({
               }}
               transition={{ ease: 'easeOut', duration: 0.7 }}
               viewport={{ once: true }}
-            ></motion.div>
+            />
           ) : (
             <motion.div
               className="pointer-events-none absolute -bottom-16 left-32 -z-10 h-36 w-screen animate-clip-in-right bg-BLUE opacity-50"
@@ -149,7 +149,7 @@ const ExpCard = ({
               }}
               transition={{ ease: 'easeOut', duration: 0.7 }}
               viewport={{ once: true }}
-            ></motion.div>
+            />
           )}
         </motion.figure>
         <Modal

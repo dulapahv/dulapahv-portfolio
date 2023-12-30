@@ -8,10 +8,10 @@ const SkillHeader = ({ text }: SkillHeaderProps) => {
       {text}
       <div className="absolute -bottom-2 left-0 w-32">
         <div className="grid grid-cols-4 *:h-[2px]">
-          <div className="bg-RED"></div>
-          <div className="bg-BLUE"></div>
-          <div className="bg-YELLOW"></div>
-          <div className="bg-PURPLE"></div>
+          <div className="bg-RED" />
+          <div className="bg-BLUE" />
+          <div className="bg-YELLOW" />
+          <div className="bg-PURPLE" />
         </div>
       </div>
     </h1>

@@ -43,7 +43,7 @@ const Experience = forwardRef((props, ref) => {
         >
           Work Experience
         </motion.h1>
-        <div className="flex h-[2px] w-14 flex-col bg-gradient-to-r from-BLUE to-BLUE-400"></div>
+        <div className="flex h-[2px] w-14 flex-col bg-gradient-to-r from-BLUE to-BLUE-400" />
       </div>
       <div className="-mt-8 flex flex-col gap-8 lg:-mt-16 lg:gap-16">
         {experiences.map(([id, exp], index) => (

@@ -117,14 +117,14 @@ const ProjectCard = ({
       <section className="card-body relative">
         <div className="absolute left-0 top-0 w-full">
           <div className="grid grid-cols-4 *:h-[2px]">
-            <div className="bg-RED"></div>
-            <div className="bg-BLUE"></div>
-            <div className="bg-YELLOW"></div>
-            <div className="bg-PURPLE"></div>
+            <div className="bg-RED" />
+            <div className="bg-BLUE" />
+            <div className="bg-YELLOW" />
+            <div className="bg-PURPLE" />
           </div>
         </div>
         <div className="card-title relative !mb-0">
-          <div className="absolute -top-1 h-[2px] w-8 bg-BLUE"></div>
+          <div className="absolute -top-1 h-[2px] w-8 bg-BLUE" />
           <h1 className="text-BLACK dark:text-WHITE">{title}</h1>
           {isNew && <div className="badge bg-RED text-WHITE/90">NEW</div>}
         </div>

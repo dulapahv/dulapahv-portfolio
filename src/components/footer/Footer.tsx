@@ -13,15 +13,15 @@ const Footer = () => {
           </a>
         </button>
       </p>
-      <button className="btn btn-ghost flex h-[18px] min-h-0 select-text border-0 p-0 text-xs font-normal underline hover:bg-transparent md:absolute md:bottom-0">
+      <time className="btn btn-ghost flex h-[18px] min-h-0 select-text border-0 p-0 text-xs font-normal underline hover:bg-transparent md:absolute md:bottom-0">
         <a
           href="https://github.com/dulapahv/dulapahv-portfolio"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Last updated: 30/12/2023 - 18.00 GMT
+          Last updated: 30/12/2023 - 22.00 GMT
         </a>
-      </button>
+      </time>
     </footer>
   );
 };
