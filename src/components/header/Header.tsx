@@ -1,13 +1,10 @@
-import { useRef, useState } from 'react';
-
-import { useTheme } from 'next-themes';
+import { useState } from 'react';
 
 import Image from 'next/image';
 import { FiExternalLink } from 'react-icons/fi';
 import { TbMinusVertical } from 'react-icons/tb';
 import { HiOutlineDocument } from 'react-icons/hi2';
 import { BsArrowDownCircleFill } from 'react-icons/bs';
-import { Turnstile, TurnstileInstance } from '@marsidev/react-turnstile';
 import {
   Modal,
   ModalBody,
@@ -16,17 +13,18 @@ import {
   useDisclosure,
 } from '@nextui-org/react';
 
-import { Floaties } from '.';
+import { Captcha, Floaties } from '.';
 
-const Header = () => {
-  const captchaInstance = useRef<TurnstileInstance>(null);
+interface HeaderProps {
+  sectionRef: React.RefObject<HTMLDivElement>;
+}
 
+const Header = ({ sectionRef }: HeaderProps) => {
   const [email, setEmail] = useState('' as string);
   const [isLoaded, setIsLoaded] = useState(false);
   const [isRevealEmail, setIsRevealEmail] = useState(false);
   const [isFetchingEmail, setIsFetchingEmail] = useState(false);
 
-  const { resolvedTheme } = useTheme();
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
 
   const handleCaptchaSuccess = async (token: string) => {
@@ -145,30 +143,13 @@ const Header = () => {
                 {isRevealEmail && (
                   <div className="flex flex-col items-center gap-y-4">
                     <h1 className="text-center text-BLACK dark:text-WHITE">
-                      Please verify Captcha
+                      Beep boop, boop beep?
                     </h1>
                     <div className="relative flex gap-x-2 py-5">
                       <span className="loading loading-spinner loading-md"></span>
                       <p>Loading Captcha...</p>
                     </div>
-                    <Turnstile
-                      siteKey="0x4AAAAAAACYFWWcTzhCNWz4" // 0x4AAAAAAACYFWWcTzhCNWz4 1x00000000000000000000AA
-                      onError={() => {
-                        // TODO: Reset captcha
-                        console.log('Error!');
-                      }}
-                      onExpire={() => {
-                        console.log('Expired!');
-                        // TODO: Reset captcha
-                        // captchaInstance.current?.reset();
-                      }}
-                      onSuccess={handleCaptchaSuccess}
-                      options={{
-                        theme: resolvedTheme === 'dark' ? 'dark' : 'light',
-                      }}
-                      ref={captchaInstance}
-                      className="absolute bottom-[10px]"
-                    />
+                    <Captcha onCaptchaSuccess={handleCaptchaSuccess} />
                   </div>
                 )}
               </ModalBody>
@@ -211,8 +192,7 @@ const Header = () => {
           <BsArrowDownCircleFill
             className="btn btn-circle btn-sm z-[1] cursor-pointer text-RED drop-shadow-md"
             onClick={() => {
-              const education = document.getElementById('aboutme');
-              education?.scrollIntoView({ behavior: 'smooth' });
+              sectionRef.current!.scrollIntoView();
             }}
           />
           <button
