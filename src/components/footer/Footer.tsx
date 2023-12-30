@@ -19,7 +19,7 @@ const Footer = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Last updated: 29/12/2023 - 22.00 GMT
+          Last updated: 30/12/2023 - 18.00 GMT
         </a>
       </button>
     </footer>
