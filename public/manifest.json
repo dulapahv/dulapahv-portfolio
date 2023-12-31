@@ -6,7 +6,7 @@
   "icons": [
     {
       "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "sizes": "256x256",
       "type": "image/x-icon"
     },
     {
@@ -32,12 +32,98 @@
       "type": "image/png"
     }
   ],
+  "screenshots": [
+    {
+      "src": "pwa/desktop/1.png",
+      "sizes": "1920x1009",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Header"
+    },
+    {
+      "src": "pwa/desktop/2.png",
+      "sizes": "1920x1009",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Navigation Panel"
+    },
+    {
+      "src": "pwa/desktop/3.png",
+      "sizes": "1920x1009",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "About Me"
+    },
+    {
+      "src": "pwa/desktop/4.png",
+      "sizes": "1920x1009",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Education"
+    },
+    {
+      "src": "pwa/desktop/5.png",
+      "sizes": "1920x1009",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Experience"
+    },
+    {
+      "src": "pwa/desktop/6.png",
+      "sizes": "1920x1009",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Skill"
+    },
+    {
+      "src": "pwa/desktop/7.png",
+      "sizes": "1920x1009",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Project"
+    },
+    {
+      "src": "pwa/mobile/1.png",
+      "sizes": "1284x2475",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Header"
+    },
+    {
+      "src": "pwa/mobile/2.png",
+      "sizes": "1284x2475",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Education"
+    },
+    {
+      "src": "pwa/mobile/3.png",
+      "sizes": "1284x2475",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Experience"
+    },
+    {
+      "src": "pwa/mobile/4.png",
+      "sizes": "1284x2475",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Skill"
+    },
+    {
+      "src": "pwa/mobile/5.png",
+      "sizes": "1284x2475",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Project"
+    }
+  ],
   "orientation": "any",
   "display": "standalone",
   "dir": "auto",
   "lang": "en-US",
   "start_url": "https://dulapahv.dev/",
   "scope": "https://dulapahv.dev/",
-  "description": "DulapahV's Portfolio, a website that contains my personal information, education, experiences, skills, and projects",
+  "description": "This website is a personal project to showcase my skills and experience, as well as to share my knowledge and experience with others.",
   "id": "https://dulapahv.dev/"
 }
