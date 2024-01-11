@@ -37,5 +37,6 @@
     "tailwindcss": "3.4.1",
     "tailwindcss-animation-delay": "^1.2.0",
     "typescript": "5.3.3"
-  }
+  },
+  "packageManager": "yarn@4.0.2"
 }
