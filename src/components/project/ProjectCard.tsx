@@ -2,8 +2,6 @@ import { useState } from 'react';
 
 import { motion } from 'framer-motion';
 
-import Image from 'next/image';
-import { FiExternalLink } from 'react-icons/fi';
 import {
   Modal,
   ModalBody,
@@ -12,6 +10,8 @@ import {
   Skeleton,
   useDisclosure,
 } from '@nextui-org/react';
+import Image from 'next/image';
+import { FiExternalLink } from 'react-icons/fi';
 
 interface ProjectCardProps {
   id: string;

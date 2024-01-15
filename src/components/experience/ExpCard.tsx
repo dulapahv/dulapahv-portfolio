@@ -2,8 +2,6 @@ import { useState } from 'react';
 
 import { cubicBezier, motion } from 'framer-motion';
 
-import Image from 'next/image';
-import { TbMinusVertical } from 'react-icons/tb';
 import {
   Modal,
   ModalBody,
@@ -12,6 +10,8 @@ import {
   Skeleton,
   useDisclosure,
 } from '@nextui-org/react';
+import Image from 'next/image';
+import { TbMinusVertical } from 'react-icons/tb';
 
 import { Floaties } from '.';
 

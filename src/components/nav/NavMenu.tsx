@@ -1,9 +1,8 @@
 import { forwardRef, RefObject, useImperativeHandle, useRef } from 'react';
 
-import { MdWork } from 'react-icons/md';
-import { MdSchool } from 'react-icons/md';
 import { FaLightbulb } from 'react-icons/fa';
 import { LiaAtomSolid } from 'react-icons/lia';
+import { MdSchool, MdWork } from 'react-icons/md';
 
 import { ThemeSwitch } from '.';
 

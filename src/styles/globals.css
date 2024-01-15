@@ -6,7 +6,6 @@
   /* outline: 1px solid #f00 !important; */
   @apply scroll-smooth;
 }
-
 *::selection {
   @apply bg-fuchsia-300 text-fuchsia-900 [text-shadow:none];
 }

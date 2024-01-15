@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 
-import { TiHome } from 'react-icons/ti';
 import { useRouter } from 'next/router';
 import { LuUnlink } from 'react-icons/lu';
+import { TiHome } from 'react-icons/ti';
 
 const Error404 = () => {
   const router = useRouter();
