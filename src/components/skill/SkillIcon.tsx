@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import Image from 'next/image';
 import { Skeleton, Tooltip } from '@nextui-org/react';
+import Image from 'next/image';
 
 interface SkillIconProps {
   src: string;

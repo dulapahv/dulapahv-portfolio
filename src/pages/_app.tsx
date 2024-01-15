@@ -2,10 +2,10 @@ import { useEffect } from 'react';
 
 import { ThemeProvider } from 'next-themes';
 
-import Head from 'next/head';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { AppProps } from 'next/app';
 import { Open_Sans } from 'next/font/google';
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import Head from 'next/head';
 
 import '@/styles/globals.css';
 

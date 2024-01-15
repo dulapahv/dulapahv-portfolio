@@ -1,10 +1,5 @@
 import { RefObject, useState } from 'react';
 
-import Image from 'next/image';
-import { FiExternalLink } from 'react-icons/fi';
-import { TbMinusVertical } from 'react-icons/tb';
-import { HiOutlineDocument } from 'react-icons/hi2';
-import { BsArrowDownCircleFill } from 'react-icons/bs';
 import {
   Modal,
   ModalBody,
@@ -12,6 +7,11 @@ import {
   Skeleton,
   useDisclosure,
 } from '@nextui-org/react';
+import Image from 'next/image';
+import { BsArrowDownCircleFill } from 'react-icons/bs';
+import { FiExternalLink } from 'react-icons/fi';
+import { HiOutlineDocument } from 'react-icons/hi2';
+import { TbMinusVertical } from 'react-icons/tb';
 
 import { Captcha, Floaties } from '.';
 

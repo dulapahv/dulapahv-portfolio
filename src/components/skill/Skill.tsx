@@ -2,7 +2,7 @@ import { forwardRef, useImperativeHandle, useRef } from 'react';
 
 import { cubicBezier, motion } from 'framer-motion';
 
-import { SkillHeader, SkillIcon, Floaties } from '.';
+import { Floaties, SkillHeader, SkillIcon } from '.';
 
 const Skill = forwardRef((props, ref) => {
   const skillRef = useRef<HTMLDivElement>(null);

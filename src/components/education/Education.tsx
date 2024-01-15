@@ -2,10 +2,10 @@ import { forwardRef, useImperativeHandle, useRef, useState } from 'react';
 
 import { cubicBezier, motion } from 'framer-motion';
 
-import Image from 'next/image';
 import { education } from '@/data';
-import { MdSchool } from 'react-icons/md';
 import { Skeleton } from '@nextui-org/react';
+import Image from 'next/image';
+import { MdSchool } from 'react-icons/md';
 
 import { Floaties } from '.';
 
@@ -37,7 +37,7 @@ const Education = forwardRef((props, ref) => {
     >
       <div className="flex flex-col items-center gap-6 py-8">
         <motion.h1
-          className="text-2xl font-semibold uppercase tracking-[0.2em] text-BLACK first-letter:text-RED min-[375px]:text-3xl sm:text-4xl dark:text-WHITE"
+          className="text-2xl font-semibold uppercase tracking-[0.2em] text-BLACK first-letter:text-RED dark:text-WHITE min-[375px]:text-3xl sm:text-4xl"
           initial={{
             transform: 'scale(.5)',
             transformOrigin: '50% 100%',
