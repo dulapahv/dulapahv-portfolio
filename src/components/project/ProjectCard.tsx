@@ -62,7 +62,7 @@ const ProjectCard = ({
       >
         <Skeleton isLoaded={isCoverImgLoaded}>
           <Image
-            src={`/images/proj/${id}/1.png`}
+            src={`https://assets.dulapahv.dev/images/proj/${id}/1.png`}
             width={1541}
             height={1063}
             alt={id + ' cover'}
@@ -100,7 +100,7 @@ const ProjectCard = ({
                       }}
                     >
                       <Image
-                        src={`/images/proj/${id}/${index + 1}.png`}
+                        src={`https://assets.dulapahv.dev/images/proj/${id}/${index + 1}.png`}
                         width={750}
                         height={500}
                         alt={id + ' ' + index + 1}

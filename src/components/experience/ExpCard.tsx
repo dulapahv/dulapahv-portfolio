@@ -120,7 +120,7 @@ const ExpCard = ({
             }}
           >
             <Image
-              src={`/images/exp/${id}/cover.png`}
+              src={`https://assets.dulapahv.dev/images/exp/${id}/cover.png`}
               width={1915}
               height={632}
               alt={id + ' cover'}
@@ -181,7 +181,7 @@ const ExpCard = ({
                         }}
                       >
                         <Image
-                          src={`/images/exp/${id}/${index + 1}.png`}
+                          src={`https://assets.dulapahv.dev/images/exp/${id}/${index + 1}.png`}
                           width={750}
                           height={500}
                           alt={id + ' ' + index + 1}

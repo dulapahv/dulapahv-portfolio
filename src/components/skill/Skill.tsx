@@ -57,25 +57,25 @@ const Skill = forwardRef((props, ref) => {
             >
               <SkillHeader text="Programming Language" />
               <div className="flex flex-wrap items-center gap-3">
-                <SkillIcon src="/lang/ts.svg" alt="TypeScript" />
-                <SkillIcon src="/lang/js.svg" alt="JavaScript" />
+                <SkillIcon src="lang/ts.svg" alt="TypeScript" />
+                <SkillIcon src="lang/js.svg" alt="JavaScript" />
                 <SkillIcon
-                  src="/lang/py.svg"
+                  src="lang/py.svg"
                   width={60}
                   height={60}
                   alt="Python"
                   tooltip="Python"
                 />
-                <SkillIcon src="/lang/c.svg" alt="C" tooltip="C" />
-                <SkillIcon src="/lang/cpp.svg" alt="C++" tooltip="C++" />
+                <SkillIcon src="lang/c.svg" alt="C" tooltip="C" />
+                <SkillIcon src="lang/cpp.svg" alt="C++" tooltip="C++" />
                 <SkillIcon
-                  src="/lang/java.svg"
+                  src="lang/java.svg"
                   width={40}
                   height={40}
                   alt="Java"
                 />
-                <SkillIcon src="/lang/r.svg" alt="R" />
-                <SkillIcon src="/lang/rs.svg" alt="Rust" />
+                <SkillIcon src="lang/r.svg" alt="R" />
+                <SkillIcon src="lang/rs.svg" alt="Rust" />
               </div>
             </motion.div>
             <motion.div
@@ -91,25 +91,22 @@ const Skill = forwardRef((props, ref) => {
               <SkillHeader text="Web Development (Front End)" />
               <div className="flex flex-wrap items-center gap-3">
                 <SkillIcon
-                  src="/web_front/nextjs.svg"
+                  src="web_front/nextjs.svg"
                   width={112}
                   height={112}
                   alt="Next.js"
                 />
-                <SkillIcon src="/web_front/reactjs.svg" alt="React.js" />
+                <SkillIcon src="web_front/reactjs.svg" alt="React.js" />
+                <SkillIcon src="web_front/tailwindcss.svg" alt="Tailwind CSS" />
+                <SkillIcon src="web_front/mui.svg" alt="Material UI" />
+                <SkillIcon src="web_front/daisyui.svg" alt="DaisyUI" />
                 <SkillIcon
-                  src="/web_front/tailwindcss.svg"
-                  alt="Tailwind CSS"
-                />
-                <SkillIcon src="/web_front/mui.svg" alt="Material UI" />
-                <SkillIcon src="/web_front/daisyui.svg" alt="DaisyUI" />
-                <SkillIcon
-                  src="/web_front/nextui.svg"
+                  src="web_front/nextui.svg"
                   width={112}
                   height={112}
                   alt="NextUI"
                 />
-                <SkillIcon src="/web_front/figma.svg" alt="Figma" />
+                <SkillIcon src="web_front/figma.svg" alt="Figma" />
               </div>
             </motion.div>
             <motion.div
@@ -125,25 +122,25 @@ const Skill = forwardRef((props, ref) => {
               <SkillHeader text="Web Development (Back End)" />
               <div className="flex flex-wrap items-center gap-3">
                 <SkillIcon
-                  src="/web_back/expressjs.svg"
+                  src="web_back/expressjs.svg"
                   width={132}
                   height={132}
                   alt="Express.js"
                 />
                 <SkillIcon
-                  src="/web_back/axios.svg"
+                  src="web_back/axios.svg"
                   width={180}
                   height={180}
                   alt="Axios"
                 />
                 <SkillIcon
-                  src="/web_back/nginx.svg"
+                  src="web_back/nginx.svg"
                   width={123}
                   height={123}
                   alt="NGINX"
                 />
                 <SkillIcon
-                  src="/web_back/firebase.svg"
+                  src="web_back/firebase.svg"
                   width={132}
                   height={132}
                   alt="Firebase"
@@ -162,9 +159,9 @@ const Skill = forwardRef((props, ref) => {
             >
               <SkillHeader text="Testing" />
               <div className="flex flex-wrap items-center gap-3">
-                <SkillIcon src="/testing/insomnia.svg" alt="Insomnia" />
+                <SkillIcon src="testing/insomnia.svg" alt="Insomnia" />
                 <SkillIcon
-                  src="/testing/postman.svg"
+                  src="testing/postman.svg"
                   width={172}
                   height={172}
                   alt="Postman"
@@ -185,9 +182,9 @@ const Skill = forwardRef((props, ref) => {
             >
               <SkillHeader text="Database Management System" />
               <div className="flex flex-wrap items-center gap-3">
-                <SkillIcon src="/dbms/postgresql.svg" alt="PostgreSQL" />
+                <SkillIcon src="dbms/postgresql.svg" alt="PostgreSQL" />
                 <SkillIcon
-                  src="/dbms/sqlite.svg"
+                  src="dbms/sqlite.svg"
                   alt="SQLite"
                   tooltip="SQLite"
                 />
@@ -206,7 +203,7 @@ const Skill = forwardRef((props, ref) => {
               <SkillHeader text="DevOps" />
               <div className="flex flex-wrap items-center gap-3">
                 <SkillIcon
-                  src="/devops/docker.svg"
+                  src="devops/docker.svg"
                   width={72}
                   height={72}
                   alt="Docker"
@@ -225,10 +222,10 @@ const Skill = forwardRef((props, ref) => {
             >
               <SkillHeader text="Others" />
               <div className="flex flex-wrap items-center gap-3">
-                <SkillIcon src="/other/qt.svg" alt="Qt" />
-                <SkillIcon src="/other/bash.svg" alt="Bash" />
+                <SkillIcon src="other/qt.svg" alt="Qt" />
+                <SkillIcon src="other/bash.svg" alt="Bash" />
                 <SkillIcon
-                  src="/other/vercel.svg"
+                  src="other/vercel.svg"
                   width={144}
                   height={144}
                   alt="Vercel"

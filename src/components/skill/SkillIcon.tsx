@@ -33,7 +33,7 @@ const SkillIcon = ({
         }}
       >
         <Image
-          src={`/images/${src}`}
+          src={`https://assets.dulapahv.dev/images/${src}`}
           width={width}
           height={height}
           alt={alt}

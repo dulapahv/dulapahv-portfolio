@@ -11,9 +11,6 @@ module.exports = {
   darkMode: ['class', '[data-theme="dark"]'],
   theme: {
     extend: {
-      backgroundImage: {
-        bg_pattern: 'url(/images/bg_pattern.png)',
-      },
       colors: {
         WHITE: '#f7f7f7',
         BLACK: '#2b2b2b',
