@@ -14,7 +14,7 @@ const ThemeSwitch = () => {
   return (
     <>
       <button
-        className="btn absolute bottom-[172px] right-[50px] h-20 w-20 rotate-45 animate-none bg-YELLOW text-WHITE ring-YELLOW-300 hover:bg-YELLOW hover:ring-2 hover:ring-offset-[3px] hover:ring-offset-black/60 active:!rotate-45 active:scale-95 sm:bottom-[196px] sm:right-[64px] sm:h-[88px] sm:w-[88px]"
+        className="btn absolute bottom-[172px] right-[50px] size-20 rotate-45 animate-none bg-YELLOW text-WHITE ring-YELLOW-300 hover:bg-YELLOW hover:ring-2 hover:ring-offset-[3px] hover:ring-offset-black/60 active:!rotate-45 active:scale-95 sm:bottom-[196px] sm:right-[64px] sm:size-[88px]"
         onClick={() => {
           setTheme(
             theme === 'dark' || resolvedTheme === 'dark' ? 'light' : 'dark'
