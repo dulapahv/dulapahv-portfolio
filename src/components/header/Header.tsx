@@ -7,7 +7,6 @@ import {
   Skeleton,
   useDisclosure,
 } from '@nextui-org/react';
-import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { BsArrowDownCircleFill } from 'react-icons/bs';
 import { FiExternalLink } from 'react-icons/fi';
