@@ -22,7 +22,7 @@ const _offline = () => {
         No Internet Connection
       </h1>
       <p className="text-center text-lg">
-        Sorry, you are not connected to the internet. Please check your
+        Sorry, you are not connected to the internet. Please check your internet
         connection and try again.
       </p>
     </div>
