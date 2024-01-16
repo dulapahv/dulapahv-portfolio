@@ -63,12 +63,12 @@ const Header = ({ sectionRef }: HeaderProps) => {
             <h1 className="bg-BLUE p-3 pl-3 text-3xl font-bold uppercase tracking-[0.2em] text-WHITE [text-shadow:0_0_5px_#54f1ff] md:text-4xl lg:pl-6 lg:text-5xl">
               Dulapah Vibulsanti
             </h1>
-            <h2 className="flex w-fit flex-wrap items-center bg-BLACK/50 px-3 text-sm text-WHITE md:text-base dark:bg-WHITE/50">
+            <h2 className="flex w-fit flex-wrap items-center bg-BLACK/50 px-3 text-sm text-WHITE dark:bg-WHITE/50 md:text-base">
               NEXT.JS <TbMinusVertical /> TAILWIND CSS <TbMinusVertical />{' '}
               TYPESCRIPT <TbMinusVertical /> FIGMA <TbMinusVertical /> PYTHON{' '}
               <TbMinusVertical /> C/C++
             </h2>
-            <div className="flex w-fit flex-wrap items-center bg-BLACK/10 px-3 text-sm text-BLACK md:text-base dark:bg-WHITE">
+            <div className="flex w-fit flex-wrap items-center bg-BLACK/10 px-3 text-sm text-BLACK dark:bg-WHITE md:text-base">
               <button className="btn btn-ghost h-[24px] min-h-0 select-text border-0 p-0 text-base/3 font-normal capitalize hover:bg-transparent">
                 <a
                   href="https://www.linkedin.com/in/dulapahv/"
@@ -113,7 +113,7 @@ const Header = ({ sectionRef }: HeaderProps) => {
                 </>
               )}
             </div>
-            <h3 className="flex w-fit flex-wrap items-center bg-BLACK/10 px-3 text-sm text-BLACK md:text-base dark:bg-WHITE">
+            <h3 className="flex w-fit flex-wrap items-center bg-BLACK/10 px-3 text-sm text-BLACK dark:bg-WHITE md:text-base">
               <button className="btn btn-ghost h-[24px] min-h-0 select-text border-0 p-0 text-base/3 font-normal capitalize hover:bg-transparent">
                 <a
                   href="https://gla-my.sharepoint.com/:b:/g/personal/2920990v_student_gla_ac_uk/EYjeFQclguxLgkkEvybx7twBQhjldsjUp0q0l5m1Kt4Sbg?e=tM6J8c"

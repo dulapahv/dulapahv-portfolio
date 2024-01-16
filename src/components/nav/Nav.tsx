@@ -44,13 +44,13 @@ const Nav = ({ sectionRef }: NavProps) => {
         placement="left-end"
       >
         <button
-          className={`btn relative z-[2147483647] size-28 bg-BLUE hover:bg-BLUE active:!translate-x-1 active:!translate-y-1 sm:h-32 sm:w-32 ${
+          className={`btn relative z-[2147483647] size-28 bg-BLUE hover:bg-BLUE active:!translate-x-1 active:!translate-y-1 sm:size-32 ${
             isIconFilled ? 'text-YELLOW' : 'text-WHITE'
           } rounded-none drop-shadow-lg [clip-path:polygon(100%_0,_0_100%,_100%_100%)] hover:text-YELLOW`}
           onClick={() => {
             isNavOpen ? handleCloseNav() : handleOpenNav();
           }}
-          aria-label="Open Navigation"
+          aria-label="Toggle Navigation Menu"
         >
           {isIconFilled ? (
             <RiSparkling2Fill className="relative left-6 top-6 size-10 animate-scale-up-center" />
