@@ -14,9 +14,7 @@ import { FiExternalLink } from 'react-icons/fi';
 import { HiOutlineDocument } from 'react-icons/hi2';
 import { TbMinusVertical } from 'react-icons/tb';
 
-import { Floaties } from '.';
-
-const Captcha = dynamic(() => import('./Captcha'));
+import { Captcha, Floaties } from '.';
 
 interface HeaderProps {
   sectionRef: RefObject<HTMLDivElement>;
