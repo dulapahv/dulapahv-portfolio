@@ -1,6 +1,12 @@
 import { RefObject, useState } from 'react';
 
-import { useDisclosure } from '@nextui-org/react';
+import {
+  Modal,
+  ModalBody,
+  ModalContent,
+  Skeleton,
+  useDisclosure,
+} from '@nextui-org/react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { BsArrowDownCircleFill } from 'react-icons/bs';
@@ -10,18 +16,6 @@ import { TbMinusVertical } from 'react-icons/tb';
 
 import { Floaties } from '.';
 
-const Modal = dynamic(() =>
-  import('@nextui-org/react').then((mod) => mod.Modal)
-);
-const ModalBody = dynamic(() =>
-  import('@nextui-org/react').then((mod) => mod.ModalBody)
-);
-const ModalContent = dynamic(() =>
-  import('@nextui-org/react').then((mod) => mod.ModalContent)
-);
-const Skeleton = dynamic(() =>
-  import('@nextui-org/react').then((mod) => mod.Skeleton)
-);
 const Captcha = dynamic(() => import('./Captcha'));
 
 interface HeaderProps {
