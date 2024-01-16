@@ -103,7 +103,7 @@ const Education = forwardRef((props, ref) => {
                 }}
               >
                 <Image
-                  src={`/images/edu/${key}.png`}
+                  src={`https://assets.dulapahv.dev/images/edu/${key}.png`}
                   width={value.width}
                   height={value.height}
                   alt={value.title}

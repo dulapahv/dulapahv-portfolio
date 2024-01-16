@@ -1,5 +1,11 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# Images
+/public/images/*.png
+/public/images/*.jpg
+/public/images/*.svg
+
+# VSCode
 debug.log
 .vscode
 

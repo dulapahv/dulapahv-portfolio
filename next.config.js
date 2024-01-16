@@ -9,7 +9,7 @@ const nextConfig = withPWA({
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'placehold.co',
+        hostname: 'assets.dulapahv.dev',
         port: '',
         pathname: '/**',
       },

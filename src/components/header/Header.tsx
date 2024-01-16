@@ -178,7 +178,7 @@ const Header = ({ sectionRef }: HeaderProps) => {
                 }}
               >
                 <Image
-                  src="/images/profile_pic.jpg"
+                  src="https://assets.dulapahv.dev/images/profile_pic.jpg"
                   width={500}
                   height={500}
                   alt="profile_pic"
