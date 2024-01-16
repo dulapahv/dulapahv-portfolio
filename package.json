@@ -1,6 +1,6 @@
 {
   "name": "dulapahv-portfolio",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "homepage": "https://dulapahv.dev",
   "private": true,
   "scripts": {
@@ -15,10 +15,10 @@
     "@marsidev/react-turnstile": "^0.4.1",
     "@nextui-org/react": "^2.2.9",
     "@sentry/nextjs": "^7.93.0",
-    "@types/node": "^20.11.2",
+    "@types/node": "^20.11.4",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
-    "@vercel/speed-insights": "^1.0.3",
+    "@vercel/speed-insights": "^1.0.4",
     "autoprefixer": "^10.4.16",
     "daisyui": "^4.6.0",
     "eslint": "^8.56.0",

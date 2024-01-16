@@ -4492,12 +4492,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^20.11.2":
-  version: 20.11.2
-  resolution: "@types/node@npm:20.11.2"
+"@types/node@npm:^20.11.4":
+  version: 20.11.4
+  resolution: "@types/node@npm:20.11.4"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 11a935f6676f78e1ced4805f9653891d1fc78ecafd78c7352d289be8c1829c88ebfe45ffd6b4687bbfc73edd0e177746d8cefff651a9f13199ac2dd3ca1076b7
+  checksum: af6e1ad4d8f210d06d6db6c85b9aba25b022b493a4f2289e5ac693b418de746db812ab1537096e10e7cb7b78f1d835a06e61f31d93ebe36ef116bfbbf8f04c97
   languageName: node
   linkType: hard
 
@@ -4640,10 +4640,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/speed-insights@npm:^1.0.3":
-  version: 1.0.3
-  resolution: "@vercel/speed-insights@npm:1.0.3"
-  checksum: c37450716de4fcc57c42ed59232bb8050be2500003f5e30e4f4cebfedb3a06762586058e0c7de5801aea7d657638c43fed739b0646dc312aa93bda83a6415b14
+"@vercel/speed-insights@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "@vercel/speed-insights@npm:1.0.4"
+  checksum: ba313a98b9dfc5eb639c5353a25fae49e75a63b5e4c6a0b90df555d2a79394f2a87e2f72b8c9ba27f5c42d0d87ed90210ca2943fa2712313b8df0c165f0038f4
   languageName: node
   linkType: hard
 
@@ -5633,10 +5633,10 @@ __metadata:
     "@marsidev/react-turnstile": "npm:^0.4.1"
     "@nextui-org/react": "npm:^2.2.9"
     "@sentry/nextjs": "npm:^7.93.0"
-    "@types/node": "npm:^20.11.2"
+    "@types/node": "npm:^20.11.4"
     "@types/react": "npm:^18.2.48"
     "@types/react-dom": "npm:^18.2.18"
-    "@vercel/speed-insights": "npm:^1.0.3"
+    "@vercel/speed-insights": "npm:^1.0.4"
     autoprefixer: "npm:^10.4.16"
     daisyui: "npm:^4.6.0"
     eslint: "npm:^8.56.0"
