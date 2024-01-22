@@ -3,7 +3,7 @@ const Footer = () => {
     <footer className="relative">
       <p className="flex justify-start md:justify-center">
         With&nbsp;<span className="text-RED">❤</span>&nbsp;from&nbsp;
-        <button className="btn btn-ghost h-[24px] min-h-0 select-text border-0 p-0 text-base font-normal underline hover:bg-transparent">
+        <button className="btn btn-ghost h-6 min-h-0 select-text border-0 p-0 text-base font-normal underline hover:bg-transparent">
           <a
             href="https://github.com/dulapahv/"
             target="_blank"
@@ -19,7 +19,7 @@ const Footer = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Last updated: 20/01/2023 - 19.30 GMT
+          Last updated: 22/01/2023 - 21.00 GMT
         </a>
       </time>
     </footer>

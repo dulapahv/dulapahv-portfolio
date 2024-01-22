@@ -37,22 +37,20 @@ const NavMenu = forwardRef<NavMenuRef, NavMenuProps>(
     };
 
     useImperativeHandle(ref, () => ({
-      closeNavMenu: () => {
-        handleCloseNavMenu();
-      },
+      closeNavMenu: () => handleCloseNavMenu(),
     }));
 
     return (
-      <ul className="relative z-[2147483647]">
+      <ul className="relative z-[2147483647] [&>li>button>div]:flex [&>li>button>div]:w-fit [&>li>button>div]:-rotate-45 [&>li>button>div]:flex-col [&>li>button>div]:items-center">
         <li className="animate-fade-in" ref={navItemRef1}>
           <button
-            className="btn absolute bottom-[80px] right-[20px] size-20 rotate-45 animate-none bg-PURPLE text-WHITE ring-PURPLE-300 hover:bg-PURPLE hover:ring-2 hover:ring-offset-[3px] hover:ring-offset-black/60 active:!rotate-45 active:scale-95 sm:bottom-[96px] sm:right-[28px] sm:size-[88px]"
+            className="btn absolute bottom-20 right-5 size-20 rotate-45 animate-none bg-PURPLE text-WHITE ring-PURPLE-300 hover:bg-PURPLE hover:ring-2 hover:ring-offset-[3px] hover:ring-offset-black/60 active:!rotate-45 active:scale-95 sm:bottom-24 sm:right-7 sm:size-[88px]"
             onClick={() => {
               closeNav();
               sectionRef.education.current!.scrollIntoView();
             }}
           >
-            <div className="flex w-fit -rotate-45 flex-col items-center">
+            <div>
               <MdSchool className="my-1 size-8" />
               <p className="capitalize">Education</p>
             </div>
@@ -60,13 +58,13 @@ const NavMenu = forwardRef<NavMenuRef, NavMenuProps>(
         </li>
         <li className="animate-fade-in animation-delay-75" ref={navItemRef2}>
           <button
-            className="btn absolute bottom-[20px] right-[80px] size-20 rotate-45 animate-none bg-RED text-WHITE ring-RED-300 hover:bg-RED hover:ring-2 hover:ring-offset-[3px] hover:ring-offset-black/60 active:!rotate-45 active:scale-95 sm:bottom-[28px] sm:right-[96px] sm:size-[88px]"
+            className="btn absolute bottom-5 right-20 size-20 rotate-45 animate-none bg-RED text-WHITE ring-RED-300 hover:bg-RED hover:ring-2 hover:ring-offset-[3px] hover:ring-offset-black/60 active:!rotate-45 active:scale-95 sm:bottom-7 sm:right-24 sm:size-[88px]"
             onClick={() => {
               closeNav();
               sectionRef.experience.current!.scrollIntoView();
             }}
           >
-            <div className="flex w-fit -rotate-45 flex-col items-center">
+            <div>
               <MdWork className="size-8" />
               <p className="capitalize">Experience</p>
             </div>
@@ -77,13 +75,13 @@ const NavMenu = forwardRef<NavMenuRef, NavMenuProps>(
         </li>
         <li className="animate-fade-in animation-delay-150" ref={navItemRef4}>
           <button
-            className="btn absolute bottom-[112px] right-[110px] size-20 rotate-45 animate-none bg-BLUE text-WHITE ring-BLUE-300 hover:bg-BLUE hover:ring-2 hover:ring-offset-[3px] hover:ring-offset-black/60 active:!rotate-45 active:scale-95 sm:bottom-[128px] sm:right-[132px] sm:size-[88px]"
+            className="btn absolute bottom-28 right-[110px] size-20 rotate-45 animate-none bg-BLUE text-WHITE ring-BLUE-300 hover:bg-BLUE hover:ring-2 hover:ring-offset-[3px] hover:ring-offset-black/60 active:!rotate-45 active:scale-95 sm:bottom-32 sm:right-[132px] sm:size-[88px]"
             onClick={() => {
               closeNav();
               sectionRef.skill.current!.scrollIntoView();
             }}
           >
-            <div className="flex w-fit -rotate-45 flex-col items-center">
+            <div>
               <LiaAtomSolid className="my-1 size-8" />
               <p className="capitalize">Skill</p>
             </div>
@@ -97,7 +95,7 @@ const NavMenu = forwardRef<NavMenuRef, NavMenuProps>(
               sectionRef.project.current!.scrollIntoView();
             }}
           >
-            <div className="flex w-fit -rotate-45 flex-col items-center">
+            <div>
               <FaLightbulb className="my-1 size-8" />
               <p className="capitalize">Project</p>
             </div>

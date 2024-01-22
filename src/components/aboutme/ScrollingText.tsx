@@ -18,7 +18,7 @@ const NotoSansJPFont = noto_sans_jp.className;
 const ScrollingText = () => {
   return (
     <div className="flex animate-fade-in flex-col justify-center overflow-hidden">
-      <div className="mt-12 flex animate-puff-out-center flex-col justify-evenly text-base font-semibold !opacity-90 animation-delay-1000 *:text-center sm:text-lg md:text-xl lg:text-2xl dark:text-white">
+      <div className="mt-12 flex animate-puff-out-center flex-col justify-evenly text-base font-semibold !opacity-90 animation-delay-1000 *:text-center dark:text-white sm:text-lg md:text-xl lg:text-2xl">
         <p className="animate-slide-text-right-5">NextJS</p>
         <p className="animate-slide-text-left-2 text-lg font-bold text-BLUE animation-delay-1000 sm:text-xl md:text-2xl lg:text-3xl">
           Hi! I&apos;m dulapahv~💕

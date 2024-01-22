@@ -2,7 +2,7 @@ import { forwardRef, useImperativeHandle, useRef } from 'react';
 
 import { cubicBezier, motion } from 'framer-motion';
 
-import { aboutme } from '@/data';
+import { aboutme } from '@/constants';
 
 import { Floaties, ScrollingText } from '.';
 
@@ -10,9 +10,7 @@ const AboutMe = forwardRef((props, ref) => {
   const aboutmeRef = useRef<HTMLDivElement>(null);
 
   useImperativeHandle(ref, () => ({
-    scrollIntoView: () => {
-      aboutmeRef.current!.scrollIntoView();
-    },
+    scrollIntoView: () => aboutmeRef.current!.scrollIntoView(),
   }));
 
   return (

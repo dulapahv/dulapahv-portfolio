@@ -58,7 +58,7 @@ const ProjectCard = ({
     >
       <figure
         onClick={onOpen}
-        className='cursor-pointer after:pointer-events-none after:absolute after:left-0 after:top-[226px] after:h-6 after:w-fit after:rounded-tr-lg after:bg-BLACK/60 after:pl-2 after:pr-2 after:pt-[2px] after:text-sm after:text-WHITE after:content-["View_more_images"] hover:after:w-full hover:after:rounded-none'
+        className='cursor-pointer after:pointer-events-none after:absolute after:left-0 after:top-[226px] after:h-6 after:w-fit after:rounded-tr-lg after:bg-BLACK/60 after:pl-2 after:pr-2 after:pt-0.5 after:text-sm after:text-WHITE after:content-["View_more_images"] hover:after:w-full hover:after:rounded-none'
       >
         <Skeleton isLoaded={isCoverImgLoaded}>
           <Image
@@ -67,7 +67,7 @@ const ProjectCard = ({
             height={1063}
             alt={id + ' cover'}
             onLoad={() => setIsCoverImgLoaded(true)}
-            className="h-[250px] w-screen bg-clip-content object-cover hover:brightness-[.85] active:brightness-75"
+            className="h-[250px] w-screen bg-clip-content object-cover duration-200 hover:brightness-[.85] active:brightness-75"
           />
         </Skeleton>
       </figure>
@@ -143,7 +143,7 @@ const ProjectCard = ({
         <p className="text-justify text-BLACK dark:text-WHITE">{description}</p>
         <div className="card-actions justify-end">
           <a href={url} target="_blank" rel="noopener noreferrer">
-            <button className="btn select-text border-[1.5px] border-b-PURPLE border-l-RED border-r-BLUE border-t-YELLOW bg-transparent text-BLACK ring-BLUE ring-offset-2 hover:border-transparent hover:bg-BLUE hover:ring-[1.5px] dark:text-WHITE dark:ring-offset-neutral-700">
+            <button className="btn select-text border-1.5 border-b-PURPLE border-l-RED border-r-BLUE border-t-YELLOW bg-transparent text-BLACK ring-BLUE ring-offset-2 hover:border-transparent hover:bg-BLUE hover:ring-[1.5px] dark:text-WHITE dark:ring-offset-neutral-700">
               Github
               <FiExternalLink />
             </button>

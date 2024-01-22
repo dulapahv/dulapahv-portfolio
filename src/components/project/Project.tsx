@@ -2,7 +2,7 @@ import { forwardRef, useImperativeHandle, useRef } from 'react';
 
 import { cubicBezier, motion } from 'framer-motion';
 
-import { project } from '@/data';
+import { project } from '@/constants';
 
 import { ProjectCard } from '.';
 
@@ -12,9 +12,7 @@ const Project = forwardRef((props, ref) => {
   const projects = Object.entries(project);
 
   useImperativeHandle(ref, () => ({
-    scrollIntoView: () => {
-      projectRef.current!.scrollIntoView();
-    },
+    scrollIntoView: () => projectRef.current!.scrollIntoView(),
   }));
 
   return (

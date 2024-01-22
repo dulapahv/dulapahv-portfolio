@@ -8,9 +8,7 @@ const Skill = forwardRef((props, ref) => {
   const skillRef = useRef<HTMLDivElement>(null);
 
   useImperativeHandle(ref, () => ({
-    scrollIntoView: () => {
-      skillRef.current!.scrollIntoView();
-    },
+    scrollIntoView: skillRef.current!.scrollIntoView,
   }));
 
   return (

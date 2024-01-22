@@ -2,7 +2,7 @@ import { forwardRef, useImperativeHandle, useRef, useState } from 'react';
 
 import { cubicBezier, motion } from 'framer-motion';
 
-import { education } from '@/data';
+import { education } from '@/constants';
 import { Skeleton } from '@nextui-org/react';
 import Image from 'next/image';
 import { MdSchool } from 'react-icons/md';
@@ -25,9 +25,7 @@ const Education = forwardRef((props, ref) => {
   };
 
   useImperativeHandle(ref, () => ({
-    scrollIntoView: () => {
-      educationRef.current!.scrollIntoView();
-    },
+    scrollIntoView: () => educationRef.current!.scrollIntoView(),
   }));
 
   return (

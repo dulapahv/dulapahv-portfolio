@@ -44,19 +44,13 @@ const Nav = ({ sectionRef }: NavProps) => {
         placement="left-end"
       >
         <button
-          className={`btn relative z-[2147483647] size-28 bg-BLUE hover:bg-BLUE active:!translate-x-1 active:!translate-y-1 sm:size-32 ${
+          className={`btn relative z-[2147483647] size-28 rounded-none bg-BLUE drop-shadow-lg duration-200 [clip-path:polygon(100%_0,_0_100%,_100%_100%)] *:relative *:left-6 *:top-6 *:size-10 *:animate-scale-up-center hover:bg-BLUE hover:text-YELLOW active:!translate-x-1 active:!translate-y-1 sm:size-32 ${
             isIconFilled ? 'text-YELLOW' : 'text-WHITE'
-          } rounded-none drop-shadow-lg [clip-path:polygon(100%_0,_0_100%,_100%_100%)] hover:text-YELLOW`}
-          onClick={() => {
-            isNavOpen ? handleCloseNav() : handleOpenNav();
-          }}
+          }`}
+          onClick={() => (isNavOpen ? handleCloseNav() : handleOpenNav())}
           aria-label="Toggle Navigation Menu"
         >
-          {isIconFilled ? (
-            <RiSparkling2Fill className="relative left-6 top-6 size-10 animate-scale-up-center" />
-          ) : (
-            <RiSparkling2Line className="relative left-6 top-6 size-10 animate-scale-up-center" />
-          )}
+          {isIconFilled ? <RiSparkling2Fill /> : <RiSparkling2Line />}
         </button>
       </Tooltip>
       {isNavOpen && (

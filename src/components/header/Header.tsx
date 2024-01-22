@@ -68,8 +68,8 @@ const Header = ({ sectionRef }: HeaderProps) => {
               TYPESCRIPT <TbMinusVertical /> FIGMA <TbMinusVertical /> PYTHON{' '}
               <TbMinusVertical /> C/C++
             </h2>
-            <div className="flex w-fit flex-wrap items-center bg-BLACK/10 px-3 text-sm text-BLACK dark:bg-WHITE md:text-base">
-              <button className="btn btn-ghost h-[24px] min-h-0 select-text border-0 p-0 text-base/3 font-normal capitalize hover:bg-transparent">
+            <div className="flex w-fit flex-wrap items-center bg-BLACK/10 px-3 text-sm text-BLACK [&>button]:btn [&>button]:btn-ghost dark:bg-WHITE md:text-base [&>button>a>*]:mb-1 [&>button>a>*]:ml-1 [&>button>a>*]:inline [&>button>a>*]:text-BLACK/80 [&>button]:h-6 [&>button]:min-h-0 [&>button]:select-text [&>button]:border-0 [&>button]:p-0 [&>button]:text-base/3 [&>button]:font-normal [&>button]:capitalize [&>button]:hover:bg-transparent">
+              <button>
                 <a
                   href="https://www.linkedin.com/in/dulapahv/"
                   target="_blank"
@@ -77,11 +77,11 @@ const Header = ({ sectionRef }: HeaderProps) => {
                   className="-mb-1"
                 >
                   LinkedIn
-                  <FiExternalLink className="mb-1 ml-1 inline text-BLACK/80" />
+                  <FiExternalLink />
                 </a>
               </button>
               <span className="select-none">&emsp;</span>
-              <button className="btn btn-ghost h-[24px] min-h-0 select-text border-0 p-0 text-base/3 font-normal capitalize hover:bg-transparent">
+              <button>
                 <a
                   href="https://github.com/dulapahv/"
                   target="_blank"
@@ -89,7 +89,7 @@ const Header = ({ sectionRef }: HeaderProps) => {
                   className="-mb-1"
                 >
                   GitHub
-                  <FiExternalLink className="mb-1 ml-1 inline text-BLACK/80" />
+                  <FiExternalLink />
                 </a>
               </button>
               <span className="select-none">&emsp;</span>
@@ -101,7 +101,6 @@ const Header = ({ sectionRef }: HeaderProps) => {
                     <span className="loading loading-bars loading-sm align-middle" />
                   ) : (
                     <button
-                      className="btn btn-ghost h-[24px] min-h-0 p-0 text-base/3 font-normal capitalize underline hover:bg-transparent"
                       onClick={() => {
                         setIsRevealEmail(true);
                         onOpen();
@@ -114,7 +113,7 @@ const Header = ({ sectionRef }: HeaderProps) => {
               )}
             </div>
             <h3 className="flex w-fit flex-wrap items-center bg-BLACK/10 px-3 text-sm text-BLACK dark:bg-WHITE md:text-base">
-              <button className="btn btn-ghost h-[24px] min-h-0 select-text border-0 p-0 text-base/3 font-normal capitalize hover:bg-transparent">
+              <button>
                 <a
                   href="https://gla-my.sharepoint.com/:b:/g/personal/2920990v_student_gla_ac_uk/EYjeFQclguxLgkkEvybx7twBQhjldsjUp0q0l5m1Kt4Sbg?e=tM6J8c"
                   target="_blank"
@@ -195,9 +194,7 @@ const Header = ({ sectionRef }: HeaderProps) => {
         <div className="flex animate-bounce flex-col items-center">
           <BsArrowDownCircleFill
             className="btn btn-circle btn-sm z-[1] cursor-pointer text-RED drop-shadow-md"
-            onClick={() => {
-              sectionRef.current!.scrollIntoView();
-            }}
+            onClick={() => sectionRef.current!.scrollIntoView()}
           />
           <button
             className="btn btn-circle btn-sm pointer-events-none absolute z-0 animate-ping drop-shadow-md"

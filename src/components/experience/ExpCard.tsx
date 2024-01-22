@@ -125,7 +125,7 @@ const ExpCard = ({
               height={632}
               alt={id + ' cover'}
               onLoad={() => setIsCoverImgLoaded(true)}
-              className="h-full object-cover hover:brightness-[.85] active:brightness-75"
+              className="h-full object-cover duration-200 hover:brightness-[.85] active:brightness-75"
             />
           </Skeleton>
           {isReversed ? (

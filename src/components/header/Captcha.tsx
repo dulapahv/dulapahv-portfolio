@@ -30,7 +30,7 @@ const Captcha = ({ onCaptchaSuccess }: CaptchaProps) => {
         theme: resolvedTheme === 'dark' ? 'dark' : 'light',
       }}
       ref={captchaInstance}
-      className="absolute bottom-[10px]"
+      className="absolute bottom-2.5"
     />
   );
 };
