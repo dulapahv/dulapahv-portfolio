@@ -98,9 +98,10 @@ const Header = ({ sectionRef }: HeaderProps) => {
               ) : (
                 <>
                   {isFetchingEmail ? (
-                    <span className="loading loading-bars loading-sm align-middle" />
+                    <span className="loading loading-spinner loading-sm align-middle" />
                   ) : (
                     <button
+                      className="!underline"
                       onClick={() => {
                         setIsRevealEmail(true);
                         onOpen();
