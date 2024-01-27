@@ -44,7 +44,7 @@ const AboutMe = forwardRef((props, ref) => {
               <section className="flex flex-col gap-2" key={index}>
                 <div className="flex h-[2px] w-10 flex-col bg-BLUE" />
                 <motion.p
-                  className="text-justify text-xs text-WHITE min-[425px]:text-sm sm:text-base md:text-lg lg:text-xl"
+                  className="text-pretty text-justify text-xs text-WHITE min-[425px]:text-sm sm:text-base md:text-lg lg:text-xl"
                   initial={{ clipPath: 'polygon(0 0, 0 0, 0 100%, 0% 100%)' }}
                   whileInView={{
                     clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',

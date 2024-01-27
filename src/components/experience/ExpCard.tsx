@@ -88,7 +88,7 @@ const ExpCard = ({
             {detail?.map((item, index) => (
               <li
                 key={index}
-                className="text-justify text-BLACK dark:text-WHITE"
+                className="text-pretty text-justify text-BLACK dark:text-WHITE"
               >
                 {item}
               </li>

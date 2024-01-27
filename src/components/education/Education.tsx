@@ -147,7 +147,7 @@ const Education = forwardRef((props, ref) => {
                 {value.achievement.map((item, index) => (
                   <motion.li
                     key={index}
-                    className="text-justify text-BLACK dark:text-WHITE"
+                    className="text-pretty text-justify text-BLACK dark:text-WHITE"
                     initial={{ transform: 'translateY(100px)', opacity: 0 }}
                     whileInView={{
                       transform: 'translateY(0)',

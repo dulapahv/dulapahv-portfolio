@@ -140,7 +140,9 @@ const ProjectCard = ({
             ))}
           </div>
         )}
-        <p className="text-justify text-BLACK dark:text-WHITE">{description}</p>
+        <p className="text-pretty text-justify text-BLACK dark:text-WHITE">
+          {description}
+        </p>
         <div className="card-actions justify-end">
           <a href={url} target="_blank" rel="noopener noreferrer">
             <button className="btn select-text border-1.5 border-b-PURPLE border-l-RED border-r-BLUE border-t-YELLOW bg-transparent text-BLACK ring-BLUE ring-offset-2 hover:border-transparent hover:bg-BLUE hover:ring-[1.5px] dark:text-WHITE dark:ring-offset-neutral-700">
