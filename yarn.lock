@@ -1742,13 +1742,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@marsidev/react-turnstile@npm:^0.4.1":
-  version: 0.4.1
-  resolution: "@marsidev/react-turnstile@npm:0.4.1"
+"@marsidev/react-turnstile@npm:^0.5.1":
+  version: 0.5.1
+  resolution: "@marsidev/react-turnstile@npm:0.5.1"
   peerDependencies:
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: 29f0aac7d5f34490f77f8c7baaae38a20034c6de88322c43b851de198ebb832d0710855f38eb94babc084129decc7c7e352d39cb84672a46eacd0c27682c4631
+  checksum: 3294ec7c0e6644ed051852dbecb32b46acfbbba4e0d5312abe3efd997f357470d4002b13ffaef937112c2355958b4263af93e4a49c85dd71f8cbe4a78664d3e8
   languageName: node
   linkType: hard
 
@@ -5656,7 +5656,7 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:^11.11.3"
     "@emotion/styled": "npm:^11.11.0"
-    "@marsidev/react-turnstile": "npm:^0.4.1"
+    "@marsidev/react-turnstile": "npm:^0.5.1"
     "@nextui-org/react": "npm:^2.2.9"
     "@sentry/nextjs": "npm:^7.94.1"
     "@types/node": "npm:^20.11.5"
