@@ -1,8 +1,17 @@
 {
+  "natwest": {
+    "title": "NatWest Group",
+    "location": "Edinburgh, United Kingdom",
+    "date": "Jun 2024 - Aug 2024",
+    "position": "Software Engineer Intern",
+    "tech": "",
+    "detail": ["Upcoming internship, stay tuned!"],
+    "text": ["Campus overview", "Front of campus"]
+  },
   "kees": {
     "title": "King Mongkut's Institute of Technology Ladkrabang (KMITL)",
     "location": "Bangkok, Thailand",
-    "date": "Feb 2023 - Present",
+    "date": "Feb 2023 - Feb 2024",
     "position": "Front End Developer",
     "tech": "Next.js, Tailwind CSS, TypeScript, DaisyUI, Material UI, Figma",
     "detail": [

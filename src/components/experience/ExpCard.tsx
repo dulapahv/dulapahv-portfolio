@@ -74,13 +74,14 @@ const ExpCard = ({
           </h1>
           <h2 className="flex flex-wrap items-center font-light text-YELLOW-800 dark:text-YELLOW">
             {location}{' '}
-            <TbMinusVertical className="text-BLACK dark:text-WHITE" /> {date}
+            {date && <TbMinusVertical className="text-BLACK dark:text-WHITE" />}{' '}
+            {date}
           </h2>
           <h3 className="flex flex-wrap items-center text-BLACK dark:text-WHITE">
             <span className="bg-gradient-to-r from-BLUE from-10% via-PURPLE via-30% to-RED bg-clip-text font-semibold italic text-transparent">
               {position}
             </span>
-            <TbMinusVertical />
+            {tech && <TbMinusVertical />}
             <span className="text-BLACK dark:text-WHITE">{tech} </span>
           </h3>
           <div className="mb-7 mt-4 flex h-[2px] w-14 flex-col bg-gradient-to-r from-RED to-RED-400" />

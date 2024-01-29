@@ -96,14 +96,14 @@ const Skill = forwardRef((props, ref) => {
                 />
                 <SkillIcon src="web_front/reactjs.svg" alt="React.js" />
                 <SkillIcon src="web_front/tailwindcss.svg" alt="Tailwind CSS" />
-                <SkillIcon src="web_front/mui.svg" alt="Material UI" />
-                <SkillIcon src="web_front/daisyui.svg" alt="DaisyUI" />
                 <SkillIcon
                   src="web_front/nextui.svg"
                   width={112}
                   height={112}
                   alt="NextUI"
                 />
+                <SkillIcon src="web_front/daisyui.svg" alt="DaisyUI" />
+                <SkillIcon src="web_front/mui.svg" alt="MUI" />
                 <SkillIcon src="web_front/figma.svg" alt="Figma" />
               </div>
             </motion.div>
@@ -157,13 +157,13 @@ const Skill = forwardRef((props, ref) => {
             >
               <SkillHeader text="Testing" />
               <div className="flex flex-wrap items-center gap-3">
-                <SkillIcon src="testing/insomnia.svg" alt="Insomnia" />
                 <SkillIcon
                   src="testing/postman.svg"
                   width={172}
                   height={172}
                   alt="Postman"
                 />
+                <SkillIcon src="testing/insomnia.svg" alt="Insomnia" />
               </div>
             </motion.div>
           </div>
@@ -220,6 +220,7 @@ const Skill = forwardRef((props, ref) => {
             >
               <SkillHeader text="Others" />
               <div className="flex flex-wrap items-center gap-3">
+                <SkillIcon src="other/electron.svg" alt="Electron.js" />
                 <SkillIcon src="other/qt.svg" alt="Qt" />
                 <SkillIcon src="other/bash.svg" alt="Bash" />
                 <SkillIcon
