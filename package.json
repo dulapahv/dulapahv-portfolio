@@ -15,7 +15,7 @@
     "@marsidev/react-turnstile": "^0.5.1",
     "@nextui-org/react": "^2.2.9",
     "@sentry/nextjs": "^7.101.0",
-    "@types/node": "^20.11.17",
+    "@types/node": "^20.11.19",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
     "@vercel/speed-insights": "^1.0.10",
