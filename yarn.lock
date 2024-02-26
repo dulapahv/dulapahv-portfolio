@@ -4562,14 +4562,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^18.2.55":
-  version: 18.2.55
-  resolution: "@types/react@npm:18.2.55"
+"@types/react@npm:^18.2.59":
+  version: 18.2.59
+  resolution: "@types/react@npm:18.2.59"
   dependencies:
     "@types/prop-types": "npm:*"
     "@types/scheduler": "npm:*"
     csstype: "npm:^3.0.2"
-  checksum: 10c0/6b1c73beafbbc582dc54ffd92b3779f6d850e8f6b5ce5d04b31e9498a3d77bfc416bb08f0d8d63ab4f4649ccd6639996472416871c01c74a528b16a55faeaf38
+  checksum: 10c0/adbac5d78d755ce0f05fc91917b49344e127aaadf0515fa28dd19e3050514eeae6988ab04610fe403a6d7eb58b8dee7816c019d960373dfa22b008f842d7eaf8
   languageName: node
   linkType: hard
 
@@ -5681,7 +5681,7 @@ __metadata:
     "@nextui-org/react": "npm:^2.2.9"
     "@sentry/nextjs": "npm:^7.101.0"
     "@types/node": "npm:^20.11.17"
-    "@types/react": "npm:^18.2.55"
+    "@types/react": "npm:^18.2.59"
     "@types/react-dom": "npm:^18.2.19"
     "@vercel/speed-insights": "npm:^1.0.10"
     autoprefixer: "npm:^10.4.17"
