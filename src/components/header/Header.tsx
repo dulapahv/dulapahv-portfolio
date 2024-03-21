@@ -5,6 +5,7 @@ import {
   ModalBody,
   ModalContent,
   Skeleton,
+  Spinner,
   useDisclosure,
 } from '@nextui-org/react';
 import Image from 'next/image';
@@ -98,7 +99,7 @@ const Header = ({ sectionRef }: HeaderProps) => {
               ) : (
                 <>
                   {isFetchingEmail ? (
-                    <span className="loading loading-spinner loading-sm align-middle" />
+                    <Spinner color="default" size="sm" />
                   ) : (
                     <button
                       className="!underline"
@@ -145,8 +146,14 @@ const Header = ({ sectionRef }: HeaderProps) => {
                     <h1 className="text-center text-BLACK dark:text-WHITE">
                       Beep boop. Boop beep?
                     </h1>
-                    <div className="relative flex gap-x-2 py-5">
-                      <span className="loading loading-spinner loading-md" />
+                    <div className="relative flex items-center gap-x-4 py-5">
+                      <Spinner
+                        size="sm"
+                        classNames={{
+                          circle1: 'border-b-textBlack',
+                          circle2: 'border-b-textBlack',
+                        }}
+                      />
                       <p>Loading Captcha...</p>
                     </div>
                     <Captcha onCaptchaSuccess={handleCaptchaSuccess} />
