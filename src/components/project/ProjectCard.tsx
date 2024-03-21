@@ -3,6 +3,9 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 import {
+  Button,
+  Chip,
+  Link,
   Modal,
   ModalBody,
   ModalContent,
@@ -126,17 +129,23 @@ const ProjectCard = ({
         <div className="card-title relative !mb-0">
           <div className="absolute -top-1 h-[2px] w-8 bg-BLUE" />
           <h1 className="text-BLACK dark:text-WHITE">{title}</h1>
-          {isNew && <div className="badge bg-RED text-WHITE/90">NEW</div>}
+          {isNew && (
+            <Chip size="sm" className="bg-RED text-WHITE/90">
+              NEW
+            </Chip>
+          )}
         </div>
         {badge && (
           <div className="card-actions">
             {badge.map((item, index) => (
-              <div
+              <Chip
                 key={index}
-                className="badge badge-outline border-BLACK text-BLACK dark:border-WHITE dark:text-WHITE"
+                variant="bordered"
+                size="sm"
+                className="border-BLACK text-BLACK dark:border-WHITE/80 dark:text-WHITE"
               >
                 {item}
-              </div>
+              </Chip>
             ))}
           </div>
         )}
@@ -144,15 +153,138 @@ const ProjectCard = ({
           {description}
         </p>
         <div className="card-actions justify-end">
-          <a href={url} target="_blank" rel="noopener noreferrer">
-            <button className="btn select-text border-1.5 border-b-PURPLE border-l-RED border-r-BLUE border-t-YELLOW bg-transparent text-BLACK ring-BLUE ring-offset-2 hover:border-transparent hover:bg-BLUE hover:ring-[1.5px] dark:text-WHITE dark:ring-offset-neutral-700">
-              Github
-              <FiExternalLink />
-            </button>
-          </a>
+          <Button
+            href={url}
+            as={Link}
+            isExternal
+            className="mt-2 border-1.5 border-b-PURPLE border-l-RED border-r-BLUE border-t-YELLOW text-BLACK ring-BLUE ring-offset-2 hover:border-transparent hover:bg-BLUE hover:!text-white hover:ring-[1.5px] dark:text-WHITE dark:ring-offset-neutral-700"
+            radius="sm"
+            endContent={<FiExternalLink />}
+          >
+            Learn More
+          </Button>
         </div>
       </section>
     </motion.div>
+    // <>
+    //   <Modal
+    //     isOpen={isOpen}
+    //     onOpenChange={onOpenChange}
+    //     scrollBehavior="inside"
+    //     size="3xl"
+    //     classNames={{
+    //       wrapper: 'z-[2147483647] overflow-hidden',
+    //       body: 'p-4 pt-1',
+    //       backdrop: 'z-[2147483647]',
+    //       closeButton:
+    //         'btn btn-circle btn-ghost btn-sm z-[2147483647] p-0 text-lg text-RED hover:bg-RED hover:text-WHITE active:bg-RED/80 md:fixed md:text-2xl',
+    //     }}
+    //   >
+    //     <ModalContent>
+    //       <ModalBody>
+    //         <ScrollShadow size={20}>
+    //           <ul className="flex flex-col items-center">
+    //             {text?.map((item, index) => (
+    //               <li key={index}>
+    //                 <h1 className="m-2 text-BLACK dark:text-WHITE">
+    //                   {index + 1}. {item}
+    //                 </h1>
+    //                 <Skeleton
+    //                   isLoaded={isImgLoaded[index]}
+    //                   classNames={{
+    //                     base: 'rounded-lg',
+    //                   }}
+    //                 >
+    //                   <Image
+    //                     src={`https://assets.dulapahv.dev/images/proj/${id}/${index + 1}.png`}
+    //                     width={750}
+    //                     height={500}
+    //                     alt={id + ' ' + index + 1}
+    //                     onLoad={() => handleImgLoad(index)}
+    //                   />
+    //                 </Skeleton>
+    //               </li>
+    //             ))}
+    //           </ul>
+    //         </ScrollShadow>
+    //       </ModalBody>
+    //     </ModalContent>
+    //   </Modal>
+    //   <motion.div
+    //     initial={{ transform: 'translateY(50px)', opacity: 0 }}
+    //     whileInView={{
+    //       transform: 'translateY(0)',
+    //       opacity: 1,
+    //     }}
+    //     transition={{ ease: 'easeOut', duration: 0.7 }}
+    //     viewport={{ once: true }}
+    //   >
+    //     <Card
+    //       isFooterBlurred
+    //       className="group w-[300px] min-[375px]:w-80 min-[375px]:w-96 sm:w-[30rem] shadow-lg shadow-BLUE/30 dark:bg-neutral-700 dark:shadow-BLUE/20"
+    //     >
+    //       <CardHeader className="absolute z-10 flex-col items-start">
+    //         {isNew && (
+    //           <Chip size="sm" className="bg-RED text-WHITE/90">
+    //             NEW
+    //           </Chip>
+    //         )}
+    //       </CardHeader>
+    //       <Skeleton isLoaded={isCoverImgLoaded} className="h-full w-full">
+    //         <Image
+    //           width={1920}
+    //           height={1080}
+    //           alt={id + ' cover'}
+    //           onLoad={() => setIsCoverImgLoaded(true)}
+    //           className="h-[325px] w-screen bg-clip-content object-cover"
+    //           src={`https://assets.dulapahv.dev/images/proj/${id}/1.png`}
+    //         />
+    //       </Skeleton>
+    //       <CardFooter className="absolute bottom-0 z-10 flex flex-col items-start gap-y-2 border-t-1 border-zinc-100/50 bg-white/30 backdrop-blur-sm">
+    //         <h4 className="font-medium text-black">{title}</h4>
+    //         <div>
+    //           {badge &&
+    //             badge.map((item, index) => (
+    //               <Chip
+    //                 key={index}
+    //                 variant="flat"
+    //                 size="sm"
+    //                 className="m-0.5 border-BLACK text-BLACK dark:border-WHITE/80 dark:text-WHITE"
+    //               >
+    //                 {item}
+    //               </Chip>
+    //             ))}
+    //         </div>
+    //         <div className="hidden group-hover:block">
+    //           <p className="text-pretty text-justify text-sm text-black">
+    //             {description}
+    //           </p>
+    //           <div className="mt-2 flex gap-x-2">
+    //             <Button
+    //               onClick={onOpen}
+    //               className="border-1.5 border-b-PURPLE border-l-RED border-r-BLUE border-t-YELLOW text-BLACK ring-BLUE ring-offset-2 hover:border-transparent hover:bg-BLUE hover:!text-white hover:ring-[1.5px] dark:text-WHITE dark:ring-offset-neutral-700"
+    //               radius="sm"
+    //               size="sm"
+    //             >
+    //               View More Images
+    //             </Button>
+    //             <Button
+    //               href={url}
+    //               as={Link}
+    //               isExternal
+    //               className="border-1.5 border-b-PURPLE border-l-RED border-r-BLUE border-t-YELLOW text-BLACK ring-BLUE ring-offset-2 hover:border-transparent hover:bg-BLUE hover:!text-white hover:ring-[1.5px] dark:text-WHITE dark:ring-offset-neutral-700"
+    //               radius="sm"
+    //               size="sm"
+    //               endContent={<FiExternalLink />}
+    //             >
+    //               Learn More
+    //             </Button>
+    //           </div>
+    //         </div>
+    //       </CardFooter>
+    //     </Card>
+    //   </motion.div>
+    // </>
   );
 };
 

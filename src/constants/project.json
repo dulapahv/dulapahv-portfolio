@@ -1,4 +1,37 @@
 {
+  "MFPA": {
+    "title": "Map File Preparation Application (MFPA)",
+    "description": "Explore and analyze your map data like never before. Import layers, draw boundaries by hand or coordinates, and instantly discover which layers lie within. Uncover hidden insights and relationships with ease!",
+    "text": [
+      "Cover image",
+      "Manage layers page - User can import or delete folders",
+      "Import layer modal - User can drag and drop or select folder from computer",
+      "Import preview - User can see a file tree, total files to be imported, and total size",
+      "Define area page - User can draw polygon by hand or coordinates, in this case, drawing by hand. User can also hover over the polygon to see coordinates and area",
+      "Results page - User can see intersecting files, select which files to get, and get the files. User can also save the area for later",
+      "Get area modal - User can choose to copy, move, or create a .txt file with the file path",
+      "Define area page - User can draw polygon from coordinates with Decimal Degree (DD), Degrees, Minutes, and Seconds (DMS), and Degrees and Decimal Minutes (DMM) formats",
+      "Define area page - Draw polygon from DD coordinates",
+      "Search bar - User can search for cities, towns, villages, hamlets in UK, and also countries",
+      "Search bar - User can search and pin multiple coordinates (DD, DMS, DMM)",
+      "Sort options - User can sort saved area by date and name",
+      "Search area - User can search for saved area by name",
+      "Rename area - User can rename saved area",
+      "Delete area - User can delete saved area",
+      "About - User can see app information, documentations, and team members"
+    ],
+    "url": "https://assets.dulapahv.dev/MFPA_ppt.pdf",
+    "badge": [
+      "Next.js",
+      "Electron.js",
+      "SQLite",
+      "TypeScript",
+      "Tailwind CSS",
+      "NextUI",
+      "DaisyUI",
+      "Python"
+    ]
+  },
   "portfolio": {
     "title": "Portfolio Website",
     "description": "A revamped portfolio website from previous React.js, JavaScript, and pure CSS to Next.js, TypeScript, Tailwind CSS, DaisyUI, and NextUI. This website is a personal project to showcase my skills and experience, as well as to share my knowledge and experience with others.",
