@@ -5541,15 +5541,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"daisyui@npm:^4.7.3":
-  version: 4.7.3
-  resolution: "daisyui@npm:4.7.3"
+"daisyui@npm:^4.8.0":
+  version: 4.8.0
+  resolution: "daisyui@npm:4.8.0"
   dependencies:
     css-selector-tokenizer: "npm:^0.8"
     culori: "npm:^3"
     picocolors: "npm:^1"
     postcss-js: "npm:^4"
-  checksum: 10c0/86d80859f2beed87a9954622e6256fd4105e0b03a3033f9d174d14bbee496561ae661677fc24d3a963aba8f1293f74eb198b5831155f016737b0803f0fbfd209
+  checksum: 10c0/aa3f6ef349af87c724f267f799db278f16d08ca6514206d5a10ef45f8ed5c0d94e50e96e9f315264a842dfa72fed7b38a675935a245d90b57c6f973fd60ee968
   languageName: node
   linkType: hard
 
@@ -5701,7 +5701,7 @@ __metadata:
     "@types/react-dom": "npm:^18.2.22"
     "@vercel/speed-insights": "npm:^1.0.10"
     autoprefixer: "npm:^10.4.19"
-    daisyui: "npm:^4.7.3"
+    daisyui: "npm:^4.8.0"
     eslint: "npm:^8.57.0"
     eslint-config-next: "npm:^14.1.4"
     framer-motion: "npm:^11.0.18"
