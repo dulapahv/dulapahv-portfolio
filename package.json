@@ -23,7 +23,7 @@
     "daisyui": "^4.7.3",
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.1.4",
-    "framer-motion": "^11.0.18",
+    "framer-motion": "^11.0.20",
     "next": "^14.1.4",
     "next-pwa": "^5.6.0",
     "next-themes": "^0.3.0",
