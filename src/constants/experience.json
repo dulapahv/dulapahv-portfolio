@@ -14,15 +14,15 @@
     "text": [
       "Homepage",
       "Program page",
+      "All programs page",
       "User profile page",
       "Security page",
-      "Enrollment page",
-      "Timetable page",
       "Certificate page",
       "Transcript page",
+      "Payments page",
       "Admin console dashboard",
       "Programs management page",
-      "Edit news page",
+      "Add news dialog",
       "Email verification page (with Cloudflare Turnstile CAPTCHA)"
     ]
   },

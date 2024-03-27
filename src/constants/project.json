@@ -1,7 +1,7 @@
 {
   "MFPA": {
     "title": "Map File Preparation Application (MFPA)",
-    "description": "Explore and analyze your map data like never before. Import layers, draw boundaries by hand or coordinates, and instantly discover which layers lie within. Uncover hidden insights and relationships with ease!",
+    "description": "A web application to identify files with geographic content that intersect or are contained within an area defined by the user, developed for defense systems company Thales UK.",
     "text": [
       "Cover image",
       "Manage layers page - User can import or delete folders",
@@ -22,8 +22,8 @@
     ],
     "url": "https://assets.dulapahv.dev/MFPA_ppt.pdf",
     "badge": [
-      "Next.js",
       "Electron.js",
+      "Next.js",
       "SQLite",
       "TypeScript",
       "Tailwind CSS",
