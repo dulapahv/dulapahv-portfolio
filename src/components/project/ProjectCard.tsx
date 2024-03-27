@@ -142,7 +142,7 @@ const ProjectCard = ({
                 key={index}
                 variant="bordered"
                 size="sm"
-                className="border-BLACK text-BLACK dark:border-WHITE/80 dark:text-WHITE"
+                className="border-neutral-400 text-BLACK dark:text-WHITE"
               >
                 {item}
               </Chip>
@@ -157,7 +157,7 @@ const ProjectCard = ({
             href={url}
             as={Link}
             isExternal
-            className="mt-2 border-1.5 border-b-PURPLE border-l-RED border-r-BLUE border-t-YELLOW text-BLACK ring-BLUE ring-offset-2 hover:border-transparent hover:bg-BLUE hover:!text-white hover:ring-[1.5px] dark:text-WHITE dark:ring-offset-neutral-700"
+            className="mt-2 border-1.5 border-b-PURPLE border-l-RED border-r-BLUE border-t-YELLOW bg-transparent text-BLACK ring-BLUE ring-offset-2 hover:border-transparent hover:bg-BLUE hover:!text-white hover:ring-[1.5px] dark:text-WHITE dark:ring-offset-neutral-700"
             radius="sm"
             endContent={<FiExternalLink />}
           >

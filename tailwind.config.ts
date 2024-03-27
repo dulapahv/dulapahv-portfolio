@@ -88,6 +88,8 @@ module.exports = {
           'shake-vertical 25s cubic-bezier(0.455, 0.030, 0.515, 0.955) both infinite',
         'scale-up-center':
           'scale-up-center 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both',
+        'scale-up-center-fast':
+          'scale-up-center 0.2s cubic-bezier(0.230, 1.000, 0.320, 1.000) both',
         'zoom-in-center':
           'zoom-in-center 0.7s cubic-bezier(0.190, 1.000, 0.220, 1.000) both',
         'zoom-out-center':

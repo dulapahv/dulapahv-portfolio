@@ -23,9 +23,9 @@ const ThemeSwitch = () => {
       >
         <div>
           {mounted && (theme === 'dark' || resolvedTheme === 'dark') ? (
-            <MdDarkMode className="my-1 h-auto w-8" />
+            <MdDarkMode className="my-1 h-auto w-8 animate-scale-up-center-fast" />
           ) : (
-            <MdLightMode className="my-1 h-auto w-8" />
+            <MdLightMode className="my-1 h-auto w-8 animate-scale-up-center-fast" />
           )}
           <p className="capitalize">Theme</p>
         </div>
