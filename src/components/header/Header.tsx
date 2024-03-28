@@ -1,6 +1,7 @@
 import { RefObject, useState } from 'react';
 
 import {
+  Link,
   Modal,
   ModalBody,
   ModalContent,
@@ -10,8 +11,7 @@ import {
 } from '@nextui-org/react';
 import Image from 'next/image';
 import { BsArrowDownCircleFill } from 'react-icons/bs';
-import { FiExternalLink } from 'react-icons/fi';
-import { HiOutlineDocument } from 'react-icons/hi2';
+import { PiCursorClick } from 'react-icons/pi';
 import { TbMinusVertical } from 'react-icons/tb';
 
 import { Captcha, Floaties } from '.';
@@ -69,63 +69,58 @@ const Header = ({ sectionRef }: HeaderProps) => {
               TYPESCRIPT <TbMinusVertical /> FIGMA <TbMinusVertical /> PYTHON{' '}
               <TbMinusVertical /> C/C++
             </h2>
-            <div className="flex w-fit flex-wrap items-center bg-BLACK/10 px-3 text-sm text-BLACK [&>button]:btn [&>button]:btn-ghost dark:bg-WHITE md:text-base [&>button>a>*]:mb-1 [&>button>a>*]:ml-1 [&>button>a>*]:inline [&>button>a>*]:text-BLACK/80 [&>button]:h-6 [&>button]:min-h-0 [&>button]:select-text [&>button]:border-0 [&>button]:p-0 [&>button]:text-base/3 [&>button]:font-normal [&>button]:capitalize [&>button]:hover:bg-transparent">
-              <button>
-                <a
-                  href="https://www.linkedin.com/in/dulapahv/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="-mb-1"
-                >
-                  LinkedIn
-                  <FiExternalLink />
-                </a>
-              </button>
-              <span className="select-none">&emsp;</span>
-              <button>
-                <a
-                  href="https://github.com/dulapahv/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="-mb-1"
-                >
-                  GitHub
-                  <FiExternalLink />
-                </a>
-              </button>
-              <span className="select-none">&emsp;</span>
+            <div className="flex w-fit flex-wrap items-center gap-x-2 bg-BLACK/10 px-3 *:text-sm *:text-BLACK dark:bg-WHITE md:gap-x-4 *:md:text-base">
+              <Link
+                href="https://www.linkedin.com/in/dulapahv/"
+                isExternal
+                showAnchorIcon
+                underline="hover"
+              >
+                LinkedIn
+              </Link>
+              <Link
+                href="https://github.com/dulapahv/"
+                isExternal
+                showAnchorIcon
+                underline="hover"
+              >
+                GitHub
+              </Link>
               {email ? (
-                <p className="select-all text-BLACK">{email}</p>
+                <p className="select-all">{email}</p>
               ) : (
                 <>
                   {isFetchingEmail ? (
                     <Spinner color="default" size="sm" />
                   ) : (
-                    <button
-                      className="!underline"
+                    <Link
                       onClick={() => {
                         setIsRevealEmail(true);
                         onOpen();
                       }}
+                      showAnchorIcon
+                      anchorIcon={
+                        <PiCursorClick className="ml-1 text-sm md:text-base" />
+                      }
+                      underline="hover"
+                      className="cursor-pointer"
                     >
                       Reveal Email
-                    </button>
+                    </Link>
                   )}
                 </>
               )}
             </div>
-            <h3 className="flex w-fit flex-wrap items-center bg-BLACK/10 px-3 text-sm text-BLACK dark:bg-WHITE md:text-base">
-              <button>
-                <a
-                  href="https://gla-my.sharepoint.com/:b:/g/personal/2920990v_student_gla_ac_uk/EYjeFQclguxLgkkEvybx7twBQhjldsjUp0q0l5m1Kt4Sbg?e=tM6J8c"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="-mb-1"
-                >
-                  View Resume
-                  <HiOutlineDocument className="mb-1 ml-1 inline stroke-2 text-BLACK" />
-                </a>
-              </button>
+            <h3 className="flex w-fit flex-wrap items-center gap-x-2 bg-BLACK/10 px-3 *:text-sm *:text-BLACK dark:bg-WHITE md:gap-x-4 *:md:text-base">
+              <Link
+                href="https://gla-my.sharepoint.com/:b:/g/personal/2920990v_student_gla_ac_uk/EYjeFQclguxLgkkEvybx7twBQhjldsjUp0q0l5m1Kt4Sbg?e=tM6J8c"
+                isExternal
+                showAnchorIcon
+                underline="hover"
+                className="text-BLACK"
+              >
+                View Resume
+              </Link>
             </h3>
           </section>
           <Modal
