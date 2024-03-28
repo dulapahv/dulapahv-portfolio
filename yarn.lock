@@ -4530,12 +4530,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^18.2.22":
-  version: 18.2.22
-  resolution: "@types/react-dom@npm:18.2.22"
+"@types/react-dom@npm:^18.2.23":
+  version: 18.2.23
+  resolution: "@types/react-dom@npm:18.2.23"
   dependencies:
     "@types/react": "npm:*"
-  checksum: 10c0/cd85b5f402126e44b8c7b573e74737389816abcc931b2b14d8f946ba81cce8637ea490419488fcae842efb1e2f69853bc30522e43fd8359e1007d4d14b8d8146
+  checksum: 10c0/9348e93558aa67b4b237bd0eab62e72e85f3e17a1c45fde04d874476269730f7c671b3d62390c4fca588da2a026e90cc74148abc349dbfd4ee5535a82ccdf38e
   languageName: node
   linkType: hard
 
@@ -5697,13 +5697,13 @@ __metadata:
     "@sentry/nextjs": "npm:^7.108.0"
     "@types/node": "npm:^20.11.30"
     "@types/react": "npm:^18.2.73"
-    "@types/react-dom": "npm:^18.2.22"
+    "@types/react-dom": "npm:^18.2.23"
     "@vercel/speed-insights": "npm:^1.0.10"
     autoprefixer: "npm:^10.4.19"
     daisyui: "npm:^4.9.0"
     eslint: "npm:^8.57.0"
     eslint-config-next: "npm:^14.1.4"
-    framer-motion: "npm:^11.0.22"
+    framer-motion: "npm:^11.0.23"
     next: "npm:^14.1.4"
     next-pwa: "npm:^5.6.0"
     next-themes: "npm:^0.3.0"
@@ -5714,7 +5714,7 @@ __metadata:
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
     react-icons: "npm:^5.0.1"
-    tailwindcss: "npm:^3.4.2"
+    tailwindcss: "npm:^3.4.3"
     tailwindcss-animation-delay: "npm:^1.2.0"
     typescript: "npm:^5.4.3"
   languageName: unknown
@@ -6385,9 +6385,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:^11.0.22":
-  version: 11.0.22
-  resolution: "framer-motion@npm:11.0.22"
+"framer-motion@npm:^11.0.23":
+  version: 11.0.23
+  resolution: "framer-motion@npm:11.0.23"
   dependencies:
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -6401,7 +6401,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 10c0/fd6f097791b59ecb79872dca5000f439999bd9db12ba77bcd5d9b19b76fa91baed231f92cc18d7ec7fb3a2e578a4081b6bafa92e72e99f11d293306c3adb8dbe
+  checksum: 10c0/0580429a1b06973f65e7845412f98710eeb376d03e6f90277e96a989ebe2f38758f6f9a66664e810cf1c7c8ffb95922094290317fae4535432a6d0c49216c767
   languageName: node
   linkType: hard
 
@@ -9500,9 +9500,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:^3.4.2":
-  version: 3.4.2
-  resolution: "tailwindcss@npm:3.4.2"
+"tailwindcss@npm:^3.4.3":
+  version: 3.4.3
+  resolution: "tailwindcss@npm:3.4.3"
   dependencies:
     "@alloc/quick-lru": "npm:^5.2.0"
     arg: "npm:^5.0.2"
@@ -9529,7 +9529,7 @@ __metadata:
   bin:
     tailwind: lib/cli.js
     tailwindcss: lib/cli.js
-  checksum: 10c0/e26e330d87c2305ae764de7882572b6ddea4ce026064b2feccbb78d61fefb6c69ceb97ae895da93c1f03c5936ac278b991d0c44569bf9d89e3f51671d4aad425
+  checksum: 10c0/11e5546494f2888f693ebaa271b218b3a8e52fe59d7b629e54f2dffd6eaafd5ded2e9f0c37ad04e6a866dffb2b116d91becebad77e1441beee8bf016bb2392f9
   languageName: node
   linkType: hard
 
