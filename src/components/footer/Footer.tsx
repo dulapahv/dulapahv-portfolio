@@ -23,7 +23,7 @@ const Footer = () => {
         color="foreground"
         className="bottom-0.5 mx-auto flex w-fit pt-1 text-xs md:absolute"
       >
-        Last updated: 28/03/2023 - 20.30 GMT
+        Last updated: 30/03/2023 - 21.00 GMT
       </Link>
     </footer>
   );

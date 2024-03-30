@@ -1,6 +1,6 @@
 import { RefObject, useRef, useState } from 'react';
 
-import { Tooltip } from '@nextui-org/react';
+import { Button, Tooltip } from '@nextui-org/react';
 import { RiSparkling2Fill, RiSparkling2Line } from 'react-icons/ri';
 
 import { NavMenu, NavMenuRef } from '.';
@@ -43,15 +43,16 @@ const Nav = ({ sectionRef }: NavProps) => {
         closeDelay={75}
         placement="left-end"
       >
-        <button
-          className={`btn relative z-[2147483647] size-28 rounded-none bg-BLUE drop-shadow-lg duration-200 [clip-path:polygon(100%_0,_0_100%,_100%_100%)] *:relative *:left-6 *:top-6 *:size-10 *:animate-scale-up-center hover:bg-BLUE hover:text-YELLOW active:!translate-x-1 active:!translate-y-1 sm:size-32 ${
+        <Button
+          className={`relative z-[2147483647] !size-28 rounded-none bg-BLUE duration-200 [clip-path:polygon(100%_0,_0_100%,_100%_100%)] *:relative *:left-6 *:top-6 *:size-10 *:animate-scale-up-center hover:bg-BLUE hover:text-YELLOW hover:!opacity-100 active:!translate-x-1 active:!translate-y-1 sm:!size-32 ${
             isIconFilled ? 'text-YELLOW' : 'text-WHITE'
           }`}
-          onClick={() => (isNavOpen ? handleCloseNav() : handleOpenNav())}
+          onPress={() => (isNavOpen ? handleCloseNav() : handleOpenNav())}
+          isIconOnly
           aria-label="Toggle Navigation Menu"
         >
           {isIconFilled ? <RiSparkling2Fill /> : <RiSparkling2Line />}
-        </button>
+        </Button>
       </Tooltip>
       {isNavOpen && (
         <>

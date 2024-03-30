@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 
+import { Button } from '@nextui-org/react';
 import { useRouter } from 'next/router';
-import { TbReload } from 'react-icons/tb';
 import { IoCloudOfflineOutline } from 'react-icons/io5';
+import { TbReload } from 'react-icons/tb';
 
 const ErrorOffline = () => {
   const router = useRouter();
@@ -26,13 +27,14 @@ const ErrorOffline = () => {
         Sorry, you are not connected to the internet. Please check your internet
         connection and try again.
       </p>
-      <button
-        className="btn border-1.5 border-b-PURPLE border-l-RED border-r-BLUE border-t-YELLOW bg-transparent text-BLACK ring-BLUE ring-offset-2 hover:border-transparent hover:bg-BLUE hover:ring-[1.5px] dark:text-WHITE dark:ring-offset-neutral-700"
-        onClick={() => router.reload()}
+      <Button
+        onPress={() => router.reload()}
+        className="mt-2 border-1.5 border-b-PURPLE border-l-RED border-r-BLUE border-t-YELLOW bg-transparent text-BLACK ring-BLUE ring-offset-2 hover:border-transparent hover:bg-BLUE hover:!text-white hover:ring-[1.5px] dark:text-WHITE dark:ring-offset-neutral-700"
+        radius="sm"
+        startContent={<TbReload className="text-xl" />}
       >
-        <TbReload className="text-xl" />
         Try Again
-      </button>
+      </Button>
     </div>
   );
 };

@@ -88,7 +88,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="canonical" href="https://dulapahv.dev/" />
       </Head>
       <div className={`${open_sans.className}`}>
-        <ThemeProvider defaultTheme="dark">
+        <ThemeProvider>
           <div className="flex min-h-screen flex-col bg-WHITE dark:bg-BLACK ">
             <div className="flex-grow">
               <Component {...pageProps} />
