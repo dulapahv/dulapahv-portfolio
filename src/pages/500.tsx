@@ -25,7 +25,7 @@ const Error500 = () => {
         try again later.
       </p>
       <Button
-        onClick={() => router.reload()}
+        onPress={() => router.reload()}
         className="mt-2 border-1.5 border-b-PURPLE border-l-RED border-r-BLUE border-t-YELLOW bg-transparent text-BLACK ring-BLUE ring-offset-2 hover:border-transparent hover:bg-BLUE hover:!text-white hover:ring-[1.5px] dark:text-WHITE dark:ring-offset-neutral-700"
         radius="sm"
         startContent={<TbReload className="text-xl" />}
