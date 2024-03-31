@@ -3,8 +3,11 @@ import { forwardRef, useImperativeHandle, useRef } from 'react';
 import { cubicBezier, motion } from 'framer-motion';
 
 import { aboutme } from '@/constants';
+import dynamic from 'next/dynamic';
 
-import { Floaties, ScrollingText } from '.';
+import { Floaties } from '.';
+
+const ScrollingText = dynamic(() => import('./ScrollingText'), { ssr: false });
 
 const AboutMe = forwardRef((props, ref) => {
   const aboutmeRef = useRef<HTMLDivElement>(null);
@@ -14,7 +17,11 @@ const AboutMe = forwardRef((props, ref) => {
   }));
 
   return (
-    <section className="flex flex-col overflow-hidden" ref={aboutmeRef}>
+    <section
+      className="flex flex-col overflow-hidden"
+      ref={aboutmeRef}
+      id="aboutme"
+    >
       <Floaties />
       <div className="relative">
         <ScrollingText />

@@ -1,4 +1,7 @@
+import { scrollingText } from '@/constants';
+import { ScrollShadow } from '@nextui-org/react';
 import { Kanit, Noto_Sans_JP } from 'next/font/google';
+import { useState } from 'react';
 
 const kanit = Kanit({
   weight: ['600', '700'],
@@ -15,84 +18,101 @@ const noto_sans_jp = Noto_Sans_JP({
 const KanitFont = kanit.className;
 const NotoSansJPFont = noto_sans_jp.className;
 
+const delays = [
+  'animation-delay-0',
+  'animation-delay-75',
+  'animation-delay-100',
+  'animation-delay-150',
+  'animation-delay-200',
+  'animation-delay-300',
+  'animation-delay-400',
+  'animation-delay-500',
+  'animation-delay-600',
+  'animation-delay-700',
+  'animation-delay-800',
+  'animation-delay-900',
+  'animation-delay-1000',
+].sort(() => Math.random() - 0.5);
+const colors = [
+  'text-RED',
+  'dark:text-white text-BLACK',
+  'dark:text-white text-BLACK',
+  'text-YELLOW',
+  'text-BLUE',
+  'dark:text-white text-BLACK',
+  'dark:text-white text-BLACK',
+  'text-PURPLE',
+  'dark:text-white text-BLACK',
+  'dark:text-white text-BLACK',
+].sort(() => Math.random() - 0.5);
+const fontSizes = ['text-lg', 'text-xl', 'text-2xl', 'text-3xl'].sort(
+  () => Math.random() - 0.5
+);
+const animations = [
+  'animate-slide-text-right-1',
+  'animate-slide-text-right-2',
+  'animate-slide-text-right-3',
+  'animate-slide-text-right-4',
+  'animate-slide-text-right-5',
+  'animate-slide-text-left-1',
+  'animate-slide-text-left-2',
+  'animate-slide-text-left-3',
+  'animate-slide-text-left-4',
+  'animate-slide-text-left-5',
+].sort(() => Math.random() - 0.5);
+
 const ScrollingText = () => {
+  const [currentIndex, setCurrentIndex] = useState(
+    Array.from({ length: 28 }, () =>
+      Math.floor(Math.random() * scrollingText.length)
+    )
+  );
+
+  const handleAnimationIter = (index: number) => {
+    setCurrentIndex((prevIndex) => {
+      const newIndex = [...prevIndex];
+      newIndex[index] = (newIndex[index] + 1) % scrollingText.length;
+      return newIndex;
+    });
+  };
+
+  const getTextFontClass = (text: string) => {
+    if (text.match(/[\u0E00-\u0E7F]/)) {
+      // Thai character range
+      return KanitFont;
+    } else if (text.match(/[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FAF]/)) {
+      // Japanese character ranges
+      return NotoSansJPFont;
+    }
+    return '';
+  };
+
+  const renderText = (text: string, index: number) => {
+    return (
+      <p
+        key={index}
+        className={`text-nowrap ${animations[index % animations.length]} ${getTextFontClass(text)} ${delays[index % delays.length]} ${fontSizes[index % fontSizes.length]} ${colors[index % colors.length]}`}
+        onAnimationIteration={() => handleAnimationIter(index)}
+      >
+        {text}
+      </p>
+    );
+  };
+
   return (
-    <div className="flex animate-fade-in flex-col justify-center overflow-hidden">
-      <div className="mt-12 flex animate-puff-out-center flex-col justify-evenly text-base font-semibold !opacity-90 animation-delay-1000 *:text-center dark:text-white sm:text-lg md:text-xl lg:text-2xl">
-        <p className="animate-slide-text-right-5">NextJS</p>
-        <p className="animate-slide-text-left-2 text-lg font-bold text-BLUE animation-delay-1000 sm:text-xl md:text-2xl lg:text-3xl">
-          Hi! I&apos;m dulapahv~💕
-        </p>
-        <p className="animate-slide-text-left-4">TypeScript</p>
-        <p className="animate-slide-text-right-4 animation-delay-400">
-          <span className={KanitFont}>สวัสดี</span>! dulapahv{' '}
-          <span className={KanitFont}>เองน้า</span>~💕
-        </p>
-        <p className="animate-slide-text-left-2 animation-delay-700">Python</p>
-        <p className="animate-slide-text-right-5">PostgreSQL</p>
-        <p className="animate-slide-text-left-1">HTML</p>
-        <p className="animate-slide-text-right-1 text-lg font-bold text-RED sm:text-xl md:text-2xl lg:text-3xl">
-          A frontend developer🖼️
-        </p>
-        <p className="animate-slide-text-right-2">CSS</p>
-        <p className="animate-slide-text-right-3 animation-delay-1000">
-          <span className={NotoSansJPFont}>こんにちは</span>! dulapahv{' '}
-          <span className={NotoSansJPFont}>です</span>~💕
-        </p>
-        <p className="animate-slide-text-left-3 animation-delay-900">
-          JavaScript
-        </p>
-        <p className="animate-slide-text-right-2">C</p>
-        <p className="animate-slide-text-left-5 animation-delay-300">C++</p>
-        <p className="animate-slide-text-right-3 animation-delay-200">
-          <span className={KanitFont}>เราคือ</span> Frontend Developer{' '}
-          <span className={KanitFont}>นะ</span>~🖼️
-        </p>
-        <p className="animate-slide-text-right-5 animation-delay-600">Java</p>
-        <p className="animate-slide-text-right-1 animation-delay-1000">
-          ReactJS
-        </p>
-        <p className="animate-slide-text-left-1 text-lg font-bold text-YELLOW animation-delay-200 sm:text-xl md:text-2xl lg:text-3xl">
-          Pursuing fullstack developer💯
-        </p>
-        <p className="animate-slide-text-right-4 animation-delay-200">
-          <span className={NotoSansJPFont}>
-            わたしはフロントエンドデベロッパーです
-          </span>
-          ~🖼️
-        </p>
-        <p className="animate-slide-text-left-2 animation-delay-400">NGINX</p>
-        <p className="animate-slide-text-right-5 text-right animation-delay-1000">
-          <span className={KanitFont}>เรากำลังเรียนรู้เพื่อเป็น</span> Fullstack
-          Developer💯
-        </p>
-        <p className="animate-slide-text-right-2 animation-delay-600">Linux</p>
-        <p className="animate-slide-text-right-1 text-right animation-delay-800">
-          <span className={NotoSansJPFont}>
-            わたしはフルスタックデベロッパーになりたいです
-          </span>
-          ~💯
-        </p>
-        <p className="animate-slide-text-left-3">Figma</p>
-        <p className="animate-slide-text-right-2 text-lg font-bold text-PURPLE animation-delay-100 sm:text-xl md:text-2xl lg:text-3xl">
-          Thanks for visiting my website!😊
-        </p>
-        <p className="animate-slide-text-left-5">TailwindCSS</p>
-        <p className="animate-slide-text-right-3 animation-delay-1000">
-          <span className={KanitFont}>
-            ขอบคุณที่เข้ามาเยี่ยมชมเว็บไซต์ของเรานะ
-          </span>
-          ~😊
-        </p>
-        <p className="animate-slide-text-left-4 animation-delay-200">UX/UI</p>
-        <p className="animate-slide-text-right-4 animation-delay-400">
-          <span className={NotoSansJPFont}>
-            私のウェブサイトをご覧いただきありがとうございます
-          </span>
-          ~😊
-        </p>
+    <ScrollShadow
+      orientation="horizontal"
+      visibility="both"
+      size={80}
+      hideScrollBar
+      className="flex w-screen animate-fade-in flex-col justify-center overflow-hidden"
+    >
+      <div className="mt-12 flex animate-puff-out-center flex-col justify-evenly text-base font-semibold !opacity-90 animation-delay-1000 *:text-center">
+        {currentIndex.map((_, index) =>
+          renderText(scrollingText[currentIndex[index]], index)
+        )}
       </div>
-    </div>
+    </ScrollShadow>
   );
 };
 
