@@ -15,6 +15,7 @@ const Skill = forwardRef((props, ref) => {
     <section
       className="flex flex-col justify-center gap-8 overflow-hidden py-8"
       ref={skillRef}
+      id="skill"
     >
       <Floaties />
       <div className="relative flex flex-col items-center gap-6 py-8">

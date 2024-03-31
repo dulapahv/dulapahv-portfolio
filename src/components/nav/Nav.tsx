@@ -62,7 +62,7 @@ const Nav = ({ sectionRef }: NavProps) => {
             sectionRef={sectionRef}
           />
           <div
-            className="fixed left-0 top-0 z-[2147483646] h-screen w-screen animate-fade-in bg-black/30"
+            className="fixed left-0 top-0 z-[2147483646] h-screen w-screen animate-fade-in bg-black/30 backdrop-blur"
             onClick={handleCloseNav}
             ref={navBackdropRef}
           />

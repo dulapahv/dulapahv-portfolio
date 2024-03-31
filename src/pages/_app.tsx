@@ -51,7 +51,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         {/* Icons and Manifest */}
         <link rel="icon" href="/favicon.ico" />
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-        <link rel="apple-touch-icon" href="https://assets.dulapahv.dev/logo192.png" />
+        <link
+          rel="apple-touch-icon"
+          href="https://assets.dulapahv.dev/logo192.png"
+        />
         <link rel="manifest" href="/manifest.json" />
 
         {/* Theme and Styling */}
@@ -66,7 +69,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="darkreader" content="NO-DARKREADER-PLUGIN" />
 
         {/* Social Media Meta Tags */}
-        <meta property="twitter:image" content="https://assets.dulapahv.dev/ogp.png" />
+        <meta
+          property="twitter:image"
+          content="https://assets.dulapahv.dev/ogp.png"
+        />
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:title" content="DulapahV's Portfolio" />
         <meta
@@ -79,7 +85,10 @@ function MyApp({ Component, pageProps }: AppProps) {
           property="og:description"
           content="This website is a personal project to showcase my skills and experience, as well as to share my knowledge and experience with others."
         />
-        <meta property="og:image" content="https://assets.dulapahv.dev/ogp.png" />
+        <meta
+          property="og:image"
+          content="https://assets.dulapahv.dev/ogp.png"
+        />
         <meta property="og:url" content="https://dulapahv.dev/" />
         <meta property="og:type" content="Portfolio" />
         <meta property="og:locale" content="en_US" />
@@ -89,7 +98,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <div className={`${open_sans.className}`}>
         <ThemeProvider>
-          <div className="flex min-h-screen flex-col bg-WHITE dark:bg-BLACK ">
+          <div className="flex min-h-screen flex-col bg-WHITE dark:bg-BLACK">
             <div className="flex-grow">
               <Component {...pageProps} />
               <SpeedInsights />

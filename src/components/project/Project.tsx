@@ -19,6 +19,7 @@ const Project = forwardRef((props, ref) => {
     <section
       className="relative flex flex-col justify-center gap-8 py-8"
       ref={projectRef}
+      id="project"
     >
       <div className="flex flex-col items-center gap-6 py-8">
         <motion.h1

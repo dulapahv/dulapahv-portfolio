@@ -10,9 +10,7 @@
       "Participated in Code Olympics 2024, a 12-Hour Hackathon held on Saturday 27th January 9 am - 9 pm.",
       "Led the COMPSCI4047 Team Project (H) with Thales UK Ltd as Scrum Master, driving agile collaboration through Scrum methodologies. Effective communication and streamlined project management ensured efficient milestone completion."
     ],
-    "color": "#003865",
-    "width": 1915,
-    "height": 632
+    "color": "#003865"
   },
   "kmitl": {
     "title": "King Mongkut's Institute of Technology Ladkrabang",
@@ -25,9 +23,7 @@
       "AI Lab Open House Staff of KMITL - Played a crucial role in educating students about Artificial Intelligence, offering an overview of its core principles and practical applications. Additionally, I had the privilege of presenting my professor's advanced AI project, giving students a firsthand look at cutting-edge research and innovation.",
       "Vice-President of KMITL SE13 - Assumed the role of mentoring KMITL freshmen in Python programming during the SE14 Pre-Session, my guidance played a crucial role in helping students who were new to programming establish a strong foundation in Python."
     ],
-    "color": "#e35205",
-    "width": 1440,
-    "height": 720
+    "color": "#e35205"
   },
   "42bkk": {
     "title": "42 Bangkok",
@@ -37,9 +33,7 @@
     "date": "Jul 2022 - May 2023",
     "gpa": "",
     "achievement": ["Passed C Piscine with level 8, and became Cadet."],
-    "color": "#2bb9bc",
-    "width": 2560,
-    "height": 1706
+    "color": "#2bb9bc"
   },
   "sk": {
     "title": "Suankularb Wittayalai School",
@@ -54,9 +48,7 @@
       "Awarded the 'Distinction in Academic Performance' from Suankularb Wittayalai School for 2 consecutive years",
       "Awarded the 'Scholarship of Academic Excellence' from Suankularb Wittayalai Foundation."
     ],
-    "color": "#fb6ab3",
-    "width": 5622,
-    "height": 3748
+    "color": "#fb6ab3"
   },
   "ksp": {
     "title": "Kasintorn St.Peter School",
@@ -70,9 +62,7 @@
       "Awarded the '1st Prize Gold Medal' in the Scientific Genius Competition",
       "Awarded the '1st Prize Gold Medal' in the Astronomy Quiz Competition."
     ],
-    "color": "#e3b04c",
-    "width": 760,
-    "height": 570
+    "color": "#e3b04c"
   },
   "stfx": {
     "title": "St.Francis Xavier School",
@@ -82,8 +72,6 @@
     "date": "May 2008 - May 2013",
     "gpa": "",
     "achievement": [],
-    "color": "#2906c2",
-    "width": 2560,
-    "height": 658
+    "color": "#2906c2"
   }
 }
