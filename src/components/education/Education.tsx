@@ -32,6 +32,7 @@ const Education = forwardRef((props, ref) => {
     <section
       className="relative flex h-fit flex-col items-center gap-8 py-8"
       ref={educationRef}
+      id="education"
     >
       <div className="flex flex-col items-center gap-6 py-8">
         <motion.h1
@@ -97,15 +98,15 @@ const Education = forwardRef((props, ref) => {
               <Skeleton
                 isLoaded={isImgLoaded[index]}
                 classNames={{
-                  base: 'rounded',
+                  base: 'rounded shadow-xl',
                 }}
               >
                 <Image
                   src={`https://assets.dulapahv.dev/images/edu/${key}.png`}
-                  width={value.width}
-                  height={value.height}
+                  width={1915}
+                  height={632}
                   alt={value.title}
-                  className="h-[500px] w-screen rounded bg-clip-content object-cover"
+                  className="h-[250px] w-screen rounded bg-clip-content object-cover md:h-[28rem]"
                   onLoad={() => handleImgLoad(index)}
                 />
               </Skeleton>
@@ -140,7 +141,7 @@ const Education = forwardRef((props, ref) => {
               className={`${
                 index % 2 === 0
                   ? 'timeline-end'
-                  : 'timeline-end mt-[34rem] md:timeline-start'
+                  : 'timeline-end mt-[18rem] md:timeline-start md:mt-[34rem]'
               } !self-start md:mt-12`}
             >
               <ul className="ml-5 list-outside list-disc">
