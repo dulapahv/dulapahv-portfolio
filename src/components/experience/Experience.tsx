@@ -19,6 +19,7 @@ const Experience = forwardRef((props, ref) => {
     <section
       className="relative flex animate-fade-in flex-col justify-center gap-8 overflow-hidden py-8"
       ref={experienceRef}
+      id="experience"
     >
       <div className="flex flex-col items-center gap-6 py-8">
         <motion.h1
