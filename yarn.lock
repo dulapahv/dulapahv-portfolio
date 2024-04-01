@@ -5703,7 +5703,7 @@ __metadata:
     daisyui: "npm:^4.9.0"
     eslint: "npm:^8.57.0"
     eslint-config-next: "npm:^14.1.4"
-    framer-motion: "npm:^11.0.23"
+    framer-motion: "npm:^11.0.24"
     next: "npm:^14.1.4"
     next-pwa: "npm:^5.6.0"
     next-themes: "npm:^0.3.0"
@@ -6385,9 +6385,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:^11.0.23":
-  version: 11.0.23
-  resolution: "framer-motion@npm:11.0.23"
+"framer-motion@npm:^11.0.24":
+  version: 11.0.24
+  resolution: "framer-motion@npm:11.0.24"
   dependencies:
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -6401,7 +6401,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 10c0/0580429a1b06973f65e7845412f98710eeb376d03e6f90277e96a989ebe2f38758f6f9a66664e810cf1c7c8ffb95922094290317fae4535432a6d0c49216c767
+  checksum: 10c0/8d884a828ef3e03683fdd5bbe5de64751f2a97f379f332262142caf2ae76d5af5fb1e2810a1a5845fb3322c8990f568997d22ffe8f0ff0f2eb7e637c5e0a5266
   languageName: node
   linkType: hard
 
