@@ -2,7 +2,7 @@ import { Link } from '@nextui-org/react';
 
 const Footer = () => {
   return (
-    <footer className="relative">
+    <footer className="relative w-full">
       <p className="flex justify-center">
         With&nbsp;<span className="text-RED">❤</span>&nbsp;from&nbsp;
         <Link
