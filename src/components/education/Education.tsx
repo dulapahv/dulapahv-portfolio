@@ -141,7 +141,7 @@ const Education = forwardRef((props, ref) => {
               className={`${
                 index % 2 === 0
                   ? 'timeline-end'
-                  : 'timeline-end mt-[18rem] md:timeline-start md:mt-[34rem]'
+                  : 'timeline-end mt-[18rem] md:timeline-start'
               } !self-start md:mt-12`}
             >
               <ul className="ml-5 list-outside list-disc">
