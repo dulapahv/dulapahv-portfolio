@@ -5,6 +5,25 @@ const withPWA = require('next-pwa')({
 });
 
 const nextConfig = withPWA({
+  async redirects() {
+    return [
+      {
+        source: '/internship.pdf',
+        destination: 'https://assets.dulapahv.dev/internship.pdf',
+        permanent: true,
+      },
+      {
+        source: '/gistda',
+        destination: 'https://opendata.gistda.or.th/dulapahv/internship/',
+        permanent: true,
+      },
+      {
+        source: '/notion/:slug*',
+        destination: 'https://dulapahv.notion.site/:slug*',
+        permanent: true,
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {
