@@ -9,72 +9,16 @@ const nextConfig = withPWA({
     return [
       {
         source: '/internship.pdf',
-        has: [
-          {
-            type: 'host',
-            value: 'dulapahv.dev',
-          },
-          {
-            type: 'host',
-            value: 'www.dulapahv.dev',
-          },
-          {
-            type: 'host',
-            value: 'dev.dulapahv.dev',
-          },
-        ],
         destination: 'https://assets.dulapahv.dev/internship.pdf',
-        has: [
-          {
-            type: 'host',
-            value: 'dulapahv.dev',
-          },
-          {
-            type: 'host',
-            value: 'www.dulapahv.dev',
-          },
-          {
-            type: 'host',
-            value: 'dev.dulapahv.dev',
-          },
-        ],
         permanent: true,
       },
       {
         source: '/gistda',
-        has: [
-          {
-            type: 'host',
-            value: 'dulapahv.dev',
-          },
-          {
-            type: 'host',
-            value: 'www.dulapahv.dev',
-          },
-          {
-            type: 'host',
-            value: 'dev.dulapahv.dev',
-          },
-        ],
         destination: 'https://opendata.gistda.or.th/dulapahv/internship/',
         permanent: true,
       },
       {
         source: '/notion/:slug*',
-        has: [
-          {
-            type: 'host',
-            value: 'dulapahv.dev',
-          },
-          {
-            type: 'host',
-            value: 'www.dulapahv.dev',
-          },
-          {
-            type: 'host',
-            value: 'dev.dulapahv.dev',
-          },
-        ],
         destination: 'https://dulapahv.notion.site/:slug*',
         permanent: true,
       },
