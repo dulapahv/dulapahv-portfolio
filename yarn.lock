@@ -4507,12 +4507,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^20.11.30":
-  version: 20.11.30
-  resolution: "@types/node@npm:20.11.30"
+"@types/node@npm:^20.12.5":
+  version: 20.12.5
+  resolution: "@types/node@npm:20.12.5"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 10c0/867cfaf969c6d8850d8d7304e7ab739898a50ecb1395b61ff2335644f5f48d7a46fbc4a14cee967aed65ec134b61a746edae70d1f32f11321ccf29165e3bc4e6
+  checksum: 10c0/2da65516fba98f0417620e42bddbe53e144d4782d69cd37f99df2537c6850b9cfbdb8a017f02c61e9a074bcac84f9f3f221b250474ac8c6b95d507a47e8d53f9
   languageName: node
   linkType: hard
 
@@ -5695,7 +5695,7 @@ __metadata:
     "@marsidev/react-turnstile": "npm:^0.5.3"
     "@nextui-org/react": "npm:^2.2.10"
     "@sentry/nextjs": "npm:^7.108.0"
-    "@types/node": "npm:^20.11.30"
+    "@types/node": "npm:^20.12.5"
     "@types/react": "npm:^18.2.73"
     "@types/react-dom": "npm:^18.2.23"
     "@vercel/speed-insights": "npm:^1.0.10"
