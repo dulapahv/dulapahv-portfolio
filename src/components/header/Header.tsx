@@ -94,7 +94,7 @@ const Header = ({ sectionRef }: HeaderProps) => {
                     <Spinner color="default" size="sm" />
                   ) : (
                     <Link
-                      onClick={() => {
+                      onPress={() => {
                         setIsRevealEmail(true);
                         onOpen();
                       }}
