@@ -91,8 +91,8 @@ const Skill = forwardRef((props, ref) => {
               <div className="flex flex-wrap items-center gap-3">
                 <SkillIcon
                   src="web_front/nextjs.svg"
-                  width={112}
-                  height={112}
+                  width={128}
+                  height={128}
                   alt="Next.js"
                 />
                 <SkillIcon src="web_front/reactjs.svg" alt="React.js" />
