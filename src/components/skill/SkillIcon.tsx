@@ -19,15 +19,19 @@ const SkillIcon = ({
   tooltip,
 }: SkillIconProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   if (!tooltip) {
     tooltip = alt;
   }
 
   return (
-    <Tooltip content={tooltip} closeDelay={75}>
+    <Tooltip content={tooltip} closeDelay={75} isOpen={isOpen}>
       <Skeleton
         isLoaded={isLoaded}
+        onMouseEnter={() => setIsOpen(true)}
+        onMouseLeave={() => setIsOpen(false)}
+        onClick={() => setIsOpen(!isOpen)}
         classNames={{
           base: 'animate-zoom-out-center hover:animate-zoom-in-center',
         }}

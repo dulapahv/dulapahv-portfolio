@@ -264,17 +264,23 @@ module.exports = {
         'zoom-in-center': {
           '0%': {
             transform: 'scale(1)',
+            filter: 'drop-shadow(0 0 #0000)',
           },
           to: {
             transform: 'scale(1.1)',
+            filter:
+              'drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08))',
           },
         },
         'zoom-out-center': {
           '0%': {
             transform: 'scale(1.1)',
+            filter:
+              'drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08))',
           },
           to: {
             transform: 'scale(1)',
+            filter: 'drop-shadow(0 0 #0000)',
           },
         },
       },

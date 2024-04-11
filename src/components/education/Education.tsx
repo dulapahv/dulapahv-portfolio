@@ -10,13 +10,13 @@ import { MdSchool } from 'react-icons/md';
 import { Floaties } from '.';
 
 const Education = forwardRef((props, ref) => {
-  const educationRef = useRef<HTMLDivElement>(null);
-
   const educations = Object.entries(education);
 
   const [isImgLoaded, setIsImgLoaded] = useState(
     Array(educations.length).fill(false)
   );
+
+  const educationRef = useRef<HTMLDivElement>(null);
 
   const handleImgLoad = (index: number) => {
     const updatedLoaded = [...isImgLoaded];

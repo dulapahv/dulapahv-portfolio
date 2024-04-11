@@ -222,14 +222,20 @@ const Skill = forwardRef((props, ref) => {
               <SkillHeader text="Others" />
               <div className="flex flex-wrap items-center gap-3">
                 <SkillIcon src="other/electron.svg" alt="Electron.js" />
-                <SkillIcon src="other/qt.svg" alt="Qt" />
-                <SkillIcon src="other/bash.svg" alt="Bash" />
+                <SkillIcon
+                  src="other/cloudflare.svg"
+                  alt="Cloudflare"
+                  width={144}
+                  height={144}
+                />
                 <SkillIcon
                   src="other/vercel.svg"
                   width={144}
                   height={144}
                   alt="Vercel"
                 />
+                <SkillIcon src="other/qt.svg" alt="Qt" />
+                <SkillIcon src="other/bash.svg" alt="Bash" />
               </div>
             </motion.div>
           </div>
