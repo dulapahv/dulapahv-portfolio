@@ -264,7 +264,6 @@ module.exports = {
         'zoom-in-center': {
           '0%': {
             transform: 'scale(1)',
-            filter: 'drop-shadow(0 0 #0000)',
           },
           to: {
             transform: 'scale(1.1)',
@@ -276,7 +275,6 @@ module.exports = {
           },
           to: {
             transform: 'scale(1)',
-            filter: 'drop-shadow(0 0 #0000)',
           },
         },
       },
