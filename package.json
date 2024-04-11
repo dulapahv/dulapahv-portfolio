@@ -7,25 +7,27 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
-    "@emotion/styled": "^11.11.0",
-    "@marsidev/react-turnstile": "^0.5.3",
+    "@emotion/styled": "^11.11.5",
+    "@marsidev/react-turnstile": "^0.5.4",
     "@nextui-org/react": "^2.2.10",
-    "@sentry/nextjs": "^7.108.0",
-    "@types/node": "^20.11.30",
-    "@types/react": "^18.2.73",
-    "@types/react-dom": "^18.2.23",
+    "@sentry/nextjs": "^7.109.0",
+    "@types/node": "^20.12.7",
+    "@types/react": "^18.2.75",
+    "@types/react-dom": "^18.2.24",
     "@vercel/speed-insights": "^1.0.10",
     "autoprefixer": "^10.4.19",
-    "daisyui": "^4.9.0",
-    "eslint": "^8.57.0",
+    "daisyui": "^4.10.1",
+    "eslint": "^9.0.0",
     "eslint-config-next": "^14.1.4",
-    "framer-motion": "^11.0.23",
+    "framer-motion": "^11.0.27",
     "next": "^14.1.4",
     "next-pwa": "^5.6.0",
+    "next-sitemap": "^4.2.3",
     "next-themes": "^0.3.0",
     "no-darkreader": "^1.0.3",
     "postcss": "^8.4.38",
@@ -36,7 +38,7 @@
     "react-icons": "^5.0.1",
     "tailwindcss": "^3.4.3",
     "tailwindcss-animation-delay": "^1.2.0",
-    "typescript": "^5.4.3"
+    "typescript": "^5.4.5"
   },
   "packageManager": "yarn@4.1.1"
 }
