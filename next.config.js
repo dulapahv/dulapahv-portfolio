@@ -22,6 +22,21 @@ const nextConfig = withPWA({
         destination: 'https://dulapahv.notion.site/:slug*',
         permanent: true,
       },
+      {
+        source: '/404',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/500',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/_offline',
+        destination: '/',
+        permanent: true,
+      },
     ];
   },
   images: {

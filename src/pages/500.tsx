@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-
 import { Button } from '@nextui-org/react';
 import { useRouter } from 'next/router';
 import { LuServerOff } from 'react-icons/lu';
@@ -7,12 +5,6 @@ import { TbReload } from 'react-icons/tb';
 
 const Error500 = () => {
   const router = useRouter();
-
-  useEffect(() => {
-    if (typeof window !== 'undefined' && window.location.pathname === '/500') {
-      router.replace('/');
-    }
-  }, [router]);
 
   return (
     <div className="flex h-screen flex-col items-center justify-center gap-y-8 p-4 sm:p-12">
