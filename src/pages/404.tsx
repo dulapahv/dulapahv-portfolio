@@ -1,19 +1,8 @@
-import { useEffect } from 'react';
-
 import { Button, Link } from '@nextui-org/react';
-import { useRouter } from 'next/router';
 import { LuUnlink } from 'react-icons/lu';
 import { TiHome } from 'react-icons/ti';
 
 const Error404 = () => {
-  const router = useRouter();
-
-  useEffect(() => {
-    if (typeof window !== 'undefined' && window.location.pathname === '/404') {
-      router.replace('/');
-    }
-  }, [router]);
-
   return (
     <div className="flex h-screen flex-col items-center justify-center gap-y-8 p-4 sm:p-12">
       <LuUnlink className="size-24 sm:size-32" />

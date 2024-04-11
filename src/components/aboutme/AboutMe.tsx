@@ -20,7 +20,7 @@ const AboutMe = forwardRef((props, ref) => {
     <section
       className="flex flex-col overflow-hidden"
       ref={aboutmeRef}
-      id="aboutme"
+      id="about"
     >
       <Floaties />
       <div className="relative">

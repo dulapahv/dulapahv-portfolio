@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-
 import { Button } from '@nextui-org/react';
 import { useRouter } from 'next/router';
 import { IoCloudOfflineOutline } from 'react-icons/io5';
@@ -7,15 +5,6 @@ import { TbReload } from 'react-icons/tb';
 
 const ErrorOffline = () => {
   const router = useRouter();
-
-  useEffect(() => {
-    if (
-      typeof window !== 'undefined' &&
-      window.location.pathname === '/_offline'
-    ) {
-      router.replace('/');
-    }
-  }, [router]);
 
   return (
     <div className="flex h-screen flex-col items-center justify-center gap-y-8 p-4 sm:p-12">
