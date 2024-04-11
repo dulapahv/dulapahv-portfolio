@@ -25,11 +25,11 @@
       "Electron.js",
       "Next.js",
       "SQLite",
+      "Python",
       "TypeScript",
       "Tailwind CSS",
       "NextUI",
-      "DaisyUI",
-      "Python"
+      "DaisyUI"
     ]
   },
   "portfolio": {
@@ -45,7 +45,15 @@
       "Project"
     ],
     "url": "https://github.com/dulapahv/dulapahv-portfolio",
-    "badge": ["Next.js", "TypeScript", "Tailwind CSS", "DaisyUI", "NextUI"]
+    "badge": [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "NextUI",
+      "DaisyUI",
+      "Cloudflare",
+      "Vercel"
+    ]
   },
   "kanbaru": {
     "title": "Kanbaru",
