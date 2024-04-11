@@ -31,7 +31,7 @@ const SkillIcon = ({
         isLoaded={isLoaded}
         onMouseEnter={() => setIsOpen(true)}
         onMouseLeave={() => setIsOpen(false)}
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => setIsOpen(true)}
         classNames={{
           base: 'animate-zoom-out-center hover:animate-zoom-in-center',
         }}
