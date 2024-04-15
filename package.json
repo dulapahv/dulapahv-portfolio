@@ -17,7 +17,7 @@
     "@nextui-org/react": "^2.2.10",
     "@sentry/nextjs": "^7.110.0",
     "@types/node": "^20.12.7",
-    "@types/react": "^18.2.76",
+    "@types/react": "^18.2.78",
     "@types/react-dom": "^18.2.25",
     "@vercel/speed-insights": "^1.0.10",
     "autoprefixer": "^10.4.19",
