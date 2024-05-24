@@ -2,7 +2,7 @@
 
 import React from "react";
 import Error from "next/error";
-import Sentry from "@sentry/nextjs";
+import * as Sentry from "@sentry/nextjs";
 
 const ErrorPage = (props: any) => {
   return (
