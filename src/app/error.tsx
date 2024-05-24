@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import Error from "next/error";
 import * as Sentry from "@sentry/nextjs";
 
