@@ -1,0 +1,71 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
+}
+
+model Experience {
+  id          String   @id @default(cuid())
+  title       String
+  stack       Stack[]
+  description String
+  coverImage  String
+  images      String[]
+}
+
+model Project {
+  id          String   @id @default(cuid())
+  title       String
+  stack       Stack[]
+  description String
+  coverImage  String
+  images      String[]
+}
+
+model Blog {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  content     String
+  coverImage  String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Stack {
+  id           String      @id @default(cuid())
+  name         String
+  description  String?
+  tags         Tag[]
+  Experience   Experience? @relation(fields: [experienceId], references: [id])
+  experienceId String?
+  Project      Project?    @relation(fields: [projectId], references: [id])
+  projectId    String?
+}
+
+model Tag {
+  id     String  @id @default(cuid())
+  name   String
+  stacks Stack[]
+}
+
+// Relation tables
+model ExperienceStack {
+  experienceId String
+  stackId      String
+
+  @@id([experienceId, stackId])
+  @@map("_ExperienceToStack")
+}
+
+model ProjectStack {
+  projectId String
+  stackId   String
+
+  @@id([projectId, stackId])
+  @@map("_ProjectToStack")
+}
