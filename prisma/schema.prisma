@@ -15,6 +15,10 @@ model Experience {
   description String
   coverImage  String
   images      String[]
+  startDate   DateTime
+  endDate     DateTime
+
+  @@index([title, startDate, endDate])
 }
 
 model Project {
@@ -24,6 +28,10 @@ model Project {
   description String
   coverImage  String
   images      String[]
+  startDate   DateTime
+  endDate     DateTime
+
+  @@index([title, startDate, endDate])
 }
 
 model Blog {
@@ -34,6 +42,8 @@ model Blog {
   coverImage  String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+
+  @@index([title, createdAt])
 }
 
 model Stack {
@@ -45,12 +55,27 @@ model Stack {
   experienceId String?
   Project      Project?    @relation(fields: [projectId], references: [id])
   projectId    String?
+
+  @@index([experienceId, projectId])
 }
 
 model Tag {
   id     String  @id @default(cuid())
   name   String
   stacks Stack[]
+}
+
+model Education {
+  id        String   @id @default(cuid())
+  title     String
+  location  String
+  degree    String
+  gpa       Float?
+  details   String?
+  startDate DateTime
+  endDate   DateTime
+
+  @@index([title, location, startDate, endDate])
 }
 
 // Relation tables
