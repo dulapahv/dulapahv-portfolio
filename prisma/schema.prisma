@@ -11,6 +11,8 @@ datasource db {
 model Experience {
   id          String   @id @default(cuid())
   title       String
+  location    String
+  position    String
   stack       Stack[]
   description String
   coverImage  String
@@ -18,7 +20,7 @@ model Experience {
   startDate   DateTime
   endDate     DateTime
 
-  @@index([title, startDate, endDate])
+  @@index([title, location, startDate, endDate])
 }
 
 model Project {
@@ -66,14 +68,14 @@ model Tag {
 }
 
 model Education {
-  id        String   @id @default(cuid())
-  title     String
-  location  String
-  degree    String
-  gpa       Float?
-  details   String?
-  startDate DateTime
-  endDate   DateTime
+  id          String   @id @default(cuid())
+  title       String
+  location    String
+  degree      String
+  gpa         Float?
+  description String?
+  startDate   DateTime
+  endDate     DateTime
 
   @@index([title, location, startDate, endDate])
 }
