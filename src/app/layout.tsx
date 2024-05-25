@@ -3,6 +3,7 @@ import { ReactNode } from "react";
 import dynamic from "next/dynamic";
 import { Poppins, Raleway } from "next/font/google";
 import Head from "next/head";
+import Image from "next/image";
 import { ThemeProvider } from "next-themes";
 
 import { Navbar } from "@/components";
@@ -33,13 +34,21 @@ const RootLayout = ({
     <html
       suppressHydrationWarning
       lang="en"
-      className="min-h-screen bg-default-50 text-default-800"
+      className="min-h-screen text-default-800"
     >
       <Head>
         {/* Disable Dark Reader Plugin */}
         <meta name="darkreader" content="NO-DARKREADER-PLUGIN" />
       </Head>
-      <body className={`my-4 max-w-7xl px-16 mx-auto ${raleway.className}`}>
+      <body
+        className={`mx-auto my-4 max-w-7xl px-16 antialiased ${raleway.className}`}
+      >
+        <div className="fixed -right-[35%] -top-[25%] -z-50 size-full select-none overflow-clip opacity-50 mix-blend-darken hue-rotate-[45deg] dark:mix-blend-lighten sm:rotate-[20deg]">
+          <Image src="/grad-right.png" alt="grad-left" fill />
+        </div>
+        <div className="fixed -bottom-[15%] -left-[25%] -z-50 size-[80%] select-none overflow-clip opacity-50 mix-blend-darken dark:mix-blend-lighten sm:rotate-[15deg]">
+          <Image src="/grad-left.png" alt="grad-left" fill />
+        </div>
         <ThemeProvider>
           <Providers>
             <Navbar />

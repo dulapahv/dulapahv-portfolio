@@ -65,7 +65,7 @@ const config: Config = {
       },
     },
   },
-  darkMode: "class",
+  darkMode: ["class", '[data-theme="dark"]'],
   plugins: [nextui()],
 };
 export default config;

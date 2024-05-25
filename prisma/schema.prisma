@@ -1,5 +1,6 @@
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearch"]
 }
 
 datasource db {
@@ -10,30 +11,32 @@ datasource db {
 
 model Experience {
   id          String   @id @default(cuid())
-  title       String
-  location    String
+  place       Place    @relation(fields: [placeId], references: [id])
+  placeId     String
   position    String
-  stack       Stack[]
+  stacks      Stack[]
   description String
   coverImage  String
   images      String[]
   startDate   DateTime
   endDate     DateTime
 
-  @@index([title, location, startDate, endDate])
+  @@index([placeId, startDate, endDate])
 }
 
 model Project {
   id          String   @id @default(cuid())
   title       String
-  stack       Stack[]
+  stacks      Stack[]
   description String
   coverImage  String
   images      String[]
   startDate   DateTime
   endDate     DateTime
+  place       Place?   @relation(fields: [placeId], references: [id])
+  placeId     String?
 
-  @@index([title, startDate, endDate])
+  @@index([title, startDate, endDate, placeId])
 }
 
 model Blog {
@@ -49,50 +52,46 @@ model Blog {
 }
 
 model Stack {
-  id           String      @id @default(cuid())
-  name         String
-  description  String?
-  tags         Tag[]
-  Experience   Experience? @relation(fields: [experienceId], references: [id])
-  experienceId String?
-  Project      Project?    @relation(fields: [projectId], references: [id])
-  projectId    String?
+  id          String       @id @default(cuid())
+  name        String
+  description String?
+  icon        String?
+  tags        Tag[]
+  experiences Experience[]
+  projects    Project[]
 
-  @@index([experienceId, projectId])
+  @@index([name])
 }
 
 model Tag {
   id     String  @id @default(cuid())
-  name   String
+  name   String  @unique
   stacks Stack[]
+
+  @@index([name])
 }
 
 model Education {
   id          String   @id @default(cuid())
-  title       String
-  location    String
+  place       Place    @relation(fields: [placeId], references: [id])
+  placeId     String
   degree      String
   gpa         Float?
   description String?
   startDate   DateTime
   endDate     DateTime
 
-  @@index([title, location, startDate, endDate])
+  @@index([placeId, startDate, endDate])
 }
 
-// Relation tables
-model ExperienceStack {
-  experienceId String
-  stackId      String
+model Place {
+  id          String       @id @default(cuid())
+  name        String       @unique
+  location    String
+  icon        String?
+  experiences Experience[]
+  projects    Project[]
+  educations  Education[]
 
-  @@id([experienceId, stackId])
-  @@map("_ExperienceToStack")
-}
-
-model ProjectStack {
-  projectId String
-  stackId   String
-
-  @@id([projectId, stackId])
-  @@map("_ProjectToStack")
+  @@index([name, location])
 }
