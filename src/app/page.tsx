@@ -1,8 +1,8 @@
 const Home = async () => {
   return (
     <div className="flex flex-col gap-y-8">
-      <header className="mt-40 flex flex-col gap-y-2">
-        <h1 className="text-3xl font-semibold">Dulapah Vibulsanti</h1>
+      <header className="flex flex-col gap-y-2">
+        <h1 className="text-3xl font-bold">Dulapah Vibulsanti</h1>
         <p className="text-lg text-default-500">
           Fullstack Developer · UX/UI · Video Games
         </p>

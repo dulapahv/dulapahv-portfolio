@@ -1,4 +1,4 @@
-import { getBlog } from "@/utils/get-blog";
+import { getManyBlog } from "@/data/get-blog";
 
 export const revalidate = 3600; // revalidate the data at most every hour
 

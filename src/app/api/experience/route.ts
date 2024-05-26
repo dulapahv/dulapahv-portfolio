@@ -1,4 +1,4 @@
-import prisma from "@/app/db";
+import prisma from "@/db/db";
 
 export async function GET(request: Request) {
   const data = await prisma.experience.findMany();
