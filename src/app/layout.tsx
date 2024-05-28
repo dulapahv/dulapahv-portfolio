@@ -40,7 +40,7 @@ const RootLayout = ({
         <meta name="darkreader" content="NO-DARKREADER-PLUGIN" />
       </head>
       <body
-        className={`mx-auto my-4 max-w-5xl px-8 sm:px-16 antialiased mt-16 sm:mt-32 ${raleway.className}`}
+        className={`mx-auto my-4 max-w-5xl px-4 sm:px-16 antialiased mt-16 sm:mt-32 ${raleway.className}`}
       >
         <div className="fixed -right-[35%] -top-[25%] -z-50 size-full select-none overflow-clip opacity-50 mix-blend-darken hue-rotate-[45deg] dark:mix-blend-lighten sm:rotate-[20deg]">
           <Image src="/grad-right.png" alt="grad-right" fill priority />

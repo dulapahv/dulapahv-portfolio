@@ -32,12 +32,14 @@ const Breadcrumb = ({ lastItem }: BreadcrumbProps) => {
         list: "capitalize font-semibold",
       }}
     >
-      <BreadcrumbItem href="/">Home</BreadcrumbItem>
+      <BreadcrumbItem key={0} href="/">
+        Home
+      </BreadcrumbItem>
       {pathSegments.map((segment, index) => {
         const href = `/${pathSegments.slice(0, index + 1).join("/")}`;
         return (
           <BreadcrumbItem
-            key={index}
+            key={index + 1}
             href={href}
             className="max-w-64 [&>span]:!line-clamp-none [&>span]:!overflow-hidden [&>span]:!text-ellipsis"
           >

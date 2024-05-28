@@ -16,6 +16,7 @@ import {
   useDisclosure,
 } from "@nextui-org/react";
 import { useTheme } from "next-themes";
+import { isMobile } from "react-device-detect";
 
 import commands from "./Commands";
 
@@ -106,35 +107,31 @@ const CommandMenu = forwardRef<CommandMenuModalRef>((props, ref) => {
       radius="md"
       scrollBehavior="inside"
       classNames={{
-        wrapper: "min-[575px]:!items-start items-end overflow-y-hidden",
-        base: "min-[575px]:my-16 m-0 min-[575px]:mx-6 rounded-b-none min-[575px]:rounded-xl border-1 border-default-200 bg-white dark:bg-zinc-950 !max-h-[512px]",
+        wrapper: "!items-start overflow-y-hidden",
+        base: "min-[575px]:my-16 m-4 min-[575px]:mx-6 border-1 border-default-200 bg-white dark:bg-zinc-950 !max-h-[512px]",
       }}
-      motionProps={
-        global?.window && window.innerWidth >= 575
-          ? {
-              variants: {
-                enter: {
-                  y: 0,
-                  opacity: 1,
-                  scale: 1,
-                  transition: {
-                    duration: 0.2,
-                    ease: "easeOut",
-                  },
-                },
-                exit: {
-                  y: -10,
-                  opacity: 0,
-                  scale: 0.95,
-                  transition: {
-                    duration: 0.1,
-                    ease: "easeIn",
-                  },
-                },
-              },
-            }
-          : undefined
-      }
+      motionProps={{
+        variants: {
+          enter: {
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            transition: {
+              duration: 0.2,
+              ease: "easeOut",
+            },
+          },
+          exit: {
+            y: -10,
+            opacity: 0,
+            scale: 0.95,
+            transition: {
+              duration: 0.1,
+              ease: "easeIn",
+            },
+          },
+        },
+      }}
     >
       <ModalContent>
         {(onClose) => (
@@ -157,27 +154,28 @@ const CommandMenu = forwardRef<CommandMenuModalRef>((props, ref) => {
               >
                 Command Menu
               </Chip>
-              <Input
-                type="text"
-                placeholder="What do you need?"
-                size="lg"
-                autoFocus
-                value={search}
-                onValueChange={setSearch}
-                endContent={
-                  <Kbd
-                    className="cursor-pointer rounded-md border-1 border-default-200 bg-default-50 bg-transparent hover:bg-default-50"
-                    onClick={onClose}
-                  >
-                    Esc
-                  </Kbd>
-                }
-                classNames={{
-                  inputWrapper:
-                    "px-0 bg-transparent group-data-[hover=true]:bg-transparent data-[focus=true]:!bg-transparent data-[focus-visible=true]:!ring-0 data-[focus-visible=true]:!ring-offset-transparent data-[focus-visible=true]:!ring-offset-0",
-                  input: "font-medium",
-                }}
-              />
+              <div className="flex items-center">
+                <Input
+                  type="text"
+                  placeholder="What do you need?"
+                  size="lg"
+                  autoFocus={!isMobile}
+                  isClearable={isMobile}
+                  value={search}
+                  onValueChange={setSearch}
+                  classNames={{
+                    inputWrapper:
+                      "px-0 bg-transparent group-data-[hover=true]:bg-transparent data-[focus=true]:!bg-transparent data-[focus-visible=true]:!ring-0 data-[focus-visible=true]:!ring-offset-transparent data-[focus-visible=true]:!ring-offset-0",
+                    input: "font-medium",
+                  }}
+                />
+                <Kbd
+                  className="h-6 cursor-pointer rounded-md border-1 border-default-200 bg-default-50 bg-transparent hover:bg-default-50"
+                  onClick={onClose}
+                >
+                  Esc
+                </Kbd>
+              </div>
             </ModalHeader>
             <Divider className="h-[0.5px] bg-default-200" />
             <ModalBody className="p-1">

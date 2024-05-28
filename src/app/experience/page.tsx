@@ -3,8 +3,11 @@ import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa6";
 
 import type { Experience, Place } from "@prisma/client";
-import { Breadcrumb } from "@/components";
+import { Breadcrumb, SearchBox } from "@/components";
 import { getManyExperience } from "@/data";
+import { formatDate } from "@/utils";
+
+export const dynamic = "force-dynamic";
 
 interface ExperienceWithPlace extends Experience {
   place: Place;
@@ -15,7 +18,35 @@ const poppins = Poppins({
   subsets: ["latin"],
 });
 
-const Page = async () => {
+const getOrderBy = (order_by: string): Record<string, any> => {
+  const orderMappings: Record<string, Record<string, any>> = {
+    position: { position: "asc" },
+    position_asc: { position: "asc" },
+    position_desc: { position: "desc" },
+    company: { place: { name: "asc" } },
+    company_asc: { place: { name: "asc" } },
+    company_desc: { place: { name: "desc" } },
+    location: { place: { location: "asc" } },
+    location_asc: { place: { location: "asc" } },
+    location_desc: { place: { location: "desc" } },
+    start_date: { startDate: "asc" },
+    start_date_asc: { startDate: "asc" },
+    start_date_desc: { startDate: "desc" },
+    end_date: { endDate: "desc" },
+    end_date_asc: { endDate: "asc" },
+    end_date_desc: { endDate: "desc" },
+  };
+
+  return orderMappings[order_by] || { endDate: "desc" };
+};
+
+const Page = async ({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] | undefined };
+}) => {
+  const { search, order_by } = searchParams;
+
   const items = (await getManyExperience({
     select: {
       place: {
@@ -29,18 +60,37 @@ const Page = async () => {
       startDate: true,
       endDate: true,
     },
-    orderBy: {
-      // _relevance: {
-      //   fields: ["position"],
-      //   search: "",
-      //   sort: "desc",
-      // },
-      endDate: "desc",
+    where: {
+      OR: [
+        {
+          position: {
+            contains: search,
+            mode: "insensitive",
+          },
+        },
+        {
+          place: {
+            name: {
+              contains: search,
+              mode: "insensitive",
+            },
+          },
+        },
+        {
+          place: {
+            location: {
+              contains: search,
+              mode: "insensitive",
+            },
+          },
+        },
+      ],
     },
+    orderBy: getOrderBy(order_by as string),
   })) as ExperienceWithPlace[];
 
   return (
-    <div className="flex flex-col gap-y-8">
+    <div className="flex flex-col gap-y-6">
       <Breadcrumb />
       <header className="flex flex-col gap-y-2">
         <h1 className="text-3xl font-bold">Experience</h1>
@@ -48,6 +98,7 @@ const Page = async () => {
           Companies and clients I&apos;ve worked with.
         </p>
       </header>
+      <SearchBox />
       <main className="flex flex-col gap-y-4 divide-y-1 divide-default-100">
         {items.map((item) => (
           <Link
@@ -60,7 +111,7 @@ const Page = async () => {
                 {item.position}
                 <span
                   className={`text-base font-medium text-default-500 group-hover:text-primary ${poppins.className}`}
-                >{` | ${new Date(item.startDate).getFullYear()} - ${new Date(item.endDate).getFullYear()}`}</span>
+                >{` | ${formatDate(item.startDate)} - ${formatDate(item.endDate)}`}</span>
               </h2>
               <p className="text-sm font-semibold text-default-500 duration-100 group-hover:text-primary">
                 {item.place.name}

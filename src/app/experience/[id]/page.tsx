@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import type { Experience, Place } from "@prisma/client";
 import { Breadcrumb, MarkdownRenderer } from "@/components";
 import { getUniqueExperience } from "@/data";
+import { formatDate } from "@/utils";
 
 interface ExperienceWithPlace extends Experience {
   place: Place;
@@ -44,16 +45,16 @@ const Page = async ({ params }: { params: { id: string } }) => {
     <div className="flex flex-col gap-y-8">
       <Breadcrumb lastItem={`${item.place.name} | ${item.position}`} />
       <header className="flex flex-col">
-        <h2 className="text-3xl font-bold text-default-800 duration-100 group-hover:text-primary">
+        <h2 className="text-3xl font-bold text-default-800 duration-100">
           {item.position}
           <span
-            className={`text-2xl font-semibold text-default-500 group-hover:text-primary ${poppins.className}`}
-          >{` | ${new Date(item.startDate).getFullYear()} - ${new Date(item.endDate).getFullYear()}`}</span>
+            className={`text-2xl font-semibold text-default-500 ${poppins.className}`}
+          >{` | ${formatDate(item.startDate)} - ${formatDate(item.endDate)}`}</span>
         </h2>
-        <p className="text-lg font-semibold text-default-500 duration-100 group-hover:text-primary">
+        <p className="text-lg font-semibold text-default-500 duration-100">
           {item.place.name}
         </p>
-        <p className="text-base text-default-500 duration-100 group-hover:text-primary">
+        <p className="text-base text-default-500 duration-100">
           {item.place.location}
         </p>
       </header>
