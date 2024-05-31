@@ -34,6 +34,12 @@ const commands = [
     icon: <RxCopy className="text-xl" />,
   },
   {
+    key: "copy_short_url",
+    label: "Copy Current URL (Shortened)",
+    section: "General",
+    icon: <RxCopy className="text-xl" />,
+  },
+  {
     key: "home",
     label: "Home",
     section: "Navigation",

@@ -1,6 +1,7 @@
 "use client";
 
 import { forwardRef, useEffect, useImperativeHandle, useState } from "react";
+import { usePathname } from "next/navigation";
 import {
   Chip,
   Divider,
@@ -30,6 +31,7 @@ const CommandMenu = forwardRef<CommandMenuModalRef>((props, ref) => {
 
   const { isOpen, onClose, onOpen, onOpenChange } = useDisclosure();
   const { theme, setTheme } = useTheme();
+  const pathname = usePathname();
 
   useImperativeHandle(ref, () => ({
     openModal: onOpen,
@@ -67,33 +69,50 @@ const CommandMenu = forwardRef<CommandMenuModalRef>((props, ref) => {
           heading: "font-medium",
         }}
       >
-        {sectionCommands.map((command) => (
-          <ListboxItem
-            key={command.key}
-            startContent={command.icon}
-            endContent={
-              command.key === "system" ||
-              command.key === "light" ||
-              command.key === "dark" ? (
-                theme === command.key ? (
-                  <Chip
-                    variant="bordered"
-                    className="h-5 rounded-md border-1 text-xs text-default-500"
-                  >
-                    Current
-                  </Chip>
+        {sectionCommands.map((command) => {
+          if (
+            command.key === "copy_short_url" &&
+            !pathname.startsWith("/experience/") &&
+            !pathname.startsWith("/project/") &&
+            !pathname.startsWith("/blog/")
+          )
+            return (
+              <ListboxItem
+                key={command.key}
+                textValue="Disabled"
+                aria-hidden="true"
+                className="hidden"
+              />
+            );
+
+          return (
+            <ListboxItem
+              key={command.key}
+              startContent={command.icon}
+              endContent={
+                command.key === "system" ||
+                command.key === "light" ||
+                command.key === "dark" ? (
+                  theme === command.key ? (
+                    <Chip
+                      variant="bordered"
+                      className="h-5 rounded-md border-1 text-xs text-default-500"
+                    >
+                      Current
+                    </Chip>
+                  ) : undefined
                 ) : undefined
-              ) : undefined
-            }
-            href={command.href}
-            classNames={{
-              base: "dark:data-[hover=true]:bg-neutral-900 data-[hover=true]:bg-gray-100 py-2.5",
-              title: "font-medium",
-            }}
-          >
-            {command.label}
-          </ListboxItem>
-        ))}
+              }
+              href={command.href}
+              classNames={{
+                base: "dark:data-[hover=true]:bg-neutral-900 data-[hover=true]:bg-gray-100 py-2.5",
+                title: "font-medium",
+              }}
+            >
+              {command.label}
+            </ListboxItem>
+          );
+        })}
       </ListboxSection>
     );
   };
@@ -195,6 +214,11 @@ const CommandMenu = forwardRef<CommandMenuModalRef>((props, ref) => {
                         break;
                       case "copy_url":
                         navigator.clipboard.writeText(window.location.href);
+                        break;
+                      case "copy_short_url":
+                        navigator.clipboard.writeText(
+                          window.location.href.split("-")[0],
+                        );
                         break;
                       default:
                         break;
