@@ -3,8 +3,8 @@ import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa6";
 
 import type { Experience, Place } from "@prisma/client";
-import { Breadcrumb, PaginationFooter, SearchBox } from "@/components";
-import { getManyExperience } from "@/data";
+import { Breadcrumb, PaginationFooter, SearchToolbar } from "@/components";
+import { getManyExperience, getManyPlace } from "@/data";
 import { formatDate } from "@/utils";
 
 export const dynamic = "force-dynamic";
@@ -48,14 +48,16 @@ const Page = async ({
     order_by: string;
     page: string;
     per_page: string;
+    locationId: string;
   };
 }) => {
   const search = searchParams?.search || "";
   const order_by = searchParams?.order_by || "";
   const page = Number(searchParams?.page) || 1;
   const per_page = Number(searchParams?.per_page) || 10;
+  const locationId = searchParams?.locationId || "";
 
-  const response = await getManyExperience({
+  const experiences = await getManyExperience({
     select: {
       place: {
         select: {
@@ -93,41 +95,28 @@ const Page = async ({
           },
         },
       ],
+      placeId: locationId ? { in: locationId.split(",") } : undefined,
     },
     orderBy: getOrderBy(order_by as string),
     skip: (page - 1) * per_page,
     take: per_page,
   });
 
-  const items = response.item as ExperienceWithPlace[];
-  const totalCount = response.totalCount;
+  const places = await getManyPlace({
+    where: {
+      experiences: {
+        some: {},
+      },
+    },
+    select: {
+      id: true,
+      location: true,
+    },
+    distinct: ["location"],
+  });
 
-  const ShowingText = () => {
-    if (items.length === 0) {
-      if (search) {
-        return (
-          <p className="font-medium text-default-500">
-            No results found for{" "}
-            <span className="text-default-800">&quot;{search}&quot;</span>.
-          </p>
-        );
-      }
-      return (
-        <p className="font-medium text-default-500">No experience to show.</p>
-      );
-    }
-
-    return (
-      <p className={`text-sm text-default-800 ${poppins.className}`}>
-        Showing{" "}
-        <span>{items.length === 0 ? 0 : (page - 1) * per_page + 1}</span> -{" "}
-        <span>
-          {items.length === 0 ? 0 : (page - 1) * per_page + items.length}
-        </span>{" "}
-        of <span>{search ? items.length : totalCount}</span>
-      </p>
-    );
-  };
+  const items = experiences.item as ExperienceWithPlace[];
+  const count = experiences.count;
 
   return (
     <div className="flex flex-col gap-y-6">
@@ -140,8 +129,7 @@ const Page = async ({
       </header>
       <main className="flex flex-col gap-y-4 divide-y-1 divide-default-100">
         <div className="flex flex-col gap-y-2">
-          <SearchBox />
-          <ShowingText />
+          <SearchToolbar count={count} places={places} />
         </div>
         {items.map((item) => (
           <Link
@@ -169,13 +157,7 @@ const Page = async ({
       </main>
       {items.length > 0 ? (
         <footer className="mb-32 flex justify-center">
-          <PaginationFooter
-            totalPages={
-              search
-                ? Math.ceil(items.length / per_page)
-                : Math.ceil(totalCount / per_page)
-            }
-          />
+          <PaginationFooter totalPages={Math.ceil(count / per_page)} />
         </footer>
       ) : null}
     </div>
