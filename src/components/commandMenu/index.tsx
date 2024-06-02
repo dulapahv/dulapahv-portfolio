@@ -160,7 +160,7 @@ const CommandMenu = forwardRef<CommandMenuModalRef>((props, ref) => {
                 variant="bordered"
                 endContent={
                   <Kbd className="h-4 rounded-sm bg-default-50 text-xs">
-                    Ctrl K
+                    ⌘/Ctrl K
                   </Kbd>
                 }
                 className="h-6 rounded-md border-1 px-2 text-xs text-default-500 *:select-none [&>span]:pl-0"
@@ -229,7 +229,7 @@ const CommandMenu = forwardRef<CommandMenuModalRef>((props, ref) => {
                     list: "*:rounded-md",
                   }}
                 >
-                  {["Theme", "General", "Navigation", "Developer"].map(
+                  {["General", "Theme", "Navigation", "Developer"].map(
                     (section) => renderCommands(section),
                   )}
                 </Listbox>

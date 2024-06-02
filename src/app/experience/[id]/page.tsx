@@ -2,13 +2,17 @@ import { Poppins } from "next/font/google";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
-import type { Experience, Place } from "@prisma/client";
+import type { City, Country, Experience, Place } from "@prisma/client";
 import { Breadcrumb, MarkdownRenderer } from "@/components";
 import { getUniqueExperience } from "@/data";
 import { formatDate } from "@/utils";
 
 interface ExperienceWithPlace extends Experience {
-  place: Place;
+  place: Place & {
+    city: City & {
+      country: Country;
+    };
+  };
 }
 
 const poppins = Poppins({
@@ -27,7 +31,16 @@ const Page = async ({ params }: { params: { id: string } }) => {
       place: {
         select: {
           name: true,
-          location: true,
+          city: {
+            select: {
+              name: true,
+              country: {
+                select: {
+                  name: true,
+                },
+              },
+            },
+          },
         },
       },
       id: true,
@@ -55,7 +68,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
           {item.place.name}
         </p>
         <p className="text-base text-default-500 duration-100">
-          {item.place.location}
+          {item.place.city.name}, {item.place.city.country.name}
         </p>
       </header>
       <main>

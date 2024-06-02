@@ -2,7 +2,7 @@ import { Poppins } from "next/font/google";
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa6";
 
-import type { Experience, Place } from "@prisma/client";
+import type { City, Country, Experience, Place } from "@prisma/client";
 import { Breadcrumb, PaginationFooter, SearchToolbar } from "@/components";
 import { getManyExperience, getManyPlace } from "@/data";
 import { formatDate } from "@/utils";
@@ -10,7 +10,17 @@ import { formatDate } from "@/utils";
 export const dynamic = "force-dynamic";
 
 interface ExperienceWithPlace extends Experience {
-  place: Place;
+  place: Place & {
+    city: City & {
+      country: Country;
+    };
+  };
+}
+
+interface PlaceWithCityAndCountry extends Place {
+  city: City & {
+    country: Country;
+  };
 }
 
 const poppins = Poppins({
@@ -20,21 +30,10 @@ const poppins = Poppins({
 
 const getOrderBy = (order_by: string): Record<string, any> => {
   const orderMappings: Record<string, Record<string, any>> = {
-    position: { position: "asc" },
-    position_asc: { position: "asc" },
-    position_desc: { position: "desc" },
-    company: { place: { name: "asc" } },
-    company_asc: { place: { name: "asc" } },
-    company_desc: { place: { name: "desc" } },
-    location: { place: { location: "asc" } },
-    location_asc: { place: { location: "asc" } },
-    location_desc: { place: { location: "desc" } },
-    start_date: { startDate: "asc" },
-    start_date_asc: { startDate: "asc" },
-    start_date_desc: { startDate: "desc" },
-    end_date: { endDate: "desc" },
-    end_date_asc: { endDate: "asc" },
-    end_date_desc: { endDate: "desc" },
+    ["start-date-asc"]: { startDate: "asc" },
+    ["start-date-desc"]: { startDate: "desc" },
+    ["end-date-asc"]: { endDate: "asc" },
+    ["end-date-desc"]: { endDate: "desc" },
   };
 
   return orderMappings[order_by] || { endDate: "desc" };
@@ -45,24 +44,33 @@ const Page = async ({
 }: {
   searchParams?: {
     search: string;
-    order_by: string;
     page: string;
-    per_page: string;
-    locationId: string;
+    "location-id": string;
+    "sort-by": string;
+    "per-page": string;
   };
 }) => {
   const search = searchParams?.search || "";
-  const order_by = searchParams?.order_by || "";
   const page = Number(searchParams?.page) || 1;
-  const per_page = Number(searchParams?.per_page) || 10;
-  const locationId = searchParams?.locationId || "";
+  const locationId = searchParams?.["location-id"] || "";
+  const sortBy = searchParams?.["sort-by"] || "";
+  const perPage = Number(searchParams?.["per-page"]) || 10;
 
   const experiences = await getManyExperience({
     select: {
       place: {
         select: {
           name: true,
-          location: true,
+          city: {
+            select: {
+              name: true,
+              country: {
+                select: {
+                  name: true,
+                },
+              },
+            },
+          },
         },
       },
       id: true,
@@ -88,18 +96,28 @@ const Page = async ({
         },
         {
           place: {
-            location: {
-              contains: search,
-              mode: "insensitive",
+            city: {
+              name: {
+                contains: search,
+                mode: "insensitive",
+              },
+              country: {
+                name: {
+                  contains: search,
+                  mode: "insensitive",
+                },
+              },
             },
           },
         },
       ],
-      placeId: locationId ? { in: locationId.split(",") } : undefined,
+      place: {
+        cityId: locationId ? { in: locationId.split(",") } : undefined,
+      },
     },
-    orderBy: getOrderBy(order_by as string),
-    skip: (page - 1) * per_page,
-    take: per_page,
+    orderBy: getOrderBy(sortBy as string),
+    skip: (page - 1) * perPage,
+    take: perPage,
   });
 
   const places = await getManyPlace({
@@ -109,14 +127,25 @@ const Page = async ({
       },
     },
     select: {
-      id: true,
-      location: true,
+      city: {
+        select: {
+          id: true,
+          name: true,
+          country: {
+            select: {
+              name: true,
+            },
+          },
+        },
+      },
     },
-    distinct: ["location"],
+    distinct: ["cityId"],
   });
 
   const items = experiences.item as ExperienceWithPlace[];
   const count = experiences.count;
+
+  const placesItems = places.item as PlaceWithCityAndCountry[];
 
   return (
     <div className="flex flex-col gap-y-6">
@@ -129,7 +158,7 @@ const Page = async ({
       </header>
       <main className="flex flex-col gap-y-4 divide-y-1 divide-default-100">
         <div className="flex flex-col gap-y-2">
-          <SearchToolbar count={count} places={places} />
+          <SearchToolbar count={count} places={placesItems} />
         </div>
         {items.map((item) => (
           <Link
@@ -148,7 +177,7 @@ const Page = async ({
                 {item.place.name}
               </p>
               <p className="text-xs text-default-500 duration-100 group-hover:text-primary">
-                {item.place.location}
+                {item.place.city.name}, {item.place.city.country.name}
               </p>
             </div>
             <FaArrowRight className="flex-shrink-0 text-default-500 duration-100 group-hover:translate-x-2 group-hover:text-primary" />
@@ -157,7 +186,7 @@ const Page = async ({
       </main>
       {items.length > 0 ? (
         <footer className="mb-32 flex justify-center">
-          <PaginationFooter totalPages={Math.ceil(count / per_page)} />
+          <PaginationFooter totalPages={Math.ceil(count / perPage)} />
         </footer>
       ) : null}
     </div>

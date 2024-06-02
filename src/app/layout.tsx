@@ -33,19 +33,19 @@ const RootLayout = ({
     <html
       suppressHydrationWarning
       lang="en"
-      className="min-h-screen text-default-800"
+      className="min-h-dvh text-default-800"
     >
       <head>
         {/* Disable Dark Reader Plugin */}
         <meta name="darkreader" content="NO-DARKREADER-PLUGIN" />
       </head>
       <body
-        className={`mx-auto my-4 max-w-5xl px-4 sm:px-16 antialiased mt-16 sm:mt-32 ${raleway.className}`}
+        className={`mx-auto my-4 max-w-5xl px-4 sm:px-16 antialiased mt-16 lg:mt-32 ${raleway.className}`}
       >
         <div className="fixed -right-[35%] -top-[25%] -z-50 size-full select-none overflow-clip opacity-50 mix-blend-darken hue-rotate-[45deg] dark:mix-blend-lighten sm:rotate-[20deg]">
           <Image src="/grad-right.png" alt="grad-right" fill priority />
         </div>
-        <div className="fixed -bottom-[15%] -left-[25%] -z-50 size-[80%] select-none overflow-clip dark:opacity-50 opacity-90 mix-blend-darken dark:mix-blend-lighten sm:rotate-[15deg]">
+        <div className="fixed -bottom-[15%] -left-[25%] -z-50 size-[80%] select-none overflow-clip dark:opacity-60 opacity-90 mix-blend-darken dark:mix-blend-lighten sm:rotate-[15deg]">
           <Image src="/grad-left.png" alt="grad-left" fill priority />
         </div>
         <Providers>

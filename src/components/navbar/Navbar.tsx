@@ -23,7 +23,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.ctrlKey && event.key === "k") {
+      if ((event.ctrlKey || event.metaKey) && event.key === "k") {
         event.preventDefault();
         commandMenuRef.current?.openModal();
       }
