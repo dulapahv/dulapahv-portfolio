@@ -87,8 +87,8 @@ model Education {
 model Place {
   id          String       @id @default(cuid())
   name        String       @unique
-  city        City?        @relation(fields: [cityId], references: [id])
-  cityId      String?
+  city        City         @relation(fields: [cityId], references: [id])
+  cityId      String
   icon        String?
   experiences Experience[]
   projects    Project[]

@@ -2,9 +2,16 @@ import { Poppins } from "next/font/google";
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa6";
 
-import type { City, Country, Experience, Place } from "@prisma/client";
+import type {
+  City,
+  Country,
+  Experience,
+  Place,
+  Stack,
+  Tag,
+} from "@prisma/client";
 import { Breadcrumb, PaginationFooter, SearchToolbar } from "@/components";
-import { getManyExperience, getManyPlace } from "@/data";
+import { getManyExperience, getManyPlace, getManyTag } from "@/data";
 import { formatDate } from "@/utils";
 
 export const dynamic = "force-dynamic";
@@ -21,6 +28,10 @@ interface PlaceWithCityAndCountry extends Place {
   city: City & {
     country: Country;
   };
+}
+
+interface TagWithStacks extends Tag {
+  stacks: Stack[];
 }
 
 const poppins = Poppins({
@@ -45,16 +56,18 @@ const Page = async ({
   searchParams?: {
     search: string;
     page: string;
-    "location-id": string;
-    "sort-by": string;
-    "per-page": string;
+    locationId: string;
+    sortBy: string;
+    perPage: string;
+    tagId: string;
   };
 }) => {
   const search = searchParams?.search || "";
   const page = Number(searchParams?.page) || 1;
-  const locationId = searchParams?.["location-id"] || "";
-  const sortBy = searchParams?.["sort-by"] || "";
-  const perPage = Number(searchParams?.["per-page"]) || 10;
+  const locationId = searchParams?.locationId || "";
+  const sortBy = searchParams?.sortBy || "";
+  const perPage = Number(searchParams?.perPage) || 10;
+  const tagId = searchParams?.tagId || "";
 
   const experiences = await getManyExperience({
     select: {
@@ -71,6 +84,11 @@ const Page = async ({
               },
             },
           },
+        },
+      },
+      stacks: {
+        select: {
+          name: true,
         },
       },
       id: true,
@@ -114,6 +132,11 @@ const Page = async ({
       place: {
         cityId: locationId ? { in: locationId.split(",") } : undefined,
       },
+      stacks: {
+        some: {
+          id: tagId ? { in: tagId.split(",") } : undefined,
+        },
+      },
     },
     orderBy: getOrderBy(sortBy as string),
     skip: (page - 1) * perPage,
@@ -121,11 +144,11 @@ const Page = async ({
   });
 
   const places = await getManyPlace({
-    where: {
-      experiences: {
-        some: {},
-      },
-    },
+    // where: {
+    //   experiences: {
+    //     some: {},
+    //   },
+    // },
     select: {
       city: {
         select: {
@@ -142,10 +165,28 @@ const Page = async ({
     distinct: ["cityId"],
   });
 
+  const tags = await getManyTag({
+    select: {
+      id: true,
+      name: true,
+      stacks: {
+        select: {
+          id: true,
+          name: true,
+        },
+        orderBy: {
+          name: "asc",
+        },
+      },
+    },
+  });
+
   const items = experiences.item as ExperienceWithPlace[];
   const count = experiences.count;
 
   const placesItems = places.item as PlaceWithCityAndCountry[];
+
+  const tagsItems = tags.item as TagWithStacks[];
 
   return (
     <div className="flex flex-col gap-y-6">
@@ -158,7 +199,7 @@ const Page = async ({
       </header>
       <main className="flex flex-col gap-y-4 divide-y-1 divide-default-100">
         <div className="flex flex-col gap-y-2">
-          <SearchToolbar count={count} places={placesItems} />
+          <SearchToolbar count={count} places={placesItems} tags={tagsItems} />
         </div>
         {items.map((item) => (
           <Link

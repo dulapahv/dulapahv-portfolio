@@ -4,6 +4,8 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { Poppins } from "next/font/google";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import {
+  Accordion,
+  AccordionItem,
   Input,
   Link,
   Select,
@@ -15,10 +17,11 @@ import {
 import { isMobile } from "react-device-detect";
 import { LuFilter, LuSearch } from "react-icons/lu";
 import { MdSort } from "react-icons/md";
+import { PiGearBold } from "react-icons/pi";
 import { TbSelector } from "react-icons/tb";
 import { useDebouncedCallback } from "use-debounce";
 
-import type { City, Country, Place } from "@prisma/client";
+import type { City, Country, Place, Stack, Tag } from "@prisma/client";
 
 interface PlaceWithCityAndCountry extends Place {
   city: City & {
@@ -26,9 +29,14 @@ interface PlaceWithCityAndCountry extends Place {
   };
 }
 
+interface TagWithStacks extends Tag {
+  stacks: Stack[];
+}
+
 interface SearchToolbarProps {
   count: number;
   places: PlaceWithCityAndCountry[];
+  tags: TagWithStacks[];
 }
 
 const poppins = Poppins({
@@ -49,28 +57,34 @@ const sortByOptions = [
   { key: "end-date-desc", label: "End date (newest)" },
 ];
 
-const SearchToolbar = ({ count, places }: SearchToolbarProps) => {
+const SearchToolbar = ({ count, places, tags }: SearchToolbarProps) => {
   const pathname = usePathname();
   const router = useRouter();
   const searchParams = useSearchParams();
 
   const [search, setSearch] = useState(searchParams.get("search") || "");
   const [isLocationChanged, setIsLocationChanged] = useState(false);
+  const [isTagChanged, setIsTagChanged] = useState(false);
   const [isSearchLoading, setIsSearchLoading] = useState(false);
   const [isLocationLoading, setIsLocationLoading] = useState(false);
+  const [isTagLoading, setIsTagLoading] = useState(false);
   const [isSortByLoading, setIsSortByLoading] = useState(false);
   const [isPerPageLoading, setIsPerPageLoading] = useState(false);
 
   const page = Number(searchParams.get("page")) || 1;
-  const perPage = Number(searchParams.get("per-page")) || 10;
-  const locationId = searchParams.get("location-id") || "";
-  const sortBy = searchParams.get("sort-by") || "end-date-desc";
+  const perPage = Number(searchParams.get("perPage")) || 10;
+  const locationId = searchParams.get("locationId") || "";
+  const tagId = searchParams.get("tagId") || "";
+  const sortBy = searchParams.get("sortBy") || "end-date-desc";
 
   const [perPageSelect, setPerPageSelect] = useState<Selection>(
     new Set([perPage.toString()]),
   );
   const [locationSelect, setLocationSelect] = useState<Selection>(
     locationId ? new Set(locationId.split(",")) : new Set([]),
+  );
+  const [tagSelect, setTagSelect] = useState<Selection>(
+    tagId ? new Set(tagId.split(",")) : new Set([]),
   );
   const [sortBySelect, setSortBySelect] = useState<Selection>(
     new Set([sortBy]),
@@ -87,6 +101,7 @@ const SearchToolbar = ({ count, places }: SearchToolbarProps) => {
   useEffect(() => {
     setIsSearchLoading(false);
     setIsLocationLoading(false);
+    setIsTagLoading(false);
     setIsSortByLoading(false);
     setIsPerPageLoading(false);
   }, [searchParams]);
@@ -110,7 +125,7 @@ const SearchToolbar = ({ count, places }: SearchToolbarProps) => {
       setIsPerPageLoading(true);
       const params = new URLSearchParams(searchParams);
       params.set("page", "1");
-      params.set("per-page", Array.from(value)[0].toString());
+      params.set("perPage", Array.from(value)[0].toString());
       router.push(`${pathname}?${params.toString()}`);
     },
     [searchParams, pathname, router],
@@ -118,25 +133,43 @@ const SearchToolbar = ({ count, places }: SearchToolbarProps) => {
 
   const handleLocationChange = useCallback(() => {
     if (!isLocationChanged) return;
-    setIsLocationLoading(true);
     const params = new URLSearchParams(searchParams);
+    if (!params.get("locationId") && Array.from(locationSelect).length === 0)
+      return;
+    setIsLocationLoading(true);
     params.set("page", "1");
     Array.from(locationSelect).length === 0
-      ? params.delete("location-id")
-      : params.set("location-id", Array.from(locationSelect).join(","));
+      ? params.delete("locationId")
+      : params.set("locationId", Array.from(locationSelect).join(","));
     router.push(`${pathname}?${params.toString()}`);
     setIsLocationChanged(false);
   }, [isLocationChanged, searchParams, locationSelect, pathname, router]);
 
-  const handleClearAll = useCallback(() => {
-    if (!search && Array.from(locationSelect).length === 0) return;
-    setIsLocationLoading(true);
-    setLocationSelect(new Set([]));
-    // setSortBySelect(new Set(["end-date-desc"]));
+  const handleTagChange = useCallback(() => {
+    if (!isTagChanged) return;
     const params = new URLSearchParams(searchParams);
-    params.delete("search");
-    params.delete("location-id");
-    // params.delete("sort-by");
+    if (!params.get("tagId") && Array.from(tagSelect).length === 0) return;
+    setIsTagLoading(true);
+    params.set("page", "1");
+    Array.from(tagSelect).length === 0
+      ? params.delete("tagId")
+      : params.set("tagId", Array.from(tagSelect).join(","));
+    router.push(`${pathname}?${params.toString()}`);
+    setIsLocationChanged(false);
+  }, [isLocationChanged, searchParams, tagSelect, pathname, router]);
+
+  const handleClearAll = useCallback(() => {
+    const params = new URLSearchParams(searchParams);
+    if (Array.from(locationSelect).length > 0) {
+      setIsLocationLoading(true);
+      setLocationSelect(new Set([]));
+      params.delete("locationId");
+    }
+    if (Array.from(tagSelect).length > 0) {
+      setIsTagLoading(true);
+      setTagSelect(new Set([]));
+      params.delete("tagId");
+    }
     router.push(`${pathname}?${params.toString()}`);
   }, [searchParams, pathname, router]);
 
@@ -146,7 +179,7 @@ const SearchToolbar = ({ count, places }: SearchToolbarProps) => {
       setIsSortByLoading(true);
       const params = new URLSearchParams(searchParams);
       params.set("page", "1");
-      params.set("sort-by", Array.from(value)[0].toString());
+      params.set("sortBy", Array.from(value)[0].toString());
       router.push(`${pathname}?${params.toString()}`);
     },
     [searchParams, pathname, router],
@@ -188,7 +221,9 @@ const SearchToolbar = ({ count, places }: SearchToolbarProps) => {
     const end = Math.min(page * perPage, count);
 
     return (
-      <p className={`text-sm text-default-800 ${poppins.className}`}>
+      <p
+        className={`order-2 text-sm text-default-800 min-[425px]:order-1 ${poppins.className}`}
+      >
         Showing <span>{start}</span> - <span>{end}</span> of{" "}
         <span>{count}</span>
       </p>
@@ -214,183 +249,220 @@ const SearchToolbar = ({ count, places }: SearchToolbarProps) => {
           input: "font-medium",
         }}
       />
-      <div className="mt-2 flex flex-col gap-1.5 md:flex-row md:items-center">
-        <span className="flex gap-x-1.5 text-sm font-medium">
-          <LuFilter className="text-lg text-default-400" /> Filter by
-        </span>
-        <Select
-          selectedKeys={locationSelect}
-          onSelectionChange={(keys) => {
-            setIsLocationChanged(true);
-            setLocationSelect(keys);
-          }}
-          placeholder="Location"
-          onClose={handleLocationChange}
-          items={places.map((place) => place.city)}
-          isLoading={isLocationLoading}
-          aria-label="Location"
-          color="primary"
-          variant="underlined"
-          size="sm"
-          selectionMode="multiple"
-          disableSelectorIconRotation
-          selectorIcon={<TbSelector className="text-default-400" />}
+      <Accordion isCompact className="px-0">
+        <AccordionItem
+          key="1"
+          aria-label="Advanced Options"
+          title="Advanced Options"
+          startContent={<PiGearBold className="text-xl text-default-600" />}
           classNames={{
-            base: `w-full md:w-fit items-center ${poppins.className}`,
-            label: "text-sm",
-            mainWrapper: "md:w-64",
-            value: "text-default-800",
-            listbox: poppins.className,
-          }}
-          popoverProps={{
-            classNames: {
-              content: "rounded-lg px-1",
-            },
-          }}
-          listboxProps={{
-            itemClasses: {
-              base: "rounded-md",
-            },
-          }}
-          spinnerProps={{
-            classNames: {
-              base: "w-[18px]",
-              circle1: "border-b-primary",
-              circle2: "border-b-primary",
-            },
-          }}
-          renderValue={(items) => (
-            <>
-              Location ({Array.from(locationSelect).length}/{places.length})
-            </>
-          )}
-        >
-          {(city) => (
-            <SelectSection
-              key={city.id}
-              title={city.country.name}
-              classNames={{
-                heading:
-                  "flex w-full sticky top-1 z-20 py-1.5 px-2 bg-default-100 shadow-small rounded-small",
-              }}
-            >
-              <SelectItem key={city.id}>{city.name}</SelectItem>
-            </SelectSection>
-          )}
-        </Select>
-        <Select
-          selectedKeys={locationSelect}
-          onSelectionChange={(keys) => {
-            setIsLocationChanged(true);
-            setLocationSelect(keys);
-          }}
-          placeholder="Tags"
-          onClose={handleLocationChange}
-          items={places.map((place) => place.city)}
-          isLoading={isLocationLoading}
-          aria-label="Location"
-          color="primary"
-          variant="underlined"
-          size="sm"
-          selectionMode="multiple"
-          disableSelectorIconRotation
-          selectorIcon={<TbSelector className="text-default-400" />}
-          classNames={{
-            base: `w-full md:w-fit items-center ${poppins.className}`,
-            label: "text-sm",
-            mainWrapper: "md:w-64",
-            value: "text-default-800",
-            listbox: poppins.className,
-          }}
-          popoverProps={{
-            classNames: {
-              content: "rounded-lg px-1",
-            },
-          }}
-          listboxProps={{
-            itemClasses: {
-              base: "rounded-md",
-            },
-          }}
-          spinnerProps={{
-            classNames: {
-              base: "w-[18px]",
-              circle1: "border-b-primary",
-              circle2: "border-b-primary",
-            },
-          }}
-          renderValue={(items) => (
-            <>
-              Tags ({Array.from(locationSelect).length}/{places.length})
-            </>
-          )}
-        >
-          {(city) => (
-            <SelectSection
-              key={city.id}
-              title={city.country.name}
-              classNames={{
-                heading:
-                  "flex w-full sticky top-1 z-20 py-1.5 px-2 bg-default-100 shadow-small rounded-small",
-              }}
-            >
-              <SelectItem key={city.id}>{city.name}</SelectItem>
-            </SelectSection>
-          )}
-        </Select>
-      </div>
-      <Link
-        onClick={handleClearAll}
-        underline="hover"
-        className={`w-fit cursor-pointer text-xs text-default-500 ${poppins.className}`}
-      >
-        Reset all filters
-      </Link>
-      <div className="flex items-center gap-x-1.5">
-        <span className="flex gap-x-1.5 text-sm font-medium">
-          <MdSort className="text-xl text-default-400" /> Sort by
-        </span>
-        <Select
-          selectedKeys={sortBySelect}
-          onSelectionChange={handleSortByChange}
-          items={sortByOptions}
-          isLoading={isSortByLoading}
-          disallowEmptySelection
-          aria-label="Sort by"
-          color="primary"
-          variant="underlined"
-          size="sm"
-          disableSelectorIconRotation
-          selectorIcon={<TbSelector className="text-default-400" />}
-          classNames={{
-            base: `w-fit items-center ${poppins.className}`,
-            label: "text-sm",
-            mainWrapper: "w-48",
-            value: "text-default-800",
-            listbox: poppins.className,
-          }}
-          popoverProps={{
-            classNames: {
-              content: "rounded-lg px-1",
-            },
-          }}
-          listboxProps={{
-            itemClasses: {
-              base: "rounded-md",
-            },
-          }}
-          spinnerProps={{
-            classNames: {
-              base: "w-[18px]",
-              circle1: "border-b-primary",
-              circle2: "border-b-primary",
-            },
+            title: `${poppins.className} text-sm font-medium text-default-700`,
+            trigger:
+              "[&>div>*]:data-[hover=true]:text-primary [&>div>*]:duration-100",
+            indicator: "text-primary",
           }}
         >
-          {(item) => <SelectItem key={item.key}>{item.label}</SelectItem>}
-        </Select>
-      </div>
-      <div className="flex items-center justify-between">
+          <div className="flex flex-col gap-1 md:flex-row md:items-center">
+            <div className="flex items-center gap-x-1.5">
+              <LuFilter className="text-lg text-default-400" />
+              <p className="text-sm font-medium">Filter by</p>
+            </div>
+            <div className="ml-6 flex flex-col gap-2 md:ml-0 md:flex-row">
+              <Select
+                selectedKeys={locationSelect}
+                onSelectionChange={(keys) => {
+                  setIsLocationChanged(true);
+                  setLocationSelect(keys);
+                }}
+                placeholder="Location"
+                onClose={handleLocationChange}
+                items={places.map((place) => place.city)}
+                isLoading={isLocationLoading}
+                aria-label="Location"
+                color="primary"
+                variant="underlined"
+                size="sm"
+                selectionMode="multiple"
+                disableSelectorIconRotation
+                scrollShadowProps={{
+                  isEnabled: false,
+                }}
+                selectorIcon={<TbSelector className="text-default-400" />}
+                classNames={{
+                  base: `w-full md:w-fit items-center ${poppins.className}`,
+                  label: "text-sm",
+                  mainWrapper: "md:w-64",
+                  value: "text-default-800",
+                  listbox: poppins.className,
+                }}
+                popoverProps={{
+                  classNames: {
+                    content:
+                      "rounded-lg px-1 bg-white/50 dark:bg-zinc-950/50 backdrop-blur-sm [-webkit-backdrop-filter:blur(4px)] backdrop-filter border-1 border-default-50",
+                  },
+                }}
+                listboxProps={{
+                  itemClasses: {
+                    base: "rounded-md dark:data-[hover=true]:bg-zinc-800/50 data-[hover=true]:bg-zinc-200/50 dark:focus:!bg-zinc-800/50 focus:!bg-zinc-200/50",
+                    selectedIcon: "text-primary",
+                  },
+                }}
+                spinnerProps={{
+                  classNames: {
+                    base: "w-[18px]",
+                    circle1: "border-b-primary",
+                    circle2: "border-b-primary",
+                  },
+                }}
+                renderValue={(items) => (
+                  <>
+                    Location ({Array.from(locationSelect).length}/
+                    {places.length})
+                  </>
+                )}
+              >
+                {(city) => (
+                  <SelectSection
+                    key={city.id}
+                    title={city.country.name}
+                    classNames={{
+                      heading:
+                        "flex w-full sticky top-1 z-20 py-1.5 px-2 bg-default-50 shadow-small rounded-md",
+                    }}
+                  >
+                    <SelectItem key={city.id}>{city.name}</SelectItem>
+                  </SelectSection>
+                )}
+              </Select>
+              <Select
+                selectedKeys={tagSelect}
+                onSelectionChange={(keys) => {
+                  setIsTagChanged(true);
+                  setTagSelect(keys);
+                }}
+                placeholder="Tags"
+                onClose={handleTagChange}
+                items={tags}
+                isLoading={isTagLoading}
+                aria-label="Tags"
+                color="primary"
+                variant="underlined"
+                size="sm"
+                selectionMode="multiple"
+                disableSelectorIconRotation
+                scrollShadowProps={{
+                  isEnabled: false,
+                }}
+                selectorIcon={<TbSelector className="text-default-400" />}
+                classNames={{
+                  base: `w-full md:w-fit items-center ${poppins.className}`,
+                  label: "text-sm",
+                  mainWrapper: "md:w-64",
+                  value: "text-default-800",
+                  listbox: poppins.className,
+                }}
+                popoverProps={{
+                  classNames: {
+                    content:
+                      "rounded-lg px-1 bg-white/50 dark:bg-zinc-950/50 backdrop-blur-sm [-webkit-backdrop-filter:blur(4px)] backdrop-filter border-1 border-default-50",
+                  },
+                }}
+                listboxProps={{
+                  itemClasses: {
+                    base: "rounded-md dark:data-[hover=true]:bg-zinc-800/50 data-[hover=true]:bg-zinc-200/50 dark:focus:!bg-zinc-800/50 focus:!bg-zinc-200/50",
+                    selectedIcon: "text-primary",
+                  },
+                }}
+                spinnerProps={{
+                  classNames: {
+                    base: "w-[18px]",
+                    circle1: "border-b-primary",
+                    circle2: "border-b-primary",
+                  },
+                }}
+                renderValue={(items) => (
+                  <>
+                    Tags ({Array.from(tagSelect).length}/
+                    {tags.flatMap((tag) => tag.stacks).length})
+                  </>
+                )}
+              >
+                {(tag) => (
+                  <SelectSection
+                    key={tag.id}
+                    title={tag.name}
+                    classNames={{
+                      heading:
+                        "flex w-full sticky top-1 z-20 py-1.5 px-2 bg-default-50 shadow-small rounded-md",
+                    }}
+                  >
+                    {tag.stacks.map((stack) => (
+                      <SelectItem key={stack.id}>{stack.name}</SelectItem>
+                    ))}
+                  </SelectSection>
+                )}
+              </Select>
+            </div>
+          </div>
+          <Link
+            onClick={handleClearAll}
+            underline="hover"
+            className={`ml-6 w-fit cursor-pointer text-xs text-default-500 ${poppins.className}`}
+          >
+            Reset all filters
+          </Link>
+          <div className="mt-2 flex flex-col gap-1 md:flex-row md:items-center">
+            <div className="flex items-center gap-x-1.5">
+              <MdSort className="text-xl text-default-400" />
+              <p className="text-sm font-medium">Sort by</p>
+            </div>
+            <div className="ml-6 flex flex-col gap-2 md:ml-0 md:flex-row">
+              <Select
+                selectedKeys={sortBySelect}
+                onSelectionChange={handleSortByChange}
+                items={sortByOptions}
+                isLoading={isSortByLoading}
+                disallowEmptySelection
+                aria-label="Sort by"
+                color="primary"
+                variant="underlined"
+                size="sm"
+                disableSelectorIconRotation
+                selectorIcon={<TbSelector className="text-default-400" />}
+                classNames={{
+                  base: `w-fit items-center ${poppins.className}`,
+                  label: "text-sm",
+                  mainWrapper: "w-48",
+                  value: "text-default-800",
+                  listbox: poppins.className,
+                }}
+                popoverProps={{
+                  classNames: {
+                    content:
+                      "rounded-lg px-1 bg-white/50 dark:bg-zinc-950/50 backdrop-blur-sm [-webkit-backdrop-filter:blur(4px)] backdrop-filter border-1 border-default-50",
+                  },
+                }}
+                listboxProps={{
+                  itemClasses: {
+                    base: "rounded-md dark:data-[hover=true]:bg-zinc-800/50 data-[hover=true]:bg-zinc-200/50 dark:focus:!bg-zinc-800/50 focus:!bg-zinc-200/50",
+                    selectedIcon: "text-primary",
+                  },
+                }}
+                spinnerProps={{
+                  classNames: {
+                    base: "w-[18px]",
+                    circle1: "border-b-primary",
+                    circle2: "border-b-primary",
+                  },
+                }}
+              >
+                {(item) => <SelectItem key={item.key}>{item.label}</SelectItem>}
+              </Select>
+            </div>
+          </div>
+        </AccordionItem>
+      </Accordion>
+      <div className="flex flex-col justify-between gap-y-1 min-[425px]:flex-row min-[425px]:items-center">
         {showingText}
         <Select
           label="Items per page"
@@ -406,7 +478,7 @@ const SearchToolbar = ({ count, places }: SearchToolbarProps) => {
           disableSelectorIconRotation
           selectorIcon={<TbSelector className="text-default-400" />}
           classNames={{
-            base: `w-fit items-center ${poppins.className}`,
+            base: `w-fit items-center order-1 min-[425px]:order-2 ${poppins.className}`,
             label: "text-sm",
             mainWrapper: "w-20",
             value: "text-default-800",
@@ -414,12 +486,14 @@ const SearchToolbar = ({ count, places }: SearchToolbarProps) => {
           }}
           popoverProps={{
             classNames: {
-              content: "rounded-lg px-1",
+              content:
+                "rounded-lg px-1 bg-white/50 dark:bg-zinc-950/50 backdrop-blur-sm [-webkit-backdrop-filter:blur(4px)] backdrop-filter border-1 border-default-50",
             },
           }}
           listboxProps={{
             itemClasses: {
-              base: "rounded-md",
+              base: "rounded-md dark:data-[hover=true]:bg-zinc-800/50 data-[hover=true]:bg-zinc-200/50 dark:focus:!bg-zinc-800/50 focus:!bg-zinc-200/50",
+              selectedIcon: "text-primary",
             },
           }}
           spinnerProps={{

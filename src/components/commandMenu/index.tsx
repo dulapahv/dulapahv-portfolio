@@ -105,7 +105,7 @@ const CommandMenu = forwardRef<CommandMenuModalRef>((props, ref) => {
               }
               href={command.href}
               classNames={{
-                base: "dark:data-[hover=true]:bg-neutral-900 data-[hover=true]:bg-gray-100 py-2.5",
+                base: "dark:data-[hover=true]:bg-zinc-800/50 data-[hover=true]:bg-zinc-200/50 py-2.5",
                 title: "font-medium",
               }}
             >
@@ -125,9 +125,10 @@ const CommandMenu = forwardRef<CommandMenuModalRef>((props, ref) => {
       size="2xl"
       radius="md"
       scrollBehavior="inside"
+      backdrop="transparent"
       classNames={{
         wrapper: "!items-start overflow-y-hidden",
-        base: "min-[575px]:my-16 m-4 min-[575px]:mx-6 border-1 border-default-200 bg-white dark:bg-zinc-950 !max-h-[512px]",
+        base: "min-[575px]:my-16 m-4 min-[575px]:mx-6 border-1 shadow-medium border-default-200 bg-white/50 dark:bg-zinc-950/50 backdrop-blur-sm [-webkit-backdrop-filter:blur(4px)] backdrop-filter !max-h-[512px]",
       }}
       motionProps={{
         variants: {
