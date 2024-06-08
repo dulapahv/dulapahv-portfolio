@@ -128,7 +128,7 @@ const CommandMenu = forwardRef<CommandMenuModalRef>((props, ref) => {
       backdrop="transparent"
       classNames={{
         wrapper: "!items-start overflow-y-hidden",
-        base: "min-[575px]:my-16 m-4 min-[575px]:mx-6 border-1 shadow-medium border-default-200 bg-white/50 dark:bg-zinc-950/50 backdrop-blur-sm [-webkit-backdrop-filter:blur(4px)] backdrop-filter !max-h-[512px]",
+        base: "min-[575px]:my-16 m-4 min-[575px]:mx-6 border-1 shadow-medium border-default-200 bg-white/50 dark:bg-zinc-950/50 backdrop-blur [-webkit-backdrop-filter:blur(8px)] backdrop-filter !max-h-[512px]",
       }}
       motionProps={{
         variants: {

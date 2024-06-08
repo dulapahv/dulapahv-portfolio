@@ -1,5 +1,4 @@
 import { Poppins } from "next/font/google";
-import Link from "next/link";
 import { redirect } from "next/navigation";
 
 import type { City, Country, Experience, Place } from "@prisma/client";

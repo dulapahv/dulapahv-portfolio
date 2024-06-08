@@ -21,12 +21,10 @@ import { PiGearBold } from "react-icons/pi";
 import { TbSelector } from "react-icons/tb";
 import { useDebouncedCallback } from "use-debounce";
 
-import type { City, Country, Place, Stack, Tag } from "@prisma/client";
+import type { City, Country, Stack, Tag } from "@prisma/client";
 
-interface PlaceWithCityAndCountry extends Place {
-  city: City & {
-    country: Country;
-  };
+interface CountriesWithCities extends Country {
+  cities: City[];
 }
 
 interface TagWithStacks extends Tag {
@@ -35,7 +33,7 @@ interface TagWithStacks extends Tag {
 
 interface SearchToolbarProps {
   count: number;
-  places: PlaceWithCityAndCountry[];
+  countries: CountriesWithCities[];
   tags: TagWithStacks[];
 }
 
@@ -57,7 +55,11 @@ const sortByOptions = [
   { key: "end-date-desc", label: "End date (newest)" },
 ];
 
-const SearchToolbar = ({ count, places, tags }: SearchToolbarProps) => {
+const ExperienceSearchToolbar = ({
+  count,
+  countries,
+  tags,
+}: SearchToolbarProps) => {
   const pathname = usePathname();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -72,7 +74,7 @@ const SearchToolbar = ({ count, places, tags }: SearchToolbarProps) => {
   const [isPerPageLoading, setIsPerPageLoading] = useState(false);
 
   const page = Number(searchParams.get("page")) || 1;
-  const perPage = Number(searchParams.get("perPage")) || 10;
+  const perPage = Number(searchParams.get("perPage")) || 5;
   const locationId = searchParams.get("locationId") || "";
   const tagId = searchParams.get("tagId") || "";
   const sortBy = searchParams.get("sortBy") || "end-date-desc";
@@ -276,7 +278,7 @@ const SearchToolbar = ({ count, places, tags }: SearchToolbarProps) => {
                 }}
                 placeholder="Location"
                 onClose={handleLocationChange}
-                items={places.map((place) => place.city)}
+                items={countries}
                 isLoading={isLocationLoading}
                 aria-label="Location"
                 color="primary"
@@ -317,20 +319,22 @@ const SearchToolbar = ({ count, places, tags }: SearchToolbarProps) => {
                 renderValue={(items) => (
                   <>
                     Location ({Array.from(locationSelect).length}/
-                    {places.length})
+                    {countries.flatMap((country) => country.cities).length})
                   </>
                 )}
               >
-                {(city) => (
+                {(country) => (
                   <SelectSection
-                    key={city.id}
-                    title={city.country.name}
+                    key={country.id}
+                    title={country.name}
                     classNames={{
                       heading:
                         "flex w-full sticky top-1 z-20 py-1.5 px-2 bg-default-50 shadow-small rounded-md",
                     }}
                   >
-                    <SelectItem key={city.id}>{city.name}</SelectItem>
+                    {country.cities.map((city) => (
+                      <SelectItem key={city.id}>{city.name}</SelectItem>
+                    ))}
                   </SelectSection>
                 )}
               </Select>
@@ -405,7 +409,7 @@ const SearchToolbar = ({ count, places, tags }: SearchToolbarProps) => {
             </div>
           </div>
           <Link
-            onClick={handleClearAll}
+            onPress={handleClearAll}
             underline="hover"
             className={`ml-6 w-fit cursor-pointer text-xs text-default-500 ${poppins.className}`}
           >
@@ -511,4 +515,4 @@ const SearchToolbar = ({ count, places, tags }: SearchToolbarProps) => {
   );
 };
 
-export default SearchToolbar;
+export default ExperienceSearchToolbar;

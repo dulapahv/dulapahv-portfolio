@@ -10,23 +10,25 @@ import type {
   Stack,
   Tag,
 } from "@prisma/client";
-import { Breadcrumb, PaginationFooter, SearchToolbar } from "@/components";
-import { getManyExperience, getManyPlace, getManyTag } from "@/data";
+import {
+  Breadcrumb,
+  ExperienceSearchToolbar,
+  PaginationFooter,
+} from "@/components";
+import { getManyCountry, getManyExperience, getManyTag } from "@/data";
 import { formatDate } from "@/utils";
 
 export const dynamic = "force-dynamic";
+
+interface CountriesWithCities extends Country {
+  cities: City[];
+}
 
 interface ExperienceWithPlace extends Experience {
   place: Place & {
     city: City & {
       country: Country;
     };
-  };
-}
-
-interface PlaceWithCityAndCountry extends Place {
-  city: City & {
-    country: Country;
   };
 }
 
@@ -66,7 +68,7 @@ const Page = async ({
   const page = Number(searchParams?.page) || 1;
   const locationId = searchParams?.locationId || "";
   const sortBy = searchParams?.sortBy || "";
-  const perPage = Number(searchParams?.perPage) || 10;
+  const perPage = Number(searchParams?.perPage) || 5;
   const tagId = searchParams?.tagId || "";
 
   const experiences = await getManyExperience({
@@ -143,26 +145,17 @@ const Page = async ({
     take: perPage,
   });
 
-  const places = await getManyPlace({
-    // where: {
-    //   experiences: {
-    //     some: {},
-    //   },
-    // },
+  const countries = await getManyCountry({
     select: {
-      city: {
+      id: true,
+      name: true,
+      cities: {
         select: {
           id: true,
           name: true,
-          country: {
-            select: {
-              name: true,
-            },
-          },
         },
       },
     },
-    distinct: ["cityId"],
   });
 
   const tags = await getManyTag({
@@ -183,10 +176,8 @@ const Page = async ({
 
   const items = experiences.item as ExperienceWithPlace[];
   const count = experiences.count;
-
-  const placesItems = places.item as PlaceWithCityAndCountry[];
-
   const tagsItems = tags.item as TagWithStacks[];
+  const countriesItems = countries.item as CountriesWithCities[];
 
   return (
     <div className="flex flex-col gap-y-6">
@@ -199,7 +190,11 @@ const Page = async ({
       </header>
       <main className="flex flex-col gap-y-4 divide-y-1 divide-default-100">
         <div className="flex flex-col gap-y-2">
-          <SearchToolbar count={count} places={placesItems} tags={tagsItems} />
+          <ExperienceSearchToolbar
+            count={count}
+            countries={countriesItems}
+            tags={tagsItems}
+          />
         </div>
         {items.map((item) => (
           <Link
