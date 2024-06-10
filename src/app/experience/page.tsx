@@ -1,4 +1,4 @@
-import { Poppins } from "next/font/google";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa6";
 
@@ -36,10 +36,10 @@ interface TagWithStacks extends Tag {
   stacks: Stack[];
 }
 
-const poppins = Poppins({
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  subsets: ["latin"],
-});
+export const metadata: Metadata = {
+  title: "Experience | DulapahV's Portfolio",
+  description: "Companies and clients I've worked with.",
+};
 
 const getOrderBy = (order_by: string): Record<string, any> => {
   const orderMappings: Record<string, Record<string, any>> = {
@@ -180,16 +180,16 @@ const Page = async ({
   const countriesItems = countries.item as CountriesWithCities[];
 
   return (
-    <div className="flex flex-col gap-y-6">
+    <div className="space-y-6">
       <Breadcrumb />
-      <header className="flex flex-col gap-y-2">
-        <h1 className="text-3xl font-bold">Experience</h1>
-        <p className="text-lg text-default-500">
+      <header className="space-y-2">
+        <h1 className="text-3xl font-semibold">Experience</h1>
+        <p className="font-light text-default-500">
           Companies and clients I&apos;ve worked with.
         </p>
       </header>
-      <main className="flex flex-col gap-y-4 divide-y-1 divide-default-100">
-        <div className="flex flex-col gap-y-2">
+      <main className="space-y-4 divide-y-1 divide-default-100">
+        <div className="space-y-2">
           <ExperienceSearchToolbar
             count={count}
             countries={countriesItems}
@@ -203,13 +203,11 @@ const Page = async ({
             className="group relative flex items-center justify-between gap-x-4 pt-3"
           >
             <div>
-              <h2 className="text-lg font-semibold text-default-800 duration-100 group-hover:text-primary">
+              <h2 className="font-medium text-default-800 duration-100 group-hover:text-primary">
                 {item.position}
-                <span
-                  className={`text-base font-medium text-default-500 group-hover:text-primary ${poppins.className}`}
-                >{` | ${formatDate(item.startDate)} - ${formatDate(item.endDate)}`}</span>
+                <span className="font-normal text-default-500 group-hover:text-primary">{` | ${formatDate(item.startDate)} - ${formatDate(item.endDate)}`}</span>
               </h2>
-              <p className="text-sm font-semibold text-default-500 duration-100 group-hover:text-primary">
+              <p className="text-sm font-medium text-default-500 duration-100 group-hover:text-primary">
                 {item.place.name}
               </p>
               <p className="text-xs text-default-500 duration-100 group-hover:text-primary">
@@ -221,7 +219,7 @@ const Page = async ({
         ))}
       </main>
       {items.length > 0 ? (
-        <footer className="mb-32 flex justify-center">
+        <footer className="flex justify-center">
           <PaginationFooter totalPages={Math.ceil(count / perPage)} />
         </footer>
       ) : null}

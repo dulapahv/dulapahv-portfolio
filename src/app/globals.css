@@ -47,10 +47,10 @@
     @apply my-2 text-base font-bold;
   }
   .unreset a {
-    @apply cursor-pointer font-medium text-primary hover:underline;
+    @apply cursor-pointer text-primary hover:underline;
   }
   .unreset p {
-    @apply my-4 font-medium first:mt-0 last:mb-0;
+    @apply my-4 first:mt-0 last:mb-0;
   }
   .unreset ul {
     @apply pl-4;
@@ -62,7 +62,7 @@
     @apply pl-4;
   }
   .unreset li {
-    @apply font-medium marker:text-primary before:mt-1 after:mt-1 after:border-white [&[aria-checked=true]]:no-underline [&[aria-checked=true]]:before:bg-primary [&[role=checkbox]]:before:border-2 [&[role=checkbox]]:before:border-primary [&[role=checkbox]]:before:ring-0;
+    @apply marker:text-primary before:mt-1 after:mt-1 after:border-white [&[aria-checked=true]]:no-underline [&[aria-checked=true]]:before:bg-primary [&[role=checkbox]]:before:border-2 [&[role=checkbox]]:before:border-primary [&[role=checkbox]]:before:ring-0;
   }
   .unreset blockquote {
     @apply mx-0 my-4 border-l-4 border-primary px-4 text-primary-900;

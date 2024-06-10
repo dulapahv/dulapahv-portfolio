@@ -62,13 +62,7 @@ const CommandMenu = forwardRef<CommandMenuModalRef>((props, ref) => {
         />
       );
     return (
-      <ListboxSection
-        key={section}
-        title={section}
-        classNames={{
-          heading: "font-medium",
-        }}
-      >
+      <ListboxSection key={section} title={section}>
         {sectionCommands.map((command) => {
           if (
             command.key === "copy_short_url" &&
@@ -106,7 +100,6 @@ const CommandMenu = forwardRef<CommandMenuModalRef>((props, ref) => {
               href={command.href}
               classNames={{
                 base: "dark:data-[hover=true]:bg-zinc-800/50 data-[hover=true]:bg-zinc-200/50 py-2.5",
-                title: "font-medium",
               }}
             >
               {command.label}
@@ -186,7 +179,6 @@ const CommandMenu = forwardRef<CommandMenuModalRef>((props, ref) => {
                   classNames={{
                     inputWrapper:
                       "px-0 bg-transparent group-data-[hover=true]:bg-transparent data-[focus=true]:!bg-transparent data-[focus-visible=true]:!ring-0 data-[focus-visible=true]:!ring-offset-transparent data-[focus-visible=true]:!ring-offset-0",
-                    input: "font-medium",
                   }}
                 />
                 <Kbd
@@ -235,7 +227,7 @@ const CommandMenu = forwardRef<CommandMenuModalRef>((props, ref) => {
                   )}
                 </Listbox>
               ) : (
-                <div className="p-4 text-center text-sm font-medium text-default-500">
+                <div className="p-4 text-center text-sm text-default-500">
                   No results found for{" "}
                   <span className="text-default-800">&quot;{search}&quot;</span>
                   .

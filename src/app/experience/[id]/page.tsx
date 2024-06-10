@@ -1,10 +1,12 @@
-import { Poppins } from "next/font/google";
+import type { Metadata, ResolvingMetadata } from "next";
+import Image from "next/image";
 import { redirect } from "next/navigation";
+import { Article, WithContext } from "schema-dts";
 
 import type { City, Country, Experience, Place } from "@prisma/client";
 import { Breadcrumb, MarkdownRenderer } from "@/components";
 import { getUniqueExperience } from "@/data";
-import { formatDate } from "@/utils";
+import { dynamicBlurDataUrl, formatDate } from "@/utils";
 
 interface ExperienceWithPlace extends Experience {
   place: Place & {
@@ -14,12 +16,16 @@ interface ExperienceWithPlace extends Experience {
   };
 }
 
-const poppins = Poppins({
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  subsets: ["latin"],
-});
+type Props = {
+  params: {
+    id: string;
+  };
+};
 
-const Page = async ({ params }: { params: { id: string } }) => {
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
   const id = params.id.split("-")[0];
 
   const item = (await getUniqueExperience({
@@ -44,6 +50,61 @@ const Page = async ({ params }: { params: { id: string } }) => {
       },
       id: true,
       position: true,
+      imagePath: true,
+      imageDescription: true,
+      description: true,
+      startDate: true,
+      endDate: true,
+    },
+  })) as ExperienceWithPlace;
+
+  const previousImages = (await parent).openGraph?.images || [];
+
+  return {
+    title: `Experience: ${item.position} | DulapahV's Portfolio`,
+    description: item.description,
+    openGraph: {
+      title: `Experience: ${item.position} | DulapahV's Portfolio`,
+      description: item.description,
+      url: `https://dulapahv.dev/experience/${item.id}-${item.place.name.replace(/ /g, "-")}-${item.position.replace(/ /g, "-")}`,
+      images: [
+        {
+          url: `https://assets.dulapahv.dev/images/exp/${item.imagePath}/cover.png`,
+          alt: `${item.place.name} | ${item.position}`,
+        },
+        ...previousImages,
+      ],
+    },
+  };
+}
+
+const Page = async ({ params }: Props) => {
+  const id = params.id.split("-")[0];
+
+  const item = (await getUniqueExperience({
+    where: {
+      id: id,
+    },
+    select: {
+      place: {
+        select: {
+          name: true,
+          city: {
+            select: {
+              name: true,
+              country: {
+                select: {
+                  name: true,
+                },
+              },
+            },
+          },
+        },
+      },
+      id: true,
+      position: true,
+      imagePath: true,
+      imageDescription: true,
       description: true,
       startDate: true,
       endDate: true,
@@ -53,27 +114,89 @@ const Page = async ({ params }: { params: { id: string } }) => {
   const healedUrl = `/experience/${item.id}-${item.place.name.replace(/ /g, "-")}-${item.position.replace(/ /g, "-")}`;
   if (`/experience/${params.id}` != healedUrl) redirect(healedUrl);
 
+  const coverImgUrl = `https://assets.dulapahv.dev/images/exp/${item.imagePath}/cover.png`;
+
+  const jsonLd: WithContext<Article> = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://dulapahv.dev/experience/${item.id}-${item.place.name.replace(/ /g, "-")}-${item.position.replace(/ /g, "-")}`,
+    },
+    headline: `${item.place.name} | ${item.position}`,
+    description: `${item.place.name} | ${item.position}`,
+    image: `https://assets.dulapahv.dev/images/exp/${item.imagePath}/cover.png`,
+    author: {
+      "@type": "Person",
+      name: "Dulapah Vibulsanti",
+      url: "https://dulapahv.dev/",
+    },
+    publisher: {
+      "@type": "Person",
+      name: "Dulapah Vibulsanti",
+      url: "https://dulapahv.dev/",
+    },
+    datePublished: formatDate(item.createdAt),
+    dateModified: formatDate(item.updatedAt),
+  };
+
   return (
-    <div className="flex flex-col gap-y-8">
-      <Breadcrumb lastItem={`${item.place.name} | ${item.position}`} />
-      <header className="flex flex-col">
-        <h2 className="text-3xl font-bold text-default-800 duration-100">
-          {item.position}
-          <span
-            className={`text-2xl font-semibold text-default-500 ${poppins.className}`}
-          >{` | ${formatDate(item.startDate)} - ${formatDate(item.endDate)}`}</span>
-        </h2>
-        <p className="text-lg font-semibold text-default-500 duration-100">
-          {item.place.name}
-        </p>
-        <p className="text-base text-default-500 duration-100">
-          {item.place.city.name}, {item.place.city.country.name}
-        </p>
-      </header>
-      <main>
-        <MarkdownRenderer>{item.description}</MarkdownRenderer>
-      </main>
-    </div>
+    <>
+      <section>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </section>
+      <div className="space-y-8">
+        <Breadcrumb lastItem={`${item.place.name} | ${item.position}`} />
+        <header className="flex flex-col">
+          <h2 className="text-xl font-semibold text-default-800 duration-100 sm:text-2xl">
+            {item.position}
+            <span className="font-medium text-default-500">{` | ${formatDate(item.startDate)} - ${formatDate(item.endDate)}`}</span>
+          </h2>
+          <p className="text-base font-medium text-default-500 duration-100 sm:text-lg">
+            {item.place.name}
+          </p>
+          <p className="text-sm text-default-500 duration-100 sm:text-base">
+            {item.place.city.name}, {item.place.city.country.name}
+          </p>
+        </header>
+        <main>
+          <Image
+            src={coverImgUrl}
+            alt={`${item.place.name} | ${item.position}`}
+            width={1920}
+            height={1080}
+            placeholder="blur"
+            blurDataURL={await dynamicBlurDataUrl(coverImgUrl)}
+          />
+          <MarkdownRenderer>{item.description}</MarkdownRenderer>
+        </main>
+        <footer className="space-y-4">
+          <h3 className="text-2xl font-semibold" id="gallery">
+            Gallery
+          </h3>
+          {item.imageDescription.map(async (description, index) => {
+            const url = `https://assets.dulapahv.dev/images/exp/${item.imagePath}/${index + 1}.png`;
+
+            return (
+              <div className="space-y-2" key={index}>
+                <h3 className="text-sm sm:text-base">{`${index + 1}. ${description}`}</h3>
+                <Image
+                  src={url}
+                  alt={description}
+                  width={1920}
+                  height={1080}
+                  placeholder="blur"
+                  blurDataURL={await dynamicBlurDataUrl(url)}
+                />
+              </div>
+            );
+          })}
+        </footer>
+      </div>
+    </>
   );
 };
 

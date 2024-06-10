@@ -30,7 +30,7 @@ const Breadcrumb = ({ lastItem }: BreadcrumbProps) => {
       itemsBeforeCollapse={2}
       itemsAfterCollapse={2}
       classNames={{
-        list: "capitalize font-semibold",
+        list: "capitalize",
       }}
     >
       <BreadcrumbItem key={0} href="/">

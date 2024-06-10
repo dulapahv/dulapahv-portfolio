@@ -1,4 +1,4 @@
-import { Poppins } from "next/font/google";
+import Image from "next/image";
 import { redirect } from "next/navigation";
 
 import type { City, Country, Place, Project } from "@prisma/client";
@@ -13,11 +13,6 @@ interface ProjectsWithPlace extends Project {
     };
   };
 }
-
-const poppins = Poppins({
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  subsets: ["latin"],
-});
 
 const Page = async ({ params }: { params: { id: string } }) => {
   const id = params.id.split("-")[0];
@@ -55,14 +50,12 @@ const Page = async ({ params }: { params: { id: string } }) => {
   if (`/project/${params.id}` != healedUrl) redirect(healedUrl);
 
   return (
-    <div className="flex flex-col gap-y-8">
+    <div className="space-y-8">
       <Breadcrumb lastItem={`${item.title}`} />
       <header className="flex flex-col">
-        <h2 className="text-3xl font-bold text-default-800 duration-100">
+        <h2 className="text-2xl font-semibold text-default-800 duration-100">
           {item.title}
-          <span
-            className={`text-2xl font-semibold text-default-500 ${poppins.className}`}
-          >{` | ${formatDate(item.startDate)} - ${formatDate(item.endDate)}`}</span>
+          <span className="font-medium text-default-500">{` | ${formatDate(item.startDate)} - ${formatDate(item.endDate)}`}</span>
         </h2>
         {item.placeId ? (
           <>

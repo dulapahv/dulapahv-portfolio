@@ -248,7 +248,6 @@ const ExperienceSearchToolbar = ({
         classNames={{
           inputWrapper:
             "data-[focus-visible=true]:!ring-0 data-[focus-visible=true]:!ring-offset-transparent data-[focus-visible=true]:!ring-offset-0",
-          input: "font-medium",
         }}
       />
       <Accordion isCompact className="px-0">
@@ -258,7 +257,7 @@ const ExperienceSearchToolbar = ({
           title="Advanced Options"
           startContent={<PiGearBold className="text-xl text-default-600" />}
           classNames={{
-            title: `${poppins.className} text-sm font-medium text-default-700`,
+            title: `${poppins.className} text-sm text-default-700`,
             trigger:
               "[&>div>*]:data-[hover=true]:text-primary [&>div>*]:duration-100",
             indicator: "text-primary",
@@ -267,7 +266,7 @@ const ExperienceSearchToolbar = ({
           <div className="flex flex-col gap-1 md:flex-row md:items-center">
             <div className="flex items-center gap-x-1.5">
               <LuFilter className="text-lg text-default-400" />
-              <p className="text-sm font-medium">Filter by</p>
+              <p className="text-sm">Filter by</p>
             </div>
             <div className="ml-6 flex flex-col gap-2 md:ml-0 md:flex-row">
               <Select
@@ -418,7 +417,7 @@ const ExperienceSearchToolbar = ({
           <div className="mt-2 flex flex-col gap-1 md:flex-row md:items-center">
             <div className="flex items-center gap-x-1.5">
               <MdSort className="text-xl text-default-400" />
-              <p className="text-sm font-medium">Sort by</p>
+              <p className="text-sm">Sort by</p>
             </div>
             <div className="ml-6 flex flex-col gap-2 md:ml-0 md:flex-row">
               <Select

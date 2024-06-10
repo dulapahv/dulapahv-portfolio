@@ -10,31 +10,35 @@ datasource db {
 }
 
 model Experience {
-  id          String   @id @default(cuid())
-  place       Place    @relation(fields: [placeId], references: [id])
-  placeId     String
-  position    String
-  stacks      Stack[]
-  description String
-  coverImage  String
-  images      String[]
-  startDate   DateTime
-  endDate     DateTime
+  id               String   @id @default(cuid())
+  place            Place    @relation(fields: [placeId], references: [id])
+  placeId          String
+  position         String
+  stacks           Stack[]
+  description      String
+  imagePath        String?
+  imageDescription String[]
+  startDate        DateTime
+  endDate          DateTime
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
 
   @@index([placeId, startDate, endDate])
 }
 
 model Project {
-  id          String   @id @default(cuid())
-  title       String
-  stacks      Stack[]
-  description String
-  coverImage  String
-  images      String[]
-  startDate   DateTime
-  endDate     DateTime
-  place       Place?   @relation(fields: [placeId], references: [id])
-  placeId     String?
+  id               String   @id @default(cuid())
+  title            String
+  stacks           Stack[]
+  description      String
+  imagePath        String   @default("")
+  imageDescription String[]
+  startDate        DateTime
+  endDate          DateTime
+  place            Place?   @relation(fields: [placeId], references: [id])
+  placeId          String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
 
   @@index([title, startDate, endDate, placeId])
 }
