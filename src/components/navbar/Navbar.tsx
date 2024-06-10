@@ -51,7 +51,7 @@ const Navbar = () => {
           }
         }}
         classNames={{
-          base: "fixed bottom-6 left-1/2 -translate-x-1/2 bg-white/50 dark:bg-zinc-900/50 rounded-full px-2 py-0.5 backdrop-blur [-webkit-backdrop-filter:blur(8px)] backdrop-filter shadow-medium z-50",
+          base: "fixed bottom-6 left-1/2 -translate-x-1/2 bg-white/70 dark:bg-zinc-900/70 rounded-full px-2 py-0.5 backdrop-blur-md [-webkit-backdrop-filter:blur(12px)] backdrop-filter shadow-medium z-50",
           tabContent: `font-semibold ${raleway.className}`,
           tab: "px-2.5 first:pl-0 last:pr-0 sm:first:pl-2 sm:last:pr-2",
           tabList: "sm:gap-2 gap-1.5",

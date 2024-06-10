@@ -162,7 +162,7 @@ const Page = async ({ params }: Props) => {
             {item.place.city.name}, {item.place.city.country.name}
           </p>
         </header>
-        <main>
+        <main className="space-y-8 pb-2">
           <Image
             src={coverImgUrl}
             alt={`${item.place.name} | ${item.position}`}
@@ -170,10 +170,12 @@ const Page = async ({ params }: Props) => {
             height={1080}
             placeholder="blur"
             blurDataURL={await dynamicBlurDataUrl(coverImgUrl)}
+            priority
+            className="rounded-md"
           />
           <MarkdownRenderer>{item.description}</MarkdownRenderer>
         </main>
-        <footer className="space-y-4">
+        <footer className="space-y-4 border-t-1 border-default-300 pt-10 dark:border-default-100">
           <h3 className="text-2xl font-semibold" id="gallery">
             Gallery
           </h3>
@@ -190,6 +192,7 @@ const Page = async ({ params }: Props) => {
                   height={1080}
                   placeholder="blur"
                   blurDataURL={await dynamicBlurDataUrl(url)}
+                  className="rounded-md"
                 />
               </div>
             );

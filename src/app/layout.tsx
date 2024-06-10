@@ -34,11 +34,6 @@ export const metadata: Metadata = {
   ],
   creator: "Dulapah Vibulsanti",
   publisher: "Dulapah Vibulsanti",
-  formatDetection: {
-    email: true,
-    telephone: true,
-    address: true,
-  },
   openGraph: {
     title: "DulapahV's Portfolio",
     description:
@@ -168,7 +163,7 @@ const RootLayout = ({
         </div>
         <Providers>
           <ThemeProvider>
-            <div className="mb-16 sm:mb-32">{children}</div>
+            <div className="mb-32">{children}</div>
             <Navbar />
           </ThemeProvider>
         </Providers>

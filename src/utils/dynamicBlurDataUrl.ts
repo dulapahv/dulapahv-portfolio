@@ -3,8 +3,6 @@ const baseUrl =
     ? "http://localhost:3000/"
     : `https://${process.env.VERCEL_URL}`;
 
-console.log("baseUrl", baseUrl);
-
 const dynamicBlurDataUrl = async (url: string) => {
   const base64str = await fetch(
     `${baseUrl}/_next/image?url=${url}&w=1920&q=75`,

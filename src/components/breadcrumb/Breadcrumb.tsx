@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BreadcrumbItem, Breadcrumbs } from "@nextui-org/breadcrumbs";
+import { GoChevronRight } from "react-icons/go";
 
 interface BreadcrumbProps {
   lastItem?: string;
@@ -16,39 +16,61 @@ const Breadcrumb = ({ lastItem }: BreadcrumbProps) => {
     return null;
   }
 
-  const pathSegments = pathname.split("/").slice(1);
+  const pathSegments = pathname.split("/").filter(Boolean);
 
   if (lastItem) {
     pathSegments[pathSegments.length - 1] = lastItem;
   }
 
   return (
-    <Breadcrumbs
-      color="primary"
-      underline="hover"
-      maxItems={4}
-      itemsBeforeCollapse={2}
-      itemsAfterCollapse={2}
-      classNames={{
-        list: "capitalize",
-      }}
-    >
-      <BreadcrumbItem key={0} href="/">
-        Home
-      </BreadcrumbItem>
-      {pathSegments.map((segment, index) => {
-        const href = `/${pathSegments.slice(0, index + 1).join("/")}`;
-        return (
-          <BreadcrumbItem
-            key={index + 1}
-            href={href}
-            className="max-w-64 [&>span]:!line-clamp-none [&>span]:!overflow-hidden [&>span]:!text-ellipsis"
-          >
-            {segment}
-          </BreadcrumbItem>
-        );
-      })}
-    </Breadcrumbs>
+    <nav aria-label="Breadcrumb">
+      <ol className="flex flex-wrap gap-x-1.5 text-sm capitalize">
+        <BreadcrumbItem href="/" label="Home" />
+        {pathSegments.map((segment, index) => {
+          const isLast = index === pathSegments.length - 1;
+          const path = `/${pathSegments.slice(0, index + 1).join("/")}`;
+          return (
+            <BreadcrumbItem
+              key={path}
+              href={path}
+              label={segment}
+              isLast={isLast}
+            />
+          );
+        })}
+      </ol>
+    </nav>
+  );
+};
+
+interface BreadcrumbItemProps {
+  href: string;
+  label: string;
+  isLast?: boolean;
+}
+
+const BreadcrumbItem = ({
+  href,
+  label,
+  isLast = false,
+}: BreadcrumbItemProps) => {
+  const style =
+    "inline-block max-w-52 sm:max-w-64 overflow-hidden text-ellipsis whitespace-nowrap";
+
+  return (
+    <li className="flex items-center gap-x-1.5">
+      {isLast ? (
+        <span className={`${style} font-medium text-primary`}>{label}</span>
+      ) : (
+        <Link
+          href={href}
+          className={`${style} text-primary/80 hover:underline`}
+        >
+          {label}
+        </Link>
+      )}
+      {!isLast && <GoChevronRight className="text-lg text-primary/80" />}
+    </li>
   );
 };
 
