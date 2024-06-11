@@ -12,7 +12,7 @@ export default function GlobalError({ error }: { error: Error }) {
   return (
     <html>
       <body>
-        GLobal Error
+        Global Error
       </body>
     </html>
   );

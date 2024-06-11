@@ -6,6 +6,16 @@ import Image from "next/image";
 import { ThemeProvider } from "next-themes";
 
 import { Navbar } from "@/components";
+import {
+  ASSETS_URL,
+  BASE_URL,
+  DESCRIPTION,
+  NAME,
+  SHORT_NAME,
+  SITE_NAME,
+  THEME_COLOR,
+} from "@/lib/constants";
+import { dynamicBlurDataUrl } from "@/utils";
 
 import "./globals.css";
 
@@ -19,30 +29,28 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "DulapahV's Portfolio",
-  description:
-    "This website is a personal project to showcase my skills and experience, as well as to share my knowledge and experience with others.",
-  generator: "DulapahV",
-  applicationName: "DulapahV's Portfolio",
+  title: SITE_NAME,
+  description: DESCRIPTION,
+  generator: SHORT_NAME,
+  applicationName: SITE_NAME,
   referrer: "origin-when-cross-origin",
   keywords: "DulapahV, Portfolio, Developer, Dulapah Vibulsanti",
   authors: [
     {
-      name: "Dulapah Vibulsanti",
-      url: "https://dulapahv.dev/",
+      name: NAME,
+      url: BASE_URL,
     },
   ],
-  creator: "Dulapah Vibulsanti",
-  publisher: "Dulapah Vibulsanti",
+  creator: NAME,
+  publisher: NAME,
   openGraph: {
-    title: "DulapahV's Portfolio",
-    description:
-      "This website is a personal project to showcase my skills and experience, as well as to share my knowledge and experience with others.",
-    url: "https://dulapahv.dev/",
-    siteName: "DulapahV's Portfolio",
+    title: SITE_NAME,
+    description: DESCRIPTION,
+    url: BASE_URL,
+    siteName: SITE_NAME,
     images: [
       {
-        url: "https://assets.dulapahv.dev/ogp.png",
+        url: `${ASSETS_URL}/ogp.png`,
         width: 1200,
         height: 630,
       },
@@ -57,62 +65,63 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/favicon.ico",
+        url: "/images/favicon.ico",
         type: "image/x-icon",
+        sizes: "any",
       },
       {
-        url: "/favicon-16x16.png",
+        url: "/images/favicon-16x16.png",
         type: "image/png",
         sizes: "16x16",
       },
       {
-        url: "/favicon-32x32.png",
+        url: "/images/favicon-32x32.png",
         type: "image/png",
         sizes: "32x32",
       },
       {
-        url: "/favicon-96x96.png",
+        url: "/images/favicon-96x96.png",
         type: "image/png",
         sizes: "96x96",
       },
       {
-        url: "/favicon-128x128.png",
+        url: "/images/favicon-128x128.png",
         type: "image/png",
         sizes: "128x128",
       },
       {
-        url: "/favicon-196x196.png",
+        url: "/images/favicon-196x196.png",
         type: "image/png",
         sizes: "196x196",
       },
     ],
     apple: [
-      { url: "/favicon-57x57.png", sizes: "57x57", type: "image/png" },
-      { url: "/favicon-60x60.png", sizes: "60x60", type: "image/png" },
-      { url: "/favicon-72x72.png", sizes: "72x72", type: "image/png" },
-      { url: "/favicon-76x76.png", sizes: "76x76", type: "image/png" },
+      { url: "/images/favicon-57x57.png", sizes: "57x57", type: "image/png" },
+      { url: "/images/favicon-60x60.png", sizes: "60x60", type: "image/png" },
+      { url: "/images/favicon-72x72.png", sizes: "72x72", type: "image/png" },
+      { url: "/images/favicon-76x76.png", sizes: "76x76", type: "image/png" },
       {
-        url: "/favicon-114x114.png",
+        url: "/images/favicon-114x114.png",
         sizes: "114x114",
         type: "image/png",
       },
       {
-        url: "/favicon-120x120.png",
+        url: "/images/favicon-120x120.png",
         sizes: "120x120",
         type: "image/png",
       },
       {
-        url: "/favicon-144x144.png",
+        url: "/images/favicon-144x144.png",
         sizes: "144x144",
         type: "image/png",
       },
       {
-        url: "/favicon-152x152.png",
+        url: "/images/favicon-152x152.png",
         sizes: "152x152",
         type: "image/png",
       },
       {
-        url: "/favicon-180x180.png",
+        url: "/images/favicon-180x180.png",
         sizes: "180x180",
         type: "image/png",
       },
@@ -120,28 +129,28 @@ export const metadata: Metadata = {
   },
   alternates: {
     types: {
-      "application/rss+xml": "https://dulapahv.dev/feed.xml",
+      "application/rss+xml": `${BASE_URL}/feed.xml`,
     },
   },
   other: {
     darkreader: "NO-DARKREADER-PLUGIN",
-    "msapplication-TileColor": "#fb568a",
-    "msapplication-TileImage": "/mstile-144x144.png",
-    "msapplication-square70x70logo": "/mstile-70x70.png",
-    "msapplication-square150x150logo": "/mstile-150x150.png",
-    "msapplication-wide310x150logo": "/mstile-310x150.png",
-    "msapplication-square310x310logo": "/mstile-310x310.png",
+    "msapplication-TileColor": THEME_COLOR,
+    "msapplication-TileImage": "/images/mstile-144x144.png",
+    "msapplication-square70x70logo": "/images/mstile-70x70.png",
+    "msapplication-square150x150logo": "/images/mstile-150x150.png",
+    "msapplication-wide310x150logo": "/images/mstile-310x150.png",
+    "msapplication-square310x310logo": "/images/mstile-310x310.png",
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#fb568a",
+  themeColor: THEME_COLOR,
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
 };
 
-const RootLayout = ({
+const RootLayout = async ({
   children,
 }: Readonly<{
   children: ReactNode;
@@ -156,10 +165,24 @@ const RootLayout = ({
         className={`mx-auto my-4 mt-16 max-w-5xl px-4 antialiased sm:px-16 lg:mt-32 ${poppins.className}`}
       >
         <div className="fixed -right-[35%] -top-[25%] -z-50 size-full select-none overflow-clip opacity-50 mix-blend-darken hue-rotate-[45deg] dark:mix-blend-lighten sm:rotate-[20deg]">
-          <Image src="/grad-right.png" alt="grad-right" fill priority />
+          <Image
+            src="/pink.png"
+            alt="pink"
+            fill
+            priority
+            placeholder="blur"
+            blurDataURL={await dynamicBlurDataUrl("/pink.png")}
+          />
         </div>
         <div className="fixed -bottom-[15%] -left-[25%] -z-50 size-[80%] select-none overflow-clip opacity-90 mix-blend-darken dark:opacity-60 dark:mix-blend-lighten sm:rotate-[15deg]">
-          <Image src="/grad-left.png" alt="grad-left" fill priority />
+          <Image
+            src="/blue.png"
+            alt="blue"
+            fill
+            priority
+            placeholder="blur"
+            blurDataURL={await dynamicBlurDataUrl("/blue.png")}
+          />
         </div>
         <Providers>
           <ThemeProvider>

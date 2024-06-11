@@ -2,6 +2,7 @@ import { MetadataRoute } from "next";
 
 import type { City, Country, Experience, Place } from "@prisma/client";
 import { getManyExperience, getManyProject } from "@/data";
+import { BASE_URL } from "@/lib/constants";
 
 interface ExperienceWithPlace extends Experience {
   place: Place & {
@@ -14,23 +15,23 @@ interface ExperienceWithPlace extends Experience {
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const links = [
     {
-      url: "https://dulapahv.dev",
+      url: BASE_URL,
       lastModified: new Date(),
     },
     {
-      url: "https://dulapahv.dev/experience",
+      url: `${BASE_URL}/experience`,
       lastModified: new Date(),
     },
     {
-      url: "https://dulapahv.dev/project",
+      url: `${BASE_URL}/project`,
       lastModified: new Date(),
     },
     {
-      url: "https://dulapahv.dev/stack",
+      url: `${BASE_URL}/stack`,
       lastModified: new Date(),
     },
     {
-      url: "https://dulapahv.dev/contact",
+      url: `${BASE_URL}/contact`,
       lastModified: new Date(),
     },
   ];
@@ -62,14 +63,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   experiences.forEach((experience) => {
     links.push({
-      url: `https://dulapahv.dev/experience/${experience.id}-${experience.place.name.replace(/ /g, "-")}-${experience.position.replace(/ /g, "-")}`,
+      url: `${BASE_URL}/experience/${experience.id}-${experience.place.name.replace(/ /g, "-")}-${experience.position.replace(/ /g, "-")}`,
       lastModified: experience.updatedAt,
     });
   });
 
   projects.forEach((project) => {
     links.push({
-      url: `https://dulapahv.dev/project/${project.id}-${project.title.replace(/ /g, "-")}`,
+      url: `${BASE_URL}/project/${project.id}-${project.title.replace(/ /g, "-")}`,
       lastModified: project.updatedAt,
     });
   });

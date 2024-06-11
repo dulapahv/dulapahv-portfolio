@@ -1,4 +1,13 @@
+import type { Metadata } from "next";
+
 import { Breadcrumb } from "@/components";
+import { SITE_NAME } from "@/lib/constants";
+
+export const metadata: Metadata = {
+  title: `Contact | ${SITE_NAME}`,
+  description:
+    "Let me know what's on your mind and I'll get back to you as soon as possible.",
+};
 
 const Page = () => {
   return (

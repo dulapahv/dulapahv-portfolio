@@ -2,6 +2,13 @@ import RSS from "rss";
 
 import type { City, Country, Experience, Place, Stack } from "@prisma/client";
 import { getManyExperience, getManyProject } from "@/data";
+import {
+  BASE_URL,
+  DESCRIPTION,
+  NAME,
+  SHORT_NAME,
+  SITE_NAME,
+} from "@/lib/constants";
 
 interface ExperienceWithPlace extends Experience {
   place: Place & {
@@ -13,12 +20,11 @@ interface ExperienceWithPlace extends Experience {
 }
 
 const feed = new RSS({
-  title: "DulapahV's Portfolio",
-  description:
-    "This website is a personal project to showcase my skills and experience, as well as to share my knowledge and experience with others.",
-  site_url: "https://dulapahv.dev",
-  feed_url: `https://dulapahv.dev/feed.xml`,
-  copyright: `${new Date().getFullYear()} DulapahV`,
+  title: SITE_NAME,
+  description: DESCRIPTION,
+  site_url: BASE_URL,
+  feed_url: `${BASE_URL}/feed.xml`,
+  copyright: `${new Date().getFullYear()} ${SHORT_NAME}`,
   language: "en",
   pubDate: new Date(),
 });
@@ -45,13 +51,14 @@ export async function GET() {
   ).item as ExperienceWithPlace[];
 
   experiences.map((experience) => {
+    const url = `${BASE_URL}/experience/${experience.id}-${experience.place.name.replace(/ /g, "-")}-${experience.position.replace(/ /g, "-")}`;
     feed.item({
       title: `${experience.place.name} | ${experience.position}`,
-      guid: `https://dulapahv.dev/experience/${experience.id}-${experience.place.name.replace(/ /g, "-")}-${experience.position.replace(/ /g, "-")}`,
-      url: `https://dulapahv.dev/experience/${experience.id}-${experience.place.name.replace(/ /g, "-")}-${experience.position.replace(/ /g, "-")}`,
+      guid: url,
+      url: url,
       date: experience.updatedAt,
       description: `${experience.place.name} | ${experience.position}`,
-      author: "Dulapah Vibulsanti",
+      author: NAME,
       categories: experience.stacks.map((stack) => stack.name),
     });
   });

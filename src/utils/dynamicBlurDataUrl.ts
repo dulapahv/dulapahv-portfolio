@@ -1,11 +1,8 @@
-const baseUrl =
-  process.env.NODE_ENV === "development"
-    ? "http://localhost:3000/"
-    : `https://${process.env.VERCEL_URL}`;
+import { BASE_URL } from "@/lib/constants";
 
 const dynamicBlurDataUrl = async (url: string) => {
   const base64str = await fetch(
-    `${baseUrl}/_next/image?url=${url}&w=1920&q=75`,
+    `${BASE_URL}/_next/image?url=${url}&w=1920&q=75`,
   ).then(async (res) =>
     Buffer.from(await res.arrayBuffer()).toString("base64"),
   );

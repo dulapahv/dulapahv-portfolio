@@ -1,4 +1,12 @@
+import type { Metadata } from "next";
+
 import { Breadcrumb } from "@/components";
+import { SITE_NAME } from "@/lib/constants";
+
+export const metadata: Metadata = {
+  title: `Stack | ${SITE_NAME}`,
+  description: "Tools and technologies I use.",
+};
 
 const Page = () => {
   return (

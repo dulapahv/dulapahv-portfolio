@@ -3,41 +3,21 @@ import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa6";
 
 import type {
-  City,
-  Country,
-  Experience,
-  Place,
-  Stack,
-  Tag,
-} from "@prisma/client";
+  CountriesWithCities,
+  ExperienceWithPlace,
+  TagWithStacks,
+} from "@/types";
 import {
   Breadcrumb,
   ExperienceSearchToolbar,
   PaginationFooter,
 } from "@/components";
 import { getManyCountry, getManyExperience, getManyTag } from "@/data";
+import { SITE_NAME } from "@/lib/constants";
 import { formatDate } from "@/utils";
 
-export const dynamic = "force-dynamic";
-
-interface CountriesWithCities extends Country {
-  cities: City[];
-}
-
-interface ExperienceWithPlace extends Experience {
-  place: Place & {
-    city: City & {
-      country: Country;
-    };
-  };
-}
-
-interface TagWithStacks extends Tag {
-  stacks: Stack[];
-}
-
 export const metadata: Metadata = {
-  title: "Experience | DulapahV's Portfolio",
+  title: `Experience | ${SITE_NAME}`,
   description: "Companies and clients I've worked with.",
 };
 
@@ -73,6 +53,10 @@ const Page = async ({
 
   const experiences = await getManyExperience({
     select: {
+      id: true,
+      position: true,
+      startDate: true,
+      endDate: true,
       place: {
         select: {
           name: true,
@@ -93,10 +77,6 @@ const Page = async ({
           name: true,
         },
       },
-      id: true,
-      position: true,
-      startDate: true,
-      endDate: true,
     },
     where: {
       OR: [
@@ -184,7 +164,7 @@ const Page = async ({
       <Breadcrumb />
       <header className="space-y-2">
         <h1 className="text-3xl font-semibold">Experience</h1>
-        <p className="font-light text-default-500">
+        <p className="text-pretty font-light text-default-500">
           Companies and clients I&apos;ve worked with.
         </p>
       </header>
@@ -202,15 +182,15 @@ const Page = async ({
             key={item.id}
             className="group relative flex items-center justify-between gap-x-4 pt-3"
           >
-            <div>
-              <h2 className="font-medium text-default-800 duration-100 group-hover:text-primary">
+            <div className="text-pretty">
+              <h2 className="font-semibold duration-100 group-hover:text-primary">
                 {item.position}
-                <span className="font-normal text-default-500 group-hover:text-primary">{` | ${formatDate(item.startDate)} - ${formatDate(item.endDate)}`}</span>
               </h2>
+              <p className="text-sm font-medium text-default-500 duration-100 group-hover:text-primary">{`${formatDate(item.startDate)} - ${formatDate(item.endDate)}`}</p>
               <p className="text-sm font-medium text-default-500 duration-100 group-hover:text-primary">
                 {item.place.name}
               </p>
-              <p className="text-xs text-default-500 duration-100 group-hover:text-primary">
+              <p className="text-sm font-light text-default-500 duration-100 group-hover:text-primary">
                 {item.place.city.name}, {item.place.city.country.name}
               </p>
             </div>

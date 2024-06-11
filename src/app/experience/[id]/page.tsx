@@ -3,18 +3,11 @@ import Image from "next/image";
 import { redirect } from "next/navigation";
 import { Article, WithContext } from "schema-dts";
 
-import type { City, Country, Experience, Place } from "@prisma/client";
+import type { ExperienceWithPlace } from "@/types";
 import { Breadcrumb, MarkdownRenderer } from "@/components";
 import { getUniqueExperience } from "@/data";
+import { ASSETS_URL, BASE_URL, NAME } from "@/lib/constants";
 import { dynamicBlurDataUrl, formatDate } from "@/utils";
-
-interface ExperienceWithPlace extends Experience {
-  place: Place & {
-    city: City & {
-      country: Country;
-    };
-  };
-}
 
 type Props = {
   params: {
@@ -22,17 +15,20 @@ type Props = {
   };
 };
 
-export async function generateMetadata(
-  { params }: Props,
-  parent: ResolvingMetadata,
-): Promise<Metadata> {
+const fetch = async ({ params }: Props) => {
   const id = params.id.split("-")[0];
 
-  const item = (await getUniqueExperience({
-    where: {
-      id: id,
-    },
+  return (await getUniqueExperience({
     select: {
+      id: true,
+      position: true,
+      imagePath: true,
+      imageDescription: true,
+      description: true,
+      startDate: true,
+      endDate: true,
+      createdAt: true,
+      updatedAt: true,
       place: {
         select: {
           name: true,
@@ -48,28 +44,31 @@ export async function generateMetadata(
           },
         },
       },
-      id: true,
-      position: true,
-      imagePath: true,
-      imageDescription: true,
-      description: true,
-      startDate: true,
-      endDate: true,
+    },
+    where: {
+      id: id,
     },
   })) as ExperienceWithPlace;
+};
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  const item = await fetch({ params });
 
   const previousImages = (await parent).openGraph?.images || [];
 
   return {
     title: `Experience: ${item.position} | DulapahV's Portfolio`,
-    description: item.description,
+    description: `${item.place.name} | ${item.position}`,
     openGraph: {
       title: `Experience: ${item.position} | DulapahV's Portfolio`,
       description: item.description,
-      url: `https://dulapahv.dev/experience/${item.id}-${item.place.name.replace(/ /g, "-")}-${item.position.replace(/ /g, "-")}`,
+      url: `${BASE_URL}/experience/${item.id}-${item.place.name.replace(/ /g, "-")}-${item.position.replace(/ /g, "-")}`,
       images: [
         {
-          url: `https://assets.dulapahv.dev/images/exp/${item.imagePath}/cover.png`,
+          url: `${ASSETS_URL}/images/exp/${item.imagePath}/cover.png`,
           alt: `${item.place.name} | ${item.position}`,
         },
         ...previousImages,
@@ -79,65 +78,35 @@ export async function generateMetadata(
 }
 
 const Page = async ({ params }: Props) => {
-  const id = params.id.split("-")[0];
-
-  const item = (await getUniqueExperience({
-    where: {
-      id: id,
-    },
-    select: {
-      place: {
-        select: {
-          name: true,
-          city: {
-            select: {
-              name: true,
-              country: {
-                select: {
-                  name: true,
-                },
-              },
-            },
-          },
-        },
-      },
-      id: true,
-      position: true,
-      imagePath: true,
-      imageDescription: true,
-      description: true,
-      startDate: true,
-      endDate: true,
-    },
-  })) as ExperienceWithPlace;
+  const item = await fetch({ params });
 
   const healedUrl = `/experience/${item.id}-${item.place.name.replace(/ /g, "-")}-${item.position.replace(/ /g, "-")}`;
   if (`/experience/${params.id}` != healedUrl) redirect(healedUrl);
 
-  const coverImgUrl = `https://assets.dulapahv.dev/images/exp/${item.imagePath}/cover.png`;
+  const coverImgUrl = `${ASSETS_URL}/images/exp/${item.imagePath}/cover.png`;
 
   const jsonLd: WithContext<Article> = {
     "@context": "https://schema.org",
     "@type": "Article",
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://dulapahv.dev/experience/${item.id}-${item.place.name.replace(/ /g, "-")}-${item.position.replace(/ /g, "-")}`,
+      "@id": `${BASE_URL}${healedUrl}`,
     },
     headline: `${item.place.name} | ${item.position}`,
     description: `${item.place.name} | ${item.position}`,
-    image: `https://assets.dulapahv.dev/images/exp/${item.imagePath}/cover.png`,
+    image: coverImgUrl,
     author: {
       "@type": "Person",
-      name: "Dulapah Vibulsanti",
-      url: "https://dulapahv.dev/",
+      name: NAME,
+      url: BASE_URL,
     },
     publisher: {
       "@type": "Person",
-      name: "Dulapah Vibulsanti",
-      url: "https://dulapahv.dev/",
+      name: NAME,
+      url: BASE_URL,
     },
-    datePublished: formatDate(item.createdAt),
-    dateModified: formatDate(item.updatedAt),
+    datePublished: item.createdAt.toISOString(),
+    dateModified: item.updatedAt.toISOString(),
   };
 
   return (
@@ -150,15 +119,13 @@ const Page = async ({ params }: Props) => {
       </section>
       <div className="space-y-8">
         <Breadcrumb lastItem={`${item.place.name} | ${item.position}`} />
-        <header className="flex flex-col">
-          <h2 className="text-xl font-semibold text-default-800 duration-100 sm:text-2xl">
+        <header>
+          <h2 className="text-3xl font-semibold leading-[3rem]">
             {item.position}
-            <span className="font-medium text-default-500">{` | ${formatDate(item.startDate)} - ${formatDate(item.endDate)}`}</span>
           </h2>
-          <p className="text-base font-medium text-default-500 duration-100 sm:text-lg">
-            {item.place.name}
-          </p>
-          <p className="text-sm text-default-500 duration-100 sm:text-base">
+          <p className="font-medium text-default-500">{`${formatDate(item.startDate)} - ${formatDate(item.endDate)}`}</p>
+          <p className="font-medium text-default-500">{item.place.name}</p>
+          <p className="text-sm font-light text-default-500">
             {item.place.city.name}, {item.place.city.country.name}
           </p>
         </header>
@@ -180,7 +147,7 @@ const Page = async ({ params }: Props) => {
             Gallery
           </h3>
           {item.imageDescription.map(async (description, index) => {
-            const url = `https://assets.dulapahv.dev/images/exp/${item.imagePath}/${index + 1}.png`;
+            const url = `${ASSETS_URL}/images/exp/${item.imagePath}/${index + 1}.png`;
 
             return (
               <div className="space-y-2" key={index}>

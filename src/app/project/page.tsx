@@ -1,28 +1,21 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa6";
 
-import type { City, Country, Place, Project, Stack, Tag } from "@prisma/client";
+import type { ProjectsWithPlace, TagWithStacks } from "@/types";
 import {
   Breadcrumb,
   PaginationFooter,
   ProjectSearchToolbar,
 } from "@/components";
 import { getManyProject, getManyTag } from "@/data";
+import { SITE_NAME } from "@/lib/constants";
 import { formatDate } from "@/utils";
 
-export const dynamic = "force-dynamic";
-
-interface ProjectsWithPlace extends Project {
-  place: Place & {
-    city: City & {
-      country: Country;
-    };
-  };
-}
-
-interface TagWithStacks extends Tag {
-  stacks: Stack[];
-}
+export const metadata: Metadata = {
+  title: `Project | ${SITE_NAME}`,
+  description: "Professional and personal projects I have worked on.",
+};
 
 const getOrderBy = (order_by: string): Record<string, any> => {
   const orderMappings: Record<string, Record<string, any>> = {
@@ -165,7 +158,7 @@ const Page = async ({
       <Breadcrumb />
       <header className="space-y-2">
         <h1 className="text-3xl font-semibold">Project</h1>
-        <p className="font-light text-default-500">
+        <p className="text-pretty font-light text-default-500">
           Professional and personal projects I have worked on.
         </p>
       </header>
@@ -179,12 +172,12 @@ const Page = async ({
             key={item.id}
             className="group relative flex items-center justify-between gap-x-4 pt-3"
           >
-            <div>
-              <h2 className="font-medium text-default-800 duration-100 group-hover:text-primary">
+            <div className="text-pretty">
+              <h2 className="font-semibold text-default-800 duration-100 group-hover:text-primary">
                 {item.title}
-                <span className="font-normal text-default-500 group-hover:text-primary">{` | ${formatDate(item.startDate)} - ${formatDate(item.endDate)}`}</span>
               </h2>
-              <p className="text-sm font-medium text-default-500 duration-100 group-hover:text-primary">
+              <p className="text-sm font-medium text-default-500 duration-100 group-hover:text-primary">{`${formatDate(item.startDate)} - ${formatDate(item.endDate)}`}</p>
+              <p className="text-sm text-default-500 duration-100 group-hover:text-primary">
                 {item.description}
               </p>
             </div>

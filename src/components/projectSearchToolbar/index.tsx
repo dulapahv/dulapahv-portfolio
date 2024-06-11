@@ -21,15 +21,12 @@ import { PiGearBold } from "react-icons/pi";
 import { TbSelector } from "react-icons/tb";
 import { useDebouncedCallback } from "use-debounce";
 
-import type { City, Country, Stack, Tag } from "@prisma/client";
-
-interface CountriesWithCities extends Country {
-  cities: City[];
-}
-
-interface TagWithStacks extends Tag {
-  stacks: Stack[];
-}
+import type { TagWithStacks } from "@/types";
+import {
+  itemsPerPageOptions,
+  sortByOptions,
+  typeOptions,
+} from "@/lib/constants";
 
 interface SearchToolbarProps {
   count: number;
@@ -40,24 +37,6 @@ const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
 });
-
-const typeOptions = [
-  { key: "professional", label: "Professional" },
-  { key: "personal", label: "Personal" },
-];
-
-const itemsPerPageOptions = [
-  { key: "5", label: "5" },
-  { key: "10", label: "10" },
-  { key: "15", label: "15" },
-];
-
-const sortByOptions = [
-  { key: "start-date-asc", label: "Start date (oldest)" },
-  { key: "start-date-desc", label: "Start date (newest)" },
-  { key: "end-date-asc", label: "End date (oldest)" },
-  { key: "end-date-desc", label: "End date (newest)" },
-];
 
 const SearchToolbar = ({ count, tags }: SearchToolbarProps) => {
   const pathname = usePathname();
@@ -234,7 +213,7 @@ const SearchToolbar = ({ count, tags }: SearchToolbarProps) => {
     <>
       <Input
         type="text"
-        placeholder="Search for position, company, or location..."
+        placeholder="Search for title, description, or related locations..."
         size="md"
         radius="sm"
         autoFocus={!isMobile}

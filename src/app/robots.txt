@@ -1,6 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://dulapahv.dev/sitemap.xml
-
-Host: https://dulapahv.dev
