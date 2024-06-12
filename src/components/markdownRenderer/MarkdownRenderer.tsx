@@ -56,7 +56,7 @@ const renderTable = (props: any) => {
         thead: "last:[&>tr]:!hidden",
         th: "uppercase font-bold !px-3",
         tr: "even:bg-default-200 dark:even:bg-default-100 !border-0",
-        td: "text-pretty first:rounded-l-lg last:rounded-r-lg !px-3 !py-2 [&>code]:!bg-default-100 dark:[&>code]:!bg-default-200",
+        td: "first:rounded-l-lg last:rounded-r-lg !px-3 !py-2 [&>code]:!bg-default-100 dark:[&>code]:!bg-default-200",
       }}
     >
       <TableHeader>
@@ -87,7 +87,7 @@ interface MarkdownRendererProps {
 const MarkdownRenderer = ({ children, className }: MarkdownRendererProps) => {
   return (
     <div
-      className={`unreset text-pretty text-sm text-default-700 sm:text-base ${className}`}
+      className={`unreset text-sm text-default-700 sm:text-base ${className}`}
     >
       <Markdown
         remarkPlugins={[remarkGfm, remarkMath]}

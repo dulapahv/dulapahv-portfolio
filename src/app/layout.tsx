@@ -15,7 +15,6 @@ import {
   SITE_NAME,
   THEME_COLOR,
 } from "@/lib/constants";
-import { dynamicBlurDataUrl } from "@/utils";
 
 import "./globals.css";
 
@@ -144,7 +143,10 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: THEME_COLOR,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fff" },
+    { media: "(prefers-color-scheme: dark)", color: "#000" },
+  ],
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
@@ -162,27 +164,13 @@ const RootLayout = async ({
       className="min-h-dvh text-default-800"
     >
       <body
-        className={`mx-auto my-4 mt-16 max-w-5xl px-4 antialiased sm:px-16 lg:mt-32 ${poppins.className}`}
+        className={`mx-auto my-4 mt-16 max-w-5xl text-pretty px-4 antialiased sm:px-16 lg:mt-32 ${poppins.className}`}
       >
         <div className="fixed -right-[35%] -top-[25%] -z-50 size-full select-none overflow-clip opacity-50 mix-blend-darken hue-rotate-[45deg] dark:mix-blend-lighten sm:rotate-[20deg]">
-          <Image
-            src="/pink.png"
-            alt="pink"
-            fill
-            priority
-            placeholder="blur"
-            blurDataURL={await dynamicBlurDataUrl("/pink.png")}
-          />
+          <Image src="/pink.png" alt="pink" fill priority draggable={false} />
         </div>
         <div className="fixed -bottom-[15%] -left-[25%] -z-50 size-[80%] select-none overflow-clip opacity-90 mix-blend-darken dark:opacity-60 dark:mix-blend-lighten sm:rotate-[15deg]">
-          <Image
-            src="/blue.png"
-            alt="blue"
-            fill
-            priority
-            placeholder="blur"
-            blurDataURL={await dynamicBlurDataUrl("/blue.png")}
-          />
+          <Image src="/blue.png" alt="blue" fill priority draggable={false} />
         </div>
         <Providers>
           <ThemeProvider>

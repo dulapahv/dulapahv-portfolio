@@ -1,5 +1,5 @@
 export const BASE_URL =
-  process.env.NODE_ENV === "development"
+  process.env.VERCEL_ENV === "development"
     ? "http://localhost:3000/"
     : `https://${process.env.VERCEL_URL}`;
 export const ASSETS_URL = `https://assets.dulapahv.dev`;

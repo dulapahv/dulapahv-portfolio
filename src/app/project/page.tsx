@@ -158,7 +158,7 @@ const Page = async ({
       <Breadcrumb />
       <header className="space-y-2">
         <h1 className="text-3xl font-semibold">Project</h1>
-        <p className="text-pretty font-light text-default-500">
+        <p className="font-light text-default-500">
           Professional and personal projects I have worked on.
         </p>
       </header>
@@ -172,7 +172,7 @@ const Page = async ({
             key={item.id}
             className="group relative flex items-center justify-between gap-x-4 pt-3"
           >
-            <div className="text-pretty">
+            <div>
               <h2 className="font-semibold text-default-800 duration-100 group-hover:text-primary">
                 {item.title}
               </h2>

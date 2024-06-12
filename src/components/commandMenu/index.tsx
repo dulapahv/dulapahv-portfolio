@@ -19,6 +19,8 @@ import {
 import { useTheme } from "next-themes";
 import { isMobile } from "react-device-detect";
 
+import { updateMetaThemeColor } from "@/utils";
+
 import commands from "./Commands";
 
 export interface CommandMenuModalRef {
@@ -198,12 +200,15 @@ const CommandMenu = forwardRef<CommandMenuModalRef>((props, ref) => {
                     switch (key) {
                       case "dark":
                         setTheme("dark");
+                        updateMetaThemeColor("dark");
                         break;
                       case "light":
                         setTheme("light");
+                        updateMetaThemeColor("light");
                         break;
                       case "system":
                         setTheme("system");
+                        updateMetaThemeColor("system");
                         break;
                       case "copy_url":
                         navigator.clipboard.writeText(window.location.href);
