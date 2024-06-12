@@ -2,6 +2,32 @@ import { withSentryConfig } from "@sentry/nextjs";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async headers() {
+    if (process.env.VERCEL_ENV === "preview") {
+      return [
+        {
+          source: "/(images/.*)",
+          headers: [
+            {
+              key: "x-vercel-protection-bypass",
+              value: process.env.VERCEL_AUTOMATION_BYPASS_SECRET,
+            },
+          ],
+        },
+      ];
+    } else {
+      return [];
+    }
+  },
+  async redirects() {
+    return [
+      {
+        source: "/admin",
+        destination: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        permanent: false,
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {

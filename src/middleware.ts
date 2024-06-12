@@ -8,7 +8,6 @@ export const config = {
     "/blog/:path*",
     "/stack/:path*",
     "/contact/:path*",
-    "/(images/.*)",
   ],
 };
 
@@ -25,30 +24,15 @@ async function getFeatureFlag(flag: string) {
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  if (pathname.startsWith("/images/")) {
-    const requestHeaders = new Headers(request.headers);
+  const featureEnabled = await getFeatureFlag(pathname.split("/")[1]);
 
-    requestHeaders.set(
-      "x-vercel-protection-bypass",
-      process.env.VERCEL_AUTOMATION_BYPASS_SECRET as string,
-    );
-
-    return NextResponse.next({
-      request: {
-        headers: requestHeaders,
-      },
-    });
+  if (featureEnabled) {
+    return NextResponse.next();
   } else {
-    const featureEnabled = await getFeatureFlag(pathname.split("/")[1]);
-
-    if (featureEnabled) {
-      return NextResponse.next();
-    } else {
-      const url = request.nextUrl.clone();
-      url.pathname = `/maintenance`;
-      url.searchParams.set("path", pathname);
-      url.searchParams.set("reason", "feature-flag");
-      return NextResponse.rewrite(url);
-    }
+    const url = request.nextUrl.clone();
+    url.pathname = `/maintenance`;
+    url.searchParams.set("path", pathname);
+    url.searchParams.set("reason", "feature-flag");
+    return NextResponse.rewrite(url);
   }
 }
