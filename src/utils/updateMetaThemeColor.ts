@@ -1,24 +1,60 @@
 const updateMetaThemeColor = (theme: "dark" | "light" | "system") => {
-  const themeColors = document.querySelectorAll('meta[name="theme-color"]');
-  themeColors.forEach((el) => el.remove());
+  const darkMetaScheme = document.querySelector(
+    'meta[name="theme-color"][media="(prefers-color-scheme: dark)"]',
+  );
+  const lightMetaScheme = document.querySelector(
+    'meta[name="theme-color"][media="(prefers-color-scheme: light)"]',
+  );
+  const darkMeta = document.querySelectorAll(
+    'meta[name="theme-color"][content="#000"]',
+  );
+  const lightMeta = document.querySelectorAll(
+    'meta[name="theme-color"][content="#fff"]',
+  );
+  const allMeta = document.querySelectorAll('meta[name="theme-color"]');
 
-  if (theme === "dark" || theme === "light") {
-    const newThemeColor = document.createElement("meta");
-    newThemeColor.setAttribute("name", "theme-color");
-    newThemeColor.setAttribute("content", theme === "dark" ? "#000" : "#fff");
-    document.head.appendChild(newThemeColor);
-  } else if (theme === "system") {
-    const darkMeta = document.createElement("meta");
-    darkMeta.setAttribute("name", "theme-color");
-    darkMeta.setAttribute("media", "(prefers-color-scheme: dark)");
-    darkMeta.setAttribute("content", "#000");
-    document.head.appendChild(darkMeta);
+  switch (theme) {
+    case "dark":
+      if (darkMetaScheme) {
+        darkMetaScheme.removeAttribute("media");
+      }
+      if (lightMetaScheme) {
+        lightMetaScheme.removeAttribute("media");
+        lightMetaScheme.setAttribute("content", "#000");
+      }
+      if (lightMeta) {
+        for (let i = 0; i < lightMeta.length; i++) {
+          lightMeta[i].setAttribute("content", "#000");
+        }
+      }
+      break;
 
-    const lightMeta = document.createElement("meta");
-    lightMeta.setAttribute("name", "theme-color");
-    lightMeta.setAttribute("media", "(prefers-color-scheme: light)");
-    lightMeta.setAttribute("content", "#fff");
-    document.head.appendChild(lightMeta);
+    case "light":
+      if (darkMetaScheme) {
+        darkMetaScheme.removeAttribute("media");
+        darkMetaScheme.setAttribute("content", "#fff");
+      }
+      if (lightMetaScheme) {
+        lightMetaScheme.removeAttribute("media");
+      }
+      if (darkMeta) {
+        for (let i = 0; i < darkMeta.length; i++) {
+          darkMeta[i].setAttribute("content", "#fff");
+        }
+      }
+      break;
+
+    case "system":
+      if (allMeta.length >= 2) {
+        allMeta[0].setAttribute("content", "#fff");
+        allMeta[0].setAttribute("media", "(prefers-color-scheme: light)");
+        allMeta[1].setAttribute("content", "#000");
+        allMeta[1].setAttribute("media", "(prefers-color-scheme: dark)");
+      }
+      break;
+
+    default:
+      break;
   }
 };
 
