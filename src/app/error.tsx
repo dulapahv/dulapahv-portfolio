@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
-import { Button } from "@nextui-org/react";
+import Link from "next/link";
+import { Button, Link as NextUILink } from "@nextui-org/react";
 import * as Sentry from "@sentry/nextjs";
 
 const Error = ({
@@ -11,9 +12,9 @@ const Error = ({
   error: Error & { digest?: string };
   reset: () => void;
 }) => {
-  // useEffect(() => {
-  //   Sentry.captureException(error);
-  // }, [error]);
+  useEffect(() => {
+    Sentry.captureException(error);
+  }, [error]);
 
   return (
     <div className="space-y-8">
@@ -23,7 +24,18 @@ const Error = ({
       <main className="space-y-4">
         <p className="text-default-600">
           An error occurred while rendering this page and the developer has been
-          notified. Please try again later or contact me with the details below
+          notified. Please try again later or{" "}
+          <NextUILink
+            href={`/contact?message=${encodeURIComponent(
+              `Details:\nStatus: 500\nTimestamp: ${new Date().toLocaleString()} (${new Date().toISOString()})\nDigest: ${error.digest}`,
+            )}`}
+            as={Link}
+            underline="hover"
+            isExternal
+            showAnchorIcon
+          >
+            contact me
+          </NextUILink>{" "}
           if you have any questions.
         </p>
         <Button onPress={() => reset()} color="primary" radius="sm">
@@ -33,15 +45,19 @@ const Error = ({
       <footer className="border-t-1 border-default-300 pt-6 text-default-500 dark:border-default-100">
         <p>Details:</p>
         <code className="text-sm sm:text-base">
-          Status: 500 Internal Server Error
+          Status: 500
           <br />
           {`Timestamp: ${new Date().toLocaleString()} (${new Date().toISOString()})`}
           <br />
-          {`Reason: ${error.name} - ${error.message}`}
-          <br />
           {`Digest: ${error.digest}`}
           <br />
-          {`Stack: ${process.env.VERCEL_ENV === "development" ? error.stack : "Redacted"}`}
+          {process.env.NEXT_PUBLIC_ENV === "development"
+            ? `Reason: ${error.name} - ${error.message}`
+            : null}
+          <br />
+          {process.env.NEXT_PUBLIC_ENV === "development"
+            ? `Stack: ${error.stack}`
+            : null}
         </code>
       </footer>
     </div>

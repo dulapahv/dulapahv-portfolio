@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import { Poppins } from "next/font/google";
 import Image from "next/image";
 import { ThemeProvider } from "next-themes";
+import { Toaster } from "sonner";
 
 import { Navbar } from "@/components";
 import {
@@ -174,6 +175,7 @@ const RootLayout = async ({
         </div>
         <Providers>
           <ThemeProvider>
+            <Toaster richColors className="whitespace-pre-line" />
             <div className="mb-32">{children}</div>
             <Navbar />
           </ThemeProvider>

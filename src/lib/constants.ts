@@ -3,6 +3,7 @@ export const BASE_URL =
     ? "http://localhost:3000/"
     : `https://${process.env.VERCEL_URL}`;
 export const ASSETS_URL = `https://assets.dulapahv.dev`;
+export const CAPTCHA_URL = `https://verify.dulapahv.dev/validate-captcha`;
 
 export const NAME = "Dulapah Vibulsanti";
 export const SHORT_NAME = "DulapahV";
@@ -10,6 +11,8 @@ export const SITE_NAME = "DulapahV's Portfolio";
 export const DESCRIPTION =
   "This website is a personal project to showcase my skills and experience, as well as to share my knowledge and experience with others.";
 export const THEME_COLOR = "#fb568a";
+
+export const CLOUDFLARE_TURNSTILE_SITE_KEY = "0x4AAAAAAACYFWWcTzhCNWz4";
 
 export const itemsPerPageOptions = [
   { key: "5", label: "5" },
@@ -27,4 +30,22 @@ export const sortByOptions = [
 export const typeOptions = [
   { key: "professional", label: "Professional" },
   { key: "personal", label: "Personal" },
+];
+
+export const contactTypeOptions = [
+  {
+    key: "general",
+    label: "General inquiry",
+    description: "I have a job offer / question / feedback.",
+  },
+  {
+    key: "contract",
+    label: "Contract work",
+    description: "I want to hire you for a project.",
+  },
+  {
+    key: "other",
+    label: "Other",
+    description: "I have something else to say.",
+  },
 ];

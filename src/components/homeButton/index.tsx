@@ -8,7 +8,7 @@ const HomeButton = () => {
 
   return (
     <Button onPress={() => router.push("/")} color="primary" radius="sm">
-      Go to Home
+      Return Home
     </Button>
   );
 };
