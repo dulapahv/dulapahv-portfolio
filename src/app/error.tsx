@@ -11,9 +11,9 @@ const Error = ({
   error: Error & { digest?: string };
   reset: () => void;
 }) => {
-  // useEffect(() => {
-  //   Sentry.captureException(error);
-  // }, [error]);
+  useEffect(() => {
+    Sentry.captureException(error);
+  }, [error]);
 
   return (
     <div className="space-y-8">
