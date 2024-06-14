@@ -28,12 +28,11 @@ const page = ({
         <code className="text-sm sm:text-base">
           Status: 503 Service Unavailable
           <br />
-          Timestamp:{" "}
-          {`${new Date().toLocaleString()} (${new Date().toISOString()})`}
+          {`Timestamp: ${new Date().toLocaleString()} (${new Date().toISOString()})`}
           <br />
-          Reason: {reason}
+          {`Reason: ${reason}`}
           <br />
-          Path: {path}
+          {`Path: ${path}`}
         </code>
       </footer>
     </div>

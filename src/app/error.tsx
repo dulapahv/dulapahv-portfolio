@@ -11,9 +11,9 @@ const Error = ({
   error: Error & { digest?: string };
   reset: () => void;
 }) => {
-  useEffect(() => {
-    Sentry.captureException(error);
-  }, [error]);
+  // useEffect(() => {
+  //   Sentry.captureException(error);
+  // }, [error]);
 
   return (
     <div className="space-y-8">
@@ -35,16 +35,13 @@ const Error = ({
         <code className="text-sm sm:text-base">
           Status: 500 Internal Server Error
           <br />
-          Timestamp:{" "}
-          {`${new Date().toLocaleString()} (${new Date().toISOString()})`}
+          {`Timestamp: ${new Date().toLocaleString()} (${new Date().toISOString()})`}
           <br />
-          Reason: {error.name} - {error.message}
+          {`Reason: ${error.name} - ${error.message}`}
           <br />
-          Digest: {error.digest}
+          {`Digest: ${error.digest}`}
           <br />
-          Stack: {error.stack}
-          <br />
-          Cause: {error.cause as string}
+          {`Stack: ${process.env.VERCEL_ENV === "development" ? error.stack : "Redacted"}`}
         </code>
       </footer>
     </div>
@@ -52,3 +49,12 @@ const Error = ({
 };
 
 export default Error;
+
+Error.getInitialProps = async (contextData: any): Promise<any> => {
+  // In case this is running in a serverless function, await this in order to give Sentry
+  // time to send the error before the lambda exits
+  await Sentry.captureUnderscoreErrorException(contextData);
+
+  // This will contain the status code of the response
+  return Error.getInitialProps(contextData);
+};

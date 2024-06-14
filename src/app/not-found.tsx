@@ -18,8 +18,7 @@ const NotFound = () => {
         <code className="text-sm sm:text-base">
           Status: 404 Not Found
           <br />
-          Timestamp:{" "}
-          {`${new Date().toLocaleString()} (${new Date().toISOString()})`}
+          {`Timestamp: ${new Date().toLocaleString()} (${new Date().toISOString()})`}
         </code>
       </footer>
     </div>

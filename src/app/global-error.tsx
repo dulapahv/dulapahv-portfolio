@@ -38,10 +38,9 @@ export default function GlobalError({
             <code className="text-sm sm:text-base">
               Status: 500 Internal Server Error
               <br />
-              Timestamp:{" "}
-              {`${new Date().toLocaleString()} (${new Date().toISOString()})`}
+              {`Timestamp: ${new Date().toLocaleString()} (${new Date().toISOString()})`}
               <br />
-              Digest: {error.digest}
+              {`Digest: ${error.digest}`}
             </code>
           </footer>
         </div>
