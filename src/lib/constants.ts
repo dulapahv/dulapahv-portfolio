@@ -1,9 +1,11 @@
 export const BASE_URL =
   process.env.VERCEL_ENV === "development"
     ? "http://localhost:3000/"
-    : `https://${process.env.VERCEL_URL}`;
-export const ASSETS_URL = `https://assets.dulapahv.dev`;
-export const CAPTCHA_URL = `https://verify.dulapahv.dev/validate-captcha`;
+    : process.env.VERCEL_ENV === "preview"
+      ? `https://dev.dulapahv.dev/`
+      : "https://dulapahv.dev/";
+export const ASSETS_URL = "https://assets.dulapahv.dev";
+export const CAPTCHA_URL = "https://verify.dulapahv.dev/validate-captcha";
 
 export const NAME = "Dulapah Vibulsanti";
 export const SHORT_NAME = "DulapahV";
