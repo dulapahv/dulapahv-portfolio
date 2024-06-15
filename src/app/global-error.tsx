@@ -7,7 +7,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button, Link as NextUILink } from "@nextui-org/react";
 import * as Sentry from "@sentry/nextjs";
-import { ThemeProvider } from "next-themes";
 
 import { Providers } from "./providers";
 
@@ -29,8 +28,8 @@ export default function GlobalError({
 
   return (
     <html
-      suppressHydrationWarning
       lang="en"
+      suppressHydrationWarning
       className="min-h-dvh text-default-800"
     >
       <body
@@ -42,47 +41,43 @@ export default function GlobalError({
         <div className="fixed -bottom-[15%] -left-[25%] -z-50 size-[80%] select-none overflow-clip opacity-90 mix-blend-darken dark:opacity-60 dark:mix-blend-lighten sm:rotate-[15deg]">
           <Image src="/blue.png" alt="blue" fill priority draggable={false} />
         </div>
-        <Providers>
-          <ThemeProvider>
-            <div className="mb-32">
-              <div className="space-y-8">
-                <header>
-                  <h1 className="text-3xl font-semibold">An Error Occurred</h1>
-                </header>
-                <main className="space-y-4">
-                  <p className="text-default-600">
-                    An error occurred while rendering this page and the
-                    developer has been notified. Please try again later or{" "}
-                    <NextUILink
-                      href={`/contact?message=${encodeURIComponent(
-                        `Details:\nStatus: 500\nTimestamp: ${new Date().toLocaleString()} (${new Date().toISOString()})\nDigest: ${error.digest}`,
-                      )}`}
-                      as={Link}
-                      underline="hover"
-                      isExternal
-                      showAnchorIcon
-                    >
-                      contact me
-                    </NextUILink>{" "}
-                    if you have any questions.
-                  </p>
-                  <Button onPress={() => reset()} color="primary" radius="sm">
-                    Try Again
-                  </Button>
-                </main>
-                <footer className="border-t-1 border-default-300 pt-6 text-default-500 dark:border-default-100">
-                  <p>Details:</p>
-                  <code className="text-sm sm:text-base">
-                    Status: 500
-                    <br />
-                    {`Timestamp: ${new Date().toLocaleString()} (${new Date().toISOString()})`}
-                    <br />
-                    {`Digest: ${error.digest}`}
-                  </code>
-                </footer>
-              </div>
-            </div>
-          </ThemeProvider>
+        <Providers className="mb-32">
+          <div className="space-y-8">
+            <header>
+              <h1 className="text-3xl font-semibold">An Error Occurred</h1>
+            </header>
+            <main className="space-y-4">
+              <p className="text-default-600">
+                An error occurred while rendering this page and the developer
+                has been notified. Please try again later or{" "}
+                <NextUILink
+                  href={`/contact?message=${encodeURIComponent(
+                    `Details:\nStatus: 500\nTimestamp: ${new Date().toLocaleString()} (${new Date().toISOString()})\nDigest: ${error.digest}`,
+                  )}`}
+                  as={Link}
+                  underline="hover"
+                  isExternal
+                  showAnchorIcon
+                >
+                  contact me
+                </NextUILink>{" "}
+                if you have any questions.
+              </p>
+              <Button onPress={() => reset()} color="primary" radius="sm">
+                Try Again
+              </Button>
+            </main>
+            <footer className="border-t-1 border-default-300 pt-6 text-default-500 dark:border-default-100">
+              <p>Details:</p>
+              <code className="text-sm sm:text-base">
+                Status: 500
+                <br />
+                {`Timestamp: ${new Date().toLocaleString()} (${new Date().toISOString()})`}
+                <br />
+                {`Digest: ${error.digest}`}
+              </code>
+            </footer>
+          </div>
         </Providers>
       </body>
     </html>

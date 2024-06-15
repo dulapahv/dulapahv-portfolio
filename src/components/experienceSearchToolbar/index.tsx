@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { Poppins } from "next/font/google";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import {
   Accordion,
@@ -23,11 +22,6 @@ import { useDebouncedCallback } from "use-debounce";
 
 import type { CountriesWithCities, TagWithStacks } from "@/types";
 import { itemsPerPageOptions, sortByOptions } from "@/lib/constants";
-
-const poppins = Poppins({
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  subsets: ["latin"],
-});
 
 interface SearchToolbarProps {
   count: number;
@@ -186,26 +180,20 @@ const ExperienceSearchToolbar = ({
     if (count === 0) {
       if (search) {
         return (
-          <p className={`text-default-500 ${poppins.className}`}>
+          <p className="text-default-500">
             No results found for{" "}
             <span className="text-default-800">&quot;{search}&quot;</span>.
           </p>
         );
       }
-      return (
-        <p className={`text-default-500 ${poppins.className}`}>
-          No experience to show.
-        </p>
-      );
+      return <p className="text-default-500">No experience to show.</p>;
     }
 
     const start = (page - 1) * perPage + 1;
     const end = Math.min(page * perPage, count);
 
     return (
-      <p
-        className={`order-2 text-sm text-default-800 min-[425px]:order-1 ${poppins.className}`}
-      >
+      <p className="order-2 text-sm text-default-800 min-[425px]:order-1">
         Showing <span>{start}</span> - <span>{end}</span> of{" "}
         <span>{count}</span>
       </p>
@@ -237,7 +225,7 @@ const ExperienceSearchToolbar = ({
           title="Advanced Options"
           startContent={<PiGearBold className="text-xl text-default-600" />}
           classNames={{
-            title: `${poppins.className} text-sm text-default-700`,
+            title: "text-sm text-default-700",
             trigger:
               "[&>div>*]:data-[hover=true]:text-primary [&>div>*]:duration-100",
             indicator: "text-primary",
@@ -270,16 +258,15 @@ const ExperienceSearchToolbar = ({
                 }}
                 selectorIcon={<TbSelector className="text-default-400" />}
                 classNames={{
-                  base: `w-full md:w-fit items-center ${poppins.className}`,
+                  base: "w-full md:w-fit items-center",
                   label: "text-sm",
                   mainWrapper: "md:w-64",
                   value: "text-default-800",
-                  listbox: poppins.className,
                 }}
                 popoverProps={{
                   classNames: {
                     content:
-                      "rounded-lg px-1 bg-white/50 dark:bg-zinc-950/50 backdrop-blur-sm [-webkit-backdrop-filter:blur(4px)] backdrop-filter border-1 border-default-50",
+                      "rounded-lg px-1 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg [-webkit-backdrop-filter:blur(16px)] backdrop-filter border-1 border-default-50",
                   },
                 }}
                 listboxProps={{
@@ -338,16 +325,15 @@ const ExperienceSearchToolbar = ({
                 }}
                 selectorIcon={<TbSelector className="text-default-400" />}
                 classNames={{
-                  base: `w-full md:w-fit items-center ${poppins.className}`,
+                  base: "w-full md:w-fit items-center",
                   label: "text-sm",
                   mainWrapper: "md:w-64",
                   value: "text-default-800",
-                  listbox: poppins.className,
                 }}
                 popoverProps={{
                   classNames: {
                     content:
-                      "rounded-lg px-1 bg-white/50 dark:bg-zinc-950/50 backdrop-blur-sm [-webkit-backdrop-filter:blur(4px)] backdrop-filter border-1 border-default-50",
+                      "rounded-lg px-1 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg [-webkit-backdrop-filter:blur(16px)] backdrop-filter border-1 border-default-50",
                   },
                 }}
                 listboxProps={{
@@ -390,7 +376,7 @@ const ExperienceSearchToolbar = ({
           <Link
             onPress={handleClearAll}
             underline="hover"
-            className={`ml-6 w-fit cursor-pointer text-xs text-default-500 ${poppins.className}`}
+            className="ml-6 w-fit cursor-pointer text-xs text-default-500"
           >
             Reset all filters
           </Link>
@@ -413,16 +399,15 @@ const ExperienceSearchToolbar = ({
                 disableSelectorIconRotation
                 selectorIcon={<TbSelector className="text-default-400" />}
                 classNames={{
-                  base: `w-fit items-center ${poppins.className}`,
+                  base: "w-fit items-center",
                   label: "text-sm",
                   mainWrapper: "w-48",
                   value: "text-default-800",
-                  listbox: poppins.className,
                 }}
                 popoverProps={{
                   classNames: {
                     content:
-                      "rounded-lg px-1 bg-white/50 dark:bg-zinc-950/50 backdrop-blur-sm [-webkit-backdrop-filter:blur(4px)] backdrop-filter border-1 border-default-50",
+                      "rounded-lg px-1 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg [-webkit-backdrop-filter:blur(16px)] backdrop-filter border-1 border-default-50",
                   },
                 }}
                 listboxProps={{
@@ -461,16 +446,15 @@ const ExperienceSearchToolbar = ({
           disableSelectorIconRotation
           selectorIcon={<TbSelector className="text-default-400" />}
           classNames={{
-            base: `w-fit items-center order-1 min-[425px]:order-2 ${poppins.className}`,
+            base: "w-fit items-center order-1 min-[425px]:order-2",
             label: "text-sm",
             mainWrapper: "w-20",
             value: "text-default-800",
-            listbox: poppins.className,
           }}
           popoverProps={{
             classNames: {
               content:
-                "rounded-lg px-1 bg-white/50 dark:bg-zinc-950/50 backdrop-blur-sm [-webkit-backdrop-filter:blur(4px)] backdrop-filter border-1 border-default-50",
+                "rounded-lg px-1 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg [-webkit-backdrop-filter:blur(16px)] backdrop-filter border-1 border-default-50",
             },
           }}
           listboxProps={{

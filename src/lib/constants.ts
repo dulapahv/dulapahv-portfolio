@@ -12,6 +12,8 @@ export const SHORT_NAME = "DulapahV";
 export const SITE_NAME = "DulapahV's Portfolio";
 export const DESCRIPTION =
   "This website is a personal project to showcase my skills and experience, as well as to share my knowledge and experience with others.";
+export const LINKEDIN_URL = "https://linkedin.com/in/dulapahv";
+
 export const THEME_COLOR = "#fb568a";
 
 export const CLOUDFLARE_TURNSTILE_SITE_KEY = "0x4AAAAAAACYFWWcTzhCNWz4";

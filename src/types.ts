@@ -31,3 +31,10 @@ export interface TagWithStacks extends Tag {
 export interface CountriesWithCities extends Country {
   cities: City[];
 }
+
+export interface EmailTemplateProps {
+  fullName: string;
+  email: string;
+  type: string;
+  message: string;
+}

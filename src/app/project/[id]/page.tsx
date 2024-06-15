@@ -1,4 +1,5 @@
 import type { Metadata, ResolvingMetadata } from "next";
+import Image from "next/image";
 import { redirect } from "next/navigation";
 import { Article, WithContext } from "schema-dts";
 
@@ -6,13 +7,13 @@ import type { ProjectsWithPlace } from "@/types";
 import { Breadcrumb, MarkdownRenderer } from "@/components";
 import { getUniqueProject } from "@/data";
 import { ASSETS_URL, BASE_URL, NAME } from "@/lib/constants";
-import { formatDate } from "@/utils";
+import { dynamicBlurDataUrl, formatDate } from "@/utils";
 
-type Props = {
+interface Props {
   params: {
     id: string;
   };
-};
+}
 
 export async function generateMetadata(
   { params }: Props,
@@ -60,7 +61,7 @@ export async function generateMetadata(
       url: `${BASE_URL}/project/${item.id}-${item.title.replace(/ /g, "-")}`,
       images: [
         {
-          url: `${ASSETS_URL}/images/proj/${item.imagePath}/cover.png`,
+          url: `${ASSETS_URL}/images/proj/${item.imagePath}/1.png`,
           alt: item.title,
         },
         ...previousImages,
@@ -73,10 +74,17 @@ const Page = async ({ params }: Props) => {
   const id = params.id.split("-")[0];
 
   const item = (await getUniqueProject({
-    where: {
-      id: id,
-    },
     select: {
+      id: true,
+      title: true,
+      imagePath: true,
+      imageDescription: true,
+      description: true,
+      startDate: true,
+      endDate: true,
+      placeId: true,
+      createdAt: true,
+      updatedAt: true,
       place: {
         select: {
           name: true,
@@ -92,17 +100,16 @@ const Page = async ({ params }: Props) => {
           },
         },
       },
-      id: true,
-      title: true,
-      description: true,
-      startDate: true,
-      endDate: true,
-      placeId: true,
+    },
+    where: {
+      id: id,
     },
   })) as ProjectsWithPlace;
 
   const healedUrl = `/project/${item.id}-${item.title.replace(/ /g, "-")}`;
   if (`/project/${params.id}` != healedUrl) redirect(healedUrl);
+
+  const coverImgUrl = `${ASSETS_URL}/images/proj/${item.imagePath}/1.png`;
 
   const jsonLd: WithContext<Article> = {
     "@context": "https://schema.org",
@@ -113,7 +120,7 @@ const Page = async ({ params }: Props) => {
     },
     headline: item.title,
     description: item.description,
-    image: `${ASSETS_URL}/images/proj/${item.imagePath}/cover.png`,
+    image: `${ASSETS_URL}/images/proj/${item.imagePath}/1.png`,
     author: {
       "@type": "Person",
       name: NAME,
@@ -138,29 +145,58 @@ const Page = async ({ params }: Props) => {
       </section>
       <div className="space-y-8">
         <Breadcrumb lastItem={`${item.title}`} />
-        <header className="flex flex-col">
-          <h2 className="text-2xl font-semibold text-default-800 duration-100">
+        <header>
+          <h2 className="text-3xl font-semibold leading-[3rem]">
             {item.title}
-            <span className="font-medium text-default-500">{` | ${formatDate(item.startDate)} - ${formatDate(item.endDate)}`}</span>
           </h2>
+          <p className="font-medium text-default-500">{`${formatDate(item.startDate)} - ${formatDate(item.endDate)}`}</p>
           {item.placeId ? (
             <>
-              <p className="text-lg font-semibold text-default-500 duration-100">
-                {item.place.name}
-              </p>
-              <p className="text-base text-default-500 duration-100">
+              <p className="font-medium text-default-500">{item.place.name}</p>
+              <p className="text-sm font-light text-default-500">
                 {item.place.city.name}, {item.place.city.country.name}
               </p>
             </>
           ) : (
-            <p className="text-lg font-semibold text-default-500 duration-100">
-              Personal project
-            </p>
+            <p className="font-medium text-default-500">Personal project</p>
           )}
         </header>
-        <main>
+        <main className="space-y-8 pb-2">
+          <Image
+            src={coverImgUrl}
+            alt={item.title}
+            width={1920}
+            height={1080}
+            placeholder="blur"
+            blurDataURL={await dynamicBlurDataUrl(coverImgUrl)}
+            priority
+            className="rounded-md"
+          />
           <MarkdownRenderer>{item.description}</MarkdownRenderer>
         </main>
+        <footer className="space-y-4 border-t-1 border-default-300 pt-10 dark:border-default-100">
+          <h3 className="text-2xl font-semibold" id="gallery">
+            Gallery
+          </h3>
+          {item.imageDescription.map(async (description, index) => {
+            const url = `${ASSETS_URL}/images/proj/${item.imagePath}/${index + 1}.png`;
+
+            return (
+              <div className="space-y-2" key={index}>
+                <h3 className="text-sm sm:text-base">{`${index + 1}. ${description}`}</h3>
+                <Image
+                  src={url}
+                  alt={description}
+                  width={1920}
+                  height={1080}
+                  placeholder="blur"
+                  blurDataURL={await dynamicBlurDataUrl(url)}
+                  className="rounded-md"
+                />
+              </div>
+            );
+          })}
+        </footer>
       </div>
     </>
   );

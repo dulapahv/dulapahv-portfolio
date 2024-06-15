@@ -1,9 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import dynamic from "next/dynamic";
 import { Poppins } from "next/font/google";
 import Image from "next/image";
-import { ThemeProvider } from "next-themes";
 import { Toaster } from "sonner";
 
 import { Navbar } from "@/components";
@@ -160,8 +159,8 @@ const RootLayout = async ({
 }>) => {
   return (
     <html
-      suppressHydrationWarning
       lang="en"
+      suppressHydrationWarning
       className="min-h-dvh text-default-800"
     >
       <body
@@ -173,12 +172,10 @@ const RootLayout = async ({
         <div className="fixed -bottom-[15%] -left-[25%] -z-50 size-[80%] select-none overflow-clip opacity-90 mix-blend-darken dark:opacity-60 dark:mix-blend-lighten sm:rotate-[15deg]">
           <Image src="/blue.png" alt="blue" fill priority draggable={false} />
         </div>
-        <Providers>
-          <ThemeProvider>
-            <Toaster richColors className="whitespace-pre-line" />
-            <div className="mb-32">{children}</div>
-            <Navbar />
-          </ThemeProvider>
+        <Providers className="mb-32">
+          <Toaster richColors className="whitespace-pre-line" />
+          {children}
+          <Navbar />
         </Providers>
       </body>
     </html>

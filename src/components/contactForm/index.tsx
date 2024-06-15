@@ -1,7 +1,6 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
-import { Poppins } from "next/font/google";
+import { useMemo, useState } from "react";
 import {
   Button,
   Input,
@@ -14,13 +13,8 @@ import { LuSend } from "react-icons/lu";
 import { TbSelector } from "react-icons/tb";
 import { toast } from "sonner";
 
-import { Captcha } from "@/components";
+import { Captcha, EmailTemplate } from "@/components";
 import { contactTypeOptions } from "@/lib/constants";
-
-const poppins = Poppins({
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  subsets: ["latin"],
-});
 
 interface ContactFormProps {
   name: string;
@@ -123,14 +117,13 @@ const ContactForm = ({
         isRequired
         selectorIcon={<TbSelector className="text-default-400" />}
         classNames={{
-          base: `items-center ${poppins.className}`,
+          base: `items-center`,
           value: "text-default-800",
-          listbox: poppins.className,
         }}
         popoverProps={{
           classNames: {
             content:
-              "rounded-lg px-1 bg-white/50 dark:bg-zinc-950/50 backdrop-blur-sm [-webkit-backdrop-filter:blur(4px)] backdrop-filter border-1 border-default-50",
+              "rounded-lg px-1 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg [-webkit-backdrop-filter:blur(16px)] backdrop-filter border-1 border-default-50",
           },
         }}
         listboxProps={{
@@ -183,6 +176,7 @@ const ContactForm = ({
       >
         {isLoading ? "Sending..." : "Send Message"}
       </Button>
+      {/* <EmailTemplate fullName="HI" email="HI" type="HI" message="HI" /> */}
     </div>
   );
 };

@@ -9,11 +9,11 @@ import { getUniqueExperience } from "@/data";
 import { ASSETS_URL, BASE_URL, NAME } from "@/lib/constants";
 import { dynamicBlurDataUrl, formatDate } from "@/utils";
 
-type Props = {
+interface Props {
   params: {
     id: string;
   };
-};
+}
 
 const fetch = async ({ params }: Props) => {
   const id = params.id.split("-")[0];

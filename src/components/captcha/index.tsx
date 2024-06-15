@@ -65,7 +65,11 @@ const Captcha = ({ isSuccess }: CaptchaProps) => {
         siteKey={CLOUDFLARE_TURNSTILE_SITE_KEY}
         onSuccess={handleCaptchaSuccess}
         onError={() => setIsCaptchaError(true)}
-        onExpire={() => isSuccess(false)}
+        onExpire={() => {
+          isSuccess(false);
+          setIsCaptchaSolved(false);
+          setIsTokenVerifying(false);
+        }}
         onWidgetLoad={() => setIsCaptchaLoading(false)}
         options={{
           theme: resolvedTheme === "dark" ? "dark" : "light",

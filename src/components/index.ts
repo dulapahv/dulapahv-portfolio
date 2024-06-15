@@ -10,3 +10,4 @@ export { default as ReloadButton } from "./reloadButton";
 export { default as HomeButton } from "./homeButton";
 export { default as ContactForm } from "./contactForm";
 export { default as Captcha } from "./captcha";
+export { default as EmailTemplate } from "./emailTemplate";
