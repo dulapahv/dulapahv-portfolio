@@ -36,7 +36,6 @@ const EmailTemplate = ({
               width="48"
               height="48"
               alt="DulapahV's Portfolio Logo"
-              className="mx-auto my-0"
             />
             <Hr className="mx-0 my-[26px] w-full border border-solid border-[#eaeaea]" />
             <Text className="text-left text-base leading-6 text-default-800">
