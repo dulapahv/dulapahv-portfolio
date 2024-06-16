@@ -19,7 +19,6 @@ const Captcha = ({ isSuccess }: CaptchaProps) => {
   const [isTokenVerified, setIsTokenVerified] = useState(false);
 
   const turnstileRef = useRef<TurnstileInstance>(null);
-
   const { resolvedTheme } = useTheme();
 
   const handleCaptchaSuccess = async (token: string) => {
@@ -36,77 +35,95 @@ const Captcha = ({ isSuccess }: CaptchaProps) => {
       const result = await response.json();
       if (result.success) {
         isSuccess(true);
-        setIsTokenVerifying(false);
         setIsTokenVerified(true);
       } else {
         console.error(...result["error-codes"]);
       }
     } catch (error) {
       console.error(error);
+    } finally {
+      setIsTokenVerifying(false);
     }
+  };
+
+  const handleCaptchaError = () => {
+    isSuccess(false);
+    setIsCaptchaError(true);
+    setIsCaptchaSolved(false);
     setIsTokenVerifying(false);
   };
 
+  const handleCaptchaExpire = () => {
+    isSuccess(false);
+    setIsCaptchaSolved(false);
+    setIsTokenVerifying(false);
+  };
+
+  const handleCaptchaLoad = () => {
+    isSuccess(false);
+    setIsCaptchaSolved(false);
+    setIsTokenVerifying(false);
+    setIsCaptchaLoading(false);
+  };
+
+  const retryCaptcha = () => {
+    turnstileRef.current?.reset();
+    setIsCaptchaError(false);
+  };
+
+  const reloadPage = () => {
+    window.location.reload();
+  };
+
+  const renderLoadingSpinner = (text: string) => (
+    <div className="flex gap-x-2">
+      <Spinner
+        size="sm"
+        classNames={{
+          wrapper: "!size-4",
+          circle1: "border-b-warning",
+          circle2: "border-b-warning",
+        }}
+      />
+      <p className="text-xs text-warning">{text}</p>
+    </div>
+  );
+
   return (
     <div className="select-none space-y-2">
-      {isCaptchaLoading ? (
-        <div className="flex gap-x-2">
-          <Spinner
-            size="sm"
-            classNames={{
-              circle1: "border-b-default-500",
-              circle2: "border-b-default-500",
-            }}
-          />
-          <p className="text-sm text-default-500">Loading Captcha...</p>
-        </div>
-      ) : null}
       <Turnstile
         siteKey={CLOUDFLARE_TURNSTILE_SITE_KEY}
         onSuccess={handleCaptchaSuccess}
-        onError={() => setIsCaptchaError(true)}
-        onExpire={() => {
-          isSuccess(false);
-          setIsCaptchaSolved(false);
-          setIsTokenVerifying(false);
-        }}
-        onWidgetLoad={() => setIsCaptchaLoading(false)}
+        onError={handleCaptchaError}
+        onExpire={handleCaptchaExpire}
+        onWidgetLoad={handleCaptchaLoad}
         options={{
           theme: resolvedTheme === "dark" ? "dark" : "light",
           size: "auto",
         }}
       />
-      {isCaptchaError ? (
+      {isCaptchaLoading ? (
+        <div className="flex h-16 w-[300px] items-center border-[0.5px] border-[#e0e0e0] bg-neutral-50 dark:border-[#666666] dark:bg-[#222222]">
+          <div className="m-4 flex gap-x-2">
+            {renderLoadingSpinner("Loading Captcha...")}
+          </div>
+        </div>
+      ) : isCaptchaError ? (
         <>
-          <p className="text-sm text-danger">
+          <p className="text-xs text-danger">
             Captcha verification failed. Please try again.
           </p>
           <Button
-            onPress={() => {
-              turnstileRef.current?.reset();
-              setIsCaptchaError(false);
-            }}
+            onPress={retryCaptcha}
             size="sm"
             className="w-fit bg-default-100"
           >
             Try Again
           </Button>
         </>
-      ) : null}
-      {isCaptchaSolved ? (
+      ) : isCaptchaSolved ? (
         isTokenVerifying ? (
-          <>
-            <div className="flex gap-x-2">
-              <Spinner
-                size="sm"
-                classNames={{
-                  circle1: "border-b-default-500",
-                  circle2: "border-b-default-500",
-                }}
-              />
-              <p className="text-sm text-default-500">Verifying token...</p>
-            </div>
-          </>
+          renderLoadingSpinner("Verifying token...")
         ) : isTokenVerified ? (
           <p className="text-xs text-success">Captcha verified successfully.</p>
         ) : (
@@ -116,7 +133,7 @@ const Captcha = ({ isSuccess }: CaptchaProps) => {
               console for more details.
             </p>
             <Button
-              onPress={() => window.location.reload()}
+              onPress={reloadPage}
               size="sm"
               className="w-fit bg-default-100"
             >
@@ -124,7 +141,9 @@ const Captcha = ({ isSuccess }: CaptchaProps) => {
             </Button>
           </>
         )
-      ) : null}
+      ) : (
+        renderLoadingSpinner("Waiting for Captcha verification...")
+      )}
     </div>
   );
 };

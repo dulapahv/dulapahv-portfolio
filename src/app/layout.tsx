@@ -2,7 +2,9 @@ import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import dynamic from "next/dynamic";
 import { Poppins } from "next/font/google";
+import Head from "next/head";
 import Image from "next/image";
+import Script from "next/script";
 import { Toaster } from "sonner";
 
 import { Navbar } from "@/components";
@@ -158,11 +160,10 @@ const RootLayout = async ({
   children: ReactNode;
 }>) => {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className="min-h-dvh text-default-800"
-    >
+    <html lang="en" className="min-h-dvh text-default-800">
+      <Head>
+        <Script src="/theme.ts" strategy="beforeInteractive" />
+      </Head>
       <body
         className={`mx-auto my-4 mt-16 max-w-5xl text-pretty px-4 antialiased sm:px-16 lg:mt-32 ${poppins.className}`}
       >

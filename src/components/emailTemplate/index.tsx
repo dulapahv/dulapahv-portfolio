@@ -1,4 +1,3 @@
-import * as React from "react";
 import {
   Body,
   Container,
@@ -29,7 +28,7 @@ const EmailTemplate = ({
     </Preview>
     <Tailwind>
       <Body className="mx-auto my-auto bg-white px-2 font-sans">
-        <Container className="mx-auto my-10 max-w-xl rounded border border-solid border-[#eaeaea] p-5">
+        <Container className="mx-auto my-10 max-w-xl rounded border border-solid border-neutral-200 p-5">
           <Section className="mt-4">
             <Img
               src={`${ASSETS_URL}/logo192.png`}
@@ -37,15 +36,25 @@ const EmailTemplate = ({
               height="48"
               alt="DulapahV's Portfolio Logo"
             />
-            <Hr className="mx-0 my-[26px] w-full border border-solid border-[#eaeaea]" />
+            <Hr className="mx-0 my-[26px] w-full border border-solid border-neutral-200" />
             <Text className="text-left text-base leading-6 text-default-800">
-              Hi, someone contact you via DulapahV's Portfolio website. Here is
-              the information.
+              <strong>Hi DulapahV,</strong>
+              <br />
+              You have a new message from the contact form on your portfolio
+              website.
+              <br />
+              Please see the details below:
             </Text>
             <Text className="text-sm/6 text-black">
               <strong>Full Name:</strong> {fullName}
               <br />
-              <strong>Email:</strong> {email}
+              <strong>Email:</strong>{" "}
+              <Link
+                href={`mailto:${email}`}
+                className="text-[#fb568a] no-underline"
+              >
+                {email}
+              </Link>
               <br />
               <strong>Type:</strong> {type}
               <br />
@@ -53,13 +62,13 @@ const EmailTemplate = ({
               <br />
               {message}
             </Text>
-            <Hr className="mx-0 my-[26px] w-full border border-solid border-[#eaeaea]" />
+            <Hr className="mx-0 my-[26px] w-full border border-solid border-neutral-200" />
             <Text className="text-sm/6 text-black">
-              <Link className="text-blue-600 no-underline" href={BASE_URL}>
+              <Link href={BASE_URL} className="text-[#fb568a] no-underline">
                 DulapahV's Portfolio
               </Link>{" "}
               ・{" "}
-              <Link className="text-blue-600 no-underline" href={LINKEDIN_URL}>
+              <Link href={LINKEDIN_URL} className="text-[#fb568a] no-underline">
                 LinkedIn
               </Link>
             </Text>

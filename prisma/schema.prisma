@@ -31,6 +31,7 @@ model Project {
   title            String
   stacks           Stack[]
   description      String
+  url              String?
   imagePath        String   @default("")
   imageDescription String[]
   startDate        DateTime

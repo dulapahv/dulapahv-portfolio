@@ -40,16 +40,16 @@ export const contactTypeOptions = [
   {
     key: "general",
     label: "General inquiry",
-    description: "I have a job offer / question / feedback.",
+    description: "Job offer / question / feedback.",
   },
   {
     key: "contract",
     label: "Contract work",
-    description: "I want to hire you for a project.",
+    description: "Hire for a project.",
   },
   {
     key: "other",
     label: "Other",
-    description: "I have something else to say.",
+    description: "Anything else.",
   },
 ];

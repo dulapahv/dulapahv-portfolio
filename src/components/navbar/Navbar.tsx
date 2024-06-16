@@ -5,9 +5,15 @@ import { Raleway } from "next/font/google";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Divider, Tab, Tabs } from "@nextui-org/react";
-import { CgNotes, CgProfile } from "react-icons/cg";
-import { HiOutlineBriefcase } from "react-icons/hi";
-import { LuAtom, LuHome, LuLayers, LuMenu } from "react-icons/lu";
+import {
+  Atom,
+  BriefcaseBusiness,
+  CircleUserRound,
+  Home,
+  Layers,
+  Menu,
+  NotebookPen,
+} from "lucide-react";
 
 import { CommandMenu, CommandMenuModalRef } from "@/components";
 
@@ -53,8 +59,8 @@ const Navbar = () => {
         classNames={{
           base: "fixed bottom-6 left-1/2 -translate-x-1/2 bg-white/70 dark:bg-zinc-900/70 rounded-full px-2 py-0.5 backdrop-blur-md [-webkit-backdrop-filter:blur(12px)] backdrop-filter shadow-medium z-50",
           tabContent: `font-semibold ${raleway.className}`,
-          tab: "px-2.5 first:pl-0 last:pr-0 sm:first:pl-2 sm:last:pr-2",
-          tabList: "sm:gap-2 gap-1.5",
+          tab: "px-2.5 first:pl-1 last:pr-1 sm:first:pl-2 sm:last:pr-2",
+          tabList: "sm:gap-2 gap-1",
         }}
       >
         <Tab
@@ -64,7 +70,7 @@ const Navbar = () => {
           title={
             <>
               <span className="hidden sm:block">Home</span>
-              <LuHome className="block text-xl sm:hidden" />
+              <Home size={20} className="block sm:hidden" />
             </>
           }
         />
@@ -75,7 +81,7 @@ const Navbar = () => {
           title={
             <>
               <span className="hidden sm:block">Experience</span>
-              <HiOutlineBriefcase className="block text-xl sm:hidden" />
+              <BriefcaseBusiness size={20} className="block sm:hidden" />
             </>
           }
         ></Tab>
@@ -86,7 +92,7 @@ const Navbar = () => {
           title={
             <>
               <span className="hidden sm:block">Project</span>
-              <LuAtom className="block text-xl sm:hidden" />
+              <Atom size={20} className="block sm:hidden" />
             </>
           }
         />
@@ -97,7 +103,7 @@ const Navbar = () => {
           title={
             <>
               <span className="hidden sm:block">Blog</span>
-              <CgNotes className="block text-xl sm:hidden" />
+              <NotebookPen size={20} className="block sm:hidden" />
             </>
           }
         />
@@ -108,7 +114,7 @@ const Navbar = () => {
           title={
             <>
               <span className="hidden sm:block">Stack</span>
-              <LuLayers className="block text-xl sm:hidden" />
+              <Layers size={20} className="block sm:hidden" />
             </>
           }
         />
@@ -119,7 +125,7 @@ const Navbar = () => {
           title={
             <>
               <span className="hidden sm:block">Contact</span>
-              <CgProfile className="block text-xl sm:hidden" />
+              <CircleUserRound size={20} className="block sm:hidden" />
             </>
           }
         />
@@ -127,7 +133,7 @@ const Navbar = () => {
           title={<Divider orientation="vertical" />}
           className="bg-default-200 px-0"
         />
-        <Tab title={<LuMenu className="text-xl" />} />
+        <Tab title={<Menu size={20} />} />
       </Tabs>
     </>
   );

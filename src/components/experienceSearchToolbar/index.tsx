@@ -13,11 +13,14 @@ import {
   SelectSection,
   Spinner,
 } from "@nextui-org/react";
+import {
+  ArrowDownWideNarrow,
+  ChevronsUpDown,
+  Filter,
+  Search,
+  Settings,
+} from "lucide-react";
 import { isMobile } from "react-device-detect";
-import { LuFilter, LuSearch } from "react-icons/lu";
-import { MdSort } from "react-icons/md";
-import { PiGearBold } from "react-icons/pi";
-import { TbSelector } from "react-icons/tb";
 import { useDebouncedCallback } from "use-debounce";
 
 import type { CountriesWithCities, TagWithStacks } from "@/types";
@@ -172,7 +175,10 @@ const ExperienceSearchToolbar = ({
         }}
       />
     ) : (
-      <LuSearch className="pointer-events-none flex-shrink-0 text-lg text-default-400" />
+      <Search
+        size={20}
+        className="pointer-events-none flex-shrink-0 text-default-400"
+      />
     );
   }, [isSearchLoading]);
 
@@ -223,7 +229,7 @@ const ExperienceSearchToolbar = ({
           key="1"
           aria-label="Advanced Options"
           title="Advanced Options"
-          startContent={<PiGearBold className="text-xl text-default-600" />}
+          startContent={<Settings size={20} className="text-default-600" />}
           classNames={{
             title: "text-sm text-default-700",
             trigger:
@@ -233,7 +239,7 @@ const ExperienceSearchToolbar = ({
         >
           <div className="flex flex-col gap-1 md:flex-row md:items-center">
             <div className="flex items-center gap-x-1.5">
-              <LuFilter className="text-lg text-default-400" />
+              <Filter size={20} className="text-default-400" />
               <p className="text-sm">Filter by</p>
             </div>
             <div className="ml-6 flex flex-col gap-2 md:ml-0 md:flex-row">
@@ -256,7 +262,9 @@ const ExperienceSearchToolbar = ({
                 scrollShadowProps={{
                   isEnabled: false,
                 }}
-                selectorIcon={<TbSelector className="text-default-400" />}
+                selectorIcon={
+                  <ChevronsUpDown size={20} className="text-default-400" />
+                }
                 classNames={{
                   base: "w-full md:w-fit items-center",
                   label: "text-sm",
@@ -323,7 +331,9 @@ const ExperienceSearchToolbar = ({
                 scrollShadowProps={{
                   isEnabled: false,
                 }}
-                selectorIcon={<TbSelector className="text-default-400" />}
+                selectorIcon={
+                  <ChevronsUpDown size={20} className="text-default-400" />
+                }
                 classNames={{
                   base: "w-full md:w-fit items-center",
                   label: "text-sm",
@@ -382,7 +392,7 @@ const ExperienceSearchToolbar = ({
           </Link>
           <div className="mt-2 flex flex-col gap-1 md:flex-row md:items-center">
             <div className="flex items-center gap-x-1.5">
-              <MdSort className="text-xl text-default-400" />
+              <ArrowDownWideNarrow size={20} className="text-default-400" />
               <p className="text-sm">Sort by</p>
             </div>
             <div className="ml-6 flex flex-col gap-2 md:ml-0 md:flex-row">
@@ -397,7 +407,9 @@ const ExperienceSearchToolbar = ({
                 variant="underlined"
                 size="sm"
                 disableSelectorIconRotation
-                selectorIcon={<TbSelector className="text-default-400" />}
+                selectorIcon={
+                  <ChevronsUpDown size={20} className="text-default-400" />
+                }
                 classNames={{
                   base: "w-fit items-center",
                   label: "text-sm",
@@ -444,7 +456,9 @@ const ExperienceSearchToolbar = ({
           size="sm"
           labelPlacement="outside-left"
           disableSelectorIconRotation
-          selectorIcon={<TbSelector className="text-default-400" />}
+          selectorIcon={
+            <ChevronsUpDown size={20} className="text-default-400" />
+          }
           classNames={{
             base: "w-fit items-center order-1 min-[425px]:order-2",
             label: "text-sm",

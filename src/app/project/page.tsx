@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { FaArrowRight } from "react-icons/fa6";
+import { ChevronRight } from "lucide-react";
 
 import type { ProjectsWithPlace, TagWithStacks } from "@/types";
 import {
@@ -181,7 +181,10 @@ const Page = async ({
                 {item.description}
               </p>
             </div>
-            <FaArrowRight className="flex-shrink-0 text-default-500 duration-100 group-hover:translate-x-2 group-hover:text-primary" />
+            <ChevronRight
+              size={20}
+              className="flex-shrink-0 text-default-500 duration-100 group-hover:translate-x-2 group-hover:text-primary"
+            />
           </Link>
         ))}
       </main>
