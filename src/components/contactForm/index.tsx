@@ -93,7 +93,7 @@ const ContactForm = ({
     }
 
     toast.success(
-      "Your message has been sent successfully! I'll get back to you as soon as possible.",
+      "Your message has been sent successfully!\nI'll get back to you as soon as possible.",
     );
     setIsLoading(false);
   }, [name, email, type, message, isCaptchaSuccess]);
