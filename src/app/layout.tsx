@@ -166,20 +166,16 @@ const RootLayout = async ({
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `
-            (function(){
-              let color;
-              let theme = localStorage.getItem("theme");
-              color = theme === "dark" || (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches) ? "#000000" : "#ffffff";
-              let metas = Array.from(document.querySelectorAll('meta[name="theme-color"]'));
-              if (metas.length === 0) {
-                let meta = document.createElement("meta");
-                meta.setAttribute("name", "theme-color");
-                document.head.appendChild(meta);
-                metas.push(meta);
+            (function initTheme() {
+              var theme = localStorage.getItem("theme") || "light";
+              console.log(theme);
+              const html = document.querySelector("html");
+              if (html) {
+                if (theme === "dark" || theme === "system") {
+                  html.setAttribute("data-theme", "dark");
+                  html.setAttribute("style", "color-scheme: dark;");
+                }
               }
-              metas.forEach(meta => {
-                meta.setAttribute("content", color);
-              });
             })();
           `,
           }}
