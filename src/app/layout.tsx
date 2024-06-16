@@ -162,7 +162,7 @@ const RootLayout = async ({
   return (
     <html lang="en" className="min-h-dvh text-default-800">
       <Head>
-        <Script src="/theme.ts" strategy="beforeInteractive" />
+        <Script src="/theme.js" strategy="beforeInteractive" />
       </Head>
       <body
         className={`mx-auto my-4 mt-16 max-w-5xl text-pretty px-4 antialiased sm:px-16 lg:mt-32 ${poppins.className}`}
