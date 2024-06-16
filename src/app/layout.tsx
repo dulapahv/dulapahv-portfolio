@@ -161,9 +161,7 @@ const RootLayout = async ({
   return (
     <html lang="en" className="min-h-dvh text-default-800">
       <head>
-        <Script
-          id="theme-color"
-          strategy="beforeInteractive"
+        <script
           dangerouslySetInnerHTML={{
             __html: `
             (function initTheme() {
