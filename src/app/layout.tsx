@@ -159,26 +159,28 @@ const RootLayout = async ({
 }>) => {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`min-h-dvh text-default-800 ${poppins.className}`}>
+      <body
+        className={`min-h-dvh bg-white text-default-800 dark:bg-black ${poppins.className}`}
+      >
+        <div
+          aria-hidden
+          role="presentation"
+          className="pointer-events-none fixed -right-[35%] -top-[25%] size-full select-none overflow-clip opacity-50 mix-blend-darken hue-rotate-[45deg] dark:mix-blend-lighten sm:rotate-[20deg]"
+        >
+          <Image src="/pink.png" alt="" fill priority />
+        </div>
+        <div
+          aria-hidden
+          role="presentation"
+          className="pointer-events-none fixed -bottom-[15%] -left-[25%] size-[80%] select-none overflow-clip opacity-90 mix-blend-darken dark:opacity-60 dark:mix-blend-lighten sm:rotate-[15deg]"
+        >
+          <Image src="/blue.png" alt="" fill priority />
+        </div>
         <Providers className="mx-auto my-4 mb-32 mt-16 max-w-5xl text-pretty px-4 antialiased sm:px-16 lg:mt-32">
           <Toaster richColors className="whitespace-pre-line" />
           {children}
           <Navbar />
         </Providers>
-        <div
-          aria-hidden
-          role="presentation"
-          className="fixed -right-[35%] -top-[25%] -z-50 size-full select-none overflow-clip opacity-50 mix-blend-darken hue-rotate-[45deg] dark:mix-blend-lighten sm:rotate-[20deg]"
-        >
-          <Image src="/pink.png" alt="" fill priority draggable={false} />
-        </div>
-        <div
-          aria-hidden
-          role="presentation"
-          className="fixed -bottom-[15%] -left-[25%] -z-50 size-[80%] select-none overflow-clip opacity-90 mix-blend-darken dark:opacity-60 dark:mix-blend-lighten sm:rotate-[15deg]"
-        >
-          <Image src="/blue.png" alt="" fill priority draggable={false} />
-        </div>
       </body>
     </html>
   );
