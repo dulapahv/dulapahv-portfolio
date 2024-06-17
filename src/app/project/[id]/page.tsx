@@ -44,6 +44,7 @@ export async function generateMetadata(
       id: true,
       title: true,
       description: true,
+      url: true,
       startDate: true,
       endDate: true,
       placeId: true,
