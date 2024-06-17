@@ -1,4 +1,4 @@
-export { default as Navbar } from "./navbar/navbar";
+export { default as Navbar } from "./navbar/nav-bar";
 export { default as MarkdownRenderer } from "./markdown-renderer/markdown-renderer";
 export { default as Breadcrumb } from "./breadcrumb/breadcrumb";
 export { default as CommandMenu } from "./command-menu/command-menu";
