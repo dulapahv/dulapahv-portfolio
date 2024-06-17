@@ -19,7 +19,7 @@ export function Providers(props: ProvidersProps) {
 
   return (
     <NextUIProvider navigate={router.push} className={className}>
-      <ThemeProvider>{children}</ThemeProvider>
+      <ThemeProvider attribute="class">{children}</ThemeProvider>
     </NextUIProvider>
   );
 }

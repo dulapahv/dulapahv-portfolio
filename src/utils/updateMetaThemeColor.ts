@@ -11,7 +11,7 @@ const updateMetaThemeColor = (theme: "dark" | "light" | "system") => {
   const lightMeta = document.querySelectorAll(
     'meta[name="theme-color"][content="#fff"]',
   );
-  const allMeta = document.querySelectorAll('meta[name="theme-color"]');
+  const metas = document.querySelectorAll('meta[name="theme-color"]');
 
   switch (theme) {
     case "dark":
@@ -45,11 +45,11 @@ const updateMetaThemeColor = (theme: "dark" | "light" | "system") => {
       break;
 
     case "system":
-      if (allMeta.length >= 2) {
-        allMeta[0].setAttribute("content", "#fff");
-        allMeta[0].setAttribute("media", "(prefers-color-scheme: light)");
-        allMeta[1].setAttribute("content", "#000");
-        allMeta[1].setAttribute("media", "(prefers-color-scheme: dark)");
+      if (metas.length >= 2) {
+        metas[0].setAttribute("content", "#fff");
+        metas[0].setAttribute("media", "(prefers-color-scheme: light)");
+        metas[1].setAttribute("content", "#000");
+        metas[1].setAttribute("media", "(prefers-color-scheme: dark)");
       }
       break;
 

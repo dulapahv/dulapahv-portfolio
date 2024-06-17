@@ -3,7 +3,6 @@ import type { ReactNode } from "react";
 import dynamic from "next/dynamic";
 import { Poppins } from "next/font/google";
 import Image from "next/image";
-import Script from "next/script";
 import { Toaster } from "sonner";
 
 import { Navbar } from "@/components";
@@ -159,45 +158,27 @@ const RootLayout = async ({
   children: ReactNode;
 }>) => {
   return (
-    <html lang="en" className="min-h-dvh text-default-800">
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-            (function(){
-              let color;
-              let theme = localStorage.getItem("theme");
-              color = theme === "dark" || theme === "system" || (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches) ? "#000000" : "#ffffff";
-              console.log(color);
-              let metas = Array.from(document.querySelectorAll('meta[name="theme-color"]'));
-              if (metas.length === 0) {
-                let meta = document.createElement("meta");
-                meta.setAttribute("name", "theme-color");
-                document.head.appendChild(meta);
-                metas.push(meta);
-              }
-              metas.forEach(meta => {
-                meta.setAttribute("content", color);
-              });
-            })();
-          `,
-          }}
-        />
-      </head>
-      <body
-        className={`mx-auto my-4 mt-16 max-w-5xl text-pretty px-4 antialiased sm:px-16 lg:mt-32 ${poppins.className}`}
-      >
-        <div className="fixed -right-[35%] -top-[25%] -z-50 size-full select-none overflow-clip opacity-50 mix-blend-darken hue-rotate-[45deg] dark:mix-blend-lighten sm:rotate-[20deg]">
-          <Image src="/pink.png" alt="pink" fill priority draggable={false} />
-        </div>
-        <div className="fixed -bottom-[15%] -left-[25%] -z-50 size-[80%] select-none overflow-clip opacity-90 mix-blend-darken dark:opacity-60 dark:mix-blend-lighten sm:rotate-[15deg]">
-          <Image src="/blue.png" alt="blue" fill priority draggable={false} />
-        </div>
-        <Providers className="mb-32">
+    <html lang="en" suppressHydrationWarning>
+      <body className={`min-h-dvh text-default-800 ${poppins.className}`}>
+        <Providers className="mx-auto my-4 mb-32 mt-16 max-w-5xl text-pretty px-4 antialiased sm:px-16 lg:mt-32">
           <Toaster richColors className="whitespace-pre-line" />
           {children}
           <Navbar />
         </Providers>
+        <div
+          aria-hidden
+          role="presentation"
+          className="fixed -right-[35%] -top-[25%] -z-50 size-full select-none overflow-clip opacity-50 mix-blend-darken hue-rotate-[45deg] dark:mix-blend-lighten sm:rotate-[20deg]"
+        >
+          <Image src="/pink.png" alt="" fill priority draggable={false} />
+        </div>
+        <div
+          aria-hidden
+          role="presentation"
+          className="fixed -bottom-[15%] -left-[25%] -z-50 size-[80%] select-none overflow-clip opacity-90 mix-blend-darken dark:opacity-60 dark:mix-blend-lighten sm:rotate-[15deg]"
+        >
+          <Image src="/blue.png" alt="" fill priority draggable={false} />
+        </div>
       </body>
     </html>
   );
