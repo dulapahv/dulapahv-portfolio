@@ -3,6 +3,7 @@
 import type { ReactNode } from "react";
 import { useRouter } from "next/navigation";
 import { NextUIProvider } from "@nextui-org/react";
+import { ThemeProvider } from "next-themes";
 
 export * from "@nextui-org/react";
 
@@ -18,7 +19,7 @@ export function Providers(props: ProvidersProps) {
 
   return (
     <NextUIProvider navigate={router.push} className={className}>
-      {children}
+      <ThemeProvider attribute="class">{children}</ThemeProvider>
     </NextUIProvider>
   );
 }

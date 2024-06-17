@@ -3,7 +3,6 @@ import type { ReactNode } from "react";
 import dynamic from "next/dynamic";
 import { Poppins } from "next/font/google";
 import Image from "next/image";
-import { ThemeProvider } from "next-themes";
 import { Toaster } from "sonner";
 
 import { Navbar } from "@/components";
@@ -159,59 +158,29 @@ const RootLayout = async ({
   children: ReactNode;
 }>) => {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <script>
-          {`
-          (function() {
-            try {
-              var d = document.documentElement;
-              var c = d.classList;
-              c.remove('light', 'dark');
-              var e = localStorage.getItem('theme');
-              if ('system' === e || (!e && true)) {
-                var t = '(prefers-color-scheme: dark)';
-                var m = window.matchMedia(t);
-                if (m.media !== t || m.matches) {
-                  d.style.colorScheme = 'dark';
-                  c.add('dark');
-                } else {
-                  d.style.colorScheme = 'light';
-                  c.add('light');
-                }
-              } else if (e) {
-                c.add(e || '');
-              }
-              if (e === 'light' || e === 'dark') d.style.colorScheme = e;
-            } catch (e) {}
-          })();
-        `}
-        </script>
-      </head>
+    <html lang="en" className="dark" suppressHydrationWarning>
       <body
         className={`min-h-dvh bg-white text-default-800 dark:bg-black ${poppins.className}`}
       >
-        <ThemeProvider attribute="class">
-          <div
-            aria-hidden
-            role="presentation"
-            className="pointer-events-none fixed -right-[35%] -top-[25%] size-full select-none overflow-clip opacity-50 mix-blend-darken hue-rotate-[45deg] dark:mix-blend-lighten sm:rotate-[20deg]"
-          >
-            <Image src="/pink.png" alt="" fill priority />
-          </div>
-          <div
-            aria-hidden
-            role="presentation"
-            className="pointer-events-none fixed -bottom-[15%] -left-[25%] size-[80%] select-none overflow-clip opacity-90 mix-blend-darken dark:opacity-60 dark:mix-blend-lighten sm:rotate-[15deg]"
-          >
-            <Image src="/blue.png" alt="" fill priority />
-          </div>
-          <Providers className="mx-auto my-4 mb-32 mt-16 max-w-5xl text-pretty px-4 antialiased sm:px-16 lg:mt-32">
-            <Toaster richColors className="whitespace-pre-line" />
-            {children}
-            <Navbar />
-          </Providers>
-        </ThemeProvider>
+        <div
+          aria-hidden
+          role="presentation"
+          className="pointer-events-none fixed -right-[35%] -top-[25%] size-full select-none overflow-clip opacity-50 mix-blend-darken hue-rotate-[45deg] dark:mix-blend-lighten sm:rotate-[20deg]"
+        >
+          <Image src="/pink.png" alt="" fill priority />
+        </div>
+        <div
+          aria-hidden
+          role="presentation"
+          className="pointer-events-none fixed -bottom-[15%] -left-[25%] size-[80%] select-none overflow-clip opacity-90 mix-blend-darken dark:opacity-60 dark:mix-blend-lighten sm:rotate-[15deg]"
+        >
+          <Image src="/blue.png" alt="" fill priority />
+        </div>
+        <Providers className="mx-auto my-4 mb-32 mt-16 max-w-5xl text-pretty px-4 antialiased sm:px-16 lg:mt-32">
+          <Toaster richColors className="whitespace-pre-line" />
+          {children}
+          <Navbar />
+        </Providers>
       </body>
     </html>
   );
