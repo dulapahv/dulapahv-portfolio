@@ -12,3 +12,4 @@ export { default as ContactForm } from "./contactForm";
 export { default as Captcha } from "./captcha";
 export { default as EmailTemplate } from "./emailTemplate";
 export { default as UrlButton } from "./UrlButton";
+export { default as BlogSearchToolbar } from "./blogSearchToolbar";

@@ -158,7 +158,11 @@ const RootLayout = async ({
   children: ReactNode;
 }>) => {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${typeof window !== "undefined" ? (localStorage.getItem("theme") === "light" ? "light" : "dark") : ""} `}
+      suppressHydrationWarning
+    >
       <body
         className={`min-h-dvh bg-white text-default-800 dark:bg-black ${poppins.className}`}
       >
