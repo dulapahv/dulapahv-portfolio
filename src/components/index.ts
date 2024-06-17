@@ -1,6 +1,6 @@
 export { default as Navbar } from "./navbar/navbar";
 export { default as MarkdownRenderer } from "./markdown-renderer/markdown-renderer";
-export { default as Breadcrumb } from "./breadcrumb/bread-crumb";
+export { default as Breadcrumb } from "./breadcrumb/breadcrumb";
 export { default as CommandMenu } from "./command-menu/command-menu";
 export { type CommandMenuModalRef } from "./command-menu/command-menu";
 export { default as ExperienceSearchToolbar } from "./experience-search-toolbar/experience-search-toolbar";
