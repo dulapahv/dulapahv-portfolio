@@ -47,9 +47,10 @@ model Project {
 model Blog {
   id          String   @id @default(cuid())
   title       String
+  stacks      Stack[]
   description String
   content     String
-  coverImage  String
+  imagePath   String   @default("")
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
@@ -64,6 +65,7 @@ model Stack {
   tags        Tag[]
   experiences Experience[]
   projects    Project[]
+  blogs       Blog[]
 
   @@index([name])
 }

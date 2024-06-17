@@ -22,7 +22,7 @@ const raleway = Raleway({
   subsets: ["latin"],
 });
 
-const Navbar = () => {
+export default function Navbar() {
   const commandMenuRef = useRef<CommandMenuModalRef>(null);
 
   const pathname = usePathname();
@@ -137,6 +137,4 @@ const Navbar = () => {
       </Tabs>
     </>
   );
-};
-
-export default Navbar;
+}

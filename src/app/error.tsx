@@ -5,13 +5,13 @@ import Link from "next/link";
 import { Button, Link as NextUILink } from "@nextui-org/react";
 import * as Sentry from "@sentry/nextjs";
 
-const Error = ({
+export default function Error({
   error,
   reset,
 }: {
   error: Error & { digest?: string };
   reset: () => void;
-}) => {
+}) {
   useEffect(() => {
     Sentry.captureException(error);
   }, [error]);
@@ -62,9 +62,7 @@ const Error = ({
       </footer>
     </div>
   );
-};
-
-export default Error;
+}
 
 Error.getInitialProps = async (contextData: any): Promise<any> => {
   // In case this is running in a serverless function, await this in order to give Sentry

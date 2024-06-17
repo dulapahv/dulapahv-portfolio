@@ -1,6 +1,6 @@
 import { HomeButton } from "@/components";
 
-const NotFound = () => {
+export default function NotFound() {
   return (
     <div className="space-y-8">
       <header>
@@ -23,6 +23,4 @@ const NotFound = () => {
       </footer>
     </div>
   );
-};
-
-export default NotFound;
+}

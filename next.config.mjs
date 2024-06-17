@@ -2,36 +2,10 @@ import { withSentryConfig } from "@sentry/nextjs";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  async headers() {
-    if (process.env.VERCEL_ENV === "production") {
-      return [];
-    } else {
-      return [
-        {
-          source: "/(images/.*)",
-          headers: [
-            {
-              key: "x-vercel-protection-bypass",
-              value: process.env.VERCEL_AUTOMATION_BYPASS_SECRET,
-            },
-          ],
-        },
-        {
-          source: "/(_next/image.*)",
-          headers: [
-            {
-              key: "x-vercel-protection-bypass",
-              value: process.env.VERCEL_AUTOMATION_BYPASS_SECRET,
-            },
-          ],
-        },
-      ];
-    }
-  },
   async redirects() {
     return [
       {
-        source: "/admin",
+        source: "/admin-dashboard",
         destination: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
         permanent: false,
       },

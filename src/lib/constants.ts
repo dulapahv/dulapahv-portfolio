@@ -36,6 +36,11 @@ export const typeOptions = [
   { key: "personal", label: "Personal" },
 ];
 
+export const sortByCreatedAtOptions = [
+  { key: "date-asc", label: "Date (oldest)" },
+  { key: "date-desc", label: "Date (newest)" },
+];
+
 export const contactTypeOptions = [
   {
     key: "general",

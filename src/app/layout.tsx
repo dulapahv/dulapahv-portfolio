@@ -152,13 +152,13 @@ export const viewport: Viewport = {
   userScalable: false,
 };
 
-const RootLayout = async ({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: ReactNode;
-}>) => {
+}>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`min-h-dvh bg-white text-default-800 dark:bg-black ${poppins.className}`}
       >
@@ -184,6 +184,4 @@ const RootLayout = async ({
       </body>
     </html>
   );
-};
-
-export default RootLayout;
+}

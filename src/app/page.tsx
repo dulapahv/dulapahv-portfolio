@@ -1,6 +1,6 @@
 import { NAME } from "@/lib/constants";
 
-const Home = () => {
+export default function Home() {
   return (
     <div className="space-y-8">
       <header className="space-y-2">
@@ -17,6 +17,4 @@ const Home = () => {
       </main>
     </div>
   );
-};
-
-export default Home;
+}

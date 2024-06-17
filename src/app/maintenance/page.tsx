@@ -1,13 +1,13 @@
 import { ReloadButton } from "@/components";
 
-const page = ({
+export default function Page({
   searchParams,
 }: {
   searchParams?: {
     path: string;
     reason: string;
   };
-}) => {
+}) {
   const path = searchParams?.path || "/";
   const reason = searchParams?.reason || "Unknown Reason";
 
@@ -37,6 +37,4 @@ const page = ({
       </footer>
     </div>
   );
-};
-
-export default page;
+}
