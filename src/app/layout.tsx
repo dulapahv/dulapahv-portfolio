@@ -3,7 +3,6 @@ import type { ReactNode } from "react";
 import dynamic from "next/dynamic";
 import { Poppins } from "next/font/google";
 import Image from "next/image";
-import Script from "next/script";
 import { ThemeProvider } from "next-themes";
 import { Toaster } from "sonner";
 
@@ -162,36 +161,32 @@ const RootLayout = async ({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <Script
-          id="theme-color"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var d = document.documentElement;
-                  var c = d.classList;
-                  c.remove('light', 'dark');
-                  var e = localStorage.getItem('theme');
-                  if ('system' === e || (!e && true)) {
-                    var t = '(prefers-color-scheme: dark)';
-                    var m = window.matchMedia(t);
-                    if (m.media !== t || m.matches) {
-                      d.style.colorScheme = 'dark';
-                      c.add('dark');
-                    } else {
-                      d.style.colorScheme = 'light';
-                      c.add('light');
-                    }
-                  } else if (e) {
-                    c.add(e || '');
-                  }
-                  if (e === 'light' || e === 'dark') d.style.colorScheme = e;
-                } catch (e) {}
-              })();
-            `,
-          }}
-        />
+        <script>
+          {`
+          (function() {
+            try {
+              var d = document.documentElement;
+              var c = d.classList;
+              c.remove('light', 'dark');
+              var e = localStorage.getItem('theme');
+              if ('system' === e || (!e && true)) {
+                var t = '(prefers-color-scheme: dark)';
+                var m = window.matchMedia(t);
+                if (m.media !== t || m.matches) {
+                  d.style.colorScheme = 'dark';
+                  c.add('dark');
+                } else {
+                  d.style.colorScheme = 'light';
+                  c.add('light');
+                }
+              } else if (e) {
+                c.add(e || '');
+              }
+              if (e === 'light' || e === 'dark') d.style.colorScheme = e;
+            } catch (e) {}
+          })();
+        `}
+        </script>
       </head>
       <body
         className={`min-h-dvh bg-white text-default-800 dark:bg-black ${poppins.className}`}

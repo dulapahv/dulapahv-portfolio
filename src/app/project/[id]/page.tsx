@@ -1,10 +1,11 @@
+import { url } from "inspector";
 import type { Metadata, ResolvingMetadata } from "next";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 import { Article, WithContext } from "schema-dts";
 
 import type { ProjectsWithPlace } from "@/types";
-import { Breadcrumb, MarkdownRenderer } from "@/components";
+import { Breadcrumb, MarkdownRenderer, UrlButton } from "@/components";
 import { getUniqueProject } from "@/data";
 import { ASSETS_URL, BASE_URL, NAME } from "@/lib/constants";
 import { dynamicBlurDataUrl, formatDate } from "@/utils";
@@ -26,6 +27,12 @@ export async function generateMetadata(
       id: id,
     },
     select: {
+      id: true,
+      title: true,
+      description: true,
+      startDate: true,
+      endDate: true,
+      placeId: true,
       place: {
         select: {
           name: true,
@@ -41,13 +48,6 @@ export async function generateMetadata(
           },
         },
       },
-      id: true,
-      title: true,
-      description: true,
-      url: true,
-      startDate: true,
-      endDate: true,
-      placeId: true,
     },
   })) as ProjectsWithPlace;
 
@@ -81,6 +81,7 @@ const Page = async ({ params }: Props) => {
       imagePath: true,
       imageDescription: true,
       description: true,
+      url: true,
       startDate: true,
       endDate: true,
       placeId: true,
@@ -174,6 +175,7 @@ const Page = async ({ params }: Props) => {
             className="rounded-md"
           />
           <MarkdownRenderer>{item.description}</MarkdownRenderer>
+          {item.url ? <UrlButton url={item.url} /> : null}
         </main>
         <footer className="space-y-4 border-t-1 border-default-300 pt-10 dark:border-default-100">
           <h3 className="text-2xl font-semibold" id="gallery">
