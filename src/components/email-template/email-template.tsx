@@ -1,3 +1,4 @@
+import { FC } from "react";
 import {
   Body,
   Container,
@@ -15,12 +16,12 @@ import {
 import { ASSETS_URL, BASE_URL, LINKEDIN_URL } from "@/lib/constants";
 import { EmailTemplateProps } from "@/types";
 
-export default function EmailTemplate({
+const EmailTemplate: FC<Readonly<EmailTemplateProps>> = ({
   fullName,
   email,
   type,
   message,
-}: Readonly<EmailTemplateProps>) {
+}) => (
   <Html>
     <Head />
     <Preview>
@@ -76,5 +77,7 @@ export default function EmailTemplate({
         </Container>
       </Body>
     </Tailwind>
-  </Html>;
-}
+  </Html>
+);
+
+export default EmailTemplate;

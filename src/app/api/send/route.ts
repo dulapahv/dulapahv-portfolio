@@ -1,3 +1,4 @@
+import { ReactElement } from "react";
 import { NextRequest } from "next/server";
 import { ErrorResponse, Resend } from "resend";
 
@@ -30,7 +31,7 @@ export async function POST(req: NextRequest) {
         email,
         type,
         message,
-      } as EmailTemplateProps),
+      } as EmailTemplateProps) as ReactElement,
     });
     if (error) {
       return Response.json({ error }, { status: 500 });
