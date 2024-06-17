@@ -25,7 +25,7 @@ const page = ({
       </main>
       <footer className="border-t-1 border-default-300 pt-6 text-default-500 dark:border-default-100">
         <p>Details:</p>
-        <code className="text-sm sm:text-base">
+        <code className="whitespace-pre-line text-sm sm:text-base">
           Status: 503 Service Unavailable
           <br />
           {`Timestamp: ${new Date().toLocaleString()} (${new Date().toISOString()})`}
