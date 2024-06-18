@@ -130,10 +130,11 @@ export function Navbar() {
           }
         />
         <Tab
+          as="div"
           title={<Divider orientation="vertical" />}
-          className="bg-default-200 px-0"
+          className="pointer-events-none bg-default-200 px-0"
         />
-        <Tab title={<Menu size={20} />} />
+        <Tab title={<Menu size={20} />} aria-label="Command Menu" />
       </Tabs>
     </>
   );

@@ -146,8 +146,9 @@ export const viewport: Viewport = {
     { media: "(prefers-color-scheme: dark)", color: "#000" },
   ],
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
+  userScalable: true,
+  minimumScale: 1,
+  maximumScale: 5,
 };
 
 export default async function RootLayout({

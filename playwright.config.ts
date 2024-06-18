@@ -1,5 +1,7 @@
 import { defineConfig, devices } from "@playwright/test";
 
+const baseURL = process.env.PLAYWRIGHT_TEST_BASE_URL || "http://localhost:3000";
+
 export default defineConfig({
   testDir: "./tests",
   // Timeout per test
@@ -21,25 +23,15 @@ export default defineConfig({
   // Reporter to use. See https://playwright.dev/docs/test-reporters
   reporter: process.env.CI ? "github" : "list",
 
-  // Run your local dev server before starting the tests:
-  // https://playwright.dev/docs/test-advanced#launching-a-development-web-server-during-the-tests
-  // webServer: {
-  //   command: process.env.CI ? "npm run start" : "pnpm dev",
-  //   url: process.env.PLAYWRIGHT_TEST_BASE_URL ?? "http://localhost:3000",
-  //   timeout: 2 * 60 * 1000,
-  //   reuseExistingServer: !process.env.CI,
-  // },
-
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    // Maximum time each action such as `click()` can take. Defaults to 0 (no
-    // limit).
+    // Maximum time each action such as `click()` can take. Defaults to 0 (no limit).
     actionTimeout: 0,
 
-    /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: process.env.PLAYWRIGHT_TEST_BASE_URL || "http://localhost:3000",
+    // Base URL to use in actions like `await page.goto('/')`.
+    baseURL: baseURL,
 
-    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
+    // Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer
     trace: "on-first-retry",
   },
 
@@ -80,4 +72,13 @@ export default defineConfig({
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
   ],
+
+  /* Run your local dev server before starting the tests: */
+  // https://playwright.dev/docs/test-advanced#launching-a-development-web-server-during-the-tests
+  // webServer: {
+  //   command: process.env.CI ? "npm run start" : "pnpm dev",
+  //   url: baseURL,
+  //   timeout: 2 * 60 * 1000,
+  //   reuseExistingServer: !process.env.CI,
+  // },
 });
