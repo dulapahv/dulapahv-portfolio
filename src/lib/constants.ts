@@ -18,6 +18,10 @@ export const THEME_COLOR = "#fb568a";
 
 export const CLOUDFLARE_TURNSTILE_SITE_KEY = "0x4AAAAAAACYFWWcTzhCNWz4";
 
+export const NAME_MAX_LENGTH = 180;
+export const EMAIL_MAX_LENGTH = 180;
+export const MESSAGE_MAX_LENGTH = 1000;
+
 export const itemsPerPageOptions = [
   { key: "5", label: "5" },
   { key: "10", label: "10" },

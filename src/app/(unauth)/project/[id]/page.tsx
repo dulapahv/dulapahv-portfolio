@@ -168,7 +168,7 @@ export default async function Page({ params }: Props) {
         <main className="space-y-8 pb-2">
           <Image
             src={coverImgUrl}
-            alt={item.title}
+            alt={`Cover image for ${item.title}`}
             width={1920}
             height={1080}
             placeholder="blur"
@@ -191,7 +191,7 @@ export default async function Page({ params }: Props) {
                 <h3 className="text-sm sm:text-base">{`${index + 1}. ${description}`}</h3>
                 <Image
                   src={url}
-                  alt={description}
+                  alt={`Image ${index + 1} for ${item.title}`}
                   width={1920}
                   height={1080}
                   placeholder="blur"

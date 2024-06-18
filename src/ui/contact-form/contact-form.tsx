@@ -14,6 +14,7 @@ import { isMobile } from "react-device-detect";
 import { ErrorResponse } from "resend";
 import { toast } from "sonner";
 
+import { useOnLeavePageConfirmation } from "@/hooks/use-on-leave-page-confirmation";
 import { contactTypeOptions } from "@/lib/constants";
 import { Captcha } from "@/ui/captcha";
 
@@ -45,7 +46,18 @@ export function ContactForm({
 
   const [isCaptchaSuccess, setIsCaptchaSuccess] = useState(false);
 
+  const [isDirty, setIsDirty] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
+  useMemo(() => {
+    if (name !== "" || email !== "" || message !== "") {
+      setIsDirty(true);
+    } else {
+      setIsDirty(false);
+    }
+  }, [name, email, message]);
+
+  useOnLeavePageConfirmation(isDirty);
 
   const isEmailCorrect = useMemo(() => {
     if (!email) return false;
@@ -230,11 +242,10 @@ export function ContactForm({
         placeholder="Hello, I would like to..."
         radius="sm"
         labelPlacement="outside"
-        disableAutosize
-        disableAnimation
+        maxRows={20}
         classNames={{
           label: "w-full pr-0 flex justify-between items-end",
-          input: "resize-y min-h-[80px]",
+          input: "min-h-[80px]",
         }}
       />
       <Captcha isSuccess={setIsCaptchaSuccess} />

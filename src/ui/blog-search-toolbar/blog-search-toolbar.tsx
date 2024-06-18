@@ -168,7 +168,7 @@ export function BlogSearchToolbar({ count, tags }: SearchToolbarProps) {
     <>
       <Input
         type="text"
-        placeholder="Search for position, company, or location..."
+        placeholder="Search for title or description..."
         size="md"
         radius="sm"
         autoFocus={!isMobile}
