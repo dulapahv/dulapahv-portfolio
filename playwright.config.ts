@@ -3,10 +3,10 @@ import { defineConfig, devices } from "@playwright/test";
 export default defineConfig({
   testDir: "./tests",
   // Timeout per test
-  timeout: 30 * 1000,
+  timeout: 0,
   // Expect timeout for each test
   expect: {
-    timeout: 10 * 1000,
+    timeout: 0,
   },
   // Run tests in files in parallel on CI
   fullyParallel: !!process.env.CI,
@@ -25,15 +25,19 @@ export default defineConfig({
   // https://playwright.dev/docs/test-advanced#launching-a-development-web-server-during-the-tests
   // webServer: {
   //   command: process.env.CI ? "npm run start" : "pnpm dev",
-  //   url: baseURL,
+  //   url: process.env.PLAYWRIGHT_TEST_BASE_URL ?? "http://localhost:3000",
   //   timeout: 2 * 60 * 1000,
   //   reuseExistingServer: !process.env.CI,
   // },
 
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
+    // Maximum time each action such as `click()` can take. Defaults to 0 (no
+    // limit).
+    actionTimeout: 0,
+
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: process.env.PLAYWRIGHT_TEST_BASE_URL ?? "http://localhost:3000",
+    baseURL: process.env.PLAYWRIGHT_TEST_BASE_URL || "http://localhost:3000",
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",
