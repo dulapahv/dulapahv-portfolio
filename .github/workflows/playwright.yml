@@ -20,7 +20,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           check_interval: 10
-          max_timeout: 360
+          max_timeout: 600
   test_e2e:
     needs: test_setup
     name: Playwright tests
