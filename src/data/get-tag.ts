@@ -1,6 +1,6 @@
 import { cache } from "react";
 
-import { prisma } from "@/lib";
+import prisma from "@/lib/prisma";
 
 export const getManyTag = cache(async (query?: any) => {
   const item = await prisma.tag.findMany(query);

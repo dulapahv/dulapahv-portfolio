@@ -1,6 +1,6 @@
 import { BASE_URL } from "@/lib/constants";
 
-export default async function dynamicBlurDataUrl(url: string) {
+export async function dynamicBlurDataUrl(url: string) {
   const base64str = await fetch(
     `${BASE_URL}/_next/image?url=${url}&w=1920&q=75`,
   ).then(async (res) =>

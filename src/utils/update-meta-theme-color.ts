@@ -1,4 +1,4 @@
-export default function updateMetaThemeColor(
+export function updateMetaThemeColor(
   theme: "dark" | "light" | "system",
 ) {
   const darkMetaScheme = document.querySelector(

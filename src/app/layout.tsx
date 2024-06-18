@@ -1,11 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import type { ReactNode } from "react";
 import dynamic from "next/dynamic";
 import { Poppins } from "next/font/google";
 import Image from "next/image";
 import { Toaster } from "sonner";
 
-import { Navbar } from "@/components";
 import {
   ASSETS_URL,
   BASE_URL,
@@ -16,7 +14,7 @@ import {
   THEME_COLOR,
 } from "@/lib/constants";
 
-import "./globals.css";
+import "@/styles/globals.css";
 
 import { Providers } from "./providers";
 
@@ -155,7 +153,7 @@ export const viewport: Viewport = {
 export default async function RootLayout({
   children,
 }: Readonly<{
-  children: ReactNode;
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -179,7 +177,6 @@ export default async function RootLayout({
         <Providers className="mx-auto my-4 mb-32 mt-16 max-w-5xl text-pretty px-4 antialiased sm:px-16 lg:mt-32">
           <Toaster richColors className="whitespace-pre-line" />
           {children}
-          <Navbar />
         </Providers>
       </body>
     </html>

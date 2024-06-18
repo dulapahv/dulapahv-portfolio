@@ -1,4 +1,4 @@
-import { ReloadButton } from "@/components";
+import { ReloadButton } from "@/ui/reload-button";
 
 export default function Page({
   searchParams,

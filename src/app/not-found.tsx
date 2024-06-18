@@ -1,4 +1,4 @@
-import { HomeButton } from "@/components";
+import { HomeButton } from "@/ui/home-button";
 
 export default function NotFound() {
   return (

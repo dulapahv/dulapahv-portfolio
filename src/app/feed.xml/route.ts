@@ -1,7 +1,7 @@
 import RSS from "rss";
 
 import type { City, Country, Experience, Place, Stack } from "@prisma/client";
-import { getManyExperience, getManyProject } from "@/data";
+import { getManyExperience } from "@/data/get-experience";
 import {
   BASE_URL,
   DESCRIPTION,

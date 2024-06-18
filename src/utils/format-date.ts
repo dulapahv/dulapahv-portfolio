@@ -1,4 +1,4 @@
-export default function formatDate(date: Date | null): string {
+export function formatDate(date: Date | null): string {
   if (!date) return "Present";
 
   if (isNaN(date.getTime())) throw new Error("Invalid ISO8601 date string");

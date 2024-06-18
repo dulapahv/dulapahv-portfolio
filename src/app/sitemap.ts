@@ -1,7 +1,8 @@
 import { MetadataRoute } from "next";
 
 import type { City, Country, Experience, Place } from "@prisma/client";
-import { getManyExperience, getManyProject } from "@/data";
+import { getManyExperience } from "@/data/get-experience";
+import { getManyProject } from "@/data/get-project";
 import { BASE_URL } from "@/lib/constants";
 
 interface ExperienceWithPlace extends Experience {
