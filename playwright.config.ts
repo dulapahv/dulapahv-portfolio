@@ -1,14 +1,5 @@
 import { defineConfig, devices } from "@playwright/test";
 
-// Use process.env.PORT by default and fallback to port 3000
-const PORT = process.env.PORT || 3000;
-
-// Set webServer.url and use.baseURL with the location of the WebServer respecting the correct set port
-const baseURL = `http://localhost:${PORT}`;
-
-// *.check.spec.ts files use ENVIRONMENT_URL instead of baseURL
-process.env.ENVIRONMENT_URL = baseURL;
-
 export default defineConfig({
   testDir: "./tests",
   // Timeout per test
@@ -42,7 +33,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL,
+    baseURL: process.env.PLAYWRIGHT_TEST_BASE_URL ?? "http://localhost:3000",
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",

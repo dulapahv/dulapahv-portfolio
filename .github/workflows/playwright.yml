@@ -20,7 +20,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           check_interval: 10
-          max_timeout: 960
+          max_timeout: 1440
   test_e2e:
     needs: test_setup
     name: Playwright tests
@@ -49,4 +49,4 @@ jobs:
       - name: Run tests
         run: npm run test:e2e
         env:
-          PLAYWRIGHT_TEST_BASE_URL: ${{ needs.test_setup.outputs.preview_url }}
+          PLAYWRIGHT_TEST_BASE_URL: ${{ github.event.deployment_status.target_url }}

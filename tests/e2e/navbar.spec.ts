@@ -1,7 +1,5 @@
 import { expect, test } from "@playwright/test";
 
-const baseURL = process.env.ENVIRONMENT_URL;
-
 test("check if navbar with correct tag is present", async ({ page }) => {
   // Navigate to the page you want to test
   await page.goto("/");
@@ -18,7 +16,7 @@ test("check if navbar with correct tag is present", async ({ page }) => {
 
 test("go to experience page", async ({ page }) => {
   // Navigate to the page you want to test
-  await page.goto('/');
+  await page.goto("/");
 
   // Locate the navbar with aria-label="Navbar" and tag <nav>
   const navbar = page.locator('nav[aria-label="Navbar"]');
@@ -30,5 +28,5 @@ test("go to experience page", async ({ page }) => {
 
   // Click the anchor button and verify the URL
   await anchor.click();
-  await expect(page).toHaveURL(`${baseURL}/experience`);
+  await expect(page).toHaveURL("/experience");
 });
