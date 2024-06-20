@@ -158,20 +158,18 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`min-h-dvh bg-white text-default-800 dark:bg-black ${poppins.className}`}
-      >
+      <body className={`min-h-dvhtext-default-800 ${poppins.className}`}>
         <div
           aria-hidden
           role="presentation"
-          className="pointer-events-none fixed -right-[35%] -top-[25%] size-full select-none overflow-clip opacity-50 mix-blend-darken hue-rotate-[45deg] dark:mix-blend-lighten sm:rotate-[20deg]"
+          className="pointer-events-none fixed -right-[35%] -top-[25%] -z-50 size-full select-none overflow-clip opacity-50 mix-blend-darken hue-rotate-[45deg] dark:mix-blend-lighten sm:rotate-[20deg]"
         >
           <Image src="/pink.png" alt="" fill priority />
         </div>
         <div
           aria-hidden
           role="presentation"
-          className="pointer-events-none fixed -bottom-[15%] -left-[25%] size-[80%] select-none overflow-clip opacity-90 mix-blend-darken dark:opacity-60 dark:mix-blend-lighten sm:rotate-[15deg]"
+          className="pointer-events-none fixed -bottom-[15%] -left-[25%] -z-50 size-[80%] select-none overflow-clip opacity-90 mix-blend-darken dark:opacity-60 dark:mix-blend-lighten sm:rotate-[15deg]"
         >
           <Image src="/blue.png" alt="" fill priority />
         </div>

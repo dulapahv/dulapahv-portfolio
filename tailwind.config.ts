@@ -64,6 +64,6 @@ const config: Config = {
     },
   },
   darkMode: "class",
-  plugins: [nextui()],
+  plugins: [require("@tailwindcss/typography"), nextui()],
 };
 export default config;

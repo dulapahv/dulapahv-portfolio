@@ -2,6 +2,7 @@ import { ReactElement } from "react";
 import { NextRequest } from "next/server";
 import { ErrorResponse, Resend } from "resend";
 
+import { NAME } from "@/lib/constants";
 import { EmailTemplateProps } from "@/types/types";
 import { EmailTemplate } from "@/ui/email-template";
 
@@ -23,7 +24,7 @@ export async function POST(req: NextRequest) {
 
   try {
     const { data, error } = await resend.emails.send({
-      from: `Dulapah Vibulsanti <${process.env.EMAIL}>`,
+      from: `${NAME} <${process.env.EMAIL}>`,
       to: [`${process.env.EMAIL}`],
       subject: `✨ ${type} - ${fullName}`,
       react: EmailTemplate({
