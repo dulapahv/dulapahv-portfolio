@@ -1,17 +1,9 @@
 import { MetadataRoute } from "next";
 
-import type { City, Country, Experience, Place } from "@prisma/client";
 import { getManyExperience } from "@/data/get-experience";
 import { getManyProject } from "@/data/get-project";
 import { BASE_URL } from "@/lib/constants";
-
-interface ExperienceWithPlace extends Experience {
-  place: Place & {
-    city: City & {
-      country: Country;
-    };
-  };
-}
+import { ExperienceWithPlace } from "@/types/prisma";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const links = [

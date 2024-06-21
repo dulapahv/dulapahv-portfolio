@@ -33,7 +33,4 @@
   .prose-mofu li {
     @apply marker:text-primary;
   }
-  .prose-mofu code {
-    @apply rounded-md border-1 border-default-200 bg-default-100 p-0.5 font-normal;
-  }
 }

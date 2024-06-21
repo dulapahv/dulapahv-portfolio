@@ -11,6 +11,8 @@ import { codeRenderer } from "./code-renderer";
 import { hrRenderer } from "./hr-renderer";
 import { linkRenderer } from "./link-renderer";
 import { preRenderer } from "./pre-renderer";
+import { tdRenderer } from "./td-renderer";
+import { thRenderer } from "./th-renderer";
 import { theadRenderer } from "./thead-renderer";
 import { trRenderer } from "./tr-renderer";
 
@@ -20,11 +22,11 @@ type MarkdownRendererProps = {
 
 export function MarkdownRenderer({ children }: MarkdownRendererProps) {
   return (
-    <div className={`prose dark:prose-invert prose-mofu max-w-none`}>
+    <div className={`prose-mofu prose max-w-none dark:prose-invert`}>
       <Markdown
         remarkPlugins={[remarkGfm, remarkMath]}
         rehypePlugins={[
-          rehypeSanitize,
+          // rehypeSanitize,
           rehypeRaw,
           rehypeHighlight,
           rehypeKatex,
@@ -37,58 +39,53 @@ export function MarkdownRenderer({ children }: MarkdownRendererProps) {
           hr: hrRenderer,
           thead: theadRenderer,
           tr: trRenderer,
+          th: thRenderer,
+          td: tdRenderer,
         }}
       >
-        {string}
+        {children}
       </Markdown>
     </div>
   );
 }
 
-const string = `The Game Development program provides students with a comprehensive understanding of game design theory, game engine architecture, and programming languages commonly used in the industry. Students will learn to create engaging gameplay mechanics, design immersive worlds, and optimize game performance. Through collaborative projects and internships, students gain practical experience in game development and production pipelines. Graduates are prepared for careers as game designers, level designers, and gameplay programmers in the gaming industry.
+const string = `# A demo of \`react-markdown\`
 
-Test description
+\`react-markdown\` is a markdown component for React.
 
-**Test description**
+👉 Changes are re-rendered as you type.
 
-*Test description*
+👈 Try writing some markdown on the left.
 
-<u>Test description</u>
+## Overview
 
+* Follows [CommonMark](https://commonmark.org)
+* Optionally follows [GitHub Flavored Markdown](https://github.github.com/gfm/)
+* Renders actual React elements instead of using \`dangerouslySetInnerHTML\`
+* Lets you define your own components (to render \`MyHeading\` instead of \`'h1'\`)
+* Has a lot of plugins
 
+## Contents
 
-[Test description](https://youtube.com/)
+Here is an example of a plugin in action
+([\`remark-toc\`](https://github.com/remarkjs/remark-toc)).
+**This section is replaced by an actual table of contents**.
 
-* Test description
+## Syntax highlighting
 
-1. Test description
+Here is an example of a plugin to highlight code:
+[\`rehype-highlight\`](https://github.com/rehypejs/rehype-highlight).
 
-* [ ] Test description
-* [x] Test description
+\`\`\`js
+/* Test */
+import React from 'react'
+import ReactDOM from 'react-dom'
+import Markdown from 'react-markdown'
+import rehypeHighlight from 'rehype-highlight'
 
-$$x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}$$
-
-\`Hello, World!\`
-
-\`\`\`ts
-import useSWR from 'swr'
-import Navbar from './navbar'
-import Footer from './footer'
-
-export default function Layout({ children }) {
-  const { data, error } = useSWR('/api/navigation', fetcher)
-
-  if (error) return <div>Failed to load</div>
-  if (!data) return <div>Loading...</div>
-
-  return (
-    <>
-      <Navbar links={data.links} />
-      <main>{children}</main>
-      <Footer />
-    </>
-  )
-}
+const markdown = \`
+# Your markdown here
+\`
 
 ReactDOM.render(
   <Markdown rehypePlugins={[rehypeHighlight]}>{markdown}</Markdown>,
@@ -96,9 +93,79 @@ ReactDOM.render(
 )
 \`\`\`
 
+Pretty neat, eh?
+
+## GitHub flavored markdown (GFM)
+
+For GFM, you can *also* use a plugin:
+[\`remark-gfm\`](https://github.com/remarkjs/react-markdown#use).
+It adds support for GitHub-specific extensions to the language:
+tables, strikethrough, tasklists, and literal URLs.
+
+These features **do not work by default**.
+👆 Use the toggle above to add the plugin.
+
+| Feature    | Support              |
+| ---------: | :------------------- |
+| CommonMark | 100%                 |
+| GFM        | 100% w/ \`remark-gfm\` |
+
+~~strikethrough~~
+
+* [ ] task list
+* [x] checked item
+
+https://example.com
+
+## HTML in markdown
+
+⚠️ HTML in markdown is quite unsafe, but if you want to support it, you can
+use [\`rehype-raw\`](https://github.com/rehypejs/rehype-raw).
+You should probably combine it with
+[\`rehype-sanitize\`](https://github.com/rehypejs/rehype-sanitize).
+
+<blockquote>
+  👆 Use the toggle above to add the plugin.
+</blockquote>
+
+## Components
+
+You can pass components to change things:
+
+\`\`\`js
+/* Test */
+import React from 'react'
+import ReactDOM from 'react-dom'
+import Markdown from 'react-markdown'
+import MyFancyRule from './components/my-fancy-rule.js'
+
+const markdown = \`
+# Your markdown here
+\`
+
+ReactDOM.render(
+  <Markdown
+    components={{
+      // Use h2s instead of h1s
+      h1: 'h2',
+      // Use a component instead of hrs
+      hr(props) {
+        const {node, ...rest} = props
+        return <MyFancyRule {...rest} />
+      }
+    }}
+  >
+    {markdown}
+  </Markdown>,
+  document.querySelector('#content')
+)
+\`\`\`
+
+## More info?
+
+Much more info is available in the
+[readme on GitHub](https://github.com/remarkjs/react-markdown)!
+
 ***
 
-| Test description     | Test description   | Test description        |
-| -------------------- | ------------------ | ----------------------- |
-| **Test description** | *Test description* | <u>Test description</u> |
-| \`Test description\`   | Test description   | Test description        |`;
+A component by [Espen Hovlandsdal](https://espen.codes/)`;

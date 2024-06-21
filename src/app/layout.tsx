@@ -157,8 +157,14 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`min-h-dvhtext-default-800 ${poppins.className}`}>
+    <html
+      lang="en"
+      className="min-h-dvh text-default-800"
+      suppressHydrationWarning
+    >
+      <body
+        className={`mx-auto my-4 mt-16 max-w-5xl text-pretty px-4 antialiased sm:px-16 lg:mt-32 ${poppins.className}`}
+      >
         <div
           aria-hidden
           role="presentation"
@@ -173,7 +179,7 @@ export default async function RootLayout({
         >
           <Image src="/blue.png" alt="" fill priority />
         </div>
-        <Providers className="mx-auto my-4 mb-32 mt-16 max-w-5xl text-pretty px-4 antialiased sm:px-16 lg:mt-32">
+        <Providers className="mb-32">
           <Toaster richColors className="whitespace-pre-line" />
           {children}
         </Providers>
