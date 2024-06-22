@@ -1,4 +1,5 @@
 import {
+  Blog,
   City,
   Country,
   Experience,
@@ -30,4 +31,10 @@ export type TagWithStacks = Tag & {
 
 export type CountriesWithCities = Country & {
   cities: City[];
+};
+
+export type StackWithExperiencesProjectsBlogs = Stack & {
+  experiences: ExperienceWithPlace[];
+  projects: ProjectsWithPlace[];
+  blogs: Blog[];
 };

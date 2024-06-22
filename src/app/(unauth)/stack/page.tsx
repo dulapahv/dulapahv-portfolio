@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import { twMerge } from "tailwind-merge";
+import { Chip } from "@nextui-org/react";
 
 import type { TagWithStacks } from "@/types/prisma";
 import { getManyTag } from "@/data/get-tag";
-import { SITE_NAME } from "@/lib/constants";
+import { ASSETS_URL, SITE_NAME } from "@/lib/constants";
 import { Breadcrumb } from "@/ui/breadcrumb";
+import { StackIconWrapper } from "@/ui/stack-icon-wrapper";
+import { getStackIconName } from "@/utils/get-stack-icon-name";
 
 export const metadata: Metadata = {
   title: `Stack | ${SITE_NAME}`,
@@ -23,6 +24,8 @@ export default async function Page() {
           select: {
             id: true,
             name: true,
+            forceLightIcon: true,
+            featured: true,
           },
           orderBy: {
             name: "asc",
@@ -41,35 +44,54 @@ export default async function Page() {
           Tools and technologies I use.
         </p>
       </header>
-      <main className="space-y-4 divide-y-1 divide-default-100">
-        {tags.map((tag, index) => (
-          <div key={tag.id} id={tag.name} className="space-y-4">
-            <h2
-              className={twMerge(
-                "text-2xl font-semibold",
-                index !== 0 && "pt-8",
-              )}
-            >
-              {tag.name}
-            </h2>
-            <ul className="grid grid-cols-1 sm:grid-cols-2">
+      <main className="space-y-12">
+        {tags.map((tag) => (
+          <div
+            key={tag.id}
+            id={tag.name}
+            className="*:shadow-lg *:backdrop-blur-lg *:[-webkit-backdrop-filter:blur(16px)]"
+          >
+            <div className="flex h-12 items-center rounded-t-md border-1 border-b-[0.5px] border-default-200 bg-neutral-50/70 px-4 dark:bg-black/70">
+              <h2 className="text-sm font-medium text-default-500">
+                {tag.name}
+              </h2>
+            </div>
+            <ul className="grid grid-cols-1 rounded-b-md border-1 border-t-[0.5px] border-default-200 bg-white/70 p-2 dark:bg-neutral-950/70 sm:grid-cols-2">
               {tag.stacks.map((stack) => (
                 <Link
                   href={`/stack/${stack.id}-${stack.name.replace(/ /g, "-")}`}
                   key={stack.id}
                   id={stack.name}
-                  className="flex space-x-2 rounded-md px-4 py-2 duration-100 hover:bg-default-100"
+                  className="group flex items-center space-x-4 rounded-md px-4 py-2 duration-100 hover:bg-default-100/50"
                 >
-                  <Image
-                    src={`https://assets.dulapahv.dev/images%2Fweb_front%2Freactjs.svg`}
-                    alt={stack.name}
-                    width={32}
-                    height={32}
-                    className="rounded-md"
-                  />
+                  <div className="relative size-9">
+                    <StackIconWrapper
+                      src={`${ASSETS_URL}/images/stack/${getStackIconName(stack.name)}.svg`}
+                      forceLightTheme={stack.forceLightIcon}
+                      alt={stack.name}
+                      fill
+                      className="flex-shrink-0 rounded-md object-contain"
+                    />
+                  </div>
                   <div className="flex flex-col">
-                    <span>{stack.name}</span>
-                    <span className="text-sm text-default-500">
+                    <div className="flex items-center gap-x-2">
+                      <span className="duration-100 group-hover:text-primary">
+                        {stack.name}
+                      </span>
+                      {stack.featured && (
+                        <Chip
+                          size="sm"
+                          color="primary"
+                          variant="flat"
+                          classNames={{
+                            base: "h-[18px]",
+                          }}
+                        >
+                          Featured
+                        </Chip>
+                      )}
+                    </div>
+                    <span className="text-sm text-default-500 duration-100 group-hover:text-primary">
                       Build and test APIs.
                     </span>
                   </div>

@@ -182,7 +182,13 @@ export function BlogSearchToolbar({ count, tags }: SearchToolbarProps) {
             "data-[focus-visible=true]:!ring-0 data-[focus-visible=true]:!ring-offset-transparent data-[focus-visible=true]:!ring-offset-0",
         }}
       />
-      <Accordion isCompact className="px-0">
+      <Accordion
+        isCompact
+        defaultExpandedKeys={
+          tagId || sortBy !== "date-desc" ? ["1"] : undefined
+        }
+        className="px-0"
+      >
         <AccordionItem
           key="1"
           aria-label="Advanced Options"

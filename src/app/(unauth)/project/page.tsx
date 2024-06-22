@@ -157,7 +157,7 @@ export default async function Page({
       <Breadcrumb />
       <header className="space-y-2">
         <h1 className="text-3xl font-semibold">Project</h1>
-        <p className="font-light text-default-500">
+        <p className="font-light text-default-500 text-pretty">
           Professional and personal projects I have worked on.
         </p>
       </header>
@@ -167,7 +167,7 @@ export default async function Page({
         </div>
         {items.length === 0 ? (
           <p className="py-6 text-center text-sm text-default-500">
-            No project found
+            No projects found
             {search ? (
               <>
                 {" "}

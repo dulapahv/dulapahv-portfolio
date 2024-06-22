@@ -212,7 +212,13 @@ export function ExperienceSearchToolbar({
             "data-[focus-visible=true]:!ring-0 data-[focus-visible=true]:!ring-offset-transparent data-[focus-visible=true]:!ring-offset-0",
         }}
       />
-      <Accordion isCompact className="px-0">
+      <Accordion
+        isCompact
+        defaultExpandedKeys={
+          locationId || tagId || sortBy !== "end-date-desc" ? ["1"] : undefined
+        }
+        className="px-0"
+      >
         <AccordionItem
           key="1"
           aria-label="Advanced Options"

@@ -101,7 +101,7 @@ const CommandMenu = forwardRef<CommandMenuModalRef>((props, ref) => {
               }
               href={command.href}
               classNames={{
-                base: "dark:data-[hover=true]:bg-zinc-700/50 data-[hover=true]:bg-zinc-100/50 py-2.5",
+                base: "dark:data-[hover=true]:bg-zinc-700/50 data-[hover=true]:bg-zinc-200/50 py-2.5",
               }}
             >
               {command.label}

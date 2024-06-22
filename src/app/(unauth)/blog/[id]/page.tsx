@@ -104,7 +104,7 @@ export default async function Page({ params }: Props) {
       <div className="space-y-8">
         <Breadcrumb lastItem={item.title} />
         <header>
-          <h2 className="text-3xl font-semibold leading-[3rem]">
+          <h2 className="text-3xl/[3rem] font-semibold">
             {item.title}
           </h2>
           <p className="text-sm text-default-500">{`Published on ${item.createdAt.toLocaleDateString("en-GB")} •

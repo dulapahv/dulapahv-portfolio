@@ -115,7 +115,7 @@ export default async function Page({
         </div>
         {items.length === 0 ? (
           <p className="py-6 text-center text-sm text-default-500">
-            No blog found
+            No blogs found
             {search ? (
               <>
                 {" "}

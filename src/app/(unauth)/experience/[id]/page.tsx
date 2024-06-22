@@ -122,7 +122,7 @@ export default async function Page({ params }: Props) {
       <div className="space-y-8">
         <Breadcrumb lastItem={`${item.place.name} | ${item.position}`} />
         <header>
-          <h2 className="text-3xl font-semibold leading-[3rem]">
+          <h2 className="text-3xl/[3rem] font-semibold">
             {item.position}
           </h2>
           <p className="font-medium text-default-500">{`${formatDate(item.startDate)} - ${formatDate(item.endDate)}`}</p>

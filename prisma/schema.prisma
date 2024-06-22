@@ -58,14 +58,15 @@ model Blog {
 }
 
 model Stack {
-  id          String       @id @default(cuid())
-  name        String
-  description String?
-  icon        String?
-  tags        Tag[]
-  experiences Experience[]
-  projects    Project[]
-  blogs       Blog[]
+  id             String       @id @default(cuid())
+  name           String
+  description    String?
+  forceLightIcon Boolean      @default(true)
+  featured       Boolean      @default(false)
+  tags           Tag[]
+  experiences    Experience[]
+  projects       Project[]
+  blogs          Blog[]
 
   @@index([name])
 }
