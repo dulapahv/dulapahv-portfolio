@@ -1,8 +1,8 @@
-import { twMerge } from "tailwind-merge";
+import { cn } from "@/utils/cn";
 
 export function theadRenderer(props: any) {
   return (
-    <thead className={twMerge("border-b-default-100", props.className)}>
+    <thead className={cn("border-b-default-100", props.className)}>
       {props.children}
     </thead>
   );

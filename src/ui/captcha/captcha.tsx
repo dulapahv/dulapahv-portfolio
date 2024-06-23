@@ -6,6 +6,7 @@ import { Button, Spinner } from "@nextui-org/react";
 import { useTheme } from "next-themes";
 
 import { CAPTCHA_URL, CLOUDFLARE_TURNSTILE_SITE_KEY } from "@/lib/constants";
+import { parseError } from "@/utils/parse-error";
 
 interface CaptchaProps {
   isSuccess: Dispatch<SetStateAction<boolean>>;
@@ -40,7 +41,9 @@ export function Captcha({ isSuccess }: CaptchaProps) {
         console.error(...result["error-codes"]);
       }
     } catch (error) {
-      console.error(error);
+      const message = parseError(error);
+
+      console.error(message);
     } finally {
       setIsTokenVerifying(false);
     }

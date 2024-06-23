@@ -1,8 +1,9 @@
 import Markdown from "react-markdown";
+import RehypeAutoLinkHeadings from "rehype-autolink-headings";
 import rehypeHighlight from "rehype-highlight";
 import rehypeKatex from "rehype-katex";
 import rehypeRaw from "rehype-raw";
-import rehypeSanitize from "rehype-sanitize";
+import RehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 
@@ -22,11 +23,12 @@ type MarkdownRendererProps = {
 
 export function MarkdownRenderer({ children }: MarkdownRendererProps) {
   return (
-    <div className={`prose-mofu prose max-w-none dark:prose-invert`}>
+    <div className="prose-mofu prose prose-neutral max-w-none dark:prose-invert">
       <Markdown
         remarkPlugins={[remarkGfm, remarkMath]}
         rehypePlugins={[
-          // rehypeSanitize,
+          RehypeSlug,
+          RehypeAutoLinkHeadings,
           rehypeRaw,
           rehypeHighlight,
           rehypeKatex,
@@ -43,7 +45,7 @@ export function MarkdownRenderer({ children }: MarkdownRendererProps) {
           td: tdRenderer,
         }}
       >
-        {children}
+        {string}
       </Markdown>
     </div>
   );

@@ -2,17 +2,18 @@ import type { Metadata, Viewport } from "next";
 import dynamic from "next/dynamic";
 import { Poppins } from "next/font/google";
 import Image from "next/image";
+import { ThemeProvider } from "next-themes";
 import { Toaster } from "sonner";
 
 import {
   ASSETS_URL,
   BASE_URL,
-  DESCRIPTION,
   NAME,
   SHORT_NAME,
   SITE_NAME,
   THEME_COLOR,
 } from "@/lib/constants";
+import { cn } from "@/utils/cn";
 
 import "@/styles/globals.css";
 
@@ -26,10 +27,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: SITE_NAME,
-  description: DESCRIPTION,
-  generator: SHORT_NAME,
   applicationName: SITE_NAME,
+  generator: SHORT_NAME,
   referrer: "origin-when-cross-origin",
   keywords: "DulapahV, Portfolio, Developer, Dulapah Vibulsanti",
   authors: [
@@ -42,7 +41,6 @@ export const metadata: Metadata = {
   publisher: NAME,
   openGraph: {
     title: SITE_NAME,
-    description: DESCRIPTION,
     url: BASE_URL,
     siteName: SITE_NAME,
     images: [
@@ -58,6 +56,19 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@dulapahv",
+    creator: "@dulapahv",
+  },
+  metadataBase: new URL(BASE_URL),
+  formatDetection: {
+    telephone: false,
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
   },
   icons: {
     icon: [
@@ -159,30 +170,35 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
-      className="min-h-dvh text-default-800"
+      className="min-h-dvh text-default-800 dark"
       suppressHydrationWarning
     >
       <body
-        className={`mx-auto my-4 mt-16 max-w-5xl text-pretty px-4 antialiased sm:px-16 lg:mt-32 ${poppins.className}`}
+        className={cn(
+          "mx-auto my-4 mt-16 max-w-5xl text-pretty px-4 antialiased sm:px-16 lg:mt-32",
+          poppins.className,
+        )}
       >
-        <div
-          aria-hidden
-          role="presentation"
-          className="pointer-events-none fixed -right-[35%] -top-[25%] -z-50 size-full select-none overflow-clip opacity-50 mix-blend-darken hue-rotate-[45deg] dark:mix-blend-lighten sm:rotate-[20deg]"
-        >
-          <Image src="/pink.png" alt="" fill priority />
-        </div>
-        <div
-          aria-hidden
-          role="presentation"
-          className="pointer-events-none fixed -bottom-[15%] -left-[25%] -z-50 size-[80%] select-none overflow-clip opacity-90 mix-blend-darken dark:opacity-60 dark:mix-blend-lighten sm:rotate-[15deg]"
-        >
-          <Image src="/blue.png" alt="" fill priority />
-        </div>
-        <Providers className="mb-32">
-          <Toaster richColors className="whitespace-pre-line" />
-          {children}
-        </Providers>
+        <ThemeProvider attribute="class">
+          <div
+            aria-hidden
+            role="presentation"
+            className="pointer-events-none fixed -right-[35%] -top-[25%] -z-50 size-full select-none overflow-clip opacity-50 mix-blend-darken hue-rotate-[45deg] dark:mix-blend-lighten sm:rotate-[20deg]"
+          >
+            <Image src="/pink.png" alt="" fill priority />
+          </div>
+          <div
+            aria-hidden
+            role="presentation"
+            className="pointer-events-none fixed -bottom-[15%] -left-[25%] -z-50 size-[80%] select-none overflow-clip opacity-90 mix-blend-darken dark:opacity-60 dark:mix-blend-lighten sm:rotate-[15deg]"
+          >
+            <Image src="/blue.png" alt="" fill priority />
+          </div>
+          <Providers className="mb-32">
+            <Toaster richColors className="whitespace-pre-line" />
+            {children}
+          </Providers>
+        </ThemeProvider>
       </body>
     </html>
   );

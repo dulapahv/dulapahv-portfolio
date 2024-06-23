@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { get } from "@vercel/edge-config";
 
+import { parseError } from "./utils/parse-error";
+
 export const config = {
   matcher: [
     "/experience/:path*",
@@ -17,7 +19,10 @@ async function getFeatureFlag(flag: string) {
   try {
     return await get(flag);
   } catch (error) {
-    console.error(`Error fetching flag for ${flag}:`, error);
+    const message = parseError(error);
+
+    console.error(`Error fetching flag for ${flag}:`, message);
+
     return false;
   }
 }

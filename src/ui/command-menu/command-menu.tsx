@@ -19,8 +19,6 @@ import {
 import { useTheme } from "next-themes";
 import { isMobile } from "react-device-detect";
 
-import { updateMetaThemeColor } from "@/utils/update-meta-theme-color";
-
 import { commands } from "./commands";
 
 export interface CommandMenuModalRef {
@@ -92,7 +90,7 @@ const CommandMenu = forwardRef<CommandMenuModalRef>((props, ref) => {
                   theme === command.key ? (
                     <Chip
                       variant="bordered"
-                      className="h-5 rounded-md border-1 text-xs text-default-500"
+                      className="h-5 rounded-md border text-xs text-default-500"
                     >
                       Current
                     </Chip>
@@ -123,7 +121,7 @@ const CommandMenu = forwardRef<CommandMenuModalRef>((props, ref) => {
       backdrop="transparent"
       classNames={{
         wrapper: "!items-start overflow-y-hidden",
-        base: "min-[575px]:my-16 min-[375px]:mx-4 mx-0 my-4 min-[575px]:mx-6 border-1 shadow-medium border-default-200 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg [-webkit-backdrop-filter:blur(16px)] backdrop-filter !max-h-[512px]",
+        base: "min-[575px]:my-16 min-[375px]:mx-4 mx-0 my-4 min-[575px]:mx-6 border shadow-medium border-default-200 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg [-webkit-backdrop-filter:blur(16px)] backdrop-filter !max-h-[512px]",
       }}
       motionProps={{
         variants: {
@@ -159,7 +157,7 @@ const CommandMenu = forwardRef<CommandMenuModalRef>((props, ref) => {
                     ⌘/Ctrl K
                   </Kbd>
                 }
-                className="h-6 rounded-md border-1 px-2 text-xs text-default-500 *:select-none [&>span]:pl-0"
+                className="h-6 rounded-md border px-2 text-xs text-default-500 *:select-none [&>span]:pl-0"
                 onClick={() => {
                   onClose();
                   setTimeout(() => {
@@ -184,7 +182,7 @@ const CommandMenu = forwardRef<CommandMenuModalRef>((props, ref) => {
                   }}
                 />
                 <Kbd
-                  className="h-6 cursor-pointer rounded-md border-1 border-default-200 bg-default-50 bg-transparent hover:bg-default-50"
+                  className="h-6 cursor-pointer rounded-md border border-default-200 bg-default-50 bg-transparent hover:bg-default-50"
                   onClick={onClose}
                 >
                   Esc
@@ -200,15 +198,12 @@ const CommandMenu = forwardRef<CommandMenuModalRef>((props, ref) => {
                     switch (key) {
                       case "dark":
                         setTheme("dark");
-                        updateMetaThemeColor("dark");
                         break;
                       case "light":
                         setTheme("light");
-                        updateMetaThemeColor("light");
                         break;
                       case "system":
                         setTheme("system");
-                        updateMetaThemeColor("system");
                         break;
                       case "copy_url":
                         navigator.clipboard.writeText(window.location.href);

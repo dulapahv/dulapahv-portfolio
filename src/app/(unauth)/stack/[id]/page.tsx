@@ -67,7 +67,7 @@ export default async function Page({ params }: Props) {
             className="group relative flex items-center justify-between gap-x-4 pt-3"
           >
             <h2 className="font-medium text-default-800 duration-100 group-hover:text-primary">
-              Show {item.name} related experiences
+              Show related experiences
             </h2>
             <ChevronRight
               size={20}
@@ -80,7 +80,7 @@ export default async function Page({ params }: Props) {
             className="group relative flex items-center justify-between gap-x-4 pt-3"
           >
             <h2 className="font-medium text-default-800 duration-100 group-hover:text-primary">
-              Show {item.name} related projects
+              Show related projects
             </h2>
             <ChevronRight
               size={20}
@@ -93,7 +93,7 @@ export default async function Page({ params }: Props) {
             className="group relative flex items-center justify-between gap-x-4 pt-3"
           >
             <h2 className="font-medium text-default-800 duration-100 group-hover:text-primary">
-              Show {item.name} related blogs
+              Show related blogs
             </h2>
             <ChevronRight
               size={20}

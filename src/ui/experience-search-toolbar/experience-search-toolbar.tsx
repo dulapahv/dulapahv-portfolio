@@ -268,7 +268,7 @@ export function ExperienceSearchToolbar({
                 popoverProps={{
                   classNames: {
                     content:
-                      "rounded-lg px-1 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg [-webkit-backdrop-filter:blur(16px)] backdrop-filter border-1 border-default-50",
+                      "rounded-lg px-1 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg [-webkit-backdrop-filter:blur(16px)] backdrop-filter border border-default-50",
                   },
                 }}
                 listboxProps={{
@@ -337,7 +337,7 @@ export function ExperienceSearchToolbar({
                 popoverProps={{
                   classNames: {
                     content:
-                      "rounded-lg px-1 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg [-webkit-backdrop-filter:blur(16px)] backdrop-filter border-1 border-default-50",
+                      "rounded-lg px-1 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg [-webkit-backdrop-filter:blur(16px)] backdrop-filter border border-default-50",
                   },
                 }}
                 listboxProps={{
@@ -413,7 +413,7 @@ export function ExperienceSearchToolbar({
                 popoverProps={{
                   classNames: {
                     content:
-                      "rounded-lg px-1 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg [-webkit-backdrop-filter:blur(16px)] backdrop-filter border-1 border-default-50",
+                      "rounded-lg px-1 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg [-webkit-backdrop-filter:blur(16px)] backdrop-filter border border-default-50",
                   },
                 }}
                 listboxProps={{
@@ -462,7 +462,7 @@ export function ExperienceSearchToolbar({
           popoverProps={{
             classNames: {
               content:
-                "rounded-lg px-1 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg [-webkit-backdrop-filter:blur(16px)] backdrop-filter border-1 border-default-50",
+                "rounded-lg px-1 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg [-webkit-backdrop-filter:blur(16px)] backdrop-filter border border-default-50",
             },
           }}
           listboxProps={{

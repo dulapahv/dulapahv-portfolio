@@ -1,5 +1,6 @@
 export const BASE_URL =
-  process.env.VERCEL_ENV === "development"
+  process.env.VERCEL_ENV === "development" ||
+  process.env.NEXT_PUBLIC_ENV === "development"
     ? "http://localhost:3000/"
     : process.env.VERCEL_ENV === "preview"
       ? `https://dev.dulapahv.dev/`
@@ -13,6 +14,7 @@ export const SITE_NAME = "DulapahV's Portfolio";
 export const DESCRIPTION =
   "This website is a personal project to showcase my skills and experience, as well as to share my knowledge and experience with others.";
 export const LINKEDIN_URL = "https://linkedin.com/in/dulapahv";
+export const GITHUB_URL = "https://github.com/dulapahv"
 
 export const THEME_COLOR = "#fb568a";
 

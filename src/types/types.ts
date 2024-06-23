@@ -1,6 +1,6 @@
 export type EmailTemplateProps = {
-  fullName: string;
-  email: string;
-  type: string;
-  message: string;
+  readonly fullName: string;
+  readonly email: string;
+  readonly type: string;
+  readonly message: string;
 };

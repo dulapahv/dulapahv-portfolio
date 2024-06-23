@@ -51,12 +51,12 @@ export default async function Page() {
             id={tag.name}
             className="*:shadow-lg *:backdrop-blur-lg *:[-webkit-backdrop-filter:blur(16px)]"
           >
-            <div className="flex h-12 items-center rounded-t-md border-1 border-b-[0.5px] border-default-200 bg-neutral-50/70 px-4 dark:bg-black/70">
+            <div className="flex h-12 items-center rounded-t-md border border-b-[0.5px] border-default-200 bg-neutral-50/70 px-4 dark:bg-black/70">
               <h2 className="text-sm font-medium text-default-500">
                 {tag.name}
               </h2>
             </div>
-            <ul className="grid grid-cols-1 rounded-b-md border-1 border-t-[0.5px] border-default-200 bg-white/70 p-2 dark:bg-neutral-950/70 sm:grid-cols-2">
+            <ul className="grid grid-cols-1 rounded-b-md border border-t-[0.5px] border-default-200 bg-white/70 p-2 dark:bg-neutral-950/70 sm:grid-cols-2">
               {tag.stacks.map((stack) => (
                 <Link
                   href={`/stack/${stack.id}-${stack.name.replace(/ /g, "-")}`}

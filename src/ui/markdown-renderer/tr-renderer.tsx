@@ -1,8 +1,8 @@
-import { twMerge } from "tailwind-merge";
+import { cn } from "@/utils/cn";
 
 export function trRenderer(props: any) {
   return (
-    <tr className={twMerge("border-b-default-100", props.className)}>
+    <tr className={cn("border-b-default-100", props.className)}>
       {props.children}
     </tr>
   );
