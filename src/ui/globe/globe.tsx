@@ -58,6 +58,8 @@ export const Globe = ({ width, height, markers }: GlobeProps) => {
           state.phi = phi;
           r.set((phi += 0.002));
         }
+        state.width = width * 2;
+        state.height = height * 2;
       },
     });
 
