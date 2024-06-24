@@ -92,7 +92,7 @@ export default async function Page({ params }: Props) {
     "@type": "Article",
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `${BASE_URL}${healedUrl}`,
+      "@id": `${BASE_URL}/${healedUrl}`,
     },
     headline: `${item.place.name} | ${item.position}`,
     description: `${item.place.name} | ${item.position}`,

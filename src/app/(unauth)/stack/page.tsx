@@ -24,6 +24,7 @@ export default async function Page() {
           select: {
             id: true,
             name: true,
+            description: true,
             forceLightIcon: true,
             featured: true,
           },
@@ -92,7 +93,7 @@ export default async function Page() {
                       )}
                     </div>
                     <span className="text-sm text-default-500 duration-100 group-hover:text-primary">
-                      Build and test APIs.
+                      {stack.description}
                     </span>
                   </div>
                 </Link>

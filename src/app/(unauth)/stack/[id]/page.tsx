@@ -1,12 +1,13 @@
 import type { Metadata, ResolvingMetadata } from "next";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { Chip } from "@nextui-org/react";
 import { Stack } from "@prisma/client";
 import { ChevronRight } from "lucide-react";
 import { Article, WithContext } from "schema-dts";
 
 import { getUniqueStack } from "@/data/get-stack";
-import { ASSETS_URL, SITE_NAME } from "@/lib/constants";
+import { ASSETS_URL, BASE_URL, NAME } from "@/lib/constants";
 import { Breadcrumb } from "@/ui/breadcrumb";
 import { StackIconWrapper } from "@/ui/stack-icon-wrapper";
 import { getStackIconName } from "@/utils/get-stack-icon-name";
@@ -17,25 +18,80 @@ interface Props {
   };
 }
 
-// export async function generateMetadata(
-//   { params }: Props,
-//   parent: ResolvingMetadata,
-// ): Promise<Metadata> {
-//   const id = params.id.split("-")[0];
-// }
-
-export default async function Page({ params }: Props) {
+async function fetch({ params }: Props) {
   const id = params.id.split("-")[0];
 
-  const item = (await getUniqueStack({
+  return (await getUniqueStack({
     where: {
       id: id,
     },
   })) as Stack;
+}
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  const item = await fetch({ params });
+
+  const previousImages = (await parent).openGraph?.images || [];
+
+  return {
+    title: `Stack: ${item.name} | DulapahV's Portfolio`,
+    description: item.description,
+    openGraph: {
+      title: `Stack: ${item.name} | DulapahV's Portfolio`,
+      description: item.description || "Tools and technologies I use.",
+      url: `${BASE_URL}/stack/${item.id}-${item.name.replace(/ /g, "-")}`,
+      images: [
+        {
+          url: `${ASSETS_URL}/images/stack/${getStackIconName(item.name)}.svg`,
+          alt: `${item.name}`,
+        },
+        ...previousImages,
+      ],
+    },
+  };
+}
+
+export default async function Page({ params }: Props) {
+  const item = await fetch({ params });
+
+  const healedUrl = `/stack/${item.id}-${item.name.replace(/ /g, "-")}`;
+  if (`/stack/${params.id}` != healedUrl) redirect(healedUrl);
+
+  const coverImgUrl = `${ASSETS_URL}/images/stack/${getStackIconName(item.name)}.svg`;
+
+  const jsonLd: WithContext<Article> = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${BASE_URL}/${healedUrl}`,
+    },
+    headline: item.name,
+    description: item.description,
+    image: coverImgUrl,
+    author: {
+      "@type": "Person",
+      name: NAME,
+      url: BASE_URL,
+    },
+    publisher: {
+      "@type": "Person",
+      name: NAME,
+      url: BASE_URL,
+    },
+  };
 
   return (
     <>
-      <section></section>
+      <section>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </section>
       <div className="space-y-8">
         <Breadcrumb lastItem={`${item.name}`} />
         <header className="group flex items-center space-x-4 rounded-md">
@@ -57,7 +113,7 @@ export default async function Page({ params }: Props) {
                 </Chip>
               )}
             </div>
-            <span className="text-default-500">Build and test APIs.</span>
+            <span className="text-default-500">{item.description}</span>
           </div>
         </header>
         <main className="space-y-4 divide-y-1 divide-default-100">

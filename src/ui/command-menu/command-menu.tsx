@@ -68,7 +68,8 @@ const CommandMenu = forwardRef<CommandMenuModalRef>((props, ref) => {
             command.key === "copy_short_url" &&
             !pathname.startsWith("/experience/") &&
             !pathname.startsWith("/project/") &&
-            !pathname.startsWith("/blog/")
+            !pathname.startsWith("/blog/") &&
+            !pathname.startsWith("/stack/")
           )
             return (
               <ListboxItem

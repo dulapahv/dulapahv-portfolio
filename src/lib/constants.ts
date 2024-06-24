@@ -3,10 +3,10 @@ import type { COBEOptions } from "cobe";
 export const BASE_URL =
   process.env.VERCEL_ENV === "development" ||
   process.env.NEXT_PUBLIC_ENV === "development"
-    ? "http://localhost:3000/"
+    ? "http://localhost:3000"
     : process.env.VERCEL_ENV === "preview"
-      ? `https://dev.dulapahv.dev/`
-      : "https://dulapahv.dev/";
+      ? `https://dev.dulapahv.dev`
+      : "https://dulapahv.dev";
 export const ASSETS_URL = "https://assets.dulapahv.dev";
 export const CAPTCHA_URL = "https://verify.dulapahv.dev/validate-captcha";
 

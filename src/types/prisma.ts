@@ -18,12 +18,30 @@ export type ExperienceWithPlace = Experience & {
   };
 };
 
+export type ExperienceWithPlaceStacks = ExperienceWithPlace & {
+  place: Place & {
+    city: City & {
+      country: Country;
+    };
+  };
+  stacks: Stack[];
+};
+
 export type ProjectsWithPlace = Project & {
   place: Place & {
     city: City & {
       country: Country;
     };
   };
+};
+
+export type ProjectWithPlaceStacks = ProjectsWithPlace & {
+  place: Place & {
+    city: City & {
+      country: Country;
+    };
+  };
+  stacks: Stack[];
 };
 
 export type TagWithStacks = Tag & {
@@ -46,4 +64,8 @@ export type EducationWithPlace = Education & {
       country: Country;
     };
   };
+};
+
+export type BlogsWithStacks = Blog & {
+  stacks: Stack[];
 };
