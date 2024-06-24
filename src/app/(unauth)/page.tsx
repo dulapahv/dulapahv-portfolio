@@ -45,7 +45,7 @@ export default async function Home() {
               .
             </span>{" "}
             I'm a Thai 🛺 Software Engineer{" "}
-            <span className="not-prose inline-flex items-center rounded-md border border-default-300 bg-default-50 align-text-bottom">
+            <span className="not-prose inline-flex items-center rounded-md border border-default-300 bg-default-50 align-text-bottom shadow">
               <Link
                 href={GITHUB_URL}
                 target="_blank"

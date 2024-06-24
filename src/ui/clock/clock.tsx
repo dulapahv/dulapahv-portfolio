@@ -1,7 +1,7 @@
 import { getTime } from "@/utils/get-time";
 
 export async function Clock() {
-  const time = (await getTime()).split("T")[1].split(".")[0].slice(0, 5);
+  const time = await getTime();
 
   return (
     <div className="not-prose inline-flex items-center space-x-2 rounded-md border border-default-300 bg-default-50 px-2 py-1 align-text-bottom text-base shadow md:text-lg">
