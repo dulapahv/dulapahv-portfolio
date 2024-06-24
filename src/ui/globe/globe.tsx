@@ -4,6 +4,7 @@ import type { COBEOptions } from "cobe";
 import { useEffect, useRef } from "react";
 import { useSpring } from "@react-spring/web";
 import createGlobe from "cobe";
+import { useTheme } from "next-themes";
 
 type GlobeProps = {
   readonly width: number;
@@ -15,6 +16,8 @@ export const Globe = ({ width, height, markers }: GlobeProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const pointerInteracting = useRef<number | null>(null);
   const pointerInteractionMovement = useRef(0);
+  const phiRef = useRef(0);
+
   const [{ r }, api] = useSpring(() => ({
     r: 0,
     config: {
@@ -25,12 +28,10 @@ export const Globe = ({ width, height, markers }: GlobeProps) => {
     },
   }));
 
-  useEffect(() => {
-    let phi = 0;
+  const { resolvedTheme } = useTheme();
 
-    if (!canvasRef.current) {
-      return undefined;
-    }
+  useEffect(() => {
+    if (!canvasRef.current) return undefined;
 
     const onResize = () =>
       canvasRef.current && (width = canvasRef.current.offsetWidth);
@@ -42,24 +43,30 @@ export const Globe = ({ width, height, markers }: GlobeProps) => {
       height: height * 2,
       phi: 0,
       theta: 0,
-      dark: 1,
+      dark: resolvedTheme === "light" ? 0 : 1,
       diffuse: 1.2,
       mapSamples: 16_000,
       mapBrightness: 6,
-      baseColor: [0.14902, 0.14902, 0.14902],
+      opacity: 0.85,
+      offset: [0, 65],
+      baseColor:
+        resolvedTheme === "light"
+          ? [0.98039, 0.98039, 0.98039]
+          : [0.3, 0.3, 0.3],
       markerColor: [0.98431, 0.33725, 0.54118],
-      glowColor: [0.96078, 0.96078, 0.96078],
+      glowColor:
+        resolvedTheme === "light"
+          ? [0.83137, 0.83137, 0.83137]
+          : [0.96078, 0.96078, 0.96078],
       markers,
       onRender: (state) => {
         if (pointerInteracting.current) {
           state.phi = r.get();
-          phi = state.phi;
+          phiRef.current = state.phi;
         } else {
-          state.phi = phi;
-          r.set((phi += 0.002));
+          state.phi = phiRef.current;
+          r.set((phiRef.current += 0.002));
         }
-        state.width = width * 2;
-        state.height = height * 2;
       },
     });
 
@@ -67,16 +74,17 @@ export const Globe = ({ width, height, markers }: GlobeProps) => {
       globe.destroy();
       window.removeEventListener("resize", onResize);
     };
-  }, [width, height]);
+  }, [width, height, resolvedTheme]);
 
   return (
     <canvas
       aria-label="Globe"
       ref={canvasRef}
-      className="aspect-[4/3] w-full max-w-96"
+      className="ml-16 h-72 w-full min-[408px]:w-96 cursor-grab min-[408px]:ml-0"
       onPointerDown={(e) => {
-        pointerInteracting.current =
-          e.clientX - pointerInteractionMovement.current;
+        pointerInteracting.current = e.clientX;
+        pointerInteractionMovement.current = 0;
+        phiRef.current = r.get();
         canvasRef.current && (canvasRef.current.style.cursor = "grabbing");
       }}
       onPointerUp={() => {
@@ -92,7 +100,7 @@ export const Globe = ({ width, height, markers }: GlobeProps) => {
           const delta = e.clientX - pointerInteracting.current;
           pointerInteractionMovement.current = delta;
           api.start({
-            r: delta / 200,
+            r: phiRef.current + delta / 400,
           });
         }
       }}
@@ -101,7 +109,7 @@ export const Globe = ({ width, height, markers }: GlobeProps) => {
           const delta = e.touches[0].clientX - pointerInteracting.current;
           pointerInteractionMovement.current = delta;
           api.start({
-            r: delta / 100,
+            r: phiRef.current + delta / 200,
           });
         }
       }}

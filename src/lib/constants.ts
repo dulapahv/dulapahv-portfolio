@@ -1,3 +1,5 @@
+import type { COBEOptions } from "cobe";
+
 export const BASE_URL =
   process.env.VERCEL_ENV === "development" ||
   process.env.NEXT_PUBLIC_ENV === "development"
@@ -14,7 +16,7 @@ export const SITE_NAME = "DulapahV's Portfolio";
 export const DESCRIPTION =
   "This website is a personal project to showcase my skills and experience, as well as to share my knowledge and experience with others.";
 export const LINKEDIN_URL = "https://linkedin.com/in/dulapahv";
-export const GITHUB_URL = "https://github.com/dulapahv"
+export const GITHUB_URL = "https://github.com/dulapahv";
 
 export const THEME_COLOR = "#fb568a";
 
@@ -63,4 +65,38 @@ export const contactTypeOptions = [
     label: "Other",
     description: "Anything else.",
   },
+];
+
+export const LIVED_LOCATIONS: COBEOptions["markers"] = [
+  // Bangkok, thailand
+  { location: [13.7563, 100.5018], size: 0.2 },
+
+  // Glasgow, Scotland
+  { location: [55.8617, 4.2583], size: 0.2 },
+];
+
+export const VISITED_LOCATIONS: COBEOptions["markers"] = [
+  // Ayutthaya, Thailand
+  { location: [14.3692, 100.5877], size: 0.1 },
+
+  // Chiang Mai, Thailand
+  { location: [18.7883, 98.9853], size: 0.1 },
+
+  // Nakhon Si Thammarat, Thailand
+  { location: [8.4325, 99.9599], size: 0.1 },
+
+  // Phuket, Thailand
+  { location: [7.8804, 98.3923], size: 0.1 },
+
+  // Trat, Thailand
+  { location: [12.4202, 102.5298], size: 0.1 },
+
+  // Kuala Lumpur, Malaysia
+  { location: [3.1319, 101.6841], size: 0.1 },
+
+  // Edinburgh, Scotland
+  { location: [55.9533, 3.1883], size: 0.1 },
+
+  // London, England
+  { location: [51.5074, 0.1278], size: 0.1 },
 ];

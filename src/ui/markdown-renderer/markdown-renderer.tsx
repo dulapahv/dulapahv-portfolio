@@ -7,10 +7,10 @@ import RehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 
+import { aRenderer } from "./a-renderer";
 import { checkboxRenderer } from "./checkbox-renderer";
 import { codeRenderer } from "./code-renderer";
 import { hrRenderer } from "./hr-renderer";
-import { linkRenderer } from "./link-renderer";
 import { preRenderer } from "./pre-renderer";
 import { tdRenderer } from "./td-renderer";
 import { thRenderer } from "./th-renderer";
@@ -34,7 +34,7 @@ export function MarkdownRenderer({ children }: MarkdownRendererProps) {
           rehypeKatex,
         ]}
         components={{
-          a: linkRenderer,
+          a: aRenderer,
           input: checkboxRenderer,
           pre: preRenderer,
           code: codeRenderer,
