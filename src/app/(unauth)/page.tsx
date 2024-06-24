@@ -1,21 +1,63 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Link as NextUILink } from "@nextui-org/react";
 
+import { getManyEducation } from "@/data/get-education";
 import {
   ASSETS_URL,
   GITHUB_URL,
   LINKEDIN_URL,
   LIVED_LOCATIONS,
   NAME,
+  SITE_NAME,
   VISITED_LOCATIONS,
 } from "@/lib/constants";
+import { EducationWithPlace } from "@/types/prisma";
 import { Clock } from "@/ui/clock";
 import { Globe } from "@/ui/globe";
+import { MarkdownRenderer } from "@/ui/markdown-renderer";
 import { dynamicBlurDataUrl } from "@/utils/dynamic-blur-data-url";
+import { formatDate } from "@/utils/format-date";
 import { getRepoCount } from "@/utils/get-repo-count";
 
+export const metadata: Metadata = {
+  title: SITE_NAME,
+  description:
+    "Hello, I'm Dulapah Vibulsanti, a Thai Software Engineer based in Glasgow, Scotland. I'm passionate about making technology accessible to everyone.",
+};
+
 export default async function Home() {
+  const educations = (
+    await getManyEducation({
+      select: {
+        id: true,
+        place: {
+          select: {
+            name: true,
+            city: {
+              select: {
+                name: true,
+                country: {
+                  select: {
+                    name: true,
+                  },
+                },
+              },
+            },
+          },
+        },
+        degree: true,
+        description: true,
+        startDate: true,
+        endDate: true,
+      },
+      orderBy: {
+        endDate: "desc",
+      },
+    })
+  ).item as EducationWithPlace[];
+
   return (
     <div className="space-y-8">
       <header className="prose prose-neutral flex max-w-none flex-col justify-between gap-y-4 dark:prose-invert md:flex-row">
@@ -79,7 +121,7 @@ export default async function Home() {
       </header>
       <main className="space-y-8">
         <blockquote className="relative flex items-center rounded-md border border-default-200 bg-default-50/50 p-2 pl-6">
-          <span className="absolute left-0 mr-4 h-full w-2 rounded-l-md bg-primary"></span>
+          <span className="absolute left-0 mr-4 h-full w-2 rounded-l-md bg-primary" />
           "Technology has the power to transform lives, and I am passionate
           about making technology equally accessible to everyone"
         </blockquote>
@@ -115,14 +157,14 @@ export default async function Home() {
           I hold a BSc Honours in Software Engineering from the{" "}
           <Link
             href="https://www.gla.ac.uk/"
-            className="text-primary hover:underline"
+            className="text-primary duration-100 hover:underline"
           >
             University of Glasgow
           </Link>{" "}
           and a BEng in Software Engineering from{" "}
           <Link
             href="https://www.kmitl.ac.th/"
-            className="text-primary hover:underline"
+            className="text-primary duration-100 hover:underline"
           >
             King Mongkut's Institute of Technology Ladkrabang (KMITL)
           </Link>
@@ -131,6 +173,32 @@ export default async function Home() {
           internships and projects.
         </p>
       </main>
+      <footer className="space-y-4 border-t-1 border-default-300 pt-10 dark:border-default-100">
+        <div className="space-y-2">
+          <h2 className="text-3xl font-semibold">Education</h2>
+          <p className="font-light text-default-500">
+            My academic journey and qualifications.
+          </p>
+        </div>
+        <ul className="space-y-6">
+          {educations.map((education) => (
+            <li key={education.id}>
+              <h3 className="text-lg font-semibold">{education.place.name}</h3>
+              <p className="text-sm text-default-500">
+                {education.place.city.name} {education.place.city.country.name}
+              </p>
+              <p className="text-sm">
+                {formatDate(education.startDate)} -{" "}
+                {formatDate(education.endDate)}
+              </p>
+              <p className="text-sm">{education.degree}</p>
+              {education.description ? (
+                <MarkdownRenderer>{education.description}</MarkdownRenderer>
+              ) : null}
+            </li>
+          ))}
+        </ul>
+      </footer>
     </div>
   );
 }

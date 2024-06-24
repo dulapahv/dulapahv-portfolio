@@ -45,7 +45,7 @@ export function MarkdownRenderer({ children }: MarkdownRendererProps) {
           td: tdRenderer,
         }}
       >
-        {string}
+        {children}
       </Markdown>
     </div>
   );

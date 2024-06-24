@@ -2,6 +2,7 @@ import {
   Blog,
   City,
   Country,
+  Education,
   Experience,
   Place,
   Project,
@@ -37,4 +38,12 @@ export type StackWithExperiencesProjectsBlogs = Stack & {
   experiences: ExperienceWithPlace[];
   projects: ProjectsWithPlace[];
   blogs: Blog[];
+};
+
+export type EducationWithPlace = Education & {
+  place: Place & {
+    city: City & {
+      country: Country;
+    };
+  };
 };
