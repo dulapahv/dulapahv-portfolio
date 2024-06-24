@@ -13,7 +13,7 @@ export const CAPTCHA_URL = "https://verify.dulapahv.dev/validate-captcha";
 export const NAME = "Dulapah Vibulsanti";
 export const SHORT_NAME = "DulapahV";
 export const SITE_NAME = "DulapahV's Portfolio";
-export const DESCRIPTION = `Hello, I'm ${NAME}, a Thai Software Engineer based in Glasgow, Scotland. I'm passionate about making technology accessible to everyone.`;
+export const DESCRIPTION = `Hello, I'm ${NAME}, a Thai Software Engineer based in Glasgow, Scotland. I'm passionate about making technology accessible to everyone. I'm currently a Software Engineer at NatWest Group a British banking and insurance holding company.`;
 export const LINKEDIN_URL = "https://linkedin.com/in/dulapahv";
 export const GITHUB_URL = "https://github.com/dulapahv";
 

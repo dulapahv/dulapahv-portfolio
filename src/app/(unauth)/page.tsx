@@ -8,6 +8,7 @@ import { getManyEducation } from "@/data/get-education";
 import {
   ASSETS_URL,
   BASE_URL,
+  DESCRIPTION,
   GITHUB_URL,
   LINKEDIN_URL,
   LIVED_LOCATIONS,
@@ -25,8 +26,7 @@ import { getRepoCount } from "@/utils/get-repo-count";
 
 export const metadata: Metadata = {
   title: SITE_NAME,
-  description:
-    "Hello, I'm Dulapah Vibulsanti, a Thai Software Engineer based in Glasgow, Scotland. I'm passionate about making technology accessible to everyone.",
+  description: DESCRIPTION,
 };
 
 export default async function Home() {
@@ -67,8 +67,8 @@ export default async function Home() {
       "@type": "WebPage",
       "@id": BASE_URL,
     },
-    headline: metadata.title,
-    description: metadata.description,
+    headline: SITE_NAME,
+    description: DESCRIPTION,
     author: {
       "@type": "Person",
       name: NAME,
