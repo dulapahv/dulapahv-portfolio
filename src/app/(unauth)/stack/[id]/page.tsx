@@ -70,7 +70,7 @@ export default async function Page({ params }: Props) {
       "@id": `${BASE_URL}/${healedUrl}`,
     },
     headline: item.name,
-    description: item.description,
+    description: item.description || "Tools and technologies I use.",
     image: coverImgUrl,
     author: {
       "@type": "Person",
