@@ -95,7 +95,7 @@ export default async function Home() {
             <h1 className="text-2xl/10 font-semibold text-default-700 md:text-3xl/[3rem]">
               <span className="text-primary">
                 Hello{" "}
-                <span className="hover:animate-wave inline-block cursor-grab">
+                <span className="inline-block cursor-grab hover:animate-wave">
                   👋
                 </span>{" "}
                 I&apos;m {NAME}{" "}
@@ -224,7 +224,7 @@ export default async function Home() {
                   {formatDate(education.startDate)} -{" "}
                   {formatDate(education.endDate)}
                 </p>
-                <p className="text-sm">{education.degree}</p>
+                <p className="text-sm font-medium">{education.degree}</p>
                 {education.description ? (
                   <MarkdownRenderer>{education.description}</MarkdownRenderer>
                 ) : null}

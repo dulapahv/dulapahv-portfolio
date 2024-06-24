@@ -7,6 +7,8 @@ import RehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 
+import { cn } from "@/utils/cn";
+
 import { aRenderer } from "./a-renderer";
 import { checkboxRenderer } from "./checkbox-renderer";
 import { codeRenderer } from "./code-renderer";
@@ -19,11 +21,20 @@ import { trRenderer } from "./tr-renderer";
 
 type MarkdownRendererProps = {
   children: string;
+  className?: string;
 };
 
-export function MarkdownRenderer({ children }: MarkdownRendererProps) {
+export function MarkdownRenderer({
+  children,
+  className,
+}: MarkdownRendererProps) {
   return (
-    <div className="prose-mofu prose prose-neutral max-w-none dark:prose-invert">
+    <div
+      className={cn(
+        "prose-mofu prose prose-neutral max-w-none dark:prose-invert",
+        className,
+      )}
+    >
       <Markdown
         remarkPlugins={[remarkGfm, remarkMath]}
         rehypePlugins={[
