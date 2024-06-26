@@ -157,7 +157,7 @@ export default async function Home() {
             about making technology equally accessible to everyone"
           </blockquote>
           <p>
-            I'm currently a Software Engineer at{" "}
+            I'm currently a Software Engineer Intern at{" "}
             <NextUILink
               as={Link}
               href="https://www.natwestgroup.com/"
