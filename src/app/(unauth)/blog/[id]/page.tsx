@@ -26,6 +26,7 @@ async function fetch({ params }: Props) {
       description: true,
       content: true,
       imagePath: true,
+      wordCount: true,
       createdAt: true,
       updatedAt: true,
     },
@@ -52,7 +53,7 @@ export async function generateMetadata(
       url: `${BASE_URL}/blog/${item.id}-${item.title.replace(/ /g, "-")}`,
       images: [
         {
-          url: `${ASSETS_URL}/images/exp/${item.imagePath}/cover.png`,
+          url: `${ASSETS_URL}/images/blog/${item.imagePath}/cover.png`,
           alt: `${item.title}`,
         },
         ...previousImages,
@@ -104,11 +105,9 @@ export default async function Page({ params }: Props) {
       <div className="space-y-8">
         <Breadcrumb lastItem={item.title} />
         <header>
-          <h2 className="text-3xl/[3rem] font-semibold">
-            {item.title}
-          </h2>
+          <h2 className="text-3xl/[3rem] font-semibold">{item.title}</h2>
           <p className="text-sm text-default-500">{`Published on ${item.createdAt.toLocaleDateString("en-GB")} •
-          ${Math.ceil(item.content.split(" ").length / 200)} min read
+          ${Math.ceil(item.wordCount / 200)} min read
           `}</p>
         </header>
         <main className="space-y-8 pb-2">
