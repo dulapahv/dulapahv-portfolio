@@ -214,6 +214,33 @@ const CommandMenu = forwardRef<CommandMenuModalRef>((props, ref) => {
                           window.location.href.split("-")[0],
                         );
                         break;
+                      case "console":
+                        /* @ts-ignore */
+                        if (window.eruda) {
+                          /* @ts-ignore */
+                          window.eruda.destroy();
+                          /* @ts-ignore */
+                          delete window.eruda;
+
+                          const erudaScript =
+                            document.querySelector("script[data-eruda]");
+                          erudaScript?.remove();
+
+                          break;
+                        }
+
+                        const erudaScript = document.createElement("script");
+                        erudaScript.src = "//cdn.jsdelivr.net/npm/eruda";
+                        erudaScript.setAttribute("data-eruda", "true");
+                        erudaScript.onload = () => {
+                          /* @ts-ignore */
+                          eruda.init();
+                          /* @ts-ignore */
+                          eruda.show();
+                        };
+                        document.head.appendChild(erudaScript);
+
+                        break;
                       default:
                         break;
                     }

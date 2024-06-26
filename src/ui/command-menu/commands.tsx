@@ -10,6 +10,7 @@ import {
   Moon,
   NotebookPen,
   Sun,
+  Terminal,
 } from "lucide-react";
 
 export const commands = [
@@ -86,9 +87,16 @@ export const commands = [
     href: "/contact",
   },
   {
+    key: "console",
+    label: "Toggle Console (Mobile)",
+    section: "Developer",
+    icon: <Terminal size={20} />,
+  },
+  {
     key: "login",
     label: "Admin Login",
     section: "Developer",
     icon: <LogIn size={20} />,
+    href: "/login",
   },
 ];
