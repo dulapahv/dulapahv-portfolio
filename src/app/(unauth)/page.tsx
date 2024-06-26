@@ -139,8 +139,9 @@ export default async function Home() {
           <div className="relative order-1 size-24 md:order-2 md:size-44">
             <Image
               src={`${ASSETS_URL}/images/profile_pic.jpg`}
-              alt="Dulapah Vibulsanti"
+              alt={NAME}
               fill
+              sizes="(max-width: 768px) 96px, 176px"
               placeholder="blur"
               blurDataURL={await dynamicBlurDataUrl(
                 `${ASSETS_URL}/images/profile_pic.jpg`,
@@ -213,14 +214,14 @@ export default async function Home() {
           <ul className="space-y-6">
             {educations.map((education) => (
               <li key={education.id}>
-                <h3 className="text-lg font-semibold">
+                <h3 className="text-lg/6 font-semibold">
                   {education.place.name}
                 </h3>
                 <p className="text-sm text-default-500">
                   {education.place.city.name}{" "}
                   {education.place.city.country.name}
                 </p>
-                <p className="text-sm">
+                <p className="text-sm/7">
                   {formatDate(education.startDate)} -{" "}
                   {formatDate(education.endDate)}
                 </p>
