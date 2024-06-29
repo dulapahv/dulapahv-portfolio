@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import { Poppins } from "next/font/google";
 import Image from "next/image";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider } from "next-themes";
 import { Toaster } from "sonner";
 
@@ -181,6 +182,7 @@ export default async function RootLayout({
         )}
       >
         <Analytics />
+        <SpeedInsights />
         <ThemeProvider attribute="class">
           <div
             aria-hidden
