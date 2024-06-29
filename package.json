@@ -5,10 +5,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "prisma generate && prisma migrate deploy && next build",
+    "build": "prisma generate --no-engine && prisma migrate deploy && next build",
     "start": "next start",
     "lint": "next lint",
-    "db:generate": "prisma generate",
+    "db:generate": "prisma generate --no-engine",
     "db:migrate": "prisma migrate deploy",
     "db:studio": "prisma studio",
     "test:e2e": "playwright test"
@@ -19,6 +19,7 @@
     "@nextui-org/react": "^2.4.2",
     "@octokit/rest": "^21.0.0",
     "@prisma/client": "^5.16.1",
+    "@prisma/extension-accelerate": "^1.1.0",
     "@react-email/components": "0.0.19",
     "@react-spring/web": "^9.7.3",
     "@sentry/nextjs": "8.9.2",
