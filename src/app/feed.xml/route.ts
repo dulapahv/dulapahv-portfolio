@@ -18,6 +18,8 @@ import {
   SITE_NAME,
 } from "@/lib/constants";
 
+export const runtime = "edge";
+
 const feed = new RSS({
   title: SITE_NAME,
   description: DESCRIPTION,

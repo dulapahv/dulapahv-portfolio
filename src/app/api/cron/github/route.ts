@@ -4,6 +4,8 @@ import { SHORT_NAME } from "@/lib/constants";
 import { updateEdgeConfig } from "@/lib/vercel";
 import { parseError } from "@/utils/parse-error";
 
+export const runtime = "edge";
+
 const octokit = new Octokit();
 
 export const GET = async (): Promise<Response> => {
