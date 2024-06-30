@@ -10,6 +10,8 @@ export const config = {
     "/blog/:path*",
     "/stack/:path*",
     "/contact/:path*",
+    "/login",
+    "/dashboard/:path*",
   ],
 };
 
