@@ -20,7 +20,7 @@ interface Props {
 async function fetch({ params }: Props) {
   const id = params.id.split("-")[0];
 
-  return (await getUniqueExperience({
+  const item = (await getUniqueExperience({
     select: {
       id: true,
       position: true,
@@ -51,6 +51,10 @@ async function fetch({ params }: Props) {
       id: id,
     },
   })) as ExperienceWithPlace;
+
+  if (!item) redirect("/404");
+
+  return item;
 }
 
 export async function generateMetadata(
@@ -122,9 +126,7 @@ export default async function Page({ params }: Props) {
       <div className="space-y-8">
         <Breadcrumb lastItem={`${item.place.name} | ${item.position}`} />
         <header>
-          <h2 className="text-3xl/[3rem] font-semibold">
-            {item.position}
-          </h2>
+          <h2 className="text-3xl/[3rem] font-semibold">{item.position}</h2>
           <p className="font-medium text-default-500">{`${formatDate(item.startDate)} - ${formatDate(item.endDate)}`}</p>
           <p className="font-medium text-default-500">{item.place.name}</p>
           <p className="text-sm font-light text-default-500">

@@ -19,7 +19,7 @@ interface Props {
 async function fetch({ params }: Props) {
   const id = params.id.split("-")[0];
 
-  return (await getUniqueBlog({
+  const item = (await getUniqueBlog({
     select: {
       id: true,
       title: true,
@@ -34,6 +34,10 @@ async function fetch({ params }: Props) {
       id: id,
     },
   })) as Blog;
+
+  if (!item) redirect("/404");
+
+  return item;
 }
 
 export async function generateMetadata(

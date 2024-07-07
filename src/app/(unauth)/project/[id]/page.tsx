@@ -18,62 +18,7 @@ interface Props {
   };
 }
 
-export async function generateMetadata(
-  { params }: Props,
-  parent: ResolvingMetadata,
-): Promise<Metadata> {
-  const id = params.id.split("-")[0];
-
-  const item = (await getUniqueProject({
-    where: {
-      id: id,
-    },
-    select: {
-      id: true,
-      title: true,
-      description: true,
-      startDate: true,
-      endDate: true,
-      placeId: true,
-      place: {
-        select: {
-          name: true,
-          city: {
-            select: {
-              name: true,
-              country: {
-                select: {
-                  name: true,
-                },
-              },
-            },
-          },
-        },
-      },
-    },
-  })) as ProjectsWithPlace;
-
-  const previousImages = (await parent).openGraph?.images || [];
-
-  return {
-    title: `Project: ${item.title} | DulapahV's Portfolio`,
-    description: item.description,
-    openGraph: {
-      title: `Project: ${item.title} | DulapahV's Portfolio`,
-      description: item.description,
-      url: `${BASE_URL}/project/${item.id}-${item.title.replace(/ /g, "-")}`,
-      images: [
-        {
-          url: `${ASSETS_URL}/images/proj/${item.imagePath}/1.png`,
-          alt: item.title,
-        },
-        ...previousImages,
-      ],
-    },
-  };
-}
-
-export default async function Page({ params }: Props) {
+async function fetch({ params }: Props) {
   const id = params.id.split("-")[0];
 
   const item = (await getUniqueProject({
@@ -83,6 +28,7 @@ export default async function Page({ params }: Props) {
       imagePath: true,
       imageDescription: true,
       description: true,
+      content: true,
       url: true,
       startDate: true,
       endDate: true,
@@ -109,6 +55,40 @@ export default async function Page({ params }: Props) {
       id: id,
     },
   })) as ProjectsWithPlace;
+
+  if (!item) redirect("/404");
+
+  return item;
+}
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  const item = await fetch({ params });
+
+  const previousImages = (await parent).openGraph?.images || [];
+
+  return {
+    title: `Project: ${item.title} | DulapahV's Portfolio`,
+    description: item.description,
+    openGraph: {
+      title: `Project: ${item.title} | DulapahV's Portfolio`,
+      description: item.description,
+      url: `${BASE_URL}/project/${item.id}-${item.title.replace(/ /g, "-")}`,
+      images: [
+        {
+          url: `${ASSETS_URL}/images/proj/${item.imagePath}/1.png`,
+          alt: item.title,
+        },
+        ...previousImages,
+      ],
+    },
+  };
+}
+
+export default async function Page({ params }: Props) {
+  const item = await fetch({ params });
 
   const healedUrl = `/project/${item.id}-${item.title.replace(/ /g, "-")}`;
   if (`/project/${params.id}` != healedUrl) redirect(healedUrl);
@@ -150,9 +130,7 @@ export default async function Page({ params }: Props) {
       <div className="space-y-8">
         <Breadcrumb lastItem={`${item.title}`} />
         <header>
-          <h2 className="text-3xl/[3rem] font-semibold">
-            {item.title}
-          </h2>
+          <h2 className="text-3xl/[3rem] font-semibold">{item.title}</h2>
           <p className="font-medium text-default-500">{`${formatDate(item.startDate)} - ${formatDate(item.endDate)}`}</p>
           {item.placeId ? (
             <>
@@ -176,7 +154,9 @@ export default async function Page({ params }: Props) {
             priority
             className="rounded-md"
           />
-          <MarkdownRenderer>{item.description}</MarkdownRenderer>
+          <MarkdownRenderer>
+            {item.content.replace(/\\n/g, "\n") || item.description}
+          </MarkdownRenderer>
           {item.url ? <UrlButton url={item.url} /> : null}
         </main>
         <footer className="space-y-4 border-t-1 border-default-300 pt-10 dark:border-default-100">

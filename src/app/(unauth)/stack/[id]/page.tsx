@@ -21,11 +21,15 @@ interface Props {
 async function fetch({ params }: Props) {
   const id = params.id.split("-")[0];
 
-  return (await getUniqueStack({
+  const item = (await getUniqueStack({
     where: {
       id: id,
     },
   })) as Stack;
+
+  if (!item) redirect("/404");
+
+  return item;
 }
 
 export async function generateMetadata(
