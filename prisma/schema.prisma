@@ -28,9 +28,10 @@ model Experience {
 
 model Project {
   id               String   @id @default(cuid())
-  title            String
+  title            String   @unique @default(cuid())
   stacks           Stack[]
-  description      String
+  description      String   @default("")
+  content          String   @default("")
   url              String?
   imagePath        String   @default("")
   imageDescription String[]
@@ -46,10 +47,10 @@ model Project {
 
 model Blog {
   id          String   @id @default(cuid())
-  title       String
+  title       String   @unique @default(cuid())
   stacks      Stack[]
-  description String
-  content     String
+  description String   @default("")
+  content     String   @default("")
   imagePath   String   @default("")
   wordCount   Int
   createdAt   DateTime @default(now())
@@ -60,7 +61,7 @@ model Blog {
 
 model Stack {
   id             String       @id @default(cuid())
-  name           String
+  name           String       @unique @default(cuid())
   description    String?
   forceLightIcon Boolean      @default(true)
   featured       Boolean      @default(false)
@@ -84,7 +85,7 @@ model Education {
   id          String   @id @default(cuid())
   place       Place    @relation(fields: [placeId], references: [id])
   placeId     String
-  degree      String
+  degree      String   @default("")
   gpa         Float?
   description String?
   startDate   DateTime
