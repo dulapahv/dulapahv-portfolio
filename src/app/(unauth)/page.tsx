@@ -218,12 +218,10 @@ export default async function Home() {
                   {education.place.name}
                 </h3>
                 <p className="text-sm text-default-500">
-                  {education.place.city.name}{" "}
-                  {education.place.city.country.name}
+                  {`${education.place.city.name}, ${education.place.city.country.name}`}
                 </p>
                 <p className="text-sm/7">
-                  {formatDate(education.startDate)} -{" "}
-                  {formatDate(education.endDate)}
+                  {`${formatDate(education.startDate)} - ${formatDate(education.endDate)}`}
                 </p>
                 <p className="text-sm font-medium">{education.degree}</p>
                 {education.description ? (
