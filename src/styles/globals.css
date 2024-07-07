@@ -4,6 +4,7 @@
 
 @import "katex/dist/katex.min.css";
 @import "./highlight.css";
+@import "@mdxeditor/editor/style.css";
 
 * {
   /* @apply !outline outline-1 outline-red; */
