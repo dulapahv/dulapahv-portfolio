@@ -18,6 +18,8 @@ import {
 import { cn } from "@/utils/cn";
 
 import "@/styles/globals.css";
+import "@/styles/highlight.css";
+import "@mdxeditor/editor/style.css";
 
 import { Providers } from "./providers";
 

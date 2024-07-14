@@ -4,7 +4,7 @@
   "homepage": "https://dulapahv.dev",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "prisma generate --no-engine && prisma migrate deploy && next build",
     "start": "next start",
     "lint": "next lint",
