@@ -11,6 +11,8 @@ import { Breadcrumb } from "@/ui/breadcrumb";
 import { PaginationFooter } from "@/ui/pagination-footer";
 import { formatDate } from "@/utils/format-date";
 
+export const runtime = "edge";
+
 export const metadata: Metadata = {
   title: `Blog | ${SITE_NAME}`,
   description: "Blog posts about my thoughts, ideas, and experiences.",

@@ -1,5 +1,7 @@
 import { ReloadButton } from "@/ui/reload-button";
 
+export const runtime = "edge";
+
 export default function Page({
   searchParams,
 }: {

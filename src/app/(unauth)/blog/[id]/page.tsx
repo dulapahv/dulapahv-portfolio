@@ -10,6 +10,8 @@ import { Breadcrumb } from "@/ui/breadcrumb";
 import { MarkdownRenderer } from "@/ui/markdown-renderer";
 import { dynamicBlurDataUrl } from "@/utils/dynamic-blur-data-url";
 
+export const runtime = "edge";
+
 interface Props {
   params: {
     id: string;

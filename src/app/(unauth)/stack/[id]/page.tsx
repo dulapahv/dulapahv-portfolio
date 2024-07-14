@@ -12,6 +12,8 @@ import { Breadcrumb } from "@/ui/breadcrumb";
 import { StackIconWrapper } from "@/ui/stack-icon-wrapper";
 import { getStackIconName } from "@/utils/get-stack-icon-name";
 
+export const runtime = "edge";
+
 interface Props {
   params: {
     id: string;

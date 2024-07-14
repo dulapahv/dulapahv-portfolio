@@ -11,6 +11,8 @@ import { MarkdownRenderer } from "@/ui/markdown-renderer";
 import { dynamicBlurDataUrl } from "@/utils/dynamic-blur-data-url";
 import { formatDate } from "@/utils/format-date";
 
+export const runtime = "edge";
+
 interface Props {
   params: {
     id: string;

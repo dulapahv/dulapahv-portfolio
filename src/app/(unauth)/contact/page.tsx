@@ -4,6 +4,8 @@ import { SITE_NAME } from "@/lib/constants";
 import { Breadcrumb } from "@/ui/breadcrumb";
 import { ContactForm } from "@/ui/contact-form";
 
+export const runtime = "edge";
+
 export const metadata: Metadata = {
   title: `Contact | ${SITE_NAME}`,
   description:

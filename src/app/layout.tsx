@@ -21,8 +21,6 @@ import "@/styles/globals.css";
 
 import { Providers } from "./providers";
 
-export const runtime = "edge";
-
 const noDarkReader = dynamic(() => import("no-darkreader"), { ssr: false });
 
 const poppins = Poppins({
