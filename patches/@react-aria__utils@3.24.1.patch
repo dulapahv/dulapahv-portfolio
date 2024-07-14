@@ -1,0 +1,150 @@
+diff --git a/dist/openLink.mjs b/dist/openLink.mjs
+index 2948d945c63d6dd590ce737d72860d2d978b82c6..fabcad2281133461f6e1ba61b1486c11e833003d 100644
+--- a/dist/openLink.mjs
++++ b/dist/openLink.mjs
+@@ -1,3 +1,5 @@
++"use client";
++
+ import {focusWithoutScrolling as $7215afc6de606d6b$export$de79e2c695e052f3} from "./focusWithoutScrolling.mjs";
+ import {isMac as $c87311424ea30a05$export$9ac100e40613ea10, isWebKit as $c87311424ea30a05$export$78551043582a6a98, isFirefox as $c87311424ea30a05$export$b7d78993b74f766d, isIPad as $c87311424ea30a05$export$7bef049ce92e4224} from "./platform.mjs";
+ import $g3jFn$react, {createContext as $g3jFn$createContext, useMemo as $g3jFn$useMemo, useContext as $g3jFn$useContext} from "react";
+diff --git a/dist/useDeepMemo.mjs b/dist/useDeepMemo.mjs
+index 173b77eaece866a44771061b44a09b978f219b24..8c3e9eaa3eaf8033044556697fec2e57a6b44250 100644
+--- a/dist/useDeepMemo.mjs
++++ b/dist/useDeepMemo.mjs
+@@ -1,3 +1,5 @@
++"use client";
++
+ import {useRef as $jtQ6z$useRef} from "react";
+ 
+ /*
+diff --git a/dist/useDescription.mjs b/dist/useDescription.mjs
+index 874d22371a0991a526d97fe9c049939f4eec01ef..929112c06ba6b57cebb0365249e4a6f3a888adc7 100644
+--- a/dist/useDescription.mjs
++++ b/dist/useDescription.mjs
+@@ -1,3 +1,5 @@
++"use client";
++
+ import {useLayoutEffect as $f0a04ccd8dbdd83b$export$e5c5a5f917a5871c} from "./useLayoutEffect.mjs";
+ import {useState as $hQ5Hp$useState} from "react";
+ 
+diff --git a/dist/useDrag1D.mjs b/dist/useDrag1D.mjs
+index f0a4adeb29b7839bdc2f5f0dafe8196e2964aa6a..776ddfc1d285172f48e9e3bdc522d70afbd4c1ed 100644
+--- a/dist/useDrag1D.mjs
++++ b/dist/useDrag1D.mjs
+@@ -1,3 +1,5 @@
++"use client";
++
+ import {getOffset as $ab71dadb03a6fb2e$export$622cea445a1c5b7d} from "./getOffset.mjs";
+ import {useRef as $1rnCS$useRef} from "react";
+ 
+diff --git a/dist/useEffectEvent.mjs b/dist/useEffectEvent.mjs
+index d3f72488cd71a87d19d2dd80ba848d8803b28415..ccf0cd3810da7585c934f0dd6519961cdfecc26b 100644
+--- a/dist/useEffectEvent.mjs
++++ b/dist/useEffectEvent.mjs
+@@ -1,3 +1,5 @@
++"use client";
++
+ import {useLayoutEffect as $f0a04ccd8dbdd83b$export$e5c5a5f917a5871c} from "./useLayoutEffect.mjs";
+ import {useRef as $lmaYr$useRef, useCallback as $lmaYr$useCallback} from "react";
+ 
+diff --git a/dist/useEvent.mjs b/dist/useEvent.mjs
+index fdee86d5b1275d34dec84c1544935b8135ea21ec..44f8510718df1796ff2477bd31e1b860efbe3ab6 100644
+--- a/dist/useEvent.mjs
++++ b/dist/useEvent.mjs
+@@ -1,3 +1,5 @@
++"use client";
++
+ import {useEffectEvent as $8ae05eaa5c114e9c$export$7f54fc3180508a52} from "./useEffectEvent.mjs";
+ import {useEffect as $ceQd6$useEffect} from "react";
+ 
+diff --git a/dist/useFormReset.mjs b/dist/useFormReset.mjs
+index b23213d46daf50ad49a006f616e96e8c921df58b..8509309ee27f4a2b92c878a0963032ebbb6caa94 100644
+--- a/dist/useFormReset.mjs
++++ b/dist/useFormReset.mjs
+@@ -1,3 +1,5 @@
++"use client";
++
+ import {useEffectEvent as $8ae05eaa5c114e9c$export$7f54fc3180508a52} from "./useEffectEvent.mjs";
+ import {useRef as $8rM3G$useRef, useEffect as $8rM3G$useEffect} from "react";
+ 
+diff --git a/dist/useFormReset.module.js b/dist/useFormReset.module.js
+index d8ce24f97b06944d0607c79715c2fc5ebebc6f8b..df5e393d961d76430a27fbe115e67e8f1b37bb20 100644
+--- a/dist/useFormReset.module.js
++++ b/dist/useFormReset.module.js
+@@ -1,3 +1,5 @@
++"use client";
++
+ import {useEffectEvent as $8ae05eaa5c114e9c$export$7f54fc3180508a52} from "./useEffectEvent.module.js";
+ import {useRef as $8rM3G$useRef, useEffect as $8rM3G$useEffect} from "react";
+ 
+diff --git a/dist/useGlobalListeners.mjs b/dist/useGlobalListeners.mjs
+index 521f2a18d720ce2976906ef4d65592ae9874abe2..2aa4c711cc4877fe52714749e0361b83608db63d 100644
+--- a/dist/useGlobalListeners.mjs
++++ b/dist/useGlobalListeners.mjs
+@@ -1,3 +1,5 @@
++"use client";
++
+ import {useRef as $lPAwt$useRef, useCallback as $lPAwt$useCallback, useEffect as $lPAwt$useEffect} from "react";
+ 
+ /*
+diff --git a/dist/useId.mjs b/dist/useId.mjs
+index 6966640db8822c64833296e278e068f6843b163d..259468a8a8584e66788e4187b765475db3447307 100644
+--- a/dist/useId.mjs
++++ b/dist/useId.mjs
+@@ -1,3 +1,5 @@
++"use client";
++
+ import {useLayoutEffect as $f0a04ccd8dbdd83b$export$e5c5a5f917a5871c} from "./useLayoutEffect.mjs";
+ import {useValueEffect as $1dbecbe27a04f9af$export$14d238f342723f25} from "./useValueEffect.mjs";
+ import {useState as $eKkEp$useState, useRef as $eKkEp$useRef, useCallback as $eKkEp$useCallback, useEffect as $eKkEp$useEffect} from "react";
+diff --git a/dist/useObjectRef.mjs b/dist/useObjectRef.mjs
+index 402352f5223c3e4d1996f4e1d04bf31ab32e3036..b7c23840ed460ce0d7045c85f264ea2b45fe7af6 100644
+--- a/dist/useObjectRef.mjs
++++ b/dist/useObjectRef.mjs
+@@ -1,3 +1,5 @@
++"use client";
++
+ import {useRef as $gbmns$useRef, useMemo as $gbmns$useMemo} from "react";
+ 
+ /*
+diff --git a/dist/useResizeObserver.mjs b/dist/useResizeObserver.mjs
+index febd05faa890f78f047c4660d3ca90880b5f4657..e56fb0e20cb870b6858b70d39ae11b2f23f3a0e2 100644
+--- a/dist/useResizeObserver.mjs
++++ b/dist/useResizeObserver.mjs
+@@ -1,3 +1,5 @@
++"use client";
++
+ import {useEffect as $Vsl8o$useEffect} from "react";
+ 
+ 
+diff --git a/dist/useUpdateEffect.mjs b/dist/useUpdateEffect.mjs
+index 45da9a1c7ebd5e2677ab1b2d3e5ac277dfe5dd12..2ba9cac708c80ce289456b345660d5d1d2afb61f 100644
+--- a/dist/useUpdateEffect.mjs
++++ b/dist/useUpdateEffect.mjs
+@@ -1,3 +1,5 @@
++"use client";
++
+ import {useRef as $9vW05$useRef, useEffect as $9vW05$useEffect} from "react";
+ 
+ /*
+diff --git a/dist/useValueEffect.mjs b/dist/useValueEffect.mjs
+index 6619986abf87686dd434a13492e90eac5d103407..594d780fec8308c4ec267e8132f9106202a361f2 100644
+--- a/dist/useValueEffect.mjs
++++ b/dist/useValueEffect.mjs
+@@ -1,3 +1,5 @@
++"use client";
++
+ import {useEffectEvent as $8ae05eaa5c114e9c$export$7f54fc3180508a52} from "./useEffectEvent.mjs";
+ import {useLayoutEffect as $f0a04ccd8dbdd83b$export$e5c5a5f917a5871c} from "./useLayoutEffect.mjs";
+ import {useState as $fCAlL$useState, useRef as $fCAlL$useRef} from "react";
+diff --git a/dist/useViewportSize.mjs b/dist/useViewportSize.mjs
+index db515600d4344ec2ab97bcdeca5ad2a40a5b004d..7fca1294815016c4dfae4bce6f47da6bbe690f62 100644
+--- a/dist/useViewportSize.mjs
++++ b/dist/useViewportSize.mjs
+@@ -1,3 +1,5 @@
++"use client";
++
+ import {useState as $fuDHA$useState, useEffect as $fuDHA$useEffect} from "react";
+ import {useIsSSR as $fuDHA$useIsSSR} from "@react-aria/ssr";
+ 

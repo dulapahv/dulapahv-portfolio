@@ -21,6 +21,8 @@ import "@/styles/globals.css";
 
 import { Providers } from "./providers";
 
+export const runtime = "edge";
+
 const noDarkReader = dynamic(() => import("no-darkreader"), { ssr: false });
 
 const poppins = Poppins({
@@ -172,7 +174,7 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
-      className="min-h-dvh text-default-800 dark"
+      className="text-default-800 dark min-h-dvh"
       suppressHydrationWarning
     >
       <body

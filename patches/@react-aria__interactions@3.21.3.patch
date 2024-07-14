@@ -1,0 +1,90 @@
+diff --git a/dist/PressResponder.mjs b/dist/PressResponder.mjs
+index e37e965db55ba1f72b128af5e81db09cd14ff227..2b234af477015905eabfc96d2a505960d57e26ed 100644
+--- a/dist/PressResponder.mjs
++++ b/dist/PressResponder.mjs
+@@ -1,3 +1,5 @@
++"use client";
++
+ import {PressResponderContext as $ae1eeba8b9eafd08$export$5165eccb35aaadb5} from "./context.mjs";
+ import {useObjectRef as $87RPk$useObjectRef, mergeProps as $87RPk$mergeProps, useSyncRef as $87RPk$useSyncRef} from "@react-aria/utils";
+ import $87RPk$react, {useRef as $87RPk$useRef, useContext as $87RPk$useContext, useEffect as $87RPk$useEffect, useMemo as $87RPk$useMemo} from "react";
+diff --git a/dist/useFocusVisible.mjs b/dist/useFocusVisible.mjs
+index 14638f9d7555d00a26c695efe740b75973fa536f..0d6e6d67a7b473639dba467dccdf18b0237a5cea 100644
+--- a/dist/useFocusVisible.mjs
++++ b/dist/useFocusVisible.mjs
+@@ -1,3 +1,5 @@
++"use client";
++
+ import {isMac as $28AnR$isMac, isVirtualClick as $28AnR$isVirtualClick, getOwnerWindow as $28AnR$getOwnerWindow, getOwnerDocument as $28AnR$getOwnerDocument} from "@react-aria/utils";
+ import {useState as $28AnR$useState, useEffect as $28AnR$useEffect} from "react";
+ import {useIsSSR as $28AnR$useIsSSR} from "@react-aria/ssr";
+diff --git a/dist/useFocusWithin.mjs b/dist/useFocusWithin.mjs
+index 91bc4d2b44b63c1a84d70baa8b47aa51860ba53e..4bb8fd418db41ec00a60d26bb49bc5c0dc63469e 100644
+--- a/dist/useFocusWithin.mjs
++++ b/dist/useFocusWithin.mjs
+@@ -1,3 +1,5 @@
++"use client";
++
+ import {useSyntheticBlurEvent as $8a9cb279dc87e130$export$715c682d09d639cc} from "./utils.mjs";
+ import {useRef as $3b9Q0$useRef, useCallback as $3b9Q0$useCallback} from "react";
+ 
+diff --git a/dist/useHover.mjs b/dist/useHover.mjs
+index 4ef094ded23c4dd68b00a8eb563a33757ec2e748..d261ee7e8e203629bc0ab6d5580154671c684ed1 100644
+--- a/dist/useHover.mjs
++++ b/dist/useHover.mjs
+@@ -1,3 +1,5 @@
++"use client";
++
+ import {useState as $AWxnT$useState, useRef as $AWxnT$useRef, useEffect as $AWxnT$useEffect, useMemo as $AWxnT$useMemo} from "react";
+ 
+ /*
+diff --git a/dist/useInteractOutside.mjs b/dist/useInteractOutside.mjs
+index 294e75e5117431f357cbfe57a87233f643b30686..e9cb84f54cd6637a32b3079ee634166c862979d4 100644
+--- a/dist/useInteractOutside.mjs
++++ b/dist/useInteractOutside.mjs
+@@ -1,3 +1,5 @@
++"use client";
++
+ import {useEffectEvent as $ispOf$useEffectEvent, getOwnerDocument as $ispOf$getOwnerDocument} from "@react-aria/utils";
+ import {useRef as $ispOf$useRef, useEffect as $ispOf$useEffect} from "react";
+ 
+diff --git a/dist/useLongPress.mjs b/dist/useLongPress.mjs
+index e30726c4ffcd1fe8875b5531fc6c5430549812af..b32fb7acb2b7cbd0d40bec3908e6f89d65373472 100644
+--- a/dist/useLongPress.mjs
++++ b/dist/useLongPress.mjs
+@@ -1,3 +1,5 @@
++"use client";
++
+ import {usePress as $f6c31cce2adf654f$export$45712eceda6fad21} from "./usePress.mjs";
+ import {useGlobalListeners as $4k2kv$useGlobalListeners, useDescription as $4k2kv$useDescription, mergeProps as $4k2kv$mergeProps} from "@react-aria/utils";
+ import {useRef as $4k2kv$useRef} from "react";
+diff --git a/dist/useMove.mjs b/dist/useMove.mjs
+index 6e5502014525f9ef5e855737fe0ab3962c92c8ca..2ed33461d318d741345ef58ca486dc7e4c992e16 100644
+--- a/dist/useMove.mjs
++++ b/dist/useMove.mjs
+@@ -1,3 +1,5 @@
++"use client";
++
+ import {disableTextSelection as $14c0b72509d70225$export$16a4697467175487, restoreTextSelection as $14c0b72509d70225$export$b0d6fa1ab32e3295} from "./textSelection.mjs";
+ import {useRef as $5GN7j$useRef, useMemo as $5GN7j$useMemo} from "react";
+ import {useGlobalListeners as $5GN7j$useGlobalListeners, useEffectEvent as $5GN7j$useEffectEvent} from "@react-aria/utils";
+diff --git a/dist/usePress.mjs b/dist/usePress.mjs
+index bb29b058eaf557725a5443464e680f244c146b55..08dfdab2bf958baf5e5862f4774c92206bc8a135 100644
+--- a/dist/usePress.mjs
++++ b/dist/usePress.mjs
+@@ -1,3 +1,5 @@
++"use client";
++
+ import {disableTextSelection as $14c0b72509d70225$export$16a4697467175487, restoreTextSelection as $14c0b72509d70225$export$b0d6fa1ab32e3295} from "./textSelection.mjs";
+ import {PressResponderContext as $ae1eeba8b9eafd08$export$5165eccb35aaadb5} from "./context.mjs";
+ import {_ as $7mdmh$_} from "@swc/helpers/_/_class_private_field_get";
+diff --git a/dist/utils.mjs b/dist/utils.mjs
+index 2e204bbba090c5efffbf79b1c0822de5f109761b..9a0739bbacdd110fdacd759cd8f2c49f3fa16b08 100644
+--- a/dist/utils.mjs
++++ b/dist/utils.mjs
+@@ -1,3 +1,5 @@
++"use client";
++
+ import {useRef as $6dfIe$useRef, useCallback as $6dfIe$useCallback} from "react";
+ import {useLayoutEffect as $6dfIe$useLayoutEffect, useEffectEvent as $6dfIe$useEffectEvent} from "@react-aria/utils";
+ 
