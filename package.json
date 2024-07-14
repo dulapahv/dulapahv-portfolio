@@ -55,6 +55,7 @@
     "use-debounce": "^10.0.1"
   },
   "devDependencies": {
+    "@cloudflare/next-on-pages": "^1.12.1",
     "@ianvs/prettier-plugin-sort-imports": "^4.3.0",
     "@playwright/test": "^1.45.1",
     "@tailwindcss/typography": "^0.5.13",
