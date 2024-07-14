@@ -31,7 +31,7 @@
     "cobe": "^0.6.3",
     "framer-motion": "^11.3.2",
     "lucide-react": "^0.395.0",
-    "next": "14.2.5",
+    "next": "14.2.4",
     "next-auth": "5.0.0-beta.19",
     "next-themes": "^0.3.0",
     "no-darkreader": "^1.0.3",
