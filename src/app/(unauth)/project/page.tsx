@@ -159,7 +159,7 @@ export default async function Page({
       <Breadcrumb />
       <header className="space-y-2">
         <h1 className="text-3xl font-semibold">Project</h1>
-        <p className="font-light text-default-500 text-pretty">
+        <p className="text-pretty font-light text-default-500">
           Professional and personal projects I have worked on.
         </p>
       </header>

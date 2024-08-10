@@ -174,7 +174,7 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
-      className="text-default-800 dark min-h-dvh"
+      className="min-h-dvh text-default-800 dark"
       suppressHydrationWarning
     >
       <body

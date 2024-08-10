@@ -84,7 +84,7 @@ export function Editor({ onChange, markdown, markdownOld }: EditorProps) {
       onChange={onChange}
       autoFocus={false}
       placeholder="Type here..."
-      className={`rounded-lg border-2 w-full ${forceDarkTheme ? "dark-theme dark-editor border-default-800 dark:border-default-200" : "bg-white dark:border-default-800"}`}
+      className={`w-full rounded-lg border-2 ${forceDarkTheme ? "dark-theme dark-editor border-default-800 dark:border-default-200" : "bg-white dark:border-default-800"}`}
       contentEditableClassName={`prose ${forceDarkTheme ? "" : "bg-white"}`}
       markdown={markdown}
       plugins={[

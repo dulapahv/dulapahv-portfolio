@@ -8,7 +8,7 @@ export default function Page() {
   return (
     <div>
       <div>Login</div>
-      <div className=''>
+      <div className="">
         <Editor
           onChange={(str) => {
             console.log(str);

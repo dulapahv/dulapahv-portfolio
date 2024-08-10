@@ -94,18 +94,18 @@ export default async function Home() {
       <div className="space-y-8">
         <header className="prose prose-neutral flex max-w-none flex-col justify-between gap-y-4 dark:prose-invert md:flex-row">
           <div className="order-2 w-full md:order-2 md:w-3/5">
-            <h1 className="text-default-700 text-2xl/10 font-semibold md:text-3xl/[3rem]">
+            <h1 className="text-2xl/10 font-semibold text-default-700 md:text-3xl/[3rem]">
               <span className="text-primary">
                 Hello{" "}
-                <span className="hover:animate-wave inline-block cursor-grab">
+                <span className="inline-block cursor-grab hover:animate-wave">
                   👋
                 </span>{" "}
                 I&apos;m {NAME}{" "}
-                <span className="not-prose border-default-300 bg-default-50 inline-flex size-8 items-center rounded-md border align-text-bottom shadow md:size-[38px]">
+                <span className="not-prose inline-flex size-8 items-center rounded-md border border-default-300 bg-default-50 align-text-bottom shadow md:size-[38px]">
                   <Link
                     href={LINKEDIN_URL}
                     target="_blank"
-                    className="border-default-300 hover:bg-default-100 rounded-md p-1"
+                    className="rounded-md border-default-300 p-1 hover:bg-default-100"
                   >
                     <Image
                       src={`${ASSETS_URL}/images/linkedin.svg`}
@@ -119,11 +119,11 @@ export default async function Home() {
                 .
               </span>{" "}
               I'm a Thai 🛺 Software Engineer{" "}
-              <span className="not-prose border-default-300 bg-default-50 inline-flex items-center rounded-md border align-text-bottom shadow">
+              <span className="not-prose inline-flex items-center rounded-md border border-default-300 bg-default-50 align-text-bottom shadow">
                 <Link
                   href={GITHUB_URL}
                   target="_blank"
-                  className="border-default-300 hover:bg-default-100 rounded-l-md border-r p-1"
+                  className="rounded-l-md border-r border-default-300 p-1 hover:bg-default-100"
                 >
                   <Image
                     src={`${ASSETS_URL}/images/octocat.svg`}
@@ -153,7 +153,7 @@ export default async function Home() {
           </div>
         </header>
         <main className="space-y-8">
-          <blockquote className="border-default-200 bg-default-50/50 relative flex items-center rounded-md border p-2 pl-6">
+          <blockquote className="relative flex items-center rounded-md border border-default-200 bg-default-50/50 p-2 pl-6">
             <span className="absolute left-0 mr-4 h-full w-2 rounded-l-md bg-primary" />
             "Technology has the power to transform lives, and I am passionate
             about making technology equally accessible to everyone"
@@ -210,10 +210,10 @@ export default async function Home() {
             through internships and projects.
           </p>
         </main>
-        <footer className="border-t-1 border-default-300 dark:border-default-100 space-y-4 pt-10">
+        <footer className="space-y-4 border-t-1 border-default-300 pt-10 dark:border-default-100">
           <div className="space-y-2">
             <h2 className="text-3xl font-semibold">Education</h2>
-            <p className="text-default-500 font-light">
+            <p className="font-light text-default-500">
               My academic journey and qualifications.
             </p>
           </div>
@@ -223,7 +223,7 @@ export default async function Home() {
                 <h3 className="text-lg/6 font-semibold">
                   {education.place.name}
                 </h3>
-                <p className="text-default-500 text-sm">
+                <p className="text-sm text-default-500">
                   {`${education.place.city.name}, ${education.place.city.country.name}`}
                 </p>
                 <p className="text-sm/7">

@@ -80,7 +80,7 @@ export const Globe = ({ width, height, markers }: GlobeProps) => {
     <canvas
       aria-label="Globe"
       ref={canvasRef}
-      className="ml-16 h-72 w-full min-[408px]:w-96 cursor-grab min-[408px]:ml-0"
+      className="ml-16 h-72 w-full cursor-grab min-[408px]:ml-0 min-[408px]:w-96"
       onPointerDown={(e) => {
         pointerInteracting.current = e.clientX;
         pointerInteractionMovement.current = 0;

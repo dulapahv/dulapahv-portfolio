@@ -1,6 +1,4 @@
-export function updateMetaThemeColor(
-  theme: "dark" | "light" | "system",
-) {
+export function updateMetaThemeColor(theme: "dark" | "light" | "system") {
   const darkMetaScheme = document.querySelector(
     'meta[name="theme-color"][media="(prefers-color-scheme: dark)"]',
   );

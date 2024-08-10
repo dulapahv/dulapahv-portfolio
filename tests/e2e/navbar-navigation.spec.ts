@@ -5,7 +5,7 @@ test("check if navbar with correct tag is present", async ({ page }) => {
   await page.goto("/");
 
   // Check if the navbar with aria-label="Navbar" is present
-  const navbar = await page.getByRole('tablist', { name: 'Navbar' });
+  const navbar = await page.getByRole("tablist", { name: "Navbar" });
   await expect(navbar).toBeVisible();
 
   if (navbar) {
