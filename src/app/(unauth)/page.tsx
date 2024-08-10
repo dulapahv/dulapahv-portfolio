@@ -191,6 +191,8 @@ export default async function Home() {
             <Link
               href="https://www.gla.ac.uk/"
               className="text-primary duration-100 hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               University of Glasgow
             </Link>{" "}
@@ -198,6 +200,8 @@ export default async function Home() {
             <Link
               href="https://www.kmitl.ac.th/"
               className="text-primary duration-100 hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               King Mongkut's Institute of Technology Ladkrabang (KMITL)
             </Link>
