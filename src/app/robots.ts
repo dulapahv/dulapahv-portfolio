@@ -9,6 +9,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
+      disallow: ["/blue.png", "/pink.png", "/fallback.png"],
     },
     sitemap: `${BASE_URL}/sitemap.xml`,
     host: BASE_URL,
