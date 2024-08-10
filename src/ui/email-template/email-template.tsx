@@ -16,7 +16,7 @@ import type { EmailTemplateProps } from "@/types/types";
 import { ASSETS_URL, BASE_URL, LINKEDIN_URL } from "@/lib/constants";
 
 export function EmailTemplate({
-  fullName,
+  name: fullName,
   email,
   type,
   message,

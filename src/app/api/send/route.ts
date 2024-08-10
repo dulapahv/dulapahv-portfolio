@@ -11,12 +11,12 @@ export const runtime = "edge";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: NextRequest) {
-  const fullName = req.nextUrl.searchParams.get("name");
+  const name = req.nextUrl.searchParams.get("name");
   const email = req.nextUrl.searchParams.get("email");
   const type = req.nextUrl.searchParams.get("type");
   const message = req.nextUrl.searchParams.get("message");
 
-  if (!fullName || !email || !type || !message) {
+  if (!name || !email || !type || !message) {
     const error = {
       message: "Please fill in all required fields",
       name: "missing_required_field",
@@ -28,9 +28,9 @@ export async function POST(req: NextRequest) {
     const { data, error } = await resend.emails.send({
       from: `${NAME} <${process.env.EMAIL}>`,
       to: [`${process.env.EMAIL}`],
-      subject: `✨ ${type} - ${fullName}`,
+      subject: `✨ ${type} - ${name}`,
       react: EmailTemplate({
-        fullName,
+        name: name,
         email,
         type,
         message,
