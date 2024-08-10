@@ -1,22 +1,25 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
-import {
-  Button,
-  Input,
-  Select,
-  Selection,
-  SelectItem,
-  Textarea,
-} from "@nextui-org/react";
+import { useState } from "react";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { Button, Input, Select, SelectItem, Textarea } from "@nextui-org/react";
 import { ChevronsUpDown, Send } from "lucide-react";
 import { isMobile } from "react-device-detect";
+import { useForm } from "react-hook-form";
 import { ErrorResponse } from "resend";
 import { toast } from "sonner";
 
 import { useOnLeavePageConfirmation } from "@/hooks/use-on-leave-page-confirmation";
-import { contactTypeOptions } from "@/lib/constants";
+import {
+  contactTypeOptions,
+  EMAIL_MAX_LENGTH,
+  MESSAGE_MAX_LENGTH,
+  NAME_MAX_LENGTH,
+} from "@/lib/constants";
+import { EmailTemplateProps } from "@/types/types";
 import { Captcha } from "@/ui/captcha";
+
+import { schema } from "./validator";
 
 interface ContactFormProps {
   name: string;
@@ -25,71 +28,44 @@ interface ContactFormProps {
   message: string;
 }
 
-const NAME_MAX_LENGTH = 180;
-const EMAIL_MAX_LENGTH = 180;
-const MESSAGE_MAX_LENGTH = 1000;
-
 export function ContactForm({
   name: _name,
   email: _email,
   type: _type,
   message: _message,
 }: ContactFormProps) {
-  const [name, setName] = useState(_name);
-  const [email, setEmail] = useState(_email);
-  const [type, setType] = useState<Selection>(new Set([_type]));
-  const [message, setMessage] = useState(_message);
-
-  const [isNameInvalid, setIsNameInvalid] = useState(false);
-  const [isEmailInvalid, setIsEmailInvalid] = useState(false);
-  const [isMessageInvalid, setIsMessageInvalid] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isDirty, isSubmitting },
+    watch,
+    reset,
+  } = useForm({
+    resolver: yupResolver(schema),
+    defaultValues: {
+      name: _name,
+      email: _email,
+      type: _type,
+      message: _message,
+    },
+  });
 
   const [isCaptchaSuccess, setIsCaptchaSuccess] = useState(false);
 
-  const [isDirty, setIsDirty] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-
-  useMemo(() => {
-    if (name !== "" || email !== "" || message !== "") {
-      setIsDirty(true);
-    } else {
-      setIsDirty(false);
-    }
-  }, [name, email, message]);
-
   useOnLeavePageConfirmation(isDirty);
 
-  const isEmailCorrect = useMemo(() => {
-    if (!email) return false;
-
-    return email.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i)
-      ? false
-      : true;
-  }, [email]);
-
-  const handleSend = useCallback(async () => {
-    if (!name) setIsNameInvalid(true);
-    if (!email) setIsEmailInvalid(true);
-    if (!message) setIsMessageInvalid(true);
-
-    if (!name || !email || !message) {
-      toast.error("Please fill in all required fields");
-      return;
-    }
-
+  async function onSubmitHandler(data: EmailTemplateProps) {
     if (!isCaptchaSuccess) {
       toast.error("Please complete the captcha");
       return;
     }
 
-    setIsLoading(true);
-
-    const typeLabel: string =
-      contactTypeOptions.find((item) => item.key === Array.from(type)[0])
-        ?.label || contactTypeOptions[0].label;
+    const type = contactTypeOptions.find(
+      (option) => option.key === data.type,
+    )?.label;
 
     const response = await fetch(
-      `api/send?name=${name}&email=${email}&type=${typeLabel}&message=${message}`,
+      `api/send?name=${data.name.trim()}&email=${data.email.trim()}&type=${type}&message=${data.message.trim()}`,
       {
         method: "POST",
       },
@@ -100,55 +76,41 @@ export function ContactForm({
       toast.error(
         `An error occurred while sending your message.\nStatus: ${response.status}\nReason: ${error.name} - ${error.message}`,
       );
-      setIsLoading(false);
       return;
     }
 
     toast.success(
       "Your message has been sent successfully!\nI'll get back to you as soon as possible.",
     );
-    setIsLoading(false);
-  }, [name, email, type, message, isCaptchaSuccess]);
 
-  const handleNameChange = useCallback((value: string) => {
-    if (value.length <= NAME_MAX_LENGTH) {
-      setName(value);
-      setIsNameInvalid(false);
-    }
-  }, []);
+    reset();
+  }
 
-  const handleEmailChange = useCallback((value: string) => {
-    if (value.length <= EMAIL_MAX_LENGTH) {
-      setEmail(value);
-      setIsEmailInvalid(false);
-    }
-  }, []);
-
-  const handleMessageChange = useCallback((value: string) => {
-    if (value.length <= MESSAGE_MAX_LENGTH) {
-      setMessage(value);
-      setIsMessageInvalid(false);
-    }
-  }, []);
+  function onSubmitErrorHandler() {
+    toast.error("Please complete the form correctly");
+    return;
+  }
 
   return (
-    <div className="flex flex-col gap-y-4">
+    <form
+      onSubmit={handleSubmit(onSubmitHandler, onSubmitErrorHandler)}
+      className="flex flex-col gap-y-4"
+    >
       <Input
+        {...register("name")}
         label={
           <>
             <p className="after:ml-0.5 after:text-danger after:content-['*']">
               Full Name
             </p>
             <p className="text-xs text-default-500">
-              {name.length}/{NAME_MAX_LENGTH}
+              {watch("name")?.length || 0}/{NAME_MAX_LENGTH}
             </p>
           </>
         }
-        value={name}
-        onValueChange={handleNameChange}
-        isInvalid={isNameInvalid}
-        color={isNameInvalid ? "danger" : "default"}
-        errorMessage="Please enter your full name"
+        isInvalid={!!errors.name}
+        color={errors.name ? "danger" : "default"}
+        errorMessage={errors.name?.message}
         placeholder="Dulapah Vibulsanti"
         radius="sm"
         labelPlacement="outside"
@@ -158,22 +120,21 @@ export function ContactForm({
         }}
       />
       <Input
+        {...register("email")}
         label={
           <>
             <p className="after:ml-0.5 after:text-danger after:content-['*']">
               Email
             </p>
             <p className="text-xs text-default-500">
-              {email.length}/{EMAIL_MAX_LENGTH}
+              {watch("email")?.length || 0}/{EMAIL_MAX_LENGTH}
             </p>
           </>
         }
         type="email"
-        value={email}
-        onValueChange={handleEmailChange}
-        isInvalid={isEmailCorrect || isEmailInvalid}
-        color={isEmailCorrect ? "danger" : "default"}
-        errorMessage="Please enter a valid email"
+        isInvalid={!!errors.email}
+        color={errors.email ? "danger" : "default"}
+        errorMessage={errors.email?.message}
         placeholder="dulapah@example.com"
         radius="sm"
         labelPlacement="outside"
@@ -183,9 +144,9 @@ export function ContactForm({
         }}
       />
       <Select
+        {...register("type")}
         label="Type"
-        selectedKeys={type}
-        onSelectionChange={setType}
+        defaultSelectedKeys={[contactTypeOptions[0].key]}
         items={contactTypeOptions}
         disallowEmptySelection
         labelPlacement="outside"
@@ -224,21 +185,20 @@ export function ContactForm({
         )}
       </Select>
       <Textarea
+        {...register("message")}
         label={
           <>
             <p className="after:ml-0.5 after:text-danger after:content-['*']">
               Message
             </p>
             <p className="text-xs text-default-500">
-              {message.length}/{MESSAGE_MAX_LENGTH}
+              {watch("message")?.length || 0}/{MESSAGE_MAX_LENGTH}
             </p>
           </>
         }
-        value={message}
-        onValueChange={handleMessageChange}
-        isInvalid={isMessageInvalid}
-        color={isMessageInvalid ? "danger" : "default"}
-        errorMessage="Please enter your message"
+        isInvalid={!!errors.message}
+        color={errors.message ? "danger" : "default"}
+        errorMessage={errors.message?.message}
         placeholder="Hello, I would like to..."
         radius="sm"
         labelPlacement="outside"
@@ -253,17 +213,17 @@ export function ContactForm({
         Your email will not be shared with anyone.
       </p>
       <Button
-        onPress={handleSend}
+        type="submit"
         color="primary"
         radius="sm"
         startContent={
-          !isLoading && <Send size={20} className="flex-shrink-0" />
+          !isSubmitting && <Send size={20} className="flex-shrink-0" />
         }
         className="w-fit"
-        isLoading={isLoading}
+        isLoading={isSubmitting}
       >
-        {isLoading ? "Sending..." : "Send Message"}
+        {isSubmitting ? "Sending..." : "Send Message"}
       </Button>
-    </div>
+    </form>
   );
 }

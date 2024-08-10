@@ -7,13 +7,15 @@
     "dev": "next dev --turbo",
     "build": "prisma generate --no-engine && prisma migrate deploy && next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint:check": "prettier . --check",
+    "lint:format": "prettier . --write",
     "db:generate": "prisma generate --no-engine",
     "db:migrate": "prisma migrate deploy",
     "db:studio": "prisma studio",
     "test:e2e": "playwright test"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.9.0",
     "@marsidev/react-turnstile": "^0.7.2",
     "@mdxeditor/editor": "^3.11.0",
     "@nextui-org/react": "^2.4.6",
@@ -39,6 +41,7 @@
     "react-device-detect": "^2.2.3",
     "react-dom": "^18.3.1",
     "react-email": "2.1.4",
+    "react-hook-form": "^7.52.2",
     "react-markdown": "^9.0.1",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-highlight": "^7.0.0",
@@ -52,7 +55,8 @@
     "schema-dts": "^1.1.2",
     "sonner": "^1.5.0",
     "tailwind-merge": "^2.4.0",
-    "use-debounce": "^10.0.2"
+    "use-debounce": "^10.0.2",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.13.2",
