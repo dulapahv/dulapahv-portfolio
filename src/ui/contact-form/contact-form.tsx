@@ -146,7 +146,7 @@ export function ContactForm({
       <Select
         {...register("type")}
         label="Type"
-        defaultSelectedKeys={[contactTypeOptions[0].key]}
+        defaultSelectedKeys={_type ? [_type] : [contactTypeOptions[0].key]}
         items={contactTypeOptions}
         disallowEmptySelection
         labelPlacement="outside"
