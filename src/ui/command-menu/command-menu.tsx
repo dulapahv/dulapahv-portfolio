@@ -1,6 +1,7 @@
 "use client";
 
 import { forwardRef, useEffect, useImperativeHandle, useState } from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   Chip,
@@ -82,6 +83,7 @@ const CommandMenu = forwardRef<CommandMenuModalRef>((props, ref) => {
 
           return (
             <ListboxItem
+              as={command.href ? Link : undefined}
               key={command.key}
               startContent={command.icon}
               endContent={
