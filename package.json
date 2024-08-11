@@ -83,7 +83,8 @@
       "@react-aria/interactions@3.21.3": "patches/@react-aria__interactions@3.21.3.patch",
       "@react-aria/ssr@3.9.4": "patches/@react-aria__ssr@3.9.4.patch",
       "@react-aria/utils@3.24.1": "patches/@react-aria__utils@3.24.1.patch",
-      "@react-aria/visually-hidden@3.8.12": "patches/@react-aria__visually-hidden@3.8.12.patch"
+      "@react-aria/visually-hidden@3.8.12": "patches/@react-aria__visually-hidden@3.8.12.patch",
+      "@nextui-org/breadcrumbs@2.0.12": "patches/@nextui-org__breadcrumbs@2.0.12.patch"
     }
   }
 }
