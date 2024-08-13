@@ -2,9 +2,7 @@ const vercelToken = process.env.VERCEL_TOKEN;
 const edgeConfigId = process.env.EDGE_CONFIG_ID;
 
 if (!vercelToken || !edgeConfigId) {
-  throw new Error(
-    "Missing Steam ID, Steam API Key, Vercel Token, or Edge Config ID",
-  );
+  throw new Error("Missing Vercel Token, or Edge Config ID");
 }
 
 export const updateEdgeConfig = async (

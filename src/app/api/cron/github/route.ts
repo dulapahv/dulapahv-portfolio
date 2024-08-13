@@ -14,9 +14,7 @@ export const GET = async (): Promise<Response> => {
       username: SHORT_NAME,
     });
 
-    await updateEdgeConfig("github", {
-      followers: profile.data.followers,
-    });
+    await updateEdgeConfig("followers", profile.data.followers);
 
     return new Response(undefined, { status: 204 });
   } catch (error) {
