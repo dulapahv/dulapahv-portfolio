@@ -4,8 +4,6 @@ import { useEffect, useState } from "react";
 import Image, { ImageProps } from "next/image";
 import { useTheme } from "next-themes";
 
-import fallbackImage from "/public/fallback.jpg";
-
 interface StackIconWrapperProps extends ImageProps {
   fallback?: ImageProps["src"];
   forceLightTheme?: boolean;
@@ -13,7 +11,7 @@ interface StackIconWrapperProps extends ImageProps {
 
 export function StackIconWrapper({
   src,
-  fallback = fallbackImage,
+  fallback = "/fallback.jpg",
   forceLightTheme = true,
   ...props
 }: StackIconWrapperProps) {
