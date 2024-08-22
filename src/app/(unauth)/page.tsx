@@ -159,7 +159,7 @@ export default async function Home() {
             about making technology equally accessible to everyone"
           </blockquote>
           <p>
-            I'm currently a Software Engineer Intern at{" "}
+            I had the opportunity to contribute as a Software Engineer Intern at{" "}
             <NextUILink
               as={Link}
               href="https://www.natwestgroup.com/"
@@ -170,7 +170,9 @@ export default async function Home() {
             >
               NatWest Group
             </NextUILink>
-            — a British banking and insurance holding company.
+            , a leading British banking and insurance powerhouse, where I honed
+            my skills in various areas of software development, including
+            frontend, backend, DevOps, and data.
           </p>
           <div className="float-none mx-auto h-72 w-full overflow-hidden min-[408px]:w-96 md:float-left">
             <Globe
