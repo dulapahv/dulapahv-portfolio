@@ -455,7 +455,7 @@ export function ExperienceSearchToolbar({
           }
           classNames={{
             base: "w-fit items-center order-1 min-[425px]:order-2",
-            label: "text-sm",
+            label: "text-sm text-default-800",
             mainWrapper: "w-20",
             value: "text-default-800",
           }}
