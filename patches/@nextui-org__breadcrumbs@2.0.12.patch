@@ -49,6 +49,19 @@ index 48fbe340c8154658d30dbeda818106d49797185e..79cda4f3e0d3f01277f821e62eaae9dd
        });
      });
      if (!items)
+diff --git a/dist/chunk-6WHGJGLN.mjs b/dist/chunk-6WHGJGLN.mjs
+index b1c0c981097d35b6857d72b7fdcee5497426f436..ead2d0153139ab871292bd7ff3c581e131bdd579 100644
+--- a/dist/chunk-6WHGJGLN.mjs
++++ b/dist/chunk-6WHGJGLN.mjs
+@@ -44,7 +44,7 @@ var Breadcrumbs = forwardRef((props, ref) => {
+         isCurrent: isLast || child.props.isCurrent,
+         ...child.props,
+         key: itemKey,
+-        onPress: chain((_a = child.props) == null ? void 0 : _a.onPress, () => onAction == null ? void 0 : onAction(itemKey))
++        onClick: chain((_a = child.props) == null ? void 0 : _a.onClick, () => onAction == null ? void 0 : onAction(itemKey))
+       });
+     });
+     if (!items)
 diff --git a/dist/chunk-HM6BKCEH.mjs b/dist/chunk-HM6BKCEH.mjs
 index 2e2be95314e8660a06066aa1eeec096cd7f374b7..b3605e751c5ce0ae43b4a7ac30075514965826ca 100644
 --- a/dist/chunk-HM6BKCEH.mjs
@@ -142,3 +155,37 @@ index 3296ee6b801cf4d34cdc434f447ca863a164d903..30756fcf2bbab82e26e627adc326cf75
    const shouldFilterDOMProps = typeof Component === "string";
    const domRef = (0, import_react_utils.useDOMRef)(ref);
    const { itemProps } = (0, import_breadcrumbs.useBreadcrumbItem)(
+diff --git a/package.json b/package.json
+index ca2035623798dda970363b70e05688e6e03e7f25..ec01508280b1ee170e08e2af0b83053566fa9d9b 100644
+--- a/package.json
++++ b/package.json
+@@ -25,20 +25,21 @@
+     "url": "https://github.com/nextui-org/nextui/issues"
+   },
+   "peerDependencies": {
+-    "react": ">=18",
+-    "react-dom": ">=18",
++    "@nextui-org/system": ">=2.0.0",
+     "@nextui-org/theme": ">=2.1.0",
+-    "@nextui-org/system": ">=2.0.0"
++    "react": ">=18",
++    "react-dom": ">=18"
+   },
+   "dependencies": {
+-    "@react-aria/focus": "3.17.1",
++    "@nextui-org/breadcrumbs": "file:",
++    "@nextui-org/react-utils": "2.0.16",
++    "@nextui-org/shared-icons": "2.0.9",
++    "@nextui-org/shared-utils": "2.0.7",
+     "@react-aria/breadcrumbs": "3.5.13",
++    "@react-aria/focus": "3.17.1",
+     "@react-aria/utils": "3.24.1",
+     "@react-types/breadcrumbs": "3.7.5",
+-    "@react-types/shared": "3.23.1",
+-    "@nextui-org/react-utils": "2.0.16",
+-    "@nextui-org/shared-utils": "2.0.7",
+-    "@nextui-org/shared-icons": "2.0.9"
++    "@react-types/shared": "3.23.1"
+   },
+   "clean-package": "../../../clean-package.config.json",
+   "module": "dist/index.mjs",
