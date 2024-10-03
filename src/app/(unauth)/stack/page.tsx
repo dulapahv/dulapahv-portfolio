@@ -86,6 +86,7 @@ export default async function Page() {
                           variant="flat"
                           classNames={{
                             base: "h-[18px]",
+                            content: "text-primary",
                           }}
                         >
                           Featured
