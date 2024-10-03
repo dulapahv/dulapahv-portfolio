@@ -114,7 +114,14 @@ export default async function Page({ params }: Props) {
             <div className="flex items-center gap-x-2">
               <span className="text-xl font-medium">{item.name}</span>
               {item.featured && (
-                <Chip size="sm" color="primary" variant="flat">
+                <Chip
+                  size="sm"
+                  color="primary"
+                  variant="flat"
+                  classNames={{
+                    content: "text-primary",
+                  }}
+                >
                   Featured
                 </Chip>
               )}
