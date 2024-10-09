@@ -3,4 +3,5 @@ export type EmailTemplateProps = {
   readonly email: string;
   readonly type: string;
   readonly message: string;
+  readonly captcha: string;
 };
