@@ -1,13 +1,15 @@
 "use client";
 
+import type { ErrorResponse } from "resend";
+import { useRef } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button, Input, Select, SelectItem, Textarea } from "@nextui-org/react";
 import { ChevronsUpDown, Send } from "lucide-react";
 import { isMobile } from "react-device-detect";
 import { useForm } from "react-hook-form";
-import { type ErrorResponse } from "resend";
 import { toast } from "sonner";
 
+import type { TurnstileInstance } from "@marsidev/react-turnstile";
 import { useOnLeavePageConfirmation } from "@/hooks/use-on-leave-page-confirmation";
 import {
   CAPTCHA_URL,
@@ -51,6 +53,7 @@ export function ContactForm({
       message: _message,
     },
   });
+  const captchaRef = useRef<TurnstileInstance | null>(null);
 
   useOnLeavePageConfirmation(isDirty);
 
@@ -107,6 +110,7 @@ export function ContactForm({
           "Your message has been sent successfully!\nI'll get back to you as soon as possible.",
         );
         reset();
+        captchaRef.current?.reset();
       } catch (sendError) {
         toast.error(
           `An error occurred while sending your message. ${sendError}`,
@@ -247,7 +251,7 @@ export function ContactForm({
         }}
       />
       <div>
-        <Captcha onVerifyCaptcha={onVerifyCaptcha} />
+        <Captcha captchaRef={captchaRef} onVerifyCaptcha={onVerifyCaptcha} />
         {errors.captcha && (
           <p className="text-xs text-danger">Please complete the captcha</p>
         )}

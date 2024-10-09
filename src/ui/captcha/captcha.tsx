@@ -9,10 +9,10 @@ import { CLOUDFLARE_TURNSTILE_SITE_KEY } from "@/lib/constants";
 
 interface CaptchaProps {
   onVerifyCaptcha: (token: string) => void;
-  turnstileRef?: MutableRefObject<TurnstileInstance | null>;
+  captchaRef?: MutableRefObject<TurnstileInstance | null>;
 }
 
-export function Captcha({ onVerifyCaptcha }: CaptchaProps) {
+export function Captcha({ onVerifyCaptcha, captchaRef }: CaptchaProps) {
   const { resolvedTheme } = useTheme();
 
   const [isCaptchaLoading, setIsCaptchaLoading] = useState(true);
@@ -23,6 +23,9 @@ export function Captcha({ onVerifyCaptcha }: CaptchaProps) {
 
   function handleCaptchaLoad() {
     setIsCaptchaLoading(false);
+    if (captchaRef) {
+      captchaRef.current = turnstileRef.current;
+    }
   }
 
   function handleCaptchaExpired() {
@@ -62,6 +65,7 @@ export function Captcha({ onVerifyCaptcha }: CaptchaProps) {
   return (
     <div className="select-none space-y-2">
       <Turnstile
+        ref={turnstileRef}
         siteKey={CLOUDFLARE_TURNSTILE_SITE_KEY}
         onSuccess={handleCaptchaSuccess}
         onError={handleCaptchaError}
