@@ -37,4 +37,5 @@ export const schema = yup.object().shape({
       MESSAGE_MAX_LENGTH,
       `Message must be less than ${MESSAGE_MAX_LENGTH} characters`,
     ),
+  captcha: yup.string().required("Please complete the captcha"),
 });

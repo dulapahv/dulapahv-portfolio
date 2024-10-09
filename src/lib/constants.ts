@@ -8,7 +8,11 @@ export const BASE_URL =
       ? `https://dev.dulapahv.dev`
       : "https://dulapahv.dev";
 export const ASSETS_URL = "https://assets.dulapahv.dev";
-export const CAPTCHA_URL = "https://verify.dulapahv.dev/validate-captcha";
+export const CAPTCHA_URL =
+  process.env.VERCEL_ENV === "development" ||
+  process.env.NEXT_PUBLIC_ENV === "development"
+    ? "http://localhost:8787"
+    : "https://verify.dulapahv.dev";
 
 export const NAME = "Dulapah Vibulsanti";
 export const SHORT_NAME = "DulapahV";

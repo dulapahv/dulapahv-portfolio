@@ -1,82 +1,49 @@
 "use client";
 
-import { Dispatch, SetStateAction, useRef, useState } from "react";
+import { MutableRefObject, useRef, useState } from "react";
 import { Turnstile, TurnstileInstance } from "@marsidev/react-turnstile";
 import { Button, Spinner } from "@nextui-org/react";
 import { useTheme } from "next-themes";
 
-import { CAPTCHA_URL, CLOUDFLARE_TURNSTILE_SITE_KEY } from "@/lib/constants";
-import { parseError } from "@/utils/parse-error";
+import { CLOUDFLARE_TURNSTILE_SITE_KEY } from "@/lib/constants";
 
 interface CaptchaProps {
-  isSuccess: Dispatch<SetStateAction<boolean>>;
+  onVerifyCaptcha: (token: string) => void;
+  turnstileRef?: MutableRefObject<TurnstileInstance | null>;
 }
 
-export function Captcha({ isSuccess }: CaptchaProps) {
-  const [isCaptchaLoading, setIsCaptchaLoading] = useState(true);
-  const [isCaptchaSolved, setIsCaptchaSolved] = useState(false);
-  const [isCaptchaError, setIsCaptchaError] = useState(false);
-  const [isTokenVerifying, setIsTokenVerifying] = useState(false);
-  const [isTokenVerified, setIsTokenVerified] = useState(false);
-
-  const turnstileRef = useRef<TurnstileInstance>(null);
+export function Captcha({ onVerifyCaptcha }: CaptchaProps) {
   const { resolvedTheme } = useTheme();
 
-  const handleCaptchaSuccess = async (token: string) => {
-    setIsCaptchaSolved(true);
-    setIsTokenVerifying(true);
+  const [isCaptchaLoading, setIsCaptchaLoading] = useState(true);
+  const [isCaptchaError, setIsCaptchaError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
-    try {
-      const response = await fetch(`${CAPTCHA_URL}?token=${token}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      const result = await response.json();
-      if (result.success) {
-        isSuccess(true);
-        setIsTokenVerified(true);
-      } else {
-        console.error(...result["error-codes"]);
-      }
-    } catch (error) {
-      const message = parseError(error);
+  const turnstileRef = useRef<TurnstileInstance>(null);
 
-      console.error(message);
-    } finally {
-      setIsTokenVerifying(false);
-    }
-  };
-
-  const handleCaptchaError = () => {
-    isSuccess(false);
-    setIsCaptchaError(true);
-    setIsCaptchaSolved(false);
-    setIsTokenVerifying(false);
-  };
-
-  const handleCaptchaExpire = () => {
-    isSuccess(false);
-    setIsCaptchaSolved(false);
-    setIsTokenVerifying(false);
-  };
-
-  const handleCaptchaLoad = () => {
-    isSuccess(false);
-    setIsCaptchaSolved(false);
-    setIsTokenVerifying(false);
+  function handleCaptchaLoad() {
     setIsCaptchaLoading(false);
-  };
+  }
 
-  const retryCaptcha = () => {
-    turnstileRef.current?.reset();
+  function handleCaptchaExpired() {
+    setIsCaptchaError(true);
+    setErrorMessage("Captcha expired. Please try again.");
+  }
+
+  function handleCaptchaError() {
+    setIsCaptchaError(true);
+    setErrorMessage("Captcha verification failed. Please try again.");
+  }
+
+  function handleCaptchaSuccess(token: string) {
     setIsCaptchaError(false);
-  };
+    onVerifyCaptcha(token);
+  }
 
-  const reloadPage = () => {
-    window.location.reload();
-  };
+  function resetCaptcha() {
+    setIsCaptchaError(false);
+    turnstileRef.current?.reset();
+  }
 
   const renderLoadingSpinner = (text: string) => (
     <div className="flex gap-x-2">
@@ -98,7 +65,7 @@ export function Captcha({ isSuccess }: CaptchaProps) {
         siteKey={CLOUDFLARE_TURNSTILE_SITE_KEY}
         onSuccess={handleCaptchaSuccess}
         onError={handleCaptchaError}
-        onExpire={handleCaptchaExpire}
+        onExpire={handleCaptchaExpired}
         onWidgetLoad={handleCaptchaLoad}
         options={{
           theme: resolvedTheme === "dark" ? "dark" : "light",
@@ -111,41 +78,19 @@ export function Captcha({ isSuccess }: CaptchaProps) {
             {renderLoadingSpinner("Loading Captcha...")}
           </div>
         </div>
-      ) : isCaptchaError ? (
-        <>
-          <p className="text-xs text-danger">
-            Captcha verification failed. Please try again.
-          </p>
-          <Button
-            onPress={retryCaptcha}
-            size="sm"
-            className="w-fit bg-default-100"
-          >
-            Try Again
-          </Button>
-        </>
-      ) : isCaptchaSolved ? (
-        isTokenVerifying ? (
-          renderLoadingSpinner("Verifying token...")
-        ) : isTokenVerified ? (
-          <p className="text-xs text-success">Captcha verified successfully.</p>
-        ) : (
+      ) : (
+        isCaptchaError && (
           <>
-            <p className="text-xs text-danger">
-              Token is invalid. Please reload this page and try again. See the
-              console for more details.
-            </p>
+            <p className="text-xs text-danger">{errorMessage}</p>
             <Button
-              onPress={reloadPage}
+              onPress={resetCaptcha}
               size="sm"
               className="w-fit bg-default-100"
             >
-              Reload Page
+              Try Again
             </Button>
           </>
         )
-      ) : (
-        renderLoadingSpinner("Waiting for Captcha verification...")
       )}
     </div>
   );

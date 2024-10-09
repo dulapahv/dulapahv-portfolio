@@ -1,16 +1,16 @@
 "use client";
 
-import { useState } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button, Input, Select, SelectItem, Textarea } from "@nextui-org/react";
 import { ChevronsUpDown, Send } from "lucide-react";
 import { isMobile } from "react-device-detect";
 import { useForm } from "react-hook-form";
-import { ErrorResponse } from "resend";
+import { type ErrorResponse } from "resend";
 import { toast } from "sonner";
 
 import { useOnLeavePageConfirmation } from "@/hooks/use-on-leave-page-confirmation";
 import {
+  CAPTCHA_URL,
   contactTypeOptions,
   EMAIL_MAX_LENGTH,
   MESSAGE_MAX_LENGTH,
@@ -40,6 +40,8 @@ export function ContactForm({
     formState: { errors, isDirty, isSubmitting },
     watch,
     reset,
+    setValue,
+    clearErrors,
   } = useForm({
     resolver: yupResolver(schema),
     defaultValues: {
@@ -50,45 +52,81 @@ export function ContactForm({
     },
   });
 
-  const [isCaptchaSuccess, setIsCaptchaSuccess] = useState(false);
-
   useOnLeavePageConfirmation(isDirty);
 
   async function onSubmitHandler(data: EmailTemplateProps) {
-    if (!isCaptchaSuccess) {
-      toast.error("Please complete the captcha");
-      return;
-    }
+    const formData = new FormData();
+    formData.append("cf-turnstile-response", data.captcha);
 
-    const type = contactTypeOptions.find(
-      (option) => option.key === data.type,
-    )?.label;
-
-    const response = await fetch(
-      `api/send?name=${data.name.trim()}&email=${data.email.trim()}&type=${type}&message=${data.message.trim()}`,
-      {
+    try {
+      // Captcha verification
+      const captchaResponse = await fetch(CAPTCHA_URL, {
         method: "POST",
-      },
-    );
+        body: formData,
+      });
 
-    if (!response.ok) {
-      const error = JSON.parse(await response.text()).error as ErrorResponse;
+      if (!captchaResponse.ok) {
+        toast.error(
+          `An error occurred while contacting the captcha verification server. Status: ${captchaResponse.status}`,
+        );
+        return;
+      }
+
+      const result = await captchaResponse.json();
+
+      if (!result.success) {
+        toast.error(
+          `An error occurred while verifying captcha.\nError codes: ${result["error-codes"]?.join(", ")}`,
+        );
+        return;
+      }
+
+      const type = contactTypeOptions.find(
+        (option) => option.key === data.type,
+      )?.label;
+
+      // Sending the message
+      try {
+        const sendResponse = await fetch(
+          `api/send?name=${data.name.trim()}&email=${data.email.trim()}&type=${type}&message=${data.message.trim()}`,
+          {
+            method: "POST",
+          },
+        );
+
+        if (!sendResponse.ok) {
+          const error = JSON.parse(await sendResponse.text())
+            .error as ErrorResponse;
+          toast.error(
+            `An error occurred while sending your message.\nStatus: ${sendResponse.status}\nReason: ${error.name} - ${error.message}`,
+          );
+          return;
+        }
+
+        toast.success(
+          "Your message has been sent successfully!\nI'll get back to you as soon as possible.",
+        );
+        reset();
+      } catch (sendError) {
+        toast.error(
+          `An error occurred while sending your message. ${sendError}`,
+        );
+      }
+    } catch (captchaError) {
       toast.error(
-        `An error occurred while sending your message.\nStatus: ${response.status}\nReason: ${error.name} - ${error.message}`,
+        `An error occurred during captcha verification. ${captchaError}`,
       );
-      return;
     }
-
-    toast.success(
-      "Your message has been sent successfully!\nI'll get back to you as soon as possible.",
-    );
-
-    reset();
   }
 
   function onSubmitErrorHandler() {
-    toast.error("Please complete the form correctly");
+    toast.error("Please check the form for errors.");
     return;
+  }
+
+  function onVerifyCaptcha(token: string) {
+    setValue("captcha", token);
+    clearErrors("captcha");
   }
 
   return (
@@ -208,7 +246,12 @@ export function ContactForm({
           input: "min-h-[80px]",
         }}
       />
-      <Captcha isSuccess={setIsCaptchaSuccess} />
+      <div>
+        <Captcha onVerifyCaptcha={onVerifyCaptcha} />
+        {errors.captcha && (
+          <p className="text-xs text-danger">Please complete the captcha</p>
+        )}
+      </div>
       <p className="text-sm text-default-500">
         Your email will not be shared with anyone.
       </p>
