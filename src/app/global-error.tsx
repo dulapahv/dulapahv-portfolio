@@ -47,14 +47,14 @@ export default function GlobalError({
             role="presentation"
             className="pointer-events-none fixed -right-[35%] -top-[25%] -z-50 size-full select-none overflow-clip opacity-50 mix-blend-darken hue-rotate-[45deg] dark:mix-blend-lighten sm:rotate-[20deg]"
           >
-            <Image src="/pink.png" alt="" fill priority />
+            <Image src="/pinku.png" alt="" fill priority />
           </div>
           <div
             aria-hidden
             role="presentation"
             className="pointer-events-none fixed -bottom-[15%] -left-[25%] -z-50 size-[80%] select-none overflow-clip opacity-90 mix-blend-darken dark:opacity-60 dark:mix-blend-lighten sm:rotate-[15deg]"
           >
-            <Image src="/blue.png" alt="" fill priority />
+            <Image src="/ao.png" alt="" fill priority />
           </div>
           <Providers className="mb-32">
             <div className="space-y-8">
