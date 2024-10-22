@@ -7,7 +7,8 @@ import { getManyTag } from "@/data/get-tag";
 import { ASSETS_URL, SITE_NAME } from "@/lib/constants";
 import { Breadcrumb } from "@/ui/breadcrumb";
 import { StackIconWrapper } from "@/ui/stack-icon-wrapper";
-import { getStackIconName } from "@/utils/get-stack-icon-name";
+import { getStackIconDisplayName } from "@/utils/get-stack-icon-display-name";
+import { getStackIconFileName } from "@/utils/get-stack-icon-file-name";
 
 export const metadata: Metadata = {
   title: `Stack | ${SITE_NAME}`,
@@ -67,7 +68,7 @@ export default async function Page() {
                 >
                   <div className="relative size-9">
                     <StackIconWrapper
-                      src={`${ASSETS_URL}/images/stack/${getStackIconName(stack.name)}.svg`}
+                      src={`${ASSETS_URL}/images/stack/${getStackIconFileName(stack.name)}.svg`}
                       forceLightTheme={stack.forceLightIcon}
                       alt={stack.name}
                       fill
@@ -77,7 +78,7 @@ export default async function Page() {
                   <div className="flex flex-col">
                     <div className="flex items-center gap-x-2">
                       <span className="duration-100 group-hover:text-primary">
-                        {stack.name}
+                        {getStackIconDisplayName(stack.name)}
                       </span>
                       {stack.featured && (
                         <Chip

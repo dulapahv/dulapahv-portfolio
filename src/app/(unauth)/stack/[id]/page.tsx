@@ -10,7 +10,8 @@ import { getUniqueStack } from "@/data/get-stack";
 import { ASSETS_URL, BASE_URL, NAME } from "@/lib/constants";
 import { Breadcrumb } from "@/ui/breadcrumb";
 import { StackIconWrapper } from "@/ui/stack-icon-wrapper";
-import { getStackIconName } from "@/utils/get-stack-icon-name";
+import { getStackIconDisplayName } from "@/utils/get-stack-icon-display-name";
+import { getStackIconFileName } from "@/utils/get-stack-icon-file-name";
 
 export const runtime = "edge";
 
@@ -51,7 +52,7 @@ export async function generateMetadata(
       url: `${BASE_URL}/stack/${item.id}-${item.name.replace(/ /g, "-")}`,
       images: [
         {
-          url: `${ASSETS_URL}/images/stack/${getStackIconName(item.name)}.svg`,
+          url: `${ASSETS_URL}/images/stack/${getStackIconFileName(item.name)}.svg`,
           alt: `${item.name}`,
         },
         ...previousImages,
@@ -66,7 +67,7 @@ export default async function Page({ params }: Props) {
   const healedUrl = `/stack/${item.id}-${item.name.replace(/ /g, "-")}`;
   if (`/stack/${params.id}` != healedUrl) redirect(healedUrl);
 
-  const coverImgUrl = `${ASSETS_URL}/images/stack/${getStackIconName(item.name)}.svg`;
+  const coverImgUrl = `${ASSETS_URL}/images/stack/${getStackIconFileName(item.name)}.svg`;
 
   const jsonLd: WithContext<Article> = {
     "@context": "https://schema.org",
@@ -103,7 +104,7 @@ export default async function Page({ params }: Props) {
         <header className="group flex items-center space-x-4 rounded-md">
           <div className="relative size-12">
             <StackIconWrapper
-              src={`${ASSETS_URL}/images/stack/${getStackIconName(item.name)}.svg`}
+              src={`${ASSETS_URL}/images/stack/${getStackIconFileName(item.name)}.svg`}
               forceLightTheme={item.forceLightIcon}
               alt={item.name}
               fill
@@ -112,7 +113,9 @@ export default async function Page({ params }: Props) {
           </div>
           <div className="flex flex-col">
             <div className="flex items-center gap-x-2">
-              <span className="text-xl font-medium">{item.name}</span>
+              <span className="text-xl font-medium">
+                {getStackIconDisplayName(item.name)}
+              </span>
               {item.featured && (
                 <Chip
                   size="sm"
