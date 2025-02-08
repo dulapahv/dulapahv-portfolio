@@ -16,8 +16,6 @@ import { ExperienceSearchToolbar } from "@/ui/experience-search-toolbar";
 import { PaginationFooter } from "@/ui/pagination-footer";
 import { formatDate } from "@/utils/format-date";
 
-export const runtime = "edge";
-
 export const metadata: Metadata = {
   title: `Experience | ${SITE_NAME}`,
   description: "Companies and clients I've worked with.",

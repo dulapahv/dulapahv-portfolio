@@ -11,8 +11,6 @@ import { PaginationFooter } from "@/ui/pagination-footer";
 import { ProjectSearchToolbar } from "@/ui/project-search-toolbar";
 import { formatDate } from "@/utils/format-date";
 
-export const runtime = "edge";
-
 export const metadata: Metadata = {
   title: `Project | ${SITE_NAME}`,
   description: "Professional and personal projects I have worked on.",

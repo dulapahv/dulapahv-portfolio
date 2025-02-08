@@ -23,8 +23,6 @@ import "@mdxeditor/editor/style.css";
 
 import { Providers } from "./providers";
 
-const noDarkReader = dynamic(() => import("no-darkreader"), { ssr: false });
-
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
@@ -145,7 +143,6 @@ export const metadata: Metadata = {
     },
   },
   other: {
-    darkreader: "NO-DARKREADER-PLUGIN",
     "msapplication-TileColor": THEME_COLOR,
     "msapplication-TileImage": "/images/mstile-144x144.png",
     "msapplication-square70x70logo": "/images/mstile-70x70.png",
@@ -177,6 +174,9 @@ export default async function RootLayout({
       className="min-h-dvh text-default-800 dark"
       suppressHydrationWarning
     >
+      <head>
+        <meta name="darkreader-lock" />
+      </head>
       <body
         className={cn(
           "mx-auto my-4 mt-16 max-w-5xl text-pretty px-4 antialiased sm:px-16 lg:mt-32",

@@ -7,8 +7,6 @@ import { getManyTag } from "@/data/get-tag";
 import { BASE_URL } from "@/lib/constants";
 import { ExperienceWithPlace, TagWithStacks } from "@/types/prisma";
 
-export const runtime = "edge";
-
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const links = [
     {

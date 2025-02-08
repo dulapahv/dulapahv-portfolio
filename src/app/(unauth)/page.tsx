@@ -24,8 +24,6 @@ import { dynamicBlurDataUrl } from "@/utils/dynamic-blur-data-url";
 import { formatDate } from "@/utils/format-date";
 import { getRepoCount } from "@/utils/get-repo-count";
 
-export const runtime = "edge";
-
 export const metadata: Metadata = {
   title: SITE_NAME,
   description: DESCRIPTION,

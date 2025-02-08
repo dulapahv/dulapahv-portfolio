@@ -13,8 +13,6 @@ import { StackIconWrapper } from "@/ui/stack-icon-wrapper";
 import { getStackIconDisplayName } from "@/utils/get-stack-icon-display-name";
 import { getStackIconFileName } from "@/utils/get-stack-icon-file-name";
 
-export const runtime = "edge";
-
 interface Props {
   params: {
     id: string;

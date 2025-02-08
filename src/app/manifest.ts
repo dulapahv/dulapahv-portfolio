@@ -2,8 +2,6 @@ import { MetadataRoute } from "next";
 
 import { BASE_URL, DESCRIPTION, SITE_NAME, THEME_COLOR } from "@/lib/constants";
 
-export const runtime = "edge";
-
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: SITE_NAME,

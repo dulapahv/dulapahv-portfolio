@@ -12,8 +12,6 @@ import { UrlButton } from "@/ui/url-button";
 import { dynamicBlurDataUrl } from "@/utils/dynamic-blur-data-url";
 import { formatDate } from "@/utils/format-date";
 
-export const runtime = "edge";
-
 interface Props {
   params: {
     id: string;
