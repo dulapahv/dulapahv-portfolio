@@ -7,6 +7,8 @@ import { NAME } from '@/lib/constants';
 import { parseError } from '@/utils/parse-error';
 import { EmailTemplate } from '@/ui/email-template';
 
+export const runtime = 'edge';
+
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: NextRequest) {
