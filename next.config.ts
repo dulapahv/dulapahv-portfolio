@@ -1,9 +1,10 @@
-import type { NextConfig } from "next";
-import { withSentryConfig } from "@sentry/nextjs";
+import type { NextConfig } from 'next';
+
+import { withSentryConfig } from '@sentry/nextjs';
 
 const nextConfig: NextConfig = {
   experimental: {
-    optimizePackageImports: ["@mdxeditor/editor"],
+    optimizePackageImports: ['@mdxeditor/editor'],
     turbo: {
       minify: true,
     },
@@ -11,8 +12,8 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: "/admin",
-        destination: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        source: '/admin',
+        destination: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
         permanent: false,
       },
     ];
@@ -20,10 +21,10 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "https",
-        hostname: "assets.dulapahv.dev",
-        port: "",
-        pathname: "/**",
+        protocol: 'https',
+        hostname: 'assets.dulapahv.dev',
+        port: '',
+        pathname: '/**',
       },
     ],
   },
@@ -33,8 +34,8 @@ export default withSentryConfig(nextConfig, {
   // For all available options, see:
   // https://github.com/getsentry/sentry-webpack-plugin#options
 
-  org: "dulapahv",
-  project: "dulapahv-portfolio",
+  org: 'dulapahv',
+  project: 'dulapahv-portfolio',
 
   // Only print logs for uploading source maps in CI
   silent: !process.env.CI,
@@ -49,7 +50,7 @@ export default withSentryConfig(nextConfig, {
   // This can increase your server load as well as your hosting bill.
   // Note: Check that the configured route will not match with your Next.js middleware, otherwise reporting of client-
   // side errors will fail.
-  tunnelRoute: "/monitoring",
+  tunnelRoute: '/monitoring',
 
   // Hides source maps from generated client bundles
   hideSourceMaps: true,

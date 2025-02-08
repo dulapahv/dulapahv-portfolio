@@ -1,22 +1,22 @@
-import RSS from "rss";
+import RSS from 'rss';
 
 import type {
   BlogsWithStacks,
   ExperienceWithPlaceStacks,
   ProjectWithPlaceStacks,
   TagWithStacks,
-} from "@/types/prisma";
-import { getManyBlog } from "@/data/get-blog";
-import { getManyExperience } from "@/data/get-experience";
-import { getManyProject } from "@/data/get-project";
-import { getManyTag } from "@/data/get-tag";
+} from '@/types/prisma';
 import {
   BASE_URL,
   DESCRIPTION,
   NAME,
   SHORT_NAME,
   SITE_NAME,
-} from "@/lib/constants";
+} from '@/lib/constants';
+import { getManyBlog } from '@/data/get-blog';
+import { getManyExperience } from '@/data/get-experience';
+import { getManyProject } from '@/data/get-project';
+import { getManyTag } from '@/data/get-tag';
 
 const feed = new RSS({
   title: SITE_NAME,
@@ -24,7 +24,7 @@ const feed = new RSS({
   site_url: BASE_URL,
   feed_url: `${BASE_URL}/feed.xml`,
   copyright: `${new Date().getFullYear()} ${SHORT_NAME}`,
-  language: "en",
+  language: 'en',
   pubDate: new Date(),
 });
 
@@ -94,7 +94,7 @@ export async function GET() {
   ).item as TagWithStacks[];
 
   experiences.map((experience) => {
-    const url = `${BASE_URL}/experience/${experience.id}-${experience.place.name.replace(/ /g, "-")}-${experience.position.replace(/ /g, "-")}`;
+    const url = `${BASE_URL}/experience/${experience.id}-${experience.place.name.replace(/ /g, '-')}-${experience.position.replace(/ /g, '-')}`;
     feed.item({
       title: `${experience.place.name} | ${experience.position}`,
       guid: url,
@@ -107,7 +107,7 @@ export async function GET() {
   });
 
   projects.map((project) => {
-    const url = `${BASE_URL}/project/${project.id}-${project.title.replace(/ /g, "-")}`;
+    const url = `${BASE_URL}/project/${project.id}-${project.title.replace(/ /g, '-')}`;
     feed.item({
       title: project.title,
       guid: url,
@@ -120,7 +120,7 @@ export async function GET() {
   });
 
   blogs.map((blog) => {
-    const url = `${BASE_URL}/blog/${blog.id}-${blog.title.replace(/ /g, "-")}`;
+    const url = `${BASE_URL}/blog/${blog.id}-${blog.title.replace(/ /g, '-')}`;
     feed.item({
       title: blog.title,
       guid: url,
@@ -134,7 +134,7 @@ export async function GET() {
 
   tags.map((stacks) => {
     stacks.stacks.map((stack) => {
-      const url = `${BASE_URL}/stack/${stack.id}-${stack.name.replace(/ /g, "-")}`;
+      const url = `${BASE_URL}/stack/${stack.id}-${stack.name.replace(/ /g, '-')}`;
       feed.item({
         title: stack.name,
         guid: url,
@@ -142,14 +142,14 @@ export async function GET() {
         date: new Date(),
         description: stack.name,
         author: NAME,
-        categories: ["stack"],
+        categories: ['stack'],
       });
     });
   });
 
   return new Response(feed.xml({ indent: true }), {
     headers: {
-      "Content-Type": "application/atom+xml; charset=utf-8",
+      'Content-Type': 'application/atom+xml; charset=utf-8',
     },
   });
 }

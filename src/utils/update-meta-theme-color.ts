@@ -1,4 +1,4 @@
-export function updateMetaThemeColor(theme: "dark" | "light" | "system") {
+export function updateMetaThemeColor(theme: 'dark' | 'light' | 'system') {
   const darkMetaScheme = document.querySelector(
     'meta[name="theme-color"][media="(prefers-color-scheme: dark)"]',
   );
@@ -14,42 +14,42 @@ export function updateMetaThemeColor(theme: "dark" | "light" | "system") {
   const metas = document.querySelectorAll('meta[name="theme-color"]');
 
   switch (theme) {
-    case "dark":
+    case 'dark':
       if (darkMetaScheme) {
-        darkMetaScheme.removeAttribute("media");
+        darkMetaScheme.removeAttribute('media');
       }
       if (lightMetaScheme) {
-        lightMetaScheme.removeAttribute("media");
-        lightMetaScheme.setAttribute("content", "#000");
+        lightMetaScheme.removeAttribute('media');
+        lightMetaScheme.setAttribute('content', '#000');
       }
       if (lightMeta) {
         for (let i = 0; i < lightMeta.length; i++) {
-          lightMeta[i].setAttribute("content", "#000");
+          lightMeta[i].setAttribute('content', '#000');
         }
       }
       break;
 
-    case "light":
+    case 'light':
       if (darkMetaScheme) {
-        darkMetaScheme.removeAttribute("media");
-        darkMetaScheme.setAttribute("content", "#fff");
+        darkMetaScheme.removeAttribute('media');
+        darkMetaScheme.setAttribute('content', '#fff');
       }
       if (lightMetaScheme) {
-        lightMetaScheme.removeAttribute("media");
+        lightMetaScheme.removeAttribute('media');
       }
       if (darkMeta) {
         for (let i = 0; i < darkMeta.length; i++) {
-          darkMeta[i].setAttribute("content", "#fff");
+          darkMeta[i].setAttribute('content', '#fff');
         }
       }
       break;
 
-    case "system":
+    case 'system':
       if (metas.length >= 2) {
-        metas[0].setAttribute("content", "#fff");
-        metas[0].setAttribute("media", "(prefers-color-scheme: light)");
-        metas[1].setAttribute("content", "#000");
-        metas[1].setAttribute("media", "(prefers-color-scheme: dark)");
+        metas[0].setAttribute('content', '#fff');
+        metas[0].setAttribute('media', '(prefers-color-scheme: light)');
+        metas[1].setAttribute('content', '#000');
+        metas[1].setAttribute('media', '(prefers-color-scheme: dark)');
       }
       break;
 

@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { Button } from "@nextui-org/react";
+import { Button } from '@nextui-org/react';
 
 export function ReloadButton() {
   return (

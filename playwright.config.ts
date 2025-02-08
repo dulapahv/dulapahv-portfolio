@@ -1,9 +1,9 @@
-import { defineConfig, devices } from "@playwright/test";
+import { defineConfig, devices } from '@playwright/test';
 
-const baseURL = process.env.PLAYWRIGHT_TEST_BASE_URL || "http://localhost:3000";
+const baseURL = process.env.PLAYWRIGHT_TEST_BASE_URL || 'http://localhost:3000';
 
 export default defineConfig({
-  testDir: "./tests",
+  testDir: './tests',
   // Timeout per test
   timeout: 0,
   // Expect timeout for each test
@@ -21,7 +21,7 @@ export default defineConfig({
   // Limit the number of failures on CI to save resources
   maxFailures: process.env.CI ? 10 : undefined,
   // Reporter to use. See https://playwright.dev/docs/test-reporters
-  reporter: process.env.CI ? "github" : "list",
+  reporter: process.env.CI ? 'github' : 'list',
 
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
@@ -32,14 +32,14 @@ export default defineConfig({
     baseURL: baseURL,
 
     // Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer
-    trace: "on-first-retry",
+    trace: 'on-first-retry',
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
-      name: "chromium",
-      use: { ...devices["Desktop Chrome"] },
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] },
     },
 
     // {
@@ -54,8 +54,8 @@ export default defineConfig({
 
     /* Test against mobile viewports. */
     {
-      name: "Mobile Chrome",
-      use: { ...devices["Pixel 5"] },
+      name: 'Mobile Chrome',
+      use: { ...devices['Pixel 5'] },
     },
     // {
     //   name: 'Mobile Safari',

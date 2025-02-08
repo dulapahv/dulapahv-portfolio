@@ -1,17 +1,18 @@
-import type { Metadata, ResolvingMetadata } from "next";
-import Link from "next/link";
-import { redirect } from "next/navigation";
-import { Chip } from "@nextui-org/react";
-import { Stack } from "@prisma/client";
-import { ChevronRight } from "lucide-react";
-import { Article, WithContext } from "schema-dts";
+import type { Metadata, ResolvingMetadata } from 'next';
+import Link from 'next/link';
+import { redirect } from 'next/navigation';
 
-import { getUniqueStack } from "@/data/get-stack";
-import { ASSETS_URL, BASE_URL, NAME } from "@/lib/constants";
-import { Breadcrumb } from "@/ui/breadcrumb";
-import { StackIconWrapper } from "@/ui/stack-icon-wrapper";
-import { getStackIconDisplayName } from "@/utils/get-stack-icon-display-name";
-import { getStackIconFileName } from "@/utils/get-stack-icon-file-name";
+import { Chip } from '@nextui-org/react';
+import { Stack } from '@prisma/client';
+import { ChevronRight } from 'lucide-react';
+import { Article, WithContext } from 'schema-dts';
+
+import { ASSETS_URL, BASE_URL, NAME } from '@/lib/constants';
+import { getStackIconDisplayName } from '@/utils/get-stack-icon-display-name';
+import { getStackIconFileName } from '@/utils/get-stack-icon-file-name';
+import { getUniqueStack } from '@/data/get-stack';
+import { Breadcrumb } from '@/ui/breadcrumb';
+import { StackIconWrapper } from '@/ui/stack-icon-wrapper';
 
 interface Props {
   params: Promise<{
@@ -20,7 +21,7 @@ interface Props {
 }
 
 async function fetch({ params }: Props) {
-  const id = params.id.split("-")[0];
+  const id = (await params).id.split('-')[0];
 
   const item = (await getUniqueStack({
     where: {
@@ -28,14 +29,17 @@ async function fetch({ params }: Props) {
     },
   })) as Stack;
 
-  if (!item) redirect("/404");
+  if (!item) redirect('/404');
 
   return item;
 }
 
-export async function generateMetadata(props: Props, parent: ResolvingMetadata): Promise<Metadata> {
+export async function generateMetadata(
+  props: Props,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
   const params = await props.params;
-  const item = await fetch({ params });
+  const item = await fetch(props);
 
   const previousImages = (await parent).openGraph?.images || [];
 
@@ -44,8 +48,8 @@ export async function generateMetadata(props: Props, parent: ResolvingMetadata):
     description: item.description,
     openGraph: {
       title: `Stack: ${item.name} | DulapahV's Portfolio`,
-      description: item.description || "Tools and technologies I use.",
-      url: `${BASE_URL}/stack/${item.id}-${item.name.replace(/ /g, "-")}`,
+      description: item.description || 'Tools and technologies I use.',
+      url: `${BASE_URL}/stack/${item.id}-${item.name.replace(/ /g, '-')}`,
       images: [
         {
           url: `${ASSETS_URL}/images/stack/${getStackIconFileName(item.name)}.svg`,
@@ -59,30 +63,30 @@ export async function generateMetadata(props: Props, parent: ResolvingMetadata):
 
 export default async function Page(props: Props) {
   const params = await props.params;
-  const item = await fetch({ params });
+  const item = await fetch(props);
 
-  const healedUrl = `/stack/${item.id}-${item.name.replace(/ /g, "-")}`;
+  const healedUrl = `/stack/${item.id}-${item.name.replace(/ /g, '-')}`;
   if (`/stack/${params.id}` != healedUrl) redirect(healedUrl);
 
   const coverImgUrl = `${ASSETS_URL}/images/stack/${getStackIconFileName(item.name)}.svg`;
 
   const jsonLd: WithContext<Article> = {
-    "@context": "https://schema.org",
-    "@type": "Article",
+    '@context': 'https://schema.org',
+    '@type': 'Article',
     mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `${BASE_URL}/${healedUrl}`,
+      '@type': 'WebPage',
+      '@id': `${BASE_URL}/${healedUrl}`,
     },
     headline: item.name,
-    description: item.description || "Tools and technologies I use.",
+    description: item.description || 'Tools and technologies I use.',
     image: coverImgUrl,
     author: {
-      "@type": "Person",
+      '@type': 'Person',
       name: NAME,
       url: BASE_URL,
     },
     publisher: {
-      "@type": "Person",
+      '@type': 'Person',
       name: NAME,
       url: BASE_URL,
     },
@@ -119,7 +123,7 @@ export default async function Page(props: Props) {
                   color="primary"
                   variant="flat"
                   classNames={{
-                    content: "text-primary",
+                    content: 'text-primary',
                   }}
                 >
                   Featured
@@ -140,7 +144,8 @@ export default async function Page(props: Props) {
             </h2>
             <ChevronRight
               size={20}
-              className="flex-shrink-0 text-default-500 duration-100 group-hover:translate-x-2 group-hover:text-primary"
+              className="flex-shrink-0 text-default-500 duration-100 group-hover:translate-x-2
+                group-hover:text-primary"
             />
           </Link>
           <Link
@@ -153,7 +158,8 @@ export default async function Page(props: Props) {
             </h2>
             <ChevronRight
               size={20}
-              className="flex-shrink-0 text-default-500 duration-100 group-hover:translate-x-2 group-hover:text-primary"
+              className="flex-shrink-0 text-default-500 duration-100 group-hover:translate-x-2
+                group-hover:text-primary"
             />
           </Link>
           <Link
@@ -166,7 +172,8 @@ export default async function Page(props: Props) {
             </h2>
             <ChevronRight
               size={20}
-              className="flex-shrink-0 text-default-500 duration-100 group-hover:translate-x-2 group-hover:text-primary"
+              className="flex-shrink-0 text-default-500 duration-100 group-hover:translate-x-2
+                group-hover:text-primary"
             />
           </Link>
         </main>

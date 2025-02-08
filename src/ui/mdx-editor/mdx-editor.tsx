@@ -1,6 +1,7 @@
-"use client";
+'use client';
 
-import React, { Dispatch, SetStateAction, useState } from "react";
+import React, { Dispatch, SetStateAction, useState } from 'react';
+
 import {
   AdmonitionDirectiveDescriptor,
   BlockTypeSelect,
@@ -46,10 +47,10 @@ import {
   UndoRedo,
   useCodeBlockEditorContext,
   // ChangeAdmonitionType,
-} from "@mdxeditor/editor";
-import { useTheme } from "next-themes";
+} from '@mdxeditor/editor';
+import { useTheme } from 'next-themes';
 
-import "@mdxeditor/editor/style.css";
+import '@mdxeditor/editor/style.css';
 
 interface EditorProps {
   onChange: Dispatch<SetStateAction<string>>;
@@ -58,16 +59,16 @@ interface EditorProps {
 }
 
 const simpleSandpackConfig: SandpackConfig = {
-  defaultPreset: "react",
+  defaultPreset: 'react',
   presets: [
     {
-      label: "React",
-      name: "react",
-      meta: "live react",
-      sandpackTemplate: "react",
-      sandpackTheme: "light",
-      snippetFileName: "/App.js",
-      snippetLanguage: "jsx",
+      label: 'React',
+      name: 'react',
+      meta: 'live react',
+      sandpackTemplate: 'react',
+      sandpackTheme: 'light',
+      snippetFileName: '/App.js',
+      snippetLanguage: 'jsx',
     },
   ],
 };
@@ -76,7 +77,7 @@ export function Editor({ onChange, markdown, markdownOld }: EditorProps) {
   const { resolvedTheme } = useTheme();
 
   const [forceDarkTheme, setForceDarkTheme] = useState(
-    resolvedTheme === "dark",
+    resolvedTheme === 'dark',
   );
 
   return (
@@ -84,8 +85,9 @@ export function Editor({ onChange, markdown, markdownOld }: EditorProps) {
       onChange={onChange}
       autoFocus={false}
       placeholder="Type here..."
-      className={`w-full rounded-lg border-2 ${forceDarkTheme ? "dark-theme dark-editor border-default-800 dark:border-default-200" : "bg-white dark:border-default-800"}`}
-      contentEditableClassName={`prose ${forceDarkTheme ? "" : "bg-white"}`}
+      className={`w-full rounded-lg border-2
+        ${forceDarkTheme ? 'dark-theme dark-editor border-default-800 dark:border-default-200' : 'bg-white dark:border-default-800'}`}
+      contentEditableClassName={`prose ${forceDarkTheme ? '' : 'bg-white'}`}
       markdown={markdown}
       plugins={[
         listsPlugin(),
@@ -97,32 +99,32 @@ export function Editor({ onChange, markdown, markdownOld }: EditorProps) {
         tablePlugin(),
         thematicBreakPlugin(),
         frontmatterPlugin(),
-        codeBlockPlugin({ defaultCodeBlockLanguage: "" }),
+        codeBlockPlugin({ defaultCodeBlockLanguage: '' }),
         markdownShortcutPlugin(),
         diffSourcePlugin({
           diffMarkdown: markdownOld,
-          viewMode: "rich-text",
+          viewMode: 'rich-text',
         }),
         codeMirrorPlugin({
           codeBlockLanguages: {
-            js: "JavaScript",
-            jsx: "JSX",
-            ts: "TypeScript",
-            tsx: "TSX",
-            css: "CSS",
-            go: "GO",
-            html: "HTML",
-            java: "Java",
-            json: "JSON",
-            liquid: "Liquid",
-            md: "Markdown",
-            php: "PHP",
-            py: "Python",
-            rs: "Rust",
-            scss: "Sass",
-            xml: "XML",
-            yaml: "YAML",
-            "": "Plain Text",
+            js: 'JavaScript',
+            jsx: 'JSX',
+            ts: 'TypeScript',
+            tsx: 'TSX',
+            css: 'CSS',
+            go: 'GO',
+            html: 'HTML',
+            java: 'Java',
+            json: 'JSON',
+            liquid: 'Liquid',
+            md: 'Markdown',
+            php: 'PHP',
+            py: 'Python',
+            rs: 'Rust',
+            scss: 'Sass',
+            xml: 'XML',
+            yaml: 'YAML',
+            '': 'Plain Text',
           },
         }),
         directivesPlugin({

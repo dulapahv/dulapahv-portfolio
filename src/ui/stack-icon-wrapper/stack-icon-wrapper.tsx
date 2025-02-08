@@ -1,17 +1,18 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import Image, { ImageProps } from "next/image";
-import { useTheme } from "next-themes";
+import { useEffect, useState } from 'react';
+import Image, { ImageProps } from 'next/image';
+
+import { useTheme } from 'next-themes';
 
 interface StackIconWrapperProps extends ImageProps {
-  fallback?: ImageProps["src"];
+  fallback?: ImageProps['src'];
   forceLightTheme?: boolean;
 }
 
 export function StackIconWrapper({
   src,
-  fallback = "/fallback.jpg",
+  fallback = '/fallback.jpg',
   forceLightTheme = true,
   ...props
 }: StackIconWrapperProps) {
@@ -23,8 +24,8 @@ export function StackIconWrapper({
   const { resolvedTheme } = useTheme();
 
   src =
-    !forceLightTheme && resolvedTheme === "dark"
-      ? (src as string).replace(/(\.\w+)$/, "-dark$1")
+    !forceLightTheme && resolvedTheme === 'dark'
+      ? (src as string).replace(/(\.\w+)$/, '-dark$1')
       : src;
 
   useEffect(() => {

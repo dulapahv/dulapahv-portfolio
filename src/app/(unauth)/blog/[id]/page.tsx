@@ -1,14 +1,15 @@
-import type { Metadata, ResolvingMetadata } from "next";
-import Image from "next/image";
-import { redirect } from "next/navigation";
-import { Blog } from "@prisma/client";
-import { Article, WithContext } from "schema-dts";
+import type { Metadata, ResolvingMetadata } from 'next';
+import Image from 'next/image';
+import { redirect } from 'next/navigation';
 
-import { getUniqueBlog } from "@/data/get-blog";
-import { ASSETS_URL, BASE_URL, NAME } from "@/lib/constants";
-import { Breadcrumb } from "@/ui/breadcrumb";
-import { MarkdownRenderer } from "@/ui/markdown-renderer";
-import { dynamicBlurDataUrl } from "@/utils/dynamic-blur-data-url";
+import { Blog } from '@prisma/client';
+import { Article, WithContext } from 'schema-dts';
+
+import { ASSETS_URL, BASE_URL, NAME } from '@/lib/constants';
+import { dynamicBlurDataUrl } from '@/utils/dynamic-blur-data-url';
+import { getUniqueBlog } from '@/data/get-blog';
+import { Breadcrumb } from '@/ui/breadcrumb';
+import { MarkdownRenderer } from '@/ui/markdown-renderer';
 
 interface Props {
   params: Promise<{
@@ -17,7 +18,7 @@ interface Props {
 }
 
 async function fetch({ params }: Props) {
-  const id = params.id.split("-")[0];
+  const id = (await params).id.split('-')[0];
 
   const item = (await getUniqueBlog({
     select: {
@@ -35,14 +36,16 @@ async function fetch({ params }: Props) {
     },
   })) as Blog;
 
-  if (!item) redirect("/404");
+  if (!item) redirect('/404');
 
   return item;
 }
 
-export async function generateMetadata(props: Props, parent: ResolvingMetadata): Promise<Metadata> {
-  const params = await props.params;
-  const item = await fetch({ params });
+export async function generateMetadata(
+  props: Props,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  const item = await fetch(props);
 
   const previousImages = (await parent).openGraph?.images || [];
 
@@ -52,7 +55,7 @@ export async function generateMetadata(props: Props, parent: ResolvingMetadata):
     openGraph: {
       title: `Blog: ${item.title} | DulapahV's Portfolio`,
       description: item.description,
-      url: `${BASE_URL}/blog/${item.id}-${item.title.replace(/ /g, "-")}`,
+      url: `${BASE_URL}/blog/${item.id}-${item.title.replace(/ /g, '-')}`,
       images: [
         {
           url: `${ASSETS_URL}/images/blog/${item.imagePath}/cover.png`,
@@ -66,30 +69,30 @@ export async function generateMetadata(props: Props, parent: ResolvingMetadata):
 
 export default async function Page(props: Props) {
   const params = await props.params;
-  const item = await fetch({ params });
+  const item = await fetch(props);
 
-  const healedUrl = `/blog/${item.id}-${item.title.replace(/ /g, "-")}`;
+  const healedUrl = `/blog/${item.id}-${item.title.replace(/ /g, '-')}`;
   if (`/blog/${params.id}` != healedUrl) redirect(healedUrl);
 
   const coverImgUrl = `${ASSETS_URL}/images/blog/${item.imagePath}/cover.png`;
 
   const jsonLd: WithContext<Article> = {
-    "@context": "https://schema.org",
-    "@type": "Article",
+    '@context': 'https://schema.org',
+    '@type': 'Article',
     mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `${BASE_URL}/${healedUrl}`,
+      '@type': 'WebPage',
+      '@id': `${BASE_URL}/${healedUrl}`,
     },
     headline: item.title,
     description: item.description,
     image: coverImgUrl,
     author: {
-      "@type": "Person",
+      '@type': 'Person',
       name: NAME,
       url: BASE_URL,
     },
     publisher: {
-      "@type": "Person",
+      '@type': 'Person',
       name: NAME,
       url: BASE_URL,
     },
@@ -109,7 +112,7 @@ export default async function Page(props: Props) {
         <Breadcrumb lastItem={item.title} />
         <header>
           <h2 className="text-3xl/[3rem] font-semibold">{item.title}</h2>
-          <p className="text-sm text-default-500">{`Published on ${item.createdAt.toLocaleDateString("en-GB")} •
+          <p className="text-sm text-default-500">{`Published on ${item.createdAt.toLocaleDateString('en-GB')} •
           ${Math.ceil(item.wordCount / 200)} min read
           `}</p>
         </header>

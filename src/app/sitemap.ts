@@ -1,11 +1,11 @@
-import { MetadataRoute } from "next";
+import { MetadataRoute } from 'next';
 
-import { getManyBlog } from "@/data/get-blog";
-import { getManyExperience } from "@/data/get-experience";
-import { getManyProject } from "@/data/get-project";
-import { getManyTag } from "@/data/get-tag";
-import { BASE_URL } from "@/lib/constants";
-import { ExperienceWithPlace, TagWithStacks } from "@/types/prisma";
+import { ExperienceWithPlace, TagWithStacks } from '@/types/prisma';
+import { BASE_URL } from '@/lib/constants';
+import { getManyBlog } from '@/data/get-blog';
+import { getManyExperience } from '@/data/get-experience';
+import { getManyProject } from '@/data/get-project';
+import { getManyTag } from '@/data/get-tag';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const links = [
@@ -82,21 +82,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   experiences.forEach((experience) => {
     links.push({
-      url: `${BASE_URL}/experience/${experience.id}-${experience.place.name.replace(/ /g, "-")}-${experience.position.replace(/ /g, "-")}`,
+      url: `${BASE_URL}/experience/${experience.id}-${experience.place.name.replace(/ /g, '-')}-${experience.position.replace(/ /g, '-')}`,
       lastModified: experience.updatedAt,
     });
   });
 
   projects.forEach((project) => {
     links.push({
-      url: `${BASE_URL}/project/${project.id}-${project.title.replace(/ /g, "-")}`,
+      url: `${BASE_URL}/project/${project.id}-${project.title.replace(/ /g, '-')}`,
       lastModified: project.updatedAt,
     });
   });
 
   blogs.forEach((blog) => {
     links.push({
-      url: `${BASE_URL}/blog/${blog.id}-${blog.title.replace(/ /g, "-")}`,
+      url: `${BASE_URL}/blog/${blog.id}-${blog.title.replace(/ /g, '-')}`,
       lastModified: blog.updatedAt,
     });
   });
@@ -104,7 +104,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   tags.forEach((stacks) => {
     stacks.stacks.forEach((stack) => {
       links.push({
-        url: `${BASE_URL}/stack/${stack.id}-${stack.name.replace(/ /g, "-")}`,
+        url: `${BASE_URL}/stack/${stack.id}-${stack.name.replace(/ /g, '-')}`,
         lastModified: new Date(),
       });
     });

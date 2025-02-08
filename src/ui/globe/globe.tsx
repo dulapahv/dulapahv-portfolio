@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import type { COBEOptions } from "cobe";
-import { useEffect, useRef } from "react";
-import { useSpring } from "@react-spring/web";
-import createGlobe from "cobe";
-import { useTheme } from "next-themes";
+import { useEffect, useRef } from 'react';
+
+import { useSpring } from '@react-spring/web';
+import createGlobe, { type COBEOptions } from 'cobe';
+import { useTheme } from 'next-themes';
 
 type GlobeProps = {
   readonly width: number;
   readonly height: number;
-  readonly markers: COBEOptions["markers"];
+  readonly markers: COBEOptions['markers'];
 };
 
 export const Globe = ({ width, height, markers }: GlobeProps) => {
@@ -35,7 +35,7 @@ export const Globe = ({ width, height, markers }: GlobeProps) => {
 
     const onResize = () =>
       canvasRef.current && (width = canvasRef.current.offsetWidth);
-    window.addEventListener("resize", onResize);
+    window.addEventListener('resize', onResize);
 
     const globe = createGlobe(canvasRef.current, {
       devicePixelRatio: 2,
@@ -43,19 +43,19 @@ export const Globe = ({ width, height, markers }: GlobeProps) => {
       height: height * 2,
       phi: 0,
       theta: 0,
-      dark: resolvedTheme === "light" ? 0 : 1,
+      dark: resolvedTheme === 'light' ? 0 : 1,
       diffuse: 1.2,
       mapSamples: 16_000,
       mapBrightness: 6,
       opacity: 0.85,
       offset: [0, 65],
       baseColor:
-        resolvedTheme === "light"
+        resolvedTheme === 'light'
           ? [0.98039, 0.98039, 0.98039]
           : [0.3, 0.3, 0.3],
       markerColor: [0.98431, 0.33725, 0.54118],
       glowColor:
-        resolvedTheme === "light"
+        resolvedTheme === 'light'
           ? [0.83137, 0.83137, 0.83137]
           : [0.96078, 0.96078, 0.96078],
       markers,
@@ -72,7 +72,7 @@ export const Globe = ({ width, height, markers }: GlobeProps) => {
 
     return () => {
       globe.destroy();
-      window.removeEventListener("resize", onResize);
+      window.removeEventListener('resize', onResize);
     };
   }, [width, height, resolvedTheme]);
 
@@ -85,15 +85,15 @@ export const Globe = ({ width, height, markers }: GlobeProps) => {
         pointerInteracting.current = e.clientX;
         pointerInteractionMovement.current = 0;
         phiRef.current = r.get();
-        canvasRef.current && (canvasRef.current.style.cursor = "grabbing");
+        canvasRef.current && (canvasRef.current.style.cursor = 'grabbing');
       }}
       onPointerUp={() => {
         pointerInteracting.current = null;
-        canvasRef.current && (canvasRef.current.style.cursor = "grab");
+        canvasRef.current && (canvasRef.current.style.cursor = 'grab');
       }}
       onPointerOut={() => {
         pointerInteracting.current = null;
-        canvasRef.current && (canvasRef.current.style.cursor = "grab");
+        canvasRef.current && (canvasRef.current.style.cursor = 'grab');
       }}
       onMouseMove={(e) => {
         if (pointerInteracting.current) {

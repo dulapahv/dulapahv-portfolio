@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { Button, Link } from "@nextui-org/react";
+import { Button, Link } from '@nextui-org/react';
 
 interface UrlButtonProps {
   url: string;

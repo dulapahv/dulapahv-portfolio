@@ -1,1 +1,1 @@
-export * from "./stack-icon-wrapper";
+export * from './stack-icon-wrapper';

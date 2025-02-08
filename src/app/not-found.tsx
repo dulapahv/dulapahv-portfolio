@@ -1,4 +1,4 @@
-import { HomeButton } from "@/ui/home-button";
+import { HomeButton } from '@/ui/home-button';
 
 export default function NotFound() {
   return (

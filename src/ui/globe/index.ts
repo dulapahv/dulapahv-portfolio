@@ -1,1 +1,1 @@
-export * from "./globe";
+export * from './globe';

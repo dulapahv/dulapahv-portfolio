@@ -1,1 +1,1 @@
-export * from "./home-button";
+export * from './home-button';

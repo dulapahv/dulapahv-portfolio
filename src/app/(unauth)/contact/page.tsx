@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 
-import { SITE_NAME } from "@/lib/constants";
-import { Breadcrumb } from "@/ui/breadcrumb";
-import { ContactForm } from "@/ui/contact-form";
+import { SITE_NAME } from '@/lib/constants';
+import { Breadcrumb } from '@/ui/breadcrumb';
+import { ContactForm } from '@/ui/contact-form';
 
 export const metadata: Metadata = {
   title: `Contact | ${SITE_NAME}`,
@@ -10,27 +10,25 @@ export const metadata: Metadata = {
     "Let me know what's on your mind and I'll get back to you as soon as possible.",
 };
 
-export default async function Page(
-  props: {
-    searchParams?: Promise<{
-      name: string;
-      email: string;
-      type: string;
-      message: string;
-    }>;
-  }
-) {
+export default async function Page(props: {
+  searchParams?: Promise<{
+    name: string;
+    email: string;
+    type: string;
+    message: string;
+  }>;
+}) {
   const searchParams = await props.searchParams;
-  const name = searchParams?.name ? decodeURIComponent(searchParams.name) : "";
+  const name = searchParams?.name ? decodeURIComponent(searchParams.name) : '';
   const message = searchParams?.message
     ? decodeURIComponent(searchParams.message)
-    : "";
+    : '';
   const type = searchParams?.type
     ? decodeURIComponent(searchParams.type)
-    : "general";
+    : 'general';
   const email = searchParams?.email
     ? decodeURIComponent(searchParams.email)
-    : "";
+    : '';
 
   return (
     <div className="space-y-6">

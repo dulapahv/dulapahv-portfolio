@@ -1,18 +1,19 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import { Chip } from "@nextui-org/react";
+import type { Metadata } from 'next';
+import Link from 'next/link';
 
-import type { TagWithStacks } from "@/types/prisma";
-import { getManyTag } from "@/data/get-tag";
-import { ASSETS_URL, SITE_NAME } from "@/lib/constants";
-import { Breadcrumb } from "@/ui/breadcrumb";
-import { StackIconWrapper } from "@/ui/stack-icon-wrapper";
-import { getStackIconDisplayName } from "@/utils/get-stack-icon-display-name";
-import { getStackIconFileName } from "@/utils/get-stack-icon-file-name";
+import { Chip } from '@nextui-org/react';
+
+import type { TagWithStacks } from '@/types/prisma';
+import { ASSETS_URL, SITE_NAME } from '@/lib/constants';
+import { getStackIconDisplayName } from '@/utils/get-stack-icon-display-name';
+import { getStackIconFileName } from '@/utils/get-stack-icon-file-name';
+import { getManyTag } from '@/data/get-tag';
+import { Breadcrumb } from '@/ui/breadcrumb';
+import { StackIconWrapper } from '@/ui/stack-icon-wrapper';
 
 export const metadata: Metadata = {
   title: `Stack | ${SITE_NAME}`,
-  description: "Tools and technologies I use.",
+  description: 'Tools and technologies I use.',
 };
 
 export default async function Page() {
@@ -30,7 +31,7 @@ export default async function Page() {
             featured: true,
           },
           orderBy: {
-            name: "asc",
+            name: 'asc',
           },
         },
       },
@@ -53,18 +54,25 @@ export default async function Page() {
             id={tag.name}
             className="*:shadow-lg *:backdrop-blur-lg *:[-webkit-backdrop-filter:blur(16px)]"
           >
-            <div className="flex h-12 items-center rounded-t-md border border-b-[0.5px] border-default-200 bg-neutral-50/70 px-4 dark:bg-black/70">
+            <div
+              className="flex h-12 items-center rounded-t-md border border-b-[0.5px] border-default-200
+                bg-neutral-50/70 px-4 dark:bg-black/70"
+            >
               <h2 className="text-sm font-medium text-default-500">
                 {tag.name}
               </h2>
             </div>
-            <ul className="grid grid-cols-1 rounded-b-md border border-t-[0.5px] border-default-200 bg-white/70 p-2 dark:bg-neutral-950/70 sm:grid-cols-2">
+            <ul
+              className="grid grid-cols-1 rounded-b-md border border-t-[0.5px] border-default-200
+                bg-white/70 p-2 dark:bg-neutral-950/70 sm:grid-cols-2"
+            >
               {tag.stacks.map((stack) => (
                 <Link
-                  href={`/stack/${stack.id}-${stack.name.replace(/ /g, "-")}`}
+                  href={`/stack/${stack.id}-${stack.name.replace(/ /g, '-')}`}
                   key={stack.id}
                   id={stack.name}
-                  className="group flex items-center space-x-4 rounded-md px-4 py-2 duration-100 hover:bg-default-100/50"
+                  className="group flex items-center space-x-4 rounded-md px-4 py-2 duration-100
+                    hover:bg-default-100/50"
                 >
                   <div className="relative size-9">
                     <StackIconWrapper
@@ -86,8 +94,8 @@ export default async function Page() {
                           color="primary"
                           variant="flat"
                           classNames={{
-                            base: "h-[18px]",
-                            content: "text-primary",
+                            base: 'h-[18px]',
+                            content: 'text-primary',
                           }}
                         >
                           Featured

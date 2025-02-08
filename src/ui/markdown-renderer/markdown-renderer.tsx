@@ -1,23 +1,23 @@
-import Markdown from "react-markdown";
-import RehypeAutoLinkHeadings from "rehype-autolink-headings";
-import rehypeHighlight from "rehype-highlight";
-import rehypeKatex from "rehype-katex";
-import rehypeRaw from "rehype-raw";
-import RehypeSlug from "rehype-slug";
-import remarkGfm from "remark-gfm";
-import remarkMath from "remark-math";
+import Markdown from 'react-markdown';
+import RehypeAutoLinkHeadings from 'rehype-autolink-headings';
+import rehypeHighlight from 'rehype-highlight';
+import rehypeKatex from 'rehype-katex';
+import rehypeRaw from 'rehype-raw';
+import RehypeSlug from 'rehype-slug';
+import remarkGfm from 'remark-gfm';
+import remarkMath from 'remark-math';
 
-import { cn } from "@/utils/cn";
+import { cn } from '@/utils/cn';
 
-import { aRenderer } from "./a-renderer";
-import { checkboxRenderer } from "./checkbox-renderer";
-import { codeRenderer } from "./code-renderer";
-import { hrRenderer } from "./hr-renderer";
-import { preRenderer } from "./pre-renderer";
-import { tdRenderer } from "./td-renderer";
-import { thRenderer } from "./th-renderer";
-import { theadRenderer } from "./thead-renderer";
-import { trRenderer } from "./tr-renderer";
+import { aRenderer } from './a-renderer';
+import { checkboxRenderer } from './checkbox-renderer';
+import { codeRenderer } from './code-renderer';
+import { hrRenderer } from './hr-renderer';
+import { preRenderer } from './pre-renderer';
+import { tdRenderer } from './td-renderer';
+import { thRenderer } from './th-renderer';
+import { theadRenderer } from './thead-renderer';
+import { trRenderer } from './tr-renderer';
 
 type MarkdownRendererProps = {
   children: string;
@@ -31,7 +31,7 @@ export function MarkdownRenderer({
   return (
     <div
       className={cn(
-        "prose-mofu prose prose-neutral max-w-none dark:prose-invert",
+        'prose-mofu prose prose-neutral max-w-none dark:prose-invert',
         className,
       )}
     >

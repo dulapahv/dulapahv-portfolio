@@ -3,9 +3,9 @@ export const parseError = (error: unknown): string => {
     return error.message;
   }
 
-  if (typeof error === "string") {
+  if (typeof error === 'string') {
     return error;
   }
 
-  return "An unknown error occurred";
+  return 'An unknown error occurred';
 };

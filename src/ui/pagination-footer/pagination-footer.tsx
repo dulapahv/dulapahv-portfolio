@@ -1,8 +1,9 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { Pagination } from "@nextui-org/react";
+import { useEffect, useState } from 'react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+
+import { Pagination } from '@nextui-org/react';
 
 interface PaginationFooterProps {
   totalPages: number;
@@ -15,12 +16,12 @@ export function PaginationFooter({ totalPages }: PaginationFooterProps) {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const currentPage = Number(searchParams.get("page")) || 1;
+  const currentPage = Number(searchParams.get('page')) || 1;
 
   const setPage = (page: number) => {
     setIsLoading(true);
     const params = new URLSearchParams(searchParams);
-    params.set("page", page.toString());
+    params.set('page', page.toString());
     router.push(`${pathname}?${params.toString()}`);
   };
 
@@ -40,10 +41,10 @@ export function PaginationFooter({ totalPages }: PaginationFooterProps) {
       showShadow
       isDisabled={isLoading}
       classNames={{
-        wrapper: "bg-default-50 shadow",
-        prev: "shadow-none bg-default-50",
-        item: "!rounded-xl shadow-none bg-default-50",
-        next: "shadow-none bg-default-50",
+        wrapper: 'bg-default-50 shadow',
+        prev: 'shadow-none bg-default-50',
+        item: '!rounded-xl shadow-none bg-default-50',
+        next: 'shadow-none bg-default-50',
       }}
     />
   );

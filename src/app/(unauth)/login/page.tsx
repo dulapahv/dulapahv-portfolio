@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import React from "react";
+import React from 'react';
 
-import { Editor } from "@/ui/mdx-editor";
+import { Editor } from '@/ui/mdx-editor';
 
 export default function Page() {
   return (

@@ -1,27 +1,28 @@
-"use client";
+'use client';
 
-import type { ErrorResponse } from "resend";
-import { useRef } from "react";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { Button, Input, Select, SelectItem, Textarea } from "@nextui-org/react";
-import { ChevronsUpDown, Send } from "lucide-react";
-import { isMobile } from "react-device-detect";
-import { useForm } from "react-hook-form";
-import { toast } from "sonner";
+import { useRef } from 'react';
 
-import type { TurnstileInstance } from "@marsidev/react-turnstile";
-import { useOnLeavePageConfirmation } from "@/hooks/use-on-leave-page-confirmation";
+import { yupResolver } from '@hookform/resolvers/yup';
+import type { TurnstileInstance } from '@marsidev/react-turnstile';
+import { Button, Input, Select, SelectItem, Textarea } from '@nextui-org/react';
+import { ChevronsUpDown, Send } from 'lucide-react';
+import { isMobile } from 'react-device-detect';
+import { useForm } from 'react-hook-form';
+import type { ErrorResponse } from 'resend';
+import { toast } from 'sonner';
+
+import { EmailTemplateProps } from '@/types/types';
 import {
   CAPTCHA_URL,
   contactTypeOptions,
   EMAIL_MAX_LENGTH,
   MESSAGE_MAX_LENGTH,
   NAME_MAX_LENGTH,
-} from "@/lib/constants";
-import { EmailTemplateProps } from "@/types/types";
-import { Captcha } from "@/ui/captcha";
+} from '@/lib/constants';
+import { useOnLeavePageConfirmation } from '@/hooks/use-on-leave-page-confirmation';
+import { Captcha } from '@/ui/captcha';
 
-import { schema } from "./validator";
+import { schema } from './validator';
 
 interface ContactFormProps {
   name: string;
@@ -59,12 +60,12 @@ export function ContactForm({
 
   async function onSubmitHandler(data: EmailTemplateProps) {
     const formData = new FormData();
-    formData.append("cf-turnstile-response", data.captcha);
+    formData.append('cf-turnstile-response', data.captcha);
 
     try {
       // Captcha verification
       const captchaResponse = await fetch(CAPTCHA_URL, {
-        method: "POST",
+        method: 'POST',
         body: formData,
       });
 
@@ -79,7 +80,7 @@ export function ContactForm({
 
       if (!result.success) {
         toast.error(
-          `An error occurred while verifying captcha.\nError codes: ${result["error-codes"]?.join(", ")}`,
+          `An error occurred while verifying captcha.\nError codes: ${result['error-codes']?.join(', ')}`,
         );
         return;
       }
@@ -93,7 +94,7 @@ export function ContactForm({
         const sendResponse = await fetch(
           `api/send?name=${data.name.trim()}&email=${data.email.trim()}&type=${type}&message=${data.message.trim()}`,
           {
-            method: "POST",
+            method: 'POST',
           },
         );
 
@@ -124,13 +125,13 @@ export function ContactForm({
   }
 
   function onSubmitErrorHandler() {
-    toast.error("Please check the form for errors.");
+    toast.error('Please check the form for errors.');
     return;
   }
 
   function onVerifyCaptcha(token: string) {
-    setValue("captcha", token);
-    clearErrors("captcha");
+    setValue('captcha', token);
+    clearErrors('captcha');
   }
 
   return (
@@ -139,54 +140,54 @@ export function ContactForm({
       className="flex flex-col gap-y-4"
     >
       <Input
-        {...register("name")}
+        {...register('name')}
         label={
           <>
             <p className="after:ml-0.5 after:text-danger after:content-['*']">
               Full Name
             </p>
             <p className="text-xs text-default-500">
-              {watch("name")?.length || 0}/{NAME_MAX_LENGTH}
+              {watch('name')?.length || 0}/{NAME_MAX_LENGTH}
             </p>
           </>
         }
         isInvalid={!!errors.name}
-        color={errors.name ? "danger" : "default"}
+        color={errors.name ? 'danger' : 'default'}
         errorMessage={errors.name?.message}
         placeholder="Dulapah Vibulsanti"
         radius="sm"
         labelPlacement="outside"
         isClearable={isMobile}
         classNames={{
-          label: "w-full pr-0 flex justify-between items-end",
+          label: 'w-full pr-0 flex justify-between items-end',
         }}
       />
       <Input
-        {...register("email")}
+        {...register('email')}
         label={
           <>
             <p className="after:ml-0.5 after:text-danger after:content-['*']">
               Email
             </p>
             <p className="text-xs text-default-500">
-              {watch("email")?.length || 0}/{EMAIL_MAX_LENGTH}
+              {watch('email')?.length || 0}/{EMAIL_MAX_LENGTH}
             </p>
           </>
         }
         type="email"
         isInvalid={!!errors.email}
-        color={errors.email ? "danger" : "default"}
+        color={errors.email ? 'danger' : 'default'}
         errorMessage={errors.email?.message}
         placeholder="dulapah@example.com"
         radius="sm"
         labelPlacement="outside"
         isClearable={isMobile}
         classNames={{
-          label: "w-full pr-0 flex justify-between items-end",
+          label: 'w-full pr-0 flex justify-between items-end',
         }}
       />
       <Select
-        {...register("type")}
+        {...register('type')}
         label="Type"
         defaultSelectedKeys={_type ? [_type] : [contactTypeOptions[0].key]}
         items={contactTypeOptions}
@@ -198,18 +199,18 @@ export function ContactForm({
         selectorIcon={<ChevronsUpDown size={20} className="text-default-400" />}
         classNames={{
           base: `items-center`,
-          value: "text-default-800",
+          value: 'text-default-800',
         }}
         popoverProps={{
           classNames: {
             content:
-              "rounded-lg px-1 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg [-webkit-backdrop-filter:blur(16px)] backdrop-filter border border-default-50",
+              'rounded-lg px-1 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg [-webkit-backdrop-filter:blur(16px)] backdrop-filter border border-default-50',
           },
         }}
         listboxProps={{
           itemClasses: {
-            base: "rounded-md dark:data-[hover=true]:bg-zinc-800/50 data-[hover=true]:bg-zinc-200/50 dark:focus:!bg-zinc-800/50 focus:!bg-zinc-200/50",
-            selectedIcon: "text-primary",
+            base: 'rounded-md dark:data-[hover=true]:bg-zinc-800/50 data-[hover=true]:bg-zinc-200/50 dark:focus:!bg-zinc-800/50 focus:!bg-zinc-200/50',
+            selectedIcon: 'text-primary',
           },
         }}
       >
@@ -218,7 +219,7 @@ export function ContactForm({
             key={item.key}
             textValue={item.label}
             classNames={{
-              base: "[&>span]:space-x-2",
+              base: '[&>span]:space-x-2',
             }}
           >
             <span>{item.label}</span>
@@ -227,27 +228,27 @@ export function ContactForm({
         )}
       </Select>
       <Textarea
-        {...register("message")}
+        {...register('message')}
         label={
           <>
             <p className="after:ml-0.5 after:text-danger after:content-['*']">
               Message
             </p>
             <p className="text-xs text-default-500">
-              {watch("message")?.length || 0}/{MESSAGE_MAX_LENGTH}
+              {watch('message')?.length || 0}/{MESSAGE_MAX_LENGTH}
             </p>
           </>
         }
         isInvalid={!!errors.message}
-        color={errors.message ? "danger" : "default"}
+        color={errors.message ? 'danger' : 'default'}
         errorMessage={errors.message?.message}
         placeholder="Hello, I would like to..."
         radius="sm"
         labelPlacement="outside"
         maxRows={20}
         classNames={{
-          label: "w-full pr-0 flex justify-between items-end",
-          input: "min-h-[80px]",
+          label: 'w-full pr-0 flex justify-between items-end',
+          input: 'min-h-[80px]',
         }}
       />
       <div>
@@ -269,7 +270,7 @@ export function ContactForm({
         className="w-fit"
         isLoading={isSubmitting}
       >
-        {isSubmitting ? "Sending..." : "Send Message"}
+        {isSubmitting ? 'Sending...' : 'Send Message'}
       </Button>
     </form>
   );

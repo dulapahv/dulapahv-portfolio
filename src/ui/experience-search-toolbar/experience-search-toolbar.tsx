@@ -1,7 +1,8 @@
-"use client";
+'use client';
 
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+
 import {
   Accordion,
   AccordionItem,
@@ -12,19 +13,19 @@ import {
   SelectItem,
   SelectSection,
   Spinner,
-} from "@nextui-org/react";
+} from '@nextui-org/react';
 import {
   ArrowDownWideNarrow,
   ChevronsUpDown,
   Filter,
   Search,
   Settings,
-} from "lucide-react";
-import { isMobile } from "react-device-detect";
-import { useDebouncedCallback } from "use-debounce";
+} from 'lucide-react';
+import { isMobile } from 'react-device-detect';
+import { useDebouncedCallback } from 'use-debounce';
 
-import type { CountriesWithCities, TagWithStacks } from "@/types/prisma";
-import { itemsPerPageOptions, sortByOptions } from "@/lib/constants";
+import type { CountriesWithCities, TagWithStacks } from '@/types/prisma';
+import { itemsPerPageOptions, sortByOptions } from '@/lib/constants';
 
 interface SearchToolbarProps {
   count: number;
@@ -41,7 +42,7 @@ export function ExperienceSearchToolbar({
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const [search, setSearch] = useState(searchParams.get("search") || "");
+  const [search, setSearch] = useState(searchParams.get('search') || '');
   const [isLocationChanged, setIsLocationChanged] = useState(false);
   const [isTagChanged, setIsTagChanged] = useState(false);
   const [isSearchLoading, setIsSearchLoading] = useState(false);
@@ -50,20 +51,20 @@ export function ExperienceSearchToolbar({
   const [isSortByLoading, setIsSortByLoading] = useState(false);
   const [isPerPageLoading, setIsPerPageLoading] = useState(false);
 
-  const page = Number(searchParams.get("page")) || 1;
-  const perPage = Number(searchParams.get("perPage")) || 5;
-  const locationId = searchParams.get("locationId") || "";
-  const tagId = searchParams.get("tagId") || "";
-  const sortBy = searchParams.get("sortBy") || "end-date-desc";
+  const page = Number(searchParams.get('page')) || 1;
+  const perPage = Number(searchParams.get('perPage')) || 5;
+  const locationId = searchParams.get('locationId') || '';
+  const tagId = searchParams.get('tagId') || '';
+  const sortBy = searchParams.get('sortBy') || 'end-date-desc';
 
   const [perPageSelect, setPerPageSelect] = useState<Selection>(
     new Set([perPage.toString()]),
   );
   const [locationSelect, setLocationSelect] = useState<Selection>(
-    locationId ? new Set(locationId.split(",")) : new Set([]),
+    locationId ? new Set(locationId.split(',')) : new Set([]),
   );
   const [tagSelect, setTagSelect] = useState<Selection>(
-    tagId ? new Set(tagId.split(",")) : new Set([]),
+    tagId ? new Set(tagId.split(',')) : new Set([]),
   );
   const [sortBySelect, setSortBySelect] = useState<Selection>(
     new Set([sortBy]),
@@ -72,8 +73,8 @@ export function ExperienceSearchToolbar({
   const debouncedHandleSearch = useDebouncedCallback((search: string) => {
     setIsSearchLoading(true);
     const params = new URLSearchParams(searchParams);
-    params.set("page", "1");
-    search ? params.set("search", search) : params.delete("search");
+    params.set('page', '1');
+    search ? params.set('search', search) : params.delete('search');
     router.push(`${pathname}?${params.toString()}`);
   }, 300);
 
@@ -94,7 +95,7 @@ export function ExperienceSearchToolbar({
   );
 
   const handleClear = useCallback(
-    () => handleSearchValueChange(""),
+    () => handleSearchValueChange(''),
     [handleSearchValueChange],
   );
 
@@ -103,8 +104,8 @@ export function ExperienceSearchToolbar({
       setPerPageSelect(value);
       setIsPerPageLoading(true);
       const params = new URLSearchParams(searchParams);
-      params.set("page", "1");
-      params.set("perPage", Array.from(value)[0].toString());
+      params.set('page', '1');
+      params.set('perPage', Array.from(value)[0].toString());
       router.push(`${pathname}?${params.toString()}`);
     },
     [searchParams, pathname, router],
@@ -113,13 +114,13 @@ export function ExperienceSearchToolbar({
   const handleLocationChange = useCallback(() => {
     if (!isLocationChanged) return;
     const params = new URLSearchParams(searchParams);
-    if (!params.get("locationId") && Array.from(locationSelect).length === 0)
+    if (!params.get('locationId') && Array.from(locationSelect).length === 0)
       return;
     setIsLocationLoading(true);
-    params.set("page", "1");
+    params.set('page', '1');
     Array.from(locationSelect).length === 0
-      ? params.delete("locationId")
-      : params.set("locationId", Array.from(locationSelect).join(","));
+      ? params.delete('locationId')
+      : params.set('locationId', Array.from(locationSelect).join(','));
     router.push(`${pathname}?${params.toString()}`);
     setIsLocationChanged(false);
   }, [isLocationChanged, searchParams, locationSelect, pathname, router]);
@@ -127,12 +128,12 @@ export function ExperienceSearchToolbar({
   const handleTagChange = useCallback(() => {
     if (!isTagChanged) return;
     const params = new URLSearchParams(searchParams);
-    if (!params.get("tagId") && Array.from(tagSelect).length === 0) return;
+    if (!params.get('tagId') && Array.from(tagSelect).length === 0) return;
     setIsTagLoading(true);
-    params.set("page", "1");
+    params.set('page', '1');
     Array.from(tagSelect).length === 0
-      ? params.delete("tagId")
-      : params.set("tagId", Array.from(tagSelect).join(","));
+      ? params.delete('tagId')
+      : params.set('tagId', Array.from(tagSelect).join(','));
     router.push(`${pathname}?${params.toString()}`);
     setIsLocationChanged(false);
   }, [isLocationChanged, searchParams, tagSelect, pathname, router]);
@@ -142,12 +143,12 @@ export function ExperienceSearchToolbar({
     if (Array.from(locationSelect).length > 0) {
       setIsLocationLoading(true);
       setLocationSelect(new Set([]));
-      params.delete("locationId");
+      params.delete('locationId');
     }
     if (Array.from(tagSelect).length > 0) {
       setIsTagLoading(true);
       setTagSelect(new Set([]));
-      params.delete("tagId");
+      params.delete('tagId');
     }
     router.push(`${pathname}?${params.toString()}`);
   }, [searchParams, pathname, router]);
@@ -157,8 +158,8 @@ export function ExperienceSearchToolbar({
       setSortBySelect(value);
       setIsSortByLoading(true);
       const params = new URLSearchParams(searchParams);
-      params.set("page", "1");
-      params.set("sortBy", Array.from(value)[0].toString());
+      params.set('page', '1');
+      params.set('sortBy', Array.from(value)[0].toString());
       router.push(`${pathname}?${params.toString()}`);
     },
     [searchParams, pathname, router],
@@ -169,9 +170,9 @@ export function ExperienceSearchToolbar({
       <Spinner
         size="sm"
         classNames={{
-          base: "w-[18px]",
-          circle1: "border-b-primary",
-          circle2: "border-b-primary",
+          base: 'w-[18px]',
+          circle1: 'border-b-primary',
+          circle2: 'border-b-primary',
         }}
       />
     ) : (
@@ -188,7 +189,7 @@ export function ExperienceSearchToolbar({
 
     return (
       <p className="order-2 text-sm text-default-800 min-[425px]:order-1">
-        Showing <span>{start}</span> - <span>{end}</span> of{" "}
+        Showing <span>{start}</span> - <span>{end}</span> of{' '}
         <span>{count}</span>
       </p>
     );
@@ -209,13 +210,13 @@ export function ExperienceSearchToolbar({
         startContent={startContent}
         classNames={{
           inputWrapper:
-            "data-[focus-visible=true]:!ring-0 data-[focus-visible=true]:!ring-offset-transparent data-[focus-visible=true]:!ring-offset-0",
+            'data-[focus-visible=true]:!ring-0 data-[focus-visible=true]:!ring-offset-transparent data-[focus-visible=true]:!ring-offset-0',
         }}
       />
       <Accordion
         isCompact
         defaultExpandedKeys={
-          locationId || tagId || sortBy !== "end-date-desc" ? ["1"] : undefined
+          locationId || tagId || sortBy !== 'end-date-desc' ? ['1'] : undefined
         }
         className="px-0"
       >
@@ -225,10 +226,10 @@ export function ExperienceSearchToolbar({
           title="Advanced Options"
           startContent={<Settings size={20} className="text-default-600" />}
           classNames={{
-            title: "text-sm text-default-700",
+            title: 'text-sm text-default-700',
             trigger:
-              "[&>div>*]:data-[hover=true]:text-primary [&>div>*]:duration-100",
-            indicator: "text-primary",
+              '[&>div>*]:data-[hover=true]:text-primary [&>div>*]:duration-100',
+            indicator: 'text-primary',
           }}
         >
           <div className="flex flex-col gap-1 md:flex-row md:items-center">
@@ -260,28 +261,28 @@ export function ExperienceSearchToolbar({
                   <ChevronsUpDown size={20} className="text-default-400" />
                 }
                 classNames={{
-                  base: "w-full md:w-fit items-center",
-                  label: "text-sm",
-                  mainWrapper: "md:w-64",
-                  value: "text-default-800",
+                  base: 'w-full md:w-fit items-center',
+                  label: 'text-sm',
+                  mainWrapper: 'md:w-64',
+                  value: 'text-default-800',
                 }}
                 popoverProps={{
                   classNames: {
                     content:
-                      "rounded-lg px-1 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg [-webkit-backdrop-filter:blur(16px)] backdrop-filter border border-default-50",
+                      'rounded-lg px-1 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg [-webkit-backdrop-filter:blur(16px)] backdrop-filter border border-default-50',
                   },
                 }}
                 listboxProps={{
                   itemClasses: {
-                    base: "rounded-md dark:data-[hover=true]:bg-zinc-800/50 data-[hover=true]:bg-zinc-200/50 dark:focus:!bg-zinc-800/50 focus:!bg-zinc-200/50",
-                    selectedIcon: "text-primary",
+                    base: 'rounded-md dark:data-[hover=true]:bg-zinc-800/50 data-[hover=true]:bg-zinc-200/50 dark:focus:!bg-zinc-800/50 focus:!bg-zinc-200/50',
+                    selectedIcon: 'text-primary',
                   },
                 }}
                 spinnerProps={{
                   classNames: {
-                    base: "w-[18px]",
-                    circle1: "border-b-primary",
-                    circle2: "border-b-primary",
+                    base: 'w-[18px]',
+                    circle1: 'border-b-primary',
+                    circle2: 'border-b-primary',
                   },
                 }}
                 renderValue={(items) => (
@@ -297,7 +298,7 @@ export function ExperienceSearchToolbar({
                     title={country.name}
                     classNames={{
                       heading:
-                        "flex w-full sticky top-1 z-20 py-1.5 px-2 bg-default-50 shadow-small rounded-md",
+                        'flex w-full sticky top-1 z-20 py-1.5 px-2 bg-default-50 shadow-small rounded-md',
                     }}
                   >
                     {country.cities.map((city) => (
@@ -329,28 +330,28 @@ export function ExperienceSearchToolbar({
                   <ChevronsUpDown size={20} className="text-default-400" />
                 }
                 classNames={{
-                  base: "w-full md:w-fit items-center",
-                  label: "text-sm",
-                  mainWrapper: "md:w-64",
-                  value: "text-default-800",
+                  base: 'w-full md:w-fit items-center',
+                  label: 'text-sm',
+                  mainWrapper: 'md:w-64',
+                  value: 'text-default-800',
                 }}
                 popoverProps={{
                   classNames: {
                     content:
-                      "rounded-lg px-1 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg [-webkit-backdrop-filter:blur(16px)] backdrop-filter border border-default-50",
+                      'rounded-lg px-1 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg [-webkit-backdrop-filter:blur(16px)] backdrop-filter border border-default-50',
                   },
                 }}
                 listboxProps={{
                   itemClasses: {
-                    base: "rounded-md dark:data-[hover=true]:bg-zinc-800/50 data-[hover=true]:bg-zinc-200/50 dark:focus:!bg-zinc-800/50 focus:!bg-zinc-200/50",
-                    selectedIcon: "text-primary",
+                    base: 'rounded-md dark:data-[hover=true]:bg-zinc-800/50 data-[hover=true]:bg-zinc-200/50 dark:focus:!bg-zinc-800/50 focus:!bg-zinc-200/50',
+                    selectedIcon: 'text-primary',
                   },
                 }}
                 spinnerProps={{
                   classNames: {
-                    base: "w-[18px]",
-                    circle1: "border-b-primary",
-                    circle2: "border-b-primary",
+                    base: 'w-[18px]',
+                    circle1: 'border-b-primary',
+                    circle2: 'border-b-primary',
                   },
                 }}
                 renderValue={(items) => (
@@ -366,7 +367,7 @@ export function ExperienceSearchToolbar({
                     title={tag.name}
                     classNames={{
                       heading:
-                        "flex w-full sticky top-1 z-20 py-1.5 px-2 bg-default-50 shadow-small rounded-md",
+                        'flex w-full sticky top-1 z-20 py-1.5 px-2 bg-default-50 shadow-small rounded-md',
                     }}
                   >
                     {tag.stacks.map((stack) => (
@@ -405,28 +406,28 @@ export function ExperienceSearchToolbar({
                   <ChevronsUpDown size={20} className="text-default-400" />
                 }
                 classNames={{
-                  base: "w-fit items-center",
-                  label: "text-sm",
-                  mainWrapper: "w-48",
-                  value: "text-default-800",
+                  base: 'w-fit items-center',
+                  label: 'text-sm',
+                  mainWrapper: 'w-48',
+                  value: 'text-default-800',
                 }}
                 popoverProps={{
                   classNames: {
                     content:
-                      "rounded-lg px-1 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg [-webkit-backdrop-filter:blur(16px)] backdrop-filter border border-default-50",
+                      'rounded-lg px-1 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg [-webkit-backdrop-filter:blur(16px)] backdrop-filter border border-default-50',
                   },
                 }}
                 listboxProps={{
                   itemClasses: {
-                    base: "rounded-md dark:data-[hover=true]:bg-zinc-800/50 data-[hover=true]:bg-zinc-200/50 dark:focus:!bg-zinc-800/50 focus:!bg-zinc-200/50",
-                    selectedIcon: "text-primary",
+                    base: 'rounded-md dark:data-[hover=true]:bg-zinc-800/50 data-[hover=true]:bg-zinc-200/50 dark:focus:!bg-zinc-800/50 focus:!bg-zinc-200/50',
+                    selectedIcon: 'text-primary',
                   },
                 }}
                 spinnerProps={{
                   classNames: {
-                    base: "w-[18px]",
-                    circle1: "border-b-primary",
-                    circle2: "border-b-primary",
+                    base: 'w-[18px]',
+                    circle1: 'border-b-primary',
+                    circle2: 'border-b-primary',
                   },
                 }}
               >
@@ -436,7 +437,10 @@ export function ExperienceSearchToolbar({
           </div>
         </AccordionItem>
       </Accordion>
-      <div className="flex flex-col justify-between gap-y-1 min-[425px]:flex-row min-[425px]:items-center">
+      <div
+        className="flex flex-col justify-between gap-y-1 min-[425px]:flex-row
+          min-[425px]:items-center"
+      >
         {showingText}
         <Select
           label="Items per page"
@@ -454,28 +458,28 @@ export function ExperienceSearchToolbar({
             <ChevronsUpDown size={20} className="text-default-400" />
           }
           classNames={{
-            base: "w-fit items-center order-1 min-[425px]:order-2",
-            label: "text-sm text-default-800",
-            mainWrapper: "w-20",
-            value: "text-default-800",
+            base: 'w-fit items-center order-1 min-[425px]:order-2',
+            label: 'text-sm text-default-800',
+            mainWrapper: 'w-20',
+            value: 'text-default-800',
           }}
           popoverProps={{
             classNames: {
               content:
-                "rounded-lg px-1 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg [-webkit-backdrop-filter:blur(16px)] backdrop-filter border border-default-50",
+                'rounded-lg px-1 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg [-webkit-backdrop-filter:blur(16px)] backdrop-filter border border-default-50',
             },
           }}
           listboxProps={{
             itemClasses: {
-              base: "rounded-md dark:data-[hover=true]:bg-zinc-800/50 data-[hover=true]:bg-zinc-200/50 dark:focus:!bg-zinc-800/50 focus:!bg-zinc-200/50",
-              selectedIcon: "text-primary",
+              base: 'rounded-md dark:data-[hover=true]:bg-zinc-800/50 data-[hover=true]:bg-zinc-200/50 dark:focus:!bg-zinc-800/50 focus:!bg-zinc-200/50',
+              selectedIcon: 'text-primary',
             },
           }}
           spinnerProps={{
             classNames: {
-              base: "w-[18px]",
-              circle1: "border-b-primary",
-              circle2: "border-b-primary",
+              base: 'w-[18px]',
+              circle1: 'border-b-primary',
+              circle2: 'border-b-primary',
             },
           }}
         >

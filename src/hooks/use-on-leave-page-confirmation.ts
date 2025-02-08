@@ -1,6 +1,6 @@
-import { useEffect } from "react";
-import { NavigateOptions } from "next/dist/shared/lib/app-router-context.shared-runtime";
-import { useRouter } from "next/navigation";
+import { useEffect } from 'react';
+import { NavigateOptions } from 'next/dist/shared/lib/app-router-context.shared-runtime';
+import { useRouter } from 'next/navigation';
 
 export function useOnLeavePageConfirmation(hasUnsavedChanges: boolean) {
   const router = useRouter();
@@ -17,7 +17,7 @@ export function useOnLeavePageConfirmation(hasUnsavedChanges: boolean) {
     router.push = (url: string, options?: NavigateOptions) => {
       if (hasUnsavedChanges) {
         const confirmLeave = window.confirm(
-          "Changes you made may not be saved.",
+          'Changes you made may not be saved.',
         );
         if (confirmLeave) {
           originalPush(url, options);
@@ -27,10 +27,10 @@ export function useOnLeavePageConfirmation(hasUnsavedChanges: boolean) {
       }
     };
 
-    window.addEventListener("beforeunload", handleBeforeUnload);
+    window.addEventListener('beforeunload', handleBeforeUnload);
 
     return () => {
-      window.removeEventListener("beforeunload", handleBeforeUnload);
+      window.removeEventListener('beforeunload', handleBeforeUnload);
       router.push = originalPush;
     };
   }, [router, hasUnsavedChanges]);

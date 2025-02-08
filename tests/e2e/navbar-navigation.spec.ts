@@ -1,22 +1,22 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from '@playwright/test';
 
-test("check if navbar with correct tag is present", async ({ page }) => {
+test('check if navbar with correct tag is present', async ({ page }) => {
   // Navigate to the page you want to test
-  await page.goto("/");
+  await page.goto('/');
 
   // Check if the navbar with aria-label="Navbar" is present
-  const navbar = await page.getByRole("tablist", { name: "Navbar" });
+  const navbar = await page.getByRole('tablist', { name: 'Navbar' });
   await expect(navbar).toBeVisible();
 
   if (navbar) {
     const tagName = await navbar.evaluate((el) => el.tagName.toLowerCase());
-    expect(tagName).toBe("nav");
+    expect(tagName).toBe('nav');
   }
 });
 
-test("go to experience page", async ({ page }) => {
+test('go to experience page', async ({ page }) => {
   // Navigate to the page you want to test
-  await page.goto("/");
+  await page.goto('/');
 
   // Locate the navbar with aria-label="Navbar" and tag <nav>
   const navbar = page.locator('nav[aria-label="Navbar"]');
@@ -28,12 +28,12 @@ test("go to experience page", async ({ page }) => {
 
   // Click the anchor button and verify the URL
   await anchor.click();
-  await expect(page).toHaveURL("/experience");
+  await expect(page).toHaveURL('/experience');
 });
 
-test("go to project page", async ({ page }) => {
+test('go to project page', async ({ page }) => {
   // Navigate to the page you want to test
-  await page.goto("/");
+  await page.goto('/');
 
   // Locate the navbar with aria-label="Navbar" and tag <nav>
   const navbar = page.locator('nav[aria-label="Navbar"]');
@@ -45,12 +45,12 @@ test("go to project page", async ({ page }) => {
 
   // Click the anchor button and verify the URL
   await anchor.click();
-  await expect(page).toHaveURL("/project");
+  await expect(page).toHaveURL('/project');
 });
 
-test("go to blog page", async ({ page }) => {
+test('go to blog page', async ({ page }) => {
   // Navigate to the page you want to test
-  await page.goto("/");
+  await page.goto('/');
 
   // Locate the navbar with aria-label="Navbar" and tag <nav>
   const navbar = page.locator('nav[aria-label="Navbar"]');
@@ -62,12 +62,12 @@ test("go to blog page", async ({ page }) => {
 
   // Click the anchor button and verify the URL
   await anchor.click();
-  await expect(page).toHaveURL("/blog");
+  await expect(page).toHaveURL('/blog');
 });
 
-test("go to stack page", async ({ page }) => {
+test('go to stack page', async ({ page }) => {
   // Navigate to the page you want to test
-  await page.goto("/");
+  await page.goto('/');
 
   // Locate the navbar with aria-label="Navbar" and tag <nav>
   const navbar = page.locator('nav[aria-label="Navbar"]');
@@ -79,12 +79,12 @@ test("go to stack page", async ({ page }) => {
 
   // Click the anchor button and verify the URL
   await anchor.click();
-  await expect(page).toHaveURL("/stack");
+  await expect(page).toHaveURL('/stack');
 });
 
-test("go to contact page", async ({ page }) => {
+test('go to contact page', async ({ page }) => {
   // Navigate to the page you want to test
-  await page.goto("/");
+  await page.goto('/');
 
   // Locate the navbar with aria-label="Navbar" and tag <nav>
   const navbar = page.locator('nav[aria-label="Navbar"]');
@@ -96,5 +96,5 @@ test("go to contact page", async ({ page }) => {
 
   // Click the anchor button and verify the URL
   await anchor.click();
-  await expect(page).toHaveURL("/contact");
+  await expect(page).toHaveURL('/contact');
 });

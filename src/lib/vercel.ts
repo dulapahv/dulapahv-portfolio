@@ -2,7 +2,7 @@ const vercelToken = process.env.VERCEL_TOKEN;
 const edgeConfigId = process.env.EDGE_CONFIG_ID;
 
 if (!vercelToken || !edgeConfigId) {
-  throw new Error("Missing Vercel Token, or Edge Config ID");
+  throw new Error('Missing Vercel Token, or Edge Config ID');
 }
 
 export const updateEdgeConfig = async (
@@ -11,19 +11,19 @@ export const updateEdgeConfig = async (
 ): Promise<void> => {
   const endpoint = new URL(
     `/v1/edge-config/${edgeConfigId}/items`,
-    "https://api.vercel.com",
+    'https://api.vercel.com',
   );
 
   const response = await fetch(endpoint, {
-    method: "PATCH",
+    method: 'PATCH',
     headers: {
       Authorization: `Bearer ${vercelToken}`,
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify({
       items: [
         {
-          operation: "upsert",
+          operation: 'upsert',
           key,
           value,
         },

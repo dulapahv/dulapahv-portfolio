@@ -1,1 +1,1 @@
-declare module "no-darkreader";
+declare module 'no-darkreader';

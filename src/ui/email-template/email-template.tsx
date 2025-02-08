@@ -10,10 +10,10 @@ import {
   Section,
   Tailwind,
   Text,
-} from "@react-email/components";
+} from '@react-email/components';
 
-import type { EmailTemplateProps } from "@/types/types";
-import { ASSETS_URL, BASE_URL, LINKEDIN_URL } from "@/lib/constants";
+import type { EmailTemplateProps } from '@/types/types';
+import { ASSETS_URL, BASE_URL, LINKEDIN_URL } from '@/lib/constants';
 
 export function EmailTemplate({
   name: fullName,
@@ -49,7 +49,7 @@ export function EmailTemplate({
               <Text className="text-sm/6 text-black">
                 <strong>Full Name:</strong> {fullName}
                 <br />
-                <strong>Email:</strong>{" "}
+                <strong>Email:</strong>{' '}
                 <Link
                   href={`mailto:${email}`}
                   className="text-[#fb568a] no-underline"
@@ -67,8 +67,8 @@ export function EmailTemplate({
               <Text className="text-sm/6 text-black">
                 <Link href={BASE_URL} className="text-[#fb568a] no-underline">
                   DulapahV's Portfolio
-                </Link>{" "}
-                ・{" "}
+                </Link>{' '}
+                ・{' '}
                 <Link
                   href={LINKEDIN_URL}
                   className="text-[#fb568a] no-underline"

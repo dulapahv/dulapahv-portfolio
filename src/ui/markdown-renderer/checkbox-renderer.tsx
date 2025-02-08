@@ -1,12 +1,12 @@
-import { Checkbox } from "@nextui-org/react";
+import { Checkbox } from '@nextui-org/react';
 
-import { cn } from "@/utils/cn";
+import { cn } from '@/utils/cn';
 
 export function checkboxRenderer(props: any) {
   return (
     <Checkbox
       isSelected={props.checked}
-      className={cn(props.disabled && "pointer-events-none")}
+      className={cn(props.disabled && 'pointer-events-none')}
       radius="sm"
       color="primary"
     >

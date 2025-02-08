@@ -1,17 +1,18 @@
-import { NextRequest, NextResponse } from "next/server";
-import { get } from "@vercel/edge-config";
+import { NextRequest, NextResponse } from 'next/server';
 
-import { parseError } from "./utils/parse-error";
+import { get } from '@vercel/edge-config';
+
+import { parseError } from './utils/parse-error';
 
 export const config = {
   matcher: [
-    "/experience/:path*",
-    "/project/:path*",
-    "/blog/:path*",
-    "/stack/:path*",
-    "/contact/:path*",
-    "/login",
-    "/dashboard/:path*",
+    '/experience/:path*',
+    '/project/:path*',
+    '/blog/:path*',
+    '/stack/:path*',
+    '/contact/:path*',
+    '/login',
+    '/dashboard/:path*',
   ],
 };
 
@@ -31,15 +32,15 @@ async function getFeatureFlag(flag: string) {
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  const featureEnabled = await getFeatureFlag(pathname.split("/")[1]);
+  const featureEnabled = await getFeatureFlag(pathname.split('/')[1]);
 
   if (featureEnabled) {
     return NextResponse.next();
   } else {
     const url = request.nextUrl.clone();
     url.pathname = `/maintenance`;
-    url.searchParams.set("path", pathname);
-    url.searchParams.set("reason", "feature-flag");
+    url.searchParams.set('path', pathname);
+    url.searchParams.set('reason', 'feature-flag');
     return NextResponse.rewrite(url);
   }
 }

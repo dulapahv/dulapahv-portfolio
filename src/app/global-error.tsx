@@ -1,21 +1,22 @@
-"use client";
+'use client';
 
-import { useEffect } from "react";
-import Error from "next/error";
-import { Poppins } from "next/font/google";
-import Image from "next/image";
-import Link from "next/link";
-import { Button, Link as NextUILink } from "@nextui-org/react";
-import * as Sentry from "@sentry/nextjs";
-import { ThemeProvider } from "next-themes";
+import { useEffect } from 'react';
+import Error from 'next/error';
+import { Poppins } from 'next/font/google';
+import Image from 'next/image';
+import Link from 'next/link';
 
-import { cn } from "@/utils/cn";
+import { Button, Link as NextUILink } from '@nextui-org/react';
+import * as Sentry from '@sentry/nextjs';
+import { ThemeProvider } from 'next-themes';
 
-import { Providers } from "./providers";
+import { cn } from '@/utils/cn';
+
+import { Providers } from './providers';
 
 const poppins = Poppins({
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  subsets: ["latin"],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  subsets: ['latin'],
 });
 
 export default function GlobalError({
@@ -37,7 +38,7 @@ export default function GlobalError({
     >
       <body
         className={cn(
-          "mx-auto my-4 mt-16 max-w-5xl text-pretty px-4 antialiased sm:px-16 lg:mt-32",
+          'mx-auto my-4 mt-16 max-w-5xl text-pretty px-4 antialiased sm:px-16 lg:mt-32',
           poppins.className,
         )}
       >
@@ -45,14 +46,18 @@ export default function GlobalError({
           <div
             aria-hidden
             role="presentation"
-            className="pointer-events-none fixed -right-[35%] -top-[25%] -z-50 size-full select-none overflow-clip opacity-50 mix-blend-darken hue-rotate-[45deg] dark:mix-blend-lighten sm:rotate-[20deg]"
+            className="pointer-events-none fixed -right-[35%] -top-[25%] -z-50 size-full select-none
+              overflow-clip opacity-50 mix-blend-darken hue-rotate-[45deg]
+              dark:mix-blend-lighten sm:rotate-[20deg]"
           >
             <Image src="/pinku.png" alt="" fill priority />
           </div>
           <div
             aria-hidden
             role="presentation"
-            className="pointer-events-none fixed -bottom-[15%] -left-[25%] -z-50 size-[80%] select-none overflow-clip opacity-90 mix-blend-darken dark:opacity-60 dark:mix-blend-lighten sm:rotate-[15deg]"
+            className="pointer-events-none fixed -bottom-[15%] -left-[25%] -z-50 size-[80%] select-none
+              overflow-clip opacity-90 mix-blend-darken dark:opacity-60 dark:mix-blend-lighten
+              sm:rotate-[15deg]"
           >
             <Image src="/ao.png" alt="" fill priority />
           </div>
@@ -64,7 +69,7 @@ export default function GlobalError({
               <main className="space-y-4">
                 <p className="text-default-600">
                   An error occurred while rendering this page and the developer
-                  has been notified. Please try again later or{" "}
+                  has been notified. Please try again later or{' '}
                   <NextUILink
                     href={`/contact?message=${encodeURIComponent(
                       `Details:\nStatus: 500\nTimestamp: ${new Date().toLocaleString()} (${new Date().toISOString()})\nDigest: ${error.digest}`,
@@ -75,7 +80,7 @@ export default function GlobalError({
                     showAnchorIcon
                   >
                     contact me
-                  </NextUILink>{" "}
+                  </NextUILink>{' '}
                   if you have any questions.
                 </p>
                 <Button onPress={() => reset()} color="primary" radius="sm">

@@ -1,1 +1,1 @@
-export * from "./pagination-footer";
+export * from './pagination-footer';

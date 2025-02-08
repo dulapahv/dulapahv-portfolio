@@ -1,11 +1,12 @@
-import Link from "next/link";
-import { Link as NextUILink } from "@nextui-org/react";
-import { Link as LuLink } from "lucide-react";
+import Link from 'next/link';
 
-import { cn } from "@/utils/cn";
+import { Link as NextUILink } from '@nextui-org/react';
+import { Link as LuLink } from 'lucide-react';
+
+import { cn } from '@/utils/cn';
 
 export function aRenderer(props: any) {
-  if ((props.node.properties.href as string).startsWith("#")) {
+  if ((props.node.properties.href as string).startsWith('#')) {
     return (
       <NextUILink
         href={props.href}
@@ -25,7 +26,7 @@ export function aRenderer(props: any) {
       underline="hover"
       isExternal
       showAnchorIcon
-      className={cn("no-underline", props.className)}
+      className={cn('no-underline', props.className)}
     >
       {props.children}
     </NextUILink>

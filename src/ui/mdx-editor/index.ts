@@ -1,1 +1,1 @@
-export * from "./mdx-editor";
+export * from './mdx-editor';

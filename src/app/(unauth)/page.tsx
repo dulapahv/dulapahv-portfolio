@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
-import { Link as NextUILink } from "@nextui-org/react";
-import { Article, WithContext } from "schema-dts";
+import type { Metadata } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
 
-import { getManyEducation } from "@/data/get-education";
+import { Link as NextUILink } from '@nextui-org/react';
+import { Article, WithContext } from 'schema-dts';
+
+import { EducationWithPlace } from '@/types/prisma';
 import {
   ASSETS_URL,
   BASE_URL,
@@ -15,14 +16,14 @@ import {
   NAME,
   SITE_NAME,
   VISITED_LOCATIONS,
-} from "@/lib/constants";
-import { EducationWithPlace } from "@/types/prisma";
-import { Clock } from "@/ui/clock";
-import { Globe } from "@/ui/globe";
-import { MarkdownRenderer } from "@/ui/markdown-renderer";
-import { dynamicBlurDataUrl } from "@/utils/dynamic-blur-data-url";
-import { formatDate } from "@/utils/format-date";
-import { getRepoCount } from "@/utils/get-repo-count";
+} from '@/lib/constants';
+import { dynamicBlurDataUrl } from '@/utils/dynamic-blur-data-url';
+import { formatDate } from '@/utils/format-date';
+import { getRepoCount } from '@/utils/get-repo-count';
+import { getManyEducation } from '@/data/get-education';
+import { Clock } from '@/ui/clock';
+import { Globe } from '@/ui/globe';
+import { MarkdownRenderer } from '@/ui/markdown-renderer';
 
 export const metadata: Metadata = {
   title: SITE_NAME,
@@ -55,27 +56,27 @@ export default async function Home() {
         endDate: true,
       },
       orderBy: {
-        endDate: "desc",
+        endDate: 'desc',
       },
     })
   ).item as EducationWithPlace[];
 
   const jsonLd: WithContext<Article> = {
-    "@context": "https://schema.org",
-    "@type": "Article",
+    '@context': 'https://schema.org',
+    '@type': 'Article',
     mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": BASE_URL,
+      '@type': 'WebPage',
+      '@id': BASE_URL,
     },
     headline: SITE_NAME,
     description: DESCRIPTION,
     author: {
-      "@type": "Person",
+      '@type': 'Person',
       name: NAME,
       url: BASE_URL,
     },
     publisher: {
-      "@type": "Person",
+      '@type': 'Person',
       name: NAME,
       url: BASE_URL,
     },
@@ -90,16 +91,22 @@ export default async function Home() {
         />
       </section>
       <div className="space-y-8">
-        <header className="prose prose-neutral flex max-w-none flex-col justify-between gap-y-4 dark:prose-invert md:flex-row">
+        <header
+          className="prose prose-neutral flex max-w-none flex-col justify-between gap-y-4
+            dark:prose-invert md:flex-row"
+        >
           <div className="order-2 w-full md:order-2 md:w-3/5">
             <h1 className="text-2xl/10 font-semibold text-default-700 md:text-3xl/[3rem]">
               <span className="text-primary">
-                Hello{" "}
+                Hello{' '}
                 <span className="inline-block cursor-grab hover:animate-wave">
                   👋
-                </span>{" "}
-                I&apos;m {NAME}{" "}
-                <span className="not-prose inline-flex size-8 items-center rounded-md border border-default-300 bg-default-50 align-text-bottom shadow md:size-[38px]">
+                </span>{' '}
+                I&apos;m {NAME}{' '}
+                <span
+                  className="not-prose inline-flex size-8 items-center rounded-md border border-default-300
+                    bg-default-50 align-text-bottom shadow md:size-[38px]"
+                >
                   <Link
                     href={LINKEDIN_URL}
                     target="_blank"
@@ -115,9 +122,12 @@ export default async function Home() {
                   </Link>
                 </span>
                 .
-              </span>{" "}
-              I'm a Thai 🛺 Software Engineer{" "}
-              <span className="not-prose inline-flex items-center rounded-md border border-default-300 bg-default-50 align-text-bottom shadow">
+              </span>{' '}
+              I'm a Thai 🛺 Software Engineer{' '}
+              <span
+                className="not-prose inline-flex items-center rounded-md border border-default-300
+                  bg-default-50 align-text-bottom shadow"
+              >
                 <Link
                   href={GITHUB_URL}
                   target="_blank"
@@ -132,7 +142,7 @@ export default async function Home() {
                   />
                 </Link>
                 <span className="px-3 py-1 text-base">{getRepoCount()}</span>
-              </span>{" "}
+              </span>{' '}
               currently based in Glasgow, Scotland <Clock />.
             </h1>
           </div>
@@ -151,13 +161,16 @@ export default async function Home() {
           </div>
         </header>
         <main className="space-y-8">
-          <blockquote className="relative flex items-center rounded-md border border-default-200 bg-default-50/50 p-2 pl-6">
+          <blockquote
+            className="relative flex items-center rounded-md border border-default-200 bg-default-50/50
+              p-2 pl-6"
+          >
             <span className="absolute left-0 mr-4 h-full w-2 rounded-l-md bg-primary" />
             "Technology has the power to transform lives, and I am passionate
             about making technology equally accessible to everyone"
           </blockquote>
           <p>
-            I had the opportunity to contribute as a Software Engineer Intern at{" "}
+            I had the opportunity to contribute as a Software Engineer Intern at{' '}
             <NextUILink
               as={Link}
               href="https://www.natwestgroup.com/"
@@ -187,7 +200,7 @@ export default async function Home() {
             comprehensive web applications.
           </p>
           <p>
-            I hold a BSc Honours in Software Engineering from the{" "}
+            I hold a BSc Honours in Software Engineering from the{' '}
             <Link
               href="https://www.gla.ac.uk/"
               className="text-primary duration-100 hover:underline"
@@ -195,8 +208,8 @@ export default async function Home() {
               rel="noopener noreferrer"
             >
               University of Glasgow
-            </Link>{" "}
-            and a BEng in Software Engineering from{" "}
+            </Link>{' '}
+            and a BEng in Software Engineering from{' '}
             <Link
               href="https://www.kmitl.ac.th/"
               className="text-primary duration-100 hover:underline"

@@ -1,11 +1,12 @@
-"use client";
+'use client';
 
-import { MutableRefObject, useRef, useState } from "react";
-import { Turnstile, TurnstileInstance } from "@marsidev/react-turnstile";
-import { Button, Spinner } from "@nextui-org/react";
-import { useTheme } from "next-themes";
+import { MutableRefObject, useRef, useState } from 'react';
 
-import { CLOUDFLARE_TURNSTILE_SITE_KEY } from "@/lib/constants";
+import { Turnstile, TurnstileInstance } from '@marsidev/react-turnstile';
+import { Button, Spinner } from '@nextui-org/react';
+import { useTheme } from 'next-themes';
+
+import { CLOUDFLARE_TURNSTILE_SITE_KEY } from '@/lib/constants';
 
 interface CaptchaProps {
   onVerifyCaptcha: (token: string) => void;
@@ -17,7 +18,7 @@ export function Captcha({ onVerifyCaptcha, captchaRef }: CaptchaProps) {
 
   const [isCaptchaLoading, setIsCaptchaLoading] = useState(true);
   const [isCaptchaError, setIsCaptchaError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState<string>("");
+  const [errorMessage, setErrorMessage] = useState<string>('');
 
   const turnstileRef = useRef<TurnstileInstance>(null);
 
@@ -30,12 +31,12 @@ export function Captcha({ onVerifyCaptcha, captchaRef }: CaptchaProps) {
 
   function handleCaptchaExpired() {
     setIsCaptchaError(true);
-    setErrorMessage("Captcha expired. Please try again.");
+    setErrorMessage('Captcha expired. Please try again.');
   }
 
   function handleCaptchaError() {
     setIsCaptchaError(true);
-    setErrorMessage("Captcha verification failed. Please try again.");
+    setErrorMessage('Captcha verification failed. Please try again.');
   }
 
   function handleCaptchaSuccess(token: string) {
@@ -53,9 +54,9 @@ export function Captcha({ onVerifyCaptcha, captchaRef }: CaptchaProps) {
       <Spinner
         size="sm"
         classNames={{
-          wrapper: "!size-4",
-          circle1: "border-b-warning",
-          circle2: "border-b-warning",
+          wrapper: '!size-4',
+          circle1: 'border-b-warning',
+          circle2: 'border-b-warning',
         }}
       />
       <p className="text-xs text-warning">{text}</p>
@@ -72,14 +73,17 @@ export function Captcha({ onVerifyCaptcha, captchaRef }: CaptchaProps) {
         onExpire={handleCaptchaExpired}
         onWidgetLoad={handleCaptchaLoad}
         options={{
-          theme: resolvedTheme === "dark" ? "dark" : "light",
-          size: "auto",
+          theme: resolvedTheme === 'dark' ? 'dark' : 'light',
+          size: 'auto',
         }}
       />
       {isCaptchaLoading ? (
-        <div className="flex h-16 w-[300px] items-center border-[0.5px] border-[#e0e0e0] bg-neutral-50 dark:border-[#666666] dark:bg-[#222222]">
+        <div
+          className="flex h-16 w-[300px] items-center border-[0.5px] border-[#e0e0e0] bg-neutral-50
+            dark:border-[#666666] dark:bg-[#222222]"
+        >
           <div className="m-4 flex gap-x-2">
-            {renderLoadingSpinner("Loading Captcha...")}
+            {renderLoadingSpinner('Loading Captcha...')}
           </div>
         </div>
       ) : (

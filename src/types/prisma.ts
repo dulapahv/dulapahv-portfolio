@@ -8,7 +8,7 @@ import {
   Project,
   Stack,
   Tag,
-} from "@prisma/client";
+} from '@prisma/client';
 
 export type ExperienceWithPlace = Experience & {
   place: Place & {

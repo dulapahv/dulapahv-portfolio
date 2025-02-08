@@ -1,16 +1,14 @@
-import { ReloadButton } from "@/ui/reload-button";
+import { ReloadButton } from '@/ui/reload-button';
 
-export default async function Page(
-  props: {
-    searchParams?: Promise<{
-      path: string;
-      reason: string;
-    }>;
-  }
-) {
+export default async function Page(props: {
+  searchParams?: Promise<{
+    path: string;
+    reason: string;
+  }>;
+}) {
   const searchParams = await props.searchParams;
-  const path = searchParams?.path || "/";
-  const reason = searchParams?.reason || "Unknown Reason";
+  const path = searchParams?.path || '/';
+  const reason = searchParams?.reason || 'Unknown Reason';
 
   return (
     <div className="space-y-8">

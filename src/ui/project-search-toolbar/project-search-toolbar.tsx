@@ -1,7 +1,8 @@
-"use client";
+'use client';
 
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+
 import {
   Accordion,
   AccordionItem,
@@ -12,23 +13,23 @@ import {
   SelectItem,
   SelectSection,
   Spinner,
-} from "@nextui-org/react";
+} from '@nextui-org/react';
 import {
   ArrowDownWideNarrow,
   ChevronsUpDown,
   Filter,
   Search,
   Settings,
-} from "lucide-react";
-import { isMobile } from "react-device-detect";
-import { useDebouncedCallback } from "use-debounce";
+} from 'lucide-react';
+import { isMobile } from 'react-device-detect';
+import { useDebouncedCallback } from 'use-debounce';
 
-import type { TagWithStacks } from "@/types/prisma";
+import type { TagWithStacks } from '@/types/prisma';
 import {
   itemsPerPageOptions,
   sortByOptions,
   typeOptions,
-} from "@/lib/constants";
+} from '@/lib/constants';
 
 interface ProjectSearchToolbarProps {
   count: number;
@@ -43,7 +44,7 @@ export function ProjectSearchToolbar({
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const [search, setSearch] = useState(searchParams.get("search") || "");
+  const [search, setSearch] = useState(searchParams.get('search') || '');
   const [isTagChanged, setIsTagChanged] = useState(false);
   const [isSearchLoading, setIsSearchLoading] = useState(false);
   const [isTypeLoading, setIsLocationLoading] = useState(false);
@@ -51,20 +52,20 @@ export function ProjectSearchToolbar({
   const [isSortByLoading, setIsSortByLoading] = useState(false);
   const [isPerPageLoading, setIsPerPageLoading] = useState(false);
 
-  const page = Number(searchParams.get("page")) || 1;
-  const perPage = Number(searchParams.get("perPage")) || 5;
-  const type = searchParams.get("type") || "";
-  const tagId = searchParams.get("tagId") || "";
-  const sortBy = searchParams.get("sortBy") || "end-date-desc";
+  const page = Number(searchParams.get('page')) || 1;
+  const perPage = Number(searchParams.get('perPage')) || 5;
+  const type = searchParams.get('type') || '';
+  const tagId = searchParams.get('tagId') || '';
+  const sortBy = searchParams.get('sortBy') || 'end-date-desc';
 
   const [perPageSelect, setPerPageSelect] = useState<Selection>(
     new Set([perPage.toString()]),
   );
   const [typeSelect, setTypeSelect] = useState<Selection>(
-    type ? new Set(type.split(",")) : new Set([]),
+    type ? new Set(type.split(',')) : new Set([]),
   );
   const [tagSelect, setTagSelect] = useState<Selection>(
-    tagId ? new Set(tagId.split(",")) : new Set([]),
+    tagId ? new Set(tagId.split(',')) : new Set([]),
   );
   const [sortBySelect, setSortBySelect] = useState<Selection>(
     new Set([sortBy]),
@@ -73,8 +74,8 @@ export function ProjectSearchToolbar({
   const debouncedHandleSearch = useDebouncedCallback((search: string) => {
     setIsSearchLoading(true);
     const params = new URLSearchParams(searchParams);
-    params.set("page", "1");
-    search ? params.set("search", search) : params.delete("search");
+    params.set('page', '1');
+    search ? params.set('search', search) : params.delete('search');
     router.push(`${pathname}?${params.toString()}`);
   }, 300);
 
@@ -95,7 +96,7 @@ export function ProjectSearchToolbar({
   );
 
   const handleClear = useCallback(
-    () => handleSearchValueChange(""),
+    () => handleSearchValueChange(''),
     [handleSearchValueChange],
   );
 
@@ -104,8 +105,8 @@ export function ProjectSearchToolbar({
       setPerPageSelect(value);
       setIsPerPageLoading(true);
       const params = new URLSearchParams(searchParams);
-      params.set("page", "1");
-      params.set("perPage", Array.from(value)[0].toString());
+      params.set('page', '1');
+      params.set('perPage', Array.from(value)[0].toString());
       router.push(`${pathname}?${params.toString()}`);
     },
     [searchParams, pathname, router],
@@ -116,10 +117,10 @@ export function ProjectSearchToolbar({
       setTypeSelect(value);
       setIsLocationLoading(true);
       const params = new URLSearchParams(searchParams);
-      params.set("page", "1");
+      params.set('page', '1');
       Array.from(value).length === 0
-        ? params.delete("type")
-        : params.set("type", Array.from(value).join(","));
+        ? params.delete('type')
+        : params.set('type', Array.from(value).join(','));
       router.push(`${pathname}?${params.toString()}`);
     },
     [searchParams, pathname, router],
@@ -128,12 +129,12 @@ export function ProjectSearchToolbar({
   const handleTagChange = useCallback(() => {
     if (!isTagChanged) return;
     const params = new URLSearchParams(searchParams);
-    if (!params.get("tagId") && Array.from(tagSelect).length === 0) return;
+    if (!params.get('tagId') && Array.from(tagSelect).length === 0) return;
     setIsTagLoading(true);
-    params.set("page", "1");
+    params.set('page', '1');
     Array.from(tagSelect).length === 0
-      ? params.delete("tagId")
-      : params.set("tagId", Array.from(tagSelect).join(","));
+      ? params.delete('tagId')
+      : params.set('tagId', Array.from(tagSelect).join(','));
     router.push(`${pathname}?${params.toString()}`);
   }, [searchParams, tagSelect, pathname, router]);
 
@@ -142,12 +143,12 @@ export function ProjectSearchToolbar({
     if (Array.from(typeSelect).length > 0) {
       setIsLocationLoading(true);
       setTypeSelect(new Set([]));
-      params.delete("type");
+      params.delete('type');
     }
     if (Array.from(tagSelect).length > 0) {
       setIsTagLoading(true);
       setTagSelect(new Set([]));
-      params.delete("tagId");
+      params.delete('tagId');
     }
     router.push(`${pathname}?${params.toString()}`);
   }, [searchParams, pathname, router]);
@@ -157,8 +158,8 @@ export function ProjectSearchToolbar({
       setSortBySelect(value);
       setIsSortByLoading(true);
       const params = new URLSearchParams(searchParams);
-      params.set("page", "1");
-      params.set("sortBy", Array.from(value)[0].toString());
+      params.set('page', '1');
+      params.set('sortBy', Array.from(value)[0].toString());
       router.push(`${pathname}?${params.toString()}`);
     },
     [searchParams, pathname, router],
@@ -169,9 +170,9 @@ export function ProjectSearchToolbar({
       <Spinner
         size="sm"
         classNames={{
-          base: "w-[18px]",
-          circle1: "border-b-primary",
-          circle2: "border-b-primary",
+          base: 'w-[18px]',
+          circle1: 'border-b-primary',
+          circle2: 'border-b-primary',
         }}
       />
     ) : (
@@ -188,7 +189,7 @@ export function ProjectSearchToolbar({
 
     return (
       <p className="order-2 text-sm text-default-800 min-[425px]:order-1">
-        Showing <span>{start}</span> - <span>{end}</span> of{" "}
+        Showing <span>{start}</span> - <span>{end}</span> of{' '}
         <span>{count}</span>
       </p>
     );
@@ -209,13 +210,13 @@ export function ProjectSearchToolbar({
         startContent={startContent}
         classNames={{
           inputWrapper:
-            "data-[focus-visible=true]:!ring-0 data-[focus-visible=true]:!ring-offset-transparent data-[focus-visible=true]:!ring-offset-0",
+            'data-[focus-visible=true]:!ring-0 data-[focus-visible=true]:!ring-offset-transparent data-[focus-visible=true]:!ring-offset-0',
         }}
       />
       <Accordion
         isCompact
         defaultExpandedKeys={
-          tagId || sortBy !== "end-date-desc" ? ["1"] : undefined
+          tagId || sortBy !== 'end-date-desc' ? ['1'] : undefined
         }
         className="px-0"
       >
@@ -225,10 +226,10 @@ export function ProjectSearchToolbar({
           title="Advanced Options"
           startContent={<Settings size={20} className="text-default-600" />}
           classNames={{
-            title: "text-sm text-default-700",
+            title: 'text-sm text-default-700',
             trigger:
-              "[&>div>*]:data-[hover=true]:text-primary [&>div>*]:duration-100",
-            indicator: "text-primary",
+              '[&>div>*]:data-[hover=true]:text-primary [&>div>*]:duration-100',
+            indicator: 'text-primary',
           }}
         >
           <div className="flex flex-col gap-1 md:flex-row md:items-center">
@@ -255,28 +256,28 @@ export function ProjectSearchToolbar({
                   <ChevronsUpDown size={20} className="text-default-400" />
                 }
                 classNames={{
-                  base: "w-full md:w-fit items-center",
-                  label: "text-sm",
-                  mainWrapper: "md:w-64",
-                  value: "text-default-800",
+                  base: 'w-full md:w-fit items-center',
+                  label: 'text-sm',
+                  mainWrapper: 'md:w-64',
+                  value: 'text-default-800',
                 }}
                 popoverProps={{
                   classNames: {
                     content:
-                      "rounded-lg px-1 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg [-webkit-backdrop-filter:blur(16px)] backdrop-filter border border-default-50",
+                      'rounded-lg px-1 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg [-webkit-backdrop-filter:blur(16px)] backdrop-filter border border-default-50',
                   },
                 }}
                 listboxProps={{
                   itemClasses: {
-                    base: "rounded-md dark:data-[hover=true]:bg-zinc-800/50 data-[hover=true]:bg-zinc-200/50 dark:focus:!bg-zinc-800/50 focus:!bg-zinc-200/50",
-                    selectedIcon: "text-primary",
+                    base: 'rounded-md dark:data-[hover=true]:bg-zinc-800/50 data-[hover=true]:bg-zinc-200/50 dark:focus:!bg-zinc-800/50 focus:!bg-zinc-200/50',
+                    selectedIcon: 'text-primary',
                   },
                 }}
                 spinnerProps={{
                   classNames: {
-                    base: "w-[18px]",
-                    circle1: "border-b-primary",
-                    circle2: "border-b-primary",
+                    base: 'w-[18px]',
+                    circle1: 'border-b-primary',
+                    circle2: 'border-b-primary',
                   },
                 }}
               >
@@ -305,28 +306,28 @@ export function ProjectSearchToolbar({
                   <ChevronsUpDown size={20} className="text-default-400" />
                 }
                 classNames={{
-                  base: "w-full md:w-fit items-center",
-                  label: "text-sm",
-                  mainWrapper: "md:w-64",
-                  value: "text-default-800",
+                  base: 'w-full md:w-fit items-center',
+                  label: 'text-sm',
+                  mainWrapper: 'md:w-64',
+                  value: 'text-default-800',
                 }}
                 popoverProps={{
                   classNames: {
                     content:
-                      "rounded-lg px-1 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg [-webkit-backdrop-filter:blur(16px)] backdrop-filter border border-default-50",
+                      'rounded-lg px-1 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg [-webkit-backdrop-filter:blur(16px)] backdrop-filter border border-default-50',
                   },
                 }}
                 listboxProps={{
                   itemClasses: {
-                    base: "rounded-md dark:data-[hover=true]:bg-zinc-800/50 data-[hover=true]:bg-zinc-200/50 dark:focus:!bg-zinc-800/50 focus:!bg-zinc-200/50",
-                    selectedIcon: "text-primary",
+                    base: 'rounded-md dark:data-[hover=true]:bg-zinc-800/50 data-[hover=true]:bg-zinc-200/50 dark:focus:!bg-zinc-800/50 focus:!bg-zinc-200/50',
+                    selectedIcon: 'text-primary',
                   },
                 }}
                 spinnerProps={{
                   classNames: {
-                    base: "w-[18px]",
-                    circle1: "border-b-primary",
-                    circle2: "border-b-primary",
+                    base: 'w-[18px]',
+                    circle1: 'border-b-primary',
+                    circle2: 'border-b-primary',
                   },
                 }}
                 renderValue={(items) => (
@@ -342,7 +343,7 @@ export function ProjectSearchToolbar({
                     title={tag.name}
                     classNames={{
                       heading:
-                        "flex w-full sticky top-1 z-20 py-1.5 px-2 bg-default-50 shadow-small rounded-md",
+                        'flex w-full sticky top-1 z-20 py-1.5 px-2 bg-default-50 shadow-small rounded-md',
                     }}
                   >
                     {tag.stacks.map((stack) => (
@@ -381,28 +382,28 @@ export function ProjectSearchToolbar({
                   <ChevronsUpDown size={20} className="text-default-400" />
                 }
                 classNames={{
-                  base: "w-fit items-center",
-                  label: "text-sm",
-                  mainWrapper: "w-48",
-                  value: "text-default-800",
+                  base: 'w-fit items-center',
+                  label: 'text-sm',
+                  mainWrapper: 'w-48',
+                  value: 'text-default-800',
                 }}
                 popoverProps={{
                   classNames: {
                     content:
-                      "rounded-lg px-1 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg [-webkit-backdrop-filter:blur(16px)] backdrop-filter border border-default-50",
+                      'rounded-lg px-1 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg [-webkit-backdrop-filter:blur(16px)] backdrop-filter border border-default-50',
                   },
                 }}
                 listboxProps={{
                   itemClasses: {
-                    base: "rounded-md dark:data-[hover=true]:bg-zinc-800/50 data-[hover=true]:bg-zinc-200/50 dark:focus:!bg-zinc-800/50 focus:!bg-zinc-200/50",
-                    selectedIcon: "text-primary",
+                    base: 'rounded-md dark:data-[hover=true]:bg-zinc-800/50 data-[hover=true]:bg-zinc-200/50 dark:focus:!bg-zinc-800/50 focus:!bg-zinc-200/50',
+                    selectedIcon: 'text-primary',
                   },
                 }}
                 spinnerProps={{
                   classNames: {
-                    base: "w-[18px]",
-                    circle1: "border-b-primary",
-                    circle2: "border-b-primary",
+                    base: 'w-[18px]',
+                    circle1: 'border-b-primary',
+                    circle2: 'border-b-primary',
                   },
                 }}
               >
@@ -412,7 +413,10 @@ export function ProjectSearchToolbar({
           </div>
         </AccordionItem>
       </Accordion>
-      <div className="flex flex-col justify-between gap-y-1 min-[425px]:flex-row min-[425px]:items-center">
+      <div
+        className="flex flex-col justify-between gap-y-1 min-[425px]:flex-row
+          min-[425px]:items-center"
+      >
         {showingText}
         <Select
           label="Items per page"
@@ -430,28 +434,28 @@ export function ProjectSearchToolbar({
             <ChevronsUpDown size={20} className="text-default-400" />
           }
           classNames={{
-            base: "w-fit items-center order-1 min-[425px]:order-2",
-            label: "text-sm text-default-800",
-            mainWrapper: "w-20",
-            value: "text-default-800",
+            base: 'w-fit items-center order-1 min-[425px]:order-2',
+            label: 'text-sm text-default-800',
+            mainWrapper: 'w-20',
+            value: 'text-default-800',
           }}
           popoverProps={{
             classNames: {
               content:
-                "rounded-lg px-1 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg [-webkit-backdrop-filter:blur(16px)] backdrop-filter border border-default-50",
+                'rounded-lg px-1 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg [-webkit-backdrop-filter:blur(16px)] backdrop-filter border border-default-50',
             },
           }}
           listboxProps={{
             itemClasses: {
-              base: "rounded-md dark:data-[hover=true]:bg-zinc-800/50 data-[hover=true]:bg-zinc-200/50 dark:focus:!bg-zinc-800/50 focus:!bg-zinc-200/50",
-              selectedIcon: "text-primary",
+              base: 'rounded-md dark:data-[hover=true]:bg-zinc-800/50 data-[hover=true]:bg-zinc-200/50 dark:focus:!bg-zinc-800/50 focus:!bg-zinc-200/50',
+              selectedIcon: 'text-primary',
             },
           }}
           spinnerProps={{
             classNames: {
-              base: "w-[18px]",
-              circle1: "border-b-primary",
-              circle2: "border-b-primary",
+              base: 'w-[18px]',
+              circle1: 'border-b-primary',
+              circle2: 'border-b-primary',
             },
           }}
         >

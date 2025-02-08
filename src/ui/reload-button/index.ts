@@ -1,1 +1,1 @@
-export * from "./reload-button";
+export * from './reload-button';

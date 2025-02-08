@@ -1,9 +1,10 @@
-"use client";
+'use client';
 
-import { useEffect } from "react";
-import Link from "next/link";
-import { Button, Link as NextUILink } from "@nextui-org/react";
-import * as Sentry from "@sentry/nextjs";
+import { useEffect } from 'react';
+import Link from 'next/link';
+
+import { Button, Link as NextUILink } from '@nextui-org/react';
+import * as Sentry from '@sentry/nextjs';
 
 export default function Error({
   error,
@@ -24,7 +25,7 @@ export default function Error({
       <main className="space-y-4">
         <p className="text-default-600">
           An error occurred while rendering this page and the developer has been
-          notified. Please try again later or{" "}
+          notified. Please try again later or{' '}
           <NextUILink
             href={`/contact?message=${encodeURIComponent(
               `Details:\nStatus: 500\nTimestamp: ${new Date().toLocaleString()} (${new Date().toISOString()})\nDigest: ${error.digest}`,
@@ -35,7 +36,7 @@ export default function Error({
             showAnchorIcon
           >
             contact me
-          </NextUILink>{" "}
+          </NextUILink>{' '}
           if you have any questions.
         </p>
         <Button onPress={() => reset()} color="primary" radius="sm">
@@ -51,11 +52,11 @@ export default function Error({
           <br />
           {`Digest: ${error.digest}`}
           <br />
-          {process.env.NEXT_PUBLIC_ENV === "development"
+          {process.env.NEXT_PUBLIC_ENV === 'development'
             ? `Reason: ${error.name} - ${error.message}`
             : null}
           <br />
-          {process.env.NEXT_PUBLIC_ENV === "development"
+          {process.env.NEXT_PUBLIC_ENV === 'development'
             ? `Stack: ${error.stack}`
             : null}
         </code>

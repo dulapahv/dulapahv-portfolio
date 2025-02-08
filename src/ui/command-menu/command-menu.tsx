@@ -1,8 +1,9 @@
-"use client";
+'use client';
 
-import { forwardRef, useEffect, useImperativeHandle, useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { forwardRef, useEffect, useImperativeHandle, useState } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
 import {
   Chip,
   Divider,
@@ -16,11 +17,11 @@ import {
   ModalContent,
   ModalHeader,
   useDisclosure,
-} from "@nextui-org/react";
-import { useTheme } from "next-themes";
-import { isMobile } from "react-device-detect";
+} from '@nextui-org/react';
+import { useTheme } from 'next-themes';
+import { isMobile } from 'react-device-detect';
 
-import { commands } from "./commands";
+import { commands } from './commands';
 
 export interface CommandMenuModalRef {
   openModal: () => void;
@@ -28,7 +29,7 @@ export interface CommandMenuModalRef {
 }
 
 const CommandMenu = forwardRef<CommandMenuModalRef>((props, ref) => {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
 
   const { isOpen, onClose, onOpen, onOpenChange } = useDisclosure();
   const { theme, setTheme } = useTheme();
@@ -41,7 +42,7 @@ const CommandMenu = forwardRef<CommandMenuModalRef>((props, ref) => {
 
   useEffect(() => {
     if (!isOpen) {
-      setSearch("");
+      setSearch('');
     }
   }, [isOpen]);
 
@@ -66,11 +67,11 @@ const CommandMenu = forwardRef<CommandMenuModalRef>((props, ref) => {
       <ListboxSection key={section} title={section}>
         {sectionCommands.map((command) => {
           if (
-            command.key === "copy_short_url" &&
-            !pathname.startsWith("/experience/") &&
-            !pathname.startsWith("/project/") &&
-            !pathname.startsWith("/blog/") &&
-            !pathname.startsWith("/stack/")
+            command.key === 'copy_short_url' &&
+            !pathname.startsWith('/experience/') &&
+            !pathname.startsWith('/project/') &&
+            !pathname.startsWith('/blog/') &&
+            !pathname.startsWith('/stack/')
           )
             return (
               <ListboxItem
@@ -87,9 +88,9 @@ const CommandMenu = forwardRef<CommandMenuModalRef>((props, ref) => {
               key={command.key}
               startContent={command.icon}
               endContent={
-                command.key === "system" ||
-                command.key === "light" ||
-                command.key === "dark" ? (
+                command.key === 'system' ||
+                command.key === 'light' ||
+                command.key === 'dark' ? (
                   theme === command.key ? (
                     <Chip
                       variant="bordered"
@@ -102,7 +103,7 @@ const CommandMenu = forwardRef<CommandMenuModalRef>((props, ref) => {
               }
               href={command.href}
               classNames={{
-                base: "dark:data-[hover=true]:bg-zinc-700/50 data-[hover=true]:bg-zinc-200/50 py-2.5",
+                base: 'dark:data-[hover=true]:bg-zinc-700/50 data-[hover=true]:bg-zinc-200/50 py-2.5',
               }}
             >
               {command.label}
@@ -123,8 +124,8 @@ const CommandMenu = forwardRef<CommandMenuModalRef>((props, ref) => {
       scrollBehavior="inside"
       backdrop="transparent"
       classNames={{
-        wrapper: "!items-start overflow-y-hidden",
-        base: "min-[575px]:my-16 min-[375px]:mx-4 mx-0 my-4 min-[575px]:mx-6 border shadow-medium border-default-200 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg [-webkit-backdrop-filter:blur(16px)] backdrop-filter !max-h-[512px]",
+        wrapper: '!items-start overflow-y-hidden',
+        base: 'min-[575px]:my-16 min-[375px]:mx-4 mx-0 my-4 min-[575px]:mx-6 border shadow-medium border-default-200 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg [-webkit-backdrop-filter:blur(16px)] backdrop-filter !max-h-[512px]',
       }}
       motionProps={{
         variants: {
@@ -134,7 +135,7 @@ const CommandMenu = forwardRef<CommandMenuModalRef>((props, ref) => {
             scale: 1,
             transition: {
               duration: 0.2,
-              ease: "easeOut",
+              ease: 'easeOut',
             },
           },
           exit: {
@@ -143,7 +144,7 @@ const CommandMenu = forwardRef<CommandMenuModalRef>((props, ref) => {
             scale: 0.95,
             transition: {
               duration: 0.1,
-              ease: "easeIn",
+              ease: 'easeIn',
             },
           },
         },
@@ -181,11 +182,12 @@ const CommandMenu = forwardRef<CommandMenuModalRef>((props, ref) => {
                   onValueChange={setSearch}
                   classNames={{
                     inputWrapper:
-                      "px-0 bg-transparent group-data-[hover=true]:bg-transparent data-[focus=true]:!bg-transparent data-[focus-visible=true]:!ring-0 data-[focus-visible=true]:!ring-offset-transparent data-[focus-visible=true]:!ring-offset-0",
+                      'px-0 bg-transparent group-data-[hover=true]:bg-transparent data-[focus=true]:!bg-transparent data-[focus-visible=true]:!ring-0 data-[focus-visible=true]:!ring-offset-transparent data-[focus-visible=true]:!ring-offset-0',
                   }}
                 />
                 <Kbd
-                  className="h-6 cursor-pointer rounded-md border border-default-200 bg-default-50 bg-transparent hover:bg-default-50"
+                  className="h-6 cursor-pointer rounded-md border border-default-200 bg-default-50
+                    bg-transparent hover:bg-default-50"
                   onClick={onClose}
                 >
                   Esc
@@ -199,24 +201,24 @@ const CommandMenu = forwardRef<CommandMenuModalRef>((props, ref) => {
                   aria-label="Actions"
                   onAction={(key) => {
                     switch (key) {
-                      case "dark":
-                        setTheme("dark");
+                      case 'dark':
+                        setTheme('dark');
                         break;
-                      case "light":
-                        setTheme("light");
+                      case 'light':
+                        setTheme('light');
                         break;
-                      case "system":
-                        setTheme("system");
+                      case 'system':
+                        setTheme('system');
                         break;
-                      case "copy_url":
+                      case 'copy_url':
                         navigator.clipboard.writeText(window.location.href);
                         break;
-                      case "copy_short_url":
+                      case 'copy_short_url':
                         navigator.clipboard.writeText(
-                          window.location.href.split("-")[0],
+                          window.location.href.split('-')[0],
                         );
                         break;
-                      case "console":
+                      case 'console':
                         /* @ts-ignore */
                         if (window.eruda) {
                           /* @ts-ignore */
@@ -225,15 +227,15 @@ const CommandMenu = forwardRef<CommandMenuModalRef>((props, ref) => {
                           delete window.eruda;
 
                           const erudaScript =
-                            document.querySelector("script[data-eruda]");
+                            document.querySelector('script[data-eruda]');
                           erudaScript?.remove();
 
                           break;
                         }
 
-                        const erudaScript = document.createElement("script");
-                        erudaScript.src = "//cdn.jsdelivr.net/npm/eruda";
-                        erudaScript.setAttribute("data-eruda", "true");
+                        const erudaScript = document.createElement('script');
+                        erudaScript.src = '//cdn.jsdelivr.net/npm/eruda';
+                        erudaScript.setAttribute('data-eruda', 'true');
                         erudaScript.onload = () => {
                           /* @ts-ignore */
                           eruda.init();
@@ -249,16 +251,16 @@ const CommandMenu = forwardRef<CommandMenuModalRef>((props, ref) => {
                     onClose();
                   }}
                   classNames={{
-                    list: "*:rounded-md",
+                    list: '*:rounded-md',
                   }}
                 >
-                  {["General", "Theme", "Navigation", "Developer"].map(
+                  {['General', 'Theme', 'Navigation', 'Developer'].map(
                     (section) => renderCommands(section),
                   )}
                 </Listbox>
               ) : (
                 <div className="p-4 text-center text-sm text-default-500">
-                  No results found for{" "}
+                  No results found for{' '}
                   <span className="text-default-800">&quot;{search}&quot;</span>
                   .
                 </div>
@@ -271,6 +273,6 @@ const CommandMenu = forwardRef<CommandMenuModalRef>((props, ref) => {
   );
 });
 
-CommandMenu.displayName = "CommandMenu";
+CommandMenu.displayName = 'CommandMenu';
 
 export { CommandMenu };

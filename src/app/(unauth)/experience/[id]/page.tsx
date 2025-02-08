@@ -1,15 +1,16 @@
-import type { Metadata, ResolvingMetadata } from "next";
-import Image from "next/image";
-import { redirect } from "next/navigation";
-import { Article, WithContext } from "schema-dts";
+import type { Metadata, ResolvingMetadata } from 'next';
+import Image from 'next/image';
+import { redirect } from 'next/navigation';
 
-import type { ExperienceWithPlace } from "@/types/prisma";
-import { getUniqueExperience } from "@/data/get-experience";
-import { ASSETS_URL, BASE_URL, NAME } from "@/lib/constants";
-import { Breadcrumb } from "@/ui/breadcrumb";
-import { MarkdownRenderer } from "@/ui/markdown-renderer";
-import { dynamicBlurDataUrl } from "@/utils/dynamic-blur-data-url";
-import { formatDate } from "@/utils/format-date";
+import { Article, WithContext } from 'schema-dts';
+
+import type { ExperienceWithPlace } from '@/types/prisma';
+import { ASSETS_URL, BASE_URL, NAME } from '@/lib/constants';
+import { dynamicBlurDataUrl } from '@/utils/dynamic-blur-data-url';
+import { formatDate } from '@/utils/format-date';
+import { getUniqueExperience } from '@/data/get-experience';
+import { Breadcrumb } from '@/ui/breadcrumb';
+import { MarkdownRenderer } from '@/ui/markdown-renderer';
 
 interface Props {
   params: Promise<{
@@ -18,7 +19,7 @@ interface Props {
 }
 
 async function fetch({ params }: Props) {
-  const id = params.id.split("-")[0];
+  const id = (await params).id.split('-')[0];
 
   const item = (await getUniqueExperience({
     select: {
@@ -52,14 +53,17 @@ async function fetch({ params }: Props) {
     },
   })) as ExperienceWithPlace;
 
-  if (!item) redirect("/404");
+  if (!item) redirect('/404');
 
   return item;
 }
 
-export async function generateMetadata(props: Props, parent: ResolvingMetadata): Promise<Metadata> {
+export async function generateMetadata(
+  props: Props,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
   const params = await props.params;
-  const item = await fetch({ params });
+  const item = await fetch(props);
 
   const previousImages = (await parent).openGraph?.images || [];
 
@@ -69,7 +73,7 @@ export async function generateMetadata(props: Props, parent: ResolvingMetadata):
     openGraph: {
       title: `Experience: ${item.position} | DulapahV's Portfolio`,
       description: item.description,
-      url: `${BASE_URL}/experience/${item.id}-${item.place.name.replace(/ /g, "-")}-${item.position.replace(/ /g, "-")}`,
+      url: `${BASE_URL}/experience/${item.id}-${item.place.name.replace(/ /g, '-')}-${item.position.replace(/ /g, '-')}`,
       images: [
         {
           url: `${ASSETS_URL}/images/exp/${item.imagePath}/cover.png`,
@@ -83,30 +87,30 @@ export async function generateMetadata(props: Props, parent: ResolvingMetadata):
 
 export default async function Page(props: Props) {
   const params = await props.params;
-  const item = await fetch({ params });
+  const item = await fetch(props);
 
-  const healedUrl = `/experience/${item.id}-${item.place.name.replace(/ /g, "-")}-${item.position.replace(/ /g, "-")}`;
+  const healedUrl = `/experience/${item.id}-${item.place.name.replace(/ /g, '-')}-${item.position.replace(/ /g, '-')}`;
   if (`/experience/${params.id}` != healedUrl) redirect(healedUrl);
 
   const coverImgUrl = `${ASSETS_URL}/images/exp/${item.imagePath}/cover.png`;
 
   const jsonLd: WithContext<Article> = {
-    "@context": "https://schema.org",
-    "@type": "Article",
+    '@context': 'https://schema.org',
+    '@type': 'Article',
     mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `${BASE_URL}/${healedUrl}`,
+      '@type': 'WebPage',
+      '@id': `${BASE_URL}/${healedUrl}`,
     },
     headline: `${item.place.name} | ${item.position}`,
     description: `${item.place.name} | ${item.position}`,
     image: coverImgUrl,
     author: {
-      "@type": "Person",
+      '@type': 'Person',
       name: NAME,
       url: BASE_URL,
     },
     publisher: {
-      "@type": "Person",
+      '@type': 'Person',
       name: NAME,
       url: BASE_URL,
     },
