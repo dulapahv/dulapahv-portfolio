@@ -92,10 +92,6 @@
       "@react-aria/ssr@3.9.4": "patches/@react-aria__ssr@3.9.4.patch",
       "@react-aria/utils@3.24.1": "patches/@react-aria__utils@3.24.1.patch",
       "@react-aria/visually-hidden@3.8.12": "patches/@react-aria__visually-hidden@3.8.12.patch"
-    },
-    "overrides": {
-      "@types/react": "19.0.8",
-      "@types/react-dom": "19.0.3"
     }
   }
 }
