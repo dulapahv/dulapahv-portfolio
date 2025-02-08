@@ -8,8 +8,6 @@
     "build": "prisma generate --no-engine && prisma migrate deploy && next build",
     "start": "next start",
     "postinstall": "prisma generate --no-engine",
-    "lint:check": "eslint .",
-    "lint:fix": "eslint . --fix",
     "format:check": "prettier . --check",
     "format:fix": "prettier . --write",
     "db:generate": "prisma generate --no-engine",
@@ -63,7 +61,6 @@
     "yup": "^1.6.1"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.2.0",
     "@ianvs/prettier-plugin-sort-imports": "^4.4.1",
     "@playwright/test": "^1.50.1",
     "@tailwindcss/typography": "^0.5.16",
@@ -71,9 +68,6 @@
     "@types/react": "19.0.8",
     "@types/react-dom": "19.0.3",
     "@types/rss": "^0.0.32",
-    "eslint": "^9.20.0",
-    "eslint-config-next": "15.1.6",
-    "eslint-config-prettier": "^10.0.1",
     "postcss": "^8.5.1",
     "prettier": "^3.4.2",
     "prettier-plugin-classnames": "^0.7.6",
