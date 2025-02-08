@@ -160,8 +160,9 @@ export default async function Home() {
               p-2 pl-6"
           >
             <span className="absolute left-0 mr-4 h-full w-2 rounded-l-md bg-primary" />
-            "Technology has the power to transform lives, and I am passionate
-            about making technology equally accessible to everyone"
+            "I want to make technology accessible and delightful to everyone as
+            I believe it has the power to transform lives, and that's what I've
+            been doing since the very beginning.
           </blockquote>
           <p>
             I had the opportunity to contribute as a Software Engineer Intern at{' '}
@@ -176,8 +177,8 @@ export default async function Home() {
               NatWest Group
             </NextUILink>
             , a leading British banking and insurance powerhouse, where I honed
-            my skills in various areas of software development, including
-            frontend, backend, DevOps, and data.
+            my skills across frontend, backend, DevOps, and data. Following my
+            internship, I received a return offer from NatWest.
           </p>
           <div className="float-none mx-auto h-72 w-full overflow-hidden min-[408px]:w-96 md:float-left">
             <Globe
