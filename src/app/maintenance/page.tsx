@@ -1,13 +1,14 @@
 import { ReloadButton } from "@/ui/reload-button";
 
-export default function Page({
-  searchParams,
-}: {
-  searchParams?: {
-    path: string;
-    reason: string;
-  };
-}) {
+export default async function Page(
+  props: {
+    searchParams?: Promise<{
+      path: string;
+      reason: string;
+    }>;
+  }
+) {
+  const searchParams = await props.searchParams;
   const path = searchParams?.path || "/";
   const reason = searchParams?.reason || "Unknown Reason";
 

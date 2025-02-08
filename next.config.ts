@@ -1,16 +1,11 @@
+import type { NextConfig } from "next";
 import { withSentryConfig } from "@sentry/nextjs";
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
+const nextConfig: NextConfig = {
   experimental: {
+    optimizePackageImports: ["@mdxeditor/editor"],
     turbo: {
-      rules: {
-        "*.svg": {
-          loaders: ["@svgr/webpack"],
-          as: "*.js",
-        },
-      },
+      minify: true,
     },
   },
   async redirects() {

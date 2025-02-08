@@ -14,9 +14,9 @@ import { getStackIconDisplayName } from "@/utils/get-stack-icon-display-name";
 import { getStackIconFileName } from "@/utils/get-stack-icon-file-name";
 
 interface Props {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 async function fetch({ params }: Props) {
@@ -33,10 +33,8 @@ async function fetch({ params }: Props) {
   return item;
 }
 
-export async function generateMetadata(
-  { params }: Props,
-  parent: ResolvingMetadata,
-): Promise<Metadata> {
+export async function generateMetadata(props: Props, parent: ResolvingMetadata): Promise<Metadata> {
+  const params = await props.params;
   const item = await fetch({ params });
 
   const previousImages = (await parent).openGraph?.images || [];
@@ -59,7 +57,8 @@ export async function generateMetadata(
   };
 }
 
-export default async function Page({ params }: Props) {
+export default async function Page(props: Props) {
+  const params = await props.params;
   const item = await fetch({ params });
 
   const healedUrl = `/stack/${item.id}-${item.name.replace(/ /g, "-")}`;

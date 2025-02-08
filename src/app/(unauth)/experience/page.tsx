@@ -32,18 +32,19 @@ function getOrderBy(order_by: string): Record<string, any> {
   return orderMappings[order_by];
 }
 
-export default async function Page({
-  searchParams,
-}: {
-  searchParams?: {
-    search: string;
-    page: string;
-    locationId: string;
-    sortBy: string;
-    perPage: string;
-    tagId: string;
-  };
-}) {
+export default async function Page(
+  props: {
+    searchParams?: Promise<{
+      search: string;
+      page: string;
+      locationId: string;
+      sortBy: string;
+      perPage: string;
+      tagId: string;
+    }>;
+  }
+) {
+  const searchParams = await props.searchParams;
   const search = searchParams?.search || "";
   const page = Number(searchParams?.page) || 1;
   const locationId = searchParams?.locationId || "";
@@ -160,7 +161,7 @@ export default async function Page({
   const countriesItems = countries.item as CountriesWithCities[];
 
   return (
-    <div className="space-y-6">
+    (<div className="space-y-6">
       <Breadcrumb />
       <header className="space-y-2">
         <h1 className="text-3xl font-semibold">Experience</h1>
@@ -218,6 +219,6 @@ export default async function Page({
           <PaginationFooter totalPages={Math.ceil(count / perPage)} />
         </footer>
       ) : null}
-    </div>
+    </div>)
   );
 }

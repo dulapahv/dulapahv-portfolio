@@ -13,9 +13,9 @@ import { dynamicBlurDataUrl } from "@/utils/dynamic-blur-data-url";
 import { formatDate } from "@/utils/format-date";
 
 interface Props {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 async function fetch({ params }: Props) {
@@ -61,10 +61,8 @@ async function fetch({ params }: Props) {
   return item;
 }
 
-export async function generateMetadata(
-  { params }: Props,
-  parent: ResolvingMetadata,
-): Promise<Metadata> {
+export async function generateMetadata(props: Props, parent: ResolvingMetadata): Promise<Metadata> {
+  const params = await props.params;
   const item = await fetch({ params });
 
   const previousImages = (await parent).openGraph?.images || [];
@@ -87,7 +85,8 @@ export async function generateMetadata(
   };
 }
 
-export default async function Page({ params }: Props) {
+export default async function Page(props: Props) {
+  const params = await props.params;
   const item = await fetch({ params });
 
   const healedUrl = `/project/${item.id}-${item.title.replace(/ /g, "-")}`;
@@ -119,70 +118,68 @@ export default async function Page({ params }: Props) {
     dateModified: item.updatedAt.toISOString(),
   };
 
-  return (
-    <>
-      <section>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+  return (<>
+    <section>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+    </section>
+    <div className="space-y-8">
+      <Breadcrumb lastItem={`${item.title}`} />
+      <header>
+        <h2 className="text-3xl/[3rem] font-semibold">{item.title}</h2>
+        <p className="font-medium text-default-500">{`${formatDate(item.startDate)} - ${formatDate(item.endDate)}`}</p>
+        {item.placeId ? (
+          <>
+            <p className="font-medium text-default-500">{item.place.name}</p>
+            <p className="text-sm font-light text-default-500">
+              {item.place.city.name}, {item.place.city.country.name}
+            </p>
+          </>
+        ) : (
+          <p className="font-medium text-default-500">Personal project</p>
+        )}
+      </header>
+      <main className="space-y-8 pb-2">
+        <Image
+          src={coverImgUrl}
+          alt={`Cover image for ${item.title}`}
+          width={1920}
+          height={1080}
+          placeholder="blur"
+          blurDataURL={await dynamicBlurDataUrl(coverImgUrl)}
+          priority
+          className="rounded-md"
         />
-      </section>
-      <div className="space-y-8">
-        <Breadcrumb lastItem={`${item.title}`} />
-        <header>
-          <h2 className="text-3xl/[3rem] font-semibold">{item.title}</h2>
-          <p className="font-medium text-default-500">{`${formatDate(item.startDate)} - ${formatDate(item.endDate)}`}</p>
-          {item.placeId ? (
-            <>
-              <p className="font-medium text-default-500">{item.place.name}</p>
-              <p className="text-sm font-light text-default-500">
-                {item.place.city.name}, {item.place.city.country.name}
-              </p>
-            </>
-          ) : (
-            <p className="font-medium text-default-500">Personal project</p>
-          )}
-        </header>
-        <main className="space-y-8 pb-2">
-          <Image
-            src={coverImgUrl}
-            alt={`Cover image for ${item.title}`}
-            width={1920}
-            height={1080}
-            placeholder="blur"
-            blurDataURL={await dynamicBlurDataUrl(coverImgUrl)}
-            priority
-            className="rounded-md"
-          />
-          <MarkdownRenderer>
-            {item.content.replace(/\\n/g, "\n") || item.description}
-          </MarkdownRenderer>
-          {item.url ? <UrlButton url={item.url} /> : null}
-        </main>
-        <footer className="space-y-4 border-t-1 border-default-300 pt-10 dark:border-default-100">
-          <h3 className="text-2xl font-semibold" id="gallery">
-            Gallery
-          </h3>
-          {item.imageDescription.map(async (description, index) => {
-            const url = `${ASSETS_URL}/images/proj/${item.imagePath}/${index + 1}.png`;
+        <MarkdownRenderer>
+          {item.content.replace(/\\n/g, "\n") || item.description}
+        </MarkdownRenderer>
+        {item.url ? <UrlButton url={item.url} /> : null}
+      </main>
+      <footer className="space-y-4 border-t-1 border-default-300 pt-10 dark:border-default-100">
+        <h3 className="text-2xl font-semibold" id="gallery">
+          Gallery
+        </h3>
+        {item.imageDescription.map(async (description, index) => {
+          const url = `${ASSETS_URL}/images/proj/${item.imagePath}/${index + 1}.png`;
 
-            return (
-              <div className="space-y-2" key={index}>
-                <h3 className="text-sm sm:text-base">{`${index + 1}. ${description}`}</h3>
-                <Image
-                  src={url}
-                  alt={`Image ${index + 1} for ${item.title}`}
-                  width={1920}
-                  height={1080}
-                  placeholder="blur"
-                  blurDataURL={await dynamicBlurDataUrl(url)}
-                  className="rounded-md"
-                />
-              </div>
-            );
-          })}
-        </footer>
-      </div>
-    </>
-  );
+          return (
+            <div className="space-y-2" key={index}>
+              <h3 className="text-sm sm:text-base">{`${index + 1}. ${description}`}</h3>
+              <Image
+                src={url}
+                alt={`Image ${index + 1} for ${item.title}`}
+                width={1920}
+                height={1080}
+                placeholder="blur"
+                blurDataURL={await dynamicBlurDataUrl(url)}
+                className="rounded-md"
+              />
+            </div>
+          );
+        })}
+      </footer>
+    </div>
+  </>);
 }

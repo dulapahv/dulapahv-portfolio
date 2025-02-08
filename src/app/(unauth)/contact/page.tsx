@@ -10,16 +10,17 @@ export const metadata: Metadata = {
     "Let me know what's on your mind and I'll get back to you as soon as possible.",
 };
 
-export default function Page({
-  searchParams,
-}: {
-  searchParams?: {
-    name: string;
-    email: string;
-    type: string;
-    message: string;
-  };
-}) {
+export default async function Page(
+  props: {
+    searchParams?: Promise<{
+      name: string;
+      email: string;
+      type: string;
+      message: string;
+    }>;
+  }
+) {
+  const searchParams = await props.searchParams;
   const name = searchParams?.name ? decodeURIComponent(searchParams.name) : "";
   const message = searchParams?.message
     ? decodeURIComponent(searchParams.message)
