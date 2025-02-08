@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Chip } from '@nextui-org/react';
 
 import type { TagWithStacks } from '@/types/prisma';
-import { ASSETS_URL, SITE_NAME } from '@/lib/constants';
+import { ASSETS_URL } from '@/lib/constants';
 import { getStackIconDisplayName } from '@/utils/get-stack-icon-display-name';
 import { getStackIconFileName } from '@/utils/get-stack-icon-file-name';
 import { getManyTag } from '@/data/get-tag';
@@ -12,7 +12,7 @@ import { Breadcrumb } from '@/ui/breadcrumb';
 import { StackIconWrapper } from '@/ui/stack-icon-wrapper';
 
 export const metadata: Metadata = {
-  title: `Stack | ${SITE_NAME}`,
+  title: 'Stack',
   description: 'Tools and technologies I use.',
 };
 

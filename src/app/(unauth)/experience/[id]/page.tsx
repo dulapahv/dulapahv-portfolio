@@ -62,13 +62,12 @@ export async function generateMetadata(
   props: Props,
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
-  const params = await props.params;
   const item = await fetch(props);
 
   const previousImages = (await parent).openGraph?.images || [];
 
   return {
-    title: `Experience: ${item.position} | DulapahV's Portfolio`,
+    title: `Experience: ${item.position}`,
     description: `${item.place.name} | ${item.position}`,
     openGraph: {
       title: `Experience: ${item.position} | DulapahV's Portfolio`,

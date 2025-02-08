@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 
 import type { ProjectsWithPlace, TagWithStacks } from '@/types/prisma';
-import { SITE_NAME } from '@/lib/constants';
 import { formatDate } from '@/utils/format-date';
 import { getManyProject } from '@/data/get-project';
 import { getManyTag } from '@/data/get-tag';
@@ -13,7 +12,7 @@ import { PaginationFooter } from '@/ui/pagination-footer';
 import { ProjectSearchToolbar } from '@/ui/project-search-toolbar';
 
 export const metadata: Metadata = {
-  title: `Project | ${SITE_NAME}`,
+  title: 'Project',
   description: 'Professional and personal projects I have worked on.',
 };
 

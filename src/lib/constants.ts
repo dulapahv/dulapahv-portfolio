@@ -16,8 +16,8 @@ export const CAPTCHA_URL =
 
 export const NAME = 'Dulapah Vibulsanti';
 export const SHORT_NAME = 'DulapahV';
-export const SITE_NAME = "DulapahV's Portfolio";
-export const DESCRIPTION = `Hello, I'm ${NAME}, a Thai Software Engineer based in Glasgow, Scotland. I'm passionate about making technology accessible to everyone. I had the opportunity to contribute as a Software Engineer Intern at NatWest Group, a leading British banking and insurance powerhouse.`;
+export const SITE_NAME = "DulapahV Portfolio";
+export const DESCRIPTION = `Hello, I'm ${NAME}, a Thai Software Engineer based in Edinburgh, United Kingdom. I want to make technology accessible and delightful to everyone as I believe it has the power to transform lives, and that's what I've been doing since the very beginning.`;
 export const LINKEDIN_URL = 'https://linkedin.com/in/dulapahv';
 export const GITHUB_URL = 'https://github.com/dulapahv';
 

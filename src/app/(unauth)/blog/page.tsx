@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 
 import type { TagWithStacks } from '@/types/prisma';
-import { SITE_NAME } from '@/lib/constants';
 import { formatDate } from '@/utils/format-date';
 import { getManyBlog } from '@/data/get-blog';
 import { getManyTag } from '@/data/get-tag';
@@ -13,7 +12,7 @@ import { Breadcrumb } from '@/ui/breadcrumb';
 import { PaginationFooter } from '@/ui/pagination-footer';
 
 export const metadata: Metadata = {
-  title: `Blog | ${SITE_NAME}`,
+  title: 'Blog',
   description: 'Blog posts about my thoughts, ideas, and experiences.',
 };
 

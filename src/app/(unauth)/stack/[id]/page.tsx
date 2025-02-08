@@ -38,13 +38,12 @@ export async function generateMetadata(
   props: Props,
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
-  const params = await props.params;
   const item = await fetch(props);
 
   const previousImages = (await parent).openGraph?.images || [];
 
   return {
-    title: `Stack: ${item.name} | DulapahV's Portfolio`,
+    title: `Stack: ${item.name}`,
     description: item.description,
     openGraph: {
       title: `Stack: ${item.name} | DulapahV's Portfolio`,

@@ -8,7 +8,6 @@ import type {
   ExperienceWithPlace,
   TagWithStacks,
 } from '@/types/prisma';
-import { SITE_NAME } from '@/lib/constants';
 import { formatDate } from '@/utils/format-date';
 import { getManyCountry } from '@/data/get-country';
 import { getManyExperience } from '@/data/get-experience';
@@ -18,7 +17,7 @@ import { ExperienceSearchToolbar } from '@/ui/experience-search-toolbar';
 import { PaginationFooter } from '@/ui/pagination-footer';
 
 export const metadata: Metadata = {
-  title: `Experience | ${SITE_NAME}`,
+  title: 'Experience',
   description: "Companies and clients I've worked with.",
 };
 

@@ -1,11 +1,10 @@
 import type { Metadata } from 'next';
 
-import { SITE_NAME } from '@/lib/constants';
 import { Breadcrumb } from '@/ui/breadcrumb';
 import { ContactForm } from '@/ui/contact-form';
 
 export const metadata: Metadata = {
-  title: `Contact | ${SITE_NAME}`,
+  title: 'Contact',
   description:
     "Let me know what's on your mind and I'll get back to you as soon as possible.",
 };

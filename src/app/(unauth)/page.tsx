@@ -1,4 +1,3 @@
-import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -24,11 +23,6 @@ import { getManyEducation } from '@/data/get-education';
 import { Clock } from '@/ui/clock';
 import { Globe } from '@/ui/globe';
 import { MarkdownRenderer } from '@/ui/markdown-renderer';
-
-export const metadata: Metadata = {
-  title: SITE_NAME,
-  description: DESCRIPTION,
-};
 
 export default async function Home() {
   const educations = (
