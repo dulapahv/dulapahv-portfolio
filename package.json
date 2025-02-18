@@ -86,17 +86,7 @@
       "@react-aria/visually-hidden@3.8.12": "patches/@react-aria__visually-hidden@3.8.12.patch"
     },
     "onlyBuiltDependencies": [
-      "@prisma/client",
-      "@prisma/engines",
-      "@sentry/cli",
-      "@swc/core",
-      "@vercel/speed-insights",
-      "bufferutil",
-      "es5-ext",
-      "esbuild",
-      "prisma",
-      "sharp",
-      "utf-8-validate"
+      "@sentry/cli"
     ]
   }
 }
