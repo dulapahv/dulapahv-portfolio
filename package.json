@@ -16,10 +16,10 @@
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
     "@marsidev/react-turnstile": "^0.7.2",
-    "@mdxeditor/editor": "^3.24.0",
+    "@mdxeditor/editor": "^3.23.0",
     "@nextui-org/react": "^2.4.8",
     "@octokit/rest": "^21.1.1",
-    "@prisma/client": "^6.4.1",
+    "@prisma/client": "^6.3.1",
     "@prisma/extension-accelerate": "^1.2.2",
     "@react-email/components": "0.0.19",
     "@react-spring/web": "^9.7.5",
@@ -31,7 +31,7 @@
     "clsx": "^2.1.1",
     "cobe": "^0.6.3",
     "framer-motion": "^11.18.2",
-    "import-in-the-middle": "^1.13.1",
+    "import-in-the-middle": "^1.13.0",
     "lucide-react": "^0.395.0",
     "next": "15.2.0",
     "next-auth": "5.0.0-beta.19",
@@ -41,7 +41,7 @@
     "react-dom": "19.0.0",
     "react-email": "2.1.4",
     "react-hook-form": "^7.54.2",
-    "react-markdown": "^9.1.0",
+    "react-markdown": "^9.0.3",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-highlight": "^7.0.2",
     "rehype-katex": "^7.0.1",
@@ -49,7 +49,7 @@
     "rehype-slug": "^6.0.0",
     "remark-gfm": "^4.0.1",
     "remark-math": "^6.0.0",
-    "require-in-the-middle": "^7.5.2",
+    "require-in-the-middle": "^7.5.1",
     "resend": "^3.5.0",
     "rss": "^1.2.2",
     "schema-dts": "^1.1.2",
@@ -62,21 +62,21 @@
     "@ianvs/prettier-plugin-sort-imports": "^4.4.1",
     "@playwright/test": "^1.50.1",
     "@tailwindcss/typography": "^0.5.16",
-    "@types/node": "^22.13.5",
+    "@types/node": "^22.13.4",
     "@types/react": "19.0.8",
     "@types/react-dom": "19.0.3",
     "@types/rss": "^0.0.32",
-    "postcss": "^8.5.3",
-    "prettier": "^3.5.2",
+    "postcss": "^8.5.2",
+    "prettier": "^3.5.1",
     "prettier-plugin-classnames": "^0.7.6",
     "prettier-plugin-merge": "^0.7.2",
     "prettier-plugin-tailwindcss": "^0.6.11",
-    "prisma": "^6.4.1",
+    "prisma": "^6.3.1",
     "tailwindcss": "^3.4.17",
-    "typescript": "^5.8.2",
+    "typescript": "^5.7.3",
     "vercel": "^34.4.0"
   },
-  "packageManager": "pnpm@10.5.2+sha512.da9dc28cd3ff40d0592188235ab25d3202add8a207afbedc682220e4a0029ffbff4562102b9e6e46b4e3f9e8bd53e6d05de48544b0c57d4b0179e22c76d1199b",
+  "packageManager": "pnpm@10.4.1+sha512.c753b6c3ad7afa13af388fa6d808035a008e30ea9993f58c6663e2bc5ff21679aa834db094987129aa4d488b86df57f7b634981b2f827cdcacc698cc0cfb88af",
   "pnpm": {
     "patchedDependencies": {
       "@nextui-org/breadcrumbs@2.0.13": "patches/@nextui-org__breadcrumbs@2.0.13.patch",
@@ -84,6 +84,9 @@
       "@react-aria/ssr@3.9.4": "patches/@react-aria__ssr@3.9.4.patch",
       "@react-aria/utils@3.24.1": "patches/@react-aria__utils@3.24.1.patch",
       "@react-aria/visually-hidden@3.8.12": "patches/@react-aria__visually-hidden@3.8.12.patch"
-    }
+    },
+    "onlyBuiltDependencies": [
+      "@sentry/cli"
+    ]
   }
 }
