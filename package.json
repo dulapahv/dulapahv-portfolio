@@ -63,7 +63,7 @@
     "@playwright/test": "^1.50.1",
     "@tailwindcss/typography": "^0.5.16",
     "@types/node": "^22.13.4",
-    "@types/react": "19.0.8",
+    "@types/react": "19.0.12",
     "@types/react-dom": "19.0.3",
     "@types/rss": "^0.0.32",
     "postcss": "^8.5.2",
