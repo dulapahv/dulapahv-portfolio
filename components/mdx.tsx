@@ -61,9 +61,12 @@ const Callout = ({ children }: { children: ReactNode }) => (
   </div>
 );
 
-const createHeading =
-  (level: 'h2' | 'h3' | 'h4' | 'h5' | 'h6') =>
-  ({ children, id, ...props }: HTMLProps<HTMLHeadingElement>) => {
+const createHeading = (level: 'h2' | 'h3' | 'h4' | 'h5' | 'h6') => {
+  const HeadingComponent = ({
+    children,
+    id,
+    ...props
+  }: HTMLProps<HTMLHeadingElement>) => {
     const HeadingTag = level;
     return (
       <HeadingTag id={id} {...props} className="group relative">
@@ -83,6 +86,9 @@ const createHeading =
       </HeadingTag>
     );
   };
+  HeadingComponent.displayName = `Heading${level.toUpperCase()}`;
+  return HeadingComponent;
+};
 
 const h2 = createHeading('h2');
 const h3 = createHeading('h3');

@@ -6,7 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint:check": "pnpm lint",
+    "lint:check": "next lint",
     "format:check": "prettier --check **/*.{js,mjs,jsx,ts,tsx,json}",
     "format:fix": "prettier --write **/*.{js,mjs,jsx,ts,tsx,json}"
   },
