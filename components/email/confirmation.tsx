@@ -17,6 +17,7 @@ import {
   BASE_URL,
   GITHUB_URL,
   LINKEDIN_URL,
+  NAME,
 } from '@/lib/constants';
 
 export interface ConfirmationEmailTemplateProps {
@@ -31,7 +32,7 @@ export function ConfirmationEmailTemplate({
   return (
     <Html>
       <Head />
-      <Preview>Confirmation of your message to DulapahV</Preview>
+      <Preview>Confirmation of your message to {NAME}</Preview>
       <Tailwind>
         <Body className="mx-auto my-auto bg-white px-2 font-sans">
           <Container className="mx-auto my-10 max-w-xl rounded border border-solid border-neutral-200 p-5">
