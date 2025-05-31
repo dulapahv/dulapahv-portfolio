@@ -67,10 +67,9 @@ export const Textarea = ({
     <Form.Control asChild>
       <textarea
         className={cn(
-          `bg-background-subtle border-border text-foreground max-h-[200px] min-h-[100px]
-          w-full rounded-md border px-3 py-2 outline-none`,
+          `bg-background-subtle border-border text-foreground max-h-[274px] min-h-[137px]
+          w-full rounded-md border px-3 py-2 text-sm outline-none`,
           'placeholder:text-foreground-subtle',
-          'sm:text-sm',
           className,
         )}
         required={required}

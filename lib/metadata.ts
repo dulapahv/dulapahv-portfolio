@@ -29,6 +29,9 @@ export const createMetadata = ({
   ...properties
 }: MetadataGenerator): Metadata => {
   const parsedTitle = `${title} | ${applicationName}`;
+  const imageUrl =
+    image ??
+    `/og?title=${encodeURIComponent(ogText ?? title)}&description=${encodeURIComponent(ogDescription ?? description)}`;
 
   const defaultMetadata: Metadata = {
     title: parsedTitle,
@@ -50,18 +53,16 @@ export const createMetadata = ({
       type: 'website',
       siteName: applicationName,
       locale: 'en_US',
+      url: imageUrl,
       images: [
         {
-          url:
-            image ??
-            `/og?title=${encodeURIComponent(ogText ?? title)}&description=${encodeURIComponent(ogDescription ?? description)}`,
+          url: imageUrl,
           width: 1200,
           height: 630,
         },
       ],
     },
     publisher,
-    // metadataBase: new URL(BASE_URL),
     twitter: {
       title: parsedTitle,
       description,
@@ -70,9 +71,7 @@ export const createMetadata = ({
       creator: twitterHandle,
       images: [
         {
-          url:
-            image ??
-            `/og?title=${encodeURIComponent(ogText ?? title)}&description=${encodeURIComponent(ogDescription ?? description)}`,
+          url: imageUrl,
           width: 1200,
           height: 630,
         },

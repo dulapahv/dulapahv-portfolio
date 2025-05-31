@@ -9,6 +9,8 @@ import {
   Wrench,
 } from 'lucide-react';
 
+import { cn } from '@/lib/utils';
+
 const skillsData = [
   {
     category: 'Programming Languages',
@@ -121,30 +123,35 @@ export default function SkillsSection() {
           const isLarge = category.size === 'large';
 
           return (
-            <div
-              key={index}
-              className={`${sizeClasses} group animate-in fade-in slide-in-from-bottom-4 relative
-              duration-700`}
-            >
+            <div key={index} className={cn('group relative', sizeClasses)}>
               {/* Background Gradient */}
               <div
-                className={`absolute inset-0 bg-gradient-to-br ${category.gradient} rounded-xl opacity-5
-                transition-opacity duration-300 group-hover:opacity-10`}
+                className={cn(
+                  `absolute inset-0 rounded-xl bg-gradient-to-br opacity-5 transition-opacity
+                  group-hover:opacity-10`,
+                  category.gradient,
+                )}
               />
 
               {/* Main Card */}
               <div
-                className={`border-border bg-background/80 relative h-full rounded-xl border p-3
-                backdrop-blur-xl transition-all duration-300 hover:-translate-y-1
-                hover:scale-[1.02] hover:shadow-2xl ${category.bgColor}`}
+                className={cn(
+                  'border-border bg-background/80 relative h-full rounded-xl border p-3',
+                  'backdrop-blur-xl transition-all hover:-translate-y-1 hover:scale-[1.02]',
+                  'hover:shadow-2xl',
+                  category.bgColor,
+                )}
               >
                 {/* Header */}
                 <div
                   className={`flex items-center gap-3 ${isLarge ? 'mb-4' : 'mb-3'}`}
                 >
                   <div
-                    className={`rounded-lg bg-gradient-to-br p-2 ${category.gradient} text-white shadow-lg
-                    transition-transform duration-300 group-hover:scale-110`}
+                    className={cn(
+                      `rounded-lg bg-gradient-to-br p-2 text-white shadow-lg transition-transform
+                      group-hover:scale-110`,
+                      category.bgColor,
+                    )}
                   >
                     <IconComponent
                       className={`${isLarge ? 'h-5 w-5' : 'h-4 w-4'}`}
@@ -170,11 +177,14 @@ export default function SkillsSection() {
                   {category.skills.map((skill, index) => (
                     <span
                       key={index}
-                      className={`bg-background-subtle hover:bg-background-muted text-foreground
-                      hover:text-foreground cursor-default rounded-full ${
-                      isLarge ? 'px-3 py-1.5 text-xs' : 'px-2.5 py-1 text-xs' } border-border-subtle
-                      hover:border-border border font-medium backdrop-blur-sm transition-all
-                      duration-300 hover:scale-105 hover:shadow-lg`}
+                      className={cn(
+                        'bg-background-subtle hover:bg-background-muted text-foreground',
+                        'hover:text-foreground cursor-default rounded-full',
+                        isLarge ? 'px-3 py-1.5 text-xs' : 'px-2.5 py-1 text-xs',
+                        'border-border-subtle',
+                        'hover:border-border border font-medium backdrop-blur-sm transition-all',
+                        'hover:scale-105 hover:shadow-lg',
+                      )}
                     >
                       {skill}
                     </span>
