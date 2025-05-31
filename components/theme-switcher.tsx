@@ -110,7 +110,11 @@ export function ThemeSwitcher() {
       initial="hidden"
       animate="visible"
       whileHover={
-        !isTouchDevice && !isSmallScreen ? { maxWidth: '100px' } : undefined
+        !isTouchDevice
+          ? isSmallScreen
+            ? { maxHeight: '100px' }
+            : { maxWidth: '100px' }
+          : undefined
       }
       transition={{
         maxWidth: { duration: 0.15, ease: 'easeOut' },
