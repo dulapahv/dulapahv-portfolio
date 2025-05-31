@@ -18,12 +18,10 @@ export const NAME = 'Dulapah Vibulsanti';
 export const NAME_MAX_LENGTH = 256;
 export const EMAIL_MAX_LENGTH = 256;
 export const MESSAGE_MAX_LENGTH = 1000;
-export const CAPTCHA_URL = IS_DEV_ENV
-  ? 'http://localhost:8787'
-  : 'https://verify.dulapahv.dev';
 export const CF_TURNSTILE_SITE_KEY =
   process.env.NEXT_PUBLIC_CF_TURNSTILE_SITE_KEY || '';
-export const CF_TURNSTILE_SECRET_KEY = process.env.CF_TURNSTILE_SECRET_KEY || '';
+export const CF_TURNSTILE_SECRET_KEY =
+  process.env.CF_TURNSTILE_SECRET_KEY || '';
 
 export const EDUCATION_LOCATION: COBEOptions['markers'] = [
   // KMITL, Thailand

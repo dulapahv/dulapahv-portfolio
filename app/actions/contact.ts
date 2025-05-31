@@ -2,7 +2,7 @@
 
 import { Resend } from 'resend';
 
-import { CAPTCHA_URL, CF_TURNSTILE_SECRET_KEY, NAME } from '@/lib/constants';
+import { CF_TURNSTILE_SECRET_KEY, NAME } from '@/lib/constants';
 import {
   ConfirmationEmailTemplate,
   RecipientEmailTemplate,
@@ -22,16 +22,19 @@ interface ContactFormData {
 export async function sendContactEmail(data: ContactFormData) {
   try {
     // Verify captcha first
-    const formData = new FormData();
-    formData.append('cf-turnstile-response', data.captcha);
-
-    const captchaResponse = await fetch(CAPTCHA_URL, {
-      method: 'POST',
-      body: formData,
-      headers: {
-        'X-Server-Secret': CF_TURNSTILE_SECRET_KEY,
+    const captchaResponse = await fetch(
+      'https://challenges.cloudflare.com/turnstile/v0/siteverify',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          secret: CF_TURNSTILE_SECRET_KEY,
+          response: data.captcha,
+        }),
       },
-    });
+    );
 
     if (!captchaResponse.ok) {
       return {
