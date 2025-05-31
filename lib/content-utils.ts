@@ -9,7 +9,7 @@ export type ContentItem =
 
 export const contentConfig = {
   project: {
-    title: 'Projects',
+    title: 'Project',
     description: 'Professional and personal projects I have worked on.',
     collection: allProjects,
     label: 'Project',
