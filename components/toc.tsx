@@ -195,7 +195,7 @@ export const TableOfContents = () => {
             className="overflow-hidden"
           >
             <div className="p-2">
-              <ul role="list" className="!my-0">
+              <ul role="list" className="!my-0 list-none pl-0">
                 {tocItems.map((item) => (
                   <li key={item.id} className="!my-0">
                     <Link
