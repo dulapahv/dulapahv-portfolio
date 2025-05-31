@@ -127,7 +127,7 @@ export default async function Home() {
       <ViewTransition enter="none">
         <blockquote
           className="border-l-mirai-red border-border bg-background text-foreground rounded-md border
-            border-l-8 py-2 pl-3 italic shadow-sm"
+            border-l-8 py-2 pr-2.5 pl-3 italic shadow-sm"
         >
           &quot;I want to make technology accessible and delightful to everyone
           as I believe it has the power to transform lives, and that&apos;s what
