@@ -116,11 +116,12 @@ export const Mdx = ({ code }: MdxProperties) => (
         'prose-h6:text-sm prose-h6:mt-2 prose-h6:mb-0',
         'prose-p:my-5',
         'prose-a:no-underline',
-        `prose-pre:dark:bg-[#0a0a0a] prose-pre:bg-[#fff] prose-pre:border-t
-        prose-pre:border-t-border prose-pre:text-[13px]/5`,
+        `prose-pre:dark:bg-[#0a0a0a] prose-pre:bg-[#fff] prose-pre:border-t-border
+        prose-pre:text-[13px]/5`,
         `prose-figure:border prose-figure:border-border prose-figure:rounded-md
         prose-figure:my-4 prose-figure:relative
-        prose-figure:[figure:has(figcaption)&>pre]:rounded-t-none`,
+        prose-figure:[figure:has(figcaption)&>pre]:rounded-t-none
+        prose-figure:[figure:has(figcaption)&>pre]:border-t`,
         `prose-figcaption:dark:bg-[#000] prose-figcaption:bg-[#fafafa]
         prose-figcaption:mt-0 prose-figcaption:py-2.5 prose-figcaption:rounded-t-md
         prose-figcaption:px-4`,
