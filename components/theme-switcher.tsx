@@ -14,7 +14,7 @@ export function ThemeSwitcher() {
   const [mounted, setMounted] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const isSmallScreen = useMediaQuery('(max-width: 640px)');
+  const isSmallScreen = useMediaQuery('(max-width: 678px)');
   const isTouchDevice = useMediaQuery('(hover: none) and (pointer: coarse)');
 
   useEffect(() => setMounted(true), []);
@@ -97,8 +97,8 @@ export function ThemeSwitcher() {
     <motion.div
       ref={containerRef}
       className={cn(
-        `ring-border bg-background-elevated/90 fixed right-5 bottom-4 overflow-hidden
-        rounded-full p-0.5 ring-1 backdrop-blur-xl`,
+        `ring-border bg-background-elevated/90 fixed right-5 bottom-4 z-50
+        overflow-hidden rounded-full p-0.5 ring-1 backdrop-blur-xl`,
         isSmallScreen
           ? 'flex max-h-7 w-7 flex-col'
           : 'flex h-7 max-w-7 flex-row',
