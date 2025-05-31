@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import type { Metadata } from 'next';
 
 import { createMetadata } from '@/lib/metadata';
-import type { EmailTemplateProps } from '@/components/email/types';
+import type { RecipientEmailTemplateProps } from '@/components/email';
 
 import { ContactForm } from './components/form';
 
@@ -17,7 +17,7 @@ export const metadata: Metadata = createMetadata({
 });
 
 interface PageProps {
-  searchParams: Promise<Omit<EmailTemplateProps, 'captcha'>>;
+  searchParams: Promise<Omit<RecipientEmailTemplateProps, 'captcha'>>;
 }
 
 export default async function ContactPage({ searchParams }: PageProps) {
