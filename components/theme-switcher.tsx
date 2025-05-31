@@ -8,6 +8,7 @@ import { useTheme } from 'next-themes';
 
 import { cn } from '@/lib/utils';
 import { useMediaQuery } from '@/hooks/use-media-query';
+import { useThemeColor } from '@/hooks/use-theme-color';
 
 export function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();
@@ -16,6 +17,8 @@ export function ThemeSwitcher() {
   const containerRef = useRef<HTMLDivElement>(null);
   const isSmallScreen = useMediaQuery('(max-width: 678px)');
   const isTouchDevice = useMediaQuery('(hover: none) and (pointer: coarse)');
+
+  useThemeColor();
 
   useEffect(() => setMounted(true), []);
 
