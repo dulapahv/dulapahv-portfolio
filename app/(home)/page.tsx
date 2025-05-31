@@ -92,7 +92,7 @@ export default async function Home() {
               alt="GitHub"
               width={24}
               height={24}
-              className="inline-block align-middle"
+              className="align-middle"
             />
             <p
               className="border-border-subtle text-foreground-muted ml-2 border-l pl-2 text-base

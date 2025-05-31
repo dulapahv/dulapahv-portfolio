@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { FileText } from 'lucide-react';
 
 import { GITHUB_URL, LINKEDIN_URL } from '@/lib/constants';
-import { ThemeAwareImage } from '@/components/theme-aware-image';
 
 export default function SocialLinks() {
   return (
@@ -55,14 +54,7 @@ export default function SocialLinks() {
           className="flex items-center justify-center rounded-md bg-gradient-to-br from-gray-800
             to-gray-600 p-1 text-white shadow-md transition-transform group-hover:scale-110"
         >
-          <ThemeAwareImage
-            lightSrc="/octocat-black.svg"
-            darkSrc="/octocat-white.svg"
-            alt=""
-            width={16}
-            height={16}
-            className="brightness-0 invert"
-          />
+          <Image src="/octocat-white.svg" alt="" width={16} height={16} />
         </div>
         <span className="text-foreground text-sm">GitHub</span>
       </Link>
