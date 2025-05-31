@@ -25,7 +25,7 @@ export const metadata: Metadata = createMetadata({
     "Hello, I'm Dulapah Vibulsanti, a Thai Software Engineer currently based in Edinburgh, United Kingdom. I am passionate about making technology accessible and delightful for everyone.",
   ogText: 'Dulapah Vibulsanti\nSoftware Engineer',
   ogDescription:
-    'Thai Software Engineer currently based in Edinburgh, United Kingdom. Passionate about creating delightful technology for everyone.',
+    'Thai Software Engineer currently based in Edinburgh, United Kingdom. Passionate about creating accessible and delightful technology for everyone.',
 });
 
 export default async function Home() {
