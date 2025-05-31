@@ -6,70 +6,200 @@ endDate: 01-05-2024
 image: /project/mfpa/cover.png
 ---
 
-Geospatial data analysis often requires specialized software that can be complex and inaccessible for many users. The **Map File Preparation Application (MFPA)** addresses this challenge by providing an intuitive, cross-platform solution that makes map data exploration and spatial analysis more approachable for researchers, students, and professionals.
+**Map File Preparation Application**: Explore and analyze your map data like never before. Import layers, draw boundaries by hand or coordinates, and instantly discover which layers lie within. Uncover hidden insights and relationships with ease!
 
-This collaborative project, developed by a six-member team at the University of Glasgow, demonstrates how modern web technologies can be leveraged to create powerful geospatial tools that prioritize user experience without sacrificing functionality.
+View the presentation [here](https://assets.dulapahv.dev/MFPA_ppt.pdf).
 
-## The Challenge of Geospatial Analysis
+## 🛠 Built With <a name="built-with"></a>
 
-Traditional GIS software often presents significant barriers to entry, particularly for users who need occasional access to spatial analysis capabilities. These tools typically require extensive training, expensive licenses, and specialized hardware configurations that limit accessibility for educational and research contexts.
+### Tech Stack <a name="tech-stack"></a>
 
-MFPA emerged from the recognition that many geospatial analysis tasks could be simplified through better interface design and more intuitive workflows, particularly for boundary analysis and layer relationship discovery.
+<details>
+  <summary>Client</summary>
+  <ul>
+    <li>
+      <a href="https://electronjs.org/">Electron.js</a>
+    </li>
+    <li>
+      <a href="https://nextjs.org/">Next.js</a>
+    </li>
+    <li>
+      <a href="https://tailwindcss.com/">Tailwind CSS</a>
+    </li>
+    <li>
+      <a href="https://nextui.org/">NextUI</a>
+    </li>
+    <li>
+      <a href="https://daisyui.com/">DaisyUI</a>
+    </li>
+  </ul>
+</details>
 
-## Core Functionality
+<details>
+  <summary>Server</summary>
+  <ul>
+    <li>
+      <a href="https://vercel.com/">Vercel</a>
+    </li>
+  </ul>
+</details>
 
-The application centers around three fundamental capabilities that address common geospatial analysis needs:
+<details>
+  <summary>Database</summary>
+  <ul>
+    <li>
+      <a href="https://sqlite.org/">SQLite</a>
+    </li>
+  </ul>
+</details>
 
-**Dynamic Layer Management** allows users to import and organize multiple map layers with flexible control over visibility and styling. This feature recognizes that spatial analysis often involves working with complex datasets that require careful organization and visual management.
+### Key Features <a name="key-features"></a>
 
-**Intuitive Boundary Creation** enables users to define areas of interest through multiple methods, supporting both manual drawing and coordinate-based input. This flexibility accommodates different workflows and user preferences, from precise coordinate entry to freehand boundary sketching.
+- **Dynamic Layer Management**
+- **Intuitive Boundary Creation**
+- **Instant layer visibility**
 
-**Instant Layer Visibility** provides immediate feedback about spatial relationships, automatically identifying which layers intersect with user-defined boundaries. This real-time analysis capability transforms the traditionally complex process of spatial querying into an immediate, visual experience.
+## 🚀 Try It Out! <a name="try-it-out"></a>
 
-## Technical Architecture
+According to the order of development time, there are three release versions of software available for running.
 
-The platform demonstrates a thoughtful approach to cross-platform development by combining web technologies with desktop application capabilities:
+You can see the features of each release version and try it as needed.
 
-**Frontend Foundation** utilizes Next.js as the core framework, enhanced with Tailwind CSS for styling consistency and NextUI with DaisyUI for component libraries. This combination provides a modern, responsive interface that maintains visual coherence across different screen sizes and usage contexts.
+- [Releases](https://github.com/tuckers1967/MFPA/releases)
 
-**Desktop Integration** through Electron.js enables the web-based application to function as a native desktop application, providing file system access and offline capabilities essential for working with local geospatial datasets.
+## 💻 Getting Started <a name="getting-started"></a>
 
-**Data Management** employs SQLite for local data storage, ensuring that users can work with their spatial data without requiring external database infrastructure or internet connectivity for core functionality.
+To get a local copy up and running, follow these steps.
 
-## Collaborative Development Approach
+### Setup
 
-The project exemplifies effective team collaboration in software development, with six developers taking on distinct roles including Scrum Master, Product Owner, and specialized development responsibilities. This structure enabled the team to maintain focus while distributing expertise across different aspects of the application.
+Clone this repository to your desired folder:
 
-The development process included comprehensive documentation through GitBook, ensuring that both technical implementation details and user guidance remain accessible to future contributors and users. This documentation-first approach reflects mature software development practices that prioritize long-term maintainability.
+```sh
+git git@github.com:tuckers1967/MFPA.git
+```
 
-## Deployment and Distribution
+### Install
 
-MFPA addresses the common challenge of software distribution by providing multiple deployment options. Users can access the application through traditional executable downloads for desktop installation, or through static export builds that enable web-based deployment.
+Install dependencies with:
 
-This flexibility in distribution methods acknowledges that different user contexts require different deployment strategies, from institutional installations to individual researcher needs.
+```sh
+yarn install
+```
 
-## Open Source Philosophy
+or
 
-Released under MIT licensing, the project embraces open source principles that encourage community contribution and transparency. The complete source code availability on GitHub enables other developers to examine, modify, and extend the application's capabilities based on specific research or educational needs.
+```sh
+npm i
+```
 
-This open approach particularly benefits educational institutions where students and researchers may need to customize geospatial analysis tools for specific projects or learning objectives.
+### Usage
 
-## Real-World Applications
+To run the project, execute the following command:
 
-The application serves multiple use cases within academic and research contexts. Environmental researchers can quickly analyze how different geographical features intersect with study areas. Urban planners can explore relationships between infrastructure layers and proposed development boundaries. Educational contexts benefit from the intuitive interface that allows students to explore spatial concepts without extensive GIS training.
+```sh
+yarn dev
+```
 
-## Development Insights
+or
 
-The project reveals important considerations for geospatial application development, particularly the balance between functionality and accessibility. By focusing on core spatial analysis tasks rather than attempting to replicate full-featured GIS software, the team created a tool that serves specific needs effectively without overwhelming users with unnecessary complexity.
+```sh
+npm run dev
+```
 
-The choice to build on web technologies while maintaining desktop application capabilities demonstrates how modern development approaches can bridge the gap between accessibility and performance in specialized domains like geospatial analysis.
+### Building Executable
 
-## Future Potential
+You can build an executable using:
 
-While the current implementation focuses on essential spatial analysis capabilities, the architectural foundation supports potential expansion into more advanced geospatial operations. The open source nature of the project enables community-driven development that could extend functionality based on user feedback and emerging needs in spatial analysis workflows.
+```sh
+yarn make
+```
 
-The project documentation and source code are available through the [GitHub repository](https://github.com/tuckers1967/MFPA), with comprehensive documentation accessible via [GitBook](https://sh21-x-thales-uk.gitbook.io/docs/).
+or
 
----
+```sh
+npm run make
+```
 
-_MFPA demonstrates how collaborative development and thoughtful technology choices can make specialized tools more accessible, opening geospatial analysis capabilities to broader user communities._
+### Building Static Export
+
+Before building a static export, you have to uncomment these script in `next.config.js` located in the root folder.
+
+```js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: 'export',
+  distDir: 'build',
+  images: {
+    unoptimized: true,
+  },
+};
+
+module.exports = nextConfig;
+```
+
+Then you can build a static export using:
+
+```sh
+yarn build
+```
+
+or
+
+```sh
+npm run build
+```
+
+- The default output directory will be in the `./build` directory
+
+## 👥 Authors <a name="authors"></a>
+
+👤 **Dulapah Vibulsanti (2920990v)** - Scrum Master, Developer
+
+- GitHub: [@dulapahv](https://github.com/githubhandle)
+- LinkedIn: [@LinkedIn](https://linkedin.com/in/dulapahv)
+- Email: 2920990v@student.gla.ac.uk
+
+👤 **Mahnun Saratunti (2914049s)** - Product Owner, Developer
+
+- GitHub: [@mahnun](https://github.com/githubhandle)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- Email: 2914049s@student.gla.ac.uk
+
+👤 **Bin Zhang (2941833z)** - Developer
+
+- GitHub: [@bin](https://github.com/BradyZzzZ)
+- LinkedIn: [@LinkedIn](https://www.linkedin.com/in/bin-zhang-304171293/)
+- Email: 2941833z@student.gla.ac.uk
+
+👤 **Luowan Xu (2710660x)** - Developer
+
+- GitHub: [@luowan](https://github.com/githubhandle)
+- LinkedIn: [@LinkedIn](https://linkedin.com/in/linkedinhandle)
+- Email: 2710660x@student.gla.ac.uk
+
+👤 **Reuben Spivey (2664429s)** - Note Taker, Developer
+
+- GitHub: [@reuben](https://github.com/githubhandle)
+- LinkedIn: [@LinkedIn](https://linkedin.com/in/linkedinhandle)
+- Email: 2664429s@student.gla.ac.uk
+
+👤 **Zofia Bochenek (2580917b)** - Developer
+
+- GitHub: [@zofia](https://github.com/githubhandle)
+- LinkedIn: [@LinkedIn](https://linkedin.com/in/linkedinhandle)
+- Email: 2580917b@student.gla.ac.uk
+
+## 📝 License <a name="license"></a>
+
+This project is [MIT](./LICENSE) licensed.
+
+## 📚 Project Documentation <a name="project-documentation"></a>
+
+This is a detailed project [documentation](https://sh21-x-thales-uk.gitbook.io/docs/) powered by GitBook.
+
+## ❓ FAQ and Additional Support <a name="faq-and-additional-support"></a>
+
+If you have any problems or need additional help during use, please feel free to contact us by email.
+
+Find our university email in <a href="#authors">Authors</a> page.
