@@ -22,7 +22,7 @@ const merriweather = Merriweather({
 export const metadata: Metadata = createMetadata({
   title: 'Home',
   description:
-    "Hello, I'm Dulapah Vibulsanti, a Thai Software Engineer currently based in Edinburgh, United Kingdom. I am passionate about making technology accessible and delightful for everyone.",
+    "Hello, I'm Dulapah Vibulsanti. Thai Software Engineer currently based in Edinburgh, United Kingdom. Passionate about making technology accessible and delightful for everyone.",
   ogText: 'Dulapah Vibulsanti\nSoftware Engineer',
   ogDescription:
     'Thai Software Engineer currently based in Edinburgh, United Kingdom. Passionate about creating accessible and delightful technology for everyone.',
@@ -68,7 +68,8 @@ export default async function Home() {
             </Link>
             .
           </span>
-          <br />A Thai{' '}
+          <br />
+          Thai{' '}
           <Link
             href="https://maps.app.goo.gl/uqHyX4aokhjnNn9Z7"
             target="_blank"
