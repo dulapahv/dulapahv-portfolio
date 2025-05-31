@@ -13,7 +13,7 @@ import {
 } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { Captcha } from '@/components/captcha';
-import type { EmailTemplateProps } from '@/components/email/types';
+import type { RecipientEmailTemplateProps } from '@/components/email';
 import { Input } from '@/components/input';
 import { Spinner } from '@/components/spinner';
 import { Textarea } from '@/components/textarea';
@@ -22,7 +22,7 @@ import { sendContactEmail } from '@/app/actions/contact';
 export const emailRegex = /^\S+@\S+\.\S+$/;
 
 interface ContactFormProps {
-  searchParams?: Omit<EmailTemplateProps, 'captcha'>;
+  searchParams?: Omit<RecipientEmailTemplateProps, 'captcha'>;
 }
 
 export const ContactForm = ({ searchParams }: ContactFormProps) => {
@@ -48,7 +48,7 @@ export const ContactForm = ({ searchParams }: ContactFormProps) => {
     setSubmitSuccess(false);
 
     const formData = new FormData(event.currentTarget);
-    const data: EmailTemplateProps = {
+    const data: RecipientEmailTemplateProps = {
       name: formData.get('name') as string,
       email: formData.get('email') as string,
       message: formData.get('message') as string,
@@ -152,8 +152,8 @@ export const ContactForm = ({ searchParams }: ContactFormProps) => {
       {/* Success/Error Messages */}
       {submitSuccess && (
         <div className="text-success text-sm font-medium">
-          Your message has been sent successfully! I&apos;ll get back to you as soon
-          as possible.
+          Your message has been sent successfully! You will receive a
+          confirmation email and hear back from me soon.
         </div>
       )}
       {submitError && (

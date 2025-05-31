@@ -15,12 +15,11 @@ export default function SocialLinks() {
         rel="noopener noreferrer"
         className="border-border bg-background hover:bg-background-light group flex items-center
           gap-x-1.5 rounded-lg border px-2 py-1 font-medium transition-transform
-          duration-300 hover:scale-[1.05] hover:shadow-lg active:scale-[0.98]
-          active:shadow-sm"
+          hover:scale-[1.05] hover:shadow-lg active:scale-[0.98] active:shadow-sm"
       >
         <div
           className="from-mirai-yellow to-mirai-yellow/60 rounded-md bg-gradient-to-br p-1 text-white
-            shadow-md transition-transform duration-300 group-hover:scale-110"
+            shadow-md transition-transform group-hover:scale-110"
         >
           <FileText className="size-4 flex-shrink-0" />
         </div>
@@ -33,13 +32,11 @@ export default function SocialLinks() {
         rel="noopener noreferrer"
         className="border-border bg-background hover:bg-background-light group flex items-center
           gap-x-1.5 rounded-lg border px-2 py-1 font-medium transition-transform
-          duration-300 hover:scale-[1.02] hover:shadow-lg active:scale-[0.98]
-          active:shadow-sm"
+          hover:scale-[1.02] hover:shadow-lg active:scale-[0.98] active:shadow-sm"
       >
         <div
           className="flex items-center justify-center rounded-md bg-gradient-to-br from-blue-600
-            to-blue-400 p-1 text-white shadow-md transition-transform duration-300
-            group-hover:scale-110"
+            to-blue-400 p-1 text-white shadow-md transition-transform group-hover:scale-110"
         >
           <Image src="/linkedin.svg" alt="" width={16} height={16} />
         </div>
@@ -52,13 +49,11 @@ export default function SocialLinks() {
         rel="noopener noreferrer"
         className="border-border bg-background hover:bg-background-light group flex items-center
           gap-x-1.5 rounded-lg border px-2 py-1 font-medium transition-transform
-          duration-300 hover:scale-[1.02] hover:shadow-lg active:scale-[0.98]
-          active:shadow-sm"
+          hover:scale-[1.02] hover:shadow-lg active:scale-[0.98] active:shadow-sm"
       >
         <div
           className="flex items-center justify-center rounded-md bg-gradient-to-br from-gray-800
-            to-gray-600 p-1 text-white shadow-md transition-transform duration-300
-            group-hover:scale-110"
+            to-gray-600 p-1 text-white shadow-md transition-transform group-hover:scale-110"
         >
           <ThemeAwareImage
             lightSrc="/octocat-black.svg"

@@ -71,9 +71,8 @@ export const Input = ({
       <input
         className={cn(
           `bg-background-subtle border-border text-foreground w-full rounded-md border px-3
-          py-2 outline-none`,
+          py-2 text-sm outline-none`,
           'placeholder:text-foreground-subtle',
-          'sm:text-sm',
           className,
         )}
         required={required}

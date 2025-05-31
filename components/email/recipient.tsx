@@ -12,15 +12,25 @@ import {
   Text,
 } from '@react-email/components';
 
-import { BASE_URL, LINKEDIN_URL } from '@/lib/constants';
+import {
+  ASSETS_URL,
+  BASE_URL,
+  GITHUB_URL,
+  LINKEDIN_URL,
+} from '@/lib/constants';
 
-import type { EmailTemplateProps } from './types';
+export interface RecipientEmailTemplateProps {
+  readonly name: string;
+  readonly email: string;
+  readonly message: string;
+  readonly captcha: string;
+}
 
-export function EmailTemplate({
+export function RecipientEmailTemplate({
   name: fullName,
   email,
   message,
-}: EmailTemplateProps) {
+}: RecipientEmailTemplateProps) {
   return (
     <Html>
       <Head />
@@ -30,7 +40,7 @@ export function EmailTemplate({
           <Container className="mx-auto my-10 max-w-xl rounded border border-solid border-neutral-200 p-5">
             <Section className="mt-4">
               <Img
-                src="/favicon.svg"
+                src={`${ASSETS_URL}/logo192.png`}
                 width="48"
                 height="48"
                 alt="DulapahV Portfolio Logo"
@@ -57,12 +67,20 @@ export function EmailTemplate({
                 <br />
                 <strong>Message:</strong>
                 <br />
-                {message}
+                <span
+                  dangerouslySetInnerHTML={{
+                    __html: message.replace(/\n/g, '<br />'),
+                  }}
+                />
               </Text>
               <Hr className="mx-0 my-[26px] w-full border border-solid border-neutral-200" />
               <Text className="text-sm/6 text-black">
                 <Link href={BASE_URL} className="text-[#fb568a] no-underline">
                   DulapahV Portfolio
+                </Link>{' '}
+                ・{' '}
+                <Link href={GITHUB_URL} className="text-[#fb568a] no-underline">
+                  GitHub
                 </Link>{' '}
                 ・{' '}
                 <Link

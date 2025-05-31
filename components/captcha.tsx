@@ -5,7 +5,7 @@ import { RefObject, useRef, useState } from 'react';
 import { Turnstile, TurnstileInstance } from '@marsidev/react-turnstile';
 import { useTheme } from 'next-themes';
 
-import { CLOUDFLARE_TURNSTILE_SITE_KEY } from '@/lib/constants';
+import { CF_TURNSTILE_SITE_KEY } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { Spinner } from '@/components/spinner';
 
@@ -54,7 +54,7 @@ export const Captcha = ({ onVerifyCaptcha, captchaRef }: CaptchaProps) => {
     <div className="space-y-2 select-none">
       <Turnstile
         ref={turnstileRef}
-        siteKey={CLOUDFLARE_TURNSTILE_SITE_KEY}
+        siteKey={CF_TURNSTILE_SITE_KEY}
         onSuccess={handleCaptchaSuccess}
         onError={handleCaptchaError}
         onExpire={handleCaptchaExpired}

@@ -14,9 +14,7 @@ export const GET = async (request: NextRequest) => {
   const title = getParam('title');
   const description = getParam('description');
 
-  const logo = await readFile(
-    join(process.cwd(), 'components/avatar/favicon.png'),
-  );
+  const logo = await readFile(join(process.cwd(), 'app/og/logo.png'));
   const logoSrc = Uint8Array.from(logo).buffer;
   const geistBold = await readFile(
     join(process.cwd(), 'app/og/Geist-Bold.ttf'),

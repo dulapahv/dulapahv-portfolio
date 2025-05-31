@@ -10,16 +10,20 @@ export const BASE_URL = IS_DEV_ENV
 export const BASE_SERVER_URL = IS_DEV_ENV
   ? 'http://localhost:3001'
   : 'https://codex-server.dulapahv.dev';
+export const ASSETS_URL = 'https://assets.dulapahv.dev';
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/dulapahv';
 export const GITHUB_URL = 'https://github.com/dulapahv';
 
-export const NAME = 'DulapahV';
+export const NAME = 'Dulapah Vibulsanti';
 export const NAME_MAX_LENGTH = 256;
 export const EMAIL_MAX_LENGTH = 256;
 export const MESSAGE_MAX_LENGTH = 1000;
-export const CAPTCHA_URL = 'https://verify.dulapahv.dev';
-export const CLOUDFLARE_TURNSTILE_SITE_KEY =
-  process.env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY || '';
+export const CAPTCHA_URL = IS_DEV_ENV
+  ? 'http://localhost:8787'
+  : 'https://verify.dulapahv.dev';
+export const CF_TURNSTILE_SITE_KEY =
+  process.env.NEXT_PUBLIC_CF_TURNSTILE_SITE_KEY || '';
+export const CF_TURNSTILE_SECRET_KEY = process.env.CF_TURNSTILE_SECRET_KEY || '';
 
 export const EDUCATION_LOCATION: COBEOptions['markers'] = [
   // KMITL, Thailand
