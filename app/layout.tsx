@@ -9,6 +9,7 @@ import { GeistMono } from 'geist/font/mono';
 import { ThemeProvider } from 'next-themes';
 
 import { BASE_URL } from '@/lib/constants';
+import { JsonLd } from '@/components/json-ld';
 import { Navbar } from '@/components/navbar';
 import { ThemeSwitcher } from '@/components/theme-switcher';
 
@@ -40,6 +41,7 @@ export default function RootLayout({
         <meta name="darkreader-lock" />
       </head>
       <body className="bg-background text-foreground leading-[1.6] text-pretty antialiased">
+        <JsonLd />
         <Analytics />
         <SpeedInsights />
         <ThemeProvider attribute="class" disableTransitionOnChange>
