@@ -82,8 +82,8 @@ export function Navbar() {
   return (
     <motion.div
       className="bg-background-elevated/80 border-border text-foreground-subtle fixed right-1/2
-        bottom-4 z-50 flex translate-x-1/2 items-center gap-x-4 rounded-full border px-3
-        py-2 shadow-lg backdrop-blur-xl sm:gap-x-6 sm:px-4"
+        bottom-4 z-50 flex translate-x-1/2 items-center gap-x-6 rounded-full border px-3
+        py-2 shadow-lg backdrop-blur-xl sm:px-4"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
