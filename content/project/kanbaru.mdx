@@ -1,0 +1,124 @@
+---
+title: Kanbaru
+description: Kanban-style project management application provides customizable task organization with visual intuitiveness, date and time options, and detailed descriptions. Users can refine project planning and management with ease.
+startDate: 10-02-2023
+endDate: 10-07-2023
+image: /project/kanbaru/cover.png
+---
+
+Kanbaru is a kanban-style, list-making project management application, built using Python, Qt Designer, and PySide6.
+
+Kanbaru helps you organize your projects and tasks in an efficient and effective way. It allows you to visually organize your tasks into columns and quickly move them between columns.
+
+Kanbaru is free and open source, released under the MIT license.
+
+> A group project for Software Engineering Principle course, KMITL Software Engineering, Year 2, Semester 2.
+
+## Authors
+
+### 👤 Dulapah Vibulsanti (64011388)
+
+- Website: [Portfolio](https://dulapahv.dev)
+- Github: [@dulapahv](https://github.com/dulapahv)
+- LinkedIn: [@dulapahv](https://linkedin.com/in/dulapahv)
+
+### 👤 Annopdanai Pammarapa (64011337)
+
+- Github: [@beam2546](https://github.com/beam2546)
+- LinkedIn: [@annopdanai](https://linkedin.com/in/annopdanai)
+
+### 👤 Anucha Cheewachanon (64011338)
+
+- Github: [@SpiralNuggets](https://github.com/SpiralNuggets)
+- LinkedIn: [@alphacharlie](https://linkedin.com/in/alphacharlie)
+
+## 🔰Getting Started
+
+Kanbaru requires the following libraries, which the application will prompt the user to install if they do not have the required libraries installed already and will automatically install required libraries if user chooses to do so. (Note: If user does not have `pip`, the application will attempt to install using `ensure-pip`).
+
+User can also choose to [install automatically](#install-automatically) or [manually](#install-manually).
+
+- [PySide6](https://pypi.org/project/PySide6/) at least version `6.4.3`
+
+### Install automatically
+
+```sh
+pip install -r requirements.txt
+```
+
+### Install manually
+
+```sh
+pip install PySide6
+```
+
+### Launching
+
+- Run the `kanbaru.py`
+
+```sh
+python kanbaru.py
+```
+
+- To run in debug mode, add `--debug` as the argument
+
+```sh
+python kanbaru.py --debug
+```
+
+## Using Kanbaru
+
+Upon opening a program, you will be greeted by the [main screen](#main-screen). From here, you can view and manage all your boards, panels, and cards, as well as viewing [card description](#card-description) by clicking on it.
+
+## Main Screen
+
+![Main Screen](https://i.imgur.com/YC1M7cA.png)
+
+### Adding Panel
+
+To add a panel, click on the `add a panel` button on the upper right.
+_Note: You cannot enter existing panel title._
+![Adding Panel](https://i.imgur.com/5wQDwXc.png)
+
+### Adding Card
+
+To add a card, click on the `add a card` button at the bottom of the panel
+_Note: You cannot enter existing card title._
+![Adding Card](https://i.imgur.com/5Tmb07C.png)
+
+### Adding Board
+
+To add a board, click on the `add a board` button on the bottom left.
+_Note: You cannot enter existing board title._
+![Adding Board](https://i.imgur.com/IjX0dGB.png)
+
+### Rearranging Card(s)
+
+You can select and drag a card to from one panel to another. You can also rearrange multiple cards by selecting multiple cards at once.
+![Rearraning Card(s)](https://i.imgur.com/cItouY0.png)
+
+## Card Description
+
+From here, you can rename, edit, and delete card.
+_Note: You cannot rename card into existing card title._
+![Card Description](https://i.imgur.com/P8unhSr.png)
+
+## Board Settings
+
+From here, you can rename, rearrange, and delete panel(s). You can also rename the board title here. You can rerrange and delete more than one panel at the same time.
+_Note: You cannot rename board and panel into their existing title._
+![Board Settings](https://i.imgur.com/vhnFLCs.png)
+
+## App Settings
+
+From here you can rearrange and delete board(s). You can also rearrange and delete more than one board at a time.
+![App Settings](https://i.imgur.com/dPInIPq.png)
+
+## About Page
+
+This page shows the developer as well as the project's [License](#license). This page also hides an easter egg!
+![About Page](https://i.imgur.com/ar36qX0.png)
+
+## License
+
+Kanbaru is released under the MIT license. See [LICENSE](https://github.com/dulapahv/Kanbaru/blob/main/LICENSE) for more information.

@@ -1,0 +1,177 @@
+---
+title: MyStudyPlan
+description: Comprehensive academic tracking application offers a centralized dashboard for efficient viewing of class assignments, tasks, and exams. Users can access a calendar view option, streamlining academic planning and management.
+startDate: 17-10-2022
+endDate: 23-11-2022
+image: /project/mystudyplan/cover.png
+---
+
+MyStudyPlan is an app that enables you to track all your classes, tasks, assignments and exams - anywhere!
+
+> A group project for Advanced Object-Oriented Programming course, KMITL Software Engineering, Year 2, Semester 1.
+
+## Authors
+
+👤 **Annopdanai Pammarapa** (64011337)
+
+- Github: [@beam2546](https://github.com/beam2546)
+- LinkedIn: [@annopdanai](https://linkedin.com/in/annopdanai)
+
+👤 **Anucha Cheewachanon** (64011338)
+
+- Github: [@SpiralNuggets](https://github.com/SpiralNuggets)
+- LinkedIn: [@alphacharlie](https://linkedin.com/in/alphacharlie)
+
+👤 **Dulapah Vibulsanti** (64011388)
+
+- Website: [Portfolio](https://dulapahv.github.io)
+- Github: [@dulapahv](https://github.com/dulapahv)
+- LinkedIn: [@dulapahv](https://linkedin.com/in/dulapahv)
+
+## Getting Started
+
+### Prerequisites
+
+- A [JDK](https://java.com/download) (or [OpenJDK](https://adoptium.net/)), available from your local Oracle website or your package manager of your choice.
+- [Maven](https://maven.apache.org/)
+
+### Building
+
+- Run `make build` from the project root directory.
+- Optionally, you can run `make all` to build and then launch the app.
+
+### Launching
+
+- Run `make run` to launch the app.
+- If you're using Windows, you can run `MyStudyPlan.exe`.
+
+### Cleaning
+
+- Run `make clean` to remove all build artifacts.
+
+## Using MyStudyPlan
+
+Upon opening a program, you will be greeted by the login page. From here, you can login or register. You only have to log in once.
+
+![Login page](https://raw.githubusercontent.com/dulapahv/MyStudyPlan/main/Screenshots/Login.png)
+
+After logging in or registering, you will go to the Overview page.
+
+This is where you will get a summary view of your schedule, tasks, and exams. You also have an option to add new schedule, tasks, and exams here too.
+
+![Overview page](https://raw.githubusercontent.com/dulapahv/MyStudyPlan/main/Screenshots/Overview.png)
+
+On the left panel, there are:
+
+1.  Overview
+2.  Calendar
+3.  Tasks
+4.  Exams
+5.  Schedule
+6.  Logout
+
+### Calendar page
+
+In this page you can select the day from the calendar on the left and the class, tasks, and exams on the corresponding date will appear on the right.
+
+- You can also use the search bar to search for schedule, tasks, and exams.
+
+![Calendar page](https://github.com/dulapahv/MyStudyPlan/raw/main/Screenshots/Calendar.png)
+
+### Tasks page
+
+- In this page, you can view all the tasks. The tasks are separated into
+  - Assignment
+  - Reminder
+  - Revision
+- You can also use the search bar to search for tasks.
+- You can create a new task by pressing the `+New Task` button on the upper right and a popup will appear. (See [Adding task](#adding-task))
+
+![Tasks page](https://github.com/dulapahv/MyStudyPlan/raw/main/Screenshots/Tasks.png)
+
+#### Adding task
+
+In this page you can add a task.
+
+- You can also press the `+` button to add subject. (See [Managing Subjects](#managing-subjects))
+
+> Title is required to create a task.
+
+![New Task popup](https://github.com/dulapahv/MyStudyPlan/raw/main/Screenshots/New_Task.png)
+
+### Exams page
+
+In this page, you can view all the exams.
+
+- You can also use the search bar to search for exams.
+- You can create a new exam by pressing the `+New Exam` button on the upper right and a popup will appear. (See [Adding exam](#adding-exam))
+
+![Exams page](https://github.com/dulapahv/MyStudyPlan/raw/main/Screenshots/Exams.png)
+
+#### Adding exam
+
+In this page you can add an exam.
+
+- The app will also tell you the ending date and time for the specified time and duration.
+- You can also press the `+` button to add subject. (See [Managing Subjects](#managing-subjects))
+
+![New Exam popup](https://github.com/dulapahv/MyStudyPlan/raw/main/Screenshots/New_Exam.png)
+
+### Schedule page
+
+In this page, you can view all the schedule.
+
+- You can also use the search bar to search for schedule.
+- You can create a new class by pressing the `+New Class` button on the
+  upper right and a popup will appear. (See [Adding
+  class](#adding-class))
+- You can also manage the subjects by pressing the `Manage Subjects`.
+  (See [Managing subjects](#managing-subjects))
+
+![Schedule page](https://github.com/dulapahv/MyStudyPlan/raw/main/Screenshots/Schedule.png)
+
+#### Adding class
+
+In this page you can add a class.
+
+- You can also press the `+` button to add subject. (See [Managing Subjects](#managing-subjects))
+
+![New Class popup](https://github.com/dulapahv/MyStudyPlan/raw/main/Screenshots/New_Class.png)
+
+#### Managing subjects
+
+In this page, you can manage all the subjects.
+
+- To add a subject, fill in the Code, Subject, and Color and press the `+` button.
+- To remove a subject, click on the subject you want to remove from the list, then press `-` button.
+- You can also use the search bar to search for subjects.
+
+> Code, Subject, and Color is required to create a subject.
+
+![Manage Subjects popup](https://github.com/dulapahv/MyStudyPlan/raw/main/Screenshots/Manage_Subjects.png)
+
+- You can put in the hex color code and press enter, or select from a color palette.
+
+![Color Palette chooser](https://github.com/dulapahv/MyStudyPlan/raw/main/Screenshots/Color_Palette.png)
+
+### Viewing information
+
+You can view more information of each class, tasks, and exams by clicking on the label and a popup will appear.
+
+- In this page, you will not be allowed to edit any information.
+
+![View Class popup](https://github.com/dulapahv/MyStudyPlan/raw/main/Screenshots/View_Class.png)
+![View Task popup](https://github.com/dulapahv/MyStudyPlan/raw/main/Screenshots/View_Task.png)
+![View Exam popup](https://github.com/dulapahv/MyStudyPlan/raw/main/Screenshots/View_Exam.png)
+
+#### Marking as done
+
+Pressing the `Mark as done` button in [viewing information](#viewing-information) popup will remove it from the list.
+
+#### Deleting
+
+Pressing the `Delete` button in [viewing information](#viewing-information) popup will delete it from the list.
+
+## License
+
+MyStudyPlan is released under the [MIT license](https://github.com/dulapahv/MyStudyPlan/blob/main/LICENSE).

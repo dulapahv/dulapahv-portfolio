@@ -1,0 +1,37 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": [".env", "content-collections.ts"],
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", "!./content/**"],
+      "outputs": [".next/**", "!.next/cache/**"],
+      "env": ["RESEND_API_KEY"],
+      "cache": true
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "lint:check": {
+      "inputs": ["$TURBO_DEFAULT$", "!content/**"],
+      "outputs": [],
+      "cache": true
+    },
+    "lint:fix": {
+      "inputs": ["$TURBO_DEFAULT$", "!content/**"],
+      "outputs": [],
+      "cache": true
+    },
+    "format:check": {
+      "inputs": ["$TURBO_DEFAULT$", "!content/**"],
+      "outputs": [],
+      "cache": true
+    },
+    "format:fix": {
+      "inputs": ["$TURBO_DEFAULT$", "!content/**"],
+      "outputs": [],
+      "cache": true
+    }
+  }
+}
