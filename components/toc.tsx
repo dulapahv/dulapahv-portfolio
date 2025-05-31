@@ -109,9 +109,9 @@ export const TableOfContents = () => {
       setTimeout(() => setLockActiveId(false), 500); // Unlock after scrolling completes
 
       // Collapse TOC on mobile after clicking
-      if (!isDesktop) {
-        setIsCollapsed(true);
-      }
+      // if (!isDesktop) {
+      //   setIsCollapsed(true);
+      // }
     }
   };
 
