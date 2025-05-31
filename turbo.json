@@ -4,7 +4,7 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "inputs": ["$TURBO_DEFAULT$", "!./content/**"],
+      "inputs": ["$TURBO_DEFAULT$", "content/**"],
       "outputs": [".next/**", "!.next/cache/**"],
       "env": ["RESEND_API_KEY"],
       "cache": true
