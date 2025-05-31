@@ -1,0 +1,75 @@
+---
+title: Map File Preparation Application (MFPA)
+description: Web application to identify files with geographic content that intersect or are contained within an area defined by the user, developed for defense systems company Thales UK.
+startDate: 01-10-2023
+endDate: 01-05-2024
+image: /project/mfpa/cover.png
+---
+
+Geospatial data analysis often requires specialized software that can be complex and inaccessible for many users. The **Map File Preparation Application (MFPA)** addresses this challenge by providing an intuitive, cross-platform solution that makes map data exploration and spatial analysis more approachable for researchers, students, and professionals.
+
+This collaborative project, developed by a six-member team at the University of Glasgow, demonstrates how modern web technologies can be leveraged to create powerful geospatial tools that prioritize user experience without sacrificing functionality.
+
+## The Challenge of Geospatial Analysis
+
+Traditional GIS software often presents significant barriers to entry, particularly for users who need occasional access to spatial analysis capabilities. These tools typically require extensive training, expensive licenses, and specialized hardware configurations that limit accessibility for educational and research contexts.
+
+MFPA emerged from the recognition that many geospatial analysis tasks could be simplified through better interface design and more intuitive workflows, particularly for boundary analysis and layer relationship discovery.
+
+## Core Functionality
+
+The application centers around three fundamental capabilities that address common geospatial analysis needs:
+
+**Dynamic Layer Management** allows users to import and organize multiple map layers with flexible control over visibility and styling. This feature recognizes that spatial analysis often involves working with complex datasets that require careful organization and visual management.
+
+**Intuitive Boundary Creation** enables users to define areas of interest through multiple methods, supporting both manual drawing and coordinate-based input. This flexibility accommodates different workflows and user preferences, from precise coordinate entry to freehand boundary sketching.
+
+**Instant Layer Visibility** provides immediate feedback about spatial relationships, automatically identifying which layers intersect with user-defined boundaries. This real-time analysis capability transforms the traditionally complex process of spatial querying into an immediate, visual experience.
+
+## Technical Architecture
+
+The platform demonstrates a thoughtful approach to cross-platform development by combining web technologies with desktop application capabilities:
+
+**Frontend Foundation** utilizes Next.js as the core framework, enhanced with Tailwind CSS for styling consistency and NextUI with DaisyUI for component libraries. This combination provides a modern, responsive interface that maintains visual coherence across different screen sizes and usage contexts.
+
+**Desktop Integration** through Electron.js enables the web-based application to function as a native desktop application, providing file system access and offline capabilities essential for working with local geospatial datasets.
+
+**Data Management** employs SQLite for local data storage, ensuring that users can work with their spatial data without requiring external database infrastructure or internet connectivity for core functionality.
+
+## Collaborative Development Approach
+
+The project exemplifies effective team collaboration in software development, with six developers taking on distinct roles including Scrum Master, Product Owner, and specialized development responsibilities. This structure enabled the team to maintain focus while distributing expertise across different aspects of the application.
+
+The development process included comprehensive documentation through GitBook, ensuring that both technical implementation details and user guidance remain accessible to future contributors and users. This documentation-first approach reflects mature software development practices that prioritize long-term maintainability.
+
+## Deployment and Distribution
+
+MFPA addresses the common challenge of software distribution by providing multiple deployment options. Users can access the application through traditional executable downloads for desktop installation, or through static export builds that enable web-based deployment.
+
+This flexibility in distribution methods acknowledges that different user contexts require different deployment strategies, from institutional installations to individual researcher needs.
+
+## Open Source Philosophy
+
+Released under MIT licensing, the project embraces open source principles that encourage community contribution and transparency. The complete source code availability on GitHub enables other developers to examine, modify, and extend the application's capabilities based on specific research or educational needs.
+
+This open approach particularly benefits educational institutions where students and researchers may need to customize geospatial analysis tools for specific projects or learning objectives.
+
+## Real-World Applications
+
+The application serves multiple use cases within academic and research contexts. Environmental researchers can quickly analyze how different geographical features intersect with study areas. Urban planners can explore relationships between infrastructure layers and proposed development boundaries. Educational contexts benefit from the intuitive interface that allows students to explore spatial concepts without extensive GIS training.
+
+## Development Insights
+
+The project reveals important considerations for geospatial application development, particularly the balance between functionality and accessibility. By focusing on core spatial analysis tasks rather than attempting to replicate full-featured GIS software, the team created a tool that serves specific needs effectively without overwhelming users with unnecessary complexity.
+
+The choice to build on web technologies while maintaining desktop application capabilities demonstrates how modern development approaches can bridge the gap between accessibility and performance in specialized domains like geospatial analysis.
+
+## Future Potential
+
+While the current implementation focuses on essential spatial analysis capabilities, the architectural foundation supports potential expansion into more advanced geospatial operations. The open source nature of the project enables community-driven development that could extend functionality based on user feedback and emerging needs in spatial analysis workflows.
+
+The project documentation and source code are available through the [GitHub repository](https://github.com/tuckers1967/MFPA), with comprehensive documentation accessible via [GitBook](https://sh21-x-thales-uk.gitbook.io/docs/).
+
+---
+
+_MFPA demonstrates how collaborative development and thoughtful technology choices can make specialized tools more accessible, opening geospatial analysis capabilities to broader user communities._
