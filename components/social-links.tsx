@@ -12,6 +12,7 @@ export default function SocialLinks() {
         href="https://dulapahv.dev/resume"
         target="_blank"
         rel="noopener noreferrer"
+        prefetch={false} // DNS will handle redirecting to the resume page
         className="border-border bg-background hover:bg-background-light group flex items-center
           gap-x-1.5 rounded-lg border px-2 py-1 font-medium transition-transform
           hover:scale-[1.05] hover:shadow-lg active:scale-[0.98] active:shadow-sm"
