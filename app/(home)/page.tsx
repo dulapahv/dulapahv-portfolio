@@ -138,7 +138,7 @@ export default async function Home() {
       </ViewTransition>
 
       <article className="text-foreground">
-        I am currently a{' '}
+        I am an upcoming{' '}
         <b className="text-foreground font-semibold">
           Software Engineer Graduate
         </b>{' '}
