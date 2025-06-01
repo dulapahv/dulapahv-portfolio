@@ -169,8 +169,8 @@ export default async function Home() {
           width={384}
           height={320}
           markers={[...EDUCATION_LOCATION]}
-          className="float-left -ml-10 h-72 w-screen cursor-grab overflow-hidden rounded-lg
-            min-[425px]:ml-0 sm:w-96"
+          className="float-left -ml-8 h-72 w-screen cursor-grab overflow-hidden rounded-lg
+            min-[425px]:ml-0 min-[425px]:w-full sm:w-96"
         />
         <br />I recently completed a double degree program in Software
         Engineering, earning a{' '}
