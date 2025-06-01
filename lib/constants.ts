@@ -7,9 +7,6 @@ export const IS_DEV_ENV =
 export const BASE_URL = IS_DEV_ENV
   ? 'http://localhost:3000'
   : 'https://dulapahv.dev';
-export const BASE_SERVER_URL = IS_DEV_ENV
-  ? 'http://localhost:3001'
-  : 'https://codex-server.dulapahv.dev';
 export const ASSETS_URL = 'https://assets.dulapahv.dev';
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/dulapahv';
 export const GITHUB_URL = 'https://github.com/dulapahv';
