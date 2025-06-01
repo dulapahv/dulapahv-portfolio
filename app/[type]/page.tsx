@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, Link as LuLink } from 'lucide-react';
 
 import {
   contentConfig,
@@ -105,7 +105,14 @@ export default async function TypeListingPage({ params }: PageProperties) {
               className="divide-mirai-red mb-8 divide-y divide-dashed"
             >
               <h2 id={year} className="text-mirai-red mb-2 font-normal">
-                <Link href={`#${year}`} className="hover:underline">
+                <Link
+                  href={`#${year}`}
+                  className="group relative hover:underline"
+                >
+                  <LuLink
+                    className="absolute top-1/2 -left-4 size-3 -translate-y-1/2 opacity-0
+                      group-hover:opacity-100"
+                  />
                   {year}
                 </Link>
               </h2>
