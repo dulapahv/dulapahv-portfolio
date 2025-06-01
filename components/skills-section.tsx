@@ -148,13 +148,13 @@ export default function SkillsSection() {
                 >
                   <div
                     className={cn(
-                      `rounded-lg bg-gradient-to-br p-2 text-white shadow-lg transition-transform
+                      `text-foreground rounded-lg bg-gradient-to-br p-2 shadow-lg transition-transform
                       group-hover:scale-110`,
                       category.bgColor,
                     )}
                   >
                     <IconComponent
-                      className={`${isLarge ? 'h-5 w-5' : 'h-4 w-4'}`}
+                      className={`${isLarge ? 'size-5' : 'size-4'}`}
                     />
                   </div>
                   <div className="flex-1">
