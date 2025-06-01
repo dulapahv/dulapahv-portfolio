@@ -90,12 +90,6 @@ const createHeading = (level: 'h2' | 'h3' | 'h4' | 'h5' | 'h6') => {
   return HeadingComponent;
 };
 
-const h2 = createHeading('h2');
-const h3 = createHeading('h3');
-const h4 = createHeading('h4');
-const h5 = createHeading('h5');
-const h6 = createHeading('h6');
-
 export const Mdx = ({ code }: MdxProperties) => (
   <>
     <div className="hidden xl:block">
@@ -136,6 +130,8 @@ export const Mdx = ({ code }: MdxProperties) => (
         prose-code:[&:not([data-theme])]:border-border
         prose-code:[&:not([data-theme])]:font-normal
         prose-code:[&:not([data-theme])]:text-[13px] prose-code:text-foreground`,
+        `[&>details>summary]:cursor-pointer [&>details>summary]:hover:underline
+        [&>details>ul]:my-0`,
       )}
     >
       <div className="xl:hidden">
@@ -151,11 +147,11 @@ export const Mdx = ({ code }: MdxProperties) => (
           Instagram,
           Callout,
           Tweet,
-          h2,
-          h3,
-          h4,
-          h5,
-          h6,
+          h2: createHeading('h2'),
+          h3: createHeading('h3'),
+          h4: createHeading('h4'),
+          h5: createHeading('h5'),
+          h6: createHeading('h6'),
         }}
       />
     </article>
