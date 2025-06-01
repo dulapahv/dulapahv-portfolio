@@ -192,7 +192,7 @@ export default async function Home() {
         </b>{' '}
         from{' '}
         <Link
-          href="https://www.kmitl.ac.th/en"
+          href="https://www.kmitl.ac.th/"
           className="text-mirai-red hover:text-mirai-red/80 transition-colors hover:underline"
           target="_blank"
           rel="noopener noreferrer"
