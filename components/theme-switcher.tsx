@@ -14,9 +14,12 @@ export function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const isSmallScreen = useMediaQuery('(max-width: 678px)');
   const isTouchDevice = useMediaQuery('(hover: none) and (pointer: coarse)');
+
+  const expanded = isTouchDevice ? isExpanded : isHovered;
 
   useThemeColor();
 
@@ -111,31 +114,30 @@ export function ThemeSwitcher() {
       )}
       variants={containerVariants}
       initial="hidden"
-      animate="visible"
-      whileHover={
-        !isTouchDevice
-          ? isSmallScreen
-            ? { maxHeight: '100px' }
-            : { maxWidth: '100px' }
-          : undefined
-      }
+      animate={{
+        ...containerVariants.visible,
+        ...(isSmallScreen
+          ? { maxHeight: expanded ? '100px' : '28px' }
+          : { maxWidth: expanded ? '100px' : '28px' }),
+        transition: {
+          delay: 0,
+        },
+      }}
       transition={{
-        maxWidth: { duration: 0.15, ease: 'easeOut' },
-        maxHeight: { duration: 0.15, ease: 'easeOut' },
+        ...containerVariants.visible.transition,
+        ...(isSmallScreen
+          ? { maxHeight: { duration: 0.15, ease: 'easeOut' } }
+          : { maxWidth: { duration: 0.15, ease: 'easeOut' } }),
       }}
-      style={{
-        maxWidth:
-          isTouchDevice && isExpanded && !isSmallScreen ? '100px' : undefined,
-        maxHeight:
-          isTouchDevice && isExpanded && isSmallScreen ? '100px' : undefined,
-      }}
+      onMouseEnter={() => !isTouchDevice && setIsHovered(true)}
+      onMouseLeave={() => !isTouchDevice && setIsHovered(false)}
       onClick={handleContainerClick}
       role="group"
       aria-label="Theme switcher"
-      aria-expanded={isExpanded}
+      aria-expanded={expanded}
     >
       {/* For touch devices, show current theme icon when collapsed */}
-      {isTouchDevice && !isExpanded ? (
+      {isTouchDevice && !expanded ? (
         <motion.button
           type="button"
           className="hover:bg-background-subtle relative size-6 shrink-0 cursor-pointer rounded-full
