@@ -453,19 +453,36 @@ html {
 }
 
 ::-webkit-scrollbar {
-  @apply size-1.5;
+  width: 0.375rem;
+  height: 0.375rem;
 }
 
 /* Scrollbar track */
 ::-webkit-scrollbar-track-piece {
-  /* @apply rounded-full bg-[#f5f5f5] dark:bg-[#262626]; */
-  @apply rounded-full bg-[#262626];
+  border-radius: 9999px;
+  background: #e2e2e2;
+}
+
+.dark ::-webkit-scrollbar-track-piece {
+  background: #1a1a1a;
 }
 
 /* Scrollbar handle */
 ::-webkit-scrollbar-thumb {
-  /* @apply rounded-full bg-[#d4d4d4] hover:bg-[#a3a3a3] dark:bg-[#404040] dark:hover:bg-[#525252]; */
-  @apply rounded-full bg-[#404040] hover:bg-[#525252];
+  border-radius: 9999px;
+  background: #c1c1c1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #404040;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #606060;
 }
 
 /* Shiki Code Highlighting Styles */
