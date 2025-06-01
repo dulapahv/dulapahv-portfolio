@@ -90,7 +90,7 @@ export default async function ContentPage({ params }: PageProperties) {
 
   if (isWork) {
     title = page.position;
-    subtitle = `${page.company} • ${page.location}`;
+    subtitle = `${page.company} | ${page.location}`;
     const startDate = page.startDate.toLocaleDateString('en-US', {
       month: 'long',
       day: 'numeric',
@@ -136,7 +136,9 @@ export default async function ContentPage({ params }: PageProperties) {
       <header className="space-y-2">
         <div className="space-y-2">
           <h1 className="text-2xl font-semibold">{title}</h1>
-          {subtitle && <p className="text-foreground-muted">{subtitle}</p>}
+          {subtitle && (
+            <p className="text-foreground-muted font-medium">{subtitle}</p>
+          )}
         </div>
         <div className="text-foreground-muted space-y-1 text-sm">
           <p>

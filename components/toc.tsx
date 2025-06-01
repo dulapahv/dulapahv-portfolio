@@ -115,6 +115,11 @@ export const TableOfContents = () => {
     }
   };
 
+  // Don't render if there are no headings
+  if (tocItems.length === 0) {
+    return null;
+  }
+
   // Desktop view - fixed sidebar
   if (isDesktop) {
     return (
@@ -133,10 +138,10 @@ export const TableOfContents = () => {
                   href={`#${item.id}`}
                   onClick={(e) => handleClick(e, item.id)}
                   className={cn(
-                    'group relative block rounded-md px-3 py-1 text-sm transition-all',
+                    'group relative block rounded-md px-3 py-1 text-sm font-medium transition-all',
                     item.level === 3 ? 'pl-7' : '',
                     activeId === item.id
-                      ? 'text-mirai-red font-medium'
+                      ? 'text-mirai-red'
                       : 'text-foreground-muted hover:text-foreground',
                   )}
                   aria-current={activeId === item.id ? 'location' : undefined}
@@ -180,7 +185,7 @@ export const TableOfContents = () => {
           animate={{ rotate: isCollapsed ? 0 : 180 }}
           transition={{ duration: 0.2 }}
         >
-          <ChevronDown className="h-4 w-4" aria-hidden="true" />
+          <ChevronDown className="size-4" aria-hidden="true" />
         </motion.div>
       </button>
 
@@ -204,7 +209,7 @@ export const TableOfContents = () => {
                       className={cn(
                         `text-foreground-muted hover:text-foreground block rounded-md px-3 py-1.5 text-sm
                         transition-all`,
-                        item.level === 3 ? 'pl-6' : '',
+                        item.level === 3 ? 'pl-7' : '',
                       )}
                       aria-current={
                         activeId === item.id ? 'location' : undefined
