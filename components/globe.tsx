@@ -38,7 +38,7 @@ export const Globe = ({
   useEffect(() => {
     if (!canvasRef.current) return undefined;
 
-    let phi = 0;
+    let phi = -4;
     let currentWidth = width;
 
     const onResize = () => {
@@ -53,14 +53,14 @@ export const Globe = ({
       devicePixelRatio: 2,
       width: currentWidth * 2,
       height: height * 2,
-      phi: 0,
+      phi: -4,
       theta: 0,
       dark: resolvedTheme === 'light' ? 0 : 1,
       diffuse: 1.2,
       mapSamples: 16_000,
       mapBrightness: 6,
       opacity: 0.85,
-      offset: [0, 65],
+      offset: [0, 75],
       baseColor:
         resolvedTheme === 'light'
           ? [0.98039, 0.98039, 0.98039]
