@@ -600,3 +600,35 @@ code[data-line-numbers] > [data-line].error::before {
 code[data-line-numbers] > [data-line].warning::before {
   color: #ff9f00;
 }
+
+.markdown-alert {
+  @apply border-border flex items-center gap-x-2 rounded-md border px-3 py-2;
+}
+
+.markdown-alert > :first-child {
+  @apply my-0;
+}
+
+.markdown-alert > :last-child {
+  @apply my-0 text-[13px];
+}
+
+.markdown-alert-note {
+  @apply border-[var(--x-blue-600)] text-[var(--x-blue-800)] dark:text-[var(--x-blue-900)];
+}
+
+.markdown-alert-important {
+  @apply border-[var(--x-purple-600)] text-[var(--x-purple-800)] dark:text-[var(--x-purple-900)];
+}
+
+.markdown-alert-warning {
+  @apply border-[var(--x-amber-600)] text-[var(--x-amber-800)] dark:text-[var(--x-amber-900)];
+}
+
+.markdown-alert-tip {
+  @apply border-[var(--x-green-600)] text-[var(--x-green-800)] dark:text-[var(--x-green-900)];
+}
+
+.markdown-alert-caution {
+  @apply border-[var(--x-red-600)] text-[var(--x-red-800)] dark:text-[var(--x-red-900)];
+}
