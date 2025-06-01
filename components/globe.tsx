@@ -22,6 +22,7 @@ export const Globe = ({
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const pointerInteracting = useRef<number | null>(null);
   const pointerInteractionMovement = useRef(0);
+  const phiRef = useRef(-4);
 
   const [{ r }, api] = useSpring(() => ({
     r: 0,
@@ -38,7 +39,6 @@ export const Globe = ({
   useEffect(() => {
     if (!canvasRef.current) return undefined;
 
-    let phi = -4;
     let currentWidth = width;
 
     const onResize = () => {
@@ -53,7 +53,7 @@ export const Globe = ({
       devicePixelRatio: 2,
       width: currentWidth * 2,
       height: height * 2,
-      phi: -4,
+      phi: phiRef.current,
       theta: 0,
       dark: resolvedTheme === 'light' ? 0 : 1,
       diffuse: 1.2,
@@ -74,11 +74,11 @@ export const Globe = ({
       onRender: (state) => {
         // Auto-rotate when not dragging
         if (!pointerInteracting.current) {
-          phi += 0.002;
+          phiRef.current += 0.002;
         }
 
         // Apply the rotation with spring offset
-        state.phi = phi + r.get();
+        state.phi = phiRef.current + r.get();
         state.width = currentWidth * 2;
         state.height = height * 2;
       },
