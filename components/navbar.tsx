@@ -97,6 +97,7 @@ export function Navbar() {
         >
           <Link
             href={item.link}
+            aria-label={item.name}
             className={cn(
               'relative -mb-1 flex items-center gap-2 pb-1',
               isActive(item.link)
