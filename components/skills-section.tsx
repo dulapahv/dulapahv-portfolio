@@ -62,7 +62,7 @@ const skillsData = [
     size: 'medium',
     gradient: 'from-warning to-warning/60',
     bgColor: 'bg-warning/5 hover:bg-warning/10',
-    skills: ['PostgreSQL', 'MongoDB', 'SQLite', 'Snowflake'],
+    skills: ['PostgreSQL', 'MongoDB', 'SQLite', 'MySQL', 'Snowflake'],
   },
   {
     category: 'Cloud & Infrastructure',
@@ -70,7 +70,7 @@ const skillsData = [
     size: 'medium',
     gradient: 'from-purple-500 to-purple-400',
     bgColor: 'bg-purple-500/5 hover:bg-purple-500/10',
-    skills: ['Vercel', 'Cloudflare', 'Nginx', 'Firebase'],
+    skills: ['Vercel', 'Cloudflare', 'Nginx', 'GCP', 'Firebase'],
   },
   {
     category: 'DevOps & CI/CD',
@@ -81,20 +81,20 @@ const skillsData = [
     skills: ['GitHub Actions', 'GitLab CI/CD', 'Docker'],
   },
   {
-    category: 'Development Tools',
-    icon: Wrench,
-    size: 'small',
-    gradient: 'from-mirai-yellow to-mirai-yellow/60',
-    bgColor: 'bg-mirai-yellow/5 hover:bg-mirai-yellow/10',
-    skills: ['Postman', 'Insomnia', 'Figma', 'Axios'],
-  },
-  {
     category: 'Desktop/Cross-Platform',
     icon: Monitor,
     size: 'small',
     gradient: 'from-teal-600 to-teal-500',
     bgColor: 'bg-teal-600/5 hover:bg-teal-600/10',
     skills: ['Electron.js', 'Qt'],
+  },
+  {
+    category: 'Development Tools',
+    icon: Wrench,
+    size: 'medium',
+    gradient: 'from-mirai-yellow to-mirai-yellow/60',
+    bgColor: 'bg-mirai-yellow/5 hover:bg-mirai-yellow/10',
+    skills: ['Playwright', 'Jest', 'Postman', 'Insomnia', 'Figma', 'Axios'],
   },
 ];
 
