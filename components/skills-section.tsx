@@ -78,7 +78,7 @@ const skillsData = [
     size: 'medium',
     gradient: 'from-purple-500 to-purple-400',
     bgColor: 'bg-purple-500/5 hover:bg-purple-500/10',
-    skills: ['Vercel', 'Render', 'Cloudflare', 'Nginx', 'GCP', 'Firebase'],
+    skills: ['Vercel', 'Render', 'Cloudflare', 'GCP', 'Nginx', 'Firebase'],
   },
   {
     category: 'Desktop/Cross-Platform',
