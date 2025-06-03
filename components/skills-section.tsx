@@ -54,7 +54,7 @@ const skillsData = [
     size: 'medium',
     gradient: 'from-success to-success/60',
     bgColor: 'bg-success/5 hover:bg-success/10',
-    skills: ['Express.js', 'Prisma', 'Socket.IO', 'Firebase'],
+    skills: ['Express.js', 'Prisma', 'Socket.IO', 'WebRTC', 'Firebase'],
   },
   {
     category: 'Databases',
