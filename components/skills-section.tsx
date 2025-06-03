@@ -26,8 +26,8 @@ const skillsData = [
       'C++',
       'Java',
       'Bash',
-      'R',
       'Haskell',
+      'R',
       'Rust',
     ],
   },
@@ -54,7 +54,7 @@ const skillsData = [
     size: 'medium',
     gradient: 'from-success to-success/60',
     bgColor: 'bg-success/5 hover:bg-success/10',
-    skills: ['Express.js', 'Firebase', 'Socket.IO', 'Prisma'],
+    skills: ['Express.js', 'Prisma', 'Socket.IO', 'Firebase'],
   },
   {
     category: 'Databases',
@@ -62,7 +62,7 @@ const skillsData = [
     size: 'medium',
     gradient: 'from-warning to-warning/60',
     bgColor: 'bg-warning/5 hover:bg-warning/10',
-    skills: ['PostgreSQL', 'SQLite', 'MongoDB', 'Snowflake'],
+    skills: ['PostgreSQL', 'MongoDB', 'SQLite', 'Snowflake'],
   },
   {
     category: 'Cloud & Infrastructure',
