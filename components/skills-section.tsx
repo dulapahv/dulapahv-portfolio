@@ -44,7 +44,7 @@ const skillsData = [
       'shadcn/ui',
       'HeroUI',
       'Tremor',
-      'DaisyUI',
+      'daisyUI',
       'MUI',
     ],
   },
