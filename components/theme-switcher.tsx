@@ -223,7 +223,7 @@ export const ThemeSwitcher = () => {
         </motion.button>
       ) : (
         // Show all theme options when expanded or on hover/focus
-        themes.map(({ key, icon: Icon, label }, index) => {
+        themes.map(({ key, icon: Icon, label }) => {
           const isActive = theme === key;
           return (
             <motion.button

@@ -130,7 +130,7 @@ export const Navbar = () => {
       aria-label="Main navigation"
       onKeyDown={handleKeyDown}
     >
-      {navbarItems.map((item, index) => {
+      {navbarItems.map((item) => {
         const active = isActive(item.link);
 
         return (

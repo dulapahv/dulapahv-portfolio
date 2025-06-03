@@ -21,7 +21,6 @@ export const TableOfContents = () => {
   const [activeId, setActiveId] = useState<string>('');
   const [lockActiveId, setLockActiveId] = useState<boolean>(false);
   const [isCollapsed, setIsCollapsed] = useState<boolean>(true);
-  const [focusedIndex, setFocusedIndex] = useState<number>(-1);
   const isDesktop = useMediaQuery('(min-width: 1280px)'); // xl breakpoint
   const tocRef = useRef<HTMLDivElement>(null);
   const linksRef = useRef<(HTMLAnchorElement | null)[]>([]);
@@ -147,43 +146,26 @@ export const TableOfContents = () => {
         e.preventDefault();
         e.stopPropagation();
         const nextIndex = Math.min(index + 1, tocItems.length - 1);
-        setFocusedIndex(nextIndex);
         linksRef.current[nextIndex]?.focus();
         break;
       case 'ArrowUp':
         e.preventDefault();
         e.stopPropagation();
         const prevIndex = Math.max(index - 1, 0);
-        setFocusedIndex(prevIndex);
         linksRef.current[prevIndex]?.focus();
         break;
       case 'Home':
         e.preventDefault();
         e.stopPropagation();
-        setFocusedIndex(0);
         linksRef.current[0]?.focus();
         break;
       case 'End':
         e.preventDefault();
         e.stopPropagation();
         const lastIndex = tocItems.length - 1;
-        setFocusedIndex(lastIndex);
         linksRef.current[lastIndex]?.focus();
         break;
     }
-  };
-
-  const handleFocus = (index: number) => {
-    setFocusedIndex(index);
-  };
-
-  const handleBlur = () => {
-    // Small delay to allow focus to move to another TOC item
-    setTimeout(() => {
-      if (!tocRef.current?.contains(document.activeElement)) {
-        setFocusedIndex(-1);
-      }
-    }, 100);
   };
 
   // Don't render if there are no headings
@@ -218,8 +200,6 @@ export const TableOfContents = () => {
                   href={`#${item.id}`}
                   onClick={(e) => handleClick(e, item.id)}
                   onKeyDown={(e) => handleKeyDown(e, item.id, index)}
-                  onFocus={() => handleFocus(index)}
-                  onBlur={handleBlur}
                   className={cn(
                     'group relative block rounded-md px-3 py-1 text-sm font-medium transition-all',
                     item.level === 3 ? 'pl-7' : '',
@@ -315,8 +295,6 @@ export const TableOfContents = () => {
                       href={`#${item.id}`}
                       onClick={(e) => handleClick(e, item.id)}
                       onKeyDown={(e) => handleKeyDown(e, item.id, index)}
-                      onFocus={() => handleFocus(index)}
-                      onBlur={handleBlur}
                       className={cn(
                         `text-foreground-muted hover:text-foreground block rounded-md px-3 py-1.5 text-sm
                         transition-all`,
