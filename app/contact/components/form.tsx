@@ -105,6 +105,8 @@ export const ContactForm = ({ searchParams }: ContactFormProps) => {
       ref={formRef}
       onSubmit={handleSubmit}
       className="grid w-full gap-6"
+      role="form"
+      aria-label="Contact form"
     >
       <Input
         label="Name"
@@ -137,12 +139,20 @@ export const ContactForm = ({ searchParams }: ContactFormProps) => {
         <Form.Label className="text-foreground-muted inline-block text-sm font-medium select-none">
           <span className="after:text-error after:ml-0.5 after:content-['*']">
             Verification
+            <span className="sr-only"> (required)</span>
           </span>
         </Form.Label>
         <Captcha captchaRef={captchaRef} onVerifyCaptcha={onVerifyCaptcha} />
         {/* Hidden input for browser validation */}
         <Form.Control asChild>
-          <input ref={captchaInputRef} type="hidden" name="captcha" required />
+          <input
+            ref={captchaInputRef}
+            type="hidden"
+            name="captcha"
+            required
+            aria-required="true"
+            aria-label="Captcha verification token"
+          />
         </Form.Control>
         <Form.Message className="text-error text-sm" match="valueMissing">
           Please complete the captcha verification
@@ -151,19 +161,37 @@ export const ContactForm = ({ searchParams }: ContactFormProps) => {
 
       {/* Success/Error Messages */}
       {submitSuccess && (
-        <div className="text-success text-sm font-medium">
+        <div
+          className="text-success text-sm font-medium"
+          role="status"
+          aria-live="polite"
+        >
           Your message has been sent successfully! You will receive a
           confirmation email and hear back from me soon.
         </div>
       )}
       {submitError && (
-        <div className="text-error text-sm font-medium">{submitError}</div>
+        <div
+          className="text-error text-sm font-medium"
+          role="alert"
+          aria-live="assertive"
+        >
+          {submitError}
+        </div>
       )}
 
       <Form.Submit asChild>
         <button
           type="submit"
           disabled={isPending}
+          aria-disabled={isPending}
+          aria-describedby={
+            submitError
+              ? 'submit-error'
+              : submitSuccess
+                ? 'submit-success'
+                : undefined
+          }
           className={cn(
             `bg-mirai-red flex w-fit cursor-pointer items-center justify-center gap-2
             rounded-md px-3 py-2 text-sm font-medium text-white select-none`,
@@ -177,9 +205,9 @@ export const ContactForm = ({ searchParams }: ContactFormProps) => {
             {isPending ? (
               <Spinner className="relative" />
             ) : (
-              <Send className="size-4" />
+              <Send className="size-4" aria-hidden="true" />
             )}
-            Send Message
+            <span>{isPending ? 'Sending...' : 'Send Message'}</span>
           </>
         </button>
       </Form.Submit>

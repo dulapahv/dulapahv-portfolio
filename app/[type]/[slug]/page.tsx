@@ -23,6 +23,23 @@ const getContentDate = (page: { date?: Date; startDate?: Date }): Date => {
   return page.date ?? page.startDate ?? new Date();
 };
 
+// Helper function to get ISO date string for datetime attribute
+const getISODateString = (page: {
+  date?: Date;
+  startDate?: Date;
+  endDate?: Date;
+}): string => {
+  const primaryDate = getContentDate(page);
+  return primaryDate.toISOString().split('T')[0];
+};
+
+// Helper function to get date range ISO string for work/projects
+const getDateRangeISO = (startDate: Date, endDate?: Date): string => {
+  const start = startDate.toISOString().split('T')[0];
+  const end = endDate ? endDate.toISOString().split('T')[0] : '';
+  return end ? `${start}/${end}` : start;
+};
+
 export const generateMetadata = async ({
   params,
 }: PageProperties): Promise<Metadata> => {
@@ -87,6 +104,8 @@ export default async function ContentPage({ params }: PageProperties) {
   let title: string;
   let subtitle: string | undefined;
   let dateInfo: string;
+  let dateTimeValue: string;
+  let dateLabel: string;
 
   if (isWork) {
     title = page.position;
@@ -104,6 +123,8 @@ export default async function ContentPage({ params }: PageProperties) {
         })
       : 'Present';
     dateInfo = `${startDate} - ${endDate}`;
+    dateTimeValue = getDateRangeISO(page.startDate, page.endDate);
+    dateLabel = `Employment period from ${startDate} to ${endDate}`;
   } else if (isProject) {
     title = page.title;
     subtitle = page.description;
@@ -120,6 +141,8 @@ export default async function ContentPage({ params }: PageProperties) {
         })
       : 'Ongoing';
     dateInfo = `${startDate} - ${endDate}`;
+    dateTimeValue = getDateRangeISO(page.startDate, page.endDate);
+    dateLabel = `Project duration from ${startDate} to ${endDate}`;
   } else {
     // Blog
     title = page.title;
@@ -129,49 +152,94 @@ export default async function ContentPage({ params }: PageProperties) {
       day: 'numeric',
       year: 'numeric',
     });
+    dateTimeValue = getISODateString(page);
+    dateLabel = `Published on ${dateInfo}`;
   }
 
+  // Generate comprehensive alt text for images
+  const generateImageAlt = (): string => {
+    if (isWork) {
+      return `Cover image for ${page.position} position at ${page.company}`;
+    } else if (isProject) {
+      return `Cover image for ${page.title} project`;
+    } else {
+      return `Cover image for blog post: ${page.title}`;
+    }
+  };
+
   return (
-    <>
+    <main className="space-y-4">
       <header className="space-y-2">
         <div className="space-y-2">
           <h1 className="text-2xl font-semibold">{title}</h1>
           {subtitle && (
-            <p className="text-foreground-muted font-medium">{subtitle}</p>
+            <p
+              className="text-foreground-muted font-medium"
+              role="doc-subtitle"
+            >
+              {subtitle}
+            </p>
           )}
         </div>
         <div className="text-foreground-muted space-y-1 text-sm">
-          <p>
-            <span className="sr-only">Type:</span>
-            <span className="mr-2 inline-block">{label}</span>
-            <span aria-hidden="true">|</span>
-            <span className="ml-2">
-              {isBlog ? 'Published on' : 'Duration:'}{' '}
-              <time dateTime={getContentDate(page).toISOString()}>
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="sr-only">Content type:</span>
+            <span
+              className="inline-block font-medium"
+              aria-label={`Content type: ${label}`}
+            >
+              {label}
+            </span>
+            <span aria-hidden="true" className="text-foreground-subtle">
+              |
+            </span>
+            <div className="flex items-center gap-1">
+              <span className="sr-only">
+                {isBlog ? 'Publication date:' : 'Duration:'}
+              </span>
+              <span aria-hidden="true">
+                {isBlog ? 'Published on' : 'Duration:'}
+              </span>
+              <time
+                dateTime={dateTimeValue}
+                aria-label={dateLabel}
+                className="font-medium"
+              >
                 {dateInfo}
               </time>
-            </span>
-          </p>
-          <p>{page.readingTime}</p>
+            </div>
+          </div>
+          {page.readingTime && (
+            <p aria-label={`Estimated reading time: ${page.readingTime}`}>
+              <span className="sr-only">Reading time:</span>
+              {page.readingTime}
+            </p>
+          )}
         </div>
       </header>
-      {page.image ? (
-        <div className="relative">
+
+      {page.image && (
+        <figure
+          className="relative"
+          role="img"
+          aria-labelledby="cover-image-caption"
+        >
           <Image
             src={page.image}
-            alt={`Cover image for ${title}`}
+            alt={generateImageAlt()}
             width={1200}
             height={630}
             className="border-border/50 overflow-hidden rounded-md border"
             quality={100}
             priority
           />
-        </div>
-      ) : null}
+          <figcaption id="cover-image-caption" className="sr-only">
+            {generateImageAlt()}
+          </figcaption>
+        </figure>
+      )}
 
-      <article>
-        <Mdx code={page.body} />
-      </article>
-    </>
+      <Mdx code={page.body} />
+    </main>
   );
 }

@@ -84,88 +84,137 @@ export default async function TypeListingPage({ params }: PageProperties) {
     return '';
   };
 
+  // Helper function to get ISO date string for datetime attribute
+  const getISODateString = (post: {
+    date?: Date;
+    startDate?: Date;
+    endDate?: Date;
+  }) => {
+    if ('date' in post && post.date) {
+      return post.date.toISOString().split('T')[0];
+    } else if ('startDate' in post && post.startDate) {
+      return post.startDate.toISOString().split('T')[0];
+    }
+    return '';
+  };
+
   return (
     <>
       <Breadcrumb />
-      <div className="gap-0">
-        <h1 className="text-lg font-medium">{title}</h1>
-        <p className="text-foreground-muted">{description}</p>
-      </div>
+      <main>
+        <header className="gap-0">
+          <h1 className="text-lg font-medium">{title}</h1>
+          <p className="text-foreground-muted">{description}</p>
+        </header>
 
-      {!hasContent ? (
-        <div className="mt-8 py-12 text-center">
-          <p className="text-foreground-muted">No content available yet.</p>
-        </div>
-      ) : (
-        Object.entries(contentByYear)
-          .sort(([a], [b]) => Number(b) - Number(a))
-          .map(([year, posts]) => (
-            <div
-              key={year}
-              className="divide-mirai-red mb-8 divide-y divide-dashed"
-            >
-              <h2 id={year} className="text-mirai-red mb-2 font-normal">
-                <Link
-                  href={`#${year}`}
-                  className="group relative hover:underline"
+        {!hasContent ? (
+          <section
+            className="mt-8 py-12 text-center"
+            aria-label="No content available"
+          >
+            <p className="text-foreground-muted">No content available yet.</p>
+          </section>
+        ) : (
+          <div role="main" aria-label={`${title} by year`}>
+            {Object.entries(contentByYear)
+              .sort(([a], [b]) => Number(b) - Number(a))
+              .map(([year, posts]) => (
+                <section
+                  key={year}
+                  className="divide-mirai-red mb-8 divide-y divide-dashed"
+                  aria-labelledby={`year-${year}`}
                 >
-                  <LuLink
-                    className="absolute top-1/2 -left-4 size-3 -translate-y-1/2 opacity-0
-                      group-hover:opacity-100"
-                  />
-                  {year}
-                </Link>
-              </h2>
-              <ul className="grid gap-6">
-                {posts.map((post) => {
-                  const isWork = 'position' in post;
+                  <h2
+                    id={`year-${year}`}
+                    className="text-mirai-red mb-2 font-normal"
+                  >
+                    <Link
+                      href={`#year-${year}`}
+                      className="group relative rounded-sm hover:underline"
+                      aria-label={`Jump to ${year} section`}
+                    >
+                      <LuLink
+                        className="absolute top-1/2 -left-4 size-3 -translate-y-1/2 opacity-0
+                          group-hover:opacity-100 group-focus:opacity-100"
+                        aria-hidden="true"
+                      />
+                      <span>{year}</span>
+                    </Link>
+                  </h2>
+                  <ul
+                    className="grid gap-6"
+                    role="list"
+                    aria-label={`${type} from ${year}`}
+                  >
+                    {posts.map((post) => {
+                      const isWork = 'position' in post;
+                      const dateTime = getISODateString(post);
 
-                  return (
-                    <li key={post._meta.path}>
-                      <Link
-                        href={`/${type}/${post.slug}`}
-                        className="hover:text-mirai-red group flex items-center justify-between gap-2
-                          transition-colors"
-                      >
-                        <div className="flex flex-col gap-1">
-                          {isWork ? (
-                            <>
-                              <h3 className="text-lg font-semibold">
-                                {post.position}
-                              </h3>
-                              <p className="text-foreground-lighter text-sm font-medium">
-                                {post.company}
-                              </p>
-                              <p className="text-foreground-lighter text-sm">
-                                {post.location}
-                              </p>
-                              <time className="text-foreground-lighter text-xs">
-                                {formatDateRange(post)}
-                              </time>
-                            </>
-                          ) : (
-                            <>
-                              <h3 className="text-lg font-semibold">
-                                {post.title}
-                              </h3>
-                              <p className="text-foreground-lighter text-sm">
-                                {post.description}
-                              </p>
-                              <time className="text-foreground-lighter text-xs">
-                                {formatDateRange(post)}
-                              </time>
-                            </>
-                          )}
-                        </div>
-                        <ChevronRight className="flex-shrink-0 transition-transform group-hover:translate-x-1" />
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          ))
-      )}
+                      return (
+                        <li key={post._meta.path} role="listitem">
+                          <Link
+                            href={`/${type}/${post.slug}`}
+                            className="hover:text-mirai-red group -m-2 flex items-center justify-between gap-2
+                              rounded-md p-2 transition-colors"
+                            aria-label={
+                              isWork
+                                ? `View details for ${post.position} at ${post.company}, ${post.location}`
+                                : `Read ${post.title}: ${post.description}`
+                            }
+                          >
+                            <div className="flex flex-col gap-1">
+                              {isWork ? (
+                                <>
+                                  <h3 className="text-lg font-semibold">
+                                    {post.position}
+                                  </h3>
+                                  <p className="text-foreground-lighter text-sm font-medium">
+                                    {post.company}
+                                  </p>
+                                  <p className="text-foreground-lighter text-sm">
+                                    {post.location}
+                                  </p>
+                                  <time
+                                    className="text-foreground-lighter text-xs"
+                                    dateTime={dateTime}
+                                    aria-label={`Employment period: ${formatDateRange(post)}`}
+                                  >
+                                    {formatDateRange(post)}
+                                  </time>
+                                </>
+                              ) : (
+                                <>
+                                  <h3 className="text-lg font-semibold">
+                                    {post.title}
+                                  </h3>
+                                  <p className="text-foreground-lighter text-sm">
+                                    {post.description}
+                                  </p>
+                                  <time
+                                    className="text-foreground-lighter text-xs"
+                                    dateTime={dateTime}
+                                    aria-label={`Published on ${formatDateRange(post)}`}
+                                  >
+                                    {formatDateRange(post)}
+                                  </time>
+                                </>
+                              )}
+                            </div>
+                            <ChevronRight
+                              className="flex-shrink-0 transition-transform group-hover:translate-x-1
+                                group-focus:translate-x-1"
+                              aria-hidden="true"
+                            />
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </section>
+              ))}
+          </div>
+        )}
+      </main>
     </>
   );
 }

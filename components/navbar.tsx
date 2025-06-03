@@ -1,5 +1,6 @@
 'use client';
 
+import { useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -42,13 +43,50 @@ const navbarItems = [
   },
 ];
 
-export function Navbar() {
+export const Navbar = () => {
   const pathname = usePathname();
+  const navRef = useRef<HTMLElement>(null);
 
   const isActive = (link: string) => {
     if (link === '/') return pathname === '/';
-
     return pathname.startsWith(link);
+  };
+
+  // Handle arrow key navigation
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
+    if (!navRef.current) return;
+
+    const links = navRef.current.querySelectorAll('a');
+    const currentIndex = Array.from(links).findIndex(
+      (link) => link === document.activeElement,
+    );
+
+    let newIndex = currentIndex;
+
+    switch (event.key) {
+      case 'ArrowLeft':
+      case 'ArrowUp':
+        event.preventDefault();
+        newIndex = currentIndex > 0 ? currentIndex - 1 : links.length - 1;
+        break;
+      case 'ArrowRight':
+      case 'ArrowDown':
+        event.preventDefault();
+        newIndex = currentIndex < links.length - 1 ? currentIndex + 1 : 0;
+        break;
+      case 'Home':
+        event.preventDefault();
+        newIndex = 0;
+        break;
+      case 'End':
+        event.preventDefault();
+        newIndex = links.length - 1;
+        break;
+      default:
+        return;
+    }
+
+    links[newIndex]?.focus();
   };
 
   const containerVariants = {
@@ -80,38 +118,55 @@ export function Navbar() {
   };
 
   return (
-    <motion.div
+    <motion.nav
+      ref={navRef}
       className="bg-background-elevated/80 border-border text-foreground-subtle fixed right-1/2
         bottom-4 z-50 flex translate-x-1/2 items-center gap-x-6 rounded-full border px-3
         py-2 shadow-lg backdrop-blur-xl sm:px-4"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
+      role="navigation"
+      aria-label="Main navigation"
+      onKeyDown={handleKeyDown}
     >
-      {navbarItems.map((item, index) => (
-        <motion.div
-          key={index}
-          variants={itemVariants}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.98 }}
-        >
-          <Link
-            href={item.link}
-            aria-label={item.name}
-            className={cn(
-              'relative -mb-1 flex items-center gap-2 pb-1',
-              isActive(item.link)
-                ? 'text-mirai-red border-mirai-red border-b-2'
-                : 'hover:text-foreground-muted transition-colors',
-            )}
+      {navbarItems.map((item, index) => {
+        const active = isActive(item.link);
+
+        return (
+          <motion.div
+            key={item.link}
+            variants={itemVariants}
+            className="relative"
           >
-            {item.icon}
-            <span className="hidden text-sm font-semibold sm:block">
-              {item.name}
-            </span>
-          </Link>
-        </motion.div>
-      ))}
-    </motion.div>
+            <Link
+              href={item.link}
+              aria-label={`${item.name}${active ? ', current page' : ''}`}
+              aria-current={active ? 'page' : undefined}
+              className={cn(
+                'relative -mb-1 flex items-center gap-2 pb-1 !transition-transform',
+                'hover:scale-105 active:scale-98',
+                active
+                  ? 'text-mirai-red border-mirai-red border-b-2'
+                  : 'hover:text-foreground-muted transition-colors',
+              )}
+            >
+              <span aria-hidden="true">{item.icon}</span>
+              <span className="hidden text-sm font-semibold sm:block">
+                {item.name}
+              </span>
+
+              {/* Screen reader only current page indicator */}
+              {active && <span className="sr-only">(current page)</span>}
+            </Link>
+          </motion.div>
+        );
+      })}
+
+      {/* Screen reader instructions */}
+      <div className="sr-only" aria-live="polite">
+        Use arrow keys to navigate between menu items
+      </div>
+    </motion.nav>
   );
-}
+};

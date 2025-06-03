@@ -56,6 +56,7 @@ export default async function Home() {
               href={LINKEDIN_URL}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Connect with me on LinkedIn"
               className="border-border bg-background hover:bg-background-elevated
                 hover:border-border-strong inline-flex rounded-md border p-1 transition-colors"
             >
@@ -74,6 +75,7 @@ export default async function Home() {
             href="https://maps.app.goo.gl/uqHyX4aokhjnNn9Z7"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="View Thailand on map"
             className="inline-block align-middle transition-transform hover:scale-105"
           >
             <Image src="/thailand.svg" alt="Thailand" width={28} height={28} />
@@ -83,6 +85,7 @@ export default async function Home() {
             href={GITHUB_URL}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={`GitHub profile with ${followers} followers`}
             className="border-border bg-background hover:bg-background-elevated
               hover:border-border-strong inline-flex rounded-md border px-2 py-1 align-middle
               transition-colors"
@@ -107,6 +110,7 @@ export default async function Home() {
             href="https://www.timeanddate.com/time/zone/uk"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={`Current time in Edinburgh: ${time}`}
             className="border-border bg-background hover:bg-background-elevated
               hover:border-border-strong text-foreground-muted inline-flex rounded-md border
               p-1 pr-1.5 align-middle text-base font-medium transition-colors"

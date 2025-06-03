@@ -24,16 +24,22 @@ export default async function ContactPage({ searchParams }: PageProps) {
   const params = (await searchParams) || {};
 
   return (
-    <div className="mx-auto max-w-4xl space-y-4">
-      <div className="gap-0">
+    <main className="mx-auto max-w-4xl space-y-4">
+      <header className="gap-0">
         <h1 className="text-foreground font-medium">{title}</h1>
         <p className="text-foreground-muted">{description}</p>
-      </div>
-      <div>
-        <Suspense fallback={null}>
+      </header>
+      <section aria-label="Contact form">
+        <Suspense
+          fallback={
+            <div aria-live="polite" aria-label="Loading contact form">
+              Loading...
+            </div>
+          }
+        >
           <ContactForm searchParams={params} />
         </Suspense>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
