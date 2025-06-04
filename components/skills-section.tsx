@@ -54,7 +54,7 @@ const skillsData = [
     size: 'medium',
     gradient: 'from-success to-success/60',
     bgColor: 'bg-success/5 hover:bg-success/10',
-    skills: ['Express.js', 'Prisma', 'Socket.IO', 'WebRTC', 'Firebase'],
+    skills: ['Express.js', 'Prisma', 'WebSocket', 'WebRTC', 'Firebase'],
   },
   {
     category: 'Databases',
@@ -78,7 +78,7 @@ const skillsData = [
     size: 'medium',
     gradient: 'from-purple-500 to-purple-400',
     bgColor: 'bg-purple-500/5 hover:bg-purple-500/10',
-    skills: ['Vercel', 'Render', 'Cloudflare', 'GCP', 'Nginx', 'Firebase'],
+    skills: ['Vercel', 'Cloudflare', 'Render', 'GCP', 'Nginx', 'Firebase'],
   },
   {
     category: 'Desktop/Cross-Platform',
@@ -94,7 +94,7 @@ const skillsData = [
     size: 'medium',
     gradient: 'from-mirai-yellow to-mirai-yellow/60',
     bgColor: 'bg-mirai-yellow/5 hover:bg-mirai-yellow/10',
-    skills: ['Playwright', 'Jest', 'Postman', 'Insomnia', 'Figma', 'Axios'],
+    skills: ['Playwright', 'Jest', 'Postman', 'Insomnia', 'Figma'],
   },
 ];
 
