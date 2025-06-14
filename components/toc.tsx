@@ -4,7 +4,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, CircleArrowUp } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 
 import { cn } from '@/lib/utils';
@@ -21,9 +21,21 @@ export const TableOfContents = () => {
   const [activeId, setActiveId] = useState<string>('');
   const [lockActiveId, setLockActiveId] = useState<boolean>(false);
   const [isCollapsed, setIsCollapsed] = useState<boolean>(true);
+  const [showScrollTop, setShowScrollTop] = useState<boolean>(false);
   const isDesktop = useMediaQuery('(min-width: 1280px)'); // xl breakpoint
   const tocRef = useRef<HTMLDivElement>(null);
   const linksRef = useRef<(HTMLAnchorElement | null)[]>([]);
+
+  // Handle scroll visibility for scroll to top button
+  useEffect(() => {
+    const handleScroll = () => {
+      // Show button after scrolling down 300px
+      setShowScrollTop(window.scrollY > 300);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     const updateTOC = () => {
@@ -125,6 +137,11 @@ export const TableOfContents = () => {
     },
     [isDesktop],
   );
+
+  const scrollToTop = useCallback(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.history.replaceState(null, '', window.location.pathname);
+  }, []);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
@@ -237,6 +254,32 @@ export const TableOfContents = () => {
             ))}
           </ul>
         </div>
+
+        {/* Scroll to top button */}
+        <AnimatePresence>
+          {showScrollTop && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              transition={{ duration: 0.2 }}
+              className="mt-2 px-3"
+            >
+              <button
+                onClick={scrollToTop}
+                className={cn(
+                  `text-foreground-muted flex w-full cursor-pointer items-center gap-x-2 rounded-md
+                  text-sm font-medium`,
+                  'hover:text-foreground transition-colors',
+                )}
+                aria-label="Scroll to top of page"
+              >
+                <span>Scroll to top</span>
+                <CircleArrowUp className="size-4" />
+              </button>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
     );
   }
