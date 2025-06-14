@@ -268,8 +268,8 @@ export const TableOfContents = () => {
               <button
                 onClick={scrollToTop}
                 className={cn(
-                  `text-foreground-muted flex w-full cursor-pointer items-center gap-x-2 rounded-md
-                  text-sm font-medium`,
+                  `text-foreground-muted flex w-full cursor-pointer items-center gap-x-1.5
+                  rounded-md text-sm font-medium`,
                   'hover:text-foreground transition-colors',
                 )}
                 aria-label="Scroll to top of page"
