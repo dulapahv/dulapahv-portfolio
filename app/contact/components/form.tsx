@@ -195,10 +195,9 @@ export const ContactForm = ({ searchParams }: ContactFormProps) => {
           className={cn(
             `bg-mirai-red flex w-fit cursor-pointer items-center justify-center gap-2
             rounded-md px-3 py-2 text-sm font-medium text-white select-none`,
-            'hover:bg-mirai-red/90 hover:shadow-md',
-            'transition-transform active:scale-[0.98]',
+            'hover:bg-mirai-red/90 transition-colors hover:shadow-md',
+            'active:scale-[0.98] active:!transition-transform',
             'disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:shadow-none',
-            'border-mirai-red hover:border-mirai-red/90 border',
           )}
         >
           <>
