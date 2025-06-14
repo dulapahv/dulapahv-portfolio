@@ -157,7 +157,10 @@ export default function SkillsSection() {
                     )}
                   >
                     <IconComponent
-                      className={cn(isLarge ? 'size-5' : 'size-4')}
+                      className={cn(
+                        'flex-shrink-0',
+                        isLarge ? 'size-5' : 'size-4',
+                      )}
                     />
                   </div>
                   <div className="flex-1">
