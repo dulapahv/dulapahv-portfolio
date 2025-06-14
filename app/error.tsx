@@ -41,7 +41,10 @@ Timestamp: ${new Date().toLocaleString()} (${new Date().toISOString()})
 Digest: ${error.digest || 'N/A'}
 ====================`,
             )}`}
-            className="text-mirai-red hover:text-mirai-red underline underline-offset-4"
+            className={cn(
+              'text-mirai-red underline underline-offset-4',
+              'hover:text-mirai-red',
+            )}
           >
             contact me
           </Link>{' '}
@@ -81,7 +84,12 @@ Digest: ${error.digest || 'N/A'}
                   <br />
                   <br />
                   <details className="mt-2">
-                    <summary className="text-foreground hover:text-foreground-muted cursor-pointer transition-colors">
+                    <summary
+                      className={cn(
+                        'text-foreground cursor-pointer transition-colors',
+                        'hover:text-foreground-muted',
+                      )}
+                    >
                       Stack Trace
                     </summary>
                     <pre className="bg-background-elevated mt-2 overflow-x-auto rounded p-2 text-xs">

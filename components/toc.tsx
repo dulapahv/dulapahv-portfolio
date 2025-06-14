@@ -205,7 +205,8 @@ export const TableOfContents = () => {
                     item.level === 3 ? 'pl-7' : '',
                     activeId === item.id
                       ? 'text-mirai-red'
-                      : 'text-foreground-muted hover:text-foreground',
+                      : 'text-foreground-muted',
+                    activeId !== item.id && 'hover:text-foreground',
                   )}
                   aria-current={activeId === item.id ? 'location' : undefined}
                   aria-describedby={
@@ -252,8 +253,11 @@ export const TableOfContents = () => {
       <button
         type="button"
         onClick={() => setIsCollapsed(!isCollapsed)}
-        className="text-foreground hover:bg-background-muted/50 flex w-full items-center
-          justify-between rounded-md px-4 py-3 text-sm font-semibold transition-colors"
+        className={cn(
+          `text-foreground flex w-full items-center justify-between rounded-md px-4 py-3
+          text-sm font-semibold transition-colors`,
+          'hover:bg-background-muted/50',
+        )}
         aria-expanded={!isCollapsed}
         aria-controls="toc-content"
         aria-describedby="toc-description"
@@ -296,8 +300,8 @@ export const TableOfContents = () => {
                       onClick={(e) => handleClick(e, item.id)}
                       onKeyDown={(e) => handleKeyDown(e, item.id, index)}
                       className={cn(
-                        `text-foreground-muted hover:text-foreground block rounded-md px-3 py-1.5 text-sm
-                        transition-all`,
+                        'text-foreground-muted block rounded-md px-3 py-1.5 text-sm transition-all',
+                        'hover:text-foreground',
                         item.level === 3 ? 'pl-7' : '',
                       )}
                       aria-current={

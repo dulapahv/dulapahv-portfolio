@@ -127,8 +127,8 @@ export default function SkillsSection() {
               {/* Background Gradient */}
               <div
                 className={cn(
-                  `absolute inset-0 rounded-xl bg-gradient-to-br opacity-5 transition-opacity
-                  group-hover:opacity-10`,
+                  'absolute inset-0 rounded-xl bg-gradient-to-br opacity-5 transition-opacity',
+                  'group-hover:opacity-10',
                   category.gradient,
                 )}
               />
@@ -136,54 +136,62 @@ export default function SkillsSection() {
               {/* Main Card */}
               <div
                 className={cn(
-                  'border-border bg-background/80 relative h-full rounded-xl border p-3',
-                  'backdrop-blur-xl transition-all hover:-translate-y-1 hover:scale-[1.02]',
-                  'hover:shadow-2xl',
+                  `border-border bg-background/80 relative h-full rounded-xl border p-3
+                  backdrop-blur-xl transition-all`,
+                  'hover:-translate-y-1 hover:scale-[1.02] hover:shadow-2xl',
                   category.bgColor,
                 )}
               >
                 {/* Header */}
                 <div
-                  className={`flex items-center gap-3 ${isLarge ? 'mb-4' : 'mb-3'}`}
+                  className={cn(
+                    'flex items-center gap-3',
+                    isLarge ? 'mb-4' : 'mb-3',
+                  )}
                 >
                   <div
                     className={cn(
-                      `text-foreground rounded-lg bg-gradient-to-br p-2 shadow-lg transition-transform
-                      group-hover:scale-110`,
+                      'text-foreground rounded-lg bg-gradient-to-br p-2 shadow-lg transition-transform',
+                      'group-hover:scale-110',
                       category.bgColor,
                     )}
                   >
                     <IconComponent
-                      className={`${isLarge ? 'size-5' : 'size-4'}`}
+                      className={cn(isLarge ? 'size-5' : 'size-4')}
                     />
                   </div>
                   <div className="flex-1">
                     <h2
-                      className={`text-foreground ${isLarge ? 'text-base' : 'text-sm'} leading-tight font-bold`}
+                      className={cn(
+                        'text-foreground leading-tight font-bold',
+                        isLarge ? 'text-base' : 'text-sm',
+                      )}
                     >
                       {category.category}
                     </h2>
                     <div
-                      className={`h-1 bg-gradient-to-r ${category.gradient} mt-1 rounded-full
-                      ${isLarge ? 'w-10' : 'w-8'}`}
+                      className={cn(
+                        'mt-1 h-1 rounded-full bg-gradient-to-r',
+                        category.gradient,
+                        isLarge ? 'w-10' : 'w-8',
+                      )}
                     />
                   </div>
                 </div>
 
                 {/* Skills */}
                 <div
-                  className={`flex flex-wrap gap-1.5 ${isLarge ? 'gap-2' : ''}`}
+                  className={cn('flex flex-wrap gap-1.5', isLarge && 'gap-2')}
                 >
                   {category.skills.map((skill, index) => (
                     <span
                       key={index}
                       className={cn(
-                        'bg-background-subtle hover:bg-background-muted text-foreground',
-                        'hover:text-foreground cursor-default rounded-full',
+                        `bg-background-subtle text-foreground border-border-subtle cursor-default
+                        rounded-full border font-medium backdrop-blur-sm transition-all`,
                         isLarge ? 'px-3 py-1.5 text-xs' : 'px-2.5 py-1 text-xs',
-                        'border-border-subtle',
-                        'hover:border-border border font-medium backdrop-blur-sm transition-all',
-                        'hover:scale-105 hover:shadow-lg',
+                        `hover:bg-background-muted hover:text-foreground hover:border-border
+                        hover:scale-105 hover:shadow-lg`,
                       )}
                     >
                       {skill}

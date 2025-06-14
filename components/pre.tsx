@@ -4,6 +4,8 @@ import { DetailedHTMLProps, HTMLAttributes, useRef, useState } from 'react';
 
 import { Check, Copy } from 'lucide-react';
 
+import { cn } from '@/lib/utils';
+
 export default function Pre({
   children,
   ...props
@@ -31,8 +33,12 @@ export default function Pre({
         onClick={handleClickCopy}
         aria-label="Copy code"
         title="Copy code"
-        className="text-foreground-muted hover:text-foreground/80 absolute top-[5px] right-2
-          cursor-pointer rounded-md p-2 !transition-all active:scale-90"
+        className={cn(
+          `text-foreground-muted absolute top-[5px] right-2 cursor-pointer rounded-md p-2
+          !transition-all`,
+          'hover:text-foreground/80',
+          'active:scale-90',
+        )}
       >
         {isCopied ? <Check className="size-4" /> : <Copy className="size-4" />}
       </button>

@@ -11,6 +11,7 @@ import {
   type ContentType,
 } from '@/lib/content-utils';
 import { createMetadata } from '@/lib/metadata';
+import { cn } from '@/lib/utils';
 import Breadcrumb from '@/components/breadcrumb';
 
 type PageProperties = {
@@ -130,12 +131,17 @@ export default async function TypeListingPage({ params }: PageProperties) {
                   >
                     <Link
                       href={`#year-${year}`}
-                      className="group relative rounded-sm hover:underline"
+                      className={cn(
+                        'group relative rounded-sm',
+                        'hover:underline',
+                      )}
                       aria-label={`Jump to ${year} section`}
                     >
                       <LuLink
-                        className="absolute top-1/2 -left-4 size-3 -translate-y-1/2 opacity-0
-                          group-hover:opacity-100 group-focus:opacity-100"
+                        className={cn(
+                          'absolute top-1/2 -left-4 size-3 -translate-y-1/2 opacity-0',
+                          'group-hover:opacity-100 group-focus:opacity-100',
+                        )}
                         aria-hidden="true"
                       />
                       <span>{year}</span>
@@ -154,8 +160,11 @@ export default async function TypeListingPage({ params }: PageProperties) {
                         <li key={post._meta.path} role="listitem">
                           <Link
                             href={`/${type}/${post.slug}`}
-                            className="hover:text-mirai-red group -m-2 flex items-center justify-between gap-2
-                              rounded-md p-2 transition-colors"
+                            className={cn(
+                              `group -m-2 flex items-center justify-between gap-2 rounded-md p-2
+                                transition-colors`,
+                              'hover:text-mirai-red',
+                            )}
                             aria-label={
                               isWork
                                 ? `View details for ${post.position} at ${post.company}, ${post.location}`
@@ -201,8 +210,10 @@ export default async function TypeListingPage({ params }: PageProperties) {
                               )}
                             </div>
                             <ChevronRight
-                              className="flex-shrink-0 transition-transform group-hover:translate-x-1
-                                group-focus:translate-x-1"
+                              className={cn(
+                                'flex-shrink-0 transition-transform',
+                                'group-hover:translate-x-1 group-focus:translate-x-1',
+                              )}
                               aria-hidden="true"
                             />
                           </Link>

@@ -46,8 +46,11 @@ export default async function Home() {
             <Image
               src="hey.svg"
               alt="Hey"
-              className="hover:animate-wave inline-block cursor-grab align-baseline
-                active:cursor-grabbing"
+              className={cn(
+                'inline-block cursor-grab align-baseline',
+                'hover:animate-wave',
+                'active:cursor-grabbing',
+              )}
               width={24}
               height={24}
             />{' '}
@@ -57,8 +60,10 @@ export default async function Home() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Connect with me on LinkedIn"
-              className="border-border bg-background hover:bg-background-elevated
-                hover:border-border-strong inline-flex rounded-md border p-1 transition-colors"
+              className={cn(
+                'border-border bg-background inline-flex rounded-md border p-1 transition-colors',
+                'hover:bg-background-elevated hover:border-border-strong',
+              )}
             >
               <Image
                 src="/linkedin.svg"
@@ -76,7 +81,10 @@ export default async function Home() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="View Thailand on map"
-            className="inline-block align-middle transition-transform hover:scale-105"
+            className={cn(
+              'inline-block align-middle transition-transform',
+              'hover:scale-105',
+            )}
           >
             <Image src="/thailand.svg" alt="Thailand" width={28} height={28} />
           </Link>{' '}
@@ -86,9 +94,11 @@ export default async function Home() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`GitHub profile with ${followers} followers`}
-            className="border-border bg-background hover:bg-background-elevated
-              hover:border-border-strong inline-flex rounded-md border px-2 py-1 align-middle
-              transition-colors"
+            className={cn(
+              `border-border bg-background inline-flex rounded-md border px-2 py-1 align-middle
+              transition-colors`,
+              'hover:bg-background-elevated hover:border-border-strong',
+            )}
           >
             <ThemeAwareImage
               lightSrc="/octocat-black.svg"
@@ -111,9 +121,11 @@ export default async function Home() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`Current time in Edinburgh: ${time}`}
-            className="border-border bg-background hover:bg-background-elevated
-              hover:border-border-strong text-foreground-muted inline-flex rounded-md border
-              p-1 pr-1.5 align-middle text-base font-medium transition-colors"
+            className={cn(
+              `border-border bg-background text-foreground-muted inline-flex rounded-md border
+              p-1 pr-1.5 align-middle text-base font-medium transition-colors`,
+              'hover:bg-background-elevated hover:border-border-strong',
+            )}
           >
             {time}
           </Link>
@@ -151,7 +163,7 @@ export default async function Home() {
         at{' '}
         <Link
           href="https://www.natwestgroup.com/"
-          className="text-mirai-red hover:underline"
+          className={cn('text-mirai-red', 'hover:underline')}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -177,6 +189,7 @@ export default async function Home() {
           className="float-left -ml-8 h-72 w-screen cursor-grab overflow-hidden rounded-lg
             min-[425px]:ml-0 min-[425px]:w-full sm:w-96"
         />
+        <br />
         <br />I recently completed a double degree program in Software
         Engineering, earning a{' '}
         <b className="text-foreground font-semibold">
@@ -185,7 +198,7 @@ export default async function Home() {
         from{' '}
         <Link
           href="https://www.gla.ac.uk/"
-          className="text-mirai-red hover:underline"
+          className={cn('text-mirai-red', 'hover:underline')}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -198,7 +211,7 @@ export default async function Home() {
         from{' '}
         <Link
           href="https://www.kmitl.ac.th/"
-          className="text-mirai-red hover:underline"
+          className={cn('text-mirai-red', 'hover:underline')}
           target="_blank"
           rel="noopener noreferrer"
         >

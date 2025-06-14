@@ -65,10 +65,8 @@ export const Captcha = ({ onVerifyCaptcha, captchaRef }: CaptchaProps) => {
       />
       {isCaptchaLoading ? (
         <div
-          className={cn(
-            'flex h-16 w-[300px] items-center border-[0.5px]',
-            'border-border bg-background-subtle',
-          )}
+          className="border-border bg-background-subtle flex h-16 w-[300px] items-center
+            border-[0.5px]"
         >
           <Spinner className="relative m-4" />
           <span className="text-foreground-muted text-xs">

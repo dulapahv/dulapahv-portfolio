@@ -215,8 +215,10 @@ export const ThemeSwitcher = () => {
       {isTouchDevice && !expanded ? (
         <motion.button
           type="button"
-          className="hover:bg-background-subtle relative size-6 shrink-0 cursor-pointer rounded-full
-            transition-colors"
+          className={cn(
+            'relative size-6 shrink-0 cursor-pointer rounded-full transition-colors',
+            'hover:bg-background-subtle',
+          )}
           aria-label={`Current theme: ${currentTheme?.label}. Press Enter or Space to expand theme options`}
           aria-describedby="theme-instructions"
           whileTap={{ scale: 0.95 }}
@@ -231,8 +233,10 @@ export const ThemeSwitcher = () => {
             <motion.button
               type="button"
               key={key}
-              className="hover:bg-background-subtle relative size-6 shrink-0 cursor-pointer rounded-full
-                transition-colors"
+              className={cn(
+                'relative size-6 shrink-0 cursor-pointer rounded-full transition-colors',
+                'hover:bg-background-subtle',
+              )}
               onClick={(e) => {
                 e.stopPropagation();
                 handleThemeChange(key);

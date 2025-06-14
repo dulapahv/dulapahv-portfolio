@@ -9,6 +9,7 @@ import { GeistMono } from 'geist/font/mono';
 import { ThemeProvider } from 'next-themes';
 
 import { BASE_URL } from '@/lib/constants';
+import { cn } from '@/lib/utils';
 import { JsonLd } from '@/components/json-ld';
 import { Navbar } from '@/components/navbar';
 import { ThemeSwitcher } from '@/components/theme-switcher';
@@ -47,10 +48,13 @@ export default function RootLayout({
         <ThemeProvider attribute="class" disableTransitionOnChange>
           <a
             href="#main-content"
-            className="bg-mirai-red focus:ring-mirai-red sr-only rounded-md !px-4 !py-2 font-medium
-              text-white transition-all focus:not-sr-only focus:absolute focus:top-4
-              focus:left-4 focus:z-50 focus:ring-2 focus:ring-offset-2 focus:outline-none
-              dark:focus:ring-offset-gray-800"
+            className={cn(
+              `bg-mirai-red sr-only rounded-md !px-4 !py-2 font-medium text-white
+              transition-all`,
+              `focus:ring-mirai-red focus:not-sr-only focus:absolute focus:top-4 focus:left-4
+              focus:z-50 focus:ring-2 focus:ring-offset-2 focus:outline-none
+              dark:focus:ring-offset-gray-800`,
+            )}
           >
             Skip to main content
           </a>
