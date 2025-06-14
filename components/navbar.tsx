@@ -95,7 +95,7 @@ export const Navbar = () => {
       y: 0,
       opacity: 1,
       transition: {
-        type: 'spring',
+        type: 'spring' as const,
         stiffness: 100,
         damping: 15,
         staggerChildren: 0.1,
@@ -110,7 +110,7 @@ export const Navbar = () => {
       y: 0,
       opacity: 1,
       transition: {
-        type: 'spring',
+        type: 'spring' as const,
         stiffness: 200,
         damping: 20,
       },
