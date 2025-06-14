@@ -138,8 +138,10 @@ export const ThemeSwitcher = () => {
       y: 0,
       opacity: 1,
       transition: {
-        type: 'spring',
-        bounce: 0,
+        type: 'spring' as const,
+        bounce: 0.2,
+        stiffness: 100,
+        damping: 15,
         duration: 0.5,
         delay: isHovered || isFocused || isExpanded ? 0 : 0.5,
       },
