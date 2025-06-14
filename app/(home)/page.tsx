@@ -150,7 +150,7 @@ export default async function Home() {
         at{' '}
         <Link
           href="https://www.natwestgroup.com/"
-          className="text-mirai-red transition-colors hover:underline"
+          className="text-mirai-red hover:underline"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -184,7 +184,7 @@ export default async function Home() {
         from{' '}
         <Link
           href="https://www.gla.ac.uk/"
-          className="text-mirai-red transition-colors hover:underline"
+          className="text-mirai-red hover:underline"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -197,7 +197,7 @@ export default async function Home() {
         from{' '}
         <Link
           href="https://www.kmitl.ac.th/"
-          className="text-mirai-red transition-colors hover:underline"
+          className="text-mirai-red hover:underline"
           target="_blank"
           rel="noopener noreferrer"
         >
