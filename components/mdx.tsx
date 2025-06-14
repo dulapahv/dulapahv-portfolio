@@ -39,7 +39,7 @@ const img = (properties: HTMLProps<HTMLImageElement>) => {
       width={1240}
       height={698}
       unoptimized={properties.src.startsWith('http')}
-      className="border-border my-4 overflow-hidden rounded-md border"
+      className="border-border bg-background-muted/30 my-4 overflow-hidden rounded-md border"
       quality={100}
     />
   );

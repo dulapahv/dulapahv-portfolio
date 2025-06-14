@@ -229,7 +229,7 @@ export default async function ContentPage({ params }: PageProperties) {
             alt={generateImageAlt()}
             width={1200}
             height={630}
-            className="border-border/50 overflow-hidden rounded-md border"
+            className="border-border bg-background-muted/30 overflow-hidden rounded-md border"
             quality={100}
             priority
           />

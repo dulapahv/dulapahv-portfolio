@@ -122,7 +122,8 @@ export default async function Home() {
         <Image
           src="/avatar.jpg"
           alt="Dulapah Vibulsanti"
-          className="ring-border-subtle order-1 size-24 rounded-full ring-2 sm:size-32 md:order-2"
+          className="ring-border-subtle bg-background-muted/50 order-1 size-24 rounded-full ring-2
+            sm:size-32 md:order-2"
           width={128}
           height={128}
           priority
