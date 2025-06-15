@@ -231,8 +231,6 @@ export const TableOfContents = () => {
                       ? `current-section-${index}`
                       : undefined
                   }
-                  aria-posinset={index + 1}
-                  aria-setsize={tocItems.length}
                 >
                   <span
                     className={cn(
@@ -355,8 +353,6 @@ export const TableOfContents = () => {
                           ? `current-section-mobile-${index}`
                           : undefined
                       }
-                      aria-posinset={index + 1}
-                      aria-setsize={tocItems.length}
                     >
                       <span className="line-clamp-2">{item.text}</span>
                       {activeId === item.id && (
