@@ -43,17 +43,24 @@ export default async function Home() {
         >
           <span className="text-mirai-red">
             Hello{' '}
-            <Image
-              src="hey.svg"
-              alt="Hey"
-              className={cn(
-                'inline-block cursor-grab align-baseline',
-                'hover:animate-wave',
-                'active:cursor-grabbing',
-              )}
-              width={24}
-              height={24}
-            />{' '}
+            <Link
+              href="https://en.wiktionary.org/wiki/%E0%B8%AA%E0%B8%A7%E0%B8%B1%E0%B8%AA%E0%B8%94%E0%B8%B5"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Hello in Thai"
+            >
+              <Image
+                src="/wave.svg"
+                alt="Wave"
+                className={cn(
+                  'inline-block cursor-grab align-baseline',
+                  'hover:animate-wave',
+                  'active:cursor-grabbing',
+                )}
+                width={24}
+                height={24}
+              />{' '}
+            </Link>
             I&apos;m Dulapah Vibulsanti{' '}
             <Link
               href={LINKEDIN_URL}
