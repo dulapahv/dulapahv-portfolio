@@ -170,7 +170,7 @@ export default async function ContentPage({ params }: PageProperties) {
   return (
     <main className="space-y-4">
       <header className="space-y-2">
-        <div className="space-y-2">
+        <div>
           <h1 className="text-2xl font-semibold">{title}</h1>
           {subtitle && (
             <p
