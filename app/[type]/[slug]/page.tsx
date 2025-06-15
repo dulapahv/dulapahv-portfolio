@@ -10,6 +10,7 @@ import {
 } from '@/lib/content-utils';
 import { createMetadata } from '@/lib/metadata';
 import { Mdx } from '@/components/mdx';
+import ShareButtons from '@/components/share';
 
 type PageProperties = {
   readonly params: Promise<{
@@ -216,6 +217,7 @@ export default async function ContentPage({ params }: PageProperties) {
             </p>
           )}
         </div>
+        <ShareButtons />
       </header>
 
       {page.image && (
