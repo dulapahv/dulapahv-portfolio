@@ -79,9 +79,9 @@ const createHeading = (level: 'h2' | 'h3' | 'h4' | 'h5' | 'h6') => {
 
 export const Mdx = ({ code }: MdxProperties) => (
   <>
-    <div className="hidden xl:block">
+    {/* <div className="hidden xl:block">
       <TableOfContents />
-    </div>
+    </div> */}
     <article
       aria-label="Article content"
       className={cn(
@@ -123,9 +123,9 @@ export const Mdx = ({ code }: MdxProperties) => (
         [&>details>ul]:my-0`,
       )}
     >
-      <div className="xl:hidden">
+      {/* <div className="xl:hidden">
         <TableOfContents />
-      </div>
+      </div> */}
       <MDXContent
         code={code}
         components={{

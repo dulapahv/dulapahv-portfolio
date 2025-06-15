@@ -285,7 +285,7 @@ export const TableOfContents = () => {
   // Mobile view - collapsible at top
   return (
     <nav
-      className="border-border bg-background-elevated/50 mb-8 rounded-md border backdrop-blur-sm
+      className="border-border bg-background-elevated/50 rounded-md border backdrop-blur-sm
         xl:hidden"
       aria-label="Table of contents"
       role="navigation"
