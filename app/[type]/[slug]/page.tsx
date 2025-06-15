@@ -194,7 +194,7 @@ export default async function ContentPage({ params }: PageProperties) {
             <span aria-hidden="true" className="text-foreground-subtle">
               |
             </span>
-            <div className="flex items-center gap-1">
+            <div className="flex gap-1">
               <span className="sr-only">
                 {isBlog ? 'Publication date:' : 'Duration:'}
               </span>
