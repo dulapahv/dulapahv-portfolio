@@ -16,8 +16,8 @@ const skillsData = [
     category: 'Programming Languages',
     icon: Code2,
     size: 'large',
-    gradient: 'from-mirai-blue to-mirai-blue/60',
-    bgColor: 'bg-mirai-blue/5 hover:bg-mirai-blue/10',
+    gradient: 'from-blue-500 to-blue-400',
+    bgColor: 'bg-blue-500/10 hover:bg-blue-500/15',
     skills: [
       'TypeScript',
       'JavaScript',
@@ -35,8 +35,8 @@ const skillsData = [
     category: 'Frontend Development',
     icon: Globe,
     size: 'large',
-    gradient: 'from-mirai-red to-mirai-red/60',
-    bgColor: 'bg-mirai-red/5 hover:bg-mirai-red/10',
+    gradient: 'from-pink-500 to-pink-400',
+    bgColor: 'bg-pink-500/10 hover:bg-pink-500/15',
     skills: [
       'React.js',
       'Next.js',
@@ -52,24 +52,24 @@ const skillsData = [
     category: 'Backend Development',
     icon: Server,
     size: 'medium',
-    gradient: 'from-success to-success/60',
-    bgColor: 'bg-success/5 hover:bg-success/10',
+    gradient: 'from-green-500 to-green-400',
+    bgColor: 'bg-green-500/10 hover:bg-green-500/15',
     skills: ['Express.js', 'Prisma', 'WebSocket', 'WebRTC', 'Firebase'],
   },
   {
     category: 'Databases',
     icon: Database,
     size: 'medium',
-    gradient: 'from-warning to-warning/60',
-    bgColor: 'bg-warning/5 hover:bg-warning/10',
+    gradient: 'from-amber-500 to-amber-400',
+    bgColor: 'bg-amber-500/10 hover:bg-amber-500/15',
     skills: ['PostgreSQL', 'MongoDB', 'SQLite', 'MySQL', 'Snowflake'],
   },
   {
     category: 'DevOps & CI/CD',
     icon: Settings,
     size: 'medium',
-    gradient: 'from-error to-error/60',
-    bgColor: 'bg-error/5 hover:bg-error/10',
+    gradient: 'from-red-500 to-red-400',
+    bgColor: 'bg-red-500/10 hover:bg-red-500/15',
     skills: ['Turborepo', 'GitHub Actions', 'GitLab CI/CD', 'Sentry', 'Docker'],
   },
   {
@@ -77,23 +77,23 @@ const skillsData = [
     icon: Cloud,
     size: 'medium',
     gradient: 'from-purple-500 to-purple-400',
-    bgColor: 'bg-purple-500/5 hover:bg-purple-500/10',
+    bgColor: 'bg-purple-600/10 hover:bg-purple-600/15',
     skills: ['Vercel', 'Cloudflare', 'Render', 'GCP', 'Nginx', 'Firebase'],
   },
   {
     category: 'Desktop/Cross-Platform',
     icon: Monitor,
     size: 'small',
-    gradient: 'from-teal-600 to-teal-500',
-    bgColor: 'bg-teal-600/5 hover:bg-teal-600/10',
+    gradient: 'from-teal-500 to-teal-400',
+    bgColor: 'bg-teal-600/10 hover:bg-teal-600/15',
     skills: ['Electron.js', 'Qt'],
   },
   {
     category: 'Development Tools',
     icon: Wrench,
     size: 'medium',
-    gradient: 'from-mirai-yellow to-mirai-yellow/60',
-    bgColor: 'bg-mirai-yellow/5 hover:bg-mirai-yellow/10',
+    gradient: 'from-yellow-500 to-yellow-400',
+    bgColor: 'bg-yellow-600/10 hover:bg-yellow-600/15',
     skills: ['Playwright', 'Jest', 'Postman', 'Insomnia', 'Figma'],
   },
 ];
@@ -190,11 +190,10 @@ export default function SkillsSection() {
                     <span
                       key={index}
                       className={cn(
-                        `bg-background-subtle text-foreground border-border-subtle cursor-default
-                        rounded-full border font-medium backdrop-blur-sm transition-all`,
+                        `text-foreground border-foreground/10 cursor-default rounded-full border
+                        bg-white/10 font-medium backdrop-blur-sm transition-all`,
                         isLarge ? 'px-3 py-1.5 text-xs' : 'px-2.5 py-1 text-xs',
-                        `hover:bg-background-muted hover:text-foreground hover:border-border
-                        hover:scale-105 hover:shadow-lg`,
+                        'hover:border-foreground/20 hover:scale-105 hover:bg-white/20 hover:shadow-lg',
                       )}
                     >
                       {skill}

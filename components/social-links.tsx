@@ -69,8 +69,8 @@ export default function SocialLinks() {
       >
         <div
           className={cn(
-            `flex items-center justify-center rounded-md bg-gradient-to-br from-gray-800
-            to-gray-600 p-1 text-white shadow-md transition-transform`,
+            `flex items-center justify-center rounded-md bg-gradient-to-br from-gray-600
+            to-gray-400 p-1 text-white shadow-md transition-transform`,
             'group-hover:scale-110',
           )}
         >
