@@ -53,8 +53,7 @@ export default function RootLayout({
               `bg-mirai-red sr-only rounded-md !px-4 !py-2 font-medium text-white
               transition-all`,
               `focus:ring-mirai-red focus:not-sr-only focus:absolute focus:top-4 focus:left-4
-              focus:z-50 focus:ring-2 focus:ring-offset-2 focus:outline-none
-              dark:focus:ring-offset-gray-800`,
+              focus:z-50`,
             )}
           >
             Skip to main content
