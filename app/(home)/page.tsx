@@ -69,7 +69,7 @@ export default async function Home() {
               aria-label="Connect with me on LinkedIn"
               className={cn(
                 'border-border bg-background inline-flex rounded-md border p-1 transition-colors',
-                'hover:bg-background-elevated hover:border-border-strong',
+                'hover:bg-background-subtle hover:border-border-strong',
               )}
             >
               <Image
@@ -104,7 +104,7 @@ export default async function Home() {
             className={cn(
               `border-border bg-background inline-flex rounded-md border px-2 py-1 align-middle
               transition-colors`,
-              'hover:bg-background-elevated hover:border-border-strong',
+              'hover:bg-background-subtle hover:border-border-strong',
             )}
           >
             <ThemeAwareImage
@@ -131,7 +131,7 @@ export default async function Home() {
             className={cn(
               `border-border bg-background text-foreground-muted inline-flex rounded-md border
               p-1 pr-1.5 align-middle text-base font-medium transition-colors`,
-              'hover:bg-background-elevated hover:border-border-strong',
+              'hover:bg-background-subtle hover:border-border-strong',
             )}
           >
             {time}
