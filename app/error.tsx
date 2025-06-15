@@ -23,7 +23,7 @@ export default function Error({
   return (
     <>
       <Breadcrumb />
-      <main className="space-y-4" id="main-content">
+      <main className="space-y-4">
         <header>
           <h1 className="text-3xl font-semibold">An Error Occurred</h1>
         </header>

@@ -16,7 +16,7 @@ export default function NotFound() {
   return (
     <>
       <Breadcrumb />
-      <main className="space-y-4" id="main-content">
+      <main className="space-y-4">
         <header>
           <h1 className="text-3xl font-semibold">Page Not Found</h1>
         </header>
