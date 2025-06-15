@@ -10,9 +10,9 @@ import { Link } from './link';
 import Pre from './pre';
 import { Video } from './video';
 
-type MdxProperties = {
+interface MdxProperties {
   readonly code: string;
-};
+}
 
 const a = (props: HTMLProps<HTMLAnchorElement>) => {
   if (typeof props.href !== 'string') {
