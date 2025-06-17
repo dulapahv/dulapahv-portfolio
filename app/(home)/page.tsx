@@ -174,13 +174,13 @@ export default async function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          NatWest Group
+          NatWest Group plc
         </Link>
         , one of the United Kingdom&apos;s largest banking and insurance
         institutions in the United Kingdom.
         <br />
         <br />
-        In 2024, I completed an internship at NatWest Group as a{' '}
+        In 2024, I completed an internship at NatWest Group plc as a{' '}
         <b className="text-foreground font-semibold">
           Software Engineer Intern
         </b>
