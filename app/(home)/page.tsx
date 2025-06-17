@@ -196,11 +196,11 @@ export default async function Home() {
           className="float-left -ml-8 h-72 w-screen cursor-grab overflow-hidden rounded-lg
             min-[425px]:ml-0 min-[425px]:w-full sm:w-96"
         />
-        <br />
         <br />I recently completed a double degree program in Software
         Engineering, earning a{' '}
         <b className="text-foreground font-semibold">
-          Bachelor of Science with Honours (BSc Hons)
+          Bachelor of Science with Honours (BSc Hons) with First Class Honours
+          and Specialism in Parallel and Distributed Systems
         </b>{' '}
         from{' '}
         <Link
@@ -225,11 +225,7 @@ export default async function Home() {
           King Mongkut&apos;s Institute of Technology Ladkrabang (KMITL)
         </Link>
         , Thailand. I completed the first two years of the program in Thailand
-        and the final two years in the United Kingdom, graduating with{' '}
-        <b className="text-foreground font-semibold">
-          First Class Honours from both universities
-        </b>
-        .
+        and the final two years in the United Kingdom.
         <br />
         <br />
         I&apos;m passionate about making technology accessible and delightful
