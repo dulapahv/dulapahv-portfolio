@@ -13,7 +13,7 @@ This becomes problematic when displaying the image on a dark or light background
 
 ## Initial Solution With Client-Side Rendering
 
-If you're using [next-themes](https://github.com/pacocoursey/next-themes), you can use the `useTheme` hook to get the current theme and render different images based on the theme. However, this approach requires client-side rendering, which can lead to a flash of unstyled content (FOUC) as the theme is determined after the initial render.
+If you're using [next-themes](https://github.com/pacocoursey/next-themes), you can use the `useTheme` hook to get the current theme and render different images based on the theme.
 
 ```tsx title="ThemeAwareImage.tsx" showLineNumbers
 'use client'; // [!code warning]
@@ -32,9 +32,11 @@ export function ThemeAwareImage() {
 }
 ```
 
+However, this approach requires client-side rendering, which can lead to a flash of unstyled content (FOUC) as the theme is determined after the initial render.
+
 ## Better Solution Without Client-Side Rendering
 
-To avoid client-side rendering, we can use CSS to handle theme-aware image rendering. With this approach, we render both images in the DOM and use CSS to show or hide them based on the current theme.
+To avoid client-side rendering, we can use CSS to handle theme-aware image rendering.
 
 ```tsx title="ThemeAwareImage.tsx" showLineNumbers {27,34}
 import Image from 'next/image';
@@ -77,7 +79,7 @@ export function ThemeAwareImage({
 }
 ```
 
-The first image will be displayed when the theme is dark, and the second image will be displayed when the theme is light.
+With this approach, we render both images in the DOM and use CSS to show or hide them based on the current theme. The first image will be displayed when the theme is dark, and the second image will be displayed when the theme is light.
 
 Building on this concept, we can create a more robust and reusable component for all our projects:
 
