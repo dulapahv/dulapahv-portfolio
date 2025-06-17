@@ -173,7 +173,6 @@ export default async function ContentPage({ params }: PageProperties) {
   return (
     <div className="mx-auto max-w-2xl space-y-4">
       <Breadcrumb lastLabel={title} />
-      <TableOfContents />
       <main className="space-y-4">
         <header className="space-y-2">
           <div>
@@ -224,6 +223,9 @@ export default async function ContentPage({ params }: PageProperties) {
           </div>
           <ShareButtons />
         </header>
+
+        <TableOfContents />
+
         {page.image && (
           <figure
             className="relative"
@@ -244,6 +246,7 @@ export default async function ContentPage({ params }: PageProperties) {
             </figcaption>
           </figure>
         )}
+
         <Mdx code={page.body} />
       </main>
     </div>
