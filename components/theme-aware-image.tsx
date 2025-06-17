@@ -9,19 +9,19 @@ interface ThemeAwareImageProps
 export function ThemeAwareImage({
   lightSrc,
   darkSrc,
-  className,
+  className = '',
   ...props
 }: ThemeAwareImageProps) {
   return (
     <>
       <Image
         src={darkSrc}
-        className={`hidden dark:block ${className || ''}`}
+        className={`hidden dark:block ${className}`}
         {...props}
       />
       <Image
         src={lightSrc}
-        className={`block dark:hidden ${className || ''}`}
+        className={`block dark:hidden ${className}`}
         {...props}
       />
     </>
