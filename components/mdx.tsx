@@ -65,7 +65,10 @@ const createHeading = (level: 'h2' | 'h3' | 'h4' | 'h5' | 'h6') => {
             aria-label={`Link to section: ${typeof children === 'string' ? children : 'section'}`}
             tabIndex={0}
           >
-            <LuLink className="size-4 flex-shrink-0" aria-hidden="true" />
+            <LuLink
+              className="hidden size-4 flex-shrink-0 md:block"
+              aria-hidden="true"
+            />
           </Link>
         )}
         {children}
