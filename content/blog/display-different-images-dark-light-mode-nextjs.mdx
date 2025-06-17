@@ -44,35 +44,21 @@ import Image from 'next/image';
 interface ThemeAwareImageProps {
   lightSrc: string;
   darkSrc: string;
-  className?: string;
-  alt: string;
-  width: number;
-  height: number;
 }
 
 export function ThemeAwareImage({ 
   lightSrc, 
   darkSrc, 
-  className = '', 
-  alt, 
-  width, 
-  height 
 }: ThemeAwareImageProps) {
   return (
     <>
       <Image
-        src={darkSrc}
-        alt={alt}
-        width={width}
-        height={height}
-        className={`hidden dark:block ${className}`}
+        src={lightSrc}
+        className='block dark:hidden'
       />
       <Image
-        src={lightSrc}
-        alt={alt}
-        width={width}
-        height={height}
-        className={`block dark:hidden ${className}`}
+        src={darkSrc}
+        className='hidden dark:block'
       />
     </>
   )
@@ -101,13 +87,13 @@ export function ThemeAwareImage({
   return (
     <>
       <Image
-        src={darkSrc}
-        className={`hidden dark:block ${className}`}
+        src={lightSrc}
+        className={`block dark:hidden ${className}`}
         {...props}
       />
       <Image
-        src={lightSrc}
-        className={`block dark:hidden ${className}`}
+        src={darkSrc}
+        className={`hidden dark:block ${className}`}
         {...props}
       />
     </>
