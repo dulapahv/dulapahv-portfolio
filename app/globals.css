@@ -681,6 +681,10 @@
 /* Base Styles */
 * {
   box-sizing: border-box;
+  font-variant-ligatures: none;
+  font-feature-settings:
+    'liga' 0,
+    'clig' 0;
 }
 
 html {
@@ -765,96 +769,72 @@ code[data-line-numbers] {
   counter-reset: line;
 }
 
+code[data-line-numbers] > span {
+  @apply pl-4;
+}
+
 code[data-line-numbers] > [data-line]::before {
   counter-increment: line;
   content: counter(line);
 
   /* Other styling */
-  display: inline-block;
-  width: 0.75rem;
-  margin-right: 1rem;
-  text-align: right;
-  color: gray;
+  @apply mr-4 inline-block w-3 text-right text-gray-600;
 }
 
 code[data-line-numbers-max-digits='2'] > [data-line]::before {
-  width: 1.25rem;
+  @apply w-[1.25rem];
 }
 
 code[data-line-numbers-max-digits='3'] > [data-line]::before {
-  width: 1.75rem;
+  @apply w-[1.75rem];
 }
 
 code[data-line-numbers-max-digits='4'] > [data-line]::before {
-  width: 2.25rem;
+  @apply w-[2.25rem];
 }
 
-/* Base highlight gradient */
+/* Base highlight */
 code[data-line-numbers] > [data-line][data-highlighted-line] {
-  /* background: rgba(255, 255, 255, 0.12); */
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0.12) 0%,
-    rgba(255, 255, 255, 0.05) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  @apply bg-blue-200;
+  box-shadow: inset 2px 0 0 0 var(--x-blue-600);
 }
 
-/* Diff remove line gradient */
+/* Diff remove line */
 code[data-line-numbers] > [data-line].diff.remove {
-  background: rgba(255, 0, 0, 0.2);
-  /* background: linear-gradient(
-    to right,
-    rgba(255, 0, 0, 0.2) 0%,
-    rgba(255, 0, 0, 0.1) 70%,
-    rgba(255, 0, 0, 0) 100%
-  ); */
+  @apply bg-red-200;
+  box-shadow: inset 2px 0 0 0 var(--x-red-600);
 }
 
-/* Diff add line gradient */
+/* Diff add line */
 code[data-line-numbers] > [data-line].diff.add {
-  background: rgba(0, 255, 100, 0.2);
-  /* background: linear-gradient(
-    to right,
-    rgba(0, 255, 100, 0.2) 0%,
-    rgba(0, 255, 100, 0.1) 70%,
-    rgba(0, 255, 100, 0) 100%
-  ); */
+  @apply bg-green-200;
+  box-shadow: inset 2px 0 0 0 var(--x-green-600);
 }
 
 /* Make spans transparent to prevent background stacking */
 code[data-line-numbers] > [data-line].diff span {
-  background-color: transparent !important;
+  @apply !bg-transparent;
 }
 
 /* Add the diff line markers */
 code[data-line-numbers] > [data-line].diff.remove::before {
-  content: '-';
-  color: #ff3b4c;
+  @apply text-red-600 content-['-'];
 }
 
 code[data-line-numbers] > [data-line].diff.add::before {
-  content: '+';
-  color: #28a745;
+  @apply text-green-600 content-['+'];
 }
 
 /* Highlighted word */
 .highlighted-word {
-  outline-offset: 2px;
-  outline: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 3px;
-  padding: 0 4px;
+  @apply rounded-[3px] outline-offset-1;
+  outline: 1px solid var(--x-blue-600);
 }
 
 /* Error highlight */
 .highlighted.error {
-  background-color: rgba(255, 0, 0, 0.2);
-  /* background: linear-gradient(
-    to right,
-    rgba(255, 0, 0, 0.2) 0%,
-    rgba(255, 0, 0, 0.1) 70%,
-    rgba(255, 0, 0, 0) 100%
-  ); */
+  @apply bg-red-200;
+  box-shadow: inset 2px 0 0 0 var(--x-red-600);
 }
 
 code[data-line-numbers] > [data-line].error::before {
@@ -863,13 +843,8 @@ code[data-line-numbers] > [data-line].error::before {
 
 /* Warning highlight */
 .highlighted.warning {
-  background: rgba(255, 153, 0, 0.2);
-  /* background: linear-gradient(
-    to right,
-    rgba(255, 153, 0, 0.2) 0%,
-    rgba(255, 153, 0, 0.1) 70%,
-    rgba(255, 153, 0, 0) 100%
-  ); */
+  @apply bg-amber-200;
+  box-shadow: inset 2px 0 0 0 var(--x-amber-600);
 }
 
 code[data-line-numbers] > [data-line].warning::before {
