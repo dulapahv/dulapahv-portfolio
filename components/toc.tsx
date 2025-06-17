@@ -251,7 +251,7 @@ export const TableOfContents = () => {
                       'absolute top-1/2 left-0 h-full w-0.5 -translate-y-1/2 transition-all',
                       activeId === item.id
                         ? 'bg-mirai-red'
-                        : 'bg-background-subtle',
+                        : 'bg-white/80 dark:bg-neutral-300/80',
                     )}
                     aria-hidden="true"
                   />

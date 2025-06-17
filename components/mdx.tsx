@@ -112,6 +112,8 @@ export const Mdx = ({ code }: MdxProperties) => (
       prose-blockquote:rounded-md prose-blockquote:p-3 prose-blockquote:text-sm`,
       `prose-code:before:content-none prose-code:after:content-none
       prose-code:dark:bg-[#0a0a0a] prose-code:bg-[#fff]
+      prose-code:[&>span>span]:brightness-90
+      dark:prose-code:[&>span>span]:brightness-100
       prose-code:[&:not([data-theme])]:px-1
       prose-code:[&:not([data-theme])]:py-[1.5px]
       prose-code:[&:not([data-theme])]:bg-background-muted
