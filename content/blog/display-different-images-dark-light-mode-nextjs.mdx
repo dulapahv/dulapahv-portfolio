@@ -53,7 +53,7 @@ interface ThemeAwareImageProps {
 export function ThemeAwareImage({ 
   lightSrc, 
   darkSrc, 
-  className, 
+  className = '', 
   alt, 
   width, 
   height 
@@ -65,14 +65,14 @@ export function ThemeAwareImage({
         alt={alt}
         width={width}
         height={height}
-        className={`hidden dark:block ${className || ''}`}
+        className={`hidden dark:block ${className}`}
       />
       <Image
         src={lightSrc}
         alt={alt}
         width={width}
         height={height}
-        className={`block dark:hidden ${className || ''}`}
+        className={`block dark:hidden ${className}`}
       />
     </>
   )
@@ -95,19 +95,19 @@ interface ThemeAwareImageProps
 export function ThemeAwareImage({
   lightSrc,
   darkSrc,
-  className,
+  className = '',
   ...props
 }: ThemeAwareImageProps) {
   return (
     <>
       <Image
         src={darkSrc}
-        className={`hidden dark:block ${className || ''}`}
+        className={`hidden dark:block ${className}`}
         {...props}
       />
       <Image
         src={lightSrc}
-        className={`block dark:hidden ${className || ''}`}
+        className={`block dark:hidden ${className}`}
         {...props}
       />
     </>
