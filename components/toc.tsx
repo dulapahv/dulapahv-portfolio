@@ -17,6 +17,7 @@ interface TOCItem {
 }
 
 export const TableOfContents = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [tocItems, setTocItems] = useState<TOCItem[]>([]);
   const [activeId, setActiveId] = useState<string>('');
   const [lockActiveId, setLockActiveId] = useState<boolean>(false);
@@ -46,6 +47,7 @@ export const TableOfContents = () => {
         level: parseInt(el.tagName[1]),
       }));
       setTocItems(newTocItems);
+      setIsLoading(false);
 
       // Reset links ref array
       linksRef.current = new Array(newTocItems.length).fill(null);
@@ -185,6 +187,18 @@ export const TableOfContents = () => {
     }
   };
 
+  // Show loading state while scanning for headings
+  if (isLoading) {
+    return (
+      <div
+        className="border-border bg-background-elevated/50 text-foreground-muted flex w-full
+          items-center rounded-md border px-4 py-3 text-sm backdrop-blur-sm xl:hidden"
+      >
+        Loading table of contents...
+      </div>
+    );
+  }
+
   // Don't render if there are no headings
   if (tocItems.length === 0) {
     return null;
@@ -295,8 +309,8 @@ export const TableOfContents = () => {
         type="button"
         onClick={() => setIsCollapsed(!isCollapsed)}
         className={cn(
-          `text-foreground flex w-full items-center justify-between rounded-md px-4 py-3
-          text-sm font-semibold transition-colors`,
+          `text-foreground flex w-full cursor-pointer items-center justify-between
+          rounded-md px-4 py-3 text-sm font-semibold transition-colors`,
           'hover:bg-background-muted/50',
         )}
         aria-expanded={!isCollapsed}
