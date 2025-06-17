@@ -48,7 +48,9 @@ const Breadcrumb = React.forwardRef<
               <BreadcrumbSeparator>{separator}</BreadcrumbSeparator>
               <BreadcrumbItem>
                 {isLast ? (
-                  <BreadcrumbPage>{lastLabel ?? label}</BreadcrumbPage>
+                  <BreadcrumbPage className="max-w-48 truncate">
+                    {lastLabel ?? label}
+                  </BreadcrumbPage>
                 ) : (
                   <BreadcrumbLink href={href}>{label}</BreadcrumbLink>
                 )}
