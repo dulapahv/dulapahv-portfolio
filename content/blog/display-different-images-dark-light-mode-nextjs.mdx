@@ -1,0 +1,118 @@
+---
+title: Display Different Images for Dark/Light Mode Without FOUC in Next.js
+description: Learn how to display different images for dark and light themes without flash of unstyled content or client-side rendering.
+date: 17-06-2025
+image: /blog/display-different-images-dark-light-mode-nextjs.png
+---
+
+## The Problem
+
+You might occasionally come across a situation where you need to display an image or logo with a solid color background. Often, the logo color will be solid white or solid black.
+
+This becomes problematic when displaying the image on a dark or light background that has a similar color to the logo, causing poor contrast or, even worse, making the logo completely disappear.
+
+## Initial Solution With Client-Side Rendering
+
+If you're using [next-themes](https://github.com/pacocoursey/next-themes), you can use the `useTheme` hook to get the current theme and render different images based on the theme. However, this approach requires client-side rendering, which can lead to a flash of unstyled content (FOUC) as the theme is determined after the initial render.
+
+```tsx title="ThemeAwareImage.tsx" showLineNumbers
+'use client'; // [!code warning]
+
+import Image from 'next/image';
+import { useTheme } from 'next-themes';
+
+export function ThemeAwareImage() {
+  const { resolvedTheme } = useTheme();
+
+  return (
+    <Image
+      src={resolvedTheme === 'dark' ? '/logo-white.png' : '/logo-dark.png'}
+    />
+  )
+}
+```
+
+## Better Solution Without Client-Side Rendering
+
+To avoid client-side rendering, we can use CSS to handle theme-aware image rendering. With this approach, we render both images in the DOM and use CSS to show or hide them based on the current theme.
+
+```tsx title="ThemeAwareImage.tsx" showLineNumbers {27,34}
+import Image from 'next/image';
+
+interface ThemeAwareImageProps {
+  lightSrc: string;
+  darkSrc: string;
+  className?: string;
+  alt: string;
+  width: number;
+  height: number;
+}
+
+export function ThemeAwareImage({ 
+  lightSrc, 
+  darkSrc, 
+  className, 
+  alt, 
+  width, 
+  height 
+}: ThemeAwareImageProps) {
+  return (
+    <>
+      <Image
+        src={darkSrc}
+        alt={alt}
+        width={width}
+        height={height}
+        className={`hidden dark:block ${className || ''}`}
+      />
+      <Image
+        src={lightSrc}
+        alt={alt}
+        width={width}
+        height={height}
+        className={`block dark:hidden ${className || ''}`}
+      />
+    </>
+  )
+}
+```
+
+The first image will be displayed when the theme is dark, and the second image will be displayed when the theme is light.
+
+Building on this concept, we can create a more robust and reusable component for all our projects:
+
+```tsx title="ThemeAwareImage.tsx" showLineNumbers
+import Image from 'next/image';
+
+interface ThemeAwareImageProps
+  extends Omit<React.ComponentProps<typeof Image>, 'src'> {
+  lightSrc: string;
+  darkSrc: string;
+}
+
+export function ThemeAwareImage({
+  lightSrc,
+  darkSrc,
+  className,
+  ...props
+}: ThemeAwareImageProps) {
+  return (
+    <>
+      <Image
+        src={darkSrc}
+        className={`hidden dark:block ${className || ''}`}
+        {...props}
+      />
+      <Image
+        src={lightSrc}
+        className={`block dark:hidden ${className || ''}`}
+        {...props}
+      />
+    </>
+  );
+}
+```
+
+## Conclusion
+
+This approach allows us to render different images based on the theme without relying on client-side rendering. This not only improves performance but also eliminates potential FOUC issues. The `ThemeAwareImage` component can be reused across your Next.js projects, making it a versatile solution for theme-aware images.
