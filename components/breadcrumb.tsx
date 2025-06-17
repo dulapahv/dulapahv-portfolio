@@ -22,9 +22,10 @@ const Breadcrumb = React.forwardRef<
   React.ComponentPropsWithoutRef<'nav'> & {
     separator?: React.ReactNode;
     homeLabel?: string;
+    lastLabel?: string;
     className?: string;
   }
->(({ separator, homeLabel = 'Home', className, ...props }, ref) => {
+>(({ separator, homeLabel = 'Home', lastLabel, className, ...props }, ref) => {
   const pathname = usePathname();
   const segments = pathname.split('/').filter(Boolean);
 
@@ -47,7 +48,7 @@ const Breadcrumb = React.forwardRef<
               <BreadcrumbSeparator>{separator}</BreadcrumbSeparator>
               <BreadcrumbItem>
                 {isLast ? (
-                  <BreadcrumbPage>{label}</BreadcrumbPage>
+                  <BreadcrumbPage>{lastLabel ?? label}</BreadcrumbPage>
                 ) : (
                   <BreadcrumbLink href={href}>{label}</BreadcrumbLink>
                 )}
