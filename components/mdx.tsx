@@ -97,7 +97,8 @@ export const Mdx = ({ code }: MdxProperties) => (
       'prose-p:my-5',
       'prose-a:no-underline',
       `prose-pre:dark:bg-[#0a0a0a] prose-pre:bg-[#fff] prose-pre:border-t-border
-      prose-pre:text-[13px]/5 prose-pre:px-0`,
+      prose-pre:text-[13px]/5 prose-pre:px-0
+      prose-pre:[&>code:not([data-line-numbers])]:px-4`,
       `prose-figure:border prose-figure:border-border prose-figure:rounded-md
       prose-figure:my-4 prose-figure:relative
       prose-figure:[figure:has(figcaption)&>pre]:rounded-t-none
