@@ -1,0 +1,430 @@
+---
+title: Structural and Contextual Styling with Tailwind CSS Arbitrary Variants
+description: Go beyond utility classes and learn how to target children, style elements by parent context, and handle complex structures—without custom CSS or JavaScript.
+date: 19-06-2025
+image: /blog/tailwind-css-arbitrary-variants-guide.png
+---
+
+export function Preview({ children }) {
+  return (
+    <div className="bg-white rounded-md border border-border px-2 py-1 text-black prose-p:!my-0 text-sm">
+      {children}
+    </div>
+  );
+}
+
+## Introduction
+
+[Tailwind CSS arbitrary variants](https://tailwindcss.com/docs/hover-focus-and-other-states#using-arbitrary-variants) allow you to create custom styles that target specific elements in your HTML structure. This is particularly useful when you need to apply styles to child elements based on their type, class, or attributes without adding additional CSS classes or JavaScript.
+
+While the official documentation covers the basics, it doesn't demonstrate how to handle more complex scenarios like targeting deeply nested children, combining multiple selectors, or working with custom attributes.
+
+> [!WARNING]
+> **Use arbitrary variants sparingly** as they can reduce code readability and maintainability.
+
+## Core Concepts
+
+### Understanding the & Symbol
+
+The `&` character represents the current element (the one with the arbitrary variant class). Think of it as "this element" in your selector.
+
+### Direct Children vs All Descendants
+
+This is the most important distinction to understand:
+
+- **`>`** - Targets only **direct children** (immediate descendants)
+- **`_`** - Targets **all descendants** at any nesting level
+
+```html showLineNumbers {2,5,7}
+<div class="[&>p]:text-red-500 [&_span]:text-blue-500">
+  <p>Direct child - will be red</p>
+  <div>
+    <p>Nested child - won't be red (not direct)</p>
+    <span>Nested span - will be blue (all descendants)</span>
+  </div>
+  <span>Direct span - will be blue</span>
+</div>
+```
+
+<Preview>
+  <div class="[&>p]:text-[#e7000b] [&_span]:text-[#155dfc]">
+    <p>Direct child - will be red</p>
+    <div>
+      <p>Nested child - won't be red (not direct)</p>
+      <span>Nested span - will be blue (all descendants)</span>
+    </div>
+    <span>Direct span - will be blue</span>
+  </div>
+</Preview>
+
+## Targeting Children by Tag
+
+Use the `&` with `>` and the tag name to target direct children by their tag name.
+
+```html showLineNumbers {3}
+<div class="[&>p]:text-red-600">
+  <span>Black text</span>
+  <p>Red text</p>
+</div>
+```
+
+<Preview>
+  <div class="[&>p]:text-[#e7000b]">
+    <span>Black text</span>
+    <p>Red text</p>
+  </div>
+</Preview>
+
+## Targeting Children by Class
+
+Use the `&` with `>` and the class name to target direct children by their class.
+
+> [!NOTE]
+> This also works with `className` attributes in React components.
+
+```html showLineNumbers {3}
+<div class="[&>.child2]:text-red-600">
+  <div class="child1">Black text</div>
+  <div class="child2">Red text</div>
+</div>
+```
+
+<Preview>
+  <div class="[&>.child2]:text-[#e7000b]">
+    <div class="child1">Black text</div>
+    <div class="child2">Red text</div>
+  </div>
+</Preview>
+
+You can also add additional classes to the selector.
+
+```html showLineNumbers {3}
+<div class="[&>div.child.foo]:text-red-600">
+  <div class="child">Black text</div>
+  <div class="child foo">Red text</div>
+</div>
+```
+
+<Preview>
+  <div class="[&>div.child.foo]:text-[#e7000b]">
+    <div class="child">Black text</div>
+    <div class="child foo">Red text</div>
+  </div>
+</Preview>
+
+## Targeting Children by Data Attributes
+
+Use the `&` with `>` and the data attribute wrapped in square brackets to target direct children by their data attributes.
+
+> [!NOTE]
+> This also works with other attributes, not just `data-*`, for example, `role`, `aria-*`, or custom attributes.
+
+Target immediate children with specific data attributes.
+
+```html showLineNumbers {3}
+<div class="[&>[data-type='special']]:text-red-600">
+  <div data-type="normal">Black text</div>
+  <div data-type="special">Red text</div>
+</div>
+```
+
+<Preview>
+  <div class="[&>[data-type='special']]:text-[#e7000b]">
+    <div data-type="normal">Black text</div>
+    <div data-type="special">Red text</div>
+  </div>
+</Preview>
+
+You can also target nested elements with data attributes.
+
+```html showLineNumbers {3}
+<div class="[&_[data-type='special']]:text-red-600">
+  <div>
+    <div data-type="special">Red text</div>
+  </div>
+</div>
+```
+
+<Preview>
+  <div class="[&_[data-type='special']]:text-[#e7000b]">
+    <div>
+      <div data-type="special">Red text</div>
+    </div>
+  </div>
+</Preview>
+
+When you need to target elements based on both their attributes and classes, you can combine them in the selector.
+
+```html showLineNumbers {2,3}
+<div class="[&_[data-type='a'].red]:text-red-500 [&_[data-type='a'].blue]:text-blue-500">
+  <p data-type="a" class="red">Red text</p>
+  <p data-type="a" class="blue">Blue text</p>
+</div>
+```
+
+<Preview>
+  <div class="[&_[data-type='a'].red]:text-[#e7000b] [&_[data-type='a'].blue]:text-[#155dfc]">
+    <p data-type="a" class="red">Red text</p>
+    <p data-type="a" class="blue">Blue text</p>
+  </div>
+</Preview>
+
+## Targeting Nested Child Elements
+
+When you need to target deeply nested child elements, you can use the `&` selector with a path that describes the hierarchy.
+
+```html showLineNumbers {4}
+<div class="[&>div>div>span]:text-red-600">
+  <div>
+    <div>
+      <span>Deep Child</span>
+    </div>
+  </div>
+</div>
+```
+
+<Preview>
+  <div class="[&>div>div>span]:text-[#e7000b]">
+    <div>
+      <div>
+        <span>Deep Child</span>
+      </div>
+    </div>
+  </div>
+</Preview>
+
+## Conditional Styling Based on Parent Tag
+
+When you need to style child elements based on the tag of their parent, you can use the `&` selector in combination with the parent tag.
+
+```html showLineNumbers {2}
+<p>
+  <span class="[p_&]:text-red-600">Styled if parent is p</span>
+</p>
+<div>
+  <span class="[p_&]:text-red-600">Styled if parent is p</span>
+</div>
+```
+
+<Preview>
+  <p>
+    <span class="[p_&]:text-[#e7000b]">Styled if parent is p</span>
+  </p>
+  <div>
+    <span class="[p_&]:text-[#e7000b]">Styled if parent is p</span>
+  </div>
+</Preview>
+
+## Conditional Styling Based on Parent Class
+
+When you need to style child elements based on the class of their parent, you can use the `&` selector in combination with the parent class.
+
+```html showLineNumbers {3}
+<div class="foo">
+  <div>
+    <div class="[.foo_&]:text-red-600">Child 1</div>
+    <div class="[.bar_&]:text-red-600">Child 2</div>
+  </div>
+</div>
+```
+
+<Preview>
+  <div class="foo">
+    <div>
+      <div class="[.foo_&]:text-[#e7000b]">Child 1</div>
+      <div class="[.bar_&]:text-[#e7000b]">Child 2</div>
+    </div>
+  </div>
+</Preview>
+
+## Conditional Styling Based on Parent Attribute
+
+When you need to style child elements based on a specific attribute of their parent, you can use the `&` selector with the attribute wrapped in square brackets.
+
+```html showLineNumbers {2}
+<div data-type="special">
+  <p class="[[data-type='special']_&]:text-red-600">Styled if parent has data-type="special"</p>
+</div>
+<div>
+  <p class="[[data-type='special']_&]:text-red-600">Not styled</p>
+</div>
+```
+
+<Preview>
+  <div data-type="special">
+    <p class="[[data-type='special']_&]:text-[#e7000b]">Styled if parent has data-type="special"</p>
+  </div>
+  <div>
+    <p class="[[data-type='special']_&]:text-[#e7000b]">Not styled</p>
+  </div>
+</Preview>
+
+## Targeting by nth-child
+
+You can use the `&` selector with `:nth-child(n)` to target specific children based on their position within the parent.
+
+```html showLineNumbers {4}
+<div class="[&>*:nth-child(3)]:text-red-600">
+  <p>One</p>
+  <p>Two</p>
+  <p>Three</p>
+</div>
+```
+
+<Preview>
+  <div class="[&>*:nth-child(3)]:text-[#e7000b]">
+    <p>One</p>
+    <p>Two</p>
+    <p>Three</p>
+  </div>
+</Preview>
+
+To combine multiple nth-child selectors to target different children, you need to add another `&` selector for each child you want to style.
+
+```html showLineNumbers {2,4}
+<div class="[&>*:nth-child(1)]:text-red-600 [&>*:nth-child(3)]:text-red-600">
+  <p>One</p>
+  <p>Two</p>
+  <p>Three</p>
+</div>
+```
+
+<Preview>
+  <div class="[&>*:nth-child(1)]:text-[#e7000b] [&>*:nth-child(3)]:text-[#e7000b]">
+    <p>One</p>
+    <p>Two</p>
+    <p>Three</p>
+  </div>
+</Preview>
+
+## Advanced Combinations
+
+### Target second child inside `.foo` only
+
+When you want to target a specific child element inside a parent with a specific class, you can use the `&` selector with `:nth-child(n)`.
+
+```html showLineNumbers {4}
+<div class="[&>div.foo>*:nth-child(2)]:text-red-600">
+  <div class="foo">
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+  </div>
+  <div class="bar">
+    <p>Not affected</p>
+  </div>
+</div>
+```
+
+<Preview>
+  <div class="[&>div.foo>*:nth-child(2)]:text-[#e7000b]">
+    <div class="foo">
+      <p>1</p>
+      <p>2</p>
+      <p>3</p>
+    </div>
+    <div class="bar">
+      <p>Not affected</p>
+    </div>
+  </div>
+</Preview>
+
+### Conditional nth-child with Exclusion
+
+When you need to exclude certain elements from a universal styling rule, you can use the `:not()` pseudo-class.
+
+```html showLineNumbers {3}
+<div class="*:[&:not(.excluded)]:text-red-600">
+  <div>
+    <div>Not Excluded</div>
+  </div>
+  <div class="excluded">
+    <div>Excluded</div>
+  </div>
+</div>
+```
+
+<Preview>
+  <div class="*:[&:not(.excluded)]:text-[#e7000b]">
+    <div>
+      <div>Not Excluded</div>
+    </div>
+    <div class="excluded">
+      <div>Excluded</div>
+    </div>
+  </div>
+</Preview>
+
+```html showLineNumbers {3}
+<div class="*:[&:not([excluded])]:text-red-600">
+  <div>
+    <div>Not Excluded</div>
+  </div>
+  <div excluded>
+    <div>Excluded</div>
+  </div>
+</div>
+```
+
+<Preview>
+  <div class="*:[&:not([excluded])]:text-[#e7000b]">
+    <div>
+      <div>Not Excluded</div>
+    </div>
+    <div excluded="">
+      <div>Excluded</div>
+    </div>
+  </div>
+</Preview>
+
+### Pseudo + Tag + Descendant + Modifier
+
+When you need to style elements based on a combination of pseudo-classes, tags, and modifiers, you can use the `&` selector with a complex path.
+
+```html showLineNumbers {3}
+<div class="[div:has(span)&>p]:text-red-600">
+  <span>Trigger</span>
+  <p>Styled paragraph</p> <!-- Styled because parent has span -->
+</div>
+<div class="[div:has(span)&>p]:text-red-600">
+  <div>Trigger</div>
+  <p>Styled paragraph</p>
+</div>
+```
+
+<Preview>
+  <div class="[div:has(span)&>p]:text-[#e7000b]">
+    <span>Trigger</span>
+    <p>Styled paragraph</p>
+  </div>
+  <div class="[div:has(span)&>p]:text-[#e7000b]">
+    <div>Trigger</div>
+    <p>Styled paragraph</p>
+  </div>
+</Preview>
+
+## Conclusion
+
+Tailwind CSS arbitrary variants provide powerful tools for targeting child elements, styling based on parent context, and handling complex structures without the need for custom CSS or JavaScript. However, they should be used with care to maintain readability and code maintainability.
+
+## Cheat Sheet
+
+| Selector | Use Case |
+|-|-|
+| `[&>tag]` | Target direct child elements by tag |
+| `[&_tag]` | Target all descendant elements by tag |
+| `[&>.class]` | Target direct children by class |
+| `[&_.class]` | Target all descendants by class |
+| `[&>div.class1.class2]` | Target direct children with multiple classes |
+| `[&>[data-x="y"]]` | Target direct children with data attributes |
+| `[&_[data-x="y"]]` | Target any nested element with data attributes |
+| `[&_[data-type='a'].class]` | Combine attributes and classes |
+| `[&>div>div>span]` | Target deeply nested children with specific path |
+| `[tag_&]` | Style based on parent's tag |
+| `[.parent_&]` | Style based on parent's class |
+| `[[data-x="y"]_&]` | Style based on parent's attributes |
+| `[&>*:nth-child(n)]` | Target children by position |
+| `[&>div.class>*:nth-child(n)]` | Target nth-child within specific parent |
+| `*:[&:not(.excluded)]` | Exclude elements from universal styling |
+| `*:[&:not([excluded])]` | Exclude elements by attribute |
+| `[div:has(span)&>p]` | Style based on parent containing specific child |
