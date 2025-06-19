@@ -217,7 +217,7 @@ export const TableOfContents = () => {
           On this page
         </h2>
         <div
-          className="overflow-y-auto py-2"
+          className="max-h-[calc(100vh-16rem)] overflow-y-auto py-2"
           role="group"
           aria-label="Page sections - use arrow keys to navigate"
         >

@@ -96,6 +96,7 @@ export const Mdx = ({ code }: MdxProperties) => (
       'prose-h6:text-sm prose-h6:mt-2 prose-h6:mb-0',
       'prose-p:my-5',
       'prose-a:no-underline',
+      'prose-strong:text-inherit prose-strong:font-bold',
       `prose-pre:dark:bg-[#0a0a0a] prose-pre:bg-[#fff] prose-pre:border-t-border
       prose-pre:text-[13px]/5 prose-pre:px-0
       prose-pre:[&>code:not([data-line-numbers])]:px-4`,
