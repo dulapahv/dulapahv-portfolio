@@ -59,7 +59,7 @@ This is the most important distinction to understand:
 
 ## Targeting Children by Tag
 
-Use the `&` with `>` and the tag name to target direct children by their tag name.
+When you need to target direct children by their tag, you can use the `&` selector followed by the tag name.
 
 ```html showLineNumbers {3}
 <div class="[&>p]:text-red-600">
@@ -77,7 +77,7 @@ Use the `&` with `>` and the tag name to target direct children by their tag nam
 
 ## Targeting Children by Class
 
-Use the `&` with `>` and the class name to target direct children by their class.
+When you need to target direct children by their class, you can use the `&` selector with the class name prefixed by a dot.
 
 > [!NOTE]
 > This also works with `className` attributes in React components.
@@ -114,7 +114,7 @@ You can also add additional classes to the selector.
 
 ## Targeting Children by Data Attributes
 
-Use the `&` with `>` and the data attribute wrapped in square brackets to target direct children by their data attributes.
+When you need to target elements based on their data attributes, you can use the `&` selector with the attribute wrapped in square brackets.
 
 > [!NOTE]
 > This also works with other attributes, not just `data-*`, for example, `role`, `aria-*`, or custom attributes.
