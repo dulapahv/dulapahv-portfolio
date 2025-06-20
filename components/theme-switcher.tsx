@@ -8,7 +8,6 @@ import { useTheme } from 'next-themes';
 
 import { cn } from '@/lib/utils';
 import { useMediaQuery } from '@/hooks/use-media-query';
-import { useThemeColor } from '@/hooks/use-theme-color';
 
 export const ThemeSwitcher = () => {
   const { theme, setTheme } = useTheme();
@@ -22,8 +21,6 @@ export const ThemeSwitcher = () => {
 
   // Expand when hovered, focused, or manually expanded on touch devices
   const expanded = isTouchDevice ? isExpanded : isHovered || isFocused;
-
-  useThemeColor();
 
   useEffect(() => setMounted(true), []);
 
