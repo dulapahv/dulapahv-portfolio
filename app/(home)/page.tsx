@@ -176,8 +176,8 @@ export default async function Home() {
         >
           NatWest Group
         </Link>
-        , one of the United Kingdom&apos;s largest banking and insurance
-        institutions in the United Kingdom.
+        , one of the United Kingdom&apos;s Big Four banks, serving over 19
+        million customers across retail, commercial, and private banking.
         <br />
         <br />
         In 2024, I completed an internship at NatWest Group as a{' '}
@@ -196,8 +196,9 @@ export default async function Home() {
           className="float-left -ml-8 h-72 w-screen cursor-grab overflow-hidden rounded-lg
             min-[425px]:ml-0 min-[425px]:w-full sm:w-96"
         />
-        <br />I recently completed a double degree program in Software
-        Engineering, earning a{' '}
+        <br />
+        In 2025, I completed a double degree program in Software Engineering,
+        earning a{' '}
         <b className="text-foreground font-semibold">
           Bachelor of Science with Honours (BSc Hons) with First Class Honours
           and Specialism in Parallel and Distributed Systems
@@ -211,7 +212,7 @@ export default async function Home() {
         >
           University of Glasgow
         </Link>
-        , United Kingdom, and a{' '}
+        , a Russell Group university in the United Kingdom, and a{' '}
         <b className="text-foreground font-semibold">
           Bachelor of Engineering (B.Eng.)
         </b>{' '}
@@ -228,12 +229,10 @@ export default async function Home() {
         and the final two years in the United Kingdom.
         <br />
         <br />
-        I&apos;m passionate about making technology accessible and delightful
-        for everyone, believing in its power to transform lives. I&apos;m
-        excited about where my career will take me and how I can contribute to
-        building a better, more inclusive digital world.
+        Driven by a passion for making technology accessible and delightful, I
+        believe in its ability to transform lives, and that&apos;s what
+        I&apos;ve been working toward since the very beginning.
       </article>
-
       <SkillsSection />
     </>
   );
