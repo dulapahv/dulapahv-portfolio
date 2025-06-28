@@ -5,7 +5,6 @@ import { Home } from 'lucide-react';
 
 import { createMetadata } from '@/lib/metadata';
 import { cn } from '@/lib/utils';
-import Breadcrumb from '@/components/breadcrumb';
 
 export const metadata: Metadata = createMetadata({
   title: '404 - Page Not Found',
@@ -15,7 +14,6 @@ export const metadata: Metadata = createMetadata({
 export default function NotFound() {
   return (
     <>
-      <Breadcrumb />
       <main className="space-y-4">
         <header>
           <h1 className="text-3xl font-semibold">Page Not Found</h1>
