@@ -23,7 +23,6 @@ export interface RecipientEmailTemplateProps {
   readonly name: string;
   readonly email: string;
   readonly message: string;
-  readonly captcha: string;
 }
 
 export function RecipientEmailTemplate({

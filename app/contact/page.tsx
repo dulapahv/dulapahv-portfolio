@@ -17,7 +17,7 @@ export const metadata: Metadata = createMetadata({
 });
 
 interface PageProps {
-  searchParams: Promise<Omit<RecipientEmailTemplateProps, 'captcha'>>;
+  searchParams: Promise<RecipientEmailTemplateProps>;
 }
 
 export default async function ContactPage({ searchParams }: PageProps) {

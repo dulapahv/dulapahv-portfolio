@@ -1,8 +1,9 @@
 'use server';
 
+import { checkBotId } from 'botid/server';
 import { Resend } from 'resend';
 
-import { CF_TURNSTILE_SECRET_KEY, NAME } from '@/lib/constants';
+import { NAME } from '@/lib/constants';
 import {
   ConfirmationEmailTemplate,
   RecipientEmailTemplate,
@@ -16,37 +17,15 @@ interface ContactFormData {
   name: string;
   email: string;
   message: string;
-  captcha: string;
 }
 
 export async function sendContactEmail(data: ContactFormData) {
   try {
-    // Verify captcha first
-    const captchaResponse = await fetch(
-      'https://challenges.cloudflare.com/turnstile/v0/siteverify',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          secret: CF_TURNSTILE_SECRET_KEY,
-          response: data.captcha,
-        }),
-      },
-    );
+    const verification = await checkBotId();
 
-    if (!captchaResponse.ok) {
+    if (!verification.isBot) {
       return {
-        error: `Captcha verification failed. Status: ${captchaResponse.status}`,
-      };
-    }
-
-    const captchaResult = await captchaResponse.json();
-
-    if (!captchaResult.success) {
-      return {
-        error: `Captcha verification failed. Error codes: ${captchaResult['error-codes']?.join(', ')}`,
+        error: 'Bot verification failed. Please try again.',
       };
     }
 
@@ -83,7 +62,8 @@ export async function sendContactEmail(data: ContactFormData) {
     if (userError) {
       console.error('Resend error (to user):', userError);
       return {
-        error: 'Failed to send confirmation email to user. Please try again.',
+        error:
+          'Your message has been sent successfully!, but we failed to send a confirmation email to you.',
       };
     }
 
