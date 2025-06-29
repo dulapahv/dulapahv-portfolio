@@ -9,94 +9,19 @@ import {
   Wrench,
 } from 'lucide-react';
 
+import { skillsData } from '@/lib/skills-data';
 import { cn } from '@/lib/utils';
 
-const skillsData = [
-  {
-    category: 'Programming Languages',
-    icon: Code2,
-    size: 'large',
-    gradient: 'from-blue-500 to-blue-400',
-    bgColor: 'bg-blue-500/10 hover:bg-blue-500/15',
-    skills: [
-      'TypeScript',
-      'JavaScript',
-      'Python',
-      'C',
-      'C++',
-      'Java',
-      'Bash',
-      'Haskell',
-      'R',
-      'Rust',
-    ],
-  },
-  {
-    category: 'Frontend Development',
-    icon: Globe,
-    size: 'large',
-    gradient: 'from-pink-500 to-pink-400',
-    bgColor: 'bg-pink-500/10 hover:bg-pink-500/15',
-    skills: [
-      'React.js',
-      'Next.js',
-      'Tailwind CSS',
-      'shadcn/ui',
-      'HeroUI',
-      'Tremor',
-      'daisyUI',
-      'MUI',
-    ],
-  },
-  {
-    category: 'Backend Development',
-    icon: Server,
-    size: 'medium',
-    gradient: 'from-green-500 to-green-400',
-    bgColor: 'bg-green-500/10 hover:bg-green-500/15',
-    skills: ['Express.js', 'Prisma', 'WebSocket', 'WebRTC', 'Firebase'],
-  },
-  {
-    category: 'Databases',
-    icon: Database,
-    size: 'medium',
-    gradient: 'from-amber-500 to-amber-400',
-    bgColor: 'bg-amber-500/10 hover:bg-amber-500/15',
-    skills: ['PostgreSQL', 'MongoDB', 'SQLite', 'MySQL', 'Snowflake'],
-  },
-  {
-    category: 'DevOps & CI/CD',
-    icon: Settings,
-    size: 'medium',
-    gradient: 'from-red-500 to-red-400',
-    bgColor: 'bg-red-500/10 hover:bg-red-500/15',
-    skills: ['Turborepo', 'GitHub Actions', 'GitLab CI/CD', 'Sentry', 'Docker'],
-  },
-  {
-    category: 'Cloud & Infrastructure',
-    icon: Cloud,
-    size: 'medium',
-    gradient: 'from-purple-500 to-purple-400',
-    bgColor: 'bg-purple-600/10 hover:bg-purple-600/15',
-    skills: ['Vercel', 'Cloudflare', 'Render', 'GCP', 'Nginx', 'Firebase'],
-  },
-  {
-    category: 'Desktop/Cross-Platform',
-    icon: Monitor,
-    size: 'small',
-    gradient: 'from-teal-500 to-teal-400',
-    bgColor: 'bg-teal-600/10 hover:bg-teal-600/15',
-    skills: ['Electron.js', 'Qt'],
-  },
-  {
-    category: 'Development Tools',
-    icon: Wrench,
-    size: 'medium',
-    gradient: 'from-yellow-500 to-yellow-400',
-    bgColor: 'bg-yellow-600/10 hover:bg-yellow-600/15',
-    skills: ['Playwright', 'Jest', 'Postman', 'Insomnia', 'Figma'],
-  },
-];
+const iconMap = {
+  Code2,
+  Globe,
+  Server,
+  Database,
+  Settings,
+  Cloud,
+  Monitor,
+  Wrench,
+};
 
 const getSizeClasses = (size: string) => {
   switch (size) {
@@ -118,7 +43,7 @@ export default function SkillsSection() {
 
       <div className="grid auto-rows-min grid-cols-1 gap-3 md:grid-cols-4">
         {skillsData.map((category, index) => {
-          const IconComponent = category.icon;
+          const IconComponent = iconMap[category.icon as keyof typeof iconMap];
           const sizeClasses = getSizeClasses(category.size);
           const isLarge = category.size === 'large';
 

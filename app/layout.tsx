@@ -50,9 +50,9 @@ export default function RootLayout({
       <head>
         <meta name="darkreader-lock" />
         <BotIdClient protect={protectedRoutes} />
+        <JsonLd />
       </head>
       <body className="bg-background text-foreground leading-[1.6] text-pretty antialiased">
-        <JsonLd />
         <Analytics />
         <SpeedInsights />
         <ThemeProvider attribute="class" disableTransitionOnChange>

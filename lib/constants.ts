@@ -12,6 +12,9 @@ export const LINKEDIN_URL = 'https://www.linkedin.com/in/dulapahv';
 export const GITHUB_URL = 'https://github.com/dulapahv';
 
 export const NAME = 'Dulapah Vibulsanti';
+export const DESCRIPTION =
+  'Thai Software Engineer based in Edinburgh, United Kingdom. Passionate about creating accessible and delightful technology for everyone.';
+
 export const NAME_MAX_LENGTH = 256;
 export const EMAIL_MAX_LENGTH = 256;
 export const MESSAGE_MAX_LENGTH = 1000;

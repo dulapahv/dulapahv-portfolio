@@ -4,7 +4,12 @@ import { Merriweather } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { EDUCATION_LOCATION, GITHUB_URL, LINKEDIN_URL } from '@/lib/constants';
+import {
+  DESCRIPTION,
+  EDUCATION_LOCATION,
+  GITHUB_URL,
+  LINKEDIN_URL,
+} from '@/lib/constants';
 import { createMetadata } from '@/lib/metadata';
 import { cn } from '@/lib/utils';
 import { Globe } from '@/components/globe';
@@ -21,11 +26,8 @@ const merriweather = Merriweather({
 
 export const metadata: Metadata = createMetadata({
   title: 'Home',
-  description:
-    "Hello, I'm Dulapah Vibulsanti. Thai Software Engineer currently based in Edinburgh, United Kingdom. Passionate about making technology accessible and delightful for everyone.",
+  description: DESCRIPTION,
   ogText: 'Dulapah Vibulsanti\nSoftware Engineer',
-  ogDescription:
-    'Thai Software Engineer currently based in Edinburgh, United Kingdom. Passionate about creating accessible and delightful technology for everyone.',
 });
 
 export default async function Home() {
@@ -122,7 +124,9 @@ export default async function Home() {
               {followers}
             </p>
           </Link>{' '}
-          currently based in Edinburgh, United Kingdom{' '}
+          based in Edinburgh,
+          <br />
+          United Kingdom{' '}
           <Link
             href="https://www.timeanddate.com/time/zone/uk"
             target="_blank"

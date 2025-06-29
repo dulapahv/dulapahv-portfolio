@@ -1,25 +1,21 @@
-import type { Person, WithContext } from 'schema-dts';
+import { WithContext } from 'schema-dts';
 
-import { BASE_URL, NAME } from '@/lib/constants';
-import { social } from '@/lib/social';
+import { combineSchemas, personSchema, websiteSchema } from '@/lib/json-ld';
 
-const person: WithContext<Person> = {
-  '@context': 'https://schema.org',
-  '@type': 'Person',
-  name: NAME,
-  description: 'Software Engineer',
-  gender: 'male',
-  nationality: 'Thailand',
-  url: BASE_URL,
-  image: new URL('/avatar.jpg', BASE_URL).toString(),
-  sameAs: Object.values(social).map(({ href }) => href),
-  alumniOf: [
-    'University of Glasgow',
-    "King Mongkut's University of Technology Ladkrabang",
-    'Suankularb Wittayalai School',
-  ],
+interface JsonLdProps {
+  schemas?: Array<WithContext<any>>;
+}
+
+export const JsonLd = ({ schemas = [] }: JsonLdProps) => {
+  // Always include person and website schemas on every page
+  const allSchemas = [personSchema, websiteSchema, ...schemas];
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: combineSchemas(allSchemas),
+      }}
+    />
+  );
 };
-
-export const JsonLd = () => (
-  <script type="application/ld+json">{JSON.stringify(person)}</script>
-);
