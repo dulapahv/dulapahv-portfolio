@@ -10,9 +10,11 @@ import {
   GITHUB_URL,
   LINKEDIN_URL,
 } from '@/lib/constants';
+import { profilePageSchema } from '@/lib/json-ld';
 import { createMetadata } from '@/lib/metadata';
 import { cn } from '@/lib/utils';
 import { Globe } from '@/components/globe';
+import { JsonLd } from '@/components/json-ld';
 import SkillsSection from '@/components/skills-section';
 import SocialLinks from '@/components/social-links';
 import { ThemeAwareImage } from '@/components/theme-aware-image';
@@ -36,6 +38,7 @@ export default async function Home() {
 
   return (
     <>
+      <JsonLd schemas={[profilePageSchema]} />
       <header className="flex flex-col gap-x-16 gap-y-2 tracking-wide text-balance sm:flex-row">
         <h1
           className={cn(

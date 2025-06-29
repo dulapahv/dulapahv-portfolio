@@ -10,9 +10,11 @@ import {
   isValidContentType,
   type ContentType,
 } from '@/lib/content-utils';
+import { collectionSchema } from '@/lib/json-ld';
 import { createMetadata } from '@/lib/metadata';
 import { cn } from '@/lib/utils';
 import Breadcrumb from '@/components/breadcrumb';
+import { JsonLd } from '@/components/json-ld';
 
 type PageProperties = {
   readonly params: Promise<{
@@ -101,6 +103,7 @@ export default async function TypeListingPage({ params }: PageProperties) {
 
   return (
     <>
+      <JsonLd schemas={[collectionSchema(type, { title, description })]} />
       <Breadcrumb />
       <main>
         <header className="gap-0">

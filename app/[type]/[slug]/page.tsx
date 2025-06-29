@@ -66,11 +66,15 @@ export const generateMetadata = async ({
   let description: string;
 
   if ('position' in page) {
-    // Work item
+    // Work
     title = `${page.position} at ${page.company}`;
     description = `${page.position} role at ${page.company} in ${page.location}`;
+  } else if ('startDate' in page && 'title' in page) {
+    // Project
+    title = page.title;
+    description = page.description;
   } else {
-    // Project or blog
+    // Blog
     title = page.title;
     description = page.description;
   }
@@ -203,7 +207,7 @@ export default async function ContentPage({ params }: PageProperties) {
 
   return (
     <>
-      {pageSchema && <JsonLd schemas={[pageSchema]} />}
+      <JsonLd schemas={[pageSchema]} />
       <div className="mx-auto max-w-2xl space-y-4">
         <Breadcrumb lastLabel={title} />
         <main className="space-y-4">
