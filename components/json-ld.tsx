@@ -3,6 +3,7 @@ import { WithContext } from 'schema-dts';
 import { combineSchemas, personSchema, websiteSchema } from '@/lib/json-ld';
 
 interface JsonLdProps {
+  /* eslint-disable  @typescript-eslint/no-explicit-any */
   schemas?: Array<WithContext<any>>;
 }
 

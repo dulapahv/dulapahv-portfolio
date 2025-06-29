@@ -250,6 +250,7 @@ export const createWorkSchema = (work: {
   }),
 });
 
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 export const combineSchemas = (schemas: Array<WithContext<any>>): string => {
   return JSON.stringify(
     schemas.length === 1 ? schemas[0] : schemas,
