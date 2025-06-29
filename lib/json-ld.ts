@@ -43,6 +43,8 @@ export const personSchema: WithContext<Person> = {
         '@type': 'PostalAddress',
         addressLocality: 'Glasgow',
         addressCountry: 'GB',
+        postalCode: 'G12 8QQ',
+        streetAddress: 'University Avenue',
       },
     },
     {
@@ -54,6 +56,8 @@ export const personSchema: WithContext<Person> = {
         '@type': 'PostalAddress',
         addressLocality: 'Bangkok',
         addressCountry: 'TH',
+        postalCode: '10520',
+        streetAddress: '1 Chalong Krung 1 Alley, Lat Krabang',
       },
     },
     {
@@ -62,8 +66,10 @@ export const personSchema: WithContext<Person> = {
       url: 'https://www.sk.ac.th/',
       address: {
         '@type': 'PostalAddress',
-        addressLocality: 'Bangkok',
+        addressLocality: 'Bangkok (Wang Burapha Pirom, Phra Nakhon District)',
         addressCountry: 'TH',
+        postalCode: '10200',
+        streetAddress: '88 Tri Phet Road',
       },
     },
   ],
@@ -123,13 +129,11 @@ export const personSchema: WithContext<Person> = {
       '@type': 'Language',
       name: 'Thai',
       alternateName: 'th',
-      // proficiencyLevel: 'Native',
     },
     {
       '@type': 'Language',
       name: 'English',
       alternateName: 'en',
-      // proficiencyLevel: 'Professional',
     },
   ],
   contactPoint: {
@@ -142,11 +146,23 @@ export const personSchema: WithContext<Person> = {
   hasOccupation: {
     '@type': 'Occupation',
     name: 'Software Engineer',
+    description:
+      'A Software Engineer is responsible for designing, developing, testing, and maintaining software applications and systems. They work with various programming languages and technologies to create efficient and scalable solutions.',
     occupationalCategory: '15-1252.00',
-    estimatedSalary: {
-      '@type': 'MonetaryAmountDistribution',
-      name: 'Graduate Software Engineer Salary UK',
-      currency: 'GBP',
+    occupationLocation: {
+      '@type': 'City',
+      name: 'Edinburgh, Scotland',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Edinburgh',
+        addressRegion: 'Scotland',
+        addressCountry: 'GB',
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${BASE_URL}/#occupation-software-engineer`,
+      lastReviewed: '2025-06-29',
     },
   },
 };
