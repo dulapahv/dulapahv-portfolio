@@ -52,8 +52,8 @@ export default function SkillsSection() {
               {/* Background Gradient */}
               <div
                 className={cn(
-                  'absolute inset-0 rounded-xl bg-gradient-to-br opacity-5 transition-opacity',
-                  'group-hover:opacity-10',
+                  'absolute inset-0 rounded-xl bg-gradient-to-br opacity-5',
+                  'group-hover:opacity-8',
                   category.gradient,
                 )}
               />
@@ -62,8 +62,9 @@ export default function SkillsSection() {
               <div
                 className={cn(
                   `border-border bg-background/80 relative h-full rounded-xl border p-3
-                  backdrop-blur-xl transition-all`,
-                  'hover:-translate-y-1 hover:scale-[1.02] hover:shadow-2xl',
+                  backdrop-blur-sm transition-transform duration-200 ease-out
+                  will-change-transform`,
+                  'hover:scale-[1.01]',
                   category.bgColor,
                 )}
               >
@@ -76,8 +77,7 @@ export default function SkillsSection() {
                 >
                   <div
                     className={cn(
-                      'text-foreground rounded-lg bg-gradient-to-br p-2 shadow-lg transition-transform',
-                      'group-hover:scale-110',
+                      'text-foreground rounded-lg bg-gradient-to-br p-2 shadow-sm',
                       category.bgColor,
                     )}
                   >
@@ -116,9 +116,9 @@ export default function SkillsSection() {
                       key={index}
                       className={cn(
                         `text-foreground border-foreground/10 cursor-default rounded-full border
-                        bg-white/10 font-medium backdrop-blur-sm transition-all`,
+                        bg-white/10 font-medium transition-colors duration-150`,
                         isLarge ? 'px-3 py-1.5 text-xs' : 'px-2.5 py-1 text-xs',
-                        'hover:border-foreground/20 hover:scale-105 hover:bg-white/20 hover:shadow-lg',
+                        'hover:border-foreground/20 hover:bg-white/15',
                       )}
                     >
                       {skill}
