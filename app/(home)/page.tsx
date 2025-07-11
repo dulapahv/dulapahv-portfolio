@@ -170,9 +170,9 @@ export default async function Home() {
       </ViewTransition>
 
       <article className="text-foreground">
-        I am an upcoming{' '}
+        I'm an upcoming{' '}
         <b className="text-foreground font-semibold">
-          Software Engineer Graduate
+          Graduate Software Engineer
         </b>{' '}
         at{' '}
         <Link
@@ -194,7 +194,7 @@ export default async function Home() {
         , where I honed my skills across frontend, backend, and cloud
         technologies. Following the internship, I was thrilled to receive a{' '}
         <b className="text-foreground font-semibold">return offer</b> to join as
-        a Software Engineer Graduate, starting in September 2025.
+        a Graduate Software Engineer, starting in September 2025.
         <br />
         <Globe
           width={384}

@@ -91,7 +91,7 @@ export const personSchema: WithContext<Person> = {
       },
     },
   ],
-  jobTitle: 'Software Engineer Graduate',
+  jobTitle: 'Graduate Software Engineer',
   worksFor: {
     '@type': 'Organization',
     name: 'NatWest Group',
