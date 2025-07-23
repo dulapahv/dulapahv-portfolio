@@ -1,3 +1,4 @@
+import { unstable_ViewTransition as ViewTransition } from 'react';
 import type { Metadata } from 'next';
 import { Merriweather } from 'next/font/google';
 import Image from 'next/image';
@@ -155,16 +156,18 @@ export default async function Home() {
         />
       </header>
 
-      <blockquote
-        className="border-l-mirai-red border-border bg-background text-foreground rounded-md border
-          border-l-8 py-2 pr-2.5 pl-3 italic shadow-sm"
-      >
-        &quot;I want to make technology accessible and delightful to everyone as
-        I believe it has the power to transform lives, and that&apos;s what
-        I&apos;ve been doing since the very beginning.&quot;
-      </blockquote>
+      <ViewTransition enter="none">
+        <blockquote
+          className="border-l-mirai-red border-border bg-background text-foreground rounded-md border
+            border-l-8 py-2 pr-2.5 pl-3 italic shadow-sm"
+        >
+          &quot;I want to make technology accessible and delightful to everyone
+          as I believe it has the power to transform lives, and that&apos;s what
+          I&apos;ve been doing since the very beginning.&quot;
+        </blockquote>
 
-      <SocialLinks />
+        <SocialLinks />
+      </ViewTransition>
 
       <article className="text-foreground">
         I&apos;m an upcoming{' '}

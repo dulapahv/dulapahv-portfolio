@@ -1,4 +1,3 @@
-import { Suspense } from 'react';
 import type { Metadata } from 'next';
 
 import type { ContactPage } from 'schema-dts';
@@ -36,15 +35,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
           <p className="text-foreground-muted">{description}</p>
         </header>
         <section aria-label="Contact form">
-          <Suspense
-            fallback={
-              <div aria-live="polite" aria-label="Loading contact form">
-                Loading...
-              </div>
-            }
-          >
-            <ContactForm searchParams={params} />
-          </Suspense>
+          <ContactForm searchParams={params} />
         </section>
       </main>
     </>
