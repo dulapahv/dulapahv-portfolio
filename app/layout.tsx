@@ -89,7 +89,7 @@ export default function RootLayout({
             id="main-content"
             className="mx-auto max-w-4xl space-y-4 px-4 py-16"
           >
-            <ViewTransition>{children}</ViewTransition>
+            <ViewTransition default="slide">{children}</ViewTransition>
             <Footer />
           </div>
         </ThemeProvider>
