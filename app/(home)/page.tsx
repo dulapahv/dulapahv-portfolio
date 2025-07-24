@@ -39,6 +39,7 @@ export default async function Home() {
   return (
     <>
       <JsonLd schemas={[profilePageSchema]} />
+
       <header className="flex flex-col gap-x-16 gap-y-2 tracking-wide text-balance sm:flex-row">
         <h1
           className={cn(
@@ -155,8 +156,8 @@ export default async function Home() {
           priority
         />
       </header>
-
-      <ViewTransition enter="none">
+      <ViewTransition default="slide">
+        {/* <ViewTransition update="none"> */}
         <blockquote
           className="border-l-mirai-red border-border bg-background text-foreground rounded-md border
             border-l-8 py-2 pr-2.5 pl-3 italic shadow-sm"
@@ -167,80 +168,81 @@ export default async function Home() {
         </blockquote>
 
         <SocialLinks />
-      </ViewTransition>
+        {/* </ViewTransition> */}
 
-      <article className="text-foreground">
-        I&apos;m an upcoming{' '}
-        <b className="text-foreground font-semibold">
-          Graduate Software Engineer
-        </b>{' '}
-        at{' '}
-        <Link
-          href="https://www.natwestgroup.com/"
-          className={cn('text-mirai-red', 'hover:underline')}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          NatWest Group
-        </Link>
-        , one of the United Kingdom&apos;s Big Four banks, serving over 19
-        million customers across retail, commercial, and private banking.
-        <br />
-        <br />
-        In 2024, I completed an internship at NatWest Group as a{' '}
-        <b className="text-foreground font-semibold">
-          Software Engineer Intern
-        </b>
-        , where I honed my skills across frontend, backend, and cloud
-        technologies. Following the internship, I was thrilled to receive a{' '}
-        <b className="text-foreground font-semibold">return offer</b> to join as
-        a Graduate Software Engineer, starting in September 2025.
-        <br />
-        <Globe
-          width={384}
-          height={320}
-          markers={[...EDUCATION_LOCATION]}
-          className="float-left -ml-8 h-72 w-screen cursor-grab overflow-hidden rounded-lg
-            min-[425px]:ml-0 min-[425px]:w-full sm:w-96"
-        />
-        <br />
-        In 2025, I completed a double degree program in Software Engineering,
-        earning a{' '}
-        <b className="text-foreground font-semibold">
-          Bachelor of Science with Honours (BSc Hons) with First Class Honours
-          and Specialism in Parallel and Distributed Systems
-        </b>{' '}
-        from{' '}
-        <Link
-          href="https://www.gla.ac.uk/"
-          className={cn('text-mirai-red', 'hover:underline')}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          University of Glasgow
-        </Link>
-        , a Russell Group university in the United Kingdom, and a{' '}
-        <b className="text-foreground font-semibold">
-          Bachelor of Engineering (B.Eng.)
-        </b>{' '}
-        from{' '}
-        <Link
-          href="https://www.kmitl.ac.th/"
-          className={cn('text-mirai-red', 'hover:underline')}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          King Mongkut&apos;s Institute of Technology Ladkrabang (KMITL)
-        </Link>
-        , Thailand. I completed the first two years of the program in Thailand
-        and the final two years in the United Kingdom.
-        <br />
-        <br />
-        Driven by a passion for making technology accessible and delightful, I
-        believe in its ability to transform lives, and that&apos;s what
-        I&apos;ve been working toward since the very beginning.
-      </article>
-      <SkillsSection />
+        <article className="text-foreground">
+          I&apos;m an upcoming{' '}
+          <b className="text-foreground font-semibold">
+            Graduate Software Engineer
+          </b>{' '}
+          at{' '}
+          <Link
+            href="https://www.natwestgroup.com/"
+            className={cn('text-mirai-red', 'hover:underline')}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            NatWest Group
+          </Link>
+          , one of the United Kingdom&apos;s Big Four banks, serving over 19
+          million customers across retail, commercial, and private banking.
+          <br />
+          <br />
+          In 2024, I completed an internship at NatWest Group as a{' '}
+          <b className="text-foreground font-semibold">
+            Software Engineer Intern
+          </b>
+          , where I honed my skills across frontend, backend, and cloud
+          technologies. Following the internship, I was thrilled to receive a{' '}
+          <b className="text-foreground font-semibold">return offer</b> to join
+          as a Graduate Software Engineer, starting in September 2025.
+          <br />
+          <Globe
+            width={384}
+            height={320}
+            markers={[...EDUCATION_LOCATION]}
+            className="float-left -ml-8 h-72 w-screen cursor-grab overflow-hidden rounded-lg
+              min-[425px]:ml-0 min-[425px]:w-full sm:w-96"
+          />
+          <br />
+          In 2025, I completed a double degree program in Software Engineering,
+          earning a{' '}
+          <b className="text-foreground font-semibold">
+            Bachelor of Science with Honours (BSc Hons) with First Class Honours
+            and Specialism in Parallel and Distributed Systems
+          </b>{' '}
+          from{' '}
+          <Link
+            href="https://www.gla.ac.uk/"
+            className={cn('text-mirai-red', 'hover:underline')}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            University of Glasgow
+          </Link>
+          , a Russell Group university in the United Kingdom, and a{' '}
+          <b className="text-foreground font-semibold">
+            Bachelor of Engineering (B.Eng.)
+          </b>{' '}
+          from{' '}
+          <Link
+            href="https://www.kmitl.ac.th/"
+            className={cn('text-mirai-red', 'hover:underline')}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            King Mongkut&apos;s Institute of Technology Ladkrabang (KMITL)
+          </Link>
+          , Thailand. I completed the first two years of the program in Thailand
+          and the final two years in the United Kingdom.
+          <br />
+          <br />
+          Driven by a passion for making technology accessible and delightful, I
+          believe in its ability to transform lives, and that&apos;s what
+          I&apos;ve been working toward since the very beginning.
+        </article>
+        <SkillsSection />
+      </ViewTransition>
     </>
   );
 }

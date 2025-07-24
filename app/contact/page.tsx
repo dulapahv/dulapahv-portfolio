@@ -1,3 +1,4 @@
+import { unstable_ViewTransition as ViewTransition } from 'react';
 import type { Metadata } from 'next';
 
 import type { ContactPage } from 'schema-dts';
@@ -29,15 +30,17 @@ export default async function ContactPage({ searchParams }: PageProps) {
   return (
     <>
       <JsonLd schemas={[contactPageSchema]} />
-      <main className="mx-auto max-w-4xl space-y-4">
-        <header className="gap-0">
-          <h1 className="text-foreground font-medium">{title}</h1>
-          <p className="text-foreground-muted">{description}</p>
-        </header>
-        <section aria-label="Contact form">
-          <ContactForm searchParams={params} />
-        </section>
-      </main>
+      <ViewTransition default="slide">
+        <main className="mx-auto max-w-4xl space-y-4">
+          <header className="gap-0">
+            <h1 className="text-foreground font-medium">{title}</h1>
+            <p className="text-foreground-muted">{description}</p>
+          </header>
+          <section aria-label="Contact form">
+            <ContactForm searchParams={params} />
+          </section>
+        </main>
+      </ViewTransition>
     </>
   );
 }

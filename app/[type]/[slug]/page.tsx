@@ -1,3 +1,4 @@
+import { unstable_ViewTransition as ViewTransition } from 'react';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
@@ -206,7 +207,7 @@ export default async function ContentPage({ params }: PageProperties) {
   };
 
   return (
-    <>
+    <ViewTransition default="slide">
       <JsonLd schemas={[pageSchema]} />
       <div className="mx-auto max-w-2xl space-y-4">
         <Breadcrumb lastLabel={title} />
@@ -287,6 +288,6 @@ export default async function ContentPage({ params }: PageProperties) {
           <Mdx code={page.body} />
         </main>
       </div>
-    </>
+    </ViewTransition>
   );
 }

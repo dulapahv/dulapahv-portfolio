@@ -1,4 +1,3 @@
-import { unstable_ViewTransition as ViewTransition } from 'react';
 import type { Metadata } from 'next';
 import { Raleway } from 'next/font/google';
 import Image from 'next/image';
@@ -89,7 +88,7 @@ export default function RootLayout({
             id="main-content"
             className="mx-auto max-w-4xl space-y-4 px-4 py-16"
           >
-            <ViewTransition default="slide">{children}</ViewTransition>
+            {children}
             <Footer />
           </div>
         </ThemeProvider>
