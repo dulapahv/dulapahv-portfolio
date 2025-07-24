@@ -207,87 +207,88 @@ export default async function ContentPage({ params }: PageProperties) {
   };
 
   return (
-    <ViewTransition default="slide">
+    <>
       <JsonLd schemas={[pageSchema]} />
       <div className="mx-auto max-w-2xl space-y-4">
         <Breadcrumb lastLabel={title} />
-        <main className="space-y-4">
-          <header className="space-y-2">
-            <div>
-              <h1 className="text-2xl font-semibold">{title}</h1>
-              {subtitle && (
-                <p
-                  className="text-foreground-muted font-medium"
-                  role="doc-subtitle"
-                >
-                  {subtitle}
-                </p>
-              )}
-            </div>
-            <div className="text-foreground-muted space-y-1 text-sm">
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="sr-only">Content type:</span>
-                <span
-                  className="inline-block font-medium"
-                  aria-label={`Content type: ${label}`}
-                >
-                  {label}
-                </span>
-                <span aria-hidden="true" className="text-foreground-subtle">
-                  |
-                </span>
-                <div className="flex gap-1">
-                  <span className="sr-only">
-                    {isBlog ? 'Publication date:' : 'Duration:'}
-                  </span>
-                  <span aria-hidden="true">
-                    {isBlog ? 'Published on' : 'Duration:'}
-                  </span>
-                  <time
-                    dateTime={dateTimeValue}
-                    aria-label={dateLabel}
-                    className="font-medium"
-                  >
-                    {dateInfo}
-                  </time>
-                </div>
-              </div>
-              {page.readingTime && (
-                <p aria-label={`Estimated reading time: ${page.readingTime}`}>
-                  <span className="sr-only">Reading time:</span>
-                  {page.readingTime}
-                </p>
-              )}
-            </div>
-            <ShareButtons />
-          </header>
-
-          <TableOfContents />
-
-          {page.image && (
-            <figure
-              className="relative"
-              role="img"
-              aria-labelledby="cover-image-caption"
-            >
-              <Image
-                src={page.image}
-                alt={generateImageAlt()}
-                width={1200}
-                height={630}
-                className="border-border bg-background-muted/30 overflow-hidden rounded-md border"
-                quality={100}
-                priority
-              />
-              <figcaption id="cover-image-caption" className="sr-only">
-                {generateImageAlt()}
-              </figcaption>
-            </figure>
-          )}
-
-          <Mdx code={page.body} />
-        </main>
       </div>
-    </ViewTransition>
+      <ViewTransition default="slide">
+        <div className="mx-auto max-w-2xl space-y-4">
+          <main className="space-y-4">
+            <header className="space-y-2">
+              <div>
+                <h1 className="text-2xl font-semibold">{title}</h1>
+                {subtitle && (
+                  <p
+                    className="text-foreground-muted font-medium"
+                    role="doc-subtitle"
+                  >
+                    {subtitle}
+                  </p>
+                )}
+              </div>
+              <div className="text-foreground-muted space-y-1 text-sm">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="sr-only">Content type:</span>
+                  <span
+                    className="inline-block font-medium"
+                    aria-label={`Content type: ${label}`}
+                  >
+                    {label}
+                  </span>
+                  <span aria-hidden="true" className="text-foreground-subtle">
+                    |
+                  </span>
+                  <div className="flex gap-1">
+                    <span className="sr-only">
+                      {isBlog ? 'Publication date:' : 'Duration:'}
+                    </span>
+                    <span aria-hidden="true">
+                      {isBlog ? 'Published on' : 'Duration:'}
+                    </span>
+                    <time
+                      dateTime={dateTimeValue}
+                      aria-label={dateLabel}
+                      className="font-medium"
+                    >
+                      {dateInfo}
+                    </time>
+                  </div>
+                </div>
+                {page.readingTime && (
+                  <p aria-label={`Estimated reading time: ${page.readingTime}`}>
+                    <span className="sr-only">Reading time:</span>
+                    {page.readingTime}
+                  </p>
+                )}
+              </div>
+              <ShareButtons />
+            </header>
+            <TableOfContents />
+            {page.image && (
+              <figure
+                className="relative"
+                role="img"
+                aria-labelledby="cover-image-caption"
+              >
+                <Image
+                  src={page.image}
+                  alt={generateImageAlt()}
+                  width={1200}
+                  height={630}
+                  className="border-border bg-background-muted/30 overflow-hidden rounded-md border"
+                  quality={100}
+                  priority
+                />
+                <figcaption id="cover-image-caption" className="sr-only">
+                  {generateImageAlt()}
+                </figcaption>
+              </figure>
+            )}
+            <Mdx code={page.body} />
+          </main>
+        </div>
+      </ViewTransition>
+    </>
   );
 }
