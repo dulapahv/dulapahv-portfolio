@@ -105,9 +105,11 @@ export default async function TypeListingPage({ params }: PageProperties) {
   return (
     <>
       <JsonLd schemas={[collectionSchema(type, { title, description })]} />
-      <Breadcrumb />
+      <div className="mx-auto max-w-2xl space-y-4">
+        <Breadcrumb lastLabel={title} />
+      </div>
       <ViewTransition default="slide">
-        <main>
+        <main className="mx-auto max-w-2xl space-y-4">
           <header className="gap-0">
             <h1 className="text-lg font-medium">{title}</h1>
             <p className="text-foreground-muted">{description}</p>
