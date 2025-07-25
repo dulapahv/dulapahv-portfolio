@@ -110,8 +110,9 @@ export const Mdx = ({ code }: MdxProperties) => (
       'prose-figure:[figure:has(figcaption)&>button]:top-1',
       `prose-blockquote:not-italic prose-blockquote:[&>p]:before:content-none
       prose-blockquote:[&>p]:after:content-none prose-blockquote:border
-      prose-blockquote:border-border prose-blockquote:[&>p]:my-0
-      prose-blockquote:rounded-md prose-blockquote:p-3 prose-blockquote:text-sm`,
+      prose-blockquote:!border-l-1 prose-blockquote:!border-border
+      prose-blockquote:[&>p]:my-0 prose-blockquote:rounded-md prose-blockquote:p-3
+      prose-blockquote:text-sm`,
       `prose-code:before:content-none prose-code:after:content-none
       prose-code:dark:bg-[#0a0a0a] prose-code:bg-[#fff]
       prose-code:[&>span>span]:brightness-90
