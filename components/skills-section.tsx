@@ -62,8 +62,7 @@ export default function SkillsSection() {
               <div
                 className={cn(
                   `border-border bg-background/80 relative h-full rounded-xl border p-3
-                  backdrop-blur-sm transition-transform duration-200 ease-out
-                  will-change-transform`,
+                  backdrop-blur-sm transition-transform`,
                   'hover:scale-[1.01]',
                   category.bgColor,
                 )}
@@ -116,7 +115,7 @@ export default function SkillsSection() {
                       key={index}
                       className={cn(
                         `text-foreground border-foreground/10 cursor-default rounded-full border
-                        bg-white/10 font-medium transition-colors duration-150`,
+                        bg-white/10 font-medium transition-colors`,
                         isLarge ? 'px-3 py-1.5 text-xs' : 'px-2.5 py-1 text-xs',
                         'hover:border-foreground/20 hover:bg-white/15',
                       )}
