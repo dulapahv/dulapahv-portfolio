@@ -130,14 +130,11 @@ export default async function TypeListingPage({ params }: PageProperties) {
                   <section
                     key={year}
                     className="divide-mirai-red mb-8 divide-y divide-dashed"
-                    aria-labelledby={`year-${year}`}
+                    aria-labelledby={year}
                   >
-                    <h2
-                      id={`year-${year}`}
-                      className="text-mirai-red mb-2 font-normal"
-                    >
+                    <h2 id={year} className="text-mirai-red mb-2 font-normal">
                       <Link
-                        href={`#year-${year}`}
+                        href={`#${year}`}
                         className={cn(
                           'group relative rounded-sm',
                           'hover:underline',
