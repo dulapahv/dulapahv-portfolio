@@ -7,6 +7,7 @@ import { RefreshCw } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 import Breadcrumb from '@/components/breadcrumb';
+import Footer from '@/components/footer';
 
 export default function Error({
   error,
@@ -102,6 +103,7 @@ Digest: ${error.digest || 'N/A'}
           )}
         </code>
       </footer>
+      <Footer />
     </>
   );
 }

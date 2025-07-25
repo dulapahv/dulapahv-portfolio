@@ -10,6 +10,7 @@ import { RefreshCw } from 'lucide-react';
 import { ThemeProvider } from 'next-themes';
 
 import { cn } from '@/lib/utils';
+import Footer from '@/components/footer';
 
 export const raleway = Raleway({
   subsets: ['latin'],
@@ -143,6 +144,7 @@ Digest: ${error.digest || 'N/A'}
                 )}
               </code>
             </footer>
+            <Footer />
           </div>
         </ThemeProvider>
       </body>

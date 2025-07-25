@@ -13,6 +13,7 @@ import {
 import { profilePageSchema } from '@/lib/json-ld';
 import { createMetadata } from '@/lib/metadata';
 import { cn } from '@/lib/utils';
+import Footer from '@/components/footer';
 import { Globe } from '@/components/globe';
 import { JsonLd } from '@/components/json-ld';
 import SkillsSection from '@/components/skills-section';
@@ -243,6 +244,7 @@ export default async function Home() {
         </article>
         <SkillsSection />
       </ViewTransition>
+      <Footer />
     </>
   );
 }

@@ -5,6 +5,7 @@ import { Home } from 'lucide-react';
 
 import { createMetadata } from '@/lib/metadata';
 import { cn } from '@/lib/utils';
+import Footer from '@/components/footer';
 
 export const metadata: Metadata = createMetadata({
   title: '404 - Page Not Found',
@@ -44,6 +45,7 @@ export default function NotFound() {
           {`Timestamp: ${new Date().toLocaleString()} (${new Date().toISOString()})`}
         </code>
       </footer>
+      <Footer />
     </>
   );
 }

@@ -10,7 +10,6 @@ import { ThemeProvider } from 'next-themes';
 
 import { BASE_URL } from '@/lib/constants';
 import { cn } from '@/lib/utils';
-import Footer from '@/components/footer';
 import { Navbar } from '@/components/navbar';
 import { ThemeSwitcher } from '@/components/theme-switcher';
 
@@ -89,7 +88,6 @@ export default function RootLayout({
             className="mx-auto max-w-4xl space-y-4 px-4 py-16"
           >
             {children}
-            <Footer />
           </div>
         </ThemeProvider>
       </body>

@@ -6,6 +6,7 @@ import type { ContactPage } from 'schema-dts';
 import { contactPageSchema } from '@/lib/json-ld';
 import { createMetadata } from '@/lib/metadata';
 import type { RecipientEmailTemplateProps } from '@/components/email';
+import Footer from '@/components/footer';
 import { JsonLd } from '@/components/json-ld';
 
 import { ContactForm } from './components/form';
@@ -41,6 +42,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
           </section>
         </main>
       </ViewTransition>
+      <Footer />
     </>
   );
 }
