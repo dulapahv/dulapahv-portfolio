@@ -13,7 +13,7 @@
   "dependencies": {
     "@react-email/components": "^0.0.41",
     "@react-spring/web": "^10.0.1",
-    "@shikijs/transformers": "^3.8.1",
+    "@shikijs/transformers": "^3.9.2",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
     "botid": "^1.4.5",
@@ -28,7 +28,7 @@
     "radix-ui": "^1.4.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-email": "^4.2.5",
+    "react-email": "^4.2.8",
     "react-player": "^2.16.1",
     "reading-time": "^1.5.0",
     "rehype-autolink-headings": "^7.1.0",
@@ -39,9 +39,9 @@
     "rehype-slug": "^6.0.0",
     "remark-gfm": "^4.0.1",
     "remark-math": "^6.0.0",
-    "resend": "^4.7.0",
+    "resend": "^4.8.0",
     "schema-dts": "^1.1.5",
-    "shiki": "^3.8.1",
+    "shiki": "^3.9.2",
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
@@ -53,7 +53,7 @@
     "@prettier/plugin-oxc": "^0.0.4",
     "@tailwindcss/postcss": "^4.1.11",
     "@tailwindcss/typography": "^0.5.16",
-    "@types/node": "^24.1.0",
+    "@types/node": "^24.2.0",
     "@types/react": "^19.1.9",
     "@types/react-dom": "^19.1.7",
     "eslint": "^9.32.0",
@@ -64,7 +64,7 @@
     "prettier-plugin-tailwindcss": "^0.6.14",
     "tailwindcss": "^4.1.11",
     "turbo": "^2.5.5",
-    "typescript": "^5.8.3"
+    "typescript": "^5.9.2"
   },
   "packageManager": "pnpm@10.14.0-0+sha512.2cd47a0cbf5f1d1de7693a88307a0ede5be94e0d3b34853d800ee775efbea0650cb562b77605ec80bc8d925f5cd27c4dfe8bb04d3a0b76090784c664450d32d6"
 }
