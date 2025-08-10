@@ -6,7 +6,6 @@ import type { ContactPage } from 'schema-dts';
 import { contactPageSchema } from '@/lib/json-ld';
 import { createMetadata } from '@/lib/metadata';
 import type { RecipientEmailTemplateProps } from '@/components/email';
-import Footer from '@/components/footer';
 import { JsonLd } from '@/components/json-ld';
 
 import { ContactForm } from './components/form';
@@ -32,7 +31,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
     <>
       <JsonLd schemas={[contactPageSchema]} />
       <ViewTransition default="slide">
-        <main className="mx-auto max-w-4xl space-y-4">
+        <main className="mx-auto max-w-2xl space-y-4">
           <header className="gap-0">
             <h1 className="text-foreground font-medium">{title}</h1>
             <p className="text-foreground-muted">{description}</p>
@@ -42,7 +41,6 @@ export default async function ContactPage({ searchParams }: PageProps) {
           </section>
         </main>
       </ViewTransition>
-      <Footer />
     </>
   );
 }
