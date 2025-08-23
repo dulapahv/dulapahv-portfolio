@@ -5,6 +5,7 @@ import { withBotId } from 'botid/next/config';
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  typedRoutes: true,
   experimental: {
     viewTransition: true,
   },
