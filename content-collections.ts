@@ -30,6 +30,7 @@ const formatDate = (date: Date): string => {
 };
 
 // Base transform function for MDX compilation
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const baseTransform = async (page: any, context: any) => {
   const body = await compileMDX(context, page, {
     remarkPlugins: [remarkGfm, remarkMath],

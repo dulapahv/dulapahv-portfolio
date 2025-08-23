@@ -52,6 +52,7 @@ const Breadcrumb = React.forwardRef<
                     {lastLabel ?? label}
                   </BreadcrumbPage>
                 ) : (
+                  // @ts-expect-error href is a string
                   <BreadcrumbLink href={href}>{label}</BreadcrumbLink>
                 )}
               </BreadcrumbItem>
