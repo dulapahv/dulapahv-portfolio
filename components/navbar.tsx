@@ -140,6 +140,7 @@ export const Navbar = () => {
             className="relative"
           >
             <Link
+              // @ts-expect-error href is a string
               href={item.link}
               aria-label={`${item.name}${active ? ', current page' : ''}`}
               aria-current={active ? 'page' : undefined}
