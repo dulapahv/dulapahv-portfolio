@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import type { Route } from 'next';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -52,8 +53,7 @@ const Breadcrumb = React.forwardRef<
                     {lastLabel ?? label}
                   </BreadcrumbPage>
                 ) : (
-                  // @ts-expect-error href is a string
-                  <BreadcrumbLink href={href}>{label}</BreadcrumbLink>
+                  <BreadcrumbLink href={href as Route}>{label}</BreadcrumbLink>
                 )}
               </BreadcrumbItem>
             </React.Fragment>

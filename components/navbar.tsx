@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
+import type { Route } from 'next';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -140,8 +141,7 @@ export const Navbar = () => {
             className="relative"
           >
             <Link
-              // @ts-expect-error href is a string
-              href={item.link}
+              href={item.link as Route}
               aria-label={`${item.name}${active ? ', current page' : ''}`}
               aria-current={active ? 'page' : undefined}
               className={cn(

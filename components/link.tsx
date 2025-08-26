@@ -1,4 +1,5 @@
 import type { ComponentProps } from 'react';
+import type { Route } from 'next';
 import NextLink from 'next/link';
 
 type LinkProps = ComponentProps<'a'>;
@@ -6,7 +7,7 @@ type LinkProps = ComponentProps<'a'>;
 export const Link = (props: LinkProps) =>
   props.href?.startsWith('/') || props.href?.startsWith('#') ? (
     // @ts-expect-error href is a string
-    <NextLink href={props.href} {...props} />
+    <NextLink href={props.href as Route} {...props} />
   ) : (
     <a {...props} target="_blank" rel="noopener noreferrer" />
   );

@@ -15,7 +15,7 @@ export const GET = async (request: NextRequest) => {
   const description = getParam('description');
 
   const logo = await readFile(join(process.cwd(), 'app/og/logo.png'));
-  const logoSrc = Uint8Array.from(logo).buffer;
+  const logoSrc = `data:image/png;base64,${logo.toString('base64')}`;
   const geistBold = await readFile(
     join(process.cwd(), 'app/og/Geist-Bold.ttf'),
   );
@@ -34,7 +34,6 @@ export const GET = async (request: NextRequest) => {
         }}
       >
         <img
-          // @ts-expect-error "required"
           src={logoSrc}
           alt="avatar"
           width={72}
