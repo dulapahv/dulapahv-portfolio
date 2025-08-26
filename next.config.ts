@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   typedRoutes: true,
   experimental: {
+    typedEnv: true,
     viewTransition: true,
   },
   async redirects() {
