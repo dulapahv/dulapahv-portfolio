@@ -1,9 +1,9 @@
 import Footer from '@/components/footer';
 
-export default function Layout(props: LayoutProps<'/contact'>) {
+export default function Layout({ children }: LayoutProps<'/contact'>) {
   return (
     <>
-      {props.children}
+      {children}
       <div className="mx-auto max-w-2xl">
         <Footer />
       </div>

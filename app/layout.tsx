@@ -33,7 +33,7 @@ const protectedRoutes = [
   },
 ];
 
-export default function RootLayout(props: LayoutProps<'/'>) {
+export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
     <html
       lang="en"
@@ -83,7 +83,7 @@ export default function RootLayout(props: LayoutProps<'/'>) {
             id="main-content"
             className="mx-auto max-w-4xl space-y-4 px-4 py-16"
           >
-            {props.children}
+            {children}
           </div>
         </ThemeProvider>
       </body>

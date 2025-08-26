@@ -17,15 +17,9 @@ import { cn } from '@/lib/utils';
 import Breadcrumb from '@/components/breadcrumb';
 import { JsonLd } from '@/components/json-ld';
 
-type PageProperties = {
-  readonly params: Promise<{
-    type: string;
-  }>;
-};
-
 export const generateMetadata = async ({
   params,
-}: PageProperties): Promise<Metadata> => {
+}: PageProps<'/[type]'>): Promise<Metadata> => {
   const { type } = await params;
 
   if (!isValidContentType(type)) return {};
@@ -44,7 +38,9 @@ export const generateStaticParams = (): { type: ContentType }[] => [
   { type: 'work' },
 ];
 
-export default async function TypeListingPage({ params }: PageProperties) {
+export default async function TypeListingPage({
+  params,
+}: PageProps<'/[type]'>) {
   const { type } = await params;
 
   if (!isValidContentType(type)) notFound();

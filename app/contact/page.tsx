@@ -20,12 +20,15 @@ export const metadata: Metadata = createMetadata({
   ogText: 'Contact DulapahV',
 });
 
-interface PageProps {
-  searchParams: Promise<RecipientEmailTemplateProps>;
-}
-
-export default async function ContactPage({ searchParams }: PageProps) {
-  const params = (await searchParams) || {};
+export default async function ContactPage({
+  searchParams,
+}: PageProps<'/contact'>) {
+  const params = await searchParams;
+  const data = {
+    name: params.name?.toString() || '',
+    email: params.email?.toString() || '',
+    message: params.message?.toString() || '',
+  } as RecipientEmailTemplateProps;
 
   return (
     <>
@@ -37,7 +40,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
             <p className="text-foreground-muted">{description}</p>
           </header>
           <section aria-label="Contact form">
-            <ContactForm searchParams={params} />
+            <ContactForm searchParams={data} />
           </section>
         </main>
       </ViewTransition>

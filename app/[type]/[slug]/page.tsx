@@ -21,13 +21,6 @@ import { Mdx } from '@/components/mdx';
 import ShareButtons from '@/components/share';
 import { TableOfContents } from '@/components/toc';
 
-type PageProperties = {
-  readonly params: Promise<{
-    type: string;
-    slug: string;
-  }>;
-};
-
 // Helper function to get the relevant date from content
 const getContentDate = (page: { date?: Date; startDate?: Date }): Date => {
   return page.date ?? page.startDate ?? new Date();
@@ -52,7 +45,7 @@ const getDateRangeISO = (startDate: Date, endDate?: Date): string => {
 
 export const generateMetadata = async ({
   params,
-}: PageProperties): Promise<Metadata> => {
+}: PageProps<'/[type]/[slug]'>): Promise<Metadata> => {
   const { type, slug } = await params;
 
   if (!isValidContentType(type)) return {};
@@ -97,7 +90,9 @@ export const generateStaticParams = (): { type: string; slug: string }[] => {
   );
 };
 
-export default async function ContentPage({ params }: PageProperties) {
+export default async function ContentPage({
+  params,
+}: PageProps<'/[type]/[slug]'>) {
   const { type, slug } = await params;
 
   if (!isValidContentType(type)) notFound();
