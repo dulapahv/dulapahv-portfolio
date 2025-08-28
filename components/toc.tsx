@@ -7,7 +7,6 @@ import Link from 'next/link';
 import {
   ArrowCircleUpIcon,
   CaretDownIcon,
-  CaretUpIcon,
 } from '@phosphor-icons/react/dist/ssr';
 import { AnimatePresence, motion } from 'motion/react';
 
