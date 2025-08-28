@@ -3,6 +3,7 @@ import Image from 'next/image';
 
 import { MDXContent } from '@content-collections/mdx/react';
 import { Link as LuLink } from 'lucide-react';
+import Zoom from 'react-medium-image-zoom';
 
 import { cn } from '@/lib/utils';
 
@@ -33,15 +34,21 @@ const img = (properties: HTMLProps<HTMLImageElement>) => {
   }
 
   return (
-    <Image
-      src={properties.src}
-      alt={properties.alt}
-      width={1240}
-      height={698}
-      unoptimized={properties.src.startsWith('http')}
-      className="border-border bg-background-muted/30 my-4 overflow-hidden rounded-md border"
-      quality={100}
-    />
+    <Zoom
+      zoomMargin={48}
+      wrapElement="span"
+      classDialog='[&_[data-rmiz-modal-overlay="visible"]]:!bg-background/50 [&_[data-rmiz-modal-overlay="visible"]]:backdrop-blur-sm'
+    >
+      <Image
+        src={properties.src}
+        alt={properties.alt}
+        width={1240}
+        height={698}
+        unoptimized={properties.src.startsWith('http')}
+        className="border-border bg-background-muted/30 my-4 overflow-hidden rounded-md border"
+        quality={100}
+      />
+    </Zoom>
   );
 };
 

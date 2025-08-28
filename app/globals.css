@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @plugin "@tailwindcss/typography";
+@import 'react-medium-image-zoom/dist/styles.css';
 
 @custom-variant dark (&:where(.dark, .dark *));
 

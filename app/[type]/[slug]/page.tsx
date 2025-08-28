@@ -3,6 +3,8 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
+import Zoom from 'react-medium-image-zoom';
+
 import {
   contentConfig,
   getCollection,
@@ -265,15 +267,21 @@ export default async function ContentPage({
               role="img"
               aria-labelledby="cover-image-caption"
             >
-              <Image
-                src={page.image}
-                alt={generateImageAlt()}
-                width={1200}
-                height={630}
-                className="border-border bg-background-muted/30 overflow-hidden rounded-md border"
-                quality={100}
-                priority
-              />
+              <Zoom
+                zoomMargin={48}
+                wrapElement="span"
+                classDialog='[&_[data-rmiz-modal-overlay="visible"]]:!bg-background/50 [&_[data-rmiz-modal-overlay="visible"]]:backdrop-blur-sm'
+              >
+                <Image
+                  src={page.image}
+                  alt={generateImageAlt()}
+                  width={1200}
+                  height={630}
+                  className="border-border bg-background-muted/30 overflow-hidden rounded-md border"
+                  quality={100}
+                  priority
+                />
+              </Zoom>
               <figcaption id="cover-image-caption" className="sr-only">
                 {generateImageAlt()}
               </figcaption>
