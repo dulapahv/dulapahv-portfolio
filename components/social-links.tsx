@@ -27,7 +27,7 @@ export default function SocialLinks() {
             shadow-md transition-transform`,
           )}
         >
-          <ReadCvLogoIcon className="size-4 flex-shrink-0" />
+          <ReadCvLogoIcon className="size-4 flex-shrink-0 transition-transform group-hover:rotate-[-15deg]" />
         </div>
         <span className="text-foreground text-sm">Résumé</span>
       </Link>
@@ -37,8 +37,8 @@ export default function SocialLinks() {
         target="_blank"
         rel="noopener noreferrer"
         className={cn(
-          `border-border bg-background group flex items-center gap-x-1.5 rounded-lg border
-          px-2 py-1 font-medium !transition-all`,
+          `border-border bg-background flex items-center gap-x-1.5 rounded-lg border px-2
+          py-1 font-medium !transition-all`,
           'hover:bg-background-light hover:scale-[1.02] hover:shadow-lg',
           'active:scale-[0.98] active:shadow-md',
         )}
@@ -59,8 +59,8 @@ export default function SocialLinks() {
         target="_blank"
         rel="noopener noreferrer"
         className={cn(
-          `border-border bg-background group flex items-center gap-x-1.5 rounded-lg border
-          px-2 py-1 font-medium !transition-all`,
+          `border-border bg-background flex items-center gap-x-1.5 rounded-lg border px-2
+          py-1 font-medium !transition-all`,
           'hover:bg-background-light hover:scale-[1.02] hover:shadow-lg',
           'active:scale-[0.98] active:shadow-md',
         )}
