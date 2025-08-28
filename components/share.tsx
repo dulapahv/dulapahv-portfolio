@@ -1,10 +1,11 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
 import {
   CheckIcon,
+  ExportIcon,
   LinkSimpleHorizontalIcon,
 } from '@phosphor-icons/react/dist/ssr';
 
@@ -14,11 +15,45 @@ import { ThemeAwareImage } from './theme-aware-image';
 
 export default function ShareButtons() {
   const [copied, setCopied] = useState(false);
+  const [supportsNativeShare, setSupportsNativeShare] = useState(false);
+
   const popupRefs = useRef<{ [key: string]: Window | null }>({
     X: null,
     facebook: null,
     linkedin: null,
   });
+
+  // Check for native share support
+  useEffect(() => {
+    const checkShareSupport = () => {
+      if (typeof window !== 'undefined' && 'share' in navigator) {
+        // Test if it can share URLs (some implementations are limited)
+        setSupportsNativeShare(
+          navigator.canShare?.({ url: window.location.href }) ?? true,
+        );
+      }
+    };
+
+    checkShareSupport();
+  }, []);
+
+  const handleNativeShare = async () => {
+    if (!navigator.share) return;
+
+    try {
+      await navigator.share({
+        title: document.title,
+        url: window.location.href,
+      });
+    } catch (err) {
+      // User cancelled or share failed
+      if (err instanceof Error && err.name !== 'AbortError') {
+        console.error('Share failed:', err);
+        // Fall back to copy functionality
+        await copyToClipboard(window.location.href);
+      }
+    }
+  };
 
   const copyToClipboard = async (text: string) => {
     try {
@@ -115,31 +150,47 @@ export default function ShareButtons() {
       role="group"
       aria-label="Share options"
     >
-      {/* Copy Link Button */}
-      <button
-        onClick={() => copyToClipboard(window.location.href)}
-        onKeyDown={(e) =>
-          handleKeyDown(e, () => copyToClipboard(window.location.href))
-        }
-        className={cn(
-          `bg-background border-border aspect-square cursor-pointer rounded-full border
-          p-1.5 transition-colors`,
-          'hover:bg-background-subtle hover:border-border-strong',
-        )}
-        title={copied ? 'Link copied!' : 'Copy link to clipboard'}
-        aria-label={
-          copied ? 'Link copied to clipboard' : 'Copy link to clipboard'
-        }
-        disabled={copied}
-      >
-        <div className="text-foreground relative">
-          {copied ? (
-            <CheckIcon className="size-4.5" />
-          ) : (
-            <LinkSimpleHorizontalIcon className="size-4.5" />
+      {/* Native Share Button or Copy Link Button (fallback) */}
+      {supportsNativeShare ? (
+        <button
+          onClick={handleNativeShare}
+          onKeyDown={(e) => handleKeyDown(e, handleNativeShare)}
+          className={cn(
+            `bg-background border-border aspect-square cursor-pointer rounded-full border
+              p-1.5 transition-colors`,
+            'hover:bg-background-subtle hover:border-border-strong',
           )}
-        </div>
-      </button>
+          title="Share this page"
+          aria-label="Share this page"
+        >
+          <ExportIcon className="text-foreground size-4.5" aria-hidden="true" />
+        </button>
+      ) : (
+        <button
+          onClick={() => copyToClipboard(window.location.href)}
+          onKeyDown={(e) =>
+            handleKeyDown(e, () => copyToClipboard(window.location.href))
+          }
+          className={cn(
+            `bg-background border-border aspect-square cursor-pointer rounded-full border
+              p-1.5 transition-colors`,
+            'hover:bg-background-subtle hover:border-border-strong',
+          )}
+          title={copied ? 'Link copied!' : 'Copy link to clipboard'}
+          aria-label={
+            copied ? 'Link copied to clipboard' : 'Copy link to clipboard'
+          }
+          disabled={copied}
+        >
+          <div className="text-foreground relative">
+            {copied ? (
+              <CheckIcon className="size-4.5" />
+            ) : (
+              <LinkSimpleHorizontalIcon className="size-4.5" />
+            )}
+          </div>
+        </button>
+      )}
 
       {/* X Share Button */}
       <button
