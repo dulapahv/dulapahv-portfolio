@@ -4,6 +4,7 @@ import { withContentCollections } from '@content-collections/next';
 import { withBotId } from 'botid/next/config';
 
 const nextConfig: NextConfig = {
+  allowedDevOrigins: [process.env.ALLOWED_DEV_ORIGINS || '[]'],
   poweredByHeader: false,
   typedRoutes: true,
   experimental: {
