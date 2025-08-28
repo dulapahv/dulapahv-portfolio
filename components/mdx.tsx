@@ -35,7 +35,7 @@ const img = (properties: HTMLProps<HTMLImageElement>) => {
 
   return (
     <Zoom
-      zoomMargin={48}
+      zoomMargin={12}
       wrapElement="span"
       classDialog='[&_[data-rmiz-modal-overlay="visible"]]:!bg-background/50 [&_[data-rmiz-modal-overlay="visible"]]:backdrop-blur-sm'
     >
