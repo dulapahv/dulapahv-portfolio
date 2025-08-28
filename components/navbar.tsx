@@ -19,27 +19,27 @@ import { cn } from '@/lib/utils';
 const navbarItems = [
   {
     name: 'Home',
-    icon: <HouseIcon className="size-5" />,
+    icon: <HouseIcon className="size-4.5 sm:size-5" />,
     link: '/',
   },
   {
     name: 'Work',
-    icon: <BriefcaseIcon className="size-5" />,
+    icon: <BriefcaseIcon className="size-4.5 sm:size-5" />,
     link: '/work',
   },
   {
     name: 'Project',
-    icon: <AtomIcon className="size-5" />,
+    icon: <AtomIcon className="size-4.5 sm:size-5" />,
     link: '/project',
   },
   {
     name: 'Blog',
-    icon: <BookOpenTextIcon className="size-5" />,
+    icon: <BookOpenTextIcon className="size-4.5 sm:size-5" />,
     link: '/blog',
   },
   {
     name: 'Contact',
-    icon: <UserIcon className="size-5" />,
+    icon: <UserIcon className="size-4.5 sm:size-5" />,
     link: '/contact',
   },
 ];
