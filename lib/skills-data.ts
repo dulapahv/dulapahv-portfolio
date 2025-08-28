@@ -1,7 +1,7 @@
 export const skillsData = [
   {
     category: 'Programming Languages',
-    icon: 'Code2',
+    icon: 'CodeIcon',
     size: 'large',
     gradient: 'from-blue-500 to-blue-400',
     bgColor: 'bg-blue-500/10 hover:bg-blue-500/15',
@@ -20,7 +20,7 @@ export const skillsData = [
   },
   {
     category: 'Frontend Development',
-    icon: 'Globe',
+    icon: 'MonitorIcon',
     size: 'large',
     gradient: 'from-pink-500 to-pink-400',
     bgColor: 'bg-pink-500/10 hover:bg-pink-500/15',
@@ -37,7 +37,7 @@ export const skillsData = [
   },
   {
     category: 'Backend Development',
-    icon: 'Server',
+    icon: 'HardDrivesIcon',
     size: 'medium',
     gradient: 'from-green-500 to-green-400',
     bgColor: 'bg-green-500/10 hover:bg-green-500/15',
@@ -45,7 +45,7 @@ export const skillsData = [
   },
   {
     category: 'Databases',
-    icon: 'Database',
+    icon: 'DatabaseIcon',
     size: 'medium',
     gradient: 'from-amber-500 to-amber-400',
     bgColor: 'bg-amber-500/10 hover:bg-amber-500/15',
@@ -53,7 +53,7 @@ export const skillsData = [
   },
   {
     category: 'DevOps & CI/CD',
-    icon: 'Settings',
+    icon: 'GearIcon',
     size: 'medium',
     gradient: 'from-red-500 to-red-400',
     bgColor: 'bg-red-500/10 hover:bg-red-500/15',
@@ -61,7 +61,7 @@ export const skillsData = [
   },
   {
     category: 'Cloud & Infrastructure',
-    icon: 'Cloud',
+    icon: 'CloudIcon',
     size: 'medium',
     gradient: 'from-purple-500 to-purple-400',
     bgColor: 'bg-purple-600/10 hover:bg-purple-600/15',
@@ -69,7 +69,7 @@ export const skillsData = [
   },
   {
     category: 'Desktop/Cross-Platform',
-    icon: 'Monitor',
+    icon: 'DevicesIcon',
     size: 'small',
     gradient: 'from-teal-500 to-teal-400',
     bgColor: 'bg-teal-600/10 hover:bg-teal-600/15',
@@ -77,7 +77,7 @@ export const skillsData = [
   },
   {
     category: 'Development Tools',
-    icon: 'Wrench',
+    icon: 'ToolboxIcon',
     size: 'medium',
     gradient: 'from-yellow-500 to-yellow-400',
     bgColor: 'bg-yellow-600/10 hover:bg-yellow-600/15',

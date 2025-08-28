@@ -5,8 +5,8 @@ import { Raleway } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { ArrowsClockwiseIcon } from '@phosphor-icons/react/dist/ssr';
 import { GeistMono } from 'geist/font/mono';
-import { RefreshCw } from 'lucide-react';
 import { ThemeProvider } from 'next-themes';
 
 import { cn } from '@/lib/utils';
@@ -99,8 +99,8 @@ Digest: ${error.digest || 'N/A'}
                   'disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:shadow-none',
                 )}
               >
-                <RefreshCw
-                  className="size-4 flex-shrink-0"
+                <ArrowsClockwiseIcon
+                  className="size-4.5 flex-shrink-0"
                   aria-hidden="true"
                 />
                 <span>Try Again</span>

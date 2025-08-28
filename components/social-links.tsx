@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { FileText } from 'lucide-react';
+import { ReadCvLogoIcon } from '@phosphor-icons/react/dist/ssr';
 
 import { GITHUB_URL, LINKEDIN_URL } from '@/lib/constants';
 import { cn } from '@/lib/utils';
@@ -27,7 +27,7 @@ export default function SocialLinks() {
             shadow-md transition-transform`,
           )}
         >
-          <FileText className="size-4 flex-shrink-0" />
+          <ReadCvLogoIcon className="size-4 flex-shrink-0" />
         </div>
         <span className="text-foreground text-sm">Résumé</span>
       </Link>

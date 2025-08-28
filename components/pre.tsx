@@ -2,7 +2,7 @@
 
 import { DetailedHTMLProps, HTMLAttributes, useRef, useState } from 'react';
 
-import { Check, Copy } from 'lucide-react';
+import { CheckIcon, CopyIcon } from '@phosphor-icons/react/dist/ssr';
 
 import { cn } from '@/lib/utils';
 
@@ -40,7 +40,11 @@ export default function Pre({
           'active:scale-90',
         )}
       >
-        {isCopied ? <Check className="size-4" /> : <Copy className="size-4" />}
+        {isCopied ? (
+          <CheckIcon className="size-4.5" />
+        ) : (
+          <CopyIcon className="size-4.5" />
+        )}
       </button>
       <pre ref={preRef} {...props}>
         {children}

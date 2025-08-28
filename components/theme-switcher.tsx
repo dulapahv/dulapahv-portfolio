@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-import { Monitor, Moon, Sun } from 'lucide-react';
+import { MonitorIcon, MoonIcon, SunIcon } from '@phosphor-icons/react/dist/ssr';
 import { motion } from 'motion/react';
 import { useTheme } from 'next-themes';
 
@@ -111,17 +111,17 @@ export const ThemeSwitcher = () => {
   const themes = [
     {
       key: 'system',
-      icon: Monitor,
+      icon: MonitorIcon,
       label: 'System theme',
     },
     {
       key: 'light',
-      icon: Sun,
+      icon: SunIcon,
       label: 'Light theme',
     },
     {
       key: 'dark',
-      icon: Moon,
+      icon: MoonIcon,
       label: 'Dark theme',
     },
   ];
@@ -169,7 +169,7 @@ export const ThemeSwitcher = () => {
   };
 
   const currentTheme = themes.find((t) => t.key === theme);
-  const CurrentIcon = currentTheme?.icon || Monitor;
+  const CurrentIcon = currentTheme?.icon || MonitorIcon;
 
   return (
     <motion.div
@@ -220,7 +220,7 @@ export const ThemeSwitcher = () => {
           aria-describedby="theme-instructions"
           whileTap={{ scale: 0.95 }}
         >
-          <CurrentIcon className="text-foreground relative m-auto size-4" />
+          <CurrentIcon className="text-foreground-subtle relative m-auto size-4" />
         </motion.button>
       ) : (
         // Show all theme options when expanded or on hover/focus
@@ -255,9 +255,7 @@ export const ThemeSwitcher = () => {
               <Icon
                 className={cn(
                   'relative m-auto size-4',
-                  isActive
-                    ? 'text-foreground'
-                    : 'text-foreground-subtle hover:text-foreground-muted transition-colors',
+                  'text-foreground-subtle hover:text-foreground-muted transition-colors',
                 )}
                 aria-hidden="true"
               />

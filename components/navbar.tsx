@@ -6,12 +6,12 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import {
-  Atom,
-  BriefcaseBusiness,
-  House,
-  NotebookPen,
-  UserRound,
-} from 'lucide-react';
+  AtomIcon,
+  BookOpenTextIcon,
+  BriefcaseIcon,
+  HouseIcon,
+  UserIcon,
+} from '@phosphor-icons/react/dist/ssr';
 import { motion } from 'motion/react';
 
 import { cn } from '@/lib/utils';
@@ -19,27 +19,27 @@ import { cn } from '@/lib/utils';
 const navbarItems = [
   {
     name: 'Home',
-    icon: <House className="size-4" />,
+    icon: <HouseIcon className="size-5" />,
     link: '/',
   },
   {
     name: 'Work',
-    icon: <BriefcaseBusiness className="size-4" />,
+    icon: <BriefcaseIcon className="size-5" />,
     link: '/work',
   },
   {
     name: 'Project',
-    icon: <Atom className="size-4" />,
+    icon: <AtomIcon className="size-5" />,
     link: '/project',
   },
   {
     name: 'Blog',
-    icon: <NotebookPen className="size-4" />,
+    icon: <BookOpenTextIcon className="size-5" />,
     link: '/blog',
   },
   {
     name: 'Contact',
-    icon: <UserRound className="size-4" />,
+    icon: <UserIcon className="size-5" />,
     link: '/contact',
   },
 ];

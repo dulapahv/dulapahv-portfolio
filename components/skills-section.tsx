@@ -1,26 +1,26 @@
 import {
-  Cloud,
-  Code2,
-  Database,
-  Globe,
-  Monitor,
-  Server,
-  Settings,
-  Wrench,
-} from 'lucide-react';
+  CloudIcon,
+  CodeIcon,
+  DatabaseIcon,
+  DevicesIcon,
+  GearIcon,
+  HardDrivesIcon,
+  MonitorIcon,
+  ToolboxIcon,
+} from '@phosphor-icons/react/dist/ssr';
 
 import { skillsData } from '@/lib/skills-data';
 import { cn } from '@/lib/utils';
 
 const iconMap = {
-  Code2,
-  Globe,
-  Server,
-  Database,
-  Settings,
-  Cloud,
-  Monitor,
-  Wrench,
+  CodeIcon,
+  MonitorIcon,
+  HardDrivesIcon,
+  DatabaseIcon,
+  GearIcon,
+  CloudIcon,
+  DevicesIcon,
+  ToolboxIcon,
 };
 
 const getSizeClasses = (size: string) => {
@@ -80,12 +80,7 @@ export default function SkillsSection() {
                       category.bgColor,
                     )}
                   >
-                    <IconComponent
-                      className={cn(
-                        'flex-shrink-0',
-                        isLarge ? 'size-5' : 'size-4',
-                      )}
-                    />
+                    <IconComponent className="size-5 flex-shrink-0" />
                   </div>
                   <div className="flex-1">
                     <h2

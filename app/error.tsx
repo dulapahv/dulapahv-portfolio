@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import Link from 'next/link';
 
-import { RefreshCw } from 'lucide-react';
+import { ArrowsClockwiseIcon } from '@phosphor-icons/react/dist/ssr';
 
 import { cn } from '@/lib/utils';
 import Breadcrumb from '@/components/breadcrumb';
@@ -61,7 +61,10 @@ Digest: ${error.digest || 'N/A'}
             'disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:shadow-none',
           )}
         >
-          <RefreshCw className="size-4 flex-shrink-0" aria-hidden="true" />
+          <ArrowsClockwiseIcon
+            className="size-4.5 flex-shrink-0"
+            aria-hidden="true"
+          />
           <span>Try Again</span>
         </button>
       </main>

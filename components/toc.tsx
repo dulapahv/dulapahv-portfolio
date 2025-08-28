@@ -4,7 +4,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 
-import { ChevronDown, CircleArrowUp } from 'lucide-react';
+import { CaretDownIcon, CaretUpIcon } from '@phosphor-icons/react/dist/ssr';
 import { AnimatePresence, motion } from 'motion/react';
 
 import { cn } from '@/lib/utils';
@@ -287,7 +287,7 @@ export const TableOfContents = () => {
                 aria-label="Scroll to top of page"
               >
                 <span>Scroll to top</span>
-                <CircleArrowUp className="size-4" />
+                <CaretUpIcon className="size-4" />
               </button>
             </motion.div>
           )}
@@ -323,7 +323,7 @@ export const TableOfContents = () => {
           transition={{ duration: 0.2 }}
           aria-hidden="true"
         >
-          <ChevronDown className="size-4" />
+          <CaretDownIcon className="size-4" />
         </motion.div>
       </button>
       <span id="toc-description" className="sr-only">

@@ -2,7 +2,7 @@
 
 import { useRef, useState, useTransition, type FormEventHandler } from 'react';
 
-import { Send } from 'lucide-react';
+import { PaperPlaneTiltIcon } from '@phosphor-icons/react/dist/ssr';
 import { Form } from 'radix-ui';
 
 import {
@@ -150,7 +150,7 @@ export const ContactForm = ({ searchParams }: ContactFormProps) => {
             {isPending ? (
               <Spinner className="relative" />
             ) : (
-              <Send className="size-4" aria-hidden="true" />
+              <PaperPlaneTiltIcon className="size-4.5" aria-hidden="true" />
             )}
             <span>{isPending ? 'Sending...' : 'Send Message'}</span>
           </>

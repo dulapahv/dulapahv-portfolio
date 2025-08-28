@@ -2,7 +2,7 @@ import type { HTMLProps } from 'react';
 import Image from 'next/image';
 
 import { MDXContent } from '@content-collections/mdx/react';
-import { Link as LuLink } from 'lucide-react';
+import { LinkIcon } from '@phosphor-icons/react/dist/ssr';
 import Zoom from 'react-medium-image-zoom';
 
 import { cn } from '@/lib/utils';
@@ -72,8 +72,8 @@ const createHeading = (level: 'h2' | 'h3' | 'h4' | 'h5' | 'h6') => {
             aria-label={`Link to section: ${typeof children === 'string' ? children : 'section'}`}
             tabIndex={0}
           >
-            <LuLink
-              className="hidden size-4 flex-shrink-0 md:block"
+            <LinkIcon
+              className="hidden size-4.5 flex-shrink-0 md:block"
               aria-hidden="true"
             />
           </Link>

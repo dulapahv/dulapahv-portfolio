@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
-import { Home } from 'lucide-react';
+import { HouseIcon } from '@phosphor-icons/react/dist/ssr';
 
 import { createMetadata } from '@/lib/metadata';
 import { cn } from '@/lib/utils';
@@ -33,7 +33,7 @@ export default function NotFound() {
             'disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:shadow-none',
           )}
         >
-          <Home className="size-4 flex-shrink-0" />
+          <HouseIcon className="size-4.5 flex-shrink-0" />
           Return Home
         </Link>
       </main>

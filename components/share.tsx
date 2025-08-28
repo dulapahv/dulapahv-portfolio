@@ -3,7 +3,10 @@
 import { useRef, useState } from 'react';
 import Image from 'next/image';
 
-import { Check, Link2 } from 'lucide-react';
+import {
+  CheckIcon,
+  LinkSimpleHorizontalIcon,
+} from '@phosphor-icons/react/dist/ssr';
 
 import { cn } from '@/lib/utils';
 
@@ -108,7 +111,7 @@ export default function ShareButtons() {
 
   return (
     <div
-      className="flex items-center gap-3 flex-wrap"
+      className="flex flex-wrap items-center gap-3"
       role="group"
       aria-label="Share options"
     >
@@ -131,9 +134,9 @@ export default function ShareButtons() {
       >
         <div className="text-foreground relative">
           {copied ? (
-            <Check className="size-[18px]" />
+            <CheckIcon className="size-4.5" />
           ) : (
-            <Link2 className="size-[18px]" />
+            <LinkSimpleHorizontalIcon className="size-4.5" />
           )}
         </div>
       </button>

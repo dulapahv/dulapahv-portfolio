@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-import { ChevronRight, Link as LuLink } from 'lucide-react';
+import { CaretRightIcon, LinkIcon } from '@phosphor-icons/react/dist/ssr';
 
 import {
   contentConfig,
@@ -137,9 +137,9 @@ export default async function TypeListingPage({
                         )}
                         aria-label={`Jump to ${year} section`}
                       >
-                        <LuLink
+                        <LinkIcon
                           className={cn(
-                            'absolute top-1/2 -left-4 size-3 -translate-y-1/2 opacity-0',
+                            'absolute top-1/2 -left-4.5 size-3.5 -translate-y-1/2 opacity-0',
                             'group-hover:opacity-100 group-focus:opacity-100',
                           )}
                           aria-hidden="true"
@@ -209,9 +209,9 @@ export default async function TypeListingPage({
                                   </>
                                 )}
                               </div>
-                              <ChevronRight
+                              <CaretRightIcon
                                 className={cn(
-                                  'flex-shrink-0 transition-transform',
+                                  'size-4.5 flex-shrink-0 transition-transform',
                                   'group-hover:translate-x-1 group-focus:translate-x-1',
                                 )}
                                 aria-hidden="true"
