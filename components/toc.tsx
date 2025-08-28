@@ -4,7 +4,11 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 
-import { CaretDownIcon, CaretUpIcon } from '@phosphor-icons/react/dist/ssr';
+import {
+  ArrowCircleUpIcon,
+  CaretDownIcon,
+  CaretUpIcon,
+} from '@phosphor-icons/react/dist/ssr';
 import { AnimatePresence, motion } from 'motion/react';
 
 import { cn } from '@/lib/utils';
@@ -287,7 +291,7 @@ export const TableOfContents = () => {
                 aria-label="Scroll to top of page"
               >
                 <span>Scroll to top</span>
-                <CaretUpIcon className="size-4" />
+                <ArrowCircleUpIcon className="size-4.5" />
               </button>
             </motion.div>
           )}
