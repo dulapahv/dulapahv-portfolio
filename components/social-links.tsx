@@ -13,6 +13,7 @@ export default function SocialLinks() {
         href="https://dulapahv.dev/resume"
         target="_blank"
         rel="noopener noreferrer"
+        prefetch={false}
         className={cn(
           `border-border bg-background group flex items-center gap-x-1.5 rounded-lg border
           px-2 py-1 font-medium !transition-all`,
