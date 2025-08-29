@@ -14,8 +14,8 @@ export const skillsData = [
     gradient: 'from-pink-500 to-pink-400',
     bgColor: 'bg-pink-500/10 hover:bg-pink-500/15',
     skills: [
-      'React.js',
       'Next.js',
+      'React.js',
       'Tailwind CSS',
       'shadcn/ui',
       'Radix UI',
