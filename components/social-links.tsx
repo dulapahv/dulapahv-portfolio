@@ -13,7 +13,6 @@ export default function SocialLinks() {
         href="https://dulapahv.dev/resume"
         target="_blank"
         rel="noopener noreferrer"
-        prefetch={false} // DNS will handle redirecting to the resume page
         className={cn(
           `border-border bg-background group flex items-center gap-x-1.5 rounded-lg border
           px-2 py-1 font-medium !transition-all`,
@@ -27,7 +26,10 @@ export default function SocialLinks() {
             shadow-md transition-transform`,
           )}
         >
-          <ReadCvLogoIcon className="size-4 flex-shrink-0 transition-transform group-hover:rotate-[-15deg]" />
+          <ReadCvLogoIcon
+            className="size-4 flex-shrink-0 scale-110 transition-transform group-hover:scale-[1.2]
+              group-hover:rotate-[-15deg]"
+          />
         </div>
         <span className="text-foreground text-sm">Résumé</span>
       </Link>
