@@ -90,6 +90,7 @@ export const ContactForm = ({ searchParams }: ContactFormProps) => {
         label="Email address"
         name="email"
         type="email"
+        autoComplete="email"
         placeholder="dulapah@example.com"
         pattern={emailRegex.source}
         required
