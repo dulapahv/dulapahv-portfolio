@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
   allowedDevOrigins: [process.env.ALLOWED_DEV_ORIGINS || '[]'],
   poweredByHeader: false,
   typedRoutes: true,
+  images: {
+    qualities: [75, 100],
+  },
   experimental: {
     typedEnv: true,
     viewTransition: true,
@@ -15,7 +18,8 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/resume',
-        destination: 'https://1drv.ms/b/c/bac8961c289dd3e4/EboeX5e_xXZNrQKQv5skNkMBjebYxatKHkIFgHb2-0-3pA',
+        destination:
+          'https://1drv.ms/b/c/bac8961c289dd3e4/EboeX5e_xXZNrQKQv5skNkMBjebYxatKHkIFgHb2-0-3pA',
         permanent: true,
       },
       {
