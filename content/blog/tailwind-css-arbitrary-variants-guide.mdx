@@ -36,7 +36,7 @@ This is the most important distinction to understand:
 - **`_`** - Targets **all descendants** at any nesting level
 
 ```html showLineNumbers {2,5,7}
-<div class="[&>p]:text-red-500 [&_span]:text-blue-500">
+<div className="[&>p]:text-red-500 [&_span]:text-blue-500">
   <p>Direct child - will be red</p>
   <div>
     <p>Nested child - won't be red (not direct)</p>
@@ -47,7 +47,7 @@ This is the most important distinction to understand:
 ```
 
 <Preview>
-  <div class="[&>p]:text-[#e7000b] [&_span]:text-[#155dfc]">
+  <div className="[&>p]:text-[#e7000b] [&_span]:text-[#155dfc]">
     <p>Direct child - will be red</p>
     <div>
       <p>Nested child - won't be red (not direct)</p>
@@ -62,14 +62,14 @@ This is the most important distinction to understand:
 When you need to target direct children by their tag, you can use the `&` selector followed by the tag name.
 
 ```html showLineNumbers {3}
-<div class="[&>p]:text-red-600">
+<div className="[&>p]:text-red-600">
   <span>Black text</span>
   <p>Red text</p>
 </div>
 ```
 
 <Preview>
-  <div class="[&>p]:text-[#e7000b]">
+  <div className="[&>p]:text-[#e7000b]">
     <span>Black text</span>
     <p>Red text</p>
   </div>
@@ -83,32 +83,32 @@ When you need to target direct children by their class, you can use the `&` sele
 > This also works with `className` attributes in React components.
 
 ```html showLineNumbers {3}
-<div class="[&>.child2]:text-red-600">
-  <div class="child1">Black text</div>
-  <div class="child2">Red text</div>
+<div className="[&>.child2]:text-red-600">
+  <div className="child1">Black text</div>
+  <div className="child2">Red text</div>
 </div>
 ```
 
 <Preview>
-  <div class="[&>.child2]:text-[#e7000b]">
-    <div class="child1">Black text</div>
-    <div class="child2">Red text</div>
+  <div className="[&>.child2]:text-[#e7000b]">
+    <div className="child1">Black text</div>
+    <div className="child2">Red text</div>
   </div>
 </Preview>
 
 You can also add additional classes to the selector.
 
 ```html showLineNumbers {3}
-<div class="[&>div.child.foo]:text-red-600">
-  <div class="child">Black text</div>
-  <div class="child foo">Red text</div>
+<div className="[&>div.child.foo]:text-red-600">
+  <div className="child">Black text</div>
+  <div className="child foo">Red text</div>
 </div>
 ```
 
 <Preview>
-  <div class="[&>div.child.foo]:text-[#e7000b]">
-    <div class="child">Black text</div>
-    <div class="child foo">Red text</div>
+  <div className="[&>div.child.foo]:text-[#e7000b]">
+    <div className="child">Black text</div>
+    <div className="child foo">Red text</div>
   </div>
 </Preview>
 
@@ -122,14 +122,14 @@ When you need to target elements based on their data attributes, you can use the
 Target immediate children with specific data attributes.
 
 ```html showLineNumbers {3}
-<div class="[&>[data-type='special']]:text-red-600">
+<div className="[&>[data-type='special']]:text-red-600">
   <div data-type="normal">Black text</div>
   <div data-type="special">Red text</div>
 </div>
 ```
 
 <Preview>
-  <div class="[&>[data-type='special']]:text-[#e7000b]">
+  <div className="[&>[data-type='special']]:text-[#e7000b]">
     <div data-type="normal">Black text</div>
     <div data-type="special">Red text</div>
   </div>
@@ -138,7 +138,7 @@ Target immediate children with specific data attributes.
 You can also target nested elements with data attributes.
 
 ```html showLineNumbers {3}
-<div class="[&_[data-type='special']]:text-red-600">
+<div className="[&_[data-type='special']]:text-red-600">
   <div>
     <div data-type="special">Red text</div>
   </div>
@@ -146,7 +146,7 @@ You can also target nested elements with data attributes.
 ```
 
 <Preview>
-  <div class="[&_[data-type='special']]:text-[#e7000b]">
+  <div className="[&_[data-type='special']]:text-[#e7000b]">
     <div>
       <div data-type="special">Red text</div>
     </div>
@@ -156,16 +156,16 @@ You can also target nested elements with data attributes.
 When you need to target elements based on both their attributes and classes, you can combine them in the selector.
 
 ```html showLineNumbers {2,3}
-<div class="[&_[data-type='a'].red]:text-red-500 [&_[data-type='a'].blue]:text-blue-500">
-  <p data-type="a" class="red">Red text</p>
-  <p data-type="a" class="blue">Blue text</p>
+<div className="[&_[data-type='a'].red]:text-red-500 [&_[data-type='a'].blue]:text-blue-500">
+  <p data-type="a" className="red">Red text</p>
+  <p data-type="a" className="blue">Blue text</p>
 </div>
 ```
 
 <Preview>
-  <div class="[&_[data-type='a'].red]:text-[#e7000b] [&_[data-type='a'].blue]:text-[#155dfc]">
-    <p data-type="a" class="red">Red text</p>
-    <p data-type="a" class="blue">Blue text</p>
+  <div className="[&_[data-type='a'].red]:text-[#e7000b] [&_[data-type='a'].blue]:text-[#155dfc]">
+    <p data-type="a" className="red">Red text</p>
+    <p data-type="a" className="blue">Blue text</p>
   </div>
 </Preview>
 
@@ -174,7 +174,7 @@ When you need to target elements based on both their attributes and classes, you
 When you need to target deeply nested child elements, you can use the `&` selector with a path that describes the hierarchy.
 
 ```html showLineNumbers {4}
-<div class="[&>div>div>span]:text-red-600">
+<div className="[&>div>div>span]:text-red-600">
   <div>
     <div>
       <span>Deep Child</span>
@@ -184,7 +184,7 @@ When you need to target deeply nested child elements, you can use the `&` select
 ```
 
 <Preview>
-  <div class="[&>div>div>span]:text-[#e7000b]">
+  <div className="[&>div>div>span]:text-[#e7000b]">
     <div>
       <div>
         <span>Deep Child</span>
@@ -199,19 +199,19 @@ When you need to style child elements based on the tag of their parent, you can 
 
 ```html showLineNumbers {2}
 <p>
-  <span class="[p_&]:text-red-600">Styled if parent is p</span>
+  <span className="[p_&]:text-red-600">Styled if parent is p</span>
 </p>
 <div>
-  <span class="[p_&]:text-red-600">Styled if parent is p</span>
+  <span className="[p_&]:text-red-600">Styled if parent is p</span>
 </div>
 ```
 
 <Preview>
   <p>
-    <span class="[p_&]:text-[#e7000b]">Styled if parent is p</span>
+    <span className="[p_&]:text-[#e7000b]">Styled if parent is p</span>
   </p>
   <div>
-    <span class="[p_&]:text-[#e7000b]">Styled if parent is p</span>
+    <span className="[p_&]:text-[#e7000b]">Styled if parent is p</span>
   </div>
 </Preview>
 
@@ -220,19 +220,19 @@ When you need to style child elements based on the tag of their parent, you can 
 When you need to style child elements based on the class of their parent, you can use the `&` selector in combination with the parent class.
 
 ```html showLineNumbers {3}
-<div class="foo">
+<div className="foo">
   <div>
-    <div class="[.foo_&]:text-red-600">Child 1</div>
-    <div class="[.bar_&]:text-red-600">Child 2</div>
+    <div className="[.foo_&]:text-red-600">Child 1</div>
+    <div className="[.bar_&]:text-red-600">Child 2</div>
   </div>
 </div>
 ```
 
 <Preview>
-  <div class="foo">
+  <div className="foo">
     <div>
-      <div class="[.foo_&]:text-[#e7000b]">Child 1</div>
-      <div class="[.bar_&]:text-[#e7000b]">Child 2</div>
+      <div className="[.foo_&]:text-[#e7000b]">Child 1</div>
+      <div className="[.bar_&]:text-[#e7000b]">Child 2</div>
     </div>
   </div>
 </Preview>
@@ -243,19 +243,19 @@ When you need to style child elements based on a specific attribute of their par
 
 ```html showLineNumbers {2}
 <div data-type="special">
-  <p class="[[data-type='special']_&]:text-red-600">Styled if parent has data-type="special"</p>
+  <p className="[[data-type='special']_&]:text-red-600">Styled if parent has data-type="special"</p>
 </div>
 <div>
-  <p class="[[data-type='special']_&]:text-red-600">Not styled</p>
+  <p className="[[data-type='special']_&]:text-red-600">Not styled</p>
 </div>
 ```
 
 <Preview>
   <div data-type="special">
-    <p class="[[data-type='special']_&]:text-[#e7000b]">Styled if parent has data-type="special"</p>
+    <p className="[[data-type='special']_&]:text-[#e7000b]">Styled if parent has data-type="special"</p>
   </div>
   <div>
-    <p class="[[data-type='special']_&]:text-[#e7000b]">Not styled</p>
+    <p className="[[data-type='special']_&]:text-[#e7000b]">Not styled</p>
   </div>
 </Preview>
 
@@ -264,7 +264,7 @@ When you need to style child elements based on a specific attribute of their par
 You can use the `&` selector with `:nth-child(n)` to target specific children based on their position within the parent.
 
 ```html showLineNumbers {4}
-<div class="[&>*:nth-child(3)]:text-red-600">
+<div className="[&>*:nth-child(3)]:text-red-600">
   <p>One</p>
   <p>Two</p>
   <p>Three</p>
@@ -272,7 +272,7 @@ You can use the `&` selector with `:nth-child(n)` to target specific children ba
 ```
 
 <Preview>
-  <div class="[&>*:nth-child(3)]:text-[#e7000b]">
+  <div className="[&>*:nth-child(3)]:text-[#e7000b]">
     <p>One</p>
     <p>Two</p>
     <p>Three</p>
@@ -282,7 +282,7 @@ You can use the `&` selector with `:nth-child(n)` to target specific children ba
 To combine multiple nth-child selectors to target different children, you need to add another `&` selector for each child you want to style.
 
 ```html showLineNumbers {2,4}
-<div class="[&>*:nth-child(1)]:text-red-600 [&>*:nth-child(3)]:text-red-600">
+<div className="[&>*:nth-child(1)]:text-red-600 [&>*:nth-child(3)]:text-red-600">
   <p>One</p>
   <p>Two</p>
   <p>Three</p>
@@ -290,7 +290,7 @@ To combine multiple nth-child selectors to target different children, you need t
 ```
 
 <Preview>
-  <div class="[&>*:nth-child(1)]:text-[#e7000b] [&>*:nth-child(3)]:text-[#e7000b]">
+  <div className="[&>*:nth-child(1)]:text-[#e7000b] [&>*:nth-child(3)]:text-[#e7000b]">
     <p>One</p>
     <p>Two</p>
     <p>Three</p>
@@ -304,26 +304,26 @@ To combine multiple nth-child selectors to target different children, you need t
 When you want to target a specific child element inside a parent with a specific class, you can use the `&` selector with `:nth-child(n)`.
 
 ```html showLineNumbers {4}
-<div class="[&>div.foo>*:nth-child(2)]:text-red-600">
-  <div class="foo">
+<div className="[&>div.foo>*:nth-child(2)]:text-red-600">
+  <div className="foo">
     <p>1</p>
     <p>2</p>
     <p>3</p>
   </div>
-  <div class="bar">
+  <div className="bar">
     <p>Not affected</p>
   </div>
 </div>
 ```
 
 <Preview>
-  <div class="[&>div.foo>*:nth-child(2)]:text-[#e7000b]">
-    <div class="foo">
+  <div className="[&>div.foo>*:nth-child(2)]:text-[#e7000b]">
+    <div className="foo">
       <p>1</p>
       <p>2</p>
       <p>3</p>
     </div>
-    <div class="bar">
+    <div className="bar">
       <p>Not affected</p>
     </div>
   </div>
@@ -334,29 +334,29 @@ When you want to target a specific child element inside a parent with a specific
 When you need to exclude certain elements from a universal styling rule, you can use the `:not()` pseudo-class.
 
 ```html showLineNumbers {3}
-<div class="*:[&:not(.excluded)]:text-red-600">
+<div className="*:[&:not(.excluded)]:text-red-600">
   <div>
     <div>Not Excluded</div>
   </div>
-  <div class="excluded">
+  <div className="excluded">
     <div>Excluded</div>
   </div>
 </div>
 ```
 
 <Preview>
-  <div class="*:[&:not(.excluded)]:text-[#e7000b]">
+  <div className="*:[&:not(.excluded)]:text-[#e7000b]">
     <div>
       <div>Not Excluded</div>
     </div>
-    <div class="excluded">
+    <div className="excluded">
       <div>Excluded</div>
     </div>
   </div>
 </Preview>
 
 ```html showLineNumbers {3}
-<div class="*:[&:not([excluded])]:text-red-600">
+<div className="*:[&:not([excluded])]:text-red-600">
   <div>
     <div>Not Excluded</div>
   </div>
@@ -367,7 +367,7 @@ When you need to exclude certain elements from a universal styling rule, you can
 ```
 
 <Preview>
-  <div class="*:[&:not([excluded])]:text-[#e7000b]">
+  <div className="*:[&:not([excluded])]:text-[#e7000b]">
     <div>
       <div>Not Excluded</div>
     </div>
@@ -382,22 +382,22 @@ When you need to exclude certain elements from a universal styling rule, you can
 When you need to style elements based on a combination of pseudo-classes, tags, and modifiers, you can use the `&` selector with a complex path.
 
 ```html showLineNumbers {3}
-<div class="[div:has(span)&>p]:text-red-600">
+<div className="[div:has(span)&>p]:text-red-600">
   <span>Trigger</span>
   <p>Styled paragraph</p> <!-- Styled because parent has span -->
 </div>
-<div class="[div:has(span)&>p]:text-red-600">
+<div className="[div:has(span)&>p]:text-red-600">
   <div>Trigger</div>
   <p>Styled paragraph</p>
 </div>
 ```
 
 <Preview>
-  <div class="[div:has(span)&>p]:text-[#e7000b]">
+  <div className="[div:has(span)&>p]:text-[#e7000b]">
     <span>Trigger</span>
     <p>Styled paragraph</p>
   </div>
-  <div class="[div:has(span)&>p]:text-[#e7000b]">
+  <div className="[div:has(span)&>p]:text-[#e7000b]">
     <div>Trigger</div>
     <p>Styled paragraph</p>
   </div>
