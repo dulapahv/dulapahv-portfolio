@@ -1,0 +1,202 @@
+---
+title: Improve Captcha User Experience with Invisible CAPTCHA by Vercel BotID
+description: Protect your site from bots without frustrating users. Learn how to implementing Vercel BotID's invisible CAPTCHA in Next.js.
+date: 30-08-2025
+image: /blog/vercel-botid-invisible-protection/cover.png
+---
+
+## Introduction
+
+CAPTCHA has been a standardized method to differentiate between human users and bots on websites. However, traditional CAPTCHA methods often disrupt user experience (UX), leading to frustration and abandonment.
+
+In this blog post, we will explore how to implement invisible CAPTCHA solutions that enhance UX while maintaining security.
+
+[Jump to implementation -->](#getting-started-with-botid)
+
+## The Problem with Traditional CAPTCHA
+
+[Google reCAPTCHA](https://developers.google.com/recaptcha) is currently one of the most widely used CAPTCHA services, but it also comes with one of the most disruptive user experiences. Users are often required to solve puzzles, identify images, or type distorted text, which can be time-consuming and frustrating.
+
+![reCAPTCHA](/blog/vercel-botid-invisible-protection/recaptcha.png "Source: https://developers.nopecha.com/recognition/recaptcha/")
+
+Another similarly disruptive CAPTCHA is [hCaptcha](https://www.hcaptcha.com/), commonly seen in Discord, which also requires user interaction to verify they are human.
+
+![hCaptcha](/blog/vercel-botid-invisible-protection/hcaptcha.png "Source: https://developers.nopecha.com/token/hcaptcha/")
+
+Some websites use proprietary CAPTCHA systems, but these often suffer from the same issues as Google reCAPTCHA and hCaptcha — or even worse.
+
+![proprietary CAPTCHA](/blog/vercel-botid-invisible-protection/proprietary-captcha.jpg "Source: Chang et al., Journal of Information Security and Applications, 2024. https://doi.org/10.1016/j.jisa.2024.103711")
+
+[Cloudflare Turnstile](https://www.cloudflare.com/application-services/products/turnstile/) tries to address this by offering a less intrusive experience, verifying automatically without user interaction. However, it sometimes still requires users to click a checkbox, which can still be a minor disruption.
+
+![Cloudflare Turnstile](/blog/vercel-botid-invisible-protection/turnstile.gif "Source: https://blog.cloudflare.com/turnstile-ga/")
+
+## Vercel BotID
+
+On [June 25, 2025](https://vercel.com/changelog/vercel-botid-is-now-generally-available), Vercel released [BotID](https://vercel.com/docs/botid) — an invisible CAPTCHA solution that protects your application without visible challenges in typical usage.
+
+### How It Works
+
+BotID takes a fundamentally different approach:
+
+- **Silent Detection:** Collects thousands of signals to distinguish humans from bots without user interaction
+- **Dynamic Protection:** Changes detection methods on every page load to prevent reverse engineering
+- **Machine Learning:** Streams attack data into a global ML system that strengthens protection for all users
+
+BotID has two operational modes:
+
+- **Basic Mode** is a lightweight, Vercel-hosted check that validates browser sessions with minimal processing.
+- **Deep Analysis** is an optional, stronger check (used when you explicitly call `checkBotId()` with Deep Analysis enabled) and is powered by Kasada's advanced detection engine. This means **not all BotID traffic is routed to Kasada** — only Deep Analysis calls are (and those calls may be billed).
+
+The best part? Your users never know it's there.
+
+## Getting Started with BotID
+
+Let's walk through setting up BotID in a Next.js App Router project. For this example, we'll protect a newsletter signup endpoint.
+
+> [!tip]
+> BotID also supports other frameworks like SvelteKit, Nuxt, and others. Check the [official documentation](https://vercel.com/docs/botid/get-started) for more details.
+
+### Step 1: Installation
+
+```bash
+# Install the BotID package
+pnpm install botid
+```
+
+### Step 2: Configure Next.js
+
+```ts title="next.config.ts" showLineNumbers {1,7}
+import { withBotId } from 'botid/next/config';
+
+const nextConfig = {
+  // Your existing config
+};
+
+export default withBotId(nextConfig);
+```
+
+### Step 3: Add Client Protection
+
+```ts title="instrumentation.client.ts" showLineNumbers
+import { initBotId } from 'botid/client/core';
+
+initBotId({
+  protect: [
+    {
+      path: '/api/newsletter',
+      method: 'POST',
+    },
+    {
+      path: '/api/contact',
+      method: 'POST',
+    },
+  ],
+});
+```
+
+### Step 4: Verify on the Server
+
+```ts title="app/api/newsletter/route.ts" showLineNumbers {3,6,8-10}
+import { NextRequest, NextResponse } from 'next/server';
+
+import { checkBotId } from 'botid/server';
+
+export async function POST(request: NextRequest) {
+  const verification = await checkBotId();
+
+  if (verification.isBot) {
+    return NextResponse.json({ error: 'Bot detected' }, { status: 403 });
+  }
+
+  // Process legitimate signup
+  const { email } = await request.json();
+  await saveToNewsletter(email);
+
+  return NextResponse.json({ success: true });
+}
+```
+
+## Server Actions Support
+
+BotID also works seamlessly with Next.js Server Actions:
+
+```ts title="app/actions/submit-feedback.ts" showLineNumbers
+'use server';
+
+import { checkBotId } from 'botid/server';
+
+export async function submitFeedback(formData: FormData) {
+  const verification = await checkBotId();
+
+  if (verification.isBot) {
+    throw new Error('Access denied');
+  }
+
+  // Process feedback
+  const feedback = formData.get('feedback') as string;
+  await saveFeedback(feedback);
+
+  return { success: true };
+}
+```
+
+## Handling Verified Bots
+
+Not all bots are bad. BotID can identify verified bots like ChatGPT Operator, allowing you to permit certain AI assistants while blocking malicious ones:
+
+```ts title="app/api/public-data/route.ts" showLineNumbers {5}
+export async function GET(request: NextRequest) {
+  const { isBot, isVerifiedBot, verifiedBotName } = await checkBotId();
+
+  // Allow ChatGPT Operator but block other bots
+  if (isBot && !(isVerifiedBot && verifiedBotName === 'chatgpt-operator')) {
+    return NextResponse.json({ error: 'Access denied' }, { status: 403 });
+  }
+
+  // Return data
+  return NextResponse.json({ data: await fetchPublicData() });
+}
+```
+
+## Development Mode
+
+During local development, BotID automatically returns `isBot: false` to avoid disrupting your workflow. You can test bot detection logic using development options:
+
+```ts showLineNumbers {4}
+// Testing bot detection in development
+const verification = await checkBotId({
+  developmentOptions: {
+    bypass: 'BAD-BOT', // Simulate bot detection
+  },
+});
+```
+
+## Pricing
+
+BotID offers two modes:
+
+- **Basic Mode:** Free on all plans — validates browser sessions
+- **Deep Analysis:** $1 per 1,000 calls (Pro/Enterprise) — advanced detection with thousands of signals
+
+You're only charged when calling `checkBotId()` with Deep Analysis enabled. Passive page views don't incur charges.
+
+## Real-World Use Cases
+
+BotID shines for protecting:
+
+- Checkout flows: Prevent inventory hoarding by bots
+- API endpoints: Stop automated scraping and abuse
+- AI chat interfaces: Protect expensive LLM-powered features
+- Sign-up forms: Block fake account creation
+- Contact forms: Eliminate spam submissions
+
+## Conclusion
+
+While the idea of invisible CAPTCHA isn't new<sup>1</sup>, Vercel BotID makes it accessible and easy to implement. By integrating BotID into your application, you can significantly enhance user experience while maintaining robust security against bots.
+
+For detailed documentation and advanced configurations, visit the [Vercel BotID documentation](https://vercel.com/docs/botid).
+
+---
+
+<sup>1</sup> Gooding, Sarah (March 9, 2017). ["Google Launches Invisible reCAPTCHA"](https://wptavern.com/google-launches-invisible-recaptcha). [WP Tavern](https://wptavern.com/).
