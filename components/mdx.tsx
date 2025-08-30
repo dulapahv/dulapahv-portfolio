@@ -25,11 +25,8 @@ const a = (props: HTMLProps<HTMLAnchorElement>) => {
   );
 };
 
-const img = (properties: HTMLProps<HTMLImageElement>) => {
-  if (
-    typeof properties.src !== 'string' ||
-    typeof properties.alt !== 'string'
-  ) {
+const img = (props: HTMLProps<HTMLImageElement>) => {
+  if (typeof props.src !== 'string' || typeof props.alt !== 'string') {
     throw new TypeError('Image src and alt are required');
   }
 
@@ -40,14 +37,22 @@ const img = (properties: HTMLProps<HTMLImageElement>) => {
       classDialog='[&_[data-rmiz-modal-overlay="visible"]]:!bg-background/40 [&_[data-rmiz-modal-overlay="visible"]]:backdrop-blur-sm'
     >
       <Image
-        src={properties.src}
-        alt={properties.alt}
+        src={props.src}
+        alt={props.alt}
         width={1240}
         height={698}
-        unoptimized={properties.src.startsWith('http')}
-        className="border-border bg-background-muted/30 my-4 overflow-hidden rounded-md border"
+        unoptimized={props.src.startsWith('http') || props.src.endsWith('.gif')}
+        className={cn(
+          props.title && 'mb-2',
+          'border-border bg-background-muted/30 overflow-hidden rounded-md border',
+        )}
         quality={100}
       />
+      {props.title && (
+        <span className="text-foreground-muted block text-center text-sm">
+          {props.title}
+        </span>
+      )}
     </Zoom>
   );
 };
