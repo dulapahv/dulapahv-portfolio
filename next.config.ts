@@ -23,6 +23,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/internship(.pdf)?',
+        destination: 'https://assets.dulapahv.dev/internship.pdf',
+        permanent: true,
+      },
+      {
         source: '/admin',
         destination: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
         permanent: false,
