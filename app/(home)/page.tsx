@@ -172,7 +172,7 @@ export default async function Home() {
         {/* </ViewTransition> */}
 
         <article className="text-foreground">
-          I&apos;m an upcoming{' '}
+          I&apos;m a{' '}
           <b className="text-foreground font-semibold">
             Graduate Software Engineer
           </b>{' '}
@@ -237,10 +237,9 @@ export default async function Home() {
           , Thailand. I completed the first two years of the program in Thailand
           and the final two years in the United Kingdom.
           <br />
-          <br />
-          Driven by a passion for making technology accessible and delightful, I
-          believe in its ability to transform lives, and that&apos;s what
-          I&apos;ve been working toward since the very beginning.
+          <br />I believe accessible and delightful technology has the power to
+          transform lives, and that&apos;s what I&apos;ve been working toward
+          since the very beginning.
         </article>
         <SkillsSection />
       </ViewTransition>
