@@ -44,7 +44,7 @@ export default async function Home() {
       <header className="flex flex-col gap-x-16 gap-y-2 tracking-wide text-balance sm:flex-row">
         <h1
           className={cn(
-            'order-2 mr-auto max-w-[550xpx] text-2xl font-semibold sm:order-1 sm:text-3xl/11',
+            'order-2 mr-auto max-w-[545px] text-2xl font-semibold sm:order-1 sm:text-3xl/11',
             merriweather.className,
           )}
         >
