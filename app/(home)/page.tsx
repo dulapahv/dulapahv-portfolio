@@ -163,9 +163,9 @@ export default async function Home() {
           className="border-l-mirai-red border-border bg-background text-foreground rounded-md border
             border-l-8 py-2 pr-2.5 pl-3 italic shadow-sm"
         >
-          &quot;I want to make technology accessible and delightful to everyone
-          as I believe it has the power to transform lives, and that&apos;s what
-          I&apos;ve been doing since the very beginning.&quot;
+          &quot;I believe accessible and delightful technology has the power to
+          transform lives, and that&apos;s what I&apos;ve been working toward
+          since the very beginning.&quot;
         </blockquote>
 
         <SocialLinks />
@@ -237,9 +237,8 @@ export default async function Home() {
           , Thailand. I completed the first two years of the program in Thailand
           and the final two years in the United Kingdom.
           <br />
-          <br />I believe accessible and delightful technology has the power to
-          transform lives, and that&apos;s what I&apos;ve been working toward
-          since the very beginning.
+          <br />
+          Looking forward to where my career will take me...
         </article>
         <SkillsSection />
       </ViewTransition>
