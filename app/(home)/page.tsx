@@ -193,8 +193,9 @@ export default async function Home() {
           <b className="text-foreground font-semibold">
             Software Engineer Intern
           </b>
-          , where I honed my skills across frontend, backend, and cloud
-          technologies. Following the internship, I was thrilled to receive a{' '}
+          , where I honed my skills across frontend, backend, cloud
+          technologies, DevOps, and data analytics. Following the internship, I
+          was thrilled to receive a{' '}
           <b className="text-foreground font-semibold">return offer</b> to join
           as a Graduate Software Engineer, starting in September 2025.
           <br />
