@@ -18,18 +18,18 @@
     "@shikijs/transformers": "^3.12.2",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
-    "botid": "^1.5.4",
+    "botid": "^1.5.5",
     "clsx": "^2.1.1",
     "cobe": "^0.6.4",
     "deepmerge": "^4.3.1",
     "geist": "^1.5.1",
     "motion": "^12.23.12",
-    "next": "15.5.2",
+    "next": "15.5.3",
     "next-themes": "^0.4.6",
     "radix-ui": "^1.4.3",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-email": "^4.2.9",
+    "react-email": "^4.2.11",
     "react-medium-image-zoom": "^5.3.0",
     "react-player": "^2.16.1",
     "reading-time": "^1.5.0",
@@ -69,5 +69,5 @@
     "turbo": "^2.5.6",
     "typescript": "^5.9.2"
   },
-  "packageManager": "pnpm@10.15.0+sha512.486ebc259d3e999a4e8691ce03b5cac4a71cbeca39372a9b762cb500cfdf0873e2cb16abe3d951b1ee2cf012503f027b98b6584e4df22524e0c7450d9ec7aa7b"
+  "packageManager": "pnpm@10.15.1+sha512.34e538c329b5553014ca8e8f4535997f96180a1d0f614339357449935350d924e22f8614682191264ec33d1462ac21561aff97f6bb18065351c162c7e8f6de67"
 }
