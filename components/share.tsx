@@ -415,7 +415,7 @@ export default function ShareButtons({ pageData }: ShareButtonsProps) {
           {isDropdownOpen && (
             <div
               className={cn(
-                'bg-background border-border absolute top-full left-0 z-50 mt-1 min-w-[200px]',
+                'bg-background border-border absolute top-full right-0 z-50 mt-1 min-w-[200px]',
                 'rounded-md border shadow-lg',
               )}
               role="menu"
