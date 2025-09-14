@@ -129,7 +129,7 @@ export default async function TypeListingPage({
                     aria-labelledby={year}
                   >
                     <h2 id={year} className="text-mirai-red mb-2 font-normal">
-                      <Link
+                      <a
                         href={`#${year}`}
                         className={cn(
                           'group relative rounded-sm',
@@ -145,7 +145,7 @@ export default async function TypeListingPage({
                           aria-hidden="true"
                         />
                         <span>{year}</span>
-                      </Link>
+                      </a>
                     </h2>
                     <ul
                       className="grid gap-6"

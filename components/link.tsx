@@ -4,10 +4,16 @@ import NextLink from 'next/link';
 
 type LinkProps = ComponentProps<'a'>;
 
-export const Link = (props: LinkProps) =>
-  props.href?.startsWith('/') || props.href?.startsWith('#') ? (
-    // @ts-expect-error href is a string
-    <NextLink href={props.href as Route} {...props} />
-  ) : (
-    <a {...props} target="_blank" rel="noopener noreferrer" />
-  );
+export const Link = (props: LinkProps) => {
+  const href = props.href ?? '';
+
+  // Pure in-page anchor
+  if (href.startsWith('#')) return <a {...props} />;
+
+  // Internal route: use Next.js client routing
+  // @ts-expect-error href is a string
+  if (href.startsWith('/')) return <NextLink href={href as Route} {...props} />;
+
+  // External link
+  return <a {...props} target="_blank" rel="noopener noreferrer" />;
+};
