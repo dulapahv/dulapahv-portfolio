@@ -302,8 +302,7 @@ export const TableOfContents = () => {
   // Mobile view - collapsible at top
   return (
     <nav
-      className="border-border bg-background-elevated/50 rounded-md border backdrop-blur-sm
-        xl:hidden"
+      className="border-border bg-background-elevated/50 rounded-md border backdrop-blur-sm"
       aria-label="Table of contents"
       role="navigation"
       ref={tocRef}
