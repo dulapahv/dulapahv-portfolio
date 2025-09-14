@@ -211,7 +211,7 @@ export const TableOfContents = () => {
   if (isDesktop) {
     return (
       <nav
-        className="fixed top-18 right-0 z-40 hidden w-56 xl:block 2xl:right-40"
+        className="fixed top-18 left-[calc(100vw/2+404px)] z-40 hidden w-56 xl:block"
         aria-label="Table of contents"
         role="navigation"
         ref={tocRef}
