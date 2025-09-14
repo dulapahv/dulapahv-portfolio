@@ -1,21 +1,36 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
 import {
+  CaretDownIcon,
   CheckIcon,
+  CopyIcon,
   ExportIcon,
   LinkSimpleHorizontalIcon,
+  MarkdownLogoIcon,
 } from '@phosphor-icons/react/dist/ssr';
 
 import { cn } from '@/lib/utils';
 
 import { ThemeAwareImage } from './theme-aware-image';
 
-export default function ShareButtons() {
+interface ShareButtonsProps {
+  pageData?: {
+    title: string;
+    description?: string;
+    content?: string;
+    type?: string;
+  };
+}
+
+export default function ShareButtons({ pageData }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false);
+  const [copiedPage, setCopiedPage] = useState(false);
   const [supportsNativeShare, setSupportsNativeShare] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const popupRefs = useRef<{ [key: string]: Window | null }>({
     X: null,
@@ -27,7 +42,6 @@ export default function ShareButtons() {
   useEffect(() => {
     const checkShareSupport = () => {
       if (typeof window !== 'undefined' && 'share' in navigator) {
-        // Test if it can share URLs (some implementations are limited)
         setSupportsNativeShare(
           navigator.canShare?.({ url: window.location.href }) ?? true,
         );
@@ -36,6 +50,25 @@ export default function ShareButtons() {
 
     checkShareSupport();
   }, []);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    if (isDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }
+  }, [isDropdownOpen]);
 
   const handleNativeShare = async () => {
     if (!navigator.share) return;
@@ -46,10 +79,8 @@ export default function ShareButtons() {
         url: window.location.href,
       });
     } catch (err) {
-      // User cancelled or share failed
       if (err instanceof Error && err.name !== 'AbortError') {
         console.error('Share failed:', err);
-        // Fall back to copy functionality
         await copyToClipboard(window.location.href);
       }
     }
@@ -59,10 +90,9 @@ export default function ShareButtons() {
     try {
       await navigator.clipboard.writeText(text);
       setCopied(true);
-      setTimeout(() => setCopied(false), 1000);
+      setTimeout(() => setCopied(false), 800);
     } catch (err) {
       console.error('Failed to copy text: ', err);
-      // Fallback for older browsers
       const textArea = document.createElement('textarea');
       textArea.value = text;
       document.body.appendChild(textArea);
@@ -71,11 +101,77 @@ export default function ShareButtons() {
       try {
         document.execCommand('copy');
         setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
+        setTimeout(() => setCopied(false), 800);
       } catch (fallbackErr) {
         console.error('Fallback copy failed: ', fallbackErr);
       }
       document.body.removeChild(textArea);
+    }
+  };
+
+  const generateMarkdown = useCallback(() => {
+    if (!pageData) return '';
+
+    const { title, description, content, type } = pageData;
+    const url = window.location.href;
+    const date = new Date().toLocaleDateString('en-US', {
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric',
+    });
+
+    let markdown = `# ${title}\n\n`;
+
+    if (description) {
+      markdown += `> ${description}\n\n`;
+    }
+
+    markdown += `**URL:** ${url}\n`;
+    markdown += `**Type:** ${type || 'Page'}\n`;
+    markdown += `**Accessed:** ${date}\n\n`;
+    markdown += `---\n\n`;
+
+    if (content) {
+      // If content is already markdown/MDX, use it directly
+      // Otherwise, extract text from HTML if needed
+      markdown += content;
+    } else {
+      // Fallback: extract text content from the current page
+      const articleElement = document.querySelector('article');
+      if (articleElement) {
+        // Basic HTML to Markdown conversion
+        const textContent =
+          articleElement.innerText || articleElement.textContent || '';
+        markdown += textContent;
+      }
+    }
+
+    return markdown;
+  }, [pageData]);
+
+  const copyPageAsMarkdown = async () => {
+    const markdown = generateMarkdown();
+    try {
+      await navigator.clipboard.writeText(markdown);
+      setCopiedPage(true);
+      setTimeout(() => setCopiedPage(false), 800);
+    } catch (err) {
+      console.error('Failed to copy page as markdown:', err);
+    }
+  };
+
+  const viewAsMarkdown = () => {
+    const markdown = generateMarkdown();
+    // Create a blob with the markdown content
+    const blob = new Blob([markdown], { type: 'text/markdown;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+
+    // Open in new tab
+    const newWindow = window.open(url, '_blank');
+
+    // Clean up the blob URL after a delay
+    if (newWindow) {
+      setTimeout(() => URL.revokeObjectURL(url), 100);
     }
   };
 
@@ -259,6 +355,101 @@ export default function ShareButtons() {
           aria-hidden="true"
         />
       </button>
+
+      {/* Copy page with dropdown */}
+      {pageData && (
+        <div className="relative ml-0 min-[425px]:ml-auto" ref={dropdownRef}>
+          <div
+            className={cn(
+              'bg-background border-border flex items-center rounded-md border',
+              'hover:bg-background-subtle hover:border-border-strong',
+            )}
+          >
+            <button
+              onClick={copyPageAsMarkdown}
+              onKeyDown={(e) => handleKeyDown(e, copyPageAsMarkdown)}
+              className={cn(
+                'flex items-center gap-2 px-3 py-1.5 text-sm font-medium transition-colors',
+                'border-border border-r',
+              )}
+              title={copiedPage ? 'Page copied!' : 'Copy page as Markdown'}
+              aria-label={
+                copiedPage ? 'Page copied as Markdown' : 'Copy page as Markdown'
+              }
+              disabled={copiedPage}
+            >
+              {copiedPage ? (
+                <CheckIcon className="size-4" aria-hidden="true" />
+              ) : (
+                <CopyIcon className="size-4" aria-hidden="true" />
+              )}
+              <span>Copy page</span>
+            </button>
+            <button
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  setIsDropdownOpen(!isDropdownOpen);
+                } else if (e.key === 'Escape' && isDropdownOpen) {
+                  setIsDropdownOpen(false);
+                }
+              }}
+              className={cn(
+                'flex items-center px-2 py-1.5 transition-colors',
+                'hover:bg-background-muted/50',
+              )}
+              aria-label="More options"
+              aria-expanded={isDropdownOpen}
+              aria-haspopup="true"
+            >
+              <CaretDownIcon
+                className={cn(
+                  'size-4 transition-transform',
+                  isDropdownOpen && 'rotate-180',
+                )}
+                aria-hidden="true"
+              />
+            </button>
+          </div>
+
+          {/* Dropdown menu */}
+          {isDropdownOpen && (
+            <div
+              className={cn(
+                'bg-background border-border absolute top-full left-0 z-50 mt-1 min-w-[200px]',
+                'rounded-md border shadow-lg',
+              )}
+              role="menu"
+              aria-orientation="vertical"
+            >
+              <button
+                onClick={() => {
+                  viewAsMarkdown();
+                  setIsDropdownOpen(false);
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    viewAsMarkdown();
+                    setIsDropdownOpen(false);
+                  } else if (e.key === 'Escape') {
+                    setIsDropdownOpen(false);
+                  }
+                }}
+                className={cn(
+                  'text-foreground flex w-full items-center gap-2 px-3 py-2 text-sm',
+                  'hover:bg-background-subtle transition-colors',
+                )}
+                role="menuitem"
+              >
+                <MarkdownLogoIcon className="size-5" aria-hidden="true" />
+                <span>View as Markdown</span>
+              </button>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }

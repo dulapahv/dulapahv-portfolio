@@ -258,7 +258,14 @@ export default async function ContentPage({
                 </p>
               )}
             </div>
-            <ShareButtons />
+            <ShareButtons
+              pageData={{
+                title: title,
+                description: subtitle,
+                content: page.content,
+                type: type,
+              }}
+            />
           </header>
           <TableOfContents />
           {page.image && (
