@@ -359,18 +359,15 @@ export default function ShareButtons({ pageData }: ShareButtonsProps) {
       {/* Copy page with dropdown */}
       {pageData && (
         <div className="relative ml-0 min-[425px]:ml-auto" ref={dropdownRef}>
-          <div
-            className={cn(
-              'bg-background border-border flex items-center rounded-md border',
-              'hover:bg-background-subtle hover:border-border-strong',
-            )}
-          >
+          <div className="bg-background border-border flex items-center rounded-md border">
             <button
               onClick={copyPageAsMarkdown}
               onKeyDown={(e) => handleKeyDown(e, copyPageAsMarkdown)}
               className={cn(
-                'flex items-center gap-2 px-3 py-1.5 text-sm font-medium transition-colors',
+                `flex cursor-pointer items-center gap-2 px-3 py-1.5 text-sm font-medium
+                transition-colors`,
                 'border-border border-r',
+                'hover:bg-background-subtle hover:border-border-strong',
               )}
               title={copiedPage ? 'Page copied!' : 'Copy page as Markdown'}
               aria-label={
@@ -396,9 +393,10 @@ export default function ShareButtons({ pageData }: ShareButtonsProps) {
                 }
               }}
               className={cn(
-                'flex items-center px-2 py-1.5 transition-colors',
-                'hover:bg-background-muted/50',
+                'flex cursor-pointer items-center px-2 py-2 transition-colors',
+                'hover:bg-background-subtle hover:border-border-strong',
               )}
+              title="More options"
               aria-label="More options"
               aria-expanded={isDropdownOpen}
               aria-haspopup="true"
@@ -438,7 +436,7 @@ export default function ShareButtons({ pageData }: ShareButtonsProps) {
                   }
                 }}
                 className={cn(
-                  'text-foreground flex w-full items-center gap-2 px-3 py-2 text-sm',
+                  'text-foreground flex w-full cursor-pointer items-center gap-2 px-3 py-2 text-sm',
                   'hover:bg-background-subtle transition-colors',
                 )}
                 role="menuitem"
