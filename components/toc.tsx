@@ -26,7 +26,7 @@ export const TableOfContents = () => {
   const [lockActiveId, setLockActiveId] = useState<boolean>(false);
   const [isCollapsed, setIsCollapsed] = useState<boolean>(true);
   const [showScrollTop, setShowScrollTop] = useState<boolean>(false);
-  const isDesktop = useMediaQuery('(min-width: 1280px)'); // xl breakpoint
+  const isDesktop = useMediaQuery('(min-width: 1350px)');
   const tocRef = useRef<HTMLDivElement>(null);
   const linksRef = useRef<(HTMLAnchorElement | null)[]>([]);
 
@@ -211,7 +211,7 @@ export const TableOfContents = () => {
   if (isDesktop) {
     return (
       <nav
-        className="fixed top-18 left-[calc(100vw/2+404px)] z-40 hidden w-56 xl:block"
+        className="fixed top-18 left-[calc(100vw/2+424px)] z-40 hidden w-56 xl:block"
         aria-label="Table of contents"
         role="navigation"
         ref={tocRef}
