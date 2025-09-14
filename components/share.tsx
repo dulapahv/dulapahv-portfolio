@@ -6,7 +6,6 @@ import Image from 'next/image';
 import {
   CaretDownIcon,
   CheckIcon,
-  CopyIcon,
   ExportIcon,
   LinkSimpleHorizontalIcon,
   MarkdownLogoIcon,
@@ -367,7 +366,9 @@ export default function ShareButtons({ pageData }: ShareButtonsProps) {
                 `flex cursor-pointer items-center gap-2 px-3 py-1.5 text-sm font-medium
                 transition-colors`,
                 'border-border border-r',
-                'hover:bg-background-subtle hover:border-border-strong',
+                'hover:bg-background-subtle',
+                `disabled:bg-background-muted disabled:text-foreground-muted
+                disabled:cursor-not-allowed`,
               )}
               title={copiedPage ? 'Page copied!' : 'Copy page as Markdown'}
               aria-label={
@@ -375,12 +376,7 @@ export default function ShareButtons({ pageData }: ShareButtonsProps) {
               }
               disabled={copiedPage}
             >
-              {copiedPage ? (
-                <CheckIcon className="size-4" aria-hidden="true" />
-              ) : (
-                <CopyIcon className="size-4" aria-hidden="true" />
-              )}
-              <span>Copy page</span>
+              {copiedPage ? <p>Copied!</p> : <p>Copy Page</p>}
             </button>
             <button
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
@@ -394,7 +390,7 @@ export default function ShareButtons({ pageData }: ShareButtonsProps) {
               }}
               className={cn(
                 'flex cursor-pointer items-center px-2 py-2 transition-colors',
-                'hover:bg-background-subtle hover:border-border-strong',
+                'hover:bg-background-subtle',
               )}
               title="More options"
               aria-label="More options"
