@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
 import {
@@ -29,6 +29,7 @@ export default function ShareButtons({ pageData }: ShareButtonsProps) {
   const [copiedPage, setCopiedPage] = useState(false);
   const [supportsNativeShare, setSupportsNativeShare] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isCopying, setIsCopying] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const popupRefs = useRef<{ [key: string]: Window | null }>({
@@ -108,70 +109,28 @@ export default function ShareButtons({ pageData }: ShareButtonsProps) {
     }
   };
 
-  const generateMarkdown = useCallback(() => {
-    if (!pageData) return '';
-
-    const { title, description, content, type } = pageData;
-    const url = window.location.href;
-    const date = new Date().toLocaleDateString('en-US', {
-      month: 'long',
-      day: 'numeric',
-      year: 'numeric',
-    });
-
-    let markdown = `# ${title}\n\n`;
-
-    if (description) {
-      markdown += `> ${description}\n\n`;
-    }
-
-    markdown += `**URL:** ${url}\n`;
-    markdown += `**Type:** ${type || 'Page'}\n`;
-    markdown += `**Accessed:** ${date}\n\n`;
-    markdown += `---\n\n`;
-
-    if (content) {
-      // If content is already markdown/MDX, use it directly
-      // Otherwise, extract text from HTML if needed
-      markdown += content;
-    } else {
-      // Fallback: extract text content from the current page
-      const articleElement = document.querySelector('article');
-      if (articleElement) {
-        // Basic HTML to Markdown conversion
-        const textContent =
-          articleElement.innerText || articleElement.textContent || '';
-        markdown += textContent;
-      }
-    }
-
-    return markdown;
-  }, [pageData]);
-
   const copyPageAsMarkdown = async () => {
-    const markdown = generateMarkdown();
+    if (!pageData) return;
+    setIsCopying(true);
+
     try {
-      await navigator.clipboard.writeText(markdown);
+      const response = await fetch(
+        `${window.location.origin}${window.location.pathname}.md`,
+      );
+      if (!response.ok) throw new Error('Failed to fetch markdown');
+      const markdown = await response.text();
+      await copyToClipboard(markdown);
       setCopiedPage(true);
       setTimeout(() => setCopiedPage(false), 800);
     } catch (err) {
-      console.error('Failed to copy page as markdown:', err);
+      console.error('Error copying page as markdown:', err);
+    } finally {
+      setIsCopying(false);
     }
   };
 
   const viewAsMarkdown = () => {
-    const markdown = generateMarkdown();
-    // Create a blob with the markdown content
-    const blob = new Blob([markdown], { type: 'text/markdown;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-
-    // Open in new tab
-    const newWindow = window.open(url, '_blank');
-
-    // Clean up the blob URL after a delay
-    if (newWindow) {
-      setTimeout(() => URL.revokeObjectURL(url), 100);
-    }
+    window.open(`${window.location.pathname}.md`, '_blank');
   };
 
   const shareOnSocialMedia = (platform: string) => {
@@ -370,13 +329,29 @@ export default function ShareButtons({ pageData }: ShareButtonsProps) {
                 `disabled:bg-background-muted disabled:text-foreground-muted
                 disabled:cursor-not-allowed`,
               )}
-              title={copiedPage ? 'Page copied!' : 'Copy page as Markdown'}
-              aria-label={
-                copiedPage ? 'Page copied as Markdown' : 'Copy page as Markdown'
+              title={
+                isCopying
+                  ? 'Copying...'
+                  : copiedPage
+                    ? 'Copied!'
+                    : 'Copy page as Markdown'
               }
-              disabled={copiedPage}
+              aria-label={
+                isCopying
+                  ? 'Copying page as Markdown'
+                  : copiedPage
+                    ? 'Page copied to clipboard as Markdown'
+                    : 'Copy page as Markdown'
+              }
+              disabled={isCopying || copiedPage}
             >
-              {copiedPage ? <p>Copied!</p> : <p>Copy Page</p>}
+              {isCopying ? (
+                <p>Copying...</p>
+              ) : copiedPage ? (
+                <p>Copied!</p>
+              ) : (
+                <p>Copy Page</p>
+              )}
             </button>
             <button
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}

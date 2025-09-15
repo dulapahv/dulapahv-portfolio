@@ -41,6 +41,9 @@ importers:
       geist:
         specifier: ^1.5.1
         version: 1.5.1(next@15.5.3(@babel/core@7.28.4)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))
+      gray-matter:
+        specifier: ^4.0.3
+        version: 4.0.3
       motion:
         specifier: ^12.23.12
         version: 12.23.12(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
