@@ -37,27 +37,25 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
     <html
       lang="en"
-      className={cn('bg-background', raleway.className, GeistMono.variable)}
+      className={cn(
+        'bg-background dark',
+        raleway.className,
+        GeistMono.variable,
+      )}
       suppressHydrationWarning
     >
       <head>
         <meta name="darkreader-lock" />
         <BotIdClient protect={protectedRoutes} />
-        <script
-          data-cfasync="false"
-          dangerouslySetInnerHTML={{
-            __html: `((a,b,c,d,e,f,g,h)=>{let i=document.documentElement,j=["light","dark"];function k(b){var c;(Array.isArray(a)?a:[a]).forEach(a=>{let c="class"===a,d=c&&f?e.map(a=>f[a]||a):e;c?(i.classList.remove(...d),i.classList.add(f&&f[b]?f[b]:b)):i.setAttribute(a,b)}),c=b,h&&j.includes(c)&&(i.style.colorScheme=c)}if(d)k(d);else try{let a=localStorage.getItem(b)||c,d=g&&"system"===a?window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light":a;k(d)}catch(a){}})("class","theme","system",null,["light","dark"],null,true,true)`,
-          }}
-        ></script>
       </head>
       <body className="text-foreground min-h-dvh leading-[1.6] text-pretty antialiased">
+        <Analytics />
+        <SpeedInsights />
         <ThemeProvider
           attribute="class"
           disableTransitionOnChange
           scriptProps={{ 'data-cfasync': 'false' }}
         >
-          <Analytics />
-          <SpeedInsights />
           <a
             href="#main-content"
             className={cn(
