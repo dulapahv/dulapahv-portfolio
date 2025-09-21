@@ -33,7 +33,7 @@ const protectedRoutes = [
   },
 ];
 
-export default function RootLayout() {
+export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
     <html
       lang="en"
@@ -82,11 +82,12 @@ export default function RootLayout() {
             <Image src="/ao.png" alt="" fill priority />
           </div>
           <Navbar />
-          <ThemeSwitcher />
+          {/* <ThemeSwitcher /> */}
           <div
             id="main-content"
             className="mx-auto max-w-4xl space-y-4 px-4 py-16"
           >
+            {children}
           </div>
         </ThemeProvider>
       </body>
