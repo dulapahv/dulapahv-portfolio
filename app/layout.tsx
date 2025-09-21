@@ -49,7 +49,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
         <SpeedInsights />
         <ThemeProvider
           attribute="class"
-          disableTransitionOnChange
+          // disableTransitionOnChange
           scriptProps={{ 'data-cfasync': 'false' }}
         >
           <a
