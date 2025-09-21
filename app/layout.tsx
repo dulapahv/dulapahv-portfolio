@@ -11,7 +11,7 @@ import { ThemeProvider } from 'next-themes';
 import { BASE_URL } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { Navbar } from '@/components/navbar';
-import { ThemeSwitcher } from '@/components/theme-switcher';
+// import { ThemeSwitcher } from '@/components/theme-switcher';
 
 import './globals.css';
 
