@@ -44,7 +44,10 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
         <meta name="darkreader-lock" />
         <BotIdClient protect={protectedRoutes} />
       </head>
-      <body className="bg-background text-foreground min-h-dvh leading-[1.6] text-pretty antialiased">
+      <body
+        className="bg-background text-foreground dark min-h-dvh leading-[1.6] text-pretty
+          antialiased"
+      >
         <Analytics />
         <SpeedInsights />
         <ThemeProvider attribute="class" disableTransitionOnChange>

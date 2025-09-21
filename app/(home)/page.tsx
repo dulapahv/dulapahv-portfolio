@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 import {
   DESCRIPTION,
-  // EDUCATION_LOCATION,
+  EDUCATION_LOCATION,
   GITHUB_URL,
   LINKEDIN_URL,
 } from '@/lib/constants';
@@ -14,7 +14,7 @@ import { profilePageSchema } from '@/lib/json-ld';
 import { createMetadata } from '@/lib/metadata';
 import { cn } from '@/lib/utils';
 import Footer from '@/components/footer';
-// import { Globe } from '@/components/globe';
+import { Globe } from '@/components/globe';
 import { JsonLd } from '@/components/json-ld';
 import SkillsSection from '@/components/skills-section';
 import SocialLinks from '@/components/social-links';
@@ -199,13 +199,13 @@ export default async function Home() {
           <b className="text-foreground font-semibold">return offer</b> to join
           as a Graduate Software Engineer, starting in September 2025.
           <br />
-          {/* <Globe
+          <Globe
             width={384}
             height={320}
             markers={[...EDUCATION_LOCATION]}
             className="float-left -ml-8 h-72 w-screen cursor-grab overflow-hidden rounded-lg
               min-[425px]:ml-0 min-[425px]:w-full sm:w-96"
-          /> */}
+          />
           <br />
           In 2025, I completed a double degree program in Software Engineering,
           earning a{' '}
