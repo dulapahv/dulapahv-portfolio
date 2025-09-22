@@ -184,7 +184,7 @@ export default async function Home() {
           >
             NatWest Group
           </Link>
-          , one of the United Kingdom&apos;s Big Four banks, serving over 19
+          , one of the United Kingdom&apos;s Big Four banks, serving over 20
           million customers across retail, commercial, and private banking.
           <br />
           <br />
