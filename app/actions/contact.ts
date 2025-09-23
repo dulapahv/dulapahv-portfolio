@@ -66,8 +66,7 @@ export async function sendContactEmail(data: ContactFormData) {
     if (userError) {
       console.error('Resend error (to user):', userError);
       return {
-        error:
-          'Your message has been sent successfully!, but we failed to send a confirmation email to you.',
+        error: `Your message has been sent successfully!, but we failed to send a confirmation email to you.\nHere is the information you have submitted:\n\nName: ${data.name.trim()}\nEmail: ${data.email.trim()}\nMessage:\n${data.message.trim()}`,
       };
     }
 

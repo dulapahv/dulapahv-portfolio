@@ -87,7 +87,7 @@ export const ContactForm = ({ searchParams }: ContactFormProps) => {
         defaultValue={initialName}
       />
       <Input
-        label="Email address"
+        label="Email"
         name="email"
         type="email"
         autoComplete="email"
@@ -109,7 +109,7 @@ export const ContactForm = ({ searchParams }: ContactFormProps) => {
       {/* Success/Error Messages */}
       {submitSuccess && (
         <div
-          className="text-success text-sm font-medium"
+          className="text-success text-sm font-semibold"
           role="status"
           aria-live="polite"
         >
@@ -119,7 +119,7 @@ export const ContactForm = ({ searchParams }: ContactFormProps) => {
       )}
       {submitError && (
         <div
-          className="text-error text-sm font-medium"
+          className="text-error text-sm font-semibold whitespace-pre-line"
           role="alert"
           aria-live="assertive"
         >
