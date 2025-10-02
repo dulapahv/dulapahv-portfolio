@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  app:
+    image: node:20-alpine
+    container_name: dulapahv-portfolio-dev
+    working_dir: /app
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - NEXT_TELEMETRY_DISABLED=1
+      - CHOKIDAR_USEPOLLING=true
+      # Bypass Corepack confirmation
+      - COREPACK_ENABLE_DOWNLOAD_PROMPT=0
+      - RESEND_API_KEY=${RESEND_API_KEY}
+      - EMAIL=${EMAIL}
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    command: sh -c "corepack enable && corepack prepare pnpm@latest --activate && pnpm install && pnpm dev"
+    stdin_open: true
+    tty: true

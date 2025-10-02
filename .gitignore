@@ -32,6 +32,7 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env
+.env.docker
 
 # vercel
 .vercel
@@ -45,3 +46,5 @@ next-env.d.ts
 
 # build output
 .turbo
+
+/.pnpm-store
