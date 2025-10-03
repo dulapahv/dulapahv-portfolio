@@ -4,7 +4,6 @@ import Image from 'next/image';
 
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { BotIdClient } from 'botid/client';
 import { GeistMono } from 'geist/font/mono';
 import { ThemeProvider } from 'next-themes';
 
@@ -26,13 +25,6 @@ export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
 };
 
-const protectedRoutes = [
-  {
-    path: '/actions/contact',
-    method: 'POST',
-  },
-];
-
 export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
     <html
@@ -46,7 +38,6 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
     >
       <head>
         <meta name="darkreader-lock" />
-        <BotIdClient protect={protectedRoutes} />
       </head>
       <body className="text-foreground min-h-dvh leading-[1.6] text-pretty antialiased">
         <Analytics />

@@ -3,7 +3,7 @@
 import { checkBotId } from 'botid/server';
 import { Resend } from 'resend';
 
-import { IS_DEV_ENV, NAME } from '@/lib/constants';
+import { NAME } from '@/lib/constants';
 import {
   ConfirmationEmailTemplate,
   RecipientEmailTemplate,
@@ -21,13 +21,9 @@ interface ContactFormData {
 
 export async function sendContactEmail(data: ContactFormData) {
   try {
-    const verification = await checkBotId({
-      developmentOptions: {
-        bypass: IS_DEV_ENV ? 'HUMAN' : undefined,
-      },
-    });
+    const verification = await checkBotId();
 
-    if (!verification.isBot) {
+    if (verification.isBot) {
       return {
         error: 'Bot verification failed. Please try again.',
       };
