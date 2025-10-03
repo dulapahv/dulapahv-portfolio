@@ -23,7 +23,7 @@ export default function Footer() {
           .
         </p>
         <p>
-          Chat with me on{' '}
+          NLWeb Chat:{' '}
           <Link
             href="https://chat.dulapahv.dev"
             target="_blank"
