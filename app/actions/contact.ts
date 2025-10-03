@@ -1,5 +1,7 @@
 'use server';
 
+import { headers } from 'next/headers';
+
 import { checkBotId } from 'botid/server';
 import { Resend } from 'resend';
 
@@ -18,10 +20,15 @@ interface ContactFormData {
   email: string;
   message: string;
 }
-
 export async function sendContactEmail(data: ContactFormData) {
   try {
-    const verification = await checkBotId();
+    const headersList = await headers();
+    const verification = await checkBotId({
+      advancedOptions: {
+        checkLevel: 'basic',
+        headers: Object.fromEntries(headersList.entries()),
+      },
+    });
 
     if (verification.isBot) {
       return {
