@@ -22,6 +22,18 @@ export default function Footer() {
           </Link>
           .
         </p>
+        <p>
+          Chat with me on{' '}
+          <Link
+            href="https://chat.dulapahv.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={cn('text-mirai-red', 'hover:underline')}
+          >
+            chat.dulapahv.dev
+          </Link>
+          .
+        </p>
       </div>
     </footer>
   );
