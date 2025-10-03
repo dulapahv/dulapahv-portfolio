@@ -1,8 +1,6 @@
 'use server';
 
-import { headers } from 'next/headers';
-
-import { checkBotId } from 'botid/server';
+// import { checkBotId } from 'botid/server';
 import { Resend } from 'resend';
 
 import { NAME } from '@/lib/constants';
@@ -20,21 +18,16 @@ interface ContactFormData {
   email: string;
   message: string;
 }
+
 export async function sendContactEmail(data: ContactFormData) {
   try {
-    const headersList = await headers();
-    const verification = await checkBotId({
-      advancedOptions: {
-        checkLevel: 'basic',
-        headers: Object.fromEntries(headersList.entries()),
-      },
-    });
+    // const verification = await checkBotId();
 
-    if (verification.isBot) {
-      return {
-        error: 'Bot verification failed. Please try again.',
-      };
-    }
+    // if (verification.isBot) {
+    //   return {
+    //     error: 'Bot verification failed. Please try again.',
+    //   };
+    // }
 
     // Send email to site owner
     const { error: ownerError } = await resend.emails.send({
