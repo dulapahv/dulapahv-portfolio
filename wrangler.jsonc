@@ -27,4 +27,7 @@
       "bucket_name": "dulapahv-portfolio-cache",
     },
   ],
+  "observability": {
+    "enabled": true,
+  },
 }
