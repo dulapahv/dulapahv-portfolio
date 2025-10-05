@@ -101,7 +101,6 @@ export async function GET(
     return new Response(mdContent, {
       headers: {
         'Content-Type': 'text/plain; charset=utf-8',
-        'Cache-Control': 'public, max-age=0, must-revalidate',
         'Content-Disposition': `inline; filename="${slug}.md"`,
       },
     });
