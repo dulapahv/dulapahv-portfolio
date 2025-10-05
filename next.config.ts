@@ -37,3 +37,6 @@ const nextConfig: NextConfig = {
 };
 
 export default withContentCollections(withBotId(nextConfig));
+
+import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
+initOpenNextCloudflareForDev();

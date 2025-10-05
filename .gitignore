@@ -48,3 +48,5 @@ next-env.d.ts
 .turbo
 
 /.pnpm-store
+
+.open-next

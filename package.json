@@ -14,9 +14,14 @@
     "docker:run": "docker run -p 3000:3000 dulapahv-portfolio",
     "docker:dev": "docker-compose -f docker-compose.dev.yml up",
     "docker:down": "docker-compose down",
-    "docker:clean": "docker-compose down -v --rmi all"
+    "docker:clean": "docker-compose down -v --rmi all",
+    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
   },
   "dependencies": {
+    "@opennextjs/cloudflare": "^1.9.1",
     "@phosphor-icons/react": "^2.1.10",
     "@react-email/components": "^0.0.41",
     "@react-spring/web": "^10.0.3",
@@ -73,7 +78,8 @@
     "prettier-plugin-tailwindcss": "^0.6.14",
     "tailwindcss": "^4.1.14",
     "turbo": "^2.5.8",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "wrangler": "^4.42.0"
   },
   "packageManager": "pnpm@10.18.0+sha512.e804f889f1cecc40d572db084eec3e4881739f8dec69c0ff10d2d1beff9a4e309383ba27b5b750059d7f4c149535b6cd0d2cb1ed3aeb739239a4284a68f40cfa"
 }
