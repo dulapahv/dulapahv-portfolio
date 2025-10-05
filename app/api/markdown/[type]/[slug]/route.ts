@@ -23,7 +23,13 @@ export async function GET(
 
   try {
     // Read and parse the MDX file
-    const filePath = join(process.cwd(), 'content', type, `${slug}.mdx`);
+    const filePath = join(
+      '.open-next',
+      'assets',
+      'content',
+      type,
+      `${slug}.mdx`,
+    );
     const fileContent = await readFile(filePath, 'utf-8');
 
     // Parse frontmatter and content
