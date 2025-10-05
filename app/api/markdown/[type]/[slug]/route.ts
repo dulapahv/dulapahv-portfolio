@@ -1,5 +1,3 @@
-import { readFile } from 'fs/promises';
-import { join } from 'path';
 import { notFound } from 'next/navigation';
 
 import matter from 'gray-matter';
@@ -14,6 +12,7 @@ import {
 export async function GET(
   req: Request,
   ctx: RouteContext<'/api/markdown/[type]/[slug]'>,
+  env: CloudflareEnv,
 ) {
   const { type, slug } = await ctx.params;
 
@@ -22,14 +21,15 @@ export async function GET(
   }
 
   try {
-    // Read and parse the MDX file
-    const filePath = join(
-      '/opt/buildhome/repo/.open-next/assets',
-      'content',
-      type,
-      `${slug}.mdx`,
-    );
-    const fileContent = await readFile(filePath, 'utf-8');
+    const assetPath = `/content/${type}/${slug}.mdx`;
+    const assetUrl = new URL(assetPath, 'https://assets.local');
+
+    const response = await env.ASSETS!.fetch(assetUrl);
+    if (!response.ok) {
+      return new Response('File not found', { status: 404 });
+    }
+
+    const fileContent = await response.text();
 
     // Parse frontmatter and content
     const { data: frontmatter, content: bodyContent } = matter(fileContent);
