@@ -1,7 +1,3 @@
-import { defineCloudflareConfig } from '@opennextjs/cloudflare';
-import staticAssetsIncrementalCache from '@opennextjs/cloudflare/overrides/incremental-cache/static-assets-incremental-cache';
+import { defineCloudflareConfig } from "@opennextjs/cloudflare";
 
-export default defineCloudflareConfig({
-  incrementalCache: staticAssetsIncrementalCache,
-  enableCacheInterception: true,
-});
+export default defineCloudflareConfig();
