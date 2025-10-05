@@ -145,11 +145,11 @@ export const Navbar = () => {
               aria-label={`${item.name}${active ? ', current page' : ''}`}
               aria-current={active ? 'page' : undefined}
               className={cn(
-                'relative -mb-1 flex items-center gap-2 pb-1 !transition-transform',
+                'relative -mb-1 flex items-center gap-2 pb-1 transition-all',
                 'hover:scale-105 active:scale-98',
                 active
                   ? 'text-mirai-red border-mirai-red border-b-2'
-                  : 'hover:text-foreground-muted transition-colors',
+                  : 'hover:text-foreground-muted',
               )}
             >
               <span aria-hidden="true">{item.icon}</span>

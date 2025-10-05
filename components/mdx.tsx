@@ -21,7 +21,13 @@ const a = (props: HTMLProps<HTMLAnchorElement>) => {
   }
 
   return (
-    <Link className={cn('text-mirai-red', 'hover:underline')} {...props} />
+    <Link
+      className={cn(
+        'text-mirai-red underline-offset-2',
+        'hover:underline hover:decoration-2',
+      )}
+      {...props}
+    />
   );
 };
 
@@ -98,7 +104,7 @@ export const Mdx = ({ code }: MdxProperties) => (
       'mx-auto max-w-none font-medium',
       'prose prose-neutral dark:prose-invert',
       `prose-headings:mt-8 prose-headings:font-semibold
-      prose-headings:[&>a]:text-foreground`,
+      prose-headings:[&>a]:text-foreground prose-headings:[&>a]:no-underline`,
       'prose-h1:text-3xl prose-h1:font-bold',
       `prose-h2:text-2xl prose-h2:mb-6 prose-h2:mt-12 prose-h2:border-t
       prose-h2:border-border prose-h2:pt-10`,
@@ -107,7 +113,6 @@ export const Mdx = ({ code }: MdxProperties) => (
       'prose-h5:text-base prose-h5:mt-4 prose-h5:mb-1',
       'prose-h6:text-sm prose-h6:mt-2 prose-h6:mb-0',
       'prose-p:my-5',
-      'prose-a:no-underline',
       'prose-strong:text-inherit prose-strong:font-bold',
       `prose-pre:dark:bg-[#0a0a0a] prose-pre:bg-[#fff] prose-pre:border-t-border
       prose-pre:text-[13px]/5 prose-pre:!px-0

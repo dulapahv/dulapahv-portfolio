@@ -132,7 +132,7 @@ export default async function TypeListingPage({
                       <a
                         href={`#${year}`}
                         className={cn(
-                          'group relative rounded-sm',
+                          'group relative rounded-sm underline-offset-2',
                           'hover:underline',
                         )}
                         aria-label={`Jump to ${year} section`}

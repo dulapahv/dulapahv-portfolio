@@ -170,7 +170,7 @@ export default async function Home() {
         <SocialLinks />
         {/* </ViewTransition> */}
 
-        <article className="text-foreground">
+        <article className="text-foreground leading-7">
           I&apos;m a{' '}
           <b className="text-foreground font-semibold">
             Graduate Software Engineer
@@ -178,7 +178,10 @@ export default async function Home() {
           at{' '}
           <Link
             href="https://www.natwestgroup.com/"
-            className={cn('text-mirai-red', 'hover:underline')}
+            className={cn(
+              'text-mirai-red underline underline-offset-2',
+              'hover:decoration-2',
+            )}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -203,7 +206,7 @@ export default async function Home() {
             height={320}
             markers={[...EDUCATION_LOCATION]}
             className="float-left -ml-8 h-72 w-screen cursor-grab overflow-hidden rounded-lg
-              min-[425px]:ml-0 min-[425px]:w-full sm:w-96"
+              min-[425px]:ml-0 min-[425px]:w-full sm:mt-4 sm:w-96"
           />
           <br />
           In 2025, I completed a double degree program in Software Engineering,
@@ -215,7 +218,10 @@ export default async function Home() {
           from{' '}
           <Link
             href="https://www.gla.ac.uk/"
-            className={cn('text-mirai-red', 'hover:underline')}
+            className={cn(
+              'text-mirai-red underline underline-offset-2',
+              'hover:decoration-2',
+            )}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -228,7 +234,10 @@ export default async function Home() {
           from{' '}
           <Link
             href="https://www.kmitl.ac.th/"
-            className={cn('text-mirai-red', 'hover:underline')}
+            className={cn(
+              'text-mirai-red underline underline-offset-2',
+              'hover:decoration-2',
+            )}
             target="_blank"
             rel="noopener noreferrer"
           >

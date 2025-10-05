@@ -5,6 +5,7 @@ import {
   DevicesIcon,
   GearIcon,
   HardDrivesIcon,
+  LinkIcon,
   MonitorIcon,
   ToolboxIcon,
 } from '@phosphor-icons/react/dist/ssr';
@@ -39,7 +40,22 @@ const getSizeClasses = (size: string) => {
 export default function SkillsSection() {
   return (
     <section className="mt-8">
-      <h1 className="text-foreground mb-6 text-2xl font-semibold">Skills</h1>
+      <h1 className="text-foreground mb-6 text-2xl font-semibold" id="skills">
+        <a
+          href="#skills"
+          className={cn('group relative rounded-sm', 'hover:underline')}
+          aria-label="Jump to Skills section"
+        >
+          <LinkIcon
+            className={cn(
+              'absolute top-1/2 -left-6 size-4.5 -translate-y-1/2 opacity-0',
+              'group-hover:opacity-100 group-focus:opacity-100',
+            )}
+            aria-hidden="true"
+          />
+          <span>Skills</span>
+        </a>
+      </h1>
 
       <div className="grid auto-rows-min grid-cols-1 gap-3 md:grid-cols-4">
         {skillsData.map((category, index) => {

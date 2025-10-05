@@ -16,7 +16,10 @@ export default function Footer() {
             href={`${GITHUB_URL}/dulapahv-portfolio`}
             target="_blank"
             rel="noopener noreferrer"
-            className={cn('text-mirai-red', 'hover:underline')}
+            className={cn(
+              'text-mirai-red underline underline-offset-2',
+              'hover:decoration-2',
+            )}
           >
             source code
           </Link>
@@ -28,7 +31,10 @@ export default function Footer() {
             href="https://chat.dulapahv.dev"
             target="_blank"
             rel="noopener noreferrer"
-            className={cn('text-mirai-red', 'hover:underline')}
+            className={cn(
+              'text-mirai-red underline underline-offset-2',
+              'hover:decoration-2',
+            )}
           >
             chat.dulapahv.dev
           </Link>
