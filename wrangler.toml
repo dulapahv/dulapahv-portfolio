@@ -1,4 +1,5 @@
 name = "dulapahv-portfolio"
+pages_build_output_dir = ".open-next"
 main = ".open-next/worker.js"
 compatibility_date = "2025-10-05"
 compatibility_flags = ["nodejs_compat", "global_fetch_strictly_public"]
