@@ -1,7 +1,5 @@
 import { NextResponse, type NextRequest } from 'next/server';
 
-import { getCloudflareContext } from '@opennextjs/cloudflare';
-
 const VALID_TYPES = new Set(['blog', 'project', 'work']);
 const EXTENSION_REGEX = /^\/([^/]+)\/([^/]+)\.mdx?$/;
 
@@ -19,19 +17,7 @@ export function middleware(request: NextRequest) {
     );
   }
 
-  const requestHeaders = new Headers(request.headers);
-  const cloudflareContext = getCloudflareContext();
-
-  requestHeaders.set(
-    'x-cloudflare-context',
-    `typeof \`cloudflareContext.env\` = ${typeof cloudflareContext.env}`,
-  );
-
-  return NextResponse.next({
-    request: {
-      headers: requestHeaders,
-    },
-  });
+  return NextResponse.next();
 }
 
 export const config = {
@@ -39,5 +25,4 @@ export const config = {
     '/(blog|project|work)/:path*.md',
     '/(blog|project|work)/:path*.mdx',
   ],
-  dynamic: 'force-dynamic',
 };
