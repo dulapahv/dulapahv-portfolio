@@ -259,7 +259,7 @@ export default async function ContentPage({
               )}
             </div>
             <ShareButtons
-              pageData={{
+              page={{
                 title: title,
                 description: subtitle,
                 content: page.content,

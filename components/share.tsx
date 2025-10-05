@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
 import {
@@ -16,7 +16,7 @@ import { cn } from '@/lib/utils';
 import { ThemeAwareImage } from './theme-aware-image';
 
 interface ShareButtonsProps {
-  pageData?: {
+  page: {
     title: string;
     description?: string;
     content?: string;
@@ -24,12 +24,11 @@ interface ShareButtonsProps {
   };
 }
 
-export default function ShareButtons({ pageData }: ShareButtonsProps) {
+export default function ShareButtons({ page }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false);
   const [copiedPage, setCopiedPage] = useState(false);
   const [supportsNativeShare, setSupportsNativeShare] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isCopying, setIsCopying] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const popupRefs = useRef<{ [key: string]: Window | null }>({
@@ -109,28 +108,71 @@ export default function ShareButtons({ pageData }: ShareButtonsProps) {
     }
   };
 
-  const copyPageAsMarkdown = async () => {
-    if (!pageData) return;
-    setIsCopying(true);
+  const generateMarkdown = useCallback(() => {
+    if (!page) return '';
 
+    const { title, description, content, type } = page;
+    const url = window.location.href;
+
+    let markdown = `# ${title || 'Untitled'}\n\n`;
+
+    if (description) {
+      markdown += `> ${description}\n\n`;
+    }
+
+    markdown += `**Type:** ${type ? type.charAt(0).toUpperCase() + type.slice(1) : 'Page'}\n`;
+
+    markdown += `**URL:** ${url}\n`;
+    markdown += `**Accessed:** ${new Date().toLocaleDateString('en-US', {
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric',
+    })}\n`;
+
+    markdown += `\n---\n`;
+
+    if (content) {
+      // If content is already markdown/MDX, use it directly
+      // Otherwise, extract text from HTML if needed
+      markdown += content;
+    } else {
+      // Fallback: extract text content from the current page
+      const articleElement = document.querySelector('article');
+      if (articleElement) {
+        // Basic HTML to Markdown conversion
+        const textContent =
+          articleElement.innerText || articleElement.textContent || '';
+        markdown += textContent;
+      }
+    }
+
+    return markdown;
+  }, [page]);
+
+  const copyPageAsMarkdown = async () => {
+    const markdown = generateMarkdown();
     try {
-      const response = await fetch(
-        `${window.location.origin}${window.location.pathname}.md`,
-      );
-      if (!response.ok) throw new Error('Failed to fetch markdown');
-      const markdown = await response.text();
-      await copyToClipboard(markdown);
+      await navigator.clipboard.writeText(markdown);
       setCopiedPage(true);
       setTimeout(() => setCopiedPage(false), 800);
     } catch (err) {
-      console.error('Error copying page as markdown:', err);
-    } finally {
-      setIsCopying(false);
+      console.error('Failed to copy page as markdown:', err);
     }
   };
 
   const viewAsMarkdown = () => {
-    window.open(`${window.location.pathname}.md`, '_blank');
+    const markdown = generateMarkdown();
+    // Create a blob with the markdown content
+    const blob = new Blob([markdown], { type: 'text/markdown;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+
+    // Open in new tab
+    const newWindow = window.open(url, '_blank');
+
+    // Clean up the blob URL after a delay
+    if (newWindow) {
+      setTimeout(() => URL.revokeObjectURL(url), 100);
+    }
   };
 
   const shareOnSocialMedia = (platform: string) => {
@@ -315,7 +357,7 @@ export default function ShareButtons({ pageData }: ShareButtonsProps) {
       </button>
 
       {/* Copy page with dropdown */}
-      {pageData && (
+      {page && (
         <div className="relative ml-0 min-[425px]:ml-auto" ref={dropdownRef}>
           <div className="bg-background border-border flex items-center rounded-md border">
             <button
@@ -329,29 +371,15 @@ export default function ShareButtons({ pageData }: ShareButtonsProps) {
                 `disabled:bg-background-muted disabled:text-foreground-muted
                 disabled:cursor-not-allowed`,
               )}
-              title={
-                isCopying
-                  ? 'Copying...'
-                  : copiedPage
-                    ? 'Copied!'
-                    : 'Copy page as Markdown'
-              }
+              title={copiedPage ? 'Copied!' : 'Copy page as Markdown'}
               aria-label={
-                isCopying
-                  ? 'Copying page as Markdown'
-                  : copiedPage
-                    ? 'Page copied to clipboard as Markdown'
-                    : 'Copy page as Markdown'
+                copiedPage
+                  ? 'Page copied to clipboard as Markdown'
+                  : 'Copy page as Markdown'
               }
-              disabled={isCopying || copiedPage}
+              disabled={copiedPage}
             >
-              {isCopying ? (
-                <p>Copying...</p>
-              ) : copiedPage ? (
-                <p>Copied!</p>
-              ) : (
-                <p>Copy Page</p>
-              )}
+              {copiedPage ? <p>Copied!</p> : <p>Copy Page</p>}
             </button>
             <button
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
