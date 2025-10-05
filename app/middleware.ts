@@ -25,4 +25,5 @@ export const config = {
     '/(blog|project|work)/:path*.md',
     '/(blog|project|work)/:path*.mdx',
   ],
+  dynamic: 'force-dynamic',
 };
