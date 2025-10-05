@@ -1,6 +1,7 @@
 import type { NextConfig } from 'next';
 
 import { withContentCollections } from '@content-collections/next';
+import { initOpenNextCloudflareForDev } from '@opennextjs/cloudflare';
 import { withBotId } from 'botid/next/config';
 
 const nextConfig: NextConfig = {
@@ -8,6 +9,8 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   typedRoutes: true,
   images: {
+    loader: 'custom',
+    loaderFile: './image-loader.ts',
     qualities: [75, 100],
   },
   experimental: {
@@ -38,5 +41,4 @@ const nextConfig: NextConfig = {
 
 export default withContentCollections(withBotId(nextConfig));
 
-import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
 initOpenNextCloudflareForDev();
