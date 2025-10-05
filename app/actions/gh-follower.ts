@@ -12,6 +12,6 @@ export async function getGitHubFollowers() {
     throw new Error('Failed to fetch data');
   }
 
-  const data = await response.json();
+  const data = (await response.json()) as { followers: number };
   return data.followers;
 }
