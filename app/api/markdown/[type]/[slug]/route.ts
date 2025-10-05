@@ -24,8 +24,7 @@ export async function GET(
   try {
     // Read and parse the MDX file
     const filePath = join(
-      '.open-next',
-      'assets',
+      '/opt/buildhome/repo/.open-next/assets',
       'content',
       type,
       `${slug}.mdx`,
