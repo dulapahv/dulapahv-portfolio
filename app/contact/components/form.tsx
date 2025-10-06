@@ -85,6 +85,7 @@ export const ContactForm = ({ searchParams }: ContactFormProps) => {
       <Input
         label="Name"
         name="name"
+        autoComplete="name"
         placeholder="Dulapah Vibulsanti"
         required
         maxLength={NAME_MAX_LENGTH}
@@ -132,23 +133,27 @@ export const ContactForm = ({ searchParams }: ContactFormProps) => {
       )}
 
       <div className="grid gap-1">
-        <div className="flex items-baseline justify-between">
-          <label className="text-foreground-muted inline-block text-sm font-medium">
-            Let me know you're human
-            <span className="after:text-error after:ml-0.5 after:content-['*']">
-              <span className="sr-only"> (required)</span>
-            </span>
-          </label>
+        <span
+          id="turnstile-label"
+          className="text-foreground-muted inline-block text-sm font-medium"
+        >
+          Let me know you're human
+          <span className="after:text-error after:ml-0.5 after:content-['*']">
+            <span className="sr-only"> (required)</span>
+          </span>
+        </span>
+        <div role="group" aria-labelledby="turnstile-label">
+          <Turnstile
+            ref={turnstileRef}
+            id="turnstile-widget"
+            siteKey={TURNSTILE_SITE_KEY}
+            onSuccess={() => setIsTurnstileSolved(true)}
+            onExpire={() => {
+              setIsTurnstileSolved(false);
+              turnstileRef.current?.reset();
+            }}
+          />
         </div>
-        <Turnstile
-          ref={turnstileRef}
-          siteKey={TURNSTILE_SITE_KEY}
-          onSuccess={() => setIsTurnstileSolved(true)}
-          onExpire={() => {
-            setIsTurnstileSolved(false);
-            turnstileRef.current?.reset();
-          }}
-        />
       </div>
 
       <Form.Submit asChild>
