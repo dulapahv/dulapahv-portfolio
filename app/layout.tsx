@@ -57,20 +57,32 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
           <div
             aria-hidden
             role="presentation"
-            className="pointer-events-none fixed -top-[25%] -right-[35%] -z-50 size-full overflow-clip
-              opacity-50 mix-blend-darken hue-rotate-[45deg] select-none sm:rotate-[20deg]
-              dark:mix-blend-lighten"
+            className="pointer-events-none fixed -top-[70%] -right-[60%] -z-50 size-[180%]
+              overflow-clip opacity-50 mix-blend-darken hue-rotate-[45deg] select-none
+              sm:-top-[45%] sm:size-[150%] dark:mix-blend-lighten"
           >
-            <Image src="/pinku.png" alt="" fill priority />
+            <Image
+              src="/pinku.png"
+              alt=""
+              fill
+              priority
+              className="object-contain"
+            />
           </div>
           <div
             aria-hidden
             role="presentation"
-            className="pointer-events-none fixed -bottom-[15%] -left-[25%] -z-50 size-[80%]
-              overflow-clip opacity-90 mix-blend-darken select-none sm:rotate-[15deg]
-              dark:opacity-60 dark:mix-blend-lighten"
+            className="pointer-events-none fixed -bottom-[50%] -left-[40%] -z-50 size-[140%]
+              overflow-clip opacity-90 mix-blend-darken select-none sm:-bottom-[30%]
+              sm:size-[110%] dark:opacity-60 dark:mix-blend-lighten"
           >
-            <Image src="/ao.png" alt="" fill priority />
+            <Image
+              src="/ao.png"
+              alt=""
+              fill
+              priority
+              className="object-contain"
+            />
           </div>
           <Navbar />
           <ThemeSwitcher />
