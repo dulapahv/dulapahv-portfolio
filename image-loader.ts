@@ -8,13 +8,13 @@ export default function cloudflareLoader({
   width,
   quality,
 }: ImageLoaderProps) {
-  if (process.env.NODE_ENV === 'development') {
-    return src; // local dev: use original image
-  }
-
   const params = [`width=${width}`];
   if (quality) params.push(`quality=${quality}`);
   const paramsString = params.join(',');
+
+  if (process.env.NODE_ENV === 'development') {
+    return `${src}?w=${width}${quality ? `&q=${quality}` : ''}`;
+  }
 
   return `/cdn-cgi/image/${paramsString}/${normalizeSrc(src)}`;
 }
