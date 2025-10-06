@@ -437,7 +437,7 @@ export default function ShareButtons({ page }: ShareButtonsProps) {
                 role="menuitem"
               >
                 <SparkleIcon className="size-5" aria-hidden="true" />
-                <span>Chat in NLWeb</span>
+                <span>Ask in NLWeb Chat</span>
               </button>
             </div>
           )}
