@@ -9,6 +9,7 @@ import {
   ExportIcon,
   LinkSimpleHorizontalIcon,
   MarkdownLogoIcon,
+  SparkleIcon,
 } from '@phosphor-icons/react/dist/ssr';
 
 import { cn } from '@/lib/utils';
@@ -414,6 +415,29 @@ export default function ShareButtons({ page }: ShareButtonsProps) {
               >
                 <MarkdownLogoIcon className="size-5" aria-hidden="true" />
                 <span>View as Markdown</span>
+              </button>
+              <button
+                onClick={() => {
+                  window.open('https://chat.dulapahv.dev', '_blank');
+                  setIsDropdownOpen(false);
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    window.open('https://chat.dulapahv.dev', '_blank');
+                    setIsDropdownOpen(false);
+                  } else if (e.key === 'Escape') {
+                    setIsDropdownOpen(false);
+                  }
+                }}
+                className={cn(
+                  'text-foreground flex w-full cursor-pointer items-center gap-2 px-3 py-2 text-sm',
+                  'hover:bg-background-subtle transition-colors',
+                )}
+                role="menuitem"
+              >
+                <SparkleIcon className="size-5" aria-hidden="true" />
+                <span>Chat in NLWeb</span>
               </button>
             </div>
           )}
