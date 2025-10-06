@@ -19,6 +19,11 @@ export const NAME_MAX_LENGTH = 256;
 export const EMAIL_MAX_LENGTH = 256;
 export const MESSAGE_MAX_LENGTH = 1000;
 
+export const EMAIL_REGEX = /^\S+@\S+\.\S+$/;
+export const TURNSTILE_SITE_KEY = IS_DEV_ENV
+  ? '1x00000000000000000000AA'
+  : '0x4AAAAAAACYFWWcTzhCNWz4';
+
 export const EDUCATION_LOCATION: COBEOptions['markers'] = [
   // KMITL, Thailand
   { location: [13.7298889, 100.775652], size: 0.1 },

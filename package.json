@@ -17,6 +17,7 @@
     "docker:clean": "docker-compose down -v --rmi all"
   },
   "dependencies": {
+    "@marsidev/react-turnstile": "^1.3.1",
     "@opennextjs/cloudflare": "^1.9.1",
     "@phosphor-icons/react": "^2.1.10",
     "@react-email/components": "^0.0.41",

@@ -2,13 +2,16 @@
 
 import { useRef, useState, useTransition, type FormEventHandler } from 'react';
 
+import { Turnstile, type TurnstileInstance } from '@marsidev/react-turnstile';
 import { PaperPlaneTiltIcon } from '@phosphor-icons/react/dist/ssr';
 import { Form } from 'radix-ui';
 
 import {
   EMAIL_MAX_LENGTH,
+  EMAIL_REGEX,
   MESSAGE_MAX_LENGTH,
   NAME_MAX_LENGTH,
+  TURNSTILE_SITE_KEY,
 } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import type { RecipientEmailTemplateProps } from '@/components/email';
@@ -16,8 +19,6 @@ import { Input } from '@/components/input';
 import { Spinner } from '@/components/spinner';
 import { Textarea } from '@/components/textarea';
 import { sendContactEmail } from '@/app/actions/contact';
-
-export const emailRegex = /^\S+@\S+\.\S+$/;
 
 interface ContactFormProps {
   searchParams?: RecipientEmailTemplateProps;
@@ -31,7 +32,10 @@ export const ContactForm = ({ searchParams }: ContactFormProps) => {
   const [isPending, startTransition] = useTransition();
   const [submitError, setSubmitError] = useState<string>('');
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [isTurnstileSolved, setIsTurnstileSolved] = useState(false);
+
   const formRef = useRef<HTMLFormElement>(null);
+  const turnstileRef = useRef<TurnstileInstance>(null);
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault();
@@ -92,7 +96,7 @@ export const ContactForm = ({ searchParams }: ContactFormProps) => {
         type="email"
         autoComplete="email"
         placeholder="dulapah@example.com"
-        pattern={emailRegex.source}
+        pattern={EMAIL_REGEX.source}
         required
         maxLength={EMAIL_MAX_LENGTH}
         defaultValue={initialEmail}
@@ -127,11 +131,21 @@ export const ContactForm = ({ searchParams }: ContactFormProps) => {
         </div>
       )}
 
+      <Turnstile
+        ref={turnstileRef}
+        siteKey={TURNSTILE_SITE_KEY}
+        onSuccess={() => setIsTurnstileSolved(true)}
+        onExpire={() => {
+          setIsTurnstileSolved(false);
+          turnstileRef.current?.reset();
+        }}
+      />
+
       <Form.Submit asChild>
         <button
           type="submit"
-          disabled={isPending}
-          aria-disabled={isPending}
+          disabled={isPending || !isTurnstileSolved}
+          aria-disabled={isPending || !isTurnstileSolved}
           aria-describedby={
             submitError
               ? 'submit-error'
