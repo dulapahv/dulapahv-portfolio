@@ -1,6 +1,5 @@
 'use server';
 
-// import { checkBotId } from 'botid/server';
 import { Resend } from 'resend';
 
 import { NAME } from '@/lib/constants';
@@ -21,14 +20,6 @@ interface ContactFormData {
 
 export async function sendContactEmail(data: ContactFormData) {
   try {
-    // const verification = await checkBotId();
-
-    // if (verification.isBot) {
-    //   return {
-    //     error: 'Bot verification failed. Please try again.',
-    //   };
-    // }
-
     // Send email to site owner
     const { error: ownerError } = await resend.emails.send({
       from: `${NAME} <${process.env.EMAIL}>`,
@@ -62,7 +53,7 @@ export async function sendContactEmail(data: ContactFormData) {
     if (userError) {
       console.error('Resend error (to user):', userError);
       return {
-        error: `Your message has been sent successfully!, but we failed to send a confirmation email to you.\nHere is the information you have submitted:\n\nName: ${data.name.trim()}\nEmail: ${data.email.trim()}\nMessage:\n${data.message.trim()}`,
+        error: `Your message has been sent successfully!, but a confirmation email could not be sent to you.\nHere is the information you have submitted:\n\nName: ${data.name.trim()}\nEmail: ${data.email.trim()}\nMessage:\n${data.message.trim()}`,
       };
     }
 
