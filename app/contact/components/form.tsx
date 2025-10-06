@@ -137,7 +137,7 @@ export const ContactForm = ({ searchParams }: ContactFormProps) => {
           id="turnstile-label"
           className="text-foreground-muted inline-block text-sm font-medium"
         >
-          Let me know you're human
+          Let me know you&apos;re human
           <span className="after:text-error after:ml-0.5 after:content-['*']">
             <span className="sr-only"> (required)</span>
           </span>
