@@ -131,15 +131,25 @@ export const ContactForm = ({ searchParams }: ContactFormProps) => {
         </div>
       )}
 
-      <Turnstile
-        ref={turnstileRef}
-        siteKey={TURNSTILE_SITE_KEY}
-        onSuccess={() => setIsTurnstileSolved(true)}
-        onExpire={() => {
-          setIsTurnstileSolved(false);
-          turnstileRef.current?.reset();
-        }}
-      />
+      <div className="grid gap-1">
+        <div className="flex items-baseline justify-between">
+          <label className="text-foreground-muted inline-block text-sm font-medium">
+            Let me know you're human
+            <span className="after:text-error after:ml-0.5 after:content-['*']">
+              <span className="sr-only"> (required)</span>
+            </span>
+          </label>
+        </div>
+        <Turnstile
+          ref={turnstileRef}
+          siteKey={TURNSTILE_SITE_KEY}
+          onSuccess={() => setIsTurnstileSolved(true)}
+          onExpire={() => {
+            setIsTurnstileSolved(false);
+            turnstileRef.current?.reset();
+          }}
+        />
+      </div>
 
       <Form.Submit asChild>
         <button
