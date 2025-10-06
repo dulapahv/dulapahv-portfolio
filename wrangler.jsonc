@@ -1,14 +1,21 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "main": ".open-next/worker.js",
   "name": "dulapahv-portfolio",
-  "keep_names": false,
+  "main": ".open-next/worker.js",
   "compatibility_date": "2025-10-05",
   "compatibility_flags": [
     // Enable Node.js API
     "nodejs_compat",
     // Allow fetch URLs in your app
     "global_fetch_strictly_public",
+  ],
+  "workers_dev": false,
+  "keep_names": false,
+  "routes": [
+    {
+      "custom_domain": true,
+      "pattern": "dulapahv.dev",
+    },
   ],
   "assets": {
     "directory": ".open-next/assets",
