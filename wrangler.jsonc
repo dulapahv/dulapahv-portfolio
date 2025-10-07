@@ -30,7 +30,7 @@
   ],
   "r2_buckets": [
     {
-      "binding": "NEXT_INC_CACHE_KV_PREFIX",
+      "binding": "NEXT_INC_CACHE_KV",
       "bucket_name": "dulapahv-portfolio-cache",
     },
   ],
