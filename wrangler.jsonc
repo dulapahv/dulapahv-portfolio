@@ -28,10 +28,10 @@
       "service": "dulapahv-portfolio",
     },
   ],
-  "r2_buckets": [
+  "kv_namespaces": [
     {
-      "binding": "NEXT_INC_CACHE_R2_BUCKET",
-      "bucket_name": "dulapahv-portfolio-cache",
+      "binding": "NEXT_INC_CACHE_KV",
+      "id": "d857112b390c4a95b6708e5b689eecee",
     },
   ],
   "durable_objects": {
