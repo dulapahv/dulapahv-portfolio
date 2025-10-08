@@ -1,4 +1,4 @@
-import { ViewTransition } from 'react';
+import { unstable_ViewTransition as ViewTransition } from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
