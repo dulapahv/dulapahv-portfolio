@@ -13,6 +13,7 @@ import {
 import { profilePageSchema } from '@/lib/json-ld';
 import { createMetadata } from '@/lib/metadata';
 import { cn } from '@/lib/utils';
+import { CurrentTime } from '@/components/current-time';
 import Footer from '@/components/footer';
 import { Globe } from '@/components/globe';
 import { JsonLd } from '@/components/json-ld';
@@ -20,7 +21,6 @@ import SkillsSection from '@/components/skills-section';
 import SocialLinks from '@/components/social-links';
 import { ThemeAwareImage } from '@/components/theme-aware-image';
 import { getGitHubFollowers } from '@/app/actions/gh-follower';
-import { getTime } from '@/app/actions/time';
 
 const merriweather = Merriweather({
   subsets: ['latin'],
@@ -35,7 +35,6 @@ export const metadata: Metadata = createMetadata({
 
 export default async function Home() {
   const followers = await getGitHubFollowers();
-  const time = await getTime();
 
   return (
     <>
@@ -130,21 +129,7 @@ export default async function Home() {
           </Link>{' '}
           based in Edinburgh,
           <br />
-          United Kingdom{' '}
-          <Link
-            href="https://www.timeanddate.com/time/zone/uk"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`Current time in Edinburgh: ${time}`}
-            className={cn(
-              `border-border bg-background text-foreground-muted inline-flex rounded-md border
-              p-1 pr-1.5 align-middle text-base font-medium transition-colors`,
-              'hover:bg-background-subtle hover:border-border-strong',
-            )}
-          >
-            {time}
-          </Link>
-          .
+          United Kingdom <CurrentTime />.
         </h1>
         <Image
           src="/avatar.jpg"
