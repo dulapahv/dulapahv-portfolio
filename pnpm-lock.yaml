@@ -130,13 +130,13 @@ importers:
         specifier: ^0.5.19
         version: 0.5.19(tailwindcss@4.1.14)
       '@types/node':
-        specifier: ^24.6.2
+        specifier: ^24.7.0
         version: 24.7.0
       '@types/react':
-        specifier: ^19.2.0
+        specifier: ^19.2.2
         version: 19.2.2
       '@types/react-dom':
-        specifier: ^19.2.0
+        specifier: ^19.2.1
         version: 19.2.1(@types/react@19.2.2)
       eslint:
         specifier: ^9.37.0
@@ -6506,7 +6506,7 @@ snapshots:
       '@aws-crypto/sha256-js': 3.0.0
       '@aws-crypto/supports-web-crypto': 3.0.0
       '@aws-crypto/util': 3.0.0
-      '@aws-sdk/types': 3.901.0
+      '@aws-sdk/types': 3.398.0
       '@aws-sdk/util-locate-window': 3.893.0
       '@aws-sdk/util-utf8-browser': 3.259.0
       tslib: 1.14.1
@@ -6524,7 +6524,7 @@ snapshots:
   '@aws-crypto/sha256-js@3.0.0':
     dependencies:
       '@aws-crypto/util': 3.0.0
-      '@aws-sdk/types': 3.901.0
+      '@aws-sdk/types': 3.398.0
       tslib: 1.14.1
 
   '@aws-crypto/sha256-js@5.2.0':
@@ -6543,7 +6543,7 @@ snapshots:
 
   '@aws-crypto/util@3.0.0':
     dependencies:
-      '@aws-sdk/types': 3.901.0
+      '@aws-sdk/types': 3.398.0
       '@aws-sdk/util-utf8-browser': 3.259.0
       tslib: 1.14.1
 
@@ -13594,7 +13594,7 @@ snapshots:
 
   send@1.2.0:
     dependencies:
-      debug: 4.4.3
+      debug: 4.3.6
       encodeurl: 2.0.0
       escape-html: 1.0.3
       etag: 1.8.1
