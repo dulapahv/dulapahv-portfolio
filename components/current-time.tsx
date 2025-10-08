@@ -1,11 +1,10 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
 
 import { cn } from '@/lib/utils';
 
-const getEdinburghTime = () => {
+function getTime() {
   const now = new Date();
 
   const edinburghTimeString = now.toLocaleString('en-GB', {
@@ -31,10 +30,10 @@ const getEdinburghTime = () => {
   else emoji = '🌙';
 
   return `${emoji} ${edinburghTimeString}`;
-};
+}
 
-export const CurrentTime = () => {
-  const [time] = useState(() => getEdinburghTime());
+export function CurrentTime() {
+  const time = getTime();
 
   return (
     <Link
@@ -52,4 +51,4 @@ export const CurrentTime = () => {
       {time}
     </Link>
   );
-};
+}
