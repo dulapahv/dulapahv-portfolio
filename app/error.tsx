@@ -5,8 +5,8 @@ import Link from 'next/link';
 
 import { ArrowsClockwiseIcon } from '@phosphor-icons/react/dist/ssr';
 
+import { IS_DEV_ENV } from '@/lib/constants';
 import { cn } from '@/lib/utils';
-import Breadcrumb from '@/components/breadcrumb';
 import Footer from '@/components/footer';
 
 export default function Error({
@@ -23,10 +23,9 @@ export default function Error({
 
   return (
     <>
-      <Breadcrumb />
       <main className="space-y-4">
         <header>
-          <h1 className="text-3xl font-semibold">An Error Occurred</h1>
+          <h1 className="text-3xl font-semibold">Oops! Something Went Wrong</h1>
         </header>
         <p className="text-foreground-muted">
           An error occurred while rendering this page. Please try again later or{' '}
@@ -35,16 +34,21 @@ export default function Error({
               `Please describe what you were doing when this error occurred:
 
 
+
+Please do not remove the details below, they help me identify and fix the issue faster.
 ====================
 Error Details:
-Status: 500
 Timestamp: ${new Date().toLocaleString()} (${new Date().toISOString()})
+Path: ${typeof window !== 'undefined' ? window.location.pathname : 'N/A'}
+Name: ${error.name || 'N/A'}
+Message: ${error.message || 'N/A'}
+Cause: ${error.cause || 'N/A'}
 Digest: ${error.digest || 'N/A'}
 ====================`,
             )}`}
             className={cn(
-              'text-mirai-red underline underline-offset-4',
-              'hover:text-mirai-red',
+              'text-mirai-red underline underline-offset-2',
+              'hover:decoration-2',
             )}
           >
             contact me
@@ -68,44 +72,31 @@ Digest: ${error.digest || 'N/A'}
           <span>Try Again</span>
         </button>
       </main>
-      <footer className="text-foreground-muted mt-8 border-t border-gray-200 pt-6 dark:border-gray-800">
+      <div className="text-foreground-muted mt-8 border-t border-gray-200 pt-6 dark:border-gray-800">
         <p className="mb-2 font-semibold">Details:</p>
         <code className="block text-sm break-all whitespace-pre-wrap sm:text-base">
-          Status: 500
-          <br />
           {`Timestamp: ${new Date().toLocaleString()} (${new Date().toISOString()})`}
           <br />
+          {`Path: ${typeof window !== 'undefined' ? window.location.pathname : 'N/A'}`}
+          <br />
+          {`Name: ${error.name || 'N/A'}`}
+          <br />
+          {`Message: ${error.message || 'N/A'}`}
+          <br />
+          {`Cause: ${error.cause || 'N/A'}`}
+          <br />
           {`Digest: ${error.digest || 'N/A'}`}
-          {process.env.NODE_ENV === 'development' && (
+          {IS_DEV_ENV && (
             <>
               <br />
-              <br />
-              <span className="text-error">Error: {error.name}</span>
-              <br />
-              <span className="text-error">Message: {error.message}</span>
-              {error.stack && (
-                <>
-                  <br />
-                  <br />
-                  <details className="mt-2">
-                    <summary
-                      className={cn(
-                        'text-foreground cursor-pointer transition-colors',
-                        'hover:text-foreground-muted',
-                      )}
-                    >
-                      Stack Trace
-                    </summary>
-                    <pre className="bg-background-elevated mt-2 overflow-x-auto rounded p-2 text-xs">
-                      {error.stack}
-                    </pre>
-                  </details>
-                </>
-              )}
+              Stack Trace:
+              <pre className="bg-background-elevated overflow-x-auto rounded p-2 text-xs">
+                {error.stack}
+              </pre>
             </>
           )}
         </code>
-      </footer>
+      </div>
       <Footer />
     </>
   );
