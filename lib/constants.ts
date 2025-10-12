@@ -17,7 +17,7 @@ export const DESCRIPTION =
 
 export const NAME_MAX_LENGTH = 256;
 export const EMAIL_MAX_LENGTH = 256;
-export const MESSAGE_MAX_LENGTH = 1000;
+export const MESSAGE_MAX_LENGTH = 2000;
 
 export const EMAIL_REGEX = /^\S+@\S+\.\S+$/;
 export const TURNSTILE_SITE_KEY = IS_DEV_ENV
