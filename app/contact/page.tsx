@@ -1,4 +1,4 @@
-import { unstable_ViewTransition as ViewTransition } from 'react';
+import { ViewTransition } from 'react';
 import type { Metadata } from 'next';
 
 import type { ContactPage } from 'schema-dts';
