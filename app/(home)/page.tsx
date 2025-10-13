@@ -1,4 +1,4 @@
-import { ViewTransition } from 'react';
+import { unstable_ViewTransition as ViewTransition } from 'react';
 import type { Metadata } from 'next';
 import { Merriweather } from 'next/font/google';
 import Image from 'next/image';
