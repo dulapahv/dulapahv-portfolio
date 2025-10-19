@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState, useTransition, type FormEventHandler } from 'react';
+import { useRef, useState, type FormEventHandler } from 'react';
 
 import { Turnstile, type TurnstileInstance } from '@marsidev/react-turnstile';
 import { PaperPlaneTiltIcon } from '@phosphor-icons/react/dist/ssr';
@@ -29,7 +29,7 @@ export const ContactForm = ({ searchParams }: ContactFormProps) => {
   const initialEmail = searchParams?.email || '';
   const initialMessage = searchParams?.message || '';
 
-  const [isPending, startTransition] = useTransition();
+  const [isPending, setIsPending] = useState(false);
   const [submitError, setSubmitError] = useState<string>('');
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [isTurnstileSolved, setIsTurnstileSolved] = useState(false);
@@ -39,39 +39,36 @@ export const ContactForm = ({ searchParams }: ContactFormProps) => {
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault();
-
-    if (isPending) return;
-
-    // Clear previous messages
+    if (!isTurnstileSolved || isPending) {
+      setSubmitError('Please complete the CAPTCHA to verify you are human.');
+      return;
+    }
     setSubmitError('');
     setSubmitSuccess(false);
-
     const formData = new FormData(event.currentTarget);
     const data = {
       name: formData.get('name') as string,
       email: formData.get('email') as string,
       message: formData.get('message') as string,
     };
-
-    startTransition(async () => {
-      try {
-        const result = await sendContactEmail(data);
-
-        if (result.error) {
-          setSubmitError(result.error);
-          return;
-        }
-
-        setSubmitSuccess(true);
-
-        // Reset form
-        formRef.current?.reset();
-      } catch (error) {
-        setSubmitError(
-          `An unexpected error occurred. Please try again.\n${error}`,
-        );
+    try {
+      setIsPending(true);
+      const result = await sendContactEmail(data);
+      if (result.error) {
+        setSubmitError(result.error);
+        return;
       }
-    });
+      setSubmitSuccess(true);
+      formRef.current?.reset();
+    } catch (error) {
+      setSubmitError(
+        `An unexpected error occurred. Please try again.\n${error}`,
+      );
+    } finally {
+      setIsPending(false);
+      setIsTurnstileSolved(false);
+      turnstileRef.current?.reset();
+    }
   };
 
   return (
@@ -159,8 +156,8 @@ export const ContactForm = ({ searchParams }: ContactFormProps) => {
       <Form.Submit asChild>
         <button
           type="submit"
-          disabled={isPending || !isTurnstileSolved}
-          aria-disabled={isPending || !isTurnstileSolved}
+          disabled={!isTurnstileSolved || isPending}
+          aria-disabled={!isTurnstileSolved || isPending}
           aria-describedby={
             submitError
               ? 'submit-error'
@@ -170,8 +167,9 @@ export const ContactForm = ({ searchParams }: ContactFormProps) => {
           }
           className={cn(
             `bg-mirai-red flex w-fit cursor-pointer items-center justify-center gap-2
-            rounded-md px-3 py-2 text-sm font-medium text-white !transition-all select-none`,
-            'hover:bg-mirai-red/90 transition-colors hover:shadow-lg',
+            rounded-md px-3 py-2 text-sm font-medium text-white transition-transform
+            select-none`,
+            'hover:bg-mirai-red/90 hover:shadow-lg',
             'active:scale-[0.98] active:shadow-md',
             'disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:shadow-none',
           )}
