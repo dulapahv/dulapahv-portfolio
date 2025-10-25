@@ -1,12 +1,9 @@
-'use client';
-
 import Link from 'next/link';
 
 import { cn } from '@/lib/utils';
 
 function getTime() {
   const now = new Date();
-
   const edinburghTimeString = now.toLocaleString('en-GB', {
     timeZone: 'Europe/London',
     hour: '2-digit',
@@ -32,7 +29,7 @@ function getTime() {
   return `${emoji} ${edinburghTimeString}`;
 }
 
-export function CurrentTime() {
+export default async function CurrentTime() {
   const time = getTime();
 
   return (

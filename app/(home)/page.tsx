@@ -13,7 +13,7 @@ import {
 import { profilePageSchema } from '@/lib/json-ld';
 import { createMetadata } from '@/lib/metadata';
 import { cn } from '@/lib/utils';
-import { CurrentTime } from '@/components/current-time';
+import CurrentTime from '@/components/current-time';
 import Footer from '@/components/footer';
 import { Globe } from '@/components/globe';
 import { JsonLd } from '@/components/json-ld';
