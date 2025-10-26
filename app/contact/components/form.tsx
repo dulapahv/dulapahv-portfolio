@@ -14,6 +14,7 @@ import {
   TURNSTILE_SITE_KEY,
 } from '@/lib/constants';
 import { cn } from '@/lib/utils';
+import { useOnLeavePageConfirmation } from '@/hooks/use-on-leave-page-confirmation';
 import type { RecipientEmailTemplateProps } from '@/components/email';
 import { Input } from '@/components/input';
 import { Spinner } from '@/components/spinner';
@@ -33,6 +34,7 @@ export const ContactForm = ({ searchParams }: ContactFormProps) => {
   const [submitError, setSubmitError] = useState<string>('');
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [isTurnstileSolved, setIsTurnstileSolved] = useState(false);
+  const [isFormDirty, setIsFormDirty] = useState(false);
 
   const formRef = useRef<HTMLFormElement>(null);
   const turnstileRef = useRef<TurnstileInstance>(null);
@@ -71,10 +73,13 @@ export const ContactForm = ({ searchParams }: ContactFormProps) => {
     }
   };
 
+  useOnLeavePageConfirmation(isFormDirty);
+
   return (
     <Form.Root
       ref={formRef}
       onSubmit={handleSubmit}
+      onChange={() => setIsFormDirty(true)}
       className="grid w-full gap-6"
       role="form"
       aria-label="Contact form"
