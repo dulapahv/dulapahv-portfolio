@@ -9,16 +9,10 @@ import {
   Preview,
   Section,
   Tailwind,
-  Text,
+  Text
 } from '@react-email/components';
 
-import {
-  ASSETS_URL,
-  BASE_URL,
-  GITHUB_URL,
-  LINKEDIN_URL,
-  NAME,
-} from '@/lib/constants';
+import { ASSETS_URL, BASE_URL, GITHUB_URL, LINKEDIN_URL, NAME } from '@/lib/constants';
 
 export interface ConfirmationEmailTemplateProps {
   readonly name: string;
@@ -27,7 +21,7 @@ export interface ConfirmationEmailTemplateProps {
 
 export function ConfirmationEmailTemplate({
   name: fullName,
-  message,
+  message
 }: ConfirmationEmailTemplateProps) {
   return (
     <Html>
@@ -47,15 +41,15 @@ export function ConfirmationEmailTemplate({
               <Text className="text-default-800 text-left text-base leading-6">
                 <strong>Hi {fullName},</strong>
                 <br />
-                Thank you for reaching out to me! I have received your message
-                and will get back to you as soon as possible.
+                Thank you for reaching out to me! I have received your message and will get back to
+                you as soon as possible.
               </Text>
               <Text className="text-sm/6 text-black">
                 <strong>Your message:</strong>
                 <br />
                 <span
                   dangerouslySetInnerHTML={{
-                    __html: message.replace(/\n/g, '<br />'),
+                    __html: message.replace(/\n/g, '<br />')
                   }}
                 />
               </Text>
@@ -69,10 +63,7 @@ export function ConfirmationEmailTemplate({
                   GitHub
                 </Link>{' '}
                 ・{' '}
-                <Link
-                  href={LINKEDIN_URL}
-                  className="text-[#fb568a] no-underline"
-                >
+                <Link href={LINKEDIN_URL} className="text-[#fb568a] no-underline">
                   LinkedIn
                 </Link>
               </Text>

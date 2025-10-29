@@ -7,7 +7,7 @@ import {
   HardDrivesIcon,
   LinkIcon,
   MonitorIcon,
-  ToolboxIcon,
+  ToolboxIcon
 } from '@phosphor-icons/react/dist/ssr';
 
 import { skillsData } from '@/lib/skills-data';
@@ -21,7 +21,7 @@ const iconMap = {
   GearIcon,
   CloudIcon,
   DevicesIcon,
-  ToolboxIcon,
+  ToolboxIcon
 };
 
 const getSizeClasses = (size: string) => {
@@ -49,7 +49,7 @@ export default function SkillsSection() {
           <LinkIcon
             className={cn(
               'absolute top-1/2 -left-6 size-4.5 -translate-y-1/2 opacity-0',
-              'group-hover:opacity-100 group-focus:opacity-100',
+              'group-hover:opacity-100 group-focus:opacity-100'
             )}
             aria-hidden="true"
           />
@@ -70,39 +70,34 @@ export default function SkillsSection() {
                 className={cn(
                   'absolute inset-0 rounded-xl bg-gradient-to-br opacity-5',
                   'group-hover:opacity-8',
-                  category.gradient,
+                  category.gradient
                 )}
               />
 
               {/* Main Card */}
               <div
                 className={cn(
-                  `border-border bg-background/80 relative h-full rounded-xl border p-3
-                  backdrop-blur-sm transition-transform`,
+                  `border-border bg-background/80 relative h-full rounded-xl border p-3 backdrop-blur-sm
+                  transition-transform`,
                   'hover:scale-[1.01]',
-                  category.bgColor,
+                  category.bgColor
                 )}
               >
                 {/* Header */}
-                <div
-                  className={cn(
-                    'flex items-center gap-3',
-                    isLarge ? 'mb-4' : 'mb-3',
-                  )}
-                >
+                <div className={cn('flex items-center gap-3', isLarge ? 'mb-4' : 'mb-3')}>
                   <div
                     className={cn(
                       'text-foreground rounded-lg bg-gradient-to-br p-2 shadow-sm',
-                      category.bgColor,
+                      category.bgColor
                     )}
                   >
-                    <IconComponent className="size-5 flex-shrink-0" />
+                    <IconComponent className="size-5 shrink-0" />
                   </div>
                   <div className="flex-1">
                     <h2
                       className={cn(
                         'text-foreground leading-tight font-bold',
-                        isLarge ? 'text-base' : 'text-sm',
+                        isLarge ? 'text-base' : 'text-sm'
                       )}
                     >
                       {category.category}
@@ -111,24 +106,22 @@ export default function SkillsSection() {
                       className={cn(
                         'mt-1 h-1 rounded-full bg-gradient-to-r',
                         category.gradient,
-                        isLarge ? 'w-10' : 'w-8',
+                        isLarge ? 'w-10' : 'w-8'
                       )}
                     />
                   </div>
                 </div>
 
                 {/* Skills */}
-                <div
-                  className={cn('flex flex-wrap gap-1.5', isLarge && 'gap-2')}
-                >
+                <div className={cn('flex flex-wrap gap-1.5', isLarge && 'gap-2')}>
                   {category.skills.map((skill, index) => (
                     <span
                       key={index}
                       className={cn(
-                        `text-foreground border-foreground/10 cursor-default rounded-full border
-                        bg-white/10 font-medium transition-colors`,
+                        `text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium
+                        transition-colors`,
                         isLarge ? 'px-3 py-1.5 text-xs' : 'px-2.5 py-1 text-xs',
-                        'hover:border-foreground/20 hover:bg-white/15',
+                        'hover:border-foreground/20 hover:bg-white/15'
                       )}
                     >
                       {skill}

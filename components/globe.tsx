@@ -13,12 +13,7 @@ interface GlobeProps {
   className?: string;
 }
 
-export const Globe = ({
-  width,
-  height,
-  markers,
-  className = '',
-}: GlobeProps) => {
+export const Globe = ({ width, height, markers, className = '' }: GlobeProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const pointerInteracting = useRef<number | null>(null);
   const pointerInteractionMovement = useRef(0);
@@ -30,8 +25,8 @@ export const Globe = ({
       mass: 1,
       tension: 280,
       friction: 40,
-      precision: 0.001,
-    },
+      precision: 0.001
+    }
   }));
 
   const { resolvedTheme } = useTheme();
@@ -61,17 +56,12 @@ export const Globe = ({
       mapBrightness: 6,
       opacity: 0.85,
       offset: [0, 75],
-      baseColor:
-        resolvedTheme === 'light'
-          ? [0.98039, 0.98039, 0.98039]
-          : [0.3, 0.3, 0.3],
+      baseColor: resolvedTheme === 'light' ? [0.98039, 0.98039, 0.98039] : [0.3, 0.3, 0.3],
       markerColor: [0.98431, 0.33725, 0.54118],
       glowColor:
-        resolvedTheme === 'light'
-          ? [0.83137, 0.83137, 0.83137]
-          : [0.96078, 0.96078, 0.96078],
+        resolvedTheme === 'light' ? [0.83137, 0.83137, 0.83137] : [0.96078, 0.96078, 0.96078],
       markers,
-      onRender: (state) => {
+      onRender: state => {
         // Auto-rotate when not dragging
         if (!pointerInteracting.current) {
           phiRef.current += 0.002;
@@ -81,7 +71,7 @@ export const Globe = ({
         state.phi = phiRef.current + r.get();
         state.width = currentWidth * 2;
         state.height = height * 2;
-      },
+      }
     });
 
     return () => {
@@ -95,9 +85,8 @@ export const Globe = ({
       aria-label="Globe"
       ref={canvasRef}
       className={className}
-      onPointerDown={(e) => {
-        pointerInteracting.current =
-          e.clientX - pointerInteractionMovement.current;
+      onPointerDown={e => {
+        pointerInteracting.current = e.clientX - pointerInteractionMovement.current;
         if (canvasRef.current) {
           canvasRef.current.style.cursor = 'grabbing';
         }
@@ -114,21 +103,21 @@ export const Globe = ({
           canvasRef.current.style.cursor = 'grab';
         }
       }}
-      onMouseMove={(e) => {
+      onMouseMove={e => {
         if (pointerInteracting.current !== null) {
           const delta = e.clientX - pointerInteracting.current;
           pointerInteractionMovement.current = delta;
           api.start({
-            r: delta / 200,
+            r: delta / 200
           });
         }
       }}
-      onTouchMove={(e) => {
+      onTouchMove={e => {
         if (pointerInteracting.current !== null && e.touches[0]) {
           const delta = e.touches[0].clientX - pointerInteracting.current;
           pointerInteractionMovement.current = delta;
           api.start({
-            r: delta / 100,
+            r: delta / 100
           });
         }
       }}

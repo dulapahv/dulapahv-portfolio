@@ -11,7 +11,7 @@ import {
   EMAIL_REGEX,
   MESSAGE_MAX_LENGTH,
   NAME_MAX_LENGTH,
-  TURNSTILE_SITE_KEY,
+  TURNSTILE_SITE_KEY
 } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { useOnLeavePageConfirmation } from '@/hooks/use-on-leave-page-confirmation';
@@ -39,7 +39,7 @@ export const ContactForm = ({ searchParams }: ContactFormProps) => {
   const formRef = useRef<HTMLFormElement>(null);
   const turnstileRef = useRef<TurnstileInstance>(null);
 
-  const handleSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
+  const handleSubmit: FormEventHandler<HTMLFormElement> = async event => {
     event.preventDefault();
     if (!isTurnstileSolved || isPending) {
       setSubmitError('Please complete the CAPTCHA to verify you are human.');
@@ -51,7 +51,7 @@ export const ContactForm = ({ searchParams }: ContactFormProps) => {
     const data = {
       name: formData.get('name') as string,
       email: formData.get('email') as string,
-      message: formData.get('message') as string,
+      message: formData.get('message') as string
     };
     try {
       setIsPending(true);
@@ -63,9 +63,7 @@ export const ContactForm = ({ searchParams }: ContactFormProps) => {
       setSubmitSuccess(true);
       formRef.current?.reset();
     } catch (error) {
-      setSubmitError(
-        `An unexpected error occurred. Please try again.\n${error}`,
-      );
+      setSubmitError(`An unexpected error occurred. Please try again.\n${error}`);
     } finally {
       setIsPending(false);
       setIsTurnstileSolved(false);
@@ -115,13 +113,9 @@ export const ContactForm = ({ searchParams }: ContactFormProps) => {
 
       {/* Success/Error Messages */}
       {submitSuccess && (
-        <div
-          className="text-success text-sm font-semibold"
-          role="status"
-          aria-live="polite"
-        >
-          Your message has been sent successfully! You will receive a
-          confirmation email and hear back from me soon.
+        <div className="text-success text-sm font-semibold" role="status" aria-live="polite">
+          Your message has been sent successfully! You will receive a confirmation email and hear
+          back from me soon.
         </div>
       )}
       {submitError && (
@@ -164,19 +158,14 @@ export const ContactForm = ({ searchParams }: ContactFormProps) => {
           disabled={!isTurnstileSolved || isPending}
           aria-disabled={!isTurnstileSolved || isPending}
           aria-describedby={
-            submitError
-              ? 'submit-error'
-              : submitSuccess
-                ? 'submit-success'
-                : undefined
+            submitError ? 'submit-error' : submitSuccess ? 'submit-success' : undefined
           }
           className={cn(
-            `bg-mirai-red flex w-fit cursor-pointer items-center justify-center gap-2
-            rounded-md px-3 py-2 text-sm font-medium text-white transition-transform
-            select-none`,
+            `bg-mirai-red flex w-fit cursor-pointer items-center justify-center gap-2 rounded-md px-3 py-2
+            text-sm font-medium text-white transition-transform select-none`,
             'hover:bg-mirai-red/90 hover:shadow-lg',
             'active:scale-[0.98] active:shadow-md',
-            'disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:shadow-none',
+            'disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:shadow-none'
           )}
         >
           <>

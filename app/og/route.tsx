@@ -1,14 +1,12 @@
-import { readFile } from 'node:fs/promises';
-import { join } from 'node:path';
 import { ImageResponse } from 'next/og';
 import type { NextRequest } from 'next/server';
 
+import { readFile } from 'node:fs/promises';
+import { join } from 'node:path';
+
 export const GET = async (request: NextRequest) => {
   const getParam = (key: string): string | null => {
-    return (
-      request.nextUrl.searchParams.get(key) ||
-      request.nextUrl.searchParams.get(`amp;${key}`)
-    );
+    return request.nextUrl.searchParams.get(key) || request.nextUrl.searchParams.get(`amp;${key}`);
   };
 
   const title = getParam('title');
@@ -16,12 +14,8 @@ export const GET = async (request: NextRequest) => {
 
   const logo = await readFile(join(process.cwd(), 'app/og/logo.png'));
   const logoSrc = `data:image/png;base64,${logo.toString('base64')}`;
-  const geistBold = await readFile(
-    join(process.cwd(), 'app/og/Geist-Bold.ttf'),
-  );
-  const geistRegular = await readFile(
-    join(process.cwd(), 'app/og/Geist-Regular.ttf'),
-  );
+  const geistBold = await readFile(join(process.cwd(), 'app/og/Geist-Bold.ttf'));
+  const geistRegular = await readFile(join(process.cwd(), 'app/og/Geist-Regular.ttf'));
 
   return new ImageResponse(
     (
@@ -30,16 +24,10 @@ export const GET = async (request: NextRequest) => {
         style={{
           backgroundSize: '80px 80px',
           backgroundImage:
-            'linear-gradient(to right, #1C1C1C 1px, transparent 1px), linear-gradient(to bottom, #1C1C1C 1px, transparent 1px)',
+            'linear-gradient(to right, #1C1C1C 1px, transparent 1px), linear-gradient(to bottom, #1C1C1C 1px, transparent 1px)'
         }}
       >
-        <img
-          src={logoSrc}
-          alt="avatar"
-          width={72}
-          height={72}
-          tw="overflow-hidden"
-        />
+        <img src={logoSrc} alt="avatar" width={72} height={72} tw="overflow-hidden" />
         <div tw="flex flex-col">
           <h1 tw="max-w-[48rem] text-[64px] font-bold leading-[69px] tracking-tighter m-0 text-[#F1F1F1]">
             {title}
@@ -60,15 +48,15 @@ export const GET = async (request: NextRequest) => {
           name: 'Geist',
           data: geistBold,
           style: 'normal',
-          weight: 700,
+          weight: 700
         },
         {
           name: 'Geist',
           data: geistRegular,
           style: 'normal',
-          weight: 400,
-        },
-      ],
-    },
+          weight: 400
+        }
+      ]
+    }
   );
 };

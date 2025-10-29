@@ -10,7 +10,7 @@ import {
   BookOpenTextIcon,
   BriefcaseIcon,
   HouseIcon,
-  UserIcon,
+  UserIcon
 } from '@phosphor-icons/react/dist/ssr';
 import { motion } from 'motion/react';
 
@@ -20,28 +20,28 @@ const navbarItems = [
   {
     name: 'Home',
     icon: <HouseIcon className="size-4.5 sm:size-5" />,
-    link: '/',
+    link: '/'
   },
   {
     name: 'Work',
     icon: <BriefcaseIcon className="size-4.5 sm:size-5" />,
-    link: '/work',
+    link: '/work'
   },
   {
     name: 'Project',
     icon: <AtomIcon className="size-4.5 sm:size-5" />,
-    link: '/project',
+    link: '/project'
   },
   {
     name: 'Blog',
     icon: <BookOpenTextIcon className="size-4.5 sm:size-5" />,
-    link: '/blog',
+    link: '/blog'
   },
   {
     name: 'Contact',
     icon: <UserIcon className="size-4.5 sm:size-5" />,
-    link: '/contact',
-  },
+    link: '/contact'
+  }
 ];
 
 export const Navbar = () => {
@@ -58,9 +58,7 @@ export const Navbar = () => {
     if (!navRef.current) return;
 
     const links = navRef.current.querySelectorAll('a');
-    const currentIndex = Array.from(links).findIndex(
-      (link) => link === document.activeElement,
-    );
+    const currentIndex = Array.from(links).findIndex(link => link === document.activeElement);
 
     let newIndex = currentIndex;
 
@@ -100,9 +98,9 @@ export const Navbar = () => {
         stiffness: 100,
         damping: 15,
         staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
+        delayChildren: 0.2
+      }
+    }
   };
 
   const itemVariants = {
@@ -113,17 +111,17 @@ export const Navbar = () => {
       transition: {
         type: 'spring' as const,
         stiffness: 200,
-        damping: 20,
-      },
-    },
+        damping: 20
+      }
+    }
   };
 
   return (
     <motion.nav
       ref={navRef}
-      className="bg-background-elevated/80 border-border text-foreground-subtle fixed right-1/2
-        bottom-4 z-50 flex translate-x-1/2 items-center gap-x-6 rounded-full border px-3
-        py-2 shadow-lg backdrop-blur-xl sm:px-4"
+      className="bg-background-elevated/80 border-border text-foreground-subtle fixed right-1/2 bottom-4 z-50 flex
+        translate-x-1/2 items-center gap-x-6 rounded-full border px-3 py-2 shadow-lg backdrop-blur-xl
+        sm:px-4"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
@@ -131,15 +129,11 @@ export const Navbar = () => {
       aria-label="Main navigation"
       onKeyDown={handleKeyDown}
     >
-      {navbarItems.map((item) => {
+      {navbarItems.map(item => {
         const active = isActive(item.link);
 
         return (
-          <motion.div
-            key={item.link}
-            variants={itemVariants}
-            className="relative"
-          >
+          <motion.div key={item.link} variants={itemVariants} className="relative">
             <Link
               href={item.link as Route}
               aria-label={`${item.name}${active ? ', current page' : ''}`}
@@ -149,13 +143,11 @@ export const Navbar = () => {
                 'hover:scale-105 active:scale-98',
                 active
                   ? 'text-mirai-red border-mirai-red border-b-2'
-                  : 'hover:text-foreground-muted',
+                  : 'hover:text-foreground-muted'
               )}
             >
               <span aria-hidden="true">{item.icon}</span>
-              <span className="hidden text-sm font-semibold sm:block">
-                {item.name}
-              </span>
+              <span className="hidden text-sm font-semibold sm:block">{item.name}</span>
 
               {/* Screen reader only current page indicator */}
               {active && <span className="sr-only">(current page)</span>}

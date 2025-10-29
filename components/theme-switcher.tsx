@@ -27,10 +27,7 @@ export const ThemeSwitcher = () => {
   // Close on click outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent | TouchEvent) => {
-      if (
-        containerRef.current &&
-        !containerRef.current.contains(event.target as Node)
-      ) {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
         setIsExpanded(false);
       }
     };
@@ -50,17 +47,14 @@ export const ThemeSwitcher = () => {
     if (!containerRef.current) return;
 
     const buttons = containerRef.current.querySelectorAll('button');
-    const currentIndex = Array.from(buttons).findIndex(
-      (button) => button === document.activeElement,
-    );
+    const currentIndex = Array.from(buttons).findIndex(button => button === document.activeElement);
 
     switch (event.key) {
       case 'ArrowUp':
       case 'ArrowLeft':
         event.preventDefault();
         if (expanded && buttons.length > 1) {
-          const newIndex =
-            currentIndex > 0 ? currentIndex - 1 : buttons.length - 1;
+          const newIndex = currentIndex > 0 ? currentIndex - 1 : buttons.length - 1;
           buttons[newIndex]?.focus();
         }
         break;
@@ -68,8 +62,7 @@ export const ThemeSwitcher = () => {
       case 'ArrowRight':
         event.preventDefault();
         if (expanded && buttons.length > 1) {
-          const newIndex =
-            currentIndex < buttons.length - 1 ? currentIndex + 1 : 0;
+          const newIndex = currentIndex < buttons.length - 1 ? currentIndex + 1 : 0;
           buttons[newIndex]?.focus();
         }
         break;
@@ -112,24 +105,24 @@ export const ThemeSwitcher = () => {
     {
       key: 'system',
       icon: MonitorIcon,
-      label: 'System theme',
+      label: 'System theme'
     },
     {
       key: 'light',
       icon: SunIcon,
-      label: 'Light theme',
+      label: 'Light theme'
     },
     {
       key: 'dark',
       icon: MoonIcon,
-      label: 'Dark theme',
-    },
+      label: 'Dark theme'
+    }
   ];
 
   const containerVariants = {
     hidden: {
       y: 100,
-      opacity: 0,
+      opacity: 0
     },
     visible: {
       y: 0,
@@ -140,9 +133,9 @@ export const ThemeSwitcher = () => {
         stiffness: 100,
         damping: 15,
         duration: 0.5,
-        delay: isHovered || isFocused || isExpanded ? 0 : 0.5,
-      },
-    },
+        delay: isHovered || isFocused || isExpanded ? 0 : 0.5
+      }
+    }
   };
 
   const handleThemeChange = (newTheme: string) => {
@@ -168,21 +161,19 @@ export const ThemeSwitcher = () => {
     }
   };
 
-  const currentTheme = themes.find((t) => t.key === theme);
+  const currentTheme = themes.find(t => t.key === theme);
   const CurrentIcon = currentTheme?.icon || MonitorIcon;
 
   return (
     <motion.div
       ref={containerRef}
       className={cn(
-        `ring-border bg-background-elevated/90 fixed right-5 bottom-4 z-50
-        overflow-hidden rounded-full p-0.5 ring-1 backdrop-blur-xl`,
-        isSmallScreen
-          ? 'flex max-h-7 w-7 flex-col'
-          : 'flex h-7 max-w-7 flex-row',
+        `ring-border bg-background-elevated/90 fixed right-5 bottom-4 z-50 overflow-hidden rounded-full p-0.5
+        ring-1 backdrop-blur-xl`,
+        isSmallScreen ? 'flex max-h-7 w-7 flex-col' : 'flex h-7 max-w-7 flex-row',
         theme === 'system' && 'justify-start',
         theme === 'light' && 'justify-center',
-        theme === 'dark' && 'justify-end',
+        theme === 'dark' && 'justify-end'
       )}
       variants={containerVariants}
       initial="hidden"
@@ -190,13 +181,13 @@ export const ThemeSwitcher = () => {
         ...containerVariants.visible,
         ...(isSmallScreen
           ? { maxHeight: expanded ? '100px' : '28px' }
-          : { maxWidth: expanded ? '100px' : '28px' }),
+          : { maxWidth: expanded ? '100px' : '28px' })
       }}
       transition={{
         ...containerVariants.visible.transition,
         ...(isSmallScreen
           ? { maxHeight: { duration: 0.15, ease: 'easeOut' } }
-          : { maxWidth: { duration: 0.15, ease: 'easeOut' } }),
+          : { maxWidth: { duration: 0.15, ease: 'easeOut' } })
       }}
       onMouseEnter={() => !isTouchDevice && setIsHovered(true)}
       onMouseLeave={() => !isTouchDevice && setIsHovered(false)}
@@ -214,7 +205,7 @@ export const ThemeSwitcher = () => {
           type="button"
           className={cn(
             'relative size-6 shrink-0 cursor-pointer rounded-full transition-colors',
-            'hover:bg-background-subtle',
+            'hover:bg-background-subtle'
           )}
           aria-label={`Current theme: ${currentTheme?.label}. Press Enter or Space to expand theme options`}
           aria-describedby="theme-instructions"
@@ -232,9 +223,9 @@ export const ThemeSwitcher = () => {
               key={key}
               className={cn(
                 'relative size-6 shrink-0 cursor-pointer rounded-full transition-colors',
-                'hover:bg-background-subtle',
+                'hover:bg-background-subtle'
               )}
-              onClick={(e) => {
+              onClick={e => {
                 e.stopPropagation();
                 handleThemeChange(key);
               }}
@@ -247,15 +238,14 @@ export const ThemeSwitcher = () => {
               {isActive && (
                 <motion.div
                   layoutId="activeTheme"
-                  className="bg-background-muted border-border-subtle absolute inset-0 rounded-full border
-                    shadow-sm"
+                  className="bg-background-muted border-border-subtle absolute inset-0 rounded-full border shadow-sm"
                   transition={{ type: 'spring', duration: 0.5 }}
                 />
               )}
               <Icon
                 className={cn(
                   'relative m-auto size-4',
-                  'text-foreground-subtle hover:text-foreground-muted transition-colors',
+                  'text-foreground-subtle hover:text-foreground-muted transition-colors'
                 )}
                 aria-hidden="true"
               />

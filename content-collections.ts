@@ -1,14 +1,9 @@
-import {
-  defineCollection,
-  defineConfig,
-  type Context,
-  type Meta,
-} from '@content-collections/core';
+import { defineCollection, defineConfig, type Context, type Meta } from '@content-collections/core';
 import { compileMDX } from '@content-collections/mdx';
 import {
   transformerNotationDiff,
   transformerNotationErrorLevel,
-  transformerNotationWordHighlight,
+  transformerNotationWordHighlight
 } from '@shikijs/transformers';
 import readingTime from 'reading-time';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
@@ -42,7 +37,7 @@ const baseTransform = async (
     _meta: Meta;
     content: string;
   },
-  context: Context,
+  context: Context
 ) => {
   const body = await compileMDX(context, page, {
     remarkPlugins: [remarkGfm, remarkMath],
@@ -57,25 +52,25 @@ const baseTransform = async (
           transformers: [
             transformerNotationDiff(),
             transformerNotationWordHighlight(),
-            transformerNotationErrorLevel(),
-          ],
-        },
+            transformerNotationErrorLevel()
+          ]
+        }
       ],
       [rehypeKatex, { output: 'mathml' }],
       [
         rehypeGithubAlerts,
         {
-          alerts: notificationTypes,
-        },
+          alerts: notificationTypes
+        }
       ],
-      rehypePresetMinify,
-    ],
+      rehypePresetMinify
+    ]
   });
 
   return {
     body,
     slug: page._meta.path,
-    readingTime: readingTime(page.content).text,
+    readingTime: readingTime(page.content).text
   };
 };
 
@@ -85,7 +80,7 @@ const createWorkCollection = (name: string, directory: string) =>
     name,
     directory,
     include: '*.mdx',
-    schema: (z) => ({
+    schema: z => ({
       position: z.string(),
       company: z.string(),
       location: z.string(),
@@ -98,7 +93,7 @@ const createWorkCollection = (name: string, directory: string) =>
         .regex(/^\d{2}-\d{2}-\d{4}$/, 'End date must be in DD-MM-YYYY format')
         .transform(parseDate)
         .optional(),
-      image: z.string().optional(),
+      image: z.string().optional()
     }),
     transform: async (page, context) => {
       const baseResult = await baseTransform(page, context);
@@ -113,8 +108,8 @@ const createWorkCollection = (name: string, directory: string) =>
       if (page.endDate && page.startDate > page.endDate) {
         throw new Error(
           `Invalid date range for ${page.company} - ${page.position}: start date (${formatDate(
-            page.startDate,
-          )}) is after end date (${formatDate(page.endDate)})`,
+            page.startDate
+          )}) is after end date (${formatDate(page.endDate)})`
         );
       }
 
@@ -133,15 +128,13 @@ const createWorkCollection = (name: string, directory: string) =>
         // Add duration calculation
         duration: page.endDate
           ? Math.ceil(
-              (page.endDate.getTime() - page.startDate.getTime()) /
-                (1000 * 60 * 60 * 24 * 30),
+              (page.endDate.getTime() - page.startDate.getTime()) / (1000 * 60 * 60 * 24 * 30)
             ) // months
           : Math.ceil(
-              (new Date().getTime() - page.startDate.getTime()) /
-                (1000 * 60 * 60 * 24 * 30),
-            ), // months to present
+              (new Date().getTime() - page.startDate.getTime()) / (1000 * 60 * 60 * 24 * 30)
+            ) // months to present
       };
-    },
+    }
   });
 
 // Collection for projects with start and end dates
@@ -150,7 +143,7 @@ const createProjectCollection = (name: string, directory: string) =>
     name,
     directory,
     include: '*.mdx',
-    schema: (z) => ({
+    schema: z => ({
       title: z.string(),
       description: z.string(),
       startDate: z
@@ -162,7 +155,7 @@ const createProjectCollection = (name: string, directory: string) =>
         .regex(/^\d{2}-\d{2}-\d{4}$/, 'End date must be in DD-MM-YYYY format')
         .transform(parseDate)
         .optional(),
-      image: z.string().optional(),
+      image: z.string().optional()
     }),
     transform: async (page, context) => {
       const baseResult = await baseTransform(page, context);
@@ -177,8 +170,8 @@ const createProjectCollection = (name: string, directory: string) =>
       if (page.endDate && page.startDate > page.endDate) {
         throw new Error(
           `Invalid date range for ${page.title}: start date (${formatDate(
-            page.startDate,
-          )}) is after end date (${formatDate(page.endDate)})`,
+            page.startDate
+          )}) is after end date (${formatDate(page.endDate)})`
         );
       }
 
@@ -193,15 +186,13 @@ const createProjectCollection = (name: string, directory: string) =>
         // Add duration calculation
         duration: page.endDate
           ? Math.ceil(
-              (page.endDate.getTime() - page.startDate.getTime()) /
-                (1000 * 60 * 60 * 24 * 30),
+              (page.endDate.getTime() - page.startDate.getTime()) / (1000 * 60 * 60 * 24 * 30)
             ) // months
           : Math.ceil(
-              (new Date().getTime() - page.startDate.getTime()) /
-                (1000 * 60 * 60 * 24 * 30),
-            ), // months to present
+              (new Date().getTime() - page.startDate.getTime()) / (1000 * 60 * 60 * 24 * 30)
+            ) // months to present
       };
-    },
+    }
   });
 
 // Collection for blogs with single date
@@ -210,14 +201,14 @@ const createBlogCollection = (name: string, directory: string) =>
     name,
     directory,
     include: '*.mdx',
-    schema: (z) => ({
+    schema: z => ({
       title: z.string(),
       description: z.string(),
       date: z
         .string()
         .regex(/^\d{2}-\d{2}-\d{4}$/, 'Date must be in DD-MM-YYYY format')
         .transform(parseDate),
-      image: z.string().optional(),
+      image: z.string().optional()
     }),
     transform: async (page, context) => {
       const baseResult = await baseTransform(page, context);
@@ -225,9 +216,9 @@ const createBlogCollection = (name: string, directory: string) =>
       return {
         ...page,
         ...baseResult,
-        formattedDate: formatDate(page.date),
+        formattedDate: formatDate(page.date)
       };
-    },
+    }
   });
 
 // Create collections
@@ -236,5 +227,5 @@ const projects = createProjectCollection('projects', 'content/project');
 const blogs = createBlogCollection('blogs', 'content/blog');
 
 export default defineConfig({
-  collections: [works, projects, blogs],
+  collections: [works, projects, blogs]
 });

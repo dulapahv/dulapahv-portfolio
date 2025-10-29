@@ -9,7 +9,7 @@ import {
   ExportIcon,
   LinkSimpleHorizontalIcon,
   MarkdownLogoIcon,
-  SparkleIcon,
+  SparkleIcon
 } from '@phosphor-icons/react/dist/ssr';
 
 import { cn } from '@/lib/utils';
@@ -36,16 +36,14 @@ export default function ShareButtons({ page }: ShareButtonsProps) {
   const popupRefs = useRef<{ [key: string]: Window | null }>({
     X: null,
     facebook: null,
-    linkedin: null,
+    linkedin: null
   });
 
   // Check for native share support
   useEffect(() => {
     const checkShareSupport = () => {
       if (typeof window !== 'undefined' && 'share' in navigator) {
-        setSupportsNativeShare(
-          navigator.canShare?.({ url: window.location.href }) ?? true,
-        );
+        setSupportsNativeShare(navigator.canShare?.({ url: window.location.href }) ?? true);
       }
     };
 
@@ -55,10 +53,7 @@ export default function ShareButtons({ page }: ShareButtonsProps) {
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsDropdownOpen(false);
       }
     };
@@ -77,7 +72,7 @@ export default function ShareButtons({ page }: ShareButtonsProps) {
     try {
       await navigator.share({
         title: document.title,
-        url: window.location.href,
+        url: window.location.href
       });
     } catch (err) {
       if (err instanceof Error && err.name !== 'AbortError') {
@@ -115,9 +110,7 @@ export default function ShareButtons({ page }: ShareButtonsProps) {
     setIsCopying(true);
 
     try {
-      const response = await fetch(
-        `${window.location.origin}${window.location.pathname}.md`,
-      );
+      const response = await fetch(`${window.location.origin}${window.location.pathname}.md`);
       if (!response.ok) throw new Error('Failed to fetch markdown');
       const markdown = await response.text();
       await copyToClipboard(markdown);
@@ -171,7 +164,7 @@ export default function ShareButtons({ page }: ShareButtonsProps) {
     const popup = window.open(
       shareUrl,
       `share_${platform}`,
-      `width=${popupWidth},height=${popupHeight},left=${left},top=${top},scrollbars=yes,resizable=yes`,
+      `width=${popupWidth},height=${popupHeight},left=${left},top=${top},scrollbars=yes,resizable=yes`
     );
 
     if (popup) {
@@ -200,20 +193,15 @@ export default function ShareButtons({ page }: ShareButtonsProps) {
   };
 
   return (
-    <div
-      className="flex flex-wrap items-center gap-3"
-      role="group"
-      aria-label="Share options"
-    >
+    <div className="flex flex-wrap items-center gap-3" role="group" aria-label="Share options">
       {/* Native Share Button or Copy Link Button (fallback) */}
       {supportsNativeShare ? (
         <button
           onClick={handleNativeShare}
-          onKeyDown={(e) => handleKeyDown(e, handleNativeShare)}
+          onKeyDown={e => handleKeyDown(e, handleNativeShare)}
           className={cn(
-            `bg-background border-border aspect-square cursor-pointer rounded-full border
-              p-1.5 transition-colors`,
-            'hover:bg-background-subtle hover:border-border-strong',
+            'bg-background border-border aspect-square cursor-pointer rounded-full border p-1.5 transition-colors',
+            'hover:bg-background-subtle hover:border-border-strong'
           )}
           title="Share this page"
           aria-label="Share this page"
@@ -223,18 +211,13 @@ export default function ShareButtons({ page }: ShareButtonsProps) {
       ) : (
         <button
           onClick={() => copyToClipboard(window.location.href)}
-          onKeyDown={(e) =>
-            handleKeyDown(e, () => copyToClipboard(window.location.href))
-          }
+          onKeyDown={e => handleKeyDown(e, () => copyToClipboard(window.location.href))}
           className={cn(
-            `bg-background border-border aspect-square cursor-pointer rounded-full border
-              p-1.5 transition-colors`,
-            'hover:bg-background-subtle hover:border-border-strong',
+            'bg-background border-border aspect-square cursor-pointer rounded-full border p-1.5 transition-colors',
+            'hover:bg-background-subtle hover:border-border-strong'
           )}
           title={copied ? 'Link copied!' : 'Copy link to clipboard'}
-          aria-label={
-            copied ? 'Link copied to clipboard' : 'Copy link to clipboard'
-          }
+          aria-label={copied ? 'Link copied to clipboard' : 'Copy link to clipboard'}
           disabled={copied}
         >
           <div className="text-foreground relative">
@@ -250,11 +233,10 @@ export default function ShareButtons({ page }: ShareButtonsProps) {
       {/* X Share Button */}
       <button
         onClick={() => shareOnSocialMedia('X')}
-        onKeyDown={(e) => handleKeyDown(e, () => shareOnSocialMedia('X'))}
+        onKeyDown={e => handleKeyDown(e, () => shareOnSocialMedia('X'))}
         className={cn(
-          `bg-background border-border aspect-square cursor-pointer rounded-full border p-2
-          transition-colors`,
-          'hover:bg-background-subtle hover:border-border-strong',
+          'bg-background border-border aspect-square cursor-pointer rounded-full border p-2 transition-colors',
+          'hover:bg-background-subtle hover:border-border-strong'
         )}
         title="Share on X"
         aria-label="Share on X"
@@ -272,47 +254,29 @@ export default function ShareButtons({ page }: ShareButtonsProps) {
       {/* Facebook Share Button */}
       <button
         onClick={() => shareOnSocialMedia('facebook')}
-        onKeyDown={(e) =>
-          handleKeyDown(e, () => shareOnSocialMedia('facebook'))
-        }
+        onKeyDown={e => handleKeyDown(e, () => shareOnSocialMedia('facebook'))}
         className={cn(
-          `bg-background border-border aspect-square cursor-pointer rounded-full border p-1
-          transition-colors`,
-          'hover:bg-background-subtle hover:border-border-strong',
+          'bg-background border-border aspect-square cursor-pointer rounded-full border p-1 transition-colors',
+          'hover:bg-background-subtle hover:border-border-strong'
         )}
         title="Share on Facebook"
         aria-label="Share on Facebook"
       >
-        <Image
-          src="/facebook.svg"
-          width={24}
-          height={24}
-          alt=""
-          aria-hidden="true"
-        />
+        <Image src="/facebook.svg" width={24} height={24} alt="" aria-hidden="true" />
       </button>
 
       {/* LinkedIn Share Button */}
       <button
         onClick={() => shareOnSocialMedia('linkedin')}
-        onKeyDown={(e) =>
-          handleKeyDown(e, () => shareOnSocialMedia('linkedin'))
-        }
+        onKeyDown={e => handleKeyDown(e, () => shareOnSocialMedia('linkedin'))}
         className={cn(
-          `bg-background border-border aspect-square cursor-pointer rounded-full border
-          p-1.5 transition-colors`,
-          'hover:bg-background-subtle hover:border-border-strong',
+          'bg-background border-border aspect-square cursor-pointer rounded-full border p-1.5 transition-colors',
+          'hover:bg-background-subtle hover:border-border-strong'
         )}
         title="Share on LinkedIn"
         aria-label="Share on LinkedIn"
       >
-        <Image
-          src="/linkedin.svg"
-          width={20}
-          height={20}
-          alt=""
-          aria-hidden="true"
-        />
+        <Image src="/linkedin.svg" width={20} height={20} alt="" aria-hidden="true" />
       </button>
 
       {/* Copy page with dropdown */}
@@ -321,22 +285,14 @@ export default function ShareButtons({ page }: ShareButtonsProps) {
           <div className="bg-background border-border flex items-center rounded-md border">
             <button
               onClick={copyPageAsMarkdown}
-              onKeyDown={(e) => handleKeyDown(e, copyPageAsMarkdown)}
+              onKeyDown={e => handleKeyDown(e, copyPageAsMarkdown)}
               className={cn(
-                `flex cursor-pointer items-center gap-2 px-3 py-1.5 text-sm font-medium
-                transition-colors`,
+                'flex cursor-pointer items-center gap-2 px-3 py-1.5 text-sm font-medium transition-colors',
                 'border-border border-r',
                 'hover:bg-background-subtle',
-                `disabled:bg-background-muted disabled:text-foreground-muted
-                disabled:cursor-not-allowed`,
+                'disabled:bg-background-muted disabled:text-foreground-muted disabled:cursor-not-allowed'
               )}
-              title={
-                isCopying
-                  ? 'Copying...'
-                  : copiedPage
-                    ? 'Copied!'
-                    : 'Copy page as Markdown'
-              }
+              title={isCopying ? 'Copying...' : copiedPage ? 'Copied!' : 'Copy page as Markdown'}
               aria-label={
                 isCopying
                   ? 'Copying page as Markdown'
@@ -346,17 +302,11 @@ export default function ShareButtons({ page }: ShareButtonsProps) {
               }
               disabled={isCopying || copiedPage}
             >
-              {isCopying ? (
-                <p>Copying...</p>
-              ) : copiedPage ? (
-                <p>Copied!</p>
-              ) : (
-                <p>Copy Page</p>
-              )}
+              {isCopying ? <p>Copying...</p> : copiedPage ? <p>Copied!</p> : <p>Copy Page</p>}
             </button>
             <button
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              onKeyDown={(e) => {
+              onKeyDown={e => {
                 if (e.key === 'Enter' || e.key === ' ') {
                   e.preventDefault();
                   setIsDropdownOpen(!isDropdownOpen);
@@ -366,7 +316,7 @@ export default function ShareButtons({ page }: ShareButtonsProps) {
               }}
               className={cn(
                 'flex cursor-pointer items-center px-2 py-2 transition-colors',
-                'hover:bg-background-subtle',
+                'hover:bg-background-subtle'
               )}
               title="More options"
               aria-label="More options"
@@ -374,10 +324,7 @@ export default function ShareButtons({ page }: ShareButtonsProps) {
               aria-haspopup="true"
             >
               <CaretDownIcon
-                className={cn(
-                  'size-4 transition-transform',
-                  isDropdownOpen && 'rotate-180',
-                )}
+                className={cn('size-4 transition-transform', isDropdownOpen && 'rotate-180')}
                 aria-hidden="true"
               />
             </button>
@@ -388,7 +335,7 @@ export default function ShareButtons({ page }: ShareButtonsProps) {
             <div
               className={cn(
                 'bg-background border-border absolute top-full right-0 z-50 mt-1 min-w-[200px]',
-                'rounded-md border shadow-lg',
+                'rounded-md border shadow-lg'
               )}
               role="menu"
               aria-orientation="vertical"
@@ -398,7 +345,7 @@ export default function ShareButtons({ page }: ShareButtonsProps) {
                   viewAsMarkdown();
                   setIsDropdownOpen(false);
                 }}
-                onKeyDown={(e) => {
+                onKeyDown={e => {
                   if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
                     viewAsMarkdown();
@@ -409,7 +356,7 @@ export default function ShareButtons({ page }: ShareButtonsProps) {
                 }}
                 className={cn(
                   'text-foreground flex w-full cursor-pointer items-center gap-2 px-3 py-2 text-sm',
-                  'hover:bg-background-subtle transition-colors',
+                  'hover:bg-background-subtle transition-colors'
                 )}
                 role="menuitem"
               >
@@ -421,7 +368,7 @@ export default function ShareButtons({ page }: ShareButtonsProps) {
                   window.open('https://chat.dulapahv.dev', '_blank');
                   setIsDropdownOpen(false);
                 }}
-                onKeyDown={(e) => {
+                onKeyDown={e => {
                   if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
                     window.open('https://chat.dulapahv.dev', '_blank');
@@ -432,7 +379,7 @@ export default function ShareButtons({ page }: ShareButtonsProps) {
                 }}
                 className={cn(
                   'text-foreground flex w-full cursor-pointer items-center gap-2 px-3 py-2 text-sm',
-                  'hover:bg-background-subtle transition-colors',
+                  'hover:bg-background-subtle transition-colors'
                 )}
                 role="menuitem"
               >

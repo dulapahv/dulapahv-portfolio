@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 
 import { cn } from '@/lib/utils';
@@ -8,15 +10,15 @@ function getTime() {
     timeZone: 'Europe/London',
     hour: '2-digit',
     minute: '2-digit',
-    hour12: false,
+    hour12: false
   });
 
   const edinburghHour = Number(
     now.toLocaleString('en-GB', {
       timeZone: 'Europe/London',
       hour: '2-digit',
-      hour12: false,
-    }),
+      hour12: false
+    })
   );
 
   let emoji = '🕰️';
@@ -29,7 +31,7 @@ function getTime() {
   return `${emoji} ${edinburghTimeString}`;
 }
 
-export default async function CurrentTime() {
+export function CurrentTime() {
   const time = getTime();
 
   return (
@@ -39,9 +41,9 @@ export default async function CurrentTime() {
       rel="noopener noreferrer"
       aria-label={`Current time in Edinburgh: ${time}`}
       className={cn(
-        `border-border bg-background text-foreground-muted inline-flex rounded-md border
-        p-1 pr-1.5 align-middle text-base font-medium transition-colors`,
-        'hover:bg-background-subtle hover:border-border-strong',
+        `border-border bg-background text-foreground-muted inline-flex rounded-md border p-1 pr-1.5
+        align-middle text-base font-medium transition-colors`,
+        'hover:bg-background-subtle hover:border-border-strong'
       )}
       suppressHydrationWarning
     >

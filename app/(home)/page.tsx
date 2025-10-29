@@ -1,19 +1,14 @@
-import { unstable_ViewTransition as ViewTransition } from 'react';
+import { Suspense, ViewTransition } from 'react';
 import type { Metadata } from 'next';
 import { Merriweather } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import {
-  DESCRIPTION,
-  EDUCATION_LOCATION,
-  GITHUB_URL,
-  LINKEDIN_URL,
-} from '@/lib/constants';
+import { DESCRIPTION, EDUCATION_LOCATION, GITHUB_URL, LINKEDIN_URL } from '@/lib/constants';
 import { profilePageSchema } from '@/lib/json-ld';
 import { createMetadata } from '@/lib/metadata';
 import { cn } from '@/lib/utils';
-import CurrentTime from '@/components/current-time';
+import { CurrentTime } from '@/components/current-time';
 import Footer from '@/components/footer';
 import { Globe } from '@/components/globe';
 import { JsonLd } from '@/components/json-ld';
@@ -24,13 +19,13 @@ import { getGitHubFollowers } from '@/app/actions/gh-follower';
 
 const merriweather = Merriweather({
   subsets: ['latin'],
-  weight: '700',
+  weight: '700'
 });
 
 export const metadata: Metadata = createMetadata({
   title: 'Home',
   description: DESCRIPTION,
-  ogText: 'Dulapah Vibulsanti\nSoftware Engineer',
+  ogText: 'Dulapah Vibulsanti\nSoftware Engineer'
 });
 
 export default async function Home() {
@@ -43,7 +38,7 @@ export default async function Home() {
         <h1
           className={cn(
             'order-2 mr-auto max-w-[545px] text-2xl font-semibold sm:order-1 sm:text-3xl/11',
-            merriweather.className,
+            merriweather.className
           )}
         >
           <span className="text-mirai-red">
@@ -60,7 +55,7 @@ export default async function Home() {
                 className={cn(
                   'inline-block cursor-grab align-baseline',
                   'hover:animate-wave',
-                  'active:cursor-grabbing',
+                  'active:cursor-grabbing'
                 )}
                 width={24}
                 height={24}
@@ -74,15 +69,10 @@ export default async function Home() {
               aria-label="Connect with me on LinkedIn"
               className={cn(
                 'border-border bg-background inline-flex rounded-md border p-1 transition-colors',
-                'hover:bg-background-subtle hover:border-border-strong',
+                'hover:bg-background-subtle hover:border-border-strong'
               )}
             >
-              <Image
-                src="/linkedin.svg"
-                alt="LinkedIn"
-                width={24}
-                height={24}
-              />
+              <Image src="/linkedin.svg" alt="LinkedIn" width={24} height={24} />
             </Link>
             .
           </span>
@@ -93,10 +83,7 @@ export default async function Home() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="View Thailand on map"
-            className={cn(
-              'inline-block align-middle transition-transform',
-              'hover:scale-105',
-            )}
+            className={cn('inline-block align-middle transition-transform', 'hover:scale-105')}
           >
             <Image src="/thailand.svg" alt="Thailand" width={28} height={28} />
           </Link>{' '}
@@ -107,9 +94,8 @@ export default async function Home() {
             rel="noopener noreferrer"
             aria-label={`GitHub profile with ${followers} followers`}
             className={cn(
-              `border-border bg-background inline-flex rounded-md border px-2 py-1 align-middle
-              transition-colors`,
-              'hover:bg-background-subtle hover:border-border-strong',
+              'border-border bg-background inline-flex rounded-md border px-2 py-1 align-middle transition-colors',
+              'hover:bg-background-subtle hover:border-border-strong'
             )}
           >
             <ThemeAwareImage
@@ -120,22 +106,22 @@ export default async function Home() {
               height={24}
               className="align-middle"
             />
-            <p
-              className="border-border-subtle text-foreground-muted ml-2 border-l pl-2 text-base
-                font-medium"
-            >
+            <p className="border-border-subtle text-foreground-muted ml-2 border-l pl-2 text-base font-medium">
               {followers}
             </p>
           </Link>{' '}
           based in Edinburgh,
           <br />
-          United Kingdom <CurrentTime />.
+          United Kingdom{' '}
+          <Suspense fallback="00:00">
+            <CurrentTime />
+          </Suspense>
+          .
         </h1>
         <Image
           src="/avatar.jpg"
           alt="Dulapah Vibulsanti"
-          className="ring-border-subtle bg-background-muted/50 order-1 size-24 rounded-full ring-2
-            sm:size-32 md:order-2"
+          className="ring-border-subtle bg-background-muted/50 order-1 size-24 rounded-full ring-2 sm:size-32 md:order-2"
           width={128}
           height={128}
           priority
@@ -144,92 +130,71 @@ export default async function Home() {
       <ViewTransition default="slide">
         {/* <ViewTransition update="none"> */}
         <blockquote
-          className="border-l-mirai-red border-border bg-background text-foreground rounded-md border
-            border-l-8 py-2 pr-2.5 pl-3 italic shadow-sm"
+          className="border-l-mirai-red border-border bg-background text-foreground rounded-md border border-l-8 py-2
+            pr-2.5 pl-3 italic shadow-sm"
         >
-          &quot;I believe accessible and delightful technology has the power to
-          transform lives, and that&apos;s what I&apos;ve been working toward
-          since the very beginning.&quot;
+          &quot;I believe accessible and delightful technology has the power to transform lives, and
+          that&apos;s what I&apos;ve been working toward since the very beginning.&quot;
         </blockquote>
 
         <SocialLinks />
         {/* </ViewTransition> */}
 
         <article className="text-foreground leading-7">
-          I&apos;m a{' '}
-          <b className="text-foreground font-semibold">
-            Graduate Software Engineer
-          </b>{' '}
-          at{' '}
+          I&apos;m a <b className="text-foreground font-semibold">Graduate Software Engineer</b> at{' '}
           <Link
             href="https://www.natwestgroup.com/"
-            className={cn(
-              'text-mirai-red underline underline-offset-2',
-              'hover:decoration-2',
-            )}
+            className={cn('text-mirai-red underline underline-offset-2', 'hover:decoration-2')}
             target="_blank"
             rel="noopener noreferrer"
           >
             NatWest Group
           </Link>
-          , one of the United Kingdom&apos;s Big Four banks, serving over 20
-          million customers across retail, commercial, and private banking.
+          , one of the United Kingdom&apos;s Big Four banks, serving over 20 million customers
+          across retail, commercial, and private banking.
           <br />
           <br />
           In 2024, I completed an internship at NatWest Group as a{' '}
-          <b className="text-foreground font-semibold">
-            Software Engineer Intern
-          </b>
-          , where I honed my skills across frontend, backend, cloud
-          technologies, DevOps, and data analytics. Following the internship, I
-          was thrilled to receive a{' '}
-          <b className="text-foreground font-semibold">return offer</b> to join
-          as a Graduate Software Engineer, starting in September 2025.
+          <b className="text-foreground font-semibold">Software Engineer Intern</b>, where I honed
+          my skills across frontend, backend, cloud technologies, DevOps, and data analytics.
+          Following the internship, I was thrilled to receive a{' '}
+          <b className="text-foreground font-semibold">return offer</b> to join as a Graduate
+          Software Engineer, starting in September 2025.
           <br />
           <Globe
             width={384}
             height={320}
             markers={[...EDUCATION_LOCATION]}
-            className="float-left -ml-8 h-72 w-screen cursor-grab overflow-hidden rounded-lg
-              min-[425px]:ml-0 min-[425px]:w-full sm:mt-4 sm:w-96"
+            className="float-left -ml-8 h-72 w-screen cursor-grab overflow-hidden rounded-lg min-[425px]:ml-0
+              min-[425px]:w-full sm:mt-4 sm:w-96"
           />
           <br />
-          In 2025, I completed a double degree program in Software Engineering,
-          earning a{' '}
+          In 2025, I completed a double degree program in Software Engineering, earning a{' '}
           <b className="text-foreground font-semibold">
-            Bachelor of Science with Honours (BSc Hons) with First Class Honours
-            and Specialism in Parallel and Distributed Systems
+            Bachelor of Science with Honours (BSc Hons) with First Class Honours and Specialism in
+            Parallel and Distributed Systems
           </b>{' '}
           from{' '}
           <Link
             href="https://www.gla.ac.uk/"
-            className={cn(
-              'text-mirai-red underline underline-offset-2',
-              'hover:decoration-2',
-            )}
+            className={cn('text-mirai-red underline underline-offset-2', 'hover:decoration-2')}
             target="_blank"
             rel="noopener noreferrer"
           >
             University of Glasgow
           </Link>
           , a Russell Group university in the United Kingdom, and a{' '}
-          <b className="text-foreground font-semibold">
-            Bachelor of Engineering (B.Eng.)
-          </b>{' '}
-          from{' '}
+          <b className="text-foreground font-semibold">Bachelor of Engineering (B.Eng.)</b> from{' '}
           <Link
             href="https://www.kmitl.ac.th/"
-            className={cn(
-              'text-mirai-red underline underline-offset-2',
-              'hover:decoration-2',
-            )}
+            className={cn('text-mirai-red underline underline-offset-2', 'hover:decoration-2')}
             target="_blank"
             rel="noopener noreferrer"
           >
             King Mongkut&apos;s Institute of Technology Ladkrabang (KMITL)
           </Link>
-          , Thailand. I completed the first two years of the program in Thailand
-          and the final two years in the United Kingdom.
+          , Thailand. I completed the first two years of the program in Thailand and the final two
+          years in the United Kingdom.
           <br />
           <br />
           Looking forward to where my career will take me...

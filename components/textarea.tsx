@@ -9,13 +9,7 @@ type TextareaProps = TextareaHTMLAttributes<HTMLTextAreaElement> & {
   name: string;
 };
 
-export const Textarea = ({
-  label,
-  name,
-  className,
-  required,
-  ...props
-}: TextareaProps) => {
+export const Textarea = ({ label, name, className, required, ...props }: TextareaProps) => {
   const fieldId = `field-${name}`;
   const errorId = `error-${name}`;
   const successId = `success-${name}`;
@@ -28,24 +22,14 @@ export const Textarea = ({
           htmlFor={fieldId}
         >
           {label && (
-            <span
-              className={
-                required
-                  ? 'after:text-error after:ml-0.5 after:content-["*"]'
-                  : ''
-              }
-            >
+            <span className={required ? 'after:text-error after:ml-0.5 after:content-["*"]' : ''}>
               {label}
               {required && <span className="sr-only"> (required)</span>}
             </span>
           )}
         </Form.Label>
 
-        <Form.Message
-          className="text-error text-sm"
-          match="badInput"
-          id={`${errorId}-badInput`}
-        >
+        <Form.Message className="text-error text-sm" match="badInput" id={`${errorId}-badInput`}>
           Please enter a valid {name}.
         </Form.Message>
         <Form.Message
@@ -69,32 +53,16 @@ export const Textarea = ({
         >
           The {name} is low.
         </Form.Message>
-        <Form.Message
-          className="text-error text-sm"
-          match="tooLong"
-          id={`${errorId}-long`}
-        >
+        <Form.Message className="text-error text-sm" match="tooLong" id={`${errorId}-long`}>
           The {name} must be less than {props.maxLength} characters.
         </Form.Message>
-        <Form.Message
-          className="text-error text-sm"
-          match="tooShort"
-          id={`${errorId}-short`}
-        >
+        <Form.Message className="text-error text-sm" match="tooShort" id={`${errorId}-short`}>
           The {name} must be at least {props.minLength} characters.
         </Form.Message>
-        <Form.Message
-          className="text-success text-sm"
-          match="valid"
-          id={successId}
-        >
+        <Form.Message className="text-success text-sm" match="valid" id={successId}>
           Looks good!
         </Form.Message>
-        <Form.Message
-          className="text-error text-sm"
-          match="valueMissing"
-          id={`${errorId}-missing`}
-        >
+        <Form.Message className="text-error text-sm" match="valueMissing" id={`${errorId}-missing`}>
           Please enter your {name}.
         </Form.Message>
       </div>
@@ -104,10 +72,10 @@ export const Textarea = ({
           id={fieldId}
           name={name}
           className={cn(
-            `bg-background-subtle border-border text-foreground max-h-[274px] min-h-[137px]
-            w-full rounded-md border px-3 py-2 text-sm outline-none`,
+            `bg-background-subtle border-border text-foreground max-h-[274px] min-h-[137px] w-full rounded-md
+            border px-3 py-2 text-sm outline-none`,
             'placeholder:text-foreground-subtle',
-            className,
+            className
           )}
           required={required}
           aria-required={required}

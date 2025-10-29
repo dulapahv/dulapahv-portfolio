@@ -9,13 +9,13 @@ export const social = {
     href: GITHUB_URL,
     icon: GitHub,
     follow: true,
-    invert: true,
+    invert: true
   },
   linkedin: {
     label: 'LinkedIn',
     href: LINKEDIN_URL,
     icon: LinkedIn,
     follow: true,
-    invert: false,
-  },
+    invert: false
+  }
 };

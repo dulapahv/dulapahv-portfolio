@@ -15,7 +15,7 @@ type MetadataGenerator = Omit<Metadata, 'description' | 'title'> & {
 const applicationName = 'DulapahV Portfolio';
 const author: Metadata['authors'] = {
   name: 'Dulapah Vibulsanti',
-  url: BASE_URL,
+  url: BASE_URL
 };
 const publisher = 'Dulapah Vibulsanti';
 const twitterHandle = '@dulapahv';
@@ -40,12 +40,12 @@ export const createMetadata = ({
     authors: [author],
     creator: author.name,
     formatDetection: {
-      telephone: false,
+      telephone: false
     },
     appleWebApp: {
       capable: true,
       statusBarStyle: 'default',
-      title: parsedTitle,
+      title: parsedTitle
     },
     openGraph: {
       title: parsedTitle,
@@ -58,9 +58,9 @@ export const createMetadata = ({
         {
           url: imageUrl,
           width: 1200,
-          height: 630,
-        },
-      ],
+          height: 630
+        }
+      ]
     },
     publisher,
     twitter: {
@@ -73,10 +73,10 @@ export const createMetadata = ({
         {
           url: imageUrl,
           width: 1200,
-          height: 630,
-        },
-      ],
-    },
+          height: 630
+        }
+      ]
+    }
   };
 
   const metadata: Metadata = merge(defaultMetadata, properties);

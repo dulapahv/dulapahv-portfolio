@@ -2,10 +2,7 @@ import { allBlogs, allProjects, allWorks } from 'content-collections';
 
 export type ContentType = 'project' | 'blog' | 'work';
 
-export type ContentItem =
-  | (typeof allProjects)[0]
-  | (typeof allBlogs)[0]
-  | (typeof allWorks)[0];
+export type ContentItem = (typeof allProjects)[0] | (typeof allBlogs)[0] | (typeof allWorks)[0];
 
 export const contentConfig = {
   project: {
@@ -13,22 +10,22 @@ export const contentConfig = {
     description: 'Professional and personal projects I have worked on.',
     collection: allProjects,
     label: 'Project',
-    pluralLabel: 'Projects',
+    pluralLabel: 'Projects'
   },
   blog: {
     title: 'Blog',
     description: 'My thoughts, ideas, and experiences.',
     collection: allBlogs,
     label: 'Article',
-    pluralLabel: 'Articles',
+    pluralLabel: 'Articles'
   },
   work: {
     title: 'Work',
     description: "Companies and clients I've worked with.",
     collection: allWorks,
     label: 'Case Study',
-    pluralLabel: 'Case Studies',
-  },
+    pluralLabel: 'Case Studies'
+  }
 } as const;
 
 export const isValidContentType = (type: string): type is ContentType => {
@@ -40,17 +37,17 @@ export const getCollection = (type: ContentType) => {
 };
 
 export const getAllContent = (): Array<ContentItem & { type: ContentType }> => {
-  const projects = allProjects.map((item) => ({
+  const projects = allProjects.map(item => ({
     ...item,
-    type: 'project' as ContentType,
+    type: 'project' as ContentType
   }));
-  const blogs = allBlogs.map((item) => ({
+  const blogs = allBlogs.map(item => ({
     ...item,
-    type: 'blog' as ContentType,
+    type: 'blog' as ContentType
   }));
-  const works = allWorks.map((item) => ({
+  const works = allWorks.map(item => ({
     ...item,
-    type: 'work' as ContentType,
+    type: 'work' as ContentType
   }));
 
   return [...projects, ...blogs, ...works];
@@ -65,9 +62,7 @@ const getRelevantDate = (item: ContentItem): Date => {
   return item.startDate;
 };
 
-export const getRecentContent = (
-  limit = 5,
-): Array<ContentItem & { type: ContentType }> => {
+export const getRecentContent = (limit = 5): Array<ContentItem & { type: ContentType }> => {
   return getAllContent()
     .sort((a, b) => getRelevantDate(b).getTime() - getRelevantDate(a).getTime())
     .slice(0, limit);
@@ -76,14 +71,14 @@ export const getRecentContent = (
 export const getRelatedContent = (
   currentSlug: string,
   currentType: ContentType,
-  limit = 3,
+  limit = 3
 ): Array<ContentItem & { type: ContentType }> => {
   const allContent = getAllContent();
 
   // Filter out current item and get items of the same type
   return allContent
-    .filter((item) => !(item.slug === currentSlug && item.type === currentType))
-    .filter((item) => item.type === currentType)
+    .filter(item => !(item.slug === currentSlug && item.type === currentType))
+    .filter(item => item.type === currentType)
     .sort((a, b) => getRelevantDate(b).getTime() - getRelevantDate(a).getTime())
     .slice(0, limit);
 };
@@ -102,18 +97,18 @@ export const getContentByYear = (type?: ContentType) => {
         acc[year].push(post);
         return acc;
       },
-      {} as Record<number, typeof content>,
+      {} as Record<number, typeof content>
     );
 };
 
 export const searchContent = (
   query: string,
-  type?: ContentType,
+  type?: ContentType
 ): Array<ContentItem & { type?: ContentType }> => {
   const content = type ? getCollection(type) : getAllContent();
   const searchTerm = query.toLowerCase();
 
-  return content.filter((item) => {
+  return content.filter(item => {
     if ('position' in item) {
       // For work items
       return (
@@ -136,6 +131,6 @@ export const getContentStats = () => {
     projects: allProjects.length,
     blogs: allBlogs.length,
     works: allWorks.length,
-    total: allProjects.length + allBlogs.length + allWorks.length,
+    total: allProjects.length + allBlogs.length + allWorks.length
   };
 };

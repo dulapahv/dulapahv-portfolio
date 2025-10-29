@@ -4,9 +4,7 @@ export const IS_DEV_ENV =
   process.env.VERCEL_ENV === 'development' ||
   process.env.NEXT_PUBLIC_ENV === 'development' ||
   process.env.NODE_ENV === 'development';
-export const BASE_URL = IS_DEV_ENV
-  ? 'http://localhost:3000'
-  : 'https://dulapahv.dev';
+export const BASE_URL = IS_DEV_ENV ? 'http://localhost:3000' : 'https://dulapahv.dev';
 export const ASSETS_URL = 'https://assets.dulapahv.dev';
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/dulapahv';
 export const GITHUB_URL = 'https://github.com/dulapahv';
@@ -29,5 +27,5 @@ export const EDUCATION_LOCATION: COBEOptions['markers'] = [
   { location: [13.7298889, 100.775652], size: 0.1 },
 
   // UofG, United Kingdom
-  { location: [55.8716946, -4.2913655], size: 0.1 },
+  { location: [55.8716946, -4.2913655], size: 0.1 }
 ];

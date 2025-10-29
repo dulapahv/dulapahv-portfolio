@@ -5,7 +5,7 @@ export async function getGitHubFollowers() {
   const url = `https://api.github.com/users/${username}`;
 
   const response = await fetch(url, {
-    next: { revalidate: 60 },
+    next: { revalidate: 60 }
   });
 
   if (!response.ok) {

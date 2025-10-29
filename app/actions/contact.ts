@@ -7,7 +7,7 @@ import {
   ConfirmationEmailTemplate,
   RecipientEmailTemplate,
   type ConfirmationEmailTemplateProps,
-  type RecipientEmailTemplateProps,
+  type RecipientEmailTemplateProps
 } from '@/components/email';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -28,14 +28,14 @@ export async function sendContactEmail(data: ContactFormData) {
       react: RecipientEmailTemplate({
         name: data.name.trim(),
         email: data.email.trim(),
-        message: data.message.trim(),
-      } as RecipientEmailTemplateProps),
+        message: data.message.trim()
+      } as RecipientEmailTemplateProps)
     });
 
     if (ownerError) {
       console.error('Resend error (to owner):', ownerError);
       return {
-        error: 'Failed to send email to site owner. Please try again.',
+        error: 'Failed to send email to site owner. Please try again.'
       };
     }
 
@@ -46,14 +46,14 @@ export async function sendContactEmail(data: ContactFormData) {
       subject: `✨ Confirmation of Your Message to ${NAME}`,
       react: ConfirmationEmailTemplate({
         name: data.name.trim(),
-        message: data.message.trim(),
-      } as ConfirmationEmailTemplateProps),
+        message: data.message.trim()
+      } as ConfirmationEmailTemplateProps)
     });
 
     if (userError) {
       console.error('Resend error (to user):', userError);
       return {
-        error: `Your message has been sent successfully!, but a confirmation email could not be sent to you.\nHere is the information you have submitted:\n\nName: ${data.name.trim()}\nEmail: ${data.email.trim()}\nMessage:\n${data.message.trim()}`,
+        error: `Your message has been sent successfully!, but a confirmation email could not be sent to you.\nHere is the information you have submitted:\n\nName: ${data.name.trim()}\nEmail: ${data.email.trim()}\nMessage:\n${data.message.trim()}`
       };
     }
 
@@ -61,7 +61,7 @@ export async function sendContactEmail(data: ContactFormData) {
   } catch (error) {
     console.error('Contact form error:', error);
     return {
-      error: 'An unexpected error occurred. Please try again.',
+      error: 'An unexpected error occurred. Please try again.'
     };
   }
 }

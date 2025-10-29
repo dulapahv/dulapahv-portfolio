@@ -15,7 +15,7 @@ export const JsonLd = ({ schemas = [] }: JsonLdProps) => {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: combineSchemas(allSchemas).replace(/</g, '\\u003c'),
+        __html: combineSchemas(allSchemas).replace(/</g, '\\u003c')
       }}
     />
   );

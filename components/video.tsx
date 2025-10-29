@@ -1,9 +1,11 @@
 'use client';
 
-import { cn } from '@/lib/utils';
-import dynamic from 'next/dynamic';
 import type { FC } from 'react';
+import dynamic from 'next/dynamic';
+
 import type { YouTubePlayerProps } from 'react-player/youtube';
+
+import { cn } from '@/lib/utils';
 
 const ReactPlayer = dynamic(
   async () =>
@@ -19,12 +21,7 @@ type VideoProperties = YouTubePlayerProps & {
 };
 
 export const Video: FC<VideoProperties> = ({ className, ...properties }) => (
-  <div
-    className={cn(
-      'relative aspect-video overflow-hidden rounded-md',
-      className
-    )}
-  >
+  <div className={cn('relative aspect-video overflow-hidden rounded-md', className)}>
     <ReactPlayer
       {...properties}
       width="100%"

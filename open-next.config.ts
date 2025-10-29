@@ -5,8 +5,8 @@ import doQueue from '@opennextjs/cloudflare/overrides/queue/do-queue';
 
 export default defineCloudflareConfig({
   incrementalCache: withRegionalCache(r2IncrementalCache, {
-    mode: 'long-lived',
+    mode: 'long-lived'
   }),
   queue: doQueue,
-  enableCacheInterception: true,
+  enableCacheInterception: true
 });

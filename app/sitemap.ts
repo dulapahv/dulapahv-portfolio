@@ -12,14 +12,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: BASE_URL,
       lastModified: currentDate,
       changeFrequency: 'monthly',
-      priority: 1,
+      priority: 1
     },
     {
       url: `${BASE_URL}/contact`,
       lastModified: currentDate,
       changeFrequency: 'yearly',
-      priority: 0.8,
-    },
+      priority: 0.8
+    }
   ];
 
   // Type listing pages
@@ -28,26 +28,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${BASE_URL}/work`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
-      priority: 0.7,
+      priority: 0.7
     },
     {
       url: `${BASE_URL}/project`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
-      priority: 0.7,
+      priority: 0.7
     },
     {
       url: `${BASE_URL}/blog`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
-      priority: 0.7,
-    },
+      priority: 0.7
+    }
   ];
 
   // Generate dynamic content pages
   const types: ContentType[] = ['project', 'blog', 'work'];
-  const contentPages: MetadataRoute.Sitemap = types.flatMap((type) =>
-    getCollection(type).map((page) => {
+  const contentPages: MetadataRoute.Sitemap = types.flatMap(type =>
+    getCollection(type).map(page => {
       // Determine the URL
       const url = `${BASE_URL}/${type}/${page._meta.path}`;
 
@@ -94,9 +94,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
         url,
         lastModified,
         changeFrequency,
-        priority,
+        priority
       };
-    }),
+    })
   );
 
   // Combine all pages

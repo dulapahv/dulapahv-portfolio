@@ -1,4 +1,4 @@
-import { unstable_ViewTransition as ViewTransition } from 'react';
+import { ViewTransition } from 'react';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
@@ -9,13 +9,9 @@ import {
   contentConfig,
   getCollection,
   isValidContentType,
-  type ContentType,
+  type ContentType
 } from '@/lib/content-utils';
-import {
-  createBlogPostingSchema,
-  createProjectSchema,
-  createWorkSchema,
-} from '@/lib/json-ld';
+import { createBlogPostingSchema, createProjectSchema, createWorkSchema } from '@/lib/json-ld';
 import { createMetadata } from '@/lib/metadata';
 import Breadcrumb from '@/components/breadcrumb';
 import { JsonLd } from '@/components/json-ld';
@@ -29,11 +25,7 @@ const getContentDate = (page: { date?: Date; startDate?: Date }): Date => {
 };
 
 // Helper function to get ISO date string for datetime attribute
-const getISODateString = (page: {
-  date?: Date;
-  startDate?: Date;
-  endDate?: Date;
-}): string => {
+const getISODateString = (page: { date?: Date; startDate?: Date; endDate?: Date }): string => {
   const primaryDate = getContentDate(page);
   return primaryDate.toISOString().split('T')[0];
 };
@@ -46,14 +38,14 @@ const getDateRangeISO = (startDate: Date, endDate?: Date): string => {
 };
 
 export const generateMetadata = async ({
-  params,
+  params
 }: PageProps<'/[type]/[slug]'>): Promise<Metadata> => {
   const { type, slug } = await params;
 
   if (!isValidContentType(type)) return {};
 
   const collection = getCollection(type);
-  const page = collection.find((page) => page._meta.path === slug);
+  const page = collection.find(page => page._meta.path === slug);
 
   if (!page) return {};
 
@@ -77,30 +69,28 @@ export const generateMetadata = async ({
 
   return createMetadata({
     title,
-    description,
+    description
   });
 };
 
 export const generateStaticParams = (): { type: string; slug: string }[] => {
   const types: ContentType[] = ['project', 'blog', 'work'];
 
-  return types.flatMap((type) =>
-    getCollection(type).map((page) => ({
+  return types.flatMap(type =>
+    getCollection(type).map(page => ({
       type,
-      slug: page._meta.path,
-    })),
+      slug: page._meta.path
+    }))
   );
 };
 
-export default async function ContentPage({
-  params,
-}: PageProps<'/[type]/[slug]'>) {
+export default async function ContentPage({ params }: PageProps<'/[type]/[slug]'>) {
   const { type, slug } = await params;
 
   if (!isValidContentType(type)) notFound();
 
   const collection = getCollection(type);
-  const page = collection.find((page) => page._meta.path === slug);
+  const page = collection.find(page => page._meta.path === slug);
 
   if (!page) notFound();
 
@@ -125,13 +115,13 @@ export default async function ContentPage({
     const startDate = page.startDate.toLocaleDateString('en-US', {
       month: 'long',
       day: 'numeric',
-      year: 'numeric',
+      year: 'numeric'
     });
     const endDate = page.endDate
       ? page.endDate.toLocaleDateString('en-US', {
           month: 'long',
           day: 'numeric',
-          year: 'numeric',
+          year: 'numeric'
         })
       : 'Present';
     dateInfo = `${startDate} - ${endDate}`;
@@ -143,7 +133,7 @@ export default async function ContentPage({
       location: page.location,
       startDate: page.startDate,
       endDate: page.endDate,
-      slug: page.slug,
+      slug: page.slug
     });
   } else if (isProject) {
     title = page.title;
@@ -151,13 +141,13 @@ export default async function ContentPage({
     const startDate = page.startDate.toLocaleDateString('en-US', {
       month: 'long',
       day: 'numeric',
-      year: 'numeric',
+      year: 'numeric'
     });
     const endDate = page.endDate
       ? page.endDate.toLocaleDateString('en-US', {
           month: 'long',
           day: 'numeric',
-          year: 'numeric',
+          year: 'numeric'
         })
       : 'Ongoing';
     dateInfo = `${startDate} - ${endDate}`;
@@ -169,7 +159,7 @@ export default async function ContentPage({
       startDate: page.startDate,
       endDate: page.endDate,
       slug: page.slug,
-      image: page.image,
+      image: page.image
     });
   } else {
     // Blog
@@ -178,7 +168,7 @@ export default async function ContentPage({
     dateInfo = page.date.toLocaleDateString('en-US', {
       month: 'long',
       day: 'numeric',
-      year: 'numeric',
+      year: 'numeric'
     });
     dateTimeValue = getISODateString(page);
     dateLabel = `Published on ${dateInfo}`;
@@ -188,7 +178,7 @@ export default async function ContentPage({
       date: page.date,
       slug: page.slug,
       readingTime: page.readingTime,
-      image: page.image,
+      image: page.image
     });
   }
 
@@ -215,10 +205,7 @@ export default async function ContentPage({
             <div>
               <h1 className="text-2xl font-semibold">{title}</h1>
               {subtitle && (
-                <p
-                  className="text-foreground-muted font-medium"
-                  role="doc-subtitle"
-                >
+                <p className="text-foreground-muted font-medium" role="doc-subtitle">
                   {subtitle}
                 </p>
               )}
@@ -226,27 +213,16 @@ export default async function ContentPage({
             <div className="text-foreground-muted space-y-1 text-sm">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="sr-only">Content type:</span>
-                <span
-                  className="inline-block font-medium"
-                  aria-label={`Content type: ${label}`}
-                >
+                <span className="inline-block font-medium" aria-label={`Content type: ${label}`}>
                   {label}
                 </span>
                 <span aria-hidden="true" className="text-foreground-subtle">
                   |
                 </span>
                 <div className="flex gap-1">
-                  <span className="sr-only">
-                    {isBlog ? 'Publication date:' : 'Duration:'}
-                  </span>
-                  <span aria-hidden="true">
-                    {isBlog ? 'Published on' : 'Duration:'}
-                  </span>
-                  <time
-                    dateTime={dateTimeValue}
-                    aria-label={dateLabel}
-                    className="font-medium"
-                  >
+                  <span className="sr-only">{isBlog ? 'Publication date:' : 'Duration:'}</span>
+                  <span aria-hidden="true">{isBlog ? 'Published on' : 'Duration:'}</span>
+                  <time dateTime={dateTimeValue} aria-label={dateLabel} className="font-medium">
                     {dateInfo}
                   </time>
                 </div>
@@ -263,17 +239,13 @@ export default async function ContentPage({
                 title: title,
                 description: subtitle,
                 content: page.content,
-                type: type,
+                type: type
               }}
             />
           </header>
           <TableOfContents />
           {page.image && (
-            <figure
-              className="relative"
-              role="img"
-              aria-labelledby="cover-image-caption"
-            >
+            <figure className="relative" role="img" aria-labelledby="cover-image-caption">
               <Zoom
                 zoomMargin={12}
                 wrapElement="span"

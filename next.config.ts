@@ -5,17 +5,19 @@ import { initOpenNextCloudflareForDev } from '@opennextjs/cloudflare';
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: [process.env.ALLOWED_DEV_ORIGINS || '[]'],
+  reactCompiler: true,
   poweredByHeader: false,
   typedRoutes: true,
   images: {
     loader: 'custom',
     loaderFile: './image-loader.ts',
-    qualities: [75, 100],
+    qualities: [75, 100]
   },
   experimental: {
     typedEnv: true,
     viewTransition: true,
-  },
+    turbopackFileSystemCacheForDev: true
+  }
 };
 
 initOpenNextCloudflareForDev();

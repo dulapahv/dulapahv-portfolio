@@ -9,15 +9,10 @@ import {
   Preview,
   Section,
   Tailwind,
-  Text,
+  Text
 } from '@react-email/components';
 
-import {
-  ASSETS_URL,
-  BASE_URL,
-  GITHUB_URL,
-  LINKEDIN_URL,
-} from '@/lib/constants';
+import { ASSETS_URL, BASE_URL, GITHUB_URL, LINKEDIN_URL } from '@/lib/constants';
 
 export interface RecipientEmailTemplateProps {
   readonly name: string;
@@ -28,7 +23,7 @@ export interface RecipientEmailTemplateProps {
 export function RecipientEmailTemplate({
   name: fullName,
   email,
-  message,
+  message
 }: RecipientEmailTemplateProps) {
   return (
     <Html>
@@ -48,8 +43,7 @@ export function RecipientEmailTemplate({
               <Text className="text-default-800 text-left text-base leading-6">
                 <strong>Hi DulapahV,</strong>
                 <br />
-                You have a new message from the contact form on your portfolio
-                website.
+                You have a new message from the contact form on your portfolio website.
                 <br />
                 Please see the details below:
               </Text>
@@ -57,10 +51,7 @@ export function RecipientEmailTemplate({
                 <strong>Full Name:</strong> {fullName}
                 <br />
                 <strong>Email:</strong>{' '}
-                <Link
-                  href={`mailto:${email}`}
-                  className="text-[#fb568a] no-underline"
-                >
+                <Link href={`mailto:${email}`} className="text-[#fb568a] no-underline">
                   {email}
                 </Link>
                 <br />
@@ -68,7 +59,7 @@ export function RecipientEmailTemplate({
                 <br />
                 <span
                   dangerouslySetInnerHTML={{
-                    __html: message.replace(/\n/g, '<br />'),
+                    __html: message.replace(/\n/g, '<br />')
                   }}
                 />
               </Text>
@@ -82,10 +73,7 @@ export function RecipientEmailTemplate({
                   GitHub
                 </Link>{' '}
                 ・{' '}
-                <Link
-                  href={LINKEDIN_URL}
-                  className="text-[#fb568a] no-underline"
-                >
+                <Link href={LINKEDIN_URL} className="text-[#fb568a] no-underline">
                   LinkedIn
                 </Link>
               </Text>

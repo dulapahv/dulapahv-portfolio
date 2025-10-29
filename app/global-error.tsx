@@ -15,12 +15,12 @@ import Footer from '@/components/footer';
 
 export const raleway = Raleway({
   subsets: ['latin'],
-  weight: 'variable',
+  weight: 'variable'
 });
 
 export default function GlobalError({
   error,
-  reset,
+  reset
 }: {
   error: Error & { digest?: string };
   reset: () => void;
@@ -33,11 +33,7 @@ export default function GlobalError({
   return (
     <html
       lang="en"
-      className={cn(
-        'bg-background dark',
-        raleway.className,
-        GeistMono.variable,
-      )}
+      className={cn('bg-background dark', raleway.className, GeistMono.variable)}
       suppressHydrationWarning
     >
       <body className="text-foreground min-h-dvh leading-[1.6] text-pretty antialiased">
@@ -50,44 +46,26 @@ export default function GlobalError({
           <div
             aria-hidden
             role="presentation"
-            className="pointer-events-none fixed -top-[70%] -right-[60%] -z-50 size-[180%]
-              overflow-clip opacity-50 mix-blend-darken hue-rotate-[45deg] select-none
-              sm:-top-[45%] sm:size-[150%] dark:mix-blend-lighten"
+            className="pointer-events-none fixed -top-[70%] -right-[60%] -z-50 size-[180%] overflow-clip opacity-50
+              mix-blend-darken hue-rotate-45 select-none sm:-top-[45%] sm:size-[150%] dark:mix-blend-lighten"
           >
-            <Image
-              src="/pinku.png"
-              alt=""
-              fill
-              priority
-              className="object-contain"
-            />
+            <Image src="/pinku.png" alt="" fill priority className="object-contain" />
           </div>
           <div
             aria-hidden
             role="presentation"
-            className="pointer-events-none fixed -bottom-[50%] -left-[40%] -z-50 size-[140%]
-              overflow-clip opacity-90 mix-blend-darken select-none sm:-bottom-[30%]
-              sm:size-[110%] dark:opacity-60 dark:mix-blend-lighten"
+            className="pointer-events-none fixed -bottom-[50%] -left-[40%] -z-50 size-[140%] overflow-clip opacity-90
+              mix-blend-darken select-none sm:-bottom-[30%] sm:size-[110%] dark:opacity-60 dark:mix-blend-lighten"
           >
-            <Image
-              src="/ao.png"
-              alt=""
-              fill
-              priority
-              className="object-contain"
-            />
+            <Image src="/ao.png" alt="" fill priority className="object-contain" />
           </div>
-          <div
-            id="main-content"
-            className="mx-auto max-w-4xl space-y-4 px-4 py-16"
-          >
+          <div id="main-content" className="mx-auto max-w-4xl space-y-4 px-4 py-16">
             <main className="space-y-4">
               <header>
                 <h1 className="text-3xl font-semibold">Critical Error</h1>
               </header>
               <p className="text-foreground-muted">
-                A critical error occurred and the application could not recover.
-                Please try again or{' '}
+                A critical error occurred and the application could not recover. Please try again or{' '}
                 <Link
                   href={`/contact?message=${encodeURIComponent(
                     `Please describe what you were doing when this error occurred:
@@ -103,11 +81,11 @@ Name: ${error.name || 'N/A'}
 Message: ${error.message || 'N/A'}
 Cause: ${error.cause || 'N/A'}
 Digest: ${error.digest || 'N/A'}
-====================`,
+====================`
                   )}`}
                   className={cn(
                     'text-mirai-red underline underline-offset-4',
-                    'hover:text-mirai-red',
+                    'hover:text-mirai-red'
                   )}
                 >
                   contact me
@@ -117,17 +95,14 @@ Digest: ${error.digest || 'N/A'}
               <button
                 onClick={reset}
                 className={cn(
-                  `bg-mirai-red flex w-fit cursor-pointer items-center justify-center gap-2
-                  rounded-md px-3 py-2 text-sm font-medium text-white select-none`,
+                  `bg-mirai-red flex w-fit cursor-pointer items-center justify-center gap-2 rounded-md px-3 py-2
+                  text-sm font-medium text-white select-none`,
                   'hover:bg-mirai-red/90 transition-colors hover:shadow-md',
-                  'active:scale-[0.98] active:!transition-transform',
-                  'disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:shadow-none',
+                  'active:scale-[0.98] active:transition-transform!',
+                  'disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:shadow-none'
                 )}
               >
-                <ArrowsClockwiseIcon
-                  className="size-4.5 flex-shrink-0"
-                  aria-hidden="true"
-                />
+                <ArrowsClockwiseIcon className="size-4.5 shrink-0" aria-hidden="true" />
                 <span>Try Again</span>
               </button>
             </main>

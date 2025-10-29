@@ -5,7 +5,7 @@ export const skillsData = [
     size: 'large',
     gradient: 'from-red-500 to-red-400',
     bgColor: 'bg-red-500/10 hover:bg-red-500/15',
-    skills: ['TypeScript', 'JavaScript', 'Python', 'C', 'C++', 'Java', 'Bash'],
+    skills: ['TypeScript', 'JavaScript', 'Python', 'C', 'C++', 'Java', 'Bash']
   },
   {
     category: 'Databases',
@@ -13,7 +13,7 @@ export const skillsData = [
     size: 'medium',
     gradient: 'from-amber-500 to-amber-400',
     bgColor: 'bg-amber-500/10 hover:bg-amber-500/15',
-    skills: ['PostgreSQL', 'MongoDB', 'SQLite', 'MySQL', 'Snowflake'],
+    skills: ['PostgreSQL', 'MongoDB', 'SQLite', 'MySQL', 'Snowflake']
   },
   {
     category: 'Web frameworks & UI',
@@ -29,8 +29,8 @@ export const skillsData = [
       'Radix UI',
       'HeroUI',
       'daisyUI',
-      'MUI',
-    ],
+      'MUI'
+    ]
   },
   {
     category: 'Backend',
@@ -38,7 +38,7 @@ export const skillsData = [
     size: 'small',
     gradient: 'from-teal-500 to-teal-400',
     bgColor: 'bg-teal-500/10 hover:bg-teal-500/15',
-    skills: ['Express.js', 'Prisma', 'WebSocket'],
+    skills: ['Express.js', 'Prisma', 'WebSocket']
   },
 
   {
@@ -47,7 +47,7 @@ export const skillsData = [
     size: 'small',
     gradient: 'from-pink-500 to-pink-400',
     bgColor: 'bg-pink-500/10 hover:bg-pink-500/15',
-    skills: ['Electron.js', 'Qt'],
+    skills: ['Electron.js', 'Qt']
   },
   {
     category: 'DevOps & Testing',
@@ -55,14 +55,7 @@ export const skillsData = [
     size: 'medium',
     gradient: 'from-green-500 to-green-400',
     bgColor: 'bg-green-500/10 hover:bg-green-500/15',
-    skills: [
-      'GitHub Actions',
-      'GitLab CI/CD',
-      'Playwright',
-      'Jest',
-      'Sentry',
-      'Turborepo',
-    ],
+    skills: ['GitHub Actions', 'GitLab CI/CD', 'Playwright', 'Jest', 'Sentry', 'Turborepo']
   },
   {
     category: 'Cloud & Infrastructure',
@@ -70,16 +63,8 @@ export const skillsData = [
     size: 'medium',
     gradient: 'from-blue-500 to-blue-400',
     bgColor: 'bg-blue-500/10 hover:bg-blue-500/15',
-    skills: [
-      'Vercel',
-      'Cloudflare',
-      'Docker',
-      'Supabase',
-      'GCP',
-      'Nginx',
-      'Firebase',
-    ],
-  },
+    skills: ['Vercel', 'Cloudflare', 'Docker', 'Supabase', 'GCP', 'Nginx', 'Firebase']
+  }
 ];
 
 // Helper function to get all skills for schema
@@ -87,12 +72,12 @@ export const getAllSkillsForSchema = (): string[] => {
   const allSkills: string[] = [];
 
   // Add categories first
-  skillsData.forEach((category) => {
+  skillsData.forEach(category => {
     allSkills.push(category.category);
   });
 
   // Then add individual skills
-  skillsData.forEach((category) => {
+  skillsData.forEach(category => {
     allSkills.push(...category.skills);
   });
 
@@ -107,7 +92,7 @@ export const getAllSkillsForSchema = (): string[] => {
     'Agile Methodologies',
     'Test-Driven Development',
     'Continuous Integration/Continuous Deployment',
-    'Web Accessibility',
+    'Web Accessibility'
   );
 
   return allSkills;

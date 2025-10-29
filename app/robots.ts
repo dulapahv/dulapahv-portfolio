@@ -7,9 +7,9 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: '*',
-        allow: '/',
-      },
+        allow: '/'
+      }
     ],
-    host: BASE_URL,
+    host: BASE_URL
   };
 }

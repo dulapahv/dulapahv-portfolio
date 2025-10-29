@@ -29,8 +29,7 @@ export function useOnLeavePageConfirmation(shouldConfirm: boolean) {
     if (!shouldConfirm) return;
 
     const handleBackButton = () => {
-      if (!window.confirm(MESSAGE))
-        history.pushState(null, '', window.location.href);
+      if (!window.confirm(MESSAGE)) history.pushState(null, '', window.location.href);
       else {
         window.removeEventListener('popstate', handleBackButton);
         history.back();
@@ -59,11 +58,7 @@ export function useOnLeavePageConfirmation(shouldConfirm: boolean) {
       const target = e.target as HTMLElement;
       const anchor = target.closest('a');
 
-      if (
-        anchor &&
-        anchor.href &&
-        anchor.href.startsWith(window.location.origin)
-      ) {
+      if (anchor && anchor.href && anchor.href.startsWith(window.location.origin)) {
         const targetUrl = new URL(anchor.href);
         const currentPath = pathname;
 

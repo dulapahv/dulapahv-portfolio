@@ -11,7 +11,7 @@ import Footer from '@/components/footer';
 
 export default function Error({
   error,
-  reset,
+  reset
 }: {
   error: Error & { digest?: string };
   reset: () => void;
@@ -44,12 +44,9 @@ Name: ${error.name || 'N/A'}
 Message: ${error.message || 'N/A'}
 Cause: ${error.cause || 'N/A'}
 Digest: ${error.digest || 'N/A'}
-====================`,
+====================`
             )}`}
-            className={cn(
-              'text-mirai-red underline underline-offset-2',
-              'hover:decoration-2',
-            )}
+            className={cn('text-mirai-red underline underline-offset-2', 'hover:decoration-2')}
           >
             contact me
           </Link>{' '}
@@ -58,17 +55,14 @@ Digest: ${error.digest || 'N/A'}
         <button
           onClick={reset}
           className={cn(
-            `bg-mirai-red flex w-fit cursor-pointer items-center justify-center gap-2
-            rounded-md px-3 py-2 text-sm font-medium text-white select-none`,
+            `bg-mirai-red flex w-fit cursor-pointer items-center justify-center gap-2 rounded-md px-3 py-2
+            text-sm font-medium text-white select-none`,
             'hover:bg-mirai-red/90 transition-colors hover:shadow-md',
-            'active:scale-[0.98] active:!transition-transform',
-            'disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:shadow-none',
+            'active:scale-[0.98] active:transition-transform!',
+            'disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:shadow-none'
           )}
         >
-          <ArrowsClockwiseIcon
-            className="size-4.5 flex-shrink-0"
-            aria-hidden="true"
-          />
+          <ArrowsClockwiseIcon className="size-4.5 shrink-0" aria-hidden="true" />
           <span>Try Again</span>
         </button>
       </main>

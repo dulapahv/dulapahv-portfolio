@@ -1,4 +1,4 @@
-import { unstable_ViewTransition as ViewTransition } from 'react';
+import { ViewTransition } from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -9,7 +9,7 @@ import {
   contentConfig,
   getContentByYear,
   isValidContentType,
-  type ContentType,
+  type ContentType
 } from '@/lib/content-utils';
 import { collectionSchema } from '@/lib/json-ld';
 import { createMetadata } from '@/lib/metadata';
@@ -17,9 +17,7 @@ import { cn } from '@/lib/utils';
 import Breadcrumb from '@/components/breadcrumb';
 import { JsonLd } from '@/components/json-ld';
 
-export const generateMetadata = async ({
-  params,
-}: PageProps<'/[type]'>): Promise<Metadata> => {
+export const generateMetadata = async ({ params }: PageProps<'/[type]'>): Promise<Metadata> => {
   const { type } = await params;
 
   if (!isValidContentType(type)) return {};
@@ -28,19 +26,17 @@ export const generateMetadata = async ({
 
   return createMetadata({
     title: config.title,
-    description: config.description,
+    description: config.description
   });
 };
 
 export const generateStaticParams = (): { type: ContentType }[] => [
   { type: 'project' },
   { type: 'blog' },
-  { type: 'work' },
+  { type: 'work' }
 ];
 
-export default async function TypeListingPage({
-  params,
-}: PageProps<'/[type]'>) {
+export default async function TypeListingPage({ params }: PageProps<'/[type]'>) {
   const { type } = await params;
 
   if (!isValidContentType(type)) notFound();
@@ -51,29 +47,25 @@ export default async function TypeListingPage({
   const hasContent = Object.keys(contentByYear).length > 0;
 
   // Helper function to format date range
-  const formatDateRange = (post: {
-    date?: Date;
-    startDate?: Date;
-    endDate?: Date;
-  }) => {
+  const formatDateRange = (post: { date?: Date; startDate?: Date; endDate?: Date }) => {
     if ('date' in post && post.date) {
       // Blog posts - single date with day
       return post.date.toLocaleDateString('en-US', {
         month: 'short',
         day: 'numeric',
-        year: 'numeric',
+        year: 'numeric'
       });
     } else if ('startDate' in post && post.startDate) {
       // Work and projects - date range without day
       const startDate = post.startDate.toLocaleDateString('en-US', {
         month: 'short',
-        year: 'numeric',
+        year: 'numeric'
       });
 
       if ('endDate' in post && post.endDate) {
         const endDate = post.endDate.toLocaleDateString('en-US', {
           month: 'short',
-          year: 'numeric',
+          year: 'numeric'
         });
         return `${startDate} - ${endDate}`;
       } else {
@@ -85,11 +77,7 @@ export default async function TypeListingPage({
   };
 
   // Helper function to get ISO date string for datetime attribute
-  const getISODateString = (post: {
-    date?: Date;
-    startDate?: Date;
-    endDate?: Date;
-  }) => {
+  const getISODateString = (post: { date?: Date; startDate?: Date; endDate?: Date }) => {
     if ('date' in post && post.date) {
       return post.date.toISOString().split('T')[0];
     } else if ('startDate' in post && post.startDate) {
@@ -112,10 +100,7 @@ export default async function TypeListingPage({
           </header>
 
           {!hasContent ? (
-            <section
-              className="mt-8 py-12 text-center"
-              aria-label="No content available"
-            >
+            <section className="mt-8 py-12 text-center" aria-label="No content available">
               <p className="text-foreground-muted">No content available yet.</p>
             </section>
           ) : (
@@ -133,26 +118,22 @@ export default async function TypeListingPage({
                         href={`#${year}`}
                         className={cn(
                           'group relative rounded-sm underline-offset-2',
-                          'hover:underline',
+                          'hover:underline'
                         )}
                         aria-label={`Jump to ${year} section`}
                       >
                         <LinkIcon
                           className={cn(
                             'absolute top-1/2 -left-4.5 size-3.5 -translate-y-1/2 opacity-0',
-                            'group-hover:opacity-100 group-focus:opacity-100',
+                            'group-hover:opacity-100 group-focus:opacity-100'
                           )}
                           aria-hidden="true"
                         />
                         <span>{year}</span>
                       </a>
                     </h2>
-                    <ul
-                      className="grid gap-6"
-                      role="list"
-                      aria-label={`${type} from ${year}`}
-                    >
-                      {posts.map((post) => {
+                    <ul className="grid gap-6" role="list" aria-label={`${type} from ${year}`}>
+                      {posts.map(post => {
                         const isWork = 'position' in post;
                         const dateTime = getISODateString(post);
 
@@ -161,9 +142,8 @@ export default async function TypeListingPage({
                             <Link
                               href={`/${type}/${post.slug}`}
                               className={cn(
-                                `group -m-2 flex items-center justify-between gap-2 rounded-md p-2
-                                  transition-colors`,
-                                'hover:text-mirai-red',
+                                'group -m-2 flex items-center justify-between gap-2 rounded-md p-2 transition-colors',
+                                'hover:text-mirai-red'
                               )}
                               aria-label={
                                 isWork
@@ -174,9 +154,7 @@ export default async function TypeListingPage({
                               <div className="flex flex-col gap-1">
                                 {isWork ? (
                                   <>
-                                    <h3 className="text-lg font-semibold">
-                                      {post.position}
-                                    </h3>
+                                    <h3 className="text-lg font-semibold">{post.position}</h3>
                                     <p className="text-foreground-lighter text-sm font-medium">
                                       {post.company}
                                     </p>
@@ -193,9 +171,7 @@ export default async function TypeListingPage({
                                   </>
                                 ) : (
                                   <>
-                                    <h3 className="text-lg font-semibold">
-                                      {post.title}
-                                    </h3>
+                                    <h3 className="text-lg font-semibold">{post.title}</h3>
                                     <p className="text-foreground-lighter text-sm">
                                       {post.description}
                                     </p>
@@ -211,8 +187,8 @@ export default async function TypeListingPage({
                               </div>
                               <CaretRightIcon
                                 className={cn(
-                                  'size-4.5 flex-shrink-0 transition-transform',
-                                  'group-hover:translate-x-1 group-focus:translate-x-1',
+                                  'size-4.5 shrink-0 transition-transform',
+                                  'group-hover:translate-x-1 group-focus:translate-x-1'
                                 )}
                                 aria-hidden="true"
                               />

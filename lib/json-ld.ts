@@ -7,7 +7,7 @@ import type {
   Person,
   ProfilePage,
   WebSite,
-  WithContext,
+  WithContext
 } from 'schema-dts';
 
 import { BASE_URL, DESCRIPTION, IS_DEV_ENV, NAME } from '@/lib/constants';
@@ -20,7 +20,7 @@ import { getAllSkillsForSchema } from './skills-data';
 const getOgImageUrl = (title: string, description?: string): string => {
   const params = new URLSearchParams({
     title,
-    ...(description && { description }),
+    ...(description && { description })
   });
   return `${BASE_URL}/og?${params.toString()}`;
 };
@@ -37,7 +37,7 @@ export const personSchema: WithContext<Person> = {
   gender: 'male',
   nationality: {
     '@type': 'Country',
-    name: 'Thailand',
+    name: 'Thailand'
   },
   url: BASE_URL,
   image: {
@@ -45,7 +45,7 @@ export const personSchema: WithContext<Person> = {
     url: getOgImageUrl('Dulapah Vibulsanti\nSoftware Engineer', DESCRIPTION),
     caption: 'Dulapah Vibulsanti - Software Engineer',
     width: '1200',
-    height: '630',
+    height: '630'
   },
   sameAs: [...new Set(Object.values(social).map(({ href }) => href))],
   alumniOf: [
@@ -60,8 +60,8 @@ export const personSchema: WithContext<Person> = {
         addressRegion: 'Scotland',
         addressCountry: 'GB',
         postalCode: 'G12 8QQ',
-        streetAddress: 'University Avenue',
-      },
+        streetAddress: 'University Avenue'
+      }
     },
     {
       '@type': 'CollegeOrUniversity',
@@ -74,8 +74,8 @@ export const personSchema: WithContext<Person> = {
         addressRegion: 'Bangkok',
         addressCountry: 'TH',
         postalCode: '10520',
-        streetAddress: '1 Chalong Krung 1 Alley, Lat Krabang',
-      },
+        streetAddress: '1 Chalong Krung 1 Alley, Lat Krabang'
+      }
     },
     {
       '@type': 'EducationalOrganization',
@@ -87,18 +87,17 @@ export const personSchema: WithContext<Person> = {
         addressRegion: 'Phra Nakhon',
         addressCountry: 'TH',
         postalCode: '10200',
-        streetAddress: '88 Tri Phet Road',
-      },
-    },
+        streetAddress: '88 Tri Phet Road'
+      }
+    }
   ],
   jobTitle: 'Graduate Software Engineer',
   worksFor: {
     '@type': 'Organization',
     name: 'NatWest Group',
     url: 'https://www.natwestgroup.com/',
-    description:
-      "One of the UK's Big Four banks, serving over 19 million customers",
-    sameAs: 'https://en.wikipedia.org/wiki/NatWest_Group',
+    description: "One of the UK's Big Four banks, serving over 19 million customers",
+    sameAs: 'https://en.wikipedia.org/wiki/NatWest_Group'
   },
   workLocation: {
     '@type': 'Place',
@@ -107,8 +106,8 @@ export const personSchema: WithContext<Person> = {
       '@type': 'PostalAddress',
       addressLocality: 'Edinburgh',
       addressRegion: 'Scotland',
-      addressCountry: 'GB',
-    },
+      addressCountry: 'GB'
+    }
   },
   knowsAbout: getAllSkillsForSchema(),
   hasCredential: [
@@ -124,8 +123,8 @@ export const personSchema: WithContext<Person> = {
       recognizedBy: {
         '@type': 'CollegeOrUniversity',
         name: 'University of Glasgow',
-        url: 'https://www.gla.ac.uk/',
-      },
+        url: 'https://www.gla.ac.uk/'
+      }
     },
     {
       '@type': 'EducationalOccupationalCredential',
@@ -139,28 +138,28 @@ export const personSchema: WithContext<Person> = {
       recognizedBy: {
         '@type': 'CollegeOrUniversity',
         name: "King Mongkut's Institute of Technology Ladkrabang",
-        url: 'https://www.kmitl.ac.th/',
-      },
-    },
+        url: 'https://www.kmitl.ac.th/'
+      }
+    }
   ],
   knowsLanguage: [
     {
       '@type': 'Language',
       name: 'Thai',
-      alternateName: 'th',
+      alternateName: 'th'
     },
     {
       '@type': 'Language',
       name: 'English',
-      alternateName: 'en',
-    },
+      alternateName: 'en'
+    }
   ],
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'professional',
     areaServed: 'GB',
     availableLanguage: ['en', 'th'],
-    url: `${BASE_URL}/contact`,
+    url: `${BASE_URL}/contact`
   },
   hasOccupation: {
     '@type': 'Occupation',
@@ -175,8 +174,8 @@ export const personSchema: WithContext<Person> = {
         '@type': 'PostalAddress',
         addressLocality: 'Edinburgh',
         addressRegion: 'Scotland',
-        addressCountry: 'GB',
-      },
+        addressCountry: 'GB'
+      }
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
@@ -185,9 +184,9 @@ export const personSchema: WithContext<Person> = {
       description:
         'Software engineers design and create computer systems and applications to solve real-world problems.',
       url: `${BASE_URL}/#occupation-software-engineer`,
-      lastReviewed: new Date().toISOString(),
-    },
-  },
+      lastReviewed: new Date().toISOString()
+    }
+  }
 };
 
 export const websiteSchema: WithContext<WebSite> = {
@@ -199,9 +198,9 @@ export const websiteSchema: WithContext<WebSite> = {
   alternateName: 'Dulapah Vibulsanti Portfolio',
   description: DESCRIPTION,
   publisher: {
-    '@id': `${BASE_URL}/#person`,
+    '@id': `${BASE_URL}/#person`
   },
-  inLanguage: 'en-US',
+  inLanguage: 'en-US'
 };
 
 export const profilePageSchema: WithContext<ProfilePage> = {
@@ -214,14 +213,14 @@ export const profilePageSchema: WithContext<ProfilePage> = {
   dateCreated: new Date('2022-12-21').toISOString(),
   dateModified: new Date().toISOString(),
   mainEntity: {
-    '@id': `${BASE_URL}/#person`,
+    '@id': `${BASE_URL}/#person`
   },
   primaryImageOfPage: {
     '@type': 'ImageObject',
     url: getOgImageUrl('Dulapah Vibulsanti\nSoftware Engineer', DESCRIPTION),
     width: '1200',
-    height: '630',
-  },
+    height: '630'
+  }
 };
 
 export const contactPageSchema: WithContext<ContactPage> = {
@@ -230,19 +229,18 @@ export const contactPageSchema: WithContext<ContactPage> = {
   '@id': `${BASE_URL}/contact`,
   url: `${BASE_URL}/contact`,
   name: 'Contact DulapahV',
-  description:
-    "Let me know what's on your mind and I'll get back to you as soon as possible.",
+  description: "Let me know what's on your mind and I'll get back to you as soon as possible.",
   mainEntity: {
-    '@id': `${BASE_URL}/#person`,
+    '@id': `${BASE_URL}/#person`
   },
   primaryImageOfPage: {
     '@type': 'ImageObject',
     url: getOgImageUrl(
       'Contact DulapahV',
-      "Let me know what's on your mind and I'll get back to you as soon as possible.",
+      "Let me know what's on your mind and I'll get back to you as soon as possible."
     ),
     width: '1200',
-    height: '630',
+    height: '630'
   },
   breadcrumb: {
     '@type': 'BreadcrumbList',
@@ -254,16 +252,16 @@ export const contactPageSchema: WithContext<ContactPage> = {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: BASE_URL,
+        item: BASE_URL
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Contact',
-        item: `${BASE_URL}/contact`,
-      },
-    ],
-  },
+        item: `${BASE_URL}/contact`
+      }
+    ]
+  }
 };
 
 export const collectionSchema = (
@@ -271,7 +269,7 @@ export const collectionSchema = (
   config: {
     title: string;
     description: string;
-  },
+  }
 ): WithContext<CollectionPage> => ({
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
@@ -287,14 +285,14 @@ export const collectionSchema = (
     itemListElement: getCollection(type as any).map((item, index) => ({
       '@type': 'ListItem',
       position: index + 1,
-      url: `${BASE_URL}/${type}/${item.slug}`,
-    })),
+      url: `${BASE_URL}/${type}/${item.slug}`
+    }))
   },
   primaryImageOfPage: {
     '@type': 'ImageObject',
     url: getOgImageUrl(config.title, config.description),
     width: '1200',
-    height: '630',
+    height: '630'
   },
   breadcrumb: {
     '@type': 'BreadcrumbList',
@@ -306,16 +304,16 @@ export const collectionSchema = (
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: BASE_URL,
+        item: BASE_URL
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: config.title,
-        item: `${BASE_URL}/${type}`,
-      },
-    ],
-  },
+        item: `${BASE_URL}/${type}`
+      }
+    ]
+  }
 });
 
 export const createBlogPostingSchema = (post: {
@@ -335,27 +333,27 @@ export const createBlogPostingSchema = (post: {
   datePublished: post.date.toISOString(),
   dateModified: post.date.toISOString(),
   author: {
-    '@id': `${BASE_URL}/#person`,
+    '@id': `${BASE_URL}/#person`
   },
   publisher: {
-    '@id': `${BASE_URL}/#person`,
+    '@id': `${BASE_URL}/#person`
   },
   mainEntityOfPage: {
     '@type': 'WebPage',
-    '@id': `${BASE_URL}/blog/${post.slug}`,
+    '@id': `${BASE_URL}/blog/${post.slug}`
   },
   image: {
     '@type': 'ImageObject',
     url: getOgImageUrl(post.title, post.description),
     width: '1200',
-    height: '630',
+    height: '630'
   },
   ...(post.readingTime && {
-    timeRequired: `PT${post.readingTime.replace(' min read', 'M')}`, // Convert to ISO 8601 duration
+    timeRequired: `PT${post.readingTime.replace(' min read', 'M')}` // Convert to ISO 8601 duration
   }),
   inLanguage: 'en-US',
   articleSection: 'Blog',
-  wordCount: post.readingTime ? parseInt(post.readingTime) * 200 : undefined, // Rough estimate
+  wordCount: post.readingTime ? parseInt(post.readingTime) * 200 : undefined // Rough estimate
 });
 
 export const createProjectSchema = (project: {
@@ -373,7 +371,7 @@ export const createProjectSchema = (project: {
   name: project.title,
   description: project.description,
   creator: {
-    '@id': `${BASE_URL}/#person`,
+    '@id': `${BASE_URL}/#person`
   },
   dateCreated: project.startDate.toISOString(),
   dateModified: (project.endDate || new Date()).toISOString(),
@@ -381,9 +379,9 @@ export const createProjectSchema = (project: {
     '@type': 'ImageObject',
     url: getOgImageUrl(project.title, project.description),
     width: '1200',
-    height: '630',
+    height: '630'
   },
-  inLanguage: 'en-US',
+  inLanguage: 'en-US'
 });
 
 export const createWorkSchema = (work: {
@@ -402,8 +400,8 @@ export const createWorkSchema = (work: {
     '@type': 'Place',
     address: {
       '@type': 'PostalAddress',
-      addressLocality: work.location,
-    },
+      addressLocality: work.location
+    }
   },
   employee: {
     '@type': 'Person',
@@ -411,22 +409,18 @@ export const createWorkSchema = (work: {
     jobTitle: work.position,
     worksFor: {
       '@type': 'Organization',
-      name: work.company,
-    },
+      name: work.company
+    }
   },
   image: {
     '@type': 'ImageObject',
     url: getOgImageUrl(work.position, work.company),
     width: '1200',
-    height: '630',
-  },
+    height: '630'
+  }
 });
 
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 export const combineSchemas = (schemas: Array<WithContext<any>>): string => {
-  return JSON.stringify(
-    schemas.length === 1 ? schemas[0] : schemas,
-    null,
-    IS_DEV_ENV ? 2 : 0,
-  );
+  return JSON.stringify(schemas.length === 1 ? schemas[0] : schemas, null, IS_DEV_ENV ? 2 : 0);
 };

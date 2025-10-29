@@ -34,17 +34,12 @@ export default function Pre({
         aria-label="Copy code"
         title="Copy code"
         className={cn(
-          `text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md
-          p-2 !transition-all`,
+          'text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 !transition-all',
           'hover:text-foreground/80',
-          'active:scale-90',
+          'active:scale-90'
         )}
       >
-        {isCopied ? (
-          <CheckIcon className="size-4.5" />
-        ) : (
-          <CopyIcon className="size-4.5" />
-        )}
+        {isCopied ? <CheckIcon className="size-4.5" /> : <CopyIcon className="size-4.5" />}
       </button>
       <pre ref={preRef} {...props}>
         {children}
