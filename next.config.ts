@@ -5,7 +5,7 @@ import { initOpenNextCloudflareForDev } from '@opennextjs/cloudflare';
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: [process.env.ALLOWED_DEV_ORIGINS || '[]'],
-  reactCompiler: true,
+  // reactCompiler: true,
   poweredByHeader: false,
   typedRoutes: true,
   images: {
@@ -16,7 +16,7 @@ const nextConfig: NextConfig = {
   experimental: {
     typedEnv: true,
     viewTransition: true,
-    turbopackFileSystemCacheForDev: true
+    // turbopackFileSystemCacheForDev: true
   }
 };
 
