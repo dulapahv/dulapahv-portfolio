@@ -14,6 +14,16 @@ const nextConfig: NextConfig = {
     typedEnv: true,
     viewTransition: true,
     turbopackFileSystemCacheForDev: true
+  },
+  async redirects() {
+    return [
+      {
+        source: '/resume',
+        destination:
+          'https://1drv.ms/b/c/bac8961c289dd3e4/EboeX5e_xXZNrQKQv5skNkMBjebYxatKHkIFgHb2-0-3pA',
+        permanent: true
+      }
+    ];
   }
 };
 
