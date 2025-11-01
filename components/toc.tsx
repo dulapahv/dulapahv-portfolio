@@ -328,9 +328,9 @@ export const TableOfContents = () => {
             aria-label="Page sections - use arrow keys to navigate"
           >
             <div className="p-2">
-              <ul role="list" className="!my-0 list-none pl-0">
+              <ul role="list" className="my-0! list-none pl-0">
                 {tocItems.map((item, index) => (
-                  <li key={item.id} className="!my-0">
+                  <li key={item.id} className="my-0!">
                     <Link
                       ref={el => {
                         linksRef.current[index] = el;

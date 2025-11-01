@@ -1,0 +1,919 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Home Page > should match snapshot 1`] = `
+<div>
+  <script
+    type="application/ld+json"
+  >
+    [{"@context":"https://schema.org","@type":"Person","@id":"https://dulapahv.dev/#person","name":"Dulapah Vibulsanti","givenName":"Dulapah","familyName":"Vibulsanti","alternateName":"DulapahV","description":"Thai Software Engineer based in Edinburgh, United Kingdom. Passionate about creating accessible and delightful technology for everyone.","gender":"male","nationality":{"@type":"Country","name":"Thailand"},"url":"https://dulapahv.dev","image":{"@type":"ImageObject","url":"https://dulapahv.dev/og?title=Dulapah+Vibulsanti%0ASoftware+Engineer&description=Thai+Software+Engineer+based+in+Edinburgh%2C+United+Kingdom.+Passionate+about+creating+accessible+and+delightful+technology+for+everyone.","caption":"Dulapah Vibulsanti - Software Engineer","width":"1200","height":"630"},"sameAs":["https://github.com/dulapahv","https://www.linkedin.com/in/dulapahv"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"University of Glasgow","url":"https://www.gla.ac.uk/","identifier":"Russell Group University","address":{"@type":"PostalAddress","addressLocality":"Glasgow","addressRegion":"Scotland","addressCountry":"GB","postalCode":"G12 8QQ","streetAddress":"University Avenue"}},{"@type":"CollegeOrUniversity","name":"King Mongkut's Institute of Technology Ladkrabang","alternateName":"KMITL","url":"https://www.kmitl.ac.th/","address":{"@type":"PostalAddress","addressLocality":"Bangkok","addressRegion":"Bangkok","addressCountry":"TH","postalCode":"10520","streetAddress":"1 Chalong Krung 1 Alley, Lat Krabang"}},{"@type":"EducationalOrganization","name":"Suankularb Wittayalai School","url":"https://www.sk.ac.th/","address":{"@type":"PostalAddress","addressLocality":"Bangkok","addressRegion":"Phra Nakhon","addressCountry":"TH","postalCode":"10200","streetAddress":"88 Tri Phet Road"}}],"jobTitle":"Graduate Software Engineer","worksFor":{"@type":"Organization","name":"NatWest Group","url":"https://www.natwestgroup.com/","description":"One of the UK's Big Four banks, serving over 19 million customers","sameAs":"https://en.wikipedia.org/wiki/NatWest_Group"},"workLocation":{"@type":"Place","name":"Edinburgh, Scotland","address":{"@type":"PostalAddress","addressLocality":"Edinburgh","addressRegion":"Scotland","addressCountry":"GB"}},"knowsAbout":["General programming","Databases","Web frameworks & UI","Backend","Cross-platform & Desktop","DevOps & Testing","Cloud & Infrastructure","TypeScript","JavaScript","Python","C","C++","Java","Bash","PostgreSQL","MongoDB","SQLite","MySQL","Snowflake","Next.js","React.js","Tailwind CSS","shadcn/ui","Radix UI","HeroUI","daisyUI","MUI","Express.js","Prisma","WebSocket","Electron.js","Qt","GitHub Actions","GitLab CI/CD","Playwright","Jest","Sentry","Turborepo","Vercel","Cloudflare","Docker","Supabase","GCP","Nginx","Firebase","Software Engineering","Full Stack Development","Parallel and Distributed Systems","Web Development","API Development","Version Control (Git)","Agile Methodologies","Test-Driven Development","Continuous Integration/Continuous Deployment","Web Accessibility"],"hasCredential":[{"@type":"EducationalOccupationalCredential","@id":"https://dulapahv.dev/#degree-glasgow","name":"BSc (Hons) Software Engineering","description":"Double degree program with KMITL. First Class Honours with Specialization in Parallel and Distributed Systems. Final two years completed at University of Glasgow.","credentialCategory":"degree","educationalLevel":"Bachelor","dateCreated":"2023-09","recognizedBy":{"@type":"CollegeOrUniversity","name":"University of Glasgow","url":"https://www.gla.ac.uk/"}},{"@type":"EducationalOccupationalCredential","@id":"https://dulapahv.dev/#degree-kmitl","name":"BEng Software Engineering","description":"Double degree programme with University of Glasgow. First two years completed at KMITL before transferring to Glasgow.","credentialCategory":"degree","educationalLevel":"Bachelor","dateCreated":"2021-08","recognizedBy":{"@type":"CollegeOrUniversity","name":"King Mongkut's Institute of Technology Ladkrabang","url":"https://www.kmitl.ac.th/"}}],"knowsLanguage":[{"@type":"Language","name":"Thai","alternateName":"th"},{"@type":"Language","name":"English","alternateName":"en"}],"contactPoint":{"@type":"ContactPoint","contactType":"professional","areaServed":"GB","availableLanguage":["en","th"],"url":"https://dulapahv.dev/contact"},"hasOccupation":{"@type":"Occupation","name":"Software Engineer","description":"Software engineers design and create computer systems and applications to solve real-world problems.","occupationalCategory":"15-1252.00","occupationLocation":{"@type":"City","name":"Edinburgh, Scotland","address":{"@type":"PostalAddress","addressLocality":"Edinburgh","addressRegion":"Scotland","addressCountry":"GB"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dulapahv.dev/#occupation-software-engineer","name":"Software Engineer","description":"Software engineers design and create computer systems and applications to solve real-world problems.","url":"https://dulapahv.dev/#occupation-software-engineer","lastReviewed":"2007-01-09T09:41:00.000Z"}}},{"@context":"https://schema.org","@type":"WebSite","@id":"https://dulapahv.dev/#website","url":"https://dulapahv.dev","name":"DulapahV Portfolio","alternateName":"Dulapah Vibulsanti Portfolio","description":"Thai Software Engineer based in Edinburgh, United Kingdom. Passionate about creating accessible and delightful technology for everyone.","publisher":{"@id":"https://dulapahv.dev/#person"},"inLanguage":"en-US"},{"@context":"https://schema.org","@type":"ProfilePage","@id":"https://dulapahv.dev","url":"https://dulapahv.dev","name":"Dulapah Vibulsanti - Software Engineer","description":"Thai Software Engineer based in Edinburgh, United Kingdom. Passionate about creating accessible and delightful technology for everyone.","dateCreated":"2022-12-21T00:00:00.000Z","dateModified":"2007-01-09T09:41:00.000Z","mainEntity":{"@id":"https://dulapahv.dev/#person"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://dulapahv.dev/og?title=Dulapah+Vibulsanti%0ASoftware+Engineer&description=Thai+Software+Engineer+based+in+Edinburgh%2C+United+Kingdom.+Passionate+about+creating+accessible+and+delightful+technology+for+everyone.","width":"1200","height":"630"}}]
+  </script>
+  <header
+    class="flex flex-col gap-x-16 gap-y-2 tracking-wide text-balance sm:flex-row"
+  >
+    <h1
+      class="order-2 mr-auto max-w-[545px] text-2xl font-semibold sm:order-1 sm:text-3xl/11 mocked-merriweather"
+    >
+      <span
+        class="text-mirai-red"
+      >
+        Hello
+         
+        <a
+          aria-label="Hello in Thai"
+          href="https://en.wiktionary.org/wiki/%E0%B8%AA%E0%B8%A7%E0%B8%B1%E0%B8%AA%E0%B8%94%E0%B8%B5"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <img
+            alt="Wave"
+            class="inline-block cursor-grab align-baseline hover:animate-wave active:cursor-grabbing"
+            data-nimg="1"
+            decoding="async"
+            height="24"
+            loading="lazy"
+            src="/wave.svg"
+            style="color: transparent;"
+            width="24"
+          />
+           
+        </a>
+        I'm Dulapah Vibulsanti
+         
+        <a
+          aria-label="Connect with me on LinkedIn"
+          class="border-border bg-background inline-flex rounded-md border p-1 transition-colors hover:bg-background-subtle hover:border-border-strong"
+          href="https://www.linkedin.com/in/dulapahv"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <img
+            alt="LinkedIn"
+            data-nimg="1"
+            decoding="async"
+            height="24"
+            loading="lazy"
+            src="/linkedin.svg"
+            style="color: transparent;"
+            width="24"
+          />
+        </a>
+        .
+      </span>
+      <br />
+      Thai
+       
+      <a
+        aria-label="View Thailand on map"
+        class="inline-block align-middle transition-transform hover:scale-105"
+        href="https://maps.app.goo.gl/uqHyX4aokhjnNn9Z7"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <img
+          alt="Thailand"
+          data-nimg="1"
+          decoding="async"
+          height="28"
+          loading="lazy"
+          src="/thailand.svg"
+          style="color: transparent;"
+          width="28"
+        />
+      </a>
+       
+      Software Engineer
+       
+      <a
+        aria-label="GitHub profile with 1 followers"
+        class="border-border bg-background inline-flex rounded-md border px-2 py-1 align-middle transition-colors hover:bg-background-subtle hover:border-border-strong"
+        href="https://github.com/dulapahv"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <img
+          alt="GitHub"
+          class="hidden dark:block align-middle"
+          data-nimg="1"
+          decoding="async"
+          height="24"
+          loading="lazy"
+          src="/octocat-white.svg"
+          style="color: transparent;"
+          width="24"
+        />
+        <img
+          alt="GitHub"
+          class="block dark:hidden align-middle"
+          data-nimg="1"
+          decoding="async"
+          height="24"
+          loading="lazy"
+          src="/octocat-black.svg"
+          style="color: transparent;"
+          width="24"
+        />
+        <p
+          class="border-border-subtle text-foreground-muted ml-2 border-l pl-2 text-base font-medium"
+        >
+          1
+        </p>
+      </a>
+       
+      based in Edinburgh,
+      <br />
+      United Kingdom
+       
+      <a
+        aria-label="Current time in Edinburgh: ☀️ 09:41"
+        class="border-border bg-background text-foreground-muted inline-flex rounded-md border p-1 pr-1.5 align-middle text-base font-medium transition-colors hover:bg-background-subtle hover:border-border-strong"
+        href="https://www.timeanddate.com/time/zone/uk"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        ☀️ 09:41
+      </a>
+      .
+    </h1>
+    <img
+      alt="Dulapah Vibulsanti"
+      class="ring-border-subtle bg-background-muted/50 order-1 size-24 rounded-full ring-2 sm:size-32 md:order-2"
+      data-nimg="1"
+      decoding="async"
+      height="128"
+      src="/_next/image?url=%2Favatar.jpg&w=256&q=75"
+      srcset="/_next/image?url=%2Favatar.jpg&w=128&q=75 1x, /_next/image?url=%2Favatar.jpg&w=256&q=75 2x"
+      style="color: transparent;"
+      width="128"
+    />
+  </header>
+  <div>
+    <blockquote
+      class="border-l-mirai-red border-border bg-background text-foreground rounded-md border border-l-8 py-2
+            pr-2.5 pl-3 italic shadow-sm"
+    >
+      "I believe accessible and delightful technology has the power to transform lives, and that's what I've been working toward since the very beginning."
+    </blockquote>
+    <div
+      class="flex gap-2"
+    >
+      <a
+        class="border-border bg-background group flex items-center gap-x-1.5 rounded-lg border px-2 py-1 font-medium !transition-all hover:bg-background-light hover:scale-[1.02] hover:shadow-lg active:scale-[0.98] active:shadow-md"
+        href="https://dulapahv.dev/resume"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <div
+          class="from-mirai-yellow to-mirai-yellow/60 rounded-md bg-gradient-to-br p-1 text-white shadow-md transition-transform"
+        >
+          <svg
+            class="size-4 shrink-0 scale-110 transition-transform group-hover:scale-[1.2] group-hover:rotate-[-15deg]"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 256 256"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M210.78,39.25l-130.25-23A16,16,0,0,0,62,29.23l-29.75,169a16,16,0,0,0,13,18.53l130.25,23h0a16,16,0,0,0,18.54-13l29.75-169A16,16,0,0,0,210.78,39.25ZM178.26,224h0L48,201,77.75,32,208,55ZM89.34,58.42a8,8,0,0,1,9.27-6.48l83,14.65a8,8,0,0,1-1.39,15.88,8.36,8.36,0,0,1-1.4-.12l-83-14.66A8,8,0,0,1,89.34,58.42ZM83.8,89.94a8,8,0,0,1,9.27-6.49l83,14.66A8,8,0,0,1,174.67,114a7.55,7.55,0,0,1-1.41-.13l-83-14.65A8,8,0,0,1,83.8,89.94Zm-5.55,31.51A8,8,0,0,1,87.52,115L129,122.29a8,8,0,0,1-1.38,15.88,8.27,8.27,0,0,1-1.4-.12l-41.5-7.33A8,8,0,0,1,78.25,121.45Z"
+            />
+          </svg>
+        </div>
+        <span
+          class="text-foreground text-sm"
+        >
+          Résumé
+        </span>
+      </a>
+      <a
+        class="border-border bg-background flex items-center gap-x-1.5 rounded-lg border px-2 py-1 font-medium !transition-all hover:bg-background-light hover:scale-[1.02] hover:shadow-lg active:scale-[0.98] active:shadow-md"
+        href="https://www.linkedin.com/in/dulapahv"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <div
+          class="flex items-center justify-center rounded-md bg-gradient-to-br from-blue-600 to-blue-400 p-1 text-white shadow-md transition-transform"
+        >
+          <img
+            alt=""
+            data-nimg="1"
+            decoding="async"
+            height="16"
+            loading="lazy"
+            src="/linkedin.svg"
+            style="color: transparent;"
+            width="16"
+          />
+        </div>
+        <span
+          class="text-foreground text-sm"
+        >
+          LinkedIn
+        </span>
+      </a>
+      <a
+        class="border-border bg-background flex items-center gap-x-1.5 rounded-lg border px-2 py-1 font-medium !transition-all hover:bg-background-light hover:scale-[1.02] hover:shadow-lg active:scale-[0.98] active:shadow-md"
+        href="https://github.com/dulapahv"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <div
+          class="flex items-center justify-center rounded-md bg-gradient-to-br from-gray-600 to-gray-400 p-1 text-white shadow-md transition-transform"
+        >
+          <img
+            alt=""
+            data-nimg="1"
+            decoding="async"
+            height="16"
+            loading="lazy"
+            src="/octocat-white.svg"
+            style="color: transparent;"
+            width="16"
+          />
+        </div>
+        <span
+          class="text-foreground text-sm"
+        >
+          GitHub
+        </span>
+      </a>
+    </div>
+    <article
+      class="text-foreground leading-7"
+    >
+      I'm a 
+      <b
+        class="text-foreground font-semibold"
+      >
+        Graduate Software Engineer
+      </b>
+       at
+       
+      <a
+        class="text-mirai-red underline underline-offset-2 hover:decoration-2"
+        href="https://www.natwestgroup.com/"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        NatWest Group
+      </a>
+      , one of the United Kingdom's Big Four banks, serving over 20 million customers across retail, commercial, and private banking.
+      <br />
+      <br />
+      In 2024, I completed an internship at NatWest Group as a
+       
+      <b
+        class="text-foreground font-semibold"
+      >
+        Software Engineer Intern
+      </b>
+      , where I honed my skills across frontend, backend, cloud technologies, DevOps, and data analytics. Following the internship, I was thrilled to receive a
+       
+      <b
+        class="text-foreground font-semibold"
+      >
+        return offer
+      </b>
+       to join as a Graduate Software Engineer, starting in September 2025.
+      <br />
+      <div>
+        Globe
+      </div>
+      <br />
+      In 2025, I completed a double degree program in Software Engineering, earning a
+       
+      <b
+        class="text-foreground font-semibold"
+      >
+        Bachelor of Science with Honours (BSc Hons) with First Class Honours and Specialism in Parallel and Distributed Systems
+      </b>
+       
+      from
+       
+      <a
+        class="text-mirai-red underline underline-offset-2 hover:decoration-2"
+        href="https://www.gla.ac.uk/"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        University of Glasgow
+      </a>
+      , a Russell Group university in the United Kingdom, and a
+       
+      <b
+        class="text-foreground font-semibold"
+      >
+        Bachelor of Engineering (B.Eng.)
+      </b>
+       from
+       
+      <a
+        class="text-mirai-red underline underline-offset-2 hover:decoration-2"
+        href="https://www.kmitl.ac.th/"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        King Mongkut's Institute of Technology Ladkrabang (KMITL)
+      </a>
+      , Thailand. I completed the first two years of the program in Thailand and the final two years in the United Kingdom.
+      <br />
+      <br />
+      Looking forward to where my career will take me...
+    </article>
+    <section
+      class="mt-8"
+    >
+      <h1
+        class="text-foreground mb-6 text-2xl font-semibold"
+        id="skills"
+      >
+        <a
+          aria-label="Jump to Skills section"
+          class="group relative rounded-sm hover:underline"
+          href="#skills"
+        >
+          <svg
+            aria-hidden="true"
+            class="absolute top-1/2 -left-6 size-4.5 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-focus:opacity-100"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 256 256"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M240,88.23a54.43,54.43,0,0,1-16,37L189.25,160a54.27,54.27,0,0,1-38.63,16h-.05A54.63,54.63,0,0,1,96,119.84a8,8,0,0,1,16,.45A38.62,38.62,0,0,0,150.58,160h0a38.39,38.39,0,0,0,27.31-11.31l34.75-34.75a38.63,38.63,0,0,0-54.63-54.63l-11,11A8,8,0,0,1,135.7,59l11-11A54.65,54.65,0,0,1,224,48,54.86,54.86,0,0,1,240,88.23ZM109,185.66l-11,11A38.41,38.41,0,0,1,70.6,208h0a38.63,38.63,0,0,1-27.29-65.94L78,107.31A38.63,38.63,0,0,1,144,135.71a8,8,0,0,0,16,.45A54.86,54.86,0,0,0,144,96a54.65,54.65,0,0,0-77.27,0L32,130.75A54.62,54.62,0,0,0,70.56,224h0a54.28,54.28,0,0,0,38.64-16l11-11A8,8,0,0,0,109,185.66Z"
+            />
+          </svg>
+          <span>
+            Skills
+          </span>
+        </a>
+      </h1>
+      <div
+        class="grid auto-rows-min grid-cols-1 gap-3 md:grid-cols-4"
+      >
+        <div
+          class="group relative md:col-span-2 row-span-1"
+        >
+          <div
+            class="absolute inset-0 rounded-xl bg-gradient-to-br opacity-5 group-hover:opacity-8 from-red-500 to-red-400"
+          />
+          <div
+            class="border-border relative h-full rounded-xl border p-3 backdrop-blur-sm transition-transform hover:scale-[1.01] bg-red-500/10 hover:bg-red-500/15"
+          >
+            <div
+              class="flex items-center gap-3 mb-4"
+            >
+              <div
+                class="text-foreground rounded-lg p-2 shadow-sm bg-red-500/10 hover:bg-red-500/15"
+              >
+                <svg
+                  class="size-5 shrink-0"
+                  fill="currentColor"
+                  height="1em"
+                  viewBox="0 0 256 256"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M69.12,94.15,28.5,128l40.62,33.85a8,8,0,1,1-10.24,12.29l-48-40a8,8,0,0,1,0-12.29l48-40a8,8,0,0,1,10.24,12.3Zm176,27.7-48-40a8,8,0,1,0-10.24,12.3L227.5,128l-40.62,33.85a8,8,0,1,0,10.24,12.29l48-40a8,8,0,0,0,0-12.29ZM162.73,32.48a8,8,0,0,0-10.25,4.79l-64,176a8,8,0,0,0,4.79,10.26A8.14,8.14,0,0,0,96,224a8,8,0,0,0,7.52-5.27l64-176A8,8,0,0,0,162.73,32.48Z"
+                  />
+                </svg>
+              </div>
+              <div
+                class="flex-1"
+              >
+                <h2
+                  class="text-foreground font-bold text-base"
+                >
+                  General programming
+                </h2>
+                <div
+                  class="mt-1 h-1 rounded-full bg-gradient-to-r from-red-500 to-red-400 w-10"
+                />
+              </div>
+            </div>
+            <div
+              class="flex flex-wrap gap-2"
+            >
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-3 py-1.5 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                TypeScript
+              </span>
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-3 py-1.5 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                JavaScript
+              </span>
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-3 py-1.5 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                Python
+              </span>
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-3 py-1.5 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                C
+              </span>
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-3 py-1.5 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                C++
+              </span>
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-3 py-1.5 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                Java
+              </span>
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-3 py-1.5 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                Bash
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="group relative md:col-span-2 row-span-1"
+        >
+          <div
+            class="absolute inset-0 rounded-xl bg-gradient-to-br opacity-5 group-hover:opacity-8 from-amber-500 to-amber-400"
+          />
+          <div
+            class="border-border relative h-full rounded-xl border p-3 backdrop-blur-sm transition-transform hover:scale-[1.01] bg-amber-500/10 hover:bg-amber-500/15"
+          >
+            <div
+              class="flex items-center gap-3 mb-3"
+            >
+              <div
+                class="text-foreground rounded-lg p-2 shadow-sm bg-amber-500/10 hover:bg-amber-500/15"
+              >
+                <svg
+                  class="size-5 shrink-0"
+                  fill="currentColor"
+                  height="1em"
+                  viewBox="0 0 256 256"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z"
+                  />
+                </svg>
+              </div>
+              <div
+                class="flex-1"
+              >
+                <h2
+                  class="text-foreground font-bold text-sm"
+                >
+                  Databases
+                </h2>
+                <div
+                  class="mt-1 h-1 rounded-full bg-gradient-to-r from-amber-500 to-amber-400 w-8"
+                />
+              </div>
+            </div>
+            <div
+              class="flex flex-wrap gap-1.5"
+            >
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-2.5 py-1 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                PostgreSQL
+              </span>
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-2.5 py-1 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                MongoDB
+              </span>
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-2.5 py-1 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                SQLite
+              </span>
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-2.5 py-1 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                MySQL
+              </span>
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-2.5 py-1 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                Snowflake
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="group relative md:col-span-2 row-span-1"
+        >
+          <div
+            class="absolute inset-0 rounded-xl bg-gradient-to-br opacity-5 group-hover:opacity-8 from-purple-500 to-purple-400"
+          />
+          <div
+            class="border-border relative h-full rounded-xl border p-3 backdrop-blur-sm transition-transform hover:scale-[1.01] bg-purple-500/10 hover:bg-purple-500/15"
+          >
+            <div
+              class="flex items-center gap-3 mb-4"
+            >
+              <div
+                class="text-foreground rounded-lg p-2 shadow-sm bg-purple-500/10 hover:bg-purple-500/15"
+              >
+                <svg
+                  class="size-5 shrink-0"
+                  fill="currentColor"
+                  height="1em"
+                  viewBox="0 0 256 256"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M208,40H48A24,24,0,0,0,24,64V176a24,24,0,0,0,24,24H208a24,24,0,0,0,24-24V64A24,24,0,0,0,208,40Zm8,136a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V64a8,8,0,0,1,8-8H208a8,8,0,0,1,8,8Zm-48,48a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,224Z"
+                  />
+                </svg>
+              </div>
+              <div
+                class="flex-1"
+              >
+                <h2
+                  class="text-foreground font-bold text-base"
+                >
+                  Web frameworks & UI
+                </h2>
+                <div
+                  class="mt-1 h-1 rounded-full bg-gradient-to-r from-purple-500 to-purple-400 w-10"
+                />
+              </div>
+            </div>
+            <div
+              class="flex flex-wrap gap-2"
+            >
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-3 py-1.5 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                Next.js
+              </span>
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-3 py-1.5 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                React.js
+              </span>
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-3 py-1.5 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                Tailwind CSS
+              </span>
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-3 py-1.5 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                shadcn/ui
+              </span>
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-3 py-1.5 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                Radix UI
+              </span>
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-3 py-1.5 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                HeroUI
+              </span>
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-3 py-1.5 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                daisyUI
+              </span>
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-3 py-1.5 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                MUI
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="group relative md:col-span-1 row-span-1"
+        >
+          <div
+            class="absolute inset-0 rounded-xl bg-gradient-to-br opacity-5 group-hover:opacity-8 from-teal-500 to-teal-400"
+          />
+          <div
+            class="border-border relative h-full rounded-xl border p-3 backdrop-blur-sm transition-transform hover:scale-[1.01] bg-teal-500/10 hover:bg-teal-500/15"
+          >
+            <div
+              class="flex items-center gap-3 mb-3"
+            >
+              <div
+                class="text-foreground rounded-lg p-2 shadow-sm bg-teal-500/10 hover:bg-teal-500/15"
+              >
+                <svg
+                  class="size-5 shrink-0"
+                  fill="currentColor"
+                  height="1em"
+                  viewBox="0 0 256 256"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M208,136H48a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V152A16,16,0,0,0,208,136Zm0,64H48V152H208v48Zm0-160H48A16,16,0,0,0,32,56v48a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V56A16,16,0,0,0,208,40Zm0,64H48V56H208v48ZM192,80a12,12,0,1,1-12-12A12,12,0,0,1,192,80Zm0,96a12,12,0,1,1-12-12A12,12,0,0,1,192,176Z"
+                  />
+                </svg>
+              </div>
+              <div
+                class="flex-1"
+              >
+                <h2
+                  class="text-foreground font-bold text-sm"
+                >
+                  Backend
+                </h2>
+                <div
+                  class="mt-1 h-1 rounded-full bg-gradient-to-r from-teal-500 to-teal-400 w-8"
+                />
+              </div>
+            </div>
+            <div
+              class="flex flex-wrap gap-1.5"
+            >
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-2.5 py-1 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                Express.js
+              </span>
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-2.5 py-1 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                Prisma
+              </span>
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-2.5 py-1 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                WebSocket
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="group relative md:col-span-1 row-span-1"
+        >
+          <div
+            class="absolute inset-0 rounded-xl bg-gradient-to-br opacity-5 group-hover:opacity-8 from-pink-500 to-pink-400"
+          />
+          <div
+            class="border-border relative h-full rounded-xl border p-3 backdrop-blur-sm transition-transform hover:scale-[1.01] bg-pink-500/10 hover:bg-pink-500/15"
+          >
+            <div
+              class="flex items-center gap-3 mb-3"
+            >
+              <div
+                class="text-foreground rounded-lg p-2 shadow-sm bg-pink-500/10 hover:bg-pink-500/15"
+              >
+                <svg
+                  class="size-5 shrink-0"
+                  fill="currentColor"
+                  height="1em"
+                  viewBox="0 0 256 256"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M224,72H208V64a24,24,0,0,0-24-24H40A24,24,0,0,0,16,64v96a24,24,0,0,0,24,24H152v8a24,24,0,0,0,24,24h48a24,24,0,0,0,24-24V96A24,24,0,0,0,224,72ZM40,168a8,8,0,0,1-8-8V64a8,8,0,0,1,8-8H184a8,8,0,0,1,8,8v8H176a24,24,0,0,0-24,24v72Zm192,24a8,8,0,0,1-8,8H176a8,8,0,0,1-8-8V96a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8Zm-96,16a8,8,0,0,1-8,8H88a8,8,0,0,1,0-16h40A8,8,0,0,1,136,208Zm80-96a8,8,0,0,1-8,8H192a8,8,0,0,1,0-16h16A8,8,0,0,1,216,112Z"
+                  />
+                </svg>
+              </div>
+              <div
+                class="flex-1"
+              >
+                <h2
+                  class="text-foreground font-bold text-sm"
+                >
+                  Cross-platform & Desktop
+                </h2>
+                <div
+                  class="mt-1 h-1 rounded-full bg-gradient-to-r from-pink-500 to-pink-400 w-8"
+                />
+              </div>
+            </div>
+            <div
+              class="flex flex-wrap gap-1.5"
+            >
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-2.5 py-1 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                Electron.js
+              </span>
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-2.5 py-1 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                Qt
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="group relative md:col-span-2 row-span-1"
+        >
+          <div
+            class="absolute inset-0 rounded-xl bg-gradient-to-br opacity-5 group-hover:opacity-8 from-green-500 to-green-400"
+          />
+          <div
+            class="border-border relative h-full rounded-xl border p-3 backdrop-blur-sm transition-transform hover:scale-[1.01] bg-green-500/10 hover:bg-green-500/15"
+          >
+            <div
+              class="flex items-center gap-3 mb-3"
+            >
+              <div
+                class="text-foreground rounded-lg p-2 shadow-sm bg-green-500/10 hover:bg-green-500/15"
+              >
+                <svg
+                  class="size-5 shrink-0"
+                  fill="currentColor"
+                  height="1em"
+                  viewBox="0 0 256 256"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Zm88-29.84q.06-2.16,0-4.32l14.92-18.64a8,8,0,0,0,1.48-7.06,107.21,107.21,0,0,0-10.88-26.25,8,8,0,0,0-6-3.93l-23.72-2.64q-1.48-1.56-3-3L186,40.54a8,8,0,0,0-3.94-6,107.71,107.71,0,0,0-26.25-10.87,8,8,0,0,0-7.06,1.49L130.16,40Q128,40,125.84,40L107.2,25.11a8,8,0,0,0-7.06-1.48A107.6,107.6,0,0,0,73.89,34.51a8,8,0,0,0-3.93,6L67.32,64.27q-1.56,1.49-3,3L40.54,70a8,8,0,0,0-6,3.94,107.71,107.71,0,0,0-10.87,26.25,8,8,0,0,0,1.49,7.06L40,125.84Q40,128,40,130.16L25.11,148.8a8,8,0,0,0-1.48,7.06,107.21,107.21,0,0,0,10.88,26.25,8,8,0,0,0,6,3.93l23.72,2.64q1.49,1.56,3,3L70,215.46a8,8,0,0,0,3.94,6,107.71,107.71,0,0,0,26.25,10.87,8,8,0,0,0,7.06-1.49L125.84,216q2.16.06,4.32,0l18.64,14.92a8,8,0,0,0,7.06,1.48,107.21,107.21,0,0,0,26.25-10.88,8,8,0,0,0,3.93-6l2.64-23.72q1.56-1.48,3-3L215.46,186a8,8,0,0,0,6-3.94,107.71,107.71,0,0,0,10.87-26.25,8,8,0,0,0-1.49-7.06Zm-16.1-6.5a73.93,73.93,0,0,1,0,8.68,8,8,0,0,0,1.74,5.48l14.19,17.73a91.57,91.57,0,0,1-6.23,15L187,173.11a8,8,0,0,0-5.1,2.64,74.11,74.11,0,0,1-6.14,6.14,8,8,0,0,0-2.64,5.1l-2.51,22.58a91.32,91.32,0,0,1-15,6.23l-17.74-14.19a8,8,0,0,0-5-1.75h-.48a73.93,73.93,0,0,1-8.68,0,8,8,0,0,0-5.48,1.74L100.45,215.8a91.57,91.57,0,0,1-15-6.23L82.89,187a8,8,0,0,0-2.64-5.1,74.11,74.11,0,0,1-6.14-6.14,8,8,0,0,0-5.1-2.64L46.43,170.6a91.32,91.32,0,0,1-6.23-15l14.19-17.74a8,8,0,0,0,1.74-5.48,73.93,73.93,0,0,1,0-8.68,8,8,0,0,0-1.74-5.48L40.2,100.45a91.57,91.57,0,0,1,6.23-15L69,82.89a8,8,0,0,0,5.1-2.64,74.11,74.11,0,0,1,6.14-6.14A8,8,0,0,0,82.89,69L85.4,46.43a91.32,91.32,0,0,1,15-6.23l17.74,14.19a8,8,0,0,0,5.48,1.74,73.93,73.93,0,0,1,8.68,0,8,8,0,0,0,5.48-1.74L155.55,40.2a91.57,91.57,0,0,1,15,6.23L173.11,69a8,8,0,0,0,2.64,5.1,74.11,74.11,0,0,1,6.14,6.14,8,8,0,0,0,5.1,2.64l22.58,2.51a91.32,91.32,0,0,1,6.23,15l-14.19,17.74A8,8,0,0,0,199.87,123.66Z"
+                  />
+                </svg>
+              </div>
+              <div
+                class="flex-1"
+              >
+                <h2
+                  class="text-foreground font-bold text-sm"
+                >
+                  DevOps & Testing
+                </h2>
+                <div
+                  class="mt-1 h-1 rounded-full bg-gradient-to-r from-green-500 to-green-400 w-8"
+                />
+              </div>
+            </div>
+            <div
+              class="flex flex-wrap gap-1.5"
+            >
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-2.5 py-1 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                GitHub Actions
+              </span>
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-2.5 py-1 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                GitLab CI/CD
+              </span>
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-2.5 py-1 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                Playwright
+              </span>
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-2.5 py-1 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                Jest
+              </span>
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-2.5 py-1 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                Sentry
+              </span>
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-2.5 py-1 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                Turborepo
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="group relative md:col-span-2 row-span-1"
+        >
+          <div
+            class="absolute inset-0 rounded-xl bg-gradient-to-br opacity-5 group-hover:opacity-8 from-blue-500 to-blue-400"
+          />
+          <div
+            class="border-border relative h-full rounded-xl border p-3 backdrop-blur-sm transition-transform hover:scale-[1.01] bg-blue-500/10 hover:bg-blue-500/15"
+          >
+            <div
+              class="flex items-center gap-3 mb-3"
+            >
+              <div
+                class="text-foreground rounded-lg p-2 shadow-sm bg-blue-500/10 hover:bg-blue-500/15"
+              >
+                <svg
+                  class="size-5 shrink-0"
+                  fill="currentColor"
+                  height="1em"
+                  viewBox="0 0 256 256"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M160,40A88.09,88.09,0,0,0,81.29,88.67,64,64,0,1,0,72,216h88a88,88,0,0,0,0-176Zm0,160H72a48,48,0,0,1,0-96c1.1,0,2.2,0,3.29.11A88,88,0,0,0,72,128a8,8,0,0,0,16,0,72,72,0,1,1,72,72Z"
+                  />
+                </svg>
+              </div>
+              <div
+                class="flex-1"
+              >
+                <h2
+                  class="text-foreground font-bold text-sm"
+                >
+                  Cloud & Infrastructure
+                </h2>
+                <div
+                  class="mt-1 h-1 rounded-full bg-gradient-to-r from-blue-500 to-blue-400 w-8"
+                />
+              </div>
+            </div>
+            <div
+              class="flex flex-wrap gap-1.5"
+            >
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-2.5 py-1 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                Vercel
+              </span>
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-2.5 py-1 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                Cloudflare
+              </span>
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-2.5 py-1 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                Docker
+              </span>
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-2.5 py-1 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                Supabase
+              </span>
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-2.5 py-1 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                GCP
+              </span>
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-2.5 py-1 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                Nginx
+              </span>
+              <span
+                class="text-foreground border-foreground/10 cursor-default rounded-full border bg-white/10 font-medium transition-colors px-2.5 py-1 text-xs hover:border-foreground/20 hover:bg-white/15"
+              >
+                Firebase
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <footer
+    class="mt-16"
+  >
+    <div
+      class="text-foreground-muted flex flex-col gap-y-1 text-sm font-medium"
+    >
+      <p>
+        ©
+         
+        2007
+         
+        Dulapah Vibulsanti. All rights reserved.
+      </p>
+      <p>
+        View the
+         
+        <a
+          class="text-mirai-red underline underline-offset-2 hover:decoration-2"
+          href="https://github.com/dulapahv/dulapahv-portfolio"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          source code
+        </a>
+        .
+      </p>
+      <p>
+        NLWeb Chat:
+         
+        <a
+          class="text-mirai-red underline underline-offset-2 hover:decoration-2"
+          href="https://chat.dulapahv.dev"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          chat.dulapahv.dev
+        </a>
+        .
+      </p>
+    </div>
+  </footer>
+</div>
+`;

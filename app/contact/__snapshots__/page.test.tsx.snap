@@ -1,0 +1,123 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Contact Page > should match snapshot 1`] = `
+<div>
+  <script
+    type="application/ld+json"
+  >
+    [{"@context":"https://schema.org","@type":"Person","@id":"https://dulapahv.dev/#person","name":"Dulapah Vibulsanti","givenName":"Dulapah","familyName":"Vibulsanti","alternateName":"DulapahV","description":"Thai Software Engineer based in Edinburgh, United Kingdom. Passionate about creating accessible and delightful technology for everyone.","gender":"male","nationality":{"@type":"Country","name":"Thailand"},"url":"https://dulapahv.dev","image":{"@type":"ImageObject","url":"https://dulapahv.dev/og?title=Dulapah+Vibulsanti%0ASoftware+Engineer&description=Thai+Software+Engineer+based+in+Edinburgh%2C+United+Kingdom.+Passionate+about+creating+accessible+and+delightful+technology+for+everyone.","caption":"Dulapah Vibulsanti - Software Engineer","width":"1200","height":"630"},"sameAs":["https://github.com/dulapahv","https://www.linkedin.com/in/dulapahv"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"University of Glasgow","url":"https://www.gla.ac.uk/","identifier":"Russell Group University","address":{"@type":"PostalAddress","addressLocality":"Glasgow","addressRegion":"Scotland","addressCountry":"GB","postalCode":"G12 8QQ","streetAddress":"University Avenue"}},{"@type":"CollegeOrUniversity","name":"King Mongkut's Institute of Technology Ladkrabang","alternateName":"KMITL","url":"https://www.kmitl.ac.th/","address":{"@type":"PostalAddress","addressLocality":"Bangkok","addressRegion":"Bangkok","addressCountry":"TH","postalCode":"10520","streetAddress":"1 Chalong Krung 1 Alley, Lat Krabang"}},{"@type":"EducationalOrganization","name":"Suankularb Wittayalai School","url":"https://www.sk.ac.th/","address":{"@type":"PostalAddress","addressLocality":"Bangkok","addressRegion":"Phra Nakhon","addressCountry":"TH","postalCode":"10200","streetAddress":"88 Tri Phet Road"}}],"jobTitle":"Graduate Software Engineer","worksFor":{"@type":"Organization","name":"NatWest Group","url":"https://www.natwestgroup.com/","description":"One of the UK's Big Four banks, serving over 19 million customers","sameAs":"https://en.wikipedia.org/wiki/NatWest_Group"},"workLocation":{"@type":"Place","name":"Edinburgh, Scotland","address":{"@type":"PostalAddress","addressLocality":"Edinburgh","addressRegion":"Scotland","addressCountry":"GB"}},"knowsAbout":["General programming","Databases","Web frameworks & UI","Backend","Cross-platform & Desktop","DevOps & Testing","Cloud & Infrastructure","TypeScript","JavaScript","Python","C","C++","Java","Bash","PostgreSQL","MongoDB","SQLite","MySQL","Snowflake","Next.js","React.js","Tailwind CSS","shadcn/ui","Radix UI","HeroUI","daisyUI","MUI","Express.js","Prisma","WebSocket","Electron.js","Qt","GitHub Actions","GitLab CI/CD","Playwright","Jest","Sentry","Turborepo","Vercel","Cloudflare","Docker","Supabase","GCP","Nginx","Firebase","Software Engineering","Full Stack Development","Parallel and Distributed Systems","Web Development","API Development","Version Control (Git)","Agile Methodologies","Test-Driven Development","Continuous Integration/Continuous Deployment","Web Accessibility"],"hasCredential":[{"@type":"EducationalOccupationalCredential","@id":"https://dulapahv.dev/#degree-glasgow","name":"BSc (Hons) Software Engineering","description":"Double degree program with KMITL. First Class Honours with Specialization in Parallel and Distributed Systems. Final two years completed at University of Glasgow.","credentialCategory":"degree","educationalLevel":"Bachelor","dateCreated":"2023-09","recognizedBy":{"@type":"CollegeOrUniversity","name":"University of Glasgow","url":"https://www.gla.ac.uk/"}},{"@type":"EducationalOccupationalCredential","@id":"https://dulapahv.dev/#degree-kmitl","name":"BEng Software Engineering","description":"Double degree programme with University of Glasgow. First two years completed at KMITL before transferring to Glasgow.","credentialCategory":"degree","educationalLevel":"Bachelor","dateCreated":"2021-08","recognizedBy":{"@type":"CollegeOrUniversity","name":"King Mongkut's Institute of Technology Ladkrabang","url":"https://www.kmitl.ac.th/"}}],"knowsLanguage":[{"@type":"Language","name":"Thai","alternateName":"th"},{"@type":"Language","name":"English","alternateName":"en"}],"contactPoint":{"@type":"ContactPoint","contactType":"professional","areaServed":"GB","availableLanguage":["en","th"],"url":"https://dulapahv.dev/contact"},"hasOccupation":{"@type":"Occupation","name":"Software Engineer","description":"Software engineers design and create computer systems and applications to solve real-world problems.","occupationalCategory":"15-1252.00","occupationLocation":{"@type":"City","name":"Edinburgh, Scotland","address":{"@type":"PostalAddress","addressLocality":"Edinburgh","addressRegion":"Scotland","addressCountry":"GB"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dulapahv.dev/#occupation-software-engineer","name":"Software Engineer","description":"Software engineers design and create computer systems and applications to solve real-world problems.","url":"https://dulapahv.dev/#occupation-software-engineer","lastReviewed":"2007-01-09T09:41:00.000Z"}}},{"@context":"https://schema.org","@type":"WebSite","@id":"https://dulapahv.dev/#website","url":"https://dulapahv.dev","name":"DulapahV Portfolio","alternateName":"Dulapah Vibulsanti Portfolio","description":"Thai Software Engineer based in Edinburgh, United Kingdom. Passionate about creating accessible and delightful technology for everyone.","publisher":{"@id":"https://dulapahv.dev/#person"},"inLanguage":"en-US"},{"@context":"https://schema.org","@type":"ContactPage","@id":"https://dulapahv.dev/contact","url":"https://dulapahv.dev/contact","name":"Contact DulapahV","description":"Let me know what's on your mind and I'll get back to you as soon as possible.","mainEntity":{"@id":"https://dulapahv.dev/#person"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://dulapahv.dev/og?title=Contact+DulapahV&description=Let+me+know+what%27s+on+your+mind+and+I%27ll+get+back+to+you+as+soon+as+possible.","width":"1200","height":"630"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://dulapahv.dev/contact#breadcrumb","name":"Breadcrumbs","itemListOrder":"https://schema.org/ItemListOrderAscending","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://dulapahv.dev"},{"@type":"ListItem","position":2,"name":"Contact","item":"https://dulapahv.dev/contact"}]}}]
+  </script>
+  <div
+    class="mx-auto max-w-2xl space-y-4"
+  >
+    <nav
+      aria-label="breadcrumb"
+    >
+      <ol
+        class="text-foreground-muted flex flex-wrap items-center gap-1.5 text-sm break-words sm:gap-2.5"
+      >
+        <li
+          class="inline-flex items-center gap-1.5"
+        >
+          <a
+            class="rounded-sm transition-colors hover:text-foreground focus:text-foreground"
+            href="/"
+          >
+            Home
+          </a>
+        </li>
+        <li
+          aria-hidden="true"
+          class="[&>svg]:size-3.5"
+          role="presentation"
+        >
+          <svg
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 256 256"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"
+            />
+          </svg>
+        </li>
+        <li
+          class="inline-flex items-center gap-1.5"
+        >
+          <span
+            aria-current="page"
+            aria-disabled="true"
+            class="text-foreground font-normal max-w-48 truncate"
+            role="link"
+          >
+            Contact
+          </span>
+        </li>
+      </ol>
+    </nav>
+  </div>
+  <div>
+    <main
+      class="mx-auto max-w-2xl space-y-4"
+    >
+      <header
+        class="gap-0"
+      >
+        <h1
+          class="text-foreground text-lg font-medium"
+        >
+          Contact
+        </h1>
+        <p
+          class="text-foreground-muted"
+        >
+          Let me know what's on your mind and I'll get back to you as soon as possible.
+        </p>
+      </header>
+      <section
+        aria-label="Contact form"
+      >
+        <div
+          class="animate-pulse space-y-6"
+        >
+          <div
+            class="space-y-2"
+          >
+            <div
+              class="h-4 w-16 rounded bg-gray-200"
+            />
+            <div
+              class="h-10 rounded bg-gray-200"
+            />
+          </div>
+          <div
+            class="space-y-2"
+          >
+            <div
+              class="h-4 w-16 rounded bg-gray-200"
+            />
+            <div
+              class="h-10 rounded bg-gray-200"
+            />
+          </div>
+          <div
+            class="space-y-2"
+          >
+            <div
+              class="h-4 w-20 rounded bg-gray-200"
+            />
+            <div
+              class="h-32 rounded bg-gray-200"
+            />
+          </div>
+          <div
+            class="h-10 w-32 rounded bg-gray-200"
+          />
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+`;

@@ -10,6 +10,10 @@
     "lint:fix": "eslint --fix --cache",
     "format": "prettier --check **/*.{js,mjs,jsx,ts,tsx,json,css,scss}",
     "format:fix": "prettier --write **/*.{js,mjs,jsx,ts,tsx,json,css,scss}",
+    "test": "vitest --watch=false",
+    "test:watch": "vitest --watch",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest run --watch=false --coverage",
     "prepare": "husky"
   },
   "lint-staged": {
@@ -50,6 +54,7 @@
     "remark-gfm": "^4.0.1",
     "remark-math": "^6.0.0",
     "resend": "^4.8.0",
+    "rm": "^0.1.8",
     "schema-dts": "^1.1.5",
     "shiki": "^3.14.0",
     "tailwind-merge": "^3.3.1"
@@ -64,14 +69,20 @@
     "@prettier/plugin-oxc": "^0.0.4",
     "@tailwindcss/postcss": "^4.1.16",
     "@tailwindcss/typography": "^0.5.19",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
     "@types/node": "^24.9.2",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
     "@vitejs/plugin-react": "^5.1.0",
-    "@vitest/coverage-v8": "^4.0.6",
+    "@vitest/coverage-v8": "4.0.6",
+    "@vitest/ui": "4.0.6",
     "eslint": "^9.38.0",
     "eslint-config-next": "15.3.2",
     "husky": "^9.1.7",
+    "jsdom": "^27.1.0",
+    "next-router-mock": "^1.0.4",
     "prettier": "^3.6.2",
     "prettier-plugin-classnames": "^0.7.9",
     "prettier-plugin-ember-template-tag": "^2.1.0",
@@ -80,6 +91,7 @@
     "tailwindcss": "^4.1.16",
     "turbo": "^2.5.8",
     "typescript": "^5.9.3",
+    "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^4.0.6"
   },
   "packageManager": "pnpm@10.20.0+sha512.cf9998222162dd85864d0a8102e7892e7ba4ceadebbf5a31f9c2fce48dfce317a9c53b9f6464d1ef9042cba2e02ae02a9f7c143a2b438cd93c91840f0192b9dd"

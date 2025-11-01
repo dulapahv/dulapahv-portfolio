@@ -52,3 +52,6 @@ next-env.d.ts
 
 # eslint
 .eslintcache
+
+# coverage
+/coverage
