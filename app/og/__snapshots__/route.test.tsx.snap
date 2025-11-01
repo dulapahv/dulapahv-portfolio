@@ -1,0 +1,97 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`OG Image Route > should match OG image snapshot 1`] = `
+MockImageResponse {
+  "element": <div
+    style={
+      {
+        "backgroundImage": "linear-gradient(to right, #1C1C1C 1px, transparent 1px), linear-gradient(to bottom, #1C1C1C 1px, transparent 1px)",
+        "backgroundSize": "80px 80px",
+      }
+    }
+    tw="flex flex-col justify-between items-start w-full h-full bg-black p-12"
+  >
+    <img
+      alt="avatar"
+      height={72}
+      src="data:image/png;base64,bW9jay1maWxlLWNvbnRlbnQ="
+      tw="overflow-hidden"
+      width={72}
+    />
+    <div
+      tw="flex flex-col"
+    >
+      <h1
+        tw="max-w-[48rem] text-[64px] font-bold leading-[69px] tracking-tighter m-0 text-[#F1F1F1]"
+      >
+        Snapshot Test
+      </h1>
+      <p
+        tw="max-w-[64rem] text-[24px] font-normal leading-[32px] tracking-tight text-[#A5A5A5] mt-4 mb-0"
+      >
+        Snapshot Description
+      </p>
+    </div>
+  </div>,
+  "options": {
+    "fonts": [
+      {
+        "data": {
+          "data": [
+            109,
+            111,
+            99,
+            107,
+            45,
+            102,
+            105,
+            108,
+            101,
+            45,
+            99,
+            111,
+            110,
+            116,
+            101,
+            110,
+            116,
+          ],
+          "type": "Buffer",
+        },
+        "name": "Geist",
+        "style": "normal",
+        "weight": 700,
+      },
+      {
+        "data": {
+          "data": [
+            109,
+            111,
+            99,
+            107,
+            45,
+            102,
+            105,
+            108,
+            101,
+            45,
+            99,
+            111,
+            110,
+            116,
+            101,
+            110,
+            116,
+          ],
+          "type": "Buffer",
+        },
+        "name": "Geist",
+        "style": "normal",
+        "weight": 400,
+      },
+    ],
+    "height": 630,
+    "width": 1200,
+  },
+}
+`;

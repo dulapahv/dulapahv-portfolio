@@ -6,7 +6,7 @@ import { ReadCvLogoIcon } from '@phosphor-icons/react/dist/ssr';
 import { GITHUB_URL, LINKEDIN_URL } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 
-export default function SocialLinks() {
+export function SocialLinks() {
   return (
     <div className="flex gap-2">
       <Link

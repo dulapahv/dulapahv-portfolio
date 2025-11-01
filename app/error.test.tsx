@@ -3,7 +3,6 @@ import { describe, expect, it, vi } from 'vitest';
 
 import Error from './error';
 
-// Mock next/link
 vi.mock('next/link', () => ({
   default: ({
     children,
@@ -20,9 +19,8 @@ vi.mock('next/link', () => ({
   )
 }));
 
-// Mock Footer component
 vi.mock('@/components/footer', () => ({
-  default: () => <footer>Footer</footer>
+  Footer: () => <footer data-testid="footer">Footer</footer>
 }));
 
 describe('Error Page', () => {

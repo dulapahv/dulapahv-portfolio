@@ -13,7 +13,7 @@ interface GlobeProps {
   className?: string;
 }
 
-export const Globe = ({ width, height, markers, className = '' }: GlobeProps) => {
+export function Globe({ width, height, markers, className }: GlobeProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const pointerInteracting = useRef<number | null>(null);
   const pointerInteractionMovement = useRef(0);
@@ -123,4 +123,4 @@ export const Globe = ({ width, height, markers, className = '' }: GlobeProps) =>
       }}
     />
   );
-};
+}

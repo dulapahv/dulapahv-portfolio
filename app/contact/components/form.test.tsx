@@ -5,7 +5,6 @@ import { useOnLeavePageConfirmation } from '@/hooks/use-on-leave-page-confirmati
 
 import { ContactForm } from './form';
 
-// Mock dependencies
 vi.mock('@/hooks/use-on-leave-page-confirmation', () => ({
   useOnLeavePageConfirmation: vi.fn()
 }));
@@ -14,7 +13,6 @@ vi.mock('@/app/actions/contact', () => ({
   sendContactEmail: vi.fn()
 }));
 
-// Mock Turnstile
 vi.mock('@marsidev/react-turnstile', () => ({
   /* eslint-disable  @typescript-eslint/no-explicit-any */
   Turnstile: ({ onSuccess }: any) => (
@@ -29,7 +27,6 @@ vi.mock('@marsidev/react-turnstile', () => ({
   )
 }));
 
-// Mock radix-ui Form
 vi.mock('radix-ui', () => ({
   Form: {
     /* eslint-disable  @typescript-eslint/no-explicit-any */
@@ -39,7 +36,6 @@ vi.mock('radix-ui', () => ({
   }
 }));
 
-// Mock components
 vi.mock('@/components/input', () => ({
   /* eslint-disable  @typescript-eslint/no-explicit-any */
   Input: ({ label, ...props }: any) => (

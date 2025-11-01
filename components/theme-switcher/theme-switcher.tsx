@@ -9,7 +9,7 @@ import { useTheme } from 'next-themes';
 import { cn } from '@/lib/utils';
 import { useMediaQuery } from '@/hooks/use-media-query';
 
-export const ThemeSwitcher = () => {
+export function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -267,4 +267,4 @@ export const ThemeSwitcher = () => {
       </div>
     </motion.div>
   );
-};
+}

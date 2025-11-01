@@ -3,7 +3,6 @@ import { describe, expect, it, vi } from 'vitest';
 
 import GlobalError from './global-error';
 
-// Mock next/link
 vi.mock('next/link', () => ({
   default: ({
     children,
@@ -20,7 +19,6 @@ vi.mock('next/link', () => ({
   )
 }));
 
-// Mock next/image
 vi.mock('next/image', () => ({
   default: ({
     src,
@@ -36,12 +34,10 @@ vi.mock('next/image', () => ({
   )
 }));
 
-// Mock next-themes
 vi.mock('next-themes', () => ({
   ThemeProvider: ({ children }: { children: React.ReactNode }) => <div>{children}</div>
 }));
 
-// Mock geist font
 vi.mock('geist/font/mono', () => ({
   GeistMono: {
     variable: 'geist-mono-variable',
@@ -49,7 +45,6 @@ vi.mock('geist/font/mono', () => ({
   }
 }));
 
-// Mock next/font/google
 vi.mock('next/font/google', () => ({
   Raleway: () => ({
     className: 'raleway-font',

@@ -7,7 +7,7 @@ interface JsonLdProps {
   schemas?: Array<WithContext<any>>;
 }
 
-export const JsonLd = ({ schemas = [] }: JsonLdProps) => {
+export function JsonLd({ schemas = [] }: JsonLdProps) {
   // Always include person and website schemas on every page
   const allSchemas = [personSchema, websiteSchema, ...schemas];
 
@@ -19,4 +19,4 @@ export const JsonLd = ({ schemas = [] }: JsonLdProps) => {
       }}
     />
   );
-};
+}

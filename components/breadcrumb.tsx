@@ -10,12 +10,12 @@ import { CaretRightIcon, DotsThreeIcon } from '@phosphor-icons/react/dist/ssr';
 import { cn } from '@/lib/utils';
 
 // Helper function to format segment text
-const formatSegment = (segment: string): string => {
+function formatSegment(segment: string): string {
   return segment
     .split('-')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
-};
+}
 
 // Main dynamic breadcrumb component
 const Breadcrumb = React.forwardRef<

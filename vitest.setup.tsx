@@ -18,14 +18,12 @@ vi.mock('react', async () => {
   };
 });
 
-// Mock next/font/google
 vi.mock('next/font/google', () => ({
   Merriweather: () => ({
     className: 'mocked-merriweather'
   })
 }));
 
-// Mock react-medium-image-zoom to avoid random IDs in snapshots
 vi.mock('react-medium-image-zoom', () => ({
   default: ({ children }: React.PropsWithChildren) => (
     <span data-testid="zoom-wrapper">{children}</span>

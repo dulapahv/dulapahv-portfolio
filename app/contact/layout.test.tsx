@@ -3,9 +3,8 @@ import { describe, expect, it, vi } from 'vitest';
 
 import ContactLayout from './layout';
 
-// Mock Footer component
 vi.mock('@/components/footer', () => ({
-  default: () => <footer data-testid="footer">Footer</footer>
+  Footer: () => <footer data-testid="footer">Footer</footer>
 }));
 
 describe('Contact Layout', () => {

@@ -5,12 +5,10 @@ import { useMediaQuery } from '@/hooks/use-media-query';
 
 import { TableOfContents } from './toc';
 
-// Mock dependencies
 vi.mock('@/hooks/use-media-query', () => ({
   useMediaQuery: vi.fn()
 }));
 
-// Mock framer-motion
 vi.mock('motion/react', () => ({
   motion: {
     div: ({ children, ...props }: React.HTMLProps<HTMLDivElement>) => (

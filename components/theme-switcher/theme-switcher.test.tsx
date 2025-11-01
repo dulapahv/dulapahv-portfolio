@@ -6,7 +6,6 @@ import { useMediaQuery } from '@/hooks/use-media-query';
 
 import { ThemeSwitcher } from './theme-switcher';
 
-// Mock dependencies
 vi.mock('next-themes', () => ({
   useTheme: vi.fn()
 }));
@@ -15,7 +14,6 @@ vi.mock('@/hooks/use-media-query', () => ({
   useMediaQuery: vi.fn()
 }));
 
-// Mock framer-motion
 vi.mock('motion/react', () => ({
   motion: {
     /* eslint-disable  @typescript-eslint/no-explicit-any */

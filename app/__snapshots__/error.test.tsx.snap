@@ -71,7 +71,9 @@ exports[`Error Page > should match snapshot 1`] = `
       Digest: abc123
     </code>
   </div>
-  <footer>
+  <footer
+    data-testid="footer"
+  >
     Footer
   </footer>
 </div>

@@ -4,7 +4,7 @@ import NextLink from 'next/link';
 
 type LinkProps = ComponentProps<'a'>;
 
-export const Link = (props: LinkProps) => {
+export function Link(props: LinkProps) {
   const href = props.href ?? '';
 
   // Pure in-page anchor
@@ -16,4 +16,4 @@ export const Link = (props: LinkProps) => {
 
   // External link
   return <a {...props} target="_blank" rel="noopener noreferrer" />;
-};
+}

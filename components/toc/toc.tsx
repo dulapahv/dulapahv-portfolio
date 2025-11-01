@@ -16,7 +16,7 @@ interface TOCItem {
   level: number;
 }
 
-export const TableOfContents = () => {
+export function TableOfContents() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [tocItems, setTocItems] = useState<TOCItem[]>([]);
   const [activeId, setActiveId] = useState<string>('');
@@ -364,4 +364,4 @@ export const TableOfContents = () => {
       </AnimatePresence>
     </nav>
   );
-};
+}

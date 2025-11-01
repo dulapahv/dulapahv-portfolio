@@ -3,7 +3,6 @@ import { describe, expect, it, vi } from 'vitest';
 
 import TypeListingPage from './page';
 
-// Mock next/navigation
 vi.mock('next/navigation', () => ({
   usePathname: () => '/project'
 }));

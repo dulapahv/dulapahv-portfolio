@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 
 import { CurrentYear } from './current-year';
 
-export default function Footer() {
+export function Footer() {
   return (
     <footer className="mt-16">
       <div className="text-foreground-muted flex flex-col gap-y-1 text-sm font-medium">

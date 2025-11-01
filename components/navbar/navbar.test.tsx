@@ -5,7 +5,6 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { Navbar } from './navbar';
 
-// Mock next/navigation
 vi.mock('next/navigation', () => ({
   usePathname: vi.fn()
 }));

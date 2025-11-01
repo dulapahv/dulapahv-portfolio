@@ -9,7 +9,7 @@ type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   name: string;
 };
 
-export const Input = ({ label, name, className, required, ...props }: InputProps) => {
+export function Input({ label, name, className, required, ...props }: InputProps) {
   const fieldId = `field-${name}`;
   const errorId = `error-${name}`;
   const successId = `success-${name}`;
@@ -89,4 +89,4 @@ export const Input = ({ label, name, className, required, ...props }: InputProps
       </Form.Control>
     </Form.Field>
   );
-};
+}

@@ -3,12 +3,10 @@ import { describe, expect, it, vi } from 'vitest';
 
 import ContactPage from './page';
 
-// Mock next/navigation
 vi.mock('next/navigation', () => ({
   usePathname: () => '/contact'
 }));
 
-// Mock the sendContactEmail action
 vi.mock('@/app/actions/contact', () => ({
   sendContactEmail: vi.fn()
 }));

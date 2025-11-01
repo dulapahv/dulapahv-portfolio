@@ -9,7 +9,7 @@ type TextareaProps = TextareaHTMLAttributes<HTMLTextAreaElement> & {
   name: string;
 };
 
-export const Textarea = ({ label, name, className, required, ...props }: TextareaProps) => {
+export function Textarea({ label, name, className, required, ...props }: TextareaProps) {
   const fieldId = `field-${name}`;
   const errorId = `error-${name}`;
   const successId = `success-${name}`;
@@ -86,4 +86,4 @@ export const Textarea = ({ label, name, className, required, ...props }: Textare
       </Form.Control>
     </Form.Field>
   );
-};
+}

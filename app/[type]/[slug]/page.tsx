@@ -16,7 +16,7 @@ import { createMetadata } from '@/lib/metadata';
 import Breadcrumb from '@/components/breadcrumb';
 import { JsonLd } from '@/components/json-ld';
 import { Mdx } from '@/components/mdx';
-import ShareButtons from '@/components/share';
+import { ShareButtons } from '@/components/share';
 import { TableOfContents } from '@/components/toc';
 
 // Helper function to get the relevant date from content

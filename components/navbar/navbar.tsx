@@ -44,7 +44,7 @@ const navbarItems = [
   }
 ];
 
-export const Navbar = () => {
+export function Navbar() {
   const pathname = usePathname();
   const navRef = useRef<HTMLElement>(null);
 
@@ -162,4 +162,4 @@ export const Navbar = () => {
       </div>
     </motion.nav>
   );
-};
+}

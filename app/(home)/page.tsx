@@ -9,11 +9,11 @@ import { profilePageSchema } from '@/lib/json-ld';
 import { createMetadata } from '@/lib/metadata';
 import { cn } from '@/lib/utils';
 import { CurrentTime } from '@/components/current-time';
-import Footer from '@/components/footer';
+import { Footer } from '@/components/footer';
 import { Globe } from '@/components/globe';
 import { JsonLd } from '@/components/json-ld';
-import SkillsSection from '@/components/skills-section';
-import SocialLinks from '@/components/social-links';
+import { SkillsSection } from '@/components/skills-section';
+import { SocialLinks } from '@/components/social-links';
 import { ThemeAwareImage } from '@/components/theme-aware-image';
 import { getGitHubFollowers } from '@/app/actions/gh-follower';
 

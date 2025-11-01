@@ -11,7 +11,7 @@ import { ThemeProvider } from 'next-themes';
 
 import { IS_DEV_ENV } from '@/lib/constants';
 import { cn } from '@/lib/utils';
-import Footer from '@/components/footer';
+import { Footer } from '@/components/footer';
 
 export const raleway = Raleway({
   subsets: ['latin'],

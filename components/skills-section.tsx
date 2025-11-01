@@ -24,7 +24,7 @@ const iconMap = {
   ToolboxIcon
 };
 
-const getSizeClasses = (size: string) => {
+function getSizeClasses(size: string) {
   switch (size) {
     case 'large':
       return 'md:col-span-2 row-span-1';
@@ -35,9 +35,9 @@ const getSizeClasses = (size: string) => {
     default:
       return 'md:col-span-1 row-span-1';
   }
-};
+}
 
-export default function SkillsSection() {
+export function SkillsSection() {
   return (
     <section className="mt-8">
       <h1 className="text-foreground mb-6 text-2xl font-semibold" id="skills">

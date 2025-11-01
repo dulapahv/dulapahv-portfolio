@@ -4,7 +4,7 @@ exports[`Pre > Snapshot > should match snapshot in initial state 1`] = `
 <div>
   <button
     aria-label="Copy code"
-    class="text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 transition-all! hover:text-foreground/80 active:scale-90"
+    class="text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 !transition-all hover:text-foreground/80 active:scale-90"
     title="Copy code"
   >
     <svg
@@ -32,7 +32,7 @@ exports[`Pre > Snapshot > should match snapshot with custom props 1`] = `
 <div>
   <button
     aria-label="Copy code"
-    class="text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 transition-all! hover:text-foreground/80 active:scale-90"
+    class="text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 !transition-all hover:text-foreground/80 active:scale-90"
     title="Copy code"
   >
     <svg
