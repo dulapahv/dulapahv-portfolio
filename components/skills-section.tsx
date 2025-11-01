@@ -68,7 +68,7 @@ export default function SkillsSection() {
               {/* Background Gradient */}
               <div
                 className={cn(
-                  'absolute inset-0 rounded-xl bg-gradient-to-br opacity-5',
+                  'absolute inset-0 rounded-xl bg-linear-to-br opacity-5',
                   'group-hover:opacity-8',
                   category.gradient
                 )}
@@ -87,7 +87,7 @@ export default function SkillsSection() {
                 <div className={cn('flex items-center gap-3', isLarge ? 'mb-4' : 'mb-3')}>
                   <div
                     className={cn(
-                      'text-foreground rounded-lg bg-gradient-to-br p-2 shadow-sm',
+                      'text-foreground rounded-lg bg-linear-to-br p-2 shadow-sm',
                       category.bgColor
                     )}
                   >
@@ -104,7 +104,7 @@ export default function SkillsSection() {
                     </h2>
                     <div
                       className={cn(
-                        'mt-1 h-1 rounded-full bg-gradient-to-r',
+                        'mt-1 h-1 rounded-full bg-linear-to-r',
                         category.gradient,
                         isLarge ? 'w-10' : 'w-8'
                       )}

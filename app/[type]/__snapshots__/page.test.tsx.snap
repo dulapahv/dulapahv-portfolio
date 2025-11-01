@@ -14,7 +14,7 @@ exports[`Type Listing Page > should render blog listing and match snapshot 1`] =
       aria-label="breadcrumb"
     >
       <ol
-        class="text-foreground-muted flex flex-wrap items-center gap-1.5 text-sm break-words sm:gap-2.5"
+        class="text-foreground-muted flex flex-wrap items-center gap-1.5 text-sm wrap-break-word sm:gap-2.5"
       >
         <li
           class="inline-flex items-center gap-1.5"
@@ -182,7 +182,7 @@ exports[`Type Listing Page > should render project listing and match snapshot 1`
       aria-label="breadcrumb"
     >
       <ol
-        class="text-foreground-muted flex flex-wrap items-center gap-1.5 text-sm break-words sm:gap-2.5"
+        class="text-foreground-muted flex flex-wrap items-center gap-1.5 text-sm wrap-break-word sm:gap-2.5"
       >
         <li
           class="inline-flex items-center gap-1.5"
@@ -350,7 +350,7 @@ exports[`Type Listing Page > should render work listing and match snapshot 1`] =
       aria-label="breadcrumb"
     >
       <ol
-        class="text-foreground-muted flex flex-wrap items-center gap-1.5 text-sm break-words sm:gap-2.5"
+        class="text-foreground-muted flex flex-wrap items-center gap-1.5 text-sm wrap-break-word sm:gap-2.5"
       >
         <li
           class="inline-flex items-center gap-1.5"

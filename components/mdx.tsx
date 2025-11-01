@@ -8,8 +8,7 @@ import Zoom from 'react-medium-image-zoom';
 import { cn } from '@/lib/utils';
 
 import { Link } from './link';
-import Pre from './pre';
-import { Video } from './video';
+import { Pre } from './pre';
 
 interface MdxProperties {
   readonly code: string;
@@ -132,7 +131,6 @@ export const Mdx = ({ code }: MdxProperties) => (
         a,
         pre: Pre,
         img,
-        Video,
         h2: createHeading('h2'),
         h3: createHeading('h3'),
         h4: createHeading('h4'),

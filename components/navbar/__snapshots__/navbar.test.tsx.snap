@@ -1,0 +1,373 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Navbar > Snapshot > should match snapshot on blog page 1`] = `
+<div>
+  <nav
+    aria-label="Main navigation"
+    class="bg-background-elevated/80 border-border text-foreground-subtle fixed right-1/2 bottom-4 z-50 flex
+        translate-x-1/2 items-center gap-x-6 rounded-full border px-3 py-2 shadow-lg backdrop-blur-xl
+        sm:px-4"
+    role="navigation"
+    style="opacity: 0; transform: translateY(100px);"
+  >
+    <div
+      class="relative"
+      style="opacity: 0; transform: translateY(20px);"
+    >
+      <a
+        aria-label="Home"
+        class="relative -mb-1 flex items-center gap-2 pb-1 transition-all hover:scale-105 active:scale-98 hover:text-foreground-muted"
+        href="/"
+      >
+        <span
+          aria-hidden="true"
+        >
+          <svg
+            class="size-4.5 sm:size-5"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 256 256"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M219.31,108.68l-80-80a16,16,0,0,0-22.62,0l-80,80A15.87,15.87,0,0,0,32,120v96a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V160h32v56a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V120A15.87,15.87,0,0,0,219.31,108.68ZM208,208H160V152a8,8,0,0,0-8-8H104a8,8,0,0,0-8,8v56H48V120l80-80,80,80Z"
+            />
+          </svg>
+        </span>
+        <span
+          class="hidden text-sm font-semibold sm:block"
+        >
+          Home
+        </span>
+      </a>
+    </div>
+    <div
+      class="relative"
+      style="opacity: 0; transform: translateY(20px);"
+    >
+      <a
+        aria-label="Work"
+        class="relative -mb-1 flex items-center gap-2 pb-1 transition-all hover:scale-105 active:scale-98 hover:text-foreground-muted"
+        href="/work"
+      >
+        <span
+          aria-hidden="true"
+        >
+          <svg
+            class="size-4.5 sm:size-5"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 256 256"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M216,56H176V48a24,24,0,0,0-24-24H104A24,24,0,0,0,80,48v8H40A16,16,0,0,0,24,72V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V72A16,16,0,0,0,216,56ZM96,48a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96ZM216,72v41.61A184,184,0,0,1,128,136a184.07,184.07,0,0,1-88-22.38V72Zm0,128H40V131.64A200.19,200.19,0,0,0,128,152a200.25,200.25,0,0,0,88-20.37V200ZM104,112a8,8,0,0,1,8-8h32a8,8,0,0,1,0,16H112A8,8,0,0,1,104,112Z"
+            />
+          </svg>
+        </span>
+        <span
+          class="hidden text-sm font-semibold sm:block"
+        >
+          Work
+        </span>
+      </a>
+    </div>
+    <div
+      class="relative"
+      style="opacity: 0; transform: translateY(20px);"
+    >
+      <a
+        aria-label="Project"
+        class="relative -mb-1 flex items-center gap-2 pb-1 transition-all hover:scale-105 active:scale-98 hover:text-foreground-muted"
+        href="/project"
+      >
+        <span
+          aria-hidden="true"
+        >
+          <svg
+            class="size-4.5 sm:size-5"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 256 256"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M196.12,128c24.65-34.61,37.22-70.38,19.74-87.86S162.61,35.23,128,59.88C93.39,35.23,57.62,22.66,40.14,40.14S35.23,93.39,59.88,128c-24.65,34.61-37.22,70.38-19.74,87.86h0c5.63,5.63,13.15,8.14,21.91,8.14,18.48,0,42.48-11.17,66-27.88C151.47,212.83,175.47,224,194,224c8.76,0,16.29-2.52,21.91-8.14h0C233.34,198.38,220.77,162.61,196.12,128Zm8.43-76.55c7.64,7.64,2.48,32.4-18.52,63.28a300.33,300.33,0,0,0-21.19-23.57A300.33,300.33,0,0,0,141.27,70C172.15,49,196.91,43.8,204.55,51.45ZM176.29,128a289.14,289.14,0,0,1-22.76,25.53A289.14,289.14,0,0,1,128,176.29a289.14,289.14,0,0,1-25.53-22.76A289.14,289.14,0,0,1,79.71,128,298.62,298.62,0,0,1,128,79.71a289.14,289.14,0,0,1,25.53,22.76A289.14,289.14,0,0,1,176.29,128ZM51.45,51.45c2.2-2.21,5.83-3.35,10.62-3.35C73.89,48.1,92.76,55,114.72,70A304,304,0,0,0,91.16,91.16,300.33,300.33,0,0,0,70,114.73C49,83.85,43.81,59.09,51.45,51.45Zm0,153.1C43.81,196.91,49,172.15,70,141.27a300.33,300.33,0,0,0,21.19,23.57A304.18,304.18,0,0,0,114.73,186C83.85,207,59.09,212.2,51.45,204.55Zm153.1,0c-7.64,7.65-32.4,2.48-63.28-18.52a304.18,304.18,0,0,0,23.57-21.19A300.33,300.33,0,0,0,186,141.27C207,172.15,212.19,196.91,204.55,204.55ZM140,128a12,12,0,1,1-12-12A12,12,0,0,1,140,128Z"
+            />
+          </svg>
+        </span>
+        <span
+          class="hidden text-sm font-semibold sm:block"
+        >
+          Project
+        </span>
+      </a>
+    </div>
+    <div
+      class="relative"
+      style="opacity: 0; transform: translateY(20px);"
+    >
+      <a
+        aria-current="page"
+        aria-label="Blog, current page"
+        class="relative -mb-1 flex items-center gap-2 pb-1 transition-all hover:scale-105 active:scale-98 text-mirai-red border-mirai-red border-b-2"
+        href="/blog"
+      >
+        <span
+          aria-hidden="true"
+        >
+          <svg
+            class="size-4.5 sm:size-5"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 256 256"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M232,48H160a40,40,0,0,0-32,16A40,40,0,0,0,96,48H24a8,8,0,0,0-8,8V200a8,8,0,0,0,8,8H96a24,24,0,0,1,24,24,8,8,0,0,0,16,0,24,24,0,0,1,24-24h72a8,8,0,0,0,8-8V56A8,8,0,0,0,232,48ZM96,192H32V64H96a24,24,0,0,1,24,24V200A39.81,39.81,0,0,0,96,192Zm128,0H160a39.81,39.81,0,0,0-24,8V88a24,24,0,0,1,24-24h64ZM160,88h40a8,8,0,0,1,0,16H160a8,8,0,0,1,0-16Zm48,40a8,8,0,0,1-8,8H160a8,8,0,0,1,0-16h40A8,8,0,0,1,208,128Zm0,32a8,8,0,0,1-8,8H160a8,8,0,0,1,0-16h40A8,8,0,0,1,208,160Z"
+            />
+          </svg>
+        </span>
+        <span
+          class="hidden text-sm font-semibold sm:block"
+        >
+          Blog
+        </span>
+        <span
+          class="sr-only"
+        >
+          (current page)
+        </span>
+      </a>
+    </div>
+    <div
+      class="relative"
+      style="opacity: 0; transform: translateY(20px);"
+    >
+      <a
+        aria-label="Contact"
+        class="relative -mb-1 flex items-center gap-2 pb-1 transition-all hover:scale-105 active:scale-98 hover:text-foreground-muted"
+        href="/contact"
+      >
+        <span
+          aria-hidden="true"
+        >
+          <svg
+            class="size-4.5 sm:size-5"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 256 256"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"
+            />
+          </svg>
+        </span>
+        <span
+          class="hidden text-sm font-semibold sm:block"
+        >
+          Contact
+        </span>
+      </a>
+    </div>
+    <div
+      aria-live="polite"
+      class="sr-only"
+    >
+      Use arrow keys to navigate between menu items
+    </div>
+  </nav>
+</div>
+`;
+
+exports[`Navbar > Snapshot > should match snapshot on home page 1`] = `
+<div>
+  <nav
+    aria-label="Main navigation"
+    class="bg-background-elevated/80 border-border text-foreground-subtle fixed right-1/2 bottom-4 z-50 flex
+        translate-x-1/2 items-center gap-x-6 rounded-full border px-3 py-2 shadow-lg backdrop-blur-xl
+        sm:px-4"
+    role="navigation"
+    style="opacity: 0; transform: translateY(100px);"
+  >
+    <div
+      class="relative"
+      style="opacity: 0; transform: translateY(20px);"
+    >
+      <a
+        aria-current="page"
+        aria-label="Home, current page"
+        class="relative -mb-1 flex items-center gap-2 pb-1 transition-all hover:scale-105 active:scale-98 text-mirai-red border-mirai-red border-b-2"
+        href="/"
+      >
+        <span
+          aria-hidden="true"
+        >
+          <svg
+            class="size-4.5 sm:size-5"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 256 256"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M219.31,108.68l-80-80a16,16,0,0,0-22.62,0l-80,80A15.87,15.87,0,0,0,32,120v96a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V160h32v56a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V120A15.87,15.87,0,0,0,219.31,108.68ZM208,208H160V152a8,8,0,0,0-8-8H104a8,8,0,0,0-8,8v56H48V120l80-80,80,80Z"
+            />
+          </svg>
+        </span>
+        <span
+          class="hidden text-sm font-semibold sm:block"
+        >
+          Home
+        </span>
+        <span
+          class="sr-only"
+        >
+          (current page)
+        </span>
+      </a>
+    </div>
+    <div
+      class="relative"
+      style="opacity: 0; transform: translateY(20px);"
+    >
+      <a
+        aria-label="Work"
+        class="relative -mb-1 flex items-center gap-2 pb-1 transition-all hover:scale-105 active:scale-98 hover:text-foreground-muted"
+        href="/work"
+      >
+        <span
+          aria-hidden="true"
+        >
+          <svg
+            class="size-4.5 sm:size-5"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 256 256"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M216,56H176V48a24,24,0,0,0-24-24H104A24,24,0,0,0,80,48v8H40A16,16,0,0,0,24,72V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V72A16,16,0,0,0,216,56ZM96,48a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96ZM216,72v41.61A184,184,0,0,1,128,136a184.07,184.07,0,0,1-88-22.38V72Zm0,128H40V131.64A200.19,200.19,0,0,0,128,152a200.25,200.25,0,0,0,88-20.37V200ZM104,112a8,8,0,0,1,8-8h32a8,8,0,0,1,0,16H112A8,8,0,0,1,104,112Z"
+            />
+          </svg>
+        </span>
+        <span
+          class="hidden text-sm font-semibold sm:block"
+        >
+          Work
+        </span>
+      </a>
+    </div>
+    <div
+      class="relative"
+      style="opacity: 0; transform: translateY(20px);"
+    >
+      <a
+        aria-label="Project"
+        class="relative -mb-1 flex items-center gap-2 pb-1 transition-all hover:scale-105 active:scale-98 hover:text-foreground-muted"
+        href="/project"
+      >
+        <span
+          aria-hidden="true"
+        >
+          <svg
+            class="size-4.5 sm:size-5"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 256 256"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M196.12,128c24.65-34.61,37.22-70.38,19.74-87.86S162.61,35.23,128,59.88C93.39,35.23,57.62,22.66,40.14,40.14S35.23,93.39,59.88,128c-24.65,34.61-37.22,70.38-19.74,87.86h0c5.63,5.63,13.15,8.14,21.91,8.14,18.48,0,42.48-11.17,66-27.88C151.47,212.83,175.47,224,194,224c8.76,0,16.29-2.52,21.91-8.14h0C233.34,198.38,220.77,162.61,196.12,128Zm8.43-76.55c7.64,7.64,2.48,32.4-18.52,63.28a300.33,300.33,0,0,0-21.19-23.57A300.33,300.33,0,0,0,141.27,70C172.15,49,196.91,43.8,204.55,51.45ZM176.29,128a289.14,289.14,0,0,1-22.76,25.53A289.14,289.14,0,0,1,128,176.29a289.14,289.14,0,0,1-25.53-22.76A289.14,289.14,0,0,1,79.71,128,298.62,298.62,0,0,1,128,79.71a289.14,289.14,0,0,1,25.53,22.76A289.14,289.14,0,0,1,176.29,128ZM51.45,51.45c2.2-2.21,5.83-3.35,10.62-3.35C73.89,48.1,92.76,55,114.72,70A304,304,0,0,0,91.16,91.16,300.33,300.33,0,0,0,70,114.73C49,83.85,43.81,59.09,51.45,51.45Zm0,153.1C43.81,196.91,49,172.15,70,141.27a300.33,300.33,0,0,0,21.19,23.57A304.18,304.18,0,0,0,114.73,186C83.85,207,59.09,212.2,51.45,204.55Zm153.1,0c-7.64,7.65-32.4,2.48-63.28-18.52a304.18,304.18,0,0,0,23.57-21.19A300.33,300.33,0,0,0,186,141.27C207,172.15,212.19,196.91,204.55,204.55ZM140,128a12,12,0,1,1-12-12A12,12,0,0,1,140,128Z"
+            />
+          </svg>
+        </span>
+        <span
+          class="hidden text-sm font-semibold sm:block"
+        >
+          Project
+        </span>
+      </a>
+    </div>
+    <div
+      class="relative"
+      style="opacity: 0; transform: translateY(20px);"
+    >
+      <a
+        aria-label="Blog"
+        class="relative -mb-1 flex items-center gap-2 pb-1 transition-all hover:scale-105 active:scale-98 hover:text-foreground-muted"
+        href="/blog"
+      >
+        <span
+          aria-hidden="true"
+        >
+          <svg
+            class="size-4.5 sm:size-5"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 256 256"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M232,48H160a40,40,0,0,0-32,16A40,40,0,0,0,96,48H24a8,8,0,0,0-8,8V200a8,8,0,0,0,8,8H96a24,24,0,0,1,24,24,8,8,0,0,0,16,0,24,24,0,0,1,24-24h72a8,8,0,0,0,8-8V56A8,8,0,0,0,232,48ZM96,192H32V64H96a24,24,0,0,1,24,24V200A39.81,39.81,0,0,0,96,192Zm128,0H160a39.81,39.81,0,0,0-24,8V88a24,24,0,0,1,24-24h64ZM160,88h40a8,8,0,0,1,0,16H160a8,8,0,0,1,0-16Zm48,40a8,8,0,0,1-8,8H160a8,8,0,0,1,0-16h40A8,8,0,0,1,208,128Zm0,32a8,8,0,0,1-8,8H160a8,8,0,0,1,0-16h40A8,8,0,0,1,208,160Z"
+            />
+          </svg>
+        </span>
+        <span
+          class="hidden text-sm font-semibold sm:block"
+        >
+          Blog
+        </span>
+      </a>
+    </div>
+    <div
+      class="relative"
+      style="opacity: 0; transform: translateY(20px);"
+    >
+      <a
+        aria-label="Contact"
+        class="relative -mb-1 flex items-center gap-2 pb-1 transition-all hover:scale-105 active:scale-98 hover:text-foreground-muted"
+        href="/contact"
+      >
+        <span
+          aria-hidden="true"
+        >
+          <svg
+            class="size-4.5 sm:size-5"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 256 256"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"
+            />
+          </svg>
+        </span>
+        <span
+          class="hidden text-sm font-semibold sm:block"
+        >
+          Contact
+        </span>
+      </a>
+    </div>
+    <div
+      aria-live="polite"
+      class="sr-only"
+    >
+      Use arrow keys to navigate between menu items
+    </div>
+  </nav>
+</div>
+`;

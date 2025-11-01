@@ -1,0 +1,229 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ContactForm > Snapshot > should match snapshot 1`] = `
+<div>
+  <form
+    aria-label="Contact form"
+    class="grid w-full gap-6"
+    role="form"
+  >
+    <div>
+      <label
+        for="name"
+      >
+        Name
+      </label>
+      <input
+        autocomplete="name"
+        id="name"
+        maxlength="256"
+        name="name"
+        placeholder="Dulapah Vibulsanti"
+        required=""
+        value=""
+      />
+    </div>
+    <div>
+      <label
+        for="email"
+      >
+        Email
+      </label>
+      <input
+        autocomplete="email"
+        id="email"
+        maxlength="256"
+        name="email"
+        pattern="^\\S+@\\S+\\.\\S+$"
+        placeholder="dulapah@example.com"
+        required=""
+        type="email"
+        value=""
+      />
+    </div>
+    <div>
+      <label
+        for="message"
+      >
+        Message
+      </label>
+      <textarea
+        id="message"
+        maxlength="2000"
+        name="message"
+        placeholder="Hi Dulapah, I wanted to reach out to you about..."
+        required=""
+      />
+    </div>
+    <div
+      class="grid gap-1"
+    >
+      <span
+        class="text-foreground-muted inline-block text-sm font-medium"
+        id="turnstile-label"
+      >
+        Let me know you're human
+        <span
+          class="after:text-error after:ml-0.5 after:content-['*']"
+        >
+          <span
+            class="sr-only"
+          >
+             (required)
+          </span>
+        </span>
+      </span>
+      <div
+        aria-labelledby="turnstile-label"
+        role="group"
+      >
+        <div
+          aria-label="CAPTCHA verification"
+          data-testid="turnstile-mock"
+          role="button"
+        >
+          Turnstile Mock
+        </div>
+      </div>
+    </div>
+    <button
+      aria-disabled="true"
+      class="bg-mirai-red flex w-fit cursor-pointer items-center justify-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-white transition-transform select-none hover:bg-mirai-red/90 hover:shadow-lg active:scale-[0.98] active:shadow-md disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:shadow-none"
+      disabled=""
+      type="submit"
+    >
+      <svg
+        aria-hidden="true"
+        class="size-4.5"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 256 256"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M227.32,28.68a16,16,0,0,0-15.66-4.08l-.15,0L19.57,82.84a16,16,0,0,0-2.49,29.8L102,154l41.3,84.87A15.86,15.86,0,0,0,157.74,248q.69,0,1.38-.06a15.88,15.88,0,0,0,14-11.51l58.2-191.94c0-.05,0-.1,0-.15A16,16,0,0,0,227.32,28.68ZM157.83,231.85l-.05.14,0-.07-40.06-82.3,48-48a8,8,0,0,0-11.31-11.31l-48,48L24.08,98.25l-.07,0,.14,0L216,40Z"
+        />
+      </svg>
+      <span>
+        Send Message
+      </span>
+    </button>
+  </form>
+</div>
+`;
+
+exports[`ContactForm > Snapshot > should match snapshot with initial values 1`] = `
+<div>
+  <form
+    aria-label="Contact form"
+    class="grid w-full gap-6"
+    role="form"
+  >
+    <div>
+      <label
+        for="name"
+      >
+        Name
+      </label>
+      <input
+        autocomplete="name"
+        id="name"
+        maxlength="256"
+        name="name"
+        placeholder="Dulapah Vibulsanti"
+        required=""
+        value="John Doe"
+      />
+    </div>
+    <div>
+      <label
+        for="email"
+      >
+        Email
+      </label>
+      <input
+        autocomplete="email"
+        id="email"
+        maxlength="256"
+        name="email"
+        pattern="^\\S+@\\S+\\.\\S+$"
+        placeholder="dulapah@example.com"
+        required=""
+        type="email"
+        value="john@example.com"
+      />
+    </div>
+    <div>
+      <label
+        for="message"
+      >
+        Message
+      </label>
+      <textarea
+        id="message"
+        maxlength="2000"
+        name="message"
+        placeholder="Hi Dulapah, I wanted to reach out to you about..."
+        required=""
+      >
+        Hello
+      </textarea>
+    </div>
+    <div
+      class="grid gap-1"
+    >
+      <span
+        class="text-foreground-muted inline-block text-sm font-medium"
+        id="turnstile-label"
+      >
+        Let me know you're human
+        <span
+          class="after:text-error after:ml-0.5 after:content-['*']"
+        >
+          <span
+            class="sr-only"
+          >
+             (required)
+          </span>
+        </span>
+      </span>
+      <div
+        aria-labelledby="turnstile-label"
+        role="group"
+      >
+        <div
+          aria-label="CAPTCHA verification"
+          data-testid="turnstile-mock"
+          role="button"
+        >
+          Turnstile Mock
+        </div>
+      </div>
+    </div>
+    <button
+      aria-disabled="true"
+      class="bg-mirai-red flex w-fit cursor-pointer items-center justify-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-white transition-transform select-none hover:bg-mirai-red/90 hover:shadow-lg active:scale-[0.98] active:shadow-md disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:shadow-none"
+      disabled=""
+      type="submit"
+    >
+      <svg
+        aria-hidden="true"
+        class="size-4.5"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 256 256"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M227.32,28.68a16,16,0,0,0-15.66-4.08l-.15,0L19.57,82.84a16,16,0,0,0-2.49,29.8L102,154l41.3,84.87A15.86,15.86,0,0,0,157.74,248q.69,0,1.38-.06a15.88,15.88,0,0,0,14-11.51l58.2-191.94c0-.05,0-.1,0-.15A16,16,0,0,0,227.32,28.68ZM157.83,231.85l-.05.14,0-.07-40.06-82.3,48-48a8,8,0,0,0-11.31-11.31l-48,48L24.08,98.25l-.07,0,.14,0L216,40Z"
+        />
+      </svg>
+      <span>
+        Send Message
+      </span>
+    </button>
+  </form>
+</div>
+`;

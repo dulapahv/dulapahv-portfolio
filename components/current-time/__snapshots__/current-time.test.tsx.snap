@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CurrentTime > Snapshot > should match snapshot 1`] = `
+<div>
+  <a
+    aria-label="Current time in Edinburgh: 🌤️ 14:30"
+    class="border-border bg-background text-foreground-muted inline-flex rounded-md border p-1 pr-1.5 align-middle text-base font-medium transition-colors hover:bg-background-subtle hover:border-border-strong"
+    href="https://www.timeanddate.com/time/zone/uk"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    🌤️ 14:30
+  </a>
+</div>
+`;

@@ -6,7 +6,7 @@ import { CheckIcon, CopyIcon } from '@phosphor-icons/react/dist/ssr';
 
 import { cn } from '@/lib/utils';
 
-export default function Pre({
+export function Pre({
   children,
   ...props
 }: DetailedHTMLProps<HTMLAttributes<HTMLPreElement>, HTMLPreElement>) {
@@ -34,7 +34,7 @@ export default function Pre({
         aria-label="Copy code"
         title="Copy code"
         className={cn(
-          'text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 !transition-all',
+          'text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 transition-all!',
           'hover:text-foreground/80',
           'active:scale-90'
         )}

@@ -157,13 +157,13 @@ exports[`Home Page > should match snapshot 1`] = `
       class="flex gap-2"
     >
       <a
-        class="border-border bg-background group flex items-center gap-x-1.5 rounded-lg border px-2 py-1 font-medium !transition-all hover:bg-background-light hover:scale-[1.02] hover:shadow-lg active:scale-[0.98] active:shadow-md"
+        class="border-border bg-background group flex items-center gap-x-1.5 rounded-lg border px-2 py-1 font-medium transition-all! hover:bg-background-light hover:scale-[1.02] hover:shadow-lg active:scale-[0.98] active:shadow-md"
         href="https://dulapahv.dev/resume"
         rel="noopener noreferrer"
         target="_blank"
       >
         <div
-          class="from-mirai-yellow to-mirai-yellow/60 rounded-md bg-gradient-to-br p-1 text-white shadow-md transition-transform"
+          class="from-mirai-yellow to-mirai-yellow/60 rounded-md bg-linear-to-br p-1 text-white shadow-md transition-transform"
         >
           <svg
             class="size-4 shrink-0 scale-110 transition-transform group-hover:scale-[1.2] group-hover:rotate-[-15deg]"
@@ -185,13 +185,13 @@ exports[`Home Page > should match snapshot 1`] = `
         </span>
       </a>
       <a
-        class="border-border bg-background flex items-center gap-x-1.5 rounded-lg border px-2 py-1 font-medium !transition-all hover:bg-background-light hover:scale-[1.02] hover:shadow-lg active:scale-[0.98] active:shadow-md"
+        class="border-border bg-background flex items-center gap-x-1.5 rounded-lg border px-2 py-1 font-medium transition-all! hover:bg-background-light hover:scale-[1.02] hover:shadow-lg active:scale-[0.98] active:shadow-md"
         href="https://www.linkedin.com/in/dulapahv"
         rel="noopener noreferrer"
         target="_blank"
       >
         <div
-          class="flex items-center justify-center rounded-md bg-gradient-to-br from-blue-600 to-blue-400 p-1 text-white shadow-md transition-transform"
+          class="flex items-center justify-center rounded-md bg-linear-to-br from-blue-600 to-blue-400 p-1 text-white shadow-md transition-transform"
         >
           <img
             alt=""
@@ -211,13 +211,13 @@ exports[`Home Page > should match snapshot 1`] = `
         </span>
       </a>
       <a
-        class="border-border bg-background flex items-center gap-x-1.5 rounded-lg border px-2 py-1 font-medium !transition-all hover:bg-background-light hover:scale-[1.02] hover:shadow-lg active:scale-[0.98] active:shadow-md"
+        class="border-border bg-background flex items-center gap-x-1.5 rounded-lg border px-2 py-1 font-medium transition-all! hover:bg-background-light hover:scale-[1.02] hover:shadow-lg active:scale-[0.98] active:shadow-md"
         href="https://github.com/dulapahv"
         rel="noopener noreferrer"
         target="_blank"
       >
         <div
-          class="flex items-center justify-center rounded-md bg-gradient-to-br from-gray-600 to-gray-400 p-1 text-white shadow-md transition-transform"
+          class="flex items-center justify-center rounded-md bg-linear-to-br from-gray-600 to-gray-400 p-1 text-white shadow-md transition-transform"
         >
           <img
             alt=""
@@ -356,7 +356,7 @@ exports[`Home Page > should match snapshot 1`] = `
           class="group relative md:col-span-2 row-span-1"
         >
           <div
-            class="absolute inset-0 rounded-xl bg-gradient-to-br opacity-5 group-hover:opacity-8 from-red-500 to-red-400"
+            class="absolute inset-0 rounded-xl bg-linear-to-br opacity-5 group-hover:opacity-8 from-red-500 to-red-400"
           />
           <div
             class="border-border relative h-full rounded-xl border p-3 backdrop-blur-sm transition-transform hover:scale-[1.01] bg-red-500/10 hover:bg-red-500/15"
@@ -365,7 +365,7 @@ exports[`Home Page > should match snapshot 1`] = `
               class="flex items-center gap-3 mb-4"
             >
               <div
-                class="text-foreground rounded-lg p-2 shadow-sm bg-red-500/10 hover:bg-red-500/15"
+                class="text-foreground rounded-lg bg-linear-to-br p-2 shadow-sm bg-red-500/10 hover:bg-red-500/15"
               >
                 <svg
                   class="size-5 shrink-0"
@@ -389,7 +389,7 @@ exports[`Home Page > should match snapshot 1`] = `
                   General programming
                 </h2>
                 <div
-                  class="mt-1 h-1 rounded-full bg-gradient-to-r from-red-500 to-red-400 w-10"
+                  class="mt-1 h-1 rounded-full bg-linear-to-r from-red-500 to-red-400 w-10"
                 />
               </div>
             </div>
@@ -438,7 +438,7 @@ exports[`Home Page > should match snapshot 1`] = `
           class="group relative md:col-span-2 row-span-1"
         >
           <div
-            class="absolute inset-0 rounded-xl bg-gradient-to-br opacity-5 group-hover:opacity-8 from-amber-500 to-amber-400"
+            class="absolute inset-0 rounded-xl bg-linear-to-br opacity-5 group-hover:opacity-8 from-amber-500 to-amber-400"
           />
           <div
             class="border-border relative h-full rounded-xl border p-3 backdrop-blur-sm transition-transform hover:scale-[1.01] bg-amber-500/10 hover:bg-amber-500/15"
@@ -447,7 +447,7 @@ exports[`Home Page > should match snapshot 1`] = `
               class="flex items-center gap-3 mb-3"
             >
               <div
-                class="text-foreground rounded-lg p-2 shadow-sm bg-amber-500/10 hover:bg-amber-500/15"
+                class="text-foreground rounded-lg bg-linear-to-br p-2 shadow-sm bg-amber-500/10 hover:bg-amber-500/15"
               >
                 <svg
                   class="size-5 shrink-0"
@@ -471,7 +471,7 @@ exports[`Home Page > should match snapshot 1`] = `
                   Databases
                 </h2>
                 <div
-                  class="mt-1 h-1 rounded-full bg-gradient-to-r from-amber-500 to-amber-400 w-8"
+                  class="mt-1 h-1 rounded-full bg-linear-to-r from-amber-500 to-amber-400 w-8"
                 />
               </div>
             </div>
@@ -510,7 +510,7 @@ exports[`Home Page > should match snapshot 1`] = `
           class="group relative md:col-span-2 row-span-1"
         >
           <div
-            class="absolute inset-0 rounded-xl bg-gradient-to-br opacity-5 group-hover:opacity-8 from-purple-500 to-purple-400"
+            class="absolute inset-0 rounded-xl bg-linear-to-br opacity-5 group-hover:opacity-8 from-purple-500 to-purple-400"
           />
           <div
             class="border-border relative h-full rounded-xl border p-3 backdrop-blur-sm transition-transform hover:scale-[1.01] bg-purple-500/10 hover:bg-purple-500/15"
@@ -519,7 +519,7 @@ exports[`Home Page > should match snapshot 1`] = `
               class="flex items-center gap-3 mb-4"
             >
               <div
-                class="text-foreground rounded-lg p-2 shadow-sm bg-purple-500/10 hover:bg-purple-500/15"
+                class="text-foreground rounded-lg bg-linear-to-br p-2 shadow-sm bg-purple-500/10 hover:bg-purple-500/15"
               >
                 <svg
                   class="size-5 shrink-0"
@@ -543,7 +543,7 @@ exports[`Home Page > should match snapshot 1`] = `
                   Web frameworks & UI
                 </h2>
                 <div
-                  class="mt-1 h-1 rounded-full bg-gradient-to-r from-purple-500 to-purple-400 w-10"
+                  class="mt-1 h-1 rounded-full bg-linear-to-r from-purple-500 to-purple-400 w-10"
                 />
               </div>
             </div>
@@ -597,7 +597,7 @@ exports[`Home Page > should match snapshot 1`] = `
           class="group relative md:col-span-1 row-span-1"
         >
           <div
-            class="absolute inset-0 rounded-xl bg-gradient-to-br opacity-5 group-hover:opacity-8 from-teal-500 to-teal-400"
+            class="absolute inset-0 rounded-xl bg-linear-to-br opacity-5 group-hover:opacity-8 from-teal-500 to-teal-400"
           />
           <div
             class="border-border relative h-full rounded-xl border p-3 backdrop-blur-sm transition-transform hover:scale-[1.01] bg-teal-500/10 hover:bg-teal-500/15"
@@ -606,7 +606,7 @@ exports[`Home Page > should match snapshot 1`] = `
               class="flex items-center gap-3 mb-3"
             >
               <div
-                class="text-foreground rounded-lg p-2 shadow-sm bg-teal-500/10 hover:bg-teal-500/15"
+                class="text-foreground rounded-lg bg-linear-to-br p-2 shadow-sm bg-teal-500/10 hover:bg-teal-500/15"
               >
                 <svg
                   class="size-5 shrink-0"
@@ -630,7 +630,7 @@ exports[`Home Page > should match snapshot 1`] = `
                   Backend
                 </h2>
                 <div
-                  class="mt-1 h-1 rounded-full bg-gradient-to-r from-teal-500 to-teal-400 w-8"
+                  class="mt-1 h-1 rounded-full bg-linear-to-r from-teal-500 to-teal-400 w-8"
                 />
               </div>
             </div>
@@ -659,7 +659,7 @@ exports[`Home Page > should match snapshot 1`] = `
           class="group relative md:col-span-1 row-span-1"
         >
           <div
-            class="absolute inset-0 rounded-xl bg-gradient-to-br opacity-5 group-hover:opacity-8 from-pink-500 to-pink-400"
+            class="absolute inset-0 rounded-xl bg-linear-to-br opacity-5 group-hover:opacity-8 from-pink-500 to-pink-400"
           />
           <div
             class="border-border relative h-full rounded-xl border p-3 backdrop-blur-sm transition-transform hover:scale-[1.01] bg-pink-500/10 hover:bg-pink-500/15"
@@ -668,7 +668,7 @@ exports[`Home Page > should match snapshot 1`] = `
               class="flex items-center gap-3 mb-3"
             >
               <div
-                class="text-foreground rounded-lg p-2 shadow-sm bg-pink-500/10 hover:bg-pink-500/15"
+                class="text-foreground rounded-lg bg-linear-to-br p-2 shadow-sm bg-pink-500/10 hover:bg-pink-500/15"
               >
                 <svg
                   class="size-5 shrink-0"
@@ -692,7 +692,7 @@ exports[`Home Page > should match snapshot 1`] = `
                   Cross-platform & Desktop
                 </h2>
                 <div
-                  class="mt-1 h-1 rounded-full bg-gradient-to-r from-pink-500 to-pink-400 w-8"
+                  class="mt-1 h-1 rounded-full bg-linear-to-r from-pink-500 to-pink-400 w-8"
                 />
               </div>
             </div>
@@ -716,7 +716,7 @@ exports[`Home Page > should match snapshot 1`] = `
           class="group relative md:col-span-2 row-span-1"
         >
           <div
-            class="absolute inset-0 rounded-xl bg-gradient-to-br opacity-5 group-hover:opacity-8 from-green-500 to-green-400"
+            class="absolute inset-0 rounded-xl bg-linear-to-br opacity-5 group-hover:opacity-8 from-green-500 to-green-400"
           />
           <div
             class="border-border relative h-full rounded-xl border p-3 backdrop-blur-sm transition-transform hover:scale-[1.01] bg-green-500/10 hover:bg-green-500/15"
@@ -725,7 +725,7 @@ exports[`Home Page > should match snapshot 1`] = `
               class="flex items-center gap-3 mb-3"
             >
               <div
-                class="text-foreground rounded-lg p-2 shadow-sm bg-green-500/10 hover:bg-green-500/15"
+                class="text-foreground rounded-lg bg-linear-to-br p-2 shadow-sm bg-green-500/10 hover:bg-green-500/15"
               >
                 <svg
                   class="size-5 shrink-0"
@@ -749,7 +749,7 @@ exports[`Home Page > should match snapshot 1`] = `
                   DevOps & Testing
                 </h2>
                 <div
-                  class="mt-1 h-1 rounded-full bg-gradient-to-r from-green-500 to-green-400 w-8"
+                  class="mt-1 h-1 rounded-full bg-linear-to-r from-green-500 to-green-400 w-8"
                 />
               </div>
             </div>
@@ -793,7 +793,7 @@ exports[`Home Page > should match snapshot 1`] = `
           class="group relative md:col-span-2 row-span-1"
         >
           <div
-            class="absolute inset-0 rounded-xl bg-gradient-to-br opacity-5 group-hover:opacity-8 from-blue-500 to-blue-400"
+            class="absolute inset-0 rounded-xl bg-linear-to-br opacity-5 group-hover:opacity-8 from-blue-500 to-blue-400"
           />
           <div
             class="border-border relative h-full rounded-xl border p-3 backdrop-blur-sm transition-transform hover:scale-[1.01] bg-blue-500/10 hover:bg-blue-500/15"
@@ -802,7 +802,7 @@ exports[`Home Page > should match snapshot 1`] = `
               class="flex items-center gap-3 mb-3"
             >
               <div
-                class="text-foreground rounded-lg p-2 shadow-sm bg-blue-500/10 hover:bg-blue-500/15"
+                class="text-foreground rounded-lg bg-linear-to-br p-2 shadow-sm bg-blue-500/10 hover:bg-blue-500/15"
               >
                 <svg
                   class="size-5 shrink-0"
@@ -826,7 +826,7 @@ exports[`Home Page > should match snapshot 1`] = `
                   Cloud & Infrastructure
                 </h2>
                 <div
-                  class="mt-1 h-1 rounded-full bg-gradient-to-r from-blue-500 to-blue-400 w-8"
+                  class="mt-1 h-1 rounded-full bg-linear-to-r from-blue-500 to-blue-400 w-8"
                 />
               </div>
             </div>

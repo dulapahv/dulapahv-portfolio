@@ -1,6 +1,6 @@
 'use client';
 
-export default function CurrentYear() {
+export function CurrentYear() {
   const currentYear = new Date().getFullYear();
   return <>{currentYear}</>;
 }

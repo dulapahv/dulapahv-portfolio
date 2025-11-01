@@ -14,7 +14,7 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
       aria-label="breadcrumb"
     >
       <ol
-        class="text-foreground-muted flex flex-wrap items-center gap-1.5 text-sm break-words sm:gap-2.5"
+        class="text-foreground-muted flex flex-wrap items-center gap-1.5 text-sm wrap-break-word sm:gap-2.5"
       >
         <li
           class="inline-flex items-center gap-1.5"
@@ -811,7 +811,7 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
         >
           <button
             aria-label="Copy code"
-            class="text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 !transition-all hover:text-foreground/80 active:scale-90"
+            class="text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 transition-all! hover:text-foreground/80 active:scale-90"
             title="Copy code"
           >
             <svg
@@ -914,7 +914,7 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
           </figcaption>
           <button
             aria-label="Copy code"
-            class="text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 !transition-all hover:text-foreground/80 active:scale-90"
+            class="text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 transition-all! hover:text-foreground/80 active:scale-90"
             title="Copy code"
           >
             <svg
@@ -1138,7 +1138,7 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
           </figcaption>
           <button
             aria-label="Copy code"
-            class="text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 !transition-all hover:text-foreground/80 active:scale-90"
+            class="text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 transition-all! hover:text-foreground/80 active:scale-90"
             title="Copy code"
           >
             <svg
@@ -1486,7 +1486,7 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
           </figcaption>
           <button
             aria-label="Copy code"
-            class="text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 !transition-all hover:text-foreground/80 active:scale-90"
+            class="text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 transition-all! hover:text-foreground/80 active:scale-90"
             title="Copy code"
           >
             <svg
@@ -2059,7 +2059,7 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
           </figcaption>
           <button
             aria-label="Copy code"
-            class="text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 !transition-all hover:text-foreground/80 active:scale-90"
+            class="text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 transition-all! hover:text-foreground/80 active:scale-90"
             title="Copy code"
           >
             <svg
@@ -2582,7 +2582,7 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
           </figcaption>
           <button
             aria-label="Copy code"
-            class="text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 !transition-all hover:text-foreground/80 active:scale-90"
+            class="text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 transition-all! hover:text-foreground/80 active:scale-90"
             title="Copy code"
           >
             <svg
@@ -3014,7 +3014,7 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
         >
           <button
             aria-label="Copy code"
-            class="text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 !transition-all hover:text-foreground/80 active:scale-90"
+            class="text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 transition-all! hover:text-foreground/80 active:scale-90"
             title="Copy code"
           >
             <svg
@@ -3364,7 +3364,7 @@ exports[`Content Detail Page > should render project page and match snapshot 1`]
       aria-label="breadcrumb"
     >
       <ol
-        class="text-foreground-muted flex flex-wrap items-center gap-1.5 text-sm break-words sm:gap-2.5"
+        class="text-foreground-muted flex flex-wrap items-center gap-1.5 text-sm wrap-break-word sm:gap-2.5"
       >
         <li
           class="inline-flex items-center gap-1.5"
@@ -4117,7 +4117,7 @@ exports[`Content Detail Page > should render work page and match snapshot 1`] = 
       aria-label="breadcrumb"
     >
       <ol
-        class="text-foreground-muted flex flex-wrap items-center gap-1.5 text-sm break-words sm:gap-2.5"
+        class="text-foreground-muted flex flex-wrap items-center gap-1.5 text-sm wrap-break-word sm:gap-2.5"
       >
         <li
           class="inline-flex items-center gap-1.5"
