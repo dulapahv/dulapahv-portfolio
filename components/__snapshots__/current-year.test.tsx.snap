@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CurrentYear > should match snapshot 1`] = `
+<div>
+  2025
+</div>
+`;

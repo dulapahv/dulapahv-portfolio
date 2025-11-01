@@ -24,3 +24,47 @@ vi.mock('next/font/google', () => ({
     className: 'mocked-merriweather'
   })
 }));
+
+// Mock react-medium-image-zoom to avoid random IDs in snapshots
+vi.mock('react-medium-image-zoom', () => ({
+  default: ({ children }: React.PropsWithChildren) => (
+    <span data-testid="zoom-wrapper">{children}</span>
+  )
+}));
+
+// Mock ResizeObserver
+global.ResizeObserver = class ResizeObserver {
+  observe = vi.fn();
+  unobserve = vi.fn();
+  disconnect = vi.fn();
+};
+
+// Mock IntersectionObserver
+global.IntersectionObserver = class IntersectionObserver {
+  observe = vi.fn();
+  unobserve = vi.fn();
+  disconnect = vi.fn();
+  takeRecords = vi.fn(() => []);
+  root = null;
+  rootMargin = '';
+  scrollMargin = '';
+  thresholds = [];
+  constructor() {}
+};
+
+// Mock matchMedia
+if (typeof window !== 'undefined') {
+  Object.defineProperty(window, 'matchMedia', {
+    writable: true,
+    value: vi.fn().mockImplementation((query: string) => ({
+      matches: false,
+      media: query,
+      onchange: null,
+      addListener: vi.fn(),
+      removeListener: vi.fn(),
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
+      dispatchEvent: vi.fn()
+    }))
+  });
+}

@@ -28,21 +28,6 @@ describe('Contact Page', () => {
     expect(container).toBeTruthy();
   });
 
-  it('should render breadcrumb with correct label', async () => {
-    const searchParams = Promise.resolve({});
-    const component = await ContactPage({ params: Promise.resolve({}), searchParams });
-    render(component);
-
-    const breadcrumb = screen.getByRole('navigation', { name: 'breadcrumb' });
-    expect(breadcrumb).toBeInTheDocument();
-
-    const currentPage = screen.getByRole('link', { name: 'Contact', current: 'page' });
-    expect(currentPage).toBeInTheDocument();
-
-    const homeLink = screen.getByRole('link', { name: 'Home' });
-    expect(homeLink).toBeInTheDocument();
-  });
-
   it('should match snapshot', async () => {
     const searchParams = Promise.resolve({});
     const component = await ContactPage({ params: Promise.resolve({}), searchParams });

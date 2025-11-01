@@ -1,0 +1,60 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`sitemap > should match snapshot 1`] = `
+[
+  {
+    "changeFrequency": "monthly",
+    "lastModified": 2007-01-09T09:41:00.000Z,
+    "priority": 1,
+    "url": "https://dulapahv.dev",
+  },
+  {
+    "changeFrequency": "yearly",
+    "lastModified": 2007-01-09T09:41:00.000Z,
+    "priority": 0.8,
+    "url": "https://dulapahv.dev/contact",
+  },
+  {
+    "changeFrequency": "monthly",
+    "lastModified": 2007-01-09T09:41:00.000Z,
+    "priority": 0.7,
+    "url": "https://dulapahv.dev/work",
+  },
+  {
+    "changeFrequency": "monthly",
+    "lastModified": 2007-01-09T09:41:00.000Z,
+    "priority": 0.7,
+    "url": "https://dulapahv.dev/project",
+  },
+  {
+    "changeFrequency": "weekly",
+    "lastModified": 2007-01-09T09:41:00.000Z,
+    "priority": 0.7,
+    "url": "https://dulapahv.dev/blog",
+  },
+  {
+    "changeFrequency": "yearly",
+    "lastModified": 2023-08-01T00:00:00.000Z,
+    "priority": 0.6,
+    "url": "https://dulapahv.dev/project/test-project",
+  },
+  {
+    "changeFrequency": "yearly",
+    "lastModified": 2024-01-15T00:00:00.000Z,
+    "priority": 0.5,
+    "url": "https://dulapahv.dev/blog/test-blog-post",
+  },
+  {
+    "changeFrequency": "yearly",
+    "lastModified": 2024-01-01T00:00:00.000Z,
+    "priority": 0.6,
+    "url": "https://dulapahv.dev/work/test-work",
+  },
+  {
+    "changeFrequency": "monthly",
+    "lastModified": 2024-06-01T00:00:00.000Z,
+    "priority": 0.6,
+    "url": "https://dulapahv.dev/work/ongoing-work",
+  },
+]
+`;

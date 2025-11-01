@@ -1,0 +1,4692 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Content Detail Page > should render blog post and match snapshot 1`] = `
+<div>
+  <script
+    type="application/ld+json"
+  >
+    [{"@context":"https://schema.org","@type":"Person","@id":"https://dulapahv.dev/#person","name":"Dulapah Vibulsanti","givenName":"Dulapah","familyName":"Vibulsanti","alternateName":"DulapahV","description":"Thai Software Engineer based in Edinburgh, United Kingdom. Passionate about creating accessible and delightful technology for everyone.","gender":"male","nationality":{"@type":"Country","name":"Thailand"},"url":"https://dulapahv.dev","image":{"@type":"ImageObject","url":"https://dulapahv.dev/og?title=Dulapah+Vibulsanti%0ASoftware+Engineer&description=Thai+Software+Engineer+based+in+Edinburgh%2C+United+Kingdom.+Passionate+about+creating+accessible+and+delightful+technology+for+everyone.","caption":"Dulapah Vibulsanti - Software Engineer","width":"1200","height":"630"},"sameAs":["https://github.com/dulapahv","https://www.linkedin.com/in/dulapahv"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"University of Glasgow","url":"https://www.gla.ac.uk/","identifier":"Russell Group University","address":{"@type":"PostalAddress","addressLocality":"Glasgow","addressRegion":"Scotland","addressCountry":"GB","postalCode":"G12 8QQ","streetAddress":"University Avenue"}},{"@type":"CollegeOrUniversity","name":"King Mongkut's Institute of Technology Ladkrabang","alternateName":"KMITL","url":"https://www.kmitl.ac.th/","address":{"@type":"PostalAddress","addressLocality":"Bangkok","addressRegion":"Bangkok","addressCountry":"TH","postalCode":"10520","streetAddress":"1 Chalong Krung 1 Alley, Lat Krabang"}},{"@type":"EducationalOrganization","name":"Suankularb Wittayalai School","url":"https://www.sk.ac.th/","address":{"@type":"PostalAddress","addressLocality":"Bangkok","addressRegion":"Phra Nakhon","addressCountry":"TH","postalCode":"10200","streetAddress":"88 Tri Phet Road"}}],"jobTitle":"Graduate Software Engineer","worksFor":{"@type":"Organization","name":"NatWest Group","url":"https://www.natwestgroup.com/","description":"One of the UK's Big Four banks, serving over 19 million customers","sameAs":"https://en.wikipedia.org/wiki/NatWest_Group"},"workLocation":{"@type":"Place","name":"Edinburgh, Scotland","address":{"@type":"PostalAddress","addressLocality":"Edinburgh","addressRegion":"Scotland","addressCountry":"GB"}},"knowsAbout":["General programming","Databases","Web frameworks & UI","Backend","Cross-platform & Desktop","DevOps & Testing","Cloud & Infrastructure","TypeScript","JavaScript","Python","C","C++","Java","Bash","PostgreSQL","MongoDB","SQLite","MySQL","Snowflake","Next.js","React.js","Tailwind CSS","shadcn/ui","Radix UI","HeroUI","daisyUI","MUI","Express.js","Prisma","WebSocket","Electron.js","Qt","GitHub Actions","GitLab CI/CD","Playwright","Jest","Sentry","Turborepo","Vercel","Cloudflare","Docker","Supabase","GCP","Nginx","Firebase","Software Engineering","Full Stack Development","Parallel and Distributed Systems","Web Development","API Development","Version Control (Git)","Agile Methodologies","Test-Driven Development","Continuous Integration/Continuous Deployment","Web Accessibility"],"hasCredential":[{"@type":"EducationalOccupationalCredential","@id":"https://dulapahv.dev/#degree-glasgow","name":"BSc (Hons) Software Engineering","description":"Double degree program with KMITL. First Class Honours with Specialization in Parallel and Distributed Systems. Final two years completed at University of Glasgow.","credentialCategory":"degree","educationalLevel":"Bachelor","dateCreated":"2023-09","recognizedBy":{"@type":"CollegeOrUniversity","name":"University of Glasgow","url":"https://www.gla.ac.uk/"}},{"@type":"EducationalOccupationalCredential","@id":"https://dulapahv.dev/#degree-kmitl","name":"BEng Software Engineering","description":"Double degree programme with University of Glasgow. First two years completed at KMITL before transferring to Glasgow.","credentialCategory":"degree","educationalLevel":"Bachelor","dateCreated":"2021-08","recognizedBy":{"@type":"CollegeOrUniversity","name":"King Mongkut's Institute of Technology Ladkrabang","url":"https://www.kmitl.ac.th/"}}],"knowsLanguage":[{"@type":"Language","name":"Thai","alternateName":"th"},{"@type":"Language","name":"English","alternateName":"en"}],"contactPoint":{"@type":"ContactPoint","contactType":"professional","areaServed":"GB","availableLanguage":["en","th"],"url":"https://dulapahv.dev/contact"},"hasOccupation":{"@type":"Occupation","name":"Software Engineer","description":"Software engineers design and create computer systems and applications to solve real-world problems.","occupationalCategory":"15-1252.00","occupationLocation":{"@type":"City","name":"Edinburgh, Scotland","address":{"@type":"PostalAddress","addressLocality":"Edinburgh","addressRegion":"Scotland","addressCountry":"GB"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dulapahv.dev/#occupation-software-engineer","name":"Software Engineer","description":"Software engineers design and create computer systems and applications to solve real-world problems.","url":"https://dulapahv.dev/#occupation-software-engineer","lastReviewed":"2007-01-09T09:41:00.000Z"}}},{"@context":"https://schema.org","@type":"WebSite","@id":"https://dulapahv.dev/#website","url":"https://dulapahv.dev","name":"DulapahV Portfolio","alternateName":"Dulapah Vibulsanti Portfolio","description":"Thai Software Engineer based in Edinburgh, United Kingdom. Passionate about creating accessible and delightful technology for everyone.","publisher":{"@id":"https://dulapahv.dev/#person"},"inLanguage":"en-US"},{"@context":"https://schema.org","@type":"BlogPosting","@id":"https://dulapahv.dev/blog/improve-user-experience-with-invisibile-captcha","url":"https://dulapahv.dev/blog/improve-user-experience-with-invisibile-captcha","headline":"Improve Captcha User Experience with Invisible CAPTCHA by Vercel BotID","description":"Protect your site from bots without frustrating users. Learn how to implementing Vercel BotID's invisible CAPTCHA in Next.js.","datePublished":"2025-08-29T23:00:00.000Z","dateModified":"2025-08-29T23:00:00.000Z","author":{"@id":"https://dulapahv.dev/#person"},"publisher":{"@id":"https://dulapahv.dev/#person"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dulapahv.dev/blog/improve-user-experience-with-invisibile-captcha"},"image":{"@type":"ImageObject","url":"https://dulapahv.dev/og?title=Improve+Captcha+User+Experience+with+Invisible+CAPTCHA+by+Vercel+BotID&description=Protect+your+site+from+bots+without+frustrating+users.+Learn+how+to+implementing+Vercel+BotID%27s+invisible+CAPTCHA+in+Next.js.","width":"1200","height":"630"},"timeRequired":"PT5M","inLanguage":"en-US","articleSection":"Blog","wordCount":1000}]
+  </script>
+  <div
+    class="mx-auto max-w-2xl space-y-4"
+  >
+    <nav
+      aria-label="breadcrumb"
+    >
+      <ol
+        class="text-foreground-muted flex flex-wrap items-center gap-1.5 text-sm break-words sm:gap-2.5"
+      >
+        <li
+          class="inline-flex items-center gap-1.5"
+        >
+          <a
+            class="rounded-sm transition-colors hover:text-foreground focus:text-foreground"
+            href="/"
+          >
+            Home
+          </a>
+        </li>
+        <li
+          aria-hidden="true"
+          class="[&>svg]:size-3.5"
+          role="presentation"
+        >
+          <svg
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 256 256"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"
+            />
+          </svg>
+        </li>
+        <li
+          class="inline-flex items-center gap-1.5"
+        >
+          <a
+            class="rounded-sm transition-colors hover:text-foreground focus:text-foreground"
+            href="/work"
+          >
+            Work
+          </a>
+        </li>
+        <li
+          aria-hidden="true"
+          class="[&>svg]:size-3.5"
+          role="presentation"
+        >
+          <svg
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 256 256"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"
+            />
+          </svg>
+        </li>
+        <li
+          class="inline-flex items-center gap-1.5"
+        >
+          <span
+            aria-current="page"
+            aria-disabled="true"
+            class="text-foreground font-normal max-w-48 truncate"
+            role="link"
+          >
+            Improve Captcha User Experience with Invisible CAPTCHA by Vercel BotID
+          </span>
+        </li>
+      </ol>
+    </nav>
+  </div>
+  <div>
+    <main
+      class="mx-auto max-w-2xl space-y-4"
+    >
+      <header
+        class="space-y-2"
+      >
+        <div>
+          <h1
+            class="text-2xl font-semibold"
+          >
+            Improve Captcha User Experience with Invisible CAPTCHA by Vercel BotID
+          </h1>
+          <p
+            class="text-foreground-muted font-medium"
+            role="doc-subtitle"
+          >
+            Protect your site from bots without frustrating users. Learn how to implementing Vercel BotID's invisible CAPTCHA in Next.js.
+          </p>
+        </div>
+        <div
+          class="text-foreground-muted space-y-1 text-sm"
+        >
+          <div
+            class="flex flex-wrap items-center gap-2"
+          >
+            <span
+              class="sr-only"
+            >
+              Content type:
+            </span>
+            <span
+              aria-label="Content type: Article"
+              class="inline-block font-medium"
+            >
+              Article
+            </span>
+            <span
+              aria-hidden="true"
+              class="text-foreground-subtle"
+            >
+              |
+            </span>
+            <div
+              class="flex gap-1"
+            >
+              <span
+                class="sr-only"
+              >
+                Publication date:
+              </span>
+              <span
+                aria-hidden="true"
+              >
+                Published on
+              </span>
+              <time
+                aria-label="Published on August 30, 2025"
+                class="font-medium"
+                datetime="2025-08-29"
+              >
+                August 30, 2025
+              </time>
+            </div>
+          </div>
+          <p
+            aria-label="Estimated reading time: 5 min read"
+          >
+            <span
+              class="sr-only"
+            >
+              Reading time:
+            </span>
+            5 min read
+          </p>
+        </div>
+        <div
+          aria-label="Share options"
+          class="flex flex-wrap items-center gap-3"
+          role="group"
+        >
+          <button
+            aria-label="Copy link to clipboard"
+            class="bg-background border-border aspect-square cursor-pointer rounded-full border p-1.5 transition-colors hover:bg-background-subtle hover:border-border-strong"
+            title="Copy link to clipboard"
+          >
+            <div
+              class="text-foreground relative"
+            >
+              <svg
+                class="size-4.5"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 256 256"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M80,120h96a8,8,0,0,1,0,16H80a8,8,0,0,1,0-16Zm24,48H64a40,40,0,0,1,0-80h40a8,8,0,0,0,0-16H64a56,56,0,0,0,0,112h40a8,8,0,0,0,0-16Zm88-96H152a8,8,0,0,0,0,16h40a40,40,0,0,1,0,80H152a8,8,0,0,0,0,16h40a56,56,0,0,0,0-112Z"
+                />
+              </svg>
+            </div>
+          </button>
+          <button
+            aria-label="Share on X"
+            class="bg-background border-border aspect-square cursor-pointer rounded-full border p-2 transition-colors hover:bg-background-subtle hover:border-border-strong"
+            title="Share on X"
+          >
+            <img
+              alt=""
+              aria-hidden="true"
+              class="hidden dark:block "
+              data-nimg="1"
+              decoding="async"
+              height="16"
+              loading="lazy"
+              src="/x-white.svg"
+              style="color: transparent;"
+              width="16"
+            />
+            <img
+              alt=""
+              aria-hidden="true"
+              class="block dark:hidden "
+              data-nimg="1"
+              decoding="async"
+              height="16"
+              loading="lazy"
+              src="/x-black.svg"
+              style="color: transparent;"
+              width="16"
+            />
+          </button>
+          <button
+            aria-label="Share on Facebook"
+            class="bg-background border-border aspect-square cursor-pointer rounded-full border p-1 transition-colors hover:bg-background-subtle hover:border-border-strong"
+            title="Share on Facebook"
+          >
+            <img
+              alt=""
+              aria-hidden="true"
+              data-nimg="1"
+              decoding="async"
+              height="24"
+              loading="lazy"
+              src="/facebook.svg"
+              style="color: transparent;"
+              width="24"
+            />
+          </button>
+          <button
+            aria-label="Share on LinkedIn"
+            class="bg-background border-border aspect-square cursor-pointer rounded-full border p-1.5 transition-colors hover:bg-background-subtle hover:border-border-strong"
+            title="Share on LinkedIn"
+          >
+            <img
+              alt=""
+              aria-hidden="true"
+              data-nimg="1"
+              decoding="async"
+              height="20"
+              loading="lazy"
+              src="/linkedin.svg"
+              style="color: transparent;"
+              width="20"
+            />
+          </button>
+          <div
+            class="relative ml-0 min-[425px]:ml-auto"
+          >
+            <div
+              class="bg-background border-border flex items-center rounded-md border"
+            >
+              <button
+                aria-label="Copy page as Markdown"
+                class="flex cursor-pointer items-center gap-2 px-3 py-1.5 text-sm font-medium transition-colors border-border border-r hover:bg-background-subtle disabled:bg-background-muted disabled:text-foreground-muted disabled:cursor-not-allowed"
+                title="Copy page as Markdown"
+              >
+                <p>
+                  Copy Page
+                </p>
+              </button>
+              <button
+                aria-expanded="false"
+                aria-haspopup="true"
+                aria-label="More options"
+                class="flex cursor-pointer items-center px-2 py-2 transition-colors hover:bg-background-subtle"
+                title="More options"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="size-4 transition-transform"
+                  fill="currentColor"
+                  height="1em"
+                  viewBox="0 0 256 256"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+      <nav
+        aria-label="Table of contents"
+        class="border-border bg-background-elevated/50 rounded-md border backdrop-blur-sm"
+        role="navigation"
+      >
+        <button
+          aria-controls="toc-content"
+          aria-describedby="toc-description"
+          aria-expanded="false"
+          class="text-foreground flex w-full cursor-pointer items-center justify-between rounded-md px-4 py-3 text-sm font-semibold transition-colors hover:bg-background-muted/50"
+          type="button"
+        >
+          <span>
+            On this page
+          </span>
+          <div
+            aria-hidden="true"
+          >
+            <svg
+              class="size-4"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"
+              />
+            </svg>
+          </div>
+        </button>
+        <span
+          class="sr-only"
+          id="toc-description"
+        >
+          Toggle to 
+          show
+           table of contents with 
+          15
+           sections. Use arrow keys to navigate when expanded.
+        </span>
+      </nav>
+      <figure
+        aria-labelledby="cover-image-caption"
+        class="relative"
+        role="img"
+      >
+        <span
+          data-testid="zoom-wrapper"
+        >
+          <img
+            alt="Cover image for blog post: Improve Captcha User Experience with Invisible CAPTCHA by Vercel BotID"
+            class="border-border bg-background-muted/30 overflow-hidden rounded-md border"
+            data-nimg="1"
+            decoding="async"
+            height="630"
+            src="/_next/image?url=%2Fblog%2Fvercel-botid-invisible-protection%2Fcover.png&w=3840&q=75"
+            srcset="/_next/image?url=%2Fblog%2Fvercel-botid-invisible-protection%2Fcover.png&w=1200&q=75 1x, /_next/image?url=%2Fblog%2Fvercel-botid-invisible-protection%2Fcover.png&w=3840&q=75 2x"
+            style="color: transparent;"
+            width="1200"
+          />
+        </span>
+        <figcaption
+          class="sr-only"
+          id="cover-image-caption"
+        >
+          Cover image for blog post: Improve Captcha User Experience with Invisible CAPTCHA by Vercel BotID
+        </figcaption>
+      </figure>
+      <article
+        aria-label="Article content"
+        class="mx-auto max-w-none font-medium prose prose-neutral dark:prose-invert prose-headings:mt-8 prose-headings:font-semibold prose-headings:[&>a]:text-foreground prose-headings:[&>a]:no-underline prose-h1:text-3xl prose-h1:font-bold prose-h2:text-2xl prose-h2:mb-6 prose-h2:mt-12 prose-h2:border-t prose-h2:border-border prose-h2:pt-10 prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3 prose-h4:text-lg prose-h4:mt-6 prose-h4:mb-2 prose-h5:text-base prose-h5:mt-4 prose-h5:mb-1 prose-h6:text-sm prose-h6:mt-2 prose-h6:mb-0 prose-p:my-5 prose-strong:text-inherit prose-strong:font-bold prose-pre:dark:bg-[#0a0a0a] prose-pre:bg-white prose-pre:border-t-border prose-pre:text-[13px]/5 prose-pre:px-0! prose-pre:[&>code:not([data-line-numbers])]:px-4 prose-figure:border prose-figure:border-border prose-figure:rounded-md prose-figure:my-4 prose-figure:relative prose-figure:[figure:has(figcaption)&>pre]:rounded-t-none prose-figure:[figure:has(figcaption)&>pre]:border-t prose-figcaption:dark:bg-black prose-figcaption:bg-[#fafafa] prose-figcaption:mt-0 prose-figcaption:py-2.5 prose-figcaption:rounded-t-md prose-figcaption:px-4 prose-figcaption:text-[13px] prose-figure:[figure:has(figcaption)&>button]:top-1 prose-blockquote:not-italic prose-blockquote:[&>p]:before:content-none prose-blockquote:[&>p]:after:content-none prose-blockquote:border prose-blockquote:!border-l! prose-blockquote:border-border! prose-blockquote:[&>p]:my-0 prose-blockquote:rounded-md prose-blockquote:p-3 prose-blockquote:text-sm prose-code:before:content-none prose-code:after:content-none prose-code:dark:bg-[#0a0a0a] prose-code:bg-white prose-code:[&>span>span]:brightness-90 dark:prose-code:[&>span>span]:brightness-100 prose-code:[&:not([data-theme])]:px-1 prose-code:[&:not([data-theme])]:py-[1.5px] prose-code:[&:not([data-theme])]:bg-background-muted prose-code:[&:not([data-theme])]:rounded-md prose-code:[&:not([data-theme])]:tracking-wide prose-code:[&:not([data-theme])]:border prose-code:[&:not([data-theme])]:border-gray-500 prose-code:[&:not([data-theme])]:font-normal prose-code:[&:not([data-theme])]:text-[13px] prose-code:text-foreground [&>details>summary]:cursor-pointer [&>details>summary]:hover:underline [&>details>ul]:my-0"
+      >
+        <h2
+          class="group relative"
+          id="introduction"
+          tabindex="-1"
+        >
+          <a
+            aria-label="Link to section: section"
+            class="absolute top-1/2 -left-6 -translate-y-1/2 opacity-0 group-hover:opacity-100 pt-10"
+            href="#introduction"
+            tabindex="0"
+          >
+            <svg
+              aria-hidden="true"
+              class="hidden size-4.5 shrink-0 md:block"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M240,88.23a54.43,54.43,0,0,1-16,37L189.25,160a54.27,54.27,0,0,1-38.63,16h-.05A54.63,54.63,0,0,1,96,119.84a8,8,0,0,1,16,.45A38.62,38.62,0,0,0,150.58,160h0a38.39,38.39,0,0,0,27.31-11.31l34.75-34.75a38.63,38.63,0,0,0-54.63-54.63l-11,11A8,8,0,0,1,135.7,59l11-11A54.65,54.65,0,0,1,224,48,54.86,54.86,0,0,1,240,88.23ZM109,185.66l-11,11A38.41,38.41,0,0,1,70.6,208h0a38.63,38.63,0,0,1-27.29-65.94L78,107.31A38.63,38.63,0,0,1,144,135.71a8,8,0,0,0,16,.45A54.86,54.86,0,0,0,144,96a54.65,54.65,0,0,0-77.27,0L32,130.75A54.62,54.62,0,0,0,70.56,224h0a54.28,54.28,0,0,0,38.64-16l11-11A8,8,0,0,0,109,185.66Z"
+              />
+            </svg>
+          </a>
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="#introduction"
+          >
+            Introduction
+          </a>
+        </h2>
+        <p>
+          CAPTCHA has been a standardized method to differentiate between human users and bots on websites. However, traditional CAPTCHA methods often disrupt user experience (UX), leading to frustration and abandonment.
+        </p>
+        <p>
+          In this blog post, we will explore how to implement invisible CAPTCHA solutions that enhance UX while maintaining security.
+        </p>
+        <p>
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="#getting-started-with-botid"
+          >
+            Jump to implementation --&gt;
+          </a>
+        </p>
+        <h2
+          class="group relative"
+          id="the-problem-with-traditional-captcha"
+          tabindex="-1"
+        >
+          <a
+            aria-label="Link to section: section"
+            class="absolute top-1/2 -left-6 -translate-y-1/2 opacity-0 group-hover:opacity-100 pt-10"
+            href="#the-problem-with-traditional-captcha"
+            tabindex="0"
+          >
+            <svg
+              aria-hidden="true"
+              class="hidden size-4.5 shrink-0 md:block"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M240,88.23a54.43,54.43,0,0,1-16,37L189.25,160a54.27,54.27,0,0,1-38.63,16h-.05A54.63,54.63,0,0,1,96,119.84a8,8,0,0,1,16,.45A38.62,38.62,0,0,0,150.58,160h0a38.39,38.39,0,0,0,27.31-11.31l34.75-34.75a38.63,38.63,0,0,0-54.63-54.63l-11,11A8,8,0,0,1,135.7,59l11-11A54.65,54.65,0,0,1,224,48,54.86,54.86,0,0,1,240,88.23ZM109,185.66l-11,11A38.41,38.41,0,0,1,70.6,208h0a38.63,38.63,0,0,1-27.29-65.94L78,107.31A38.63,38.63,0,0,1,144,135.71a8,8,0,0,0,16,.45A54.86,54.86,0,0,0,144,96a54.65,54.65,0,0,0-77.27,0L32,130.75A54.62,54.62,0,0,0,70.56,224h0a54.28,54.28,0,0,0,38.64-16l11-11A8,8,0,0,0,109,185.66Z"
+              />
+            </svg>
+          </a>
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="#the-problem-with-traditional-captcha"
+          >
+            The Problem with Traditional CAPTCHA
+          </a>
+        </h2>
+        <p>
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="https://developers.google.com/recaptcha"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Google reCAPTCHA
+          </a>
+           is currently one of the most widely used CAPTCHA services, but it also comes with one of the most disruptive user experiences. Users are often required to solve puzzles, identify images, or type distorted text, which can be time-consuming and frustrating.
+        </p>
+        <p>
+          <span
+            data-testid="zoom-wrapper"
+          >
+            <img
+              alt="reCAPTCHA"
+              class="mb-2 border-border bg-background-muted/30 overflow-hidden rounded-md border"
+              data-nimg="1"
+              decoding="async"
+              height="698"
+              loading="lazy"
+              src="/_next/image?url=%2Fblog%2Fvercel-botid-invisible-protection%2Frecaptcha.png&w=3840&q=75"
+              srcset="/_next/image?url=%2Fblog%2Fvercel-botid-invisible-protection%2Frecaptcha.png&w=1920&q=75 1x, /_next/image?url=%2Fblog%2Fvercel-botid-invisible-protection%2Frecaptcha.png&w=3840&q=75 2x"
+              style="color: transparent;"
+              width="1240"
+            />
+            <span
+              class="text-foreground-muted block text-center text-sm"
+            >
+              Source: https://developers.nopecha.com/recognition/recaptcha/
+            </span>
+          </span>
+        </p>
+        <p>
+          Another similarly disruptive CAPTCHA is 
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="https://www.hcaptcha.com/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            hCaptcha
+          </a>
+          , commonly seen in Discord, which also requires user interaction to verify they are human.
+        </p>
+        <p>
+          <span
+            data-testid="zoom-wrapper"
+          >
+            <img
+              alt="hCaptcha"
+              class="mb-2 border-border bg-background-muted/30 overflow-hidden rounded-md border"
+              data-nimg="1"
+              decoding="async"
+              height="698"
+              loading="lazy"
+              src="/_next/image?url=%2Fblog%2Fvercel-botid-invisible-protection%2Fhcaptcha.png&w=3840&q=75"
+              srcset="/_next/image?url=%2Fblog%2Fvercel-botid-invisible-protection%2Fhcaptcha.png&w=1920&q=75 1x, /_next/image?url=%2Fblog%2Fvercel-botid-invisible-protection%2Fhcaptcha.png&w=3840&q=75 2x"
+              style="color: transparent;"
+              width="1240"
+            />
+            <span
+              class="text-foreground-muted block text-center text-sm"
+            >
+              Source: https://developers.nopecha.com/token/hcaptcha/
+            </span>
+          </span>
+        </p>
+        <p>
+          Some websites use proprietary CAPTCHA systems, but these often suffer from the same issues as Google reCAPTCHA and hCaptcha — or even worse.
+        </p>
+        <p>
+          <span
+            data-testid="zoom-wrapper"
+          >
+            <img
+              alt="proprietary CAPTCHA"
+              class="mb-2 border-border bg-background-muted/30 overflow-hidden rounded-md border"
+              data-nimg="1"
+              decoding="async"
+              height="698"
+              loading="lazy"
+              src="/_next/image?url=%2Fblog%2Fvercel-botid-invisible-protection%2Fproprietary-captcha.jpg&w=3840&q=75"
+              srcset="/_next/image?url=%2Fblog%2Fvercel-botid-invisible-protection%2Fproprietary-captcha.jpg&w=1920&q=75 1x, /_next/image?url=%2Fblog%2Fvercel-botid-invisible-protection%2Fproprietary-captcha.jpg&w=3840&q=75 2x"
+              style="color: transparent;"
+              width="1240"
+            />
+            <span
+              class="text-foreground-muted block text-center text-sm"
+            >
+              Source: Chang et al., Journal of Information Security and Applications, 2024. https://doi.org/10.1016/j.jisa.2024.103711
+            </span>
+          </span>
+        </p>
+        <p>
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="https://www.cloudflare.com/application-services/products/turnstile/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Cloudflare Turnstile
+          </a>
+           tries to address this by offering a less intrusive experience, verifying automatically without user interaction. However, it sometimes still requires users to click a checkbox, which can still be a minor disruption.
+        </p>
+        <p>
+          <span
+            data-testid="zoom-wrapper"
+          >
+            <img
+              alt="Cloudflare Turnstile"
+              class="mb-2 border-border bg-background-muted/30 overflow-hidden rounded-md border"
+              data-nimg="1"
+              decoding="async"
+              height="698"
+              loading="lazy"
+              src="/blog/vercel-botid-invisible-protection/turnstile.gif"
+              style="color: transparent;"
+              width="1240"
+            />
+            <span
+              class="text-foreground-muted block text-center text-sm"
+            >
+              Source: https://blog.cloudflare.com/turnstile-ga/
+            </span>
+          </span>
+        </p>
+        <h2
+          class="group relative"
+          id="vercel-botid"
+          tabindex="-1"
+        >
+          <a
+            aria-label="Link to section: section"
+            class="absolute top-1/2 -left-6 -translate-y-1/2 opacity-0 group-hover:opacity-100 pt-10"
+            href="#vercel-botid"
+            tabindex="0"
+          >
+            <svg
+              aria-hidden="true"
+              class="hidden size-4.5 shrink-0 md:block"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M240,88.23a54.43,54.43,0,0,1-16,37L189.25,160a54.27,54.27,0,0,1-38.63,16h-.05A54.63,54.63,0,0,1,96,119.84a8,8,0,0,1,16,.45A38.62,38.62,0,0,0,150.58,160h0a38.39,38.39,0,0,0,27.31-11.31l34.75-34.75a38.63,38.63,0,0,0-54.63-54.63l-11,11A8,8,0,0,1,135.7,59l11-11A54.65,54.65,0,0,1,224,48,54.86,54.86,0,0,1,240,88.23ZM109,185.66l-11,11A38.41,38.41,0,0,1,70.6,208h0a38.63,38.63,0,0,1-27.29-65.94L78,107.31A38.63,38.63,0,0,1,144,135.71a8,8,0,0,0,16,.45A54.86,54.86,0,0,0,144,96a54.65,54.65,0,0,0-77.27,0L32,130.75A54.62,54.62,0,0,0,70.56,224h0a54.28,54.28,0,0,0,38.64-16l11-11A8,8,0,0,0,109,185.66Z"
+              />
+            </svg>
+          </a>
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="#vercel-botid"
+          >
+            Vercel BotID
+          </a>
+        </h2>
+        <p>
+          On 
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="https://vercel.com/changelog/vercel-botid-is-now-generally-available"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            June 25, 2025
+          </a>
+          , Vercel released 
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="https://vercel.com/docs/botid"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            BotID
+          </a>
+           — an invisible CAPTCHA solution that protects your application without visible challenges in typical usage.
+        </p>
+        <h3
+          class="group relative"
+          id="how-it-works"
+          tabindex="-1"
+        >
+          <a
+            aria-label="Link to section: section"
+            class="absolute top-1/2 -left-6 -translate-y-1/2 opacity-0 group-hover:opacity-100"
+            href="#how-it-works"
+            tabindex="0"
+          >
+            <svg
+              aria-hidden="true"
+              class="hidden size-4.5 shrink-0 md:block"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M240,88.23a54.43,54.43,0,0,1-16,37L189.25,160a54.27,54.27,0,0,1-38.63,16h-.05A54.63,54.63,0,0,1,96,119.84a8,8,0,0,1,16,.45A38.62,38.62,0,0,0,150.58,160h0a38.39,38.39,0,0,0,27.31-11.31l34.75-34.75a38.63,38.63,0,0,0-54.63-54.63l-11,11A8,8,0,0,1,135.7,59l11-11A54.65,54.65,0,0,1,224,48,54.86,54.86,0,0,1,240,88.23ZM109,185.66l-11,11A38.41,38.41,0,0,1,70.6,208h0a38.63,38.63,0,0,1-27.29-65.94L78,107.31A38.63,38.63,0,0,1,144,135.71a8,8,0,0,0,16,.45A54.86,54.86,0,0,0,144,96a54.65,54.65,0,0,0-77.27,0L32,130.75A54.62,54.62,0,0,0,70.56,224h0a54.28,54.28,0,0,0,38.64-16l11-11A8,8,0,0,0,109,185.66Z"
+              />
+            </svg>
+          </a>
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="#how-it-works"
+          >
+            How It Works
+          </a>
+        </h3>
+        <p>
+          BotID takes a fundamentally different approach:
+        </p>
+        <ul>
+          <li>
+            <strong>
+              Silent Detection:
+            </strong>
+             Collects thousands of signals to distinguish humans from bots without user interaction
+          </li>
+          <li>
+            <strong>
+              Dynamic Protection:
+            </strong>
+             Changes detection methods on every page load to prevent reverse engineering
+          </li>
+          <li>
+            <strong>
+              Machine Learning:
+            </strong>
+             Streams attack data into a global ML system that strengthens protection for all users
+          </li>
+        </ul>
+        <p>
+          BotID has two operational modes:
+        </p>
+        <ul>
+          <li>
+            <strong>
+              Basic Mode
+            </strong>
+             is a lightweight, Vercel-hosted check that validates browser sessions with minimal processing.
+          </li>
+          <li>
+            <strong>
+              Deep Analysis
+            </strong>
+             is an optional, stronger check (used when you explicitly call 
+            <code>
+              checkBotId()
+            </code>
+             with Deep Analysis enabled) and is powered by Kasada's advanced detection engine. This means 
+            <strong>
+              not all BotID traffic is routed to Kasada
+            </strong>
+             — only Deep Analysis calls are (and those calls may be billed).
+          </li>
+        </ul>
+        <p>
+          The best part? Your users never know it's there.
+        </p>
+        <h2
+          class="group relative"
+          id="getting-started-with-botid"
+          tabindex="-1"
+        >
+          <a
+            aria-label="Link to section: section"
+            class="absolute top-1/2 -left-6 -translate-y-1/2 opacity-0 group-hover:opacity-100 pt-10"
+            href="#getting-started-with-botid"
+            tabindex="0"
+          >
+            <svg
+              aria-hidden="true"
+              class="hidden size-4.5 shrink-0 md:block"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M240,88.23a54.43,54.43,0,0,1-16,37L189.25,160a54.27,54.27,0,0,1-38.63,16h-.05A54.63,54.63,0,0,1,96,119.84a8,8,0,0,1,16,.45A38.62,38.62,0,0,0,150.58,160h0a38.39,38.39,0,0,0,27.31-11.31l34.75-34.75a38.63,38.63,0,0,0-54.63-54.63l-11,11A8,8,0,0,1,135.7,59l11-11A54.65,54.65,0,0,1,224,48,54.86,54.86,0,0,1,240,88.23ZM109,185.66l-11,11A38.41,38.41,0,0,1,70.6,208h0a38.63,38.63,0,0,1-27.29-65.94L78,107.31A38.63,38.63,0,0,1,144,135.71a8,8,0,0,0,16,.45A54.86,54.86,0,0,0,144,96a54.65,54.65,0,0,0-77.27,0L32,130.75A54.62,54.62,0,0,0,70.56,224h0a54.28,54.28,0,0,0,38.64-16l11-11A8,8,0,0,0,109,185.66Z"
+              />
+            </svg>
+          </a>
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="#getting-started-with-botid"
+          >
+            Getting Started with BotID
+          </a>
+        </h2>
+        <p>
+          Let's walk through setting up BotID in a Next.js App Router project. For this example, we'll protect a newsletter signup endpoint.
+        </p>
+        <div
+          class="markdown-alert markdown-alert-tip"
+        >
+          <p
+            class="markdown-alert-title"
+          >
+            <svg
+              fill="currentColor"
+              height="18"
+              viewBox="0 0 256 256"
+              width="18"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M176,232a8,8,0,0,1-8,8H88a8,8,0,0,1,0-16h80A8,8,0,0,1,176,232Zm40-128a87.55,87.55,0,0,1-33.64,69.21A16.24,16.24,0,0,0,176,186v6a16,16,0,0,1-16,16H96a16,16,0,0,1-16-16v-6a16,16,0,0,0-6.23-12.66A87.59,87.59,0,0,1,40,104.5C39.74,56.83,78.26,17.15,125.88,16A88,88,0,0,1,216,104Zm-16,0a72,72,0,0,0-73.74-72c-39,.92-70.47,33.39-70.26,72.39a71.64,71.64,0,0,0,27.64,56.3h0A32,32,0,0,1,96,186v6h24V147.31L90.34,117.66a8,8,0,0,1,11.32-11.32L128,132.69l26.34-26.35a8,8,0,0,1,11.32,11.32L136,147.31V192h24v-6a32.12,32.12,0,0,1,12.47-25.35A71.65,71.65,0,0,0,200,104Z"
+              />
+            </svg>
+          </p>
+          <p>
+            BotID also supports other frameworks like SvelteKit, Nuxt, and others. Check the 
+            <a
+              class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+              href="https://vercel.com/docs/botid/get-started"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              official documentation
+            </a>
+             for more details.
+          </p>
+        </div>
+        <h3
+          class="group relative"
+          id="step-1-installation"
+          tabindex="-1"
+        >
+          <a
+            aria-label="Link to section: section"
+            class="absolute top-1/2 -left-6 -translate-y-1/2 opacity-0 group-hover:opacity-100"
+            href="#step-1-installation"
+            tabindex="0"
+          >
+            <svg
+              aria-hidden="true"
+              class="hidden size-4.5 shrink-0 md:block"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M240,88.23a54.43,54.43,0,0,1-16,37L189.25,160a54.27,54.27,0,0,1-38.63,16h-.05A54.63,54.63,0,0,1,96,119.84a8,8,0,0,1,16,.45A38.62,38.62,0,0,0,150.58,160h0a38.39,38.39,0,0,0,27.31-11.31l34.75-34.75a38.63,38.63,0,0,0-54.63-54.63l-11,11A8,8,0,0,1,135.7,59l11-11A54.65,54.65,0,0,1,224,48,54.86,54.86,0,0,1,240,88.23ZM109,185.66l-11,11A38.41,38.41,0,0,1,70.6,208h0a38.63,38.63,0,0,1-27.29-65.94L78,107.31A38.63,38.63,0,0,1,144,135.71a8,8,0,0,0,16,.45A54.86,54.86,0,0,0,144,96a54.65,54.65,0,0,0-77.27,0L32,130.75A54.62,54.62,0,0,0,70.56,224h0a54.28,54.28,0,0,0,38.64-16l11-11A8,8,0,0,0,109,185.66Z"
+              />
+            </svg>
+          </a>
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="#step-1-installation"
+          >
+            Step 1: Installation
+          </a>
+        </h3>
+        <figure
+          data-rehype-pretty-code-figure=""
+        >
+          <button
+            aria-label="Copy code"
+            class="text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 !transition-all hover:text-foreground/80 active:scale-90"
+            title="Copy code"
+          >
+            <svg
+              class="size-4.5"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"
+              />
+            </svg>
+          </button>
+          <pre
+            data-language="bash"
+            data-theme="plastic"
+            tabindex="0"
+          >
+            <code
+              data-language="bash"
+              data-theme="plastic"
+              style="display: grid;"
+            >
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(95, 102, 114); font-style: italic;"
+                >
+                  # Install the BotID package
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(181, 126, 220);"
+                >
+                  pnpm
+                </span>
+                <span
+                  style="color: rgb(152, 195, 121);"
+                >
+                   install
+                </span>
+                <span
+                  style="color: rgb(152, 195, 121);"
+                >
+                   botid
+                </span>
+              </span>
+            </code>
+          </pre>
+        </figure>
+        <h3
+          class="group relative"
+          id="step-2-configure-nextjs"
+          tabindex="-1"
+        >
+          <a
+            aria-label="Link to section: section"
+            class="absolute top-1/2 -left-6 -translate-y-1/2 opacity-0 group-hover:opacity-100"
+            href="#step-2-configure-nextjs"
+            tabindex="0"
+          >
+            <svg
+              aria-hidden="true"
+              class="hidden size-4.5 shrink-0 md:block"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M240,88.23a54.43,54.43,0,0,1-16,37L189.25,160a54.27,54.27,0,0,1-38.63,16h-.05A54.63,54.63,0,0,1,96,119.84a8,8,0,0,1,16,.45A38.62,38.62,0,0,0,150.58,160h0a38.39,38.39,0,0,0,27.31-11.31l34.75-34.75a38.63,38.63,0,0,0-54.63-54.63l-11,11A8,8,0,0,1,135.7,59l11-11A54.65,54.65,0,0,1,224,48,54.86,54.86,0,0,1,240,88.23ZM109,185.66l-11,11A38.41,38.41,0,0,1,70.6,208h0a38.63,38.63,0,0,1-27.29-65.94L78,107.31A38.63,38.63,0,0,1,144,135.71a8,8,0,0,0,16,.45A54.86,54.86,0,0,0,144,96a54.65,54.65,0,0,0-77.27,0L32,130.75A54.62,54.62,0,0,0,70.56,224h0a54.28,54.28,0,0,0,38.64-16l11-11A8,8,0,0,0,109,185.66Z"
+              />
+            </svg>
+          </a>
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="#step-2-configure-nextjs"
+          >
+            Step 2: Configure Next.js
+          </a>
+        </h3>
+        <figure
+          data-rehype-pretty-code-figure=""
+        >
+          <figcaption
+            data-language="ts"
+            data-rehype-pretty-code-title=""
+            data-theme="plastic"
+          >
+            next.config.ts
+          </figcaption>
+          <button
+            aria-label="Copy code"
+            class="text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 !transition-all hover:text-foreground/80 active:scale-90"
+            title="Copy code"
+          >
+            <svg
+              class="size-4.5"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"
+              />
+            </svg>
+          </button>
+          <pre
+            data-language="ts"
+            data-theme="plastic"
+            tabindex="0"
+          >
+            <code
+              data-language="ts"
+              data-line-numbers=""
+              data-line-numbers-max-digits="1"
+              data-theme="plastic"
+              style="display: grid;"
+            >
+              <span
+                data-highlighted-line=""
+                data-line=""
+              >
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                  import
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   { 
+                </span>
+                <span
+                  style="color: rgb(198, 204, 215);"
+                >
+                  withBotId
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   } 
+                </span>
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                  from
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   '
+                </span>
+                <span
+                  style="color: rgb(152, 195, 121);"
+                >
+                  botid/next/config
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  '
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  ;
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                 
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  const
+                </span>
+                <span
+                  style="color: rgb(198, 204, 215);"
+                >
+                   nextConfig
+                </span>
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                   =
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   {
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(95, 102, 114); font-style: italic;"
+                >
+                    // Your existing config
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  };
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                 
+              </span>
+              
+
+              <span
+                data-highlighted-line=""
+                data-line=""
+              >
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                  export
+                </span>
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                   default
+                </span>
+                <span
+                  style="color: rgb(181, 126, 220);"
+                >
+                   withBotId
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  (
+                </span>
+                <span
+                  style="color: rgb(198, 204, 215);"
+                >
+                  nextConfig
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  );
+                </span>
+              </span>
+            </code>
+          </pre>
+        </figure>
+        <h3
+          class="group relative"
+          id="step-3-add-client-protection"
+          tabindex="-1"
+        >
+          <a
+            aria-label="Link to section: section"
+            class="absolute top-1/2 -left-6 -translate-y-1/2 opacity-0 group-hover:opacity-100"
+            href="#step-3-add-client-protection"
+            tabindex="0"
+          >
+            <svg
+              aria-hidden="true"
+              class="hidden size-4.5 shrink-0 md:block"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M240,88.23a54.43,54.43,0,0,1-16,37L189.25,160a54.27,54.27,0,0,1-38.63,16h-.05A54.63,54.63,0,0,1,96,119.84a8,8,0,0,1,16,.45A38.62,38.62,0,0,0,150.58,160h0a38.39,38.39,0,0,0,27.31-11.31l34.75-34.75a38.63,38.63,0,0,0-54.63-54.63l-11,11A8,8,0,0,1,135.7,59l11-11A54.65,54.65,0,0,1,224,48,54.86,54.86,0,0,1,240,88.23ZM109,185.66l-11,11A38.41,38.41,0,0,1,70.6,208h0a38.63,38.63,0,0,1-27.29-65.94L78,107.31A38.63,38.63,0,0,1,144,135.71a8,8,0,0,0,16,.45A54.86,54.86,0,0,0,144,96a54.65,54.65,0,0,0-77.27,0L32,130.75A54.62,54.62,0,0,0,70.56,224h0a54.28,54.28,0,0,0,38.64-16l11-11A8,8,0,0,0,109,185.66Z"
+              />
+            </svg>
+          </a>
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="#step-3-add-client-protection"
+          >
+            Step 3: Add Client Protection
+          </a>
+        </h3>
+        <figure
+          data-rehype-pretty-code-figure=""
+        >
+          <figcaption
+            data-language="ts"
+            data-rehype-pretty-code-title=""
+            data-theme="plastic"
+          >
+            instrumentation.client.ts
+          </figcaption>
+          <button
+            aria-label="Copy code"
+            class="text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 !transition-all hover:text-foreground/80 active:scale-90"
+            title="Copy code"
+          >
+            <svg
+              class="size-4.5"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"
+              />
+            </svg>
+          </button>
+          <pre
+            data-language="ts"
+            data-theme="plastic"
+            tabindex="0"
+          >
+            <code
+              data-language="ts"
+              data-line-numbers=""
+              data-line-numbers-max-digits="2"
+              data-theme="plastic"
+              style="display: grid;"
+            >
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                  import
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   { 
+                </span>
+                <span
+                  style="color: rgb(198, 204, 215);"
+                >
+                  initBotId
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   } 
+                </span>
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                  from
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   '
+                </span>
+                <span
+                  style="color: rgb(152, 195, 121);"
+                >
+                  botid/client/core
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  '
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  ;
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                 
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(181, 126, 220);"
+                >
+                  initBotId
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  ({
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                    protect: [
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                      {
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                        path: 
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  '
+                </span>
+                <span
+                  style="color: rgb(152, 195, 121);"
+                >
+                  /api/newsletter
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  '
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  ,
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                        method: 
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  '
+                </span>
+                <span
+                  style="color: rgb(152, 195, 121);"
+                >
+                  POST
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  '
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  ,
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                      },
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                      {
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                        path: 
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  '
+                </span>
+                <span
+                  style="color: rgb(152, 195, 121);"
+                >
+                  /api/contact
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  '
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  ,
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                        method: 
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  '
+                </span>
+                <span
+                  style="color: rgb(152, 195, 121);"
+                >
+                  POST
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  '
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  ,
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                      },
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                    ],
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  });
+                </span>
+              </span>
+            </code>
+          </pre>
+        </figure>
+        <h3
+          class="group relative"
+          id="step-4-verify-on-the-server"
+          tabindex="-1"
+        >
+          <a
+            aria-label="Link to section: section"
+            class="absolute top-1/2 -left-6 -translate-y-1/2 opacity-0 group-hover:opacity-100"
+            href="#step-4-verify-on-the-server"
+            tabindex="0"
+          >
+            <svg
+              aria-hidden="true"
+              class="hidden size-4.5 shrink-0 md:block"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M240,88.23a54.43,54.43,0,0,1-16,37L189.25,160a54.27,54.27,0,0,1-38.63,16h-.05A54.63,54.63,0,0,1,96,119.84a8,8,0,0,1,16,.45A38.62,38.62,0,0,0,150.58,160h0a38.39,38.39,0,0,0,27.31-11.31l34.75-34.75a38.63,38.63,0,0,0-54.63-54.63l-11,11A8,8,0,0,1,135.7,59l11-11A54.65,54.65,0,0,1,224,48,54.86,54.86,0,0,1,240,88.23ZM109,185.66l-11,11A38.41,38.41,0,0,1,70.6,208h0a38.63,38.63,0,0,1-27.29-65.94L78,107.31A38.63,38.63,0,0,1,144,135.71a8,8,0,0,0,16,.45A54.86,54.86,0,0,0,144,96a54.65,54.65,0,0,0-77.27,0L32,130.75A54.62,54.62,0,0,0,70.56,224h0a54.28,54.28,0,0,0,38.64-16l11-11A8,8,0,0,0,109,185.66Z"
+              />
+            </svg>
+          </a>
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="#step-4-verify-on-the-server"
+          >
+            Step 4: Verify on the Server
+          </a>
+        </h3>
+        <figure
+          data-rehype-pretty-code-figure=""
+        >
+          <figcaption
+            data-language="ts"
+            data-rehype-pretty-code-title=""
+            data-theme="plastic"
+          >
+            app/api/newsletter/route.ts
+          </figcaption>
+          <button
+            aria-label="Copy code"
+            class="text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 !transition-all hover:text-foreground/80 active:scale-90"
+            title="Copy code"
+          >
+            <svg
+              class="size-4.5"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"
+              />
+            </svg>
+          </button>
+          <pre
+            data-language="ts"
+            data-theme="plastic"
+            tabindex="0"
+          >
+            <code
+              data-language="ts"
+              data-line-numbers=""
+              data-line-numbers-max-digits="2"
+              data-theme="plastic"
+              style="display: grid;"
+            >
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                  import
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   { 
+                </span>
+                <span
+                  style="color: rgb(198, 204, 215);"
+                >
+                  NextRequest
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  , 
+                </span>
+                <span
+                  style="color: rgb(198, 204, 215);"
+                >
+                  NextResponse
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   } 
+                </span>
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                  from
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   '
+                </span>
+                <span
+                  style="color: rgb(152, 195, 121);"
+                >
+                  next/server
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  '
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  ;
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                 
+              </span>
+              
+
+              <span
+                data-highlighted-line=""
+                data-line=""
+              >
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                  import
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   { 
+                </span>
+                <span
+                  style="color: rgb(198, 204, 215);"
+                >
+                  checkBotId
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   } 
+                </span>
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                  from
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   '
+                </span>
+                <span
+                  style="color: rgb(152, 195, 121);"
+                >
+                  botid/server
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  '
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  ;
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                 
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                  export
+                </span>
+                <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                   async
+                </span>
+                <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                   function
+                </span>
+                <span
+                  style="color: rgb(181, 126, 220);"
+                >
+                   POST
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  (
+                </span>
+                <span
+                  style="color: rgb(198, 204, 215);"
+                >
+                  request
+                </span>
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                  :
+                </span>
+                <span
+                  style="color: rgb(229, 192, 123);"
+                >
+                   NextRequest
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  ) {
+                </span>
+              </span>
+              
+
+              <span
+                data-highlighted-line=""
+                data-line=""
+              >
+                <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                    const
+                </span>
+                <span
+                  style="color: rgb(198, 204, 215);"
+                >
+                   verification
+                </span>
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                   =
+                </span>
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                   await
+                </span>
+                <span
+                  style="color: rgb(181, 126, 220);"
+                >
+                   checkBotId
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  ();
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                 
+              </span>
+              
+
+              <span
+                data-highlighted-line=""
+                data-line=""
+              >
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                    if
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   (
+                </span>
+                <span
+                  style="color: rgb(198, 204, 215);"
+                >
+                  verification
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  .
+                </span>
+                <span
+                  style="color: rgb(198, 204, 215);"
+                >
+                  isBot
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  ) {
+                </span>
+              </span>
+              
+
+              <span
+                data-highlighted-line=""
+                data-line=""
+              >
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                      return
+                </span>
+                <span
+                  style="color: rgb(198, 204, 215);"
+                >
+                   NextResponse
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  .
+                </span>
+                <span
+                  style="color: rgb(181, 126, 220);"
+                >
+                  json
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  ({ error: 
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  '
+                </span>
+                <span
+                  style="color: rgb(152, 195, 121);"
+                >
+                  Bot detected
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  '
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   }, { status: 
+                </span>
+                <span
+                  style="color: rgb(86, 182, 194);"
+                >
+                  403
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   });
+                </span>
+              </span>
+              
+
+              <span
+                data-highlighted-line=""
+                data-line=""
+              >
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                    }
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                 
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(95, 102, 114); font-style: italic;"
+                >
+                    // Process legitimate signup
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                    const
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   { 
+                </span>
+                <span
+                  style="color: rgb(198, 204, 215);"
+                >
+                  email
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   } 
+                </span>
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                  =
+                </span>
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                   await
+                </span>
+                <span
+                  style="color: rgb(198, 204, 215);"
+                >
+                   request
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  .
+                </span>
+                <span
+                  style="color: rgb(181, 126, 220);"
+                >
+                  json
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  ();
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                    await
+                </span>
+                <span
+                  style="color: rgb(181, 126, 220);"
+                >
+                   saveToNewsletter
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  (
+                </span>
+                <span
+                  style="color: rgb(198, 204, 215);"
+                >
+                  email
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  );
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                 
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                    return
+                </span>
+                <span
+                  style="color: rgb(198, 204, 215);"
+                >
+                   NextResponse
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  .
+                </span>
+                <span
+                  style="color: rgb(181, 126, 220);"
+                >
+                  json
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  ({ success: 
+                </span>
+                <span
+                  style="color: rgb(86, 182, 194);"
+                >
+                  true
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   });
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  }
+                </span>
+              </span>
+            </code>
+          </pre>
+        </figure>
+        <h2
+          class="group relative"
+          id="server-actions-support"
+          tabindex="-1"
+        >
+          <a
+            aria-label="Link to section: section"
+            class="absolute top-1/2 -left-6 -translate-y-1/2 opacity-0 group-hover:opacity-100 pt-10"
+            href="#server-actions-support"
+            tabindex="0"
+          >
+            <svg
+              aria-hidden="true"
+              class="hidden size-4.5 shrink-0 md:block"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M240,88.23a54.43,54.43,0,0,1-16,37L189.25,160a54.27,54.27,0,0,1-38.63,16h-.05A54.63,54.63,0,0,1,96,119.84a8,8,0,0,1,16,.45A38.62,38.62,0,0,0,150.58,160h0a38.39,38.39,0,0,0,27.31-11.31l34.75-34.75a38.63,38.63,0,0,0-54.63-54.63l-11,11A8,8,0,0,1,135.7,59l11-11A54.65,54.65,0,0,1,224,48,54.86,54.86,0,0,1,240,88.23ZM109,185.66l-11,11A38.41,38.41,0,0,1,70.6,208h0a38.63,38.63,0,0,1-27.29-65.94L78,107.31A38.63,38.63,0,0,1,144,135.71a8,8,0,0,0,16,.45A54.86,54.86,0,0,0,144,96a54.65,54.65,0,0,0-77.27,0L32,130.75A54.62,54.62,0,0,0,70.56,224h0a54.28,54.28,0,0,0,38.64-16l11-11A8,8,0,0,0,109,185.66Z"
+              />
+            </svg>
+          </a>
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="#server-actions-support"
+          >
+            Server Actions Support
+          </a>
+        </h2>
+        <p>
+          BotID also works seamlessly with Next.js Server Actions:
+        </p>
+        <figure
+          data-rehype-pretty-code-figure=""
+        >
+          <figcaption
+            data-language="ts"
+            data-rehype-pretty-code-title=""
+            data-theme="plastic"
+          >
+            app/actions/submit-feedback.ts
+          </figcaption>
+          <button
+            aria-label="Copy code"
+            class="text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 !transition-all hover:text-foreground/80 active:scale-90"
+            title="Copy code"
+          >
+            <svg
+              class="size-4.5"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"
+              />
+            </svg>
+          </button>
+          <pre
+            data-language="ts"
+            data-theme="plastic"
+            tabindex="0"
+          >
+            <code
+              data-language="ts"
+              data-line-numbers=""
+              data-line-numbers-max-digits="2"
+              data-theme="plastic"
+              style="display: grid;"
+            >
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  '
+                </span>
+                <span
+                  style="color: rgb(152, 195, 121);"
+                >
+                  use server
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  '
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  ;
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                 
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                  import
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   { 
+                </span>
+                <span
+                  style="color: rgb(198, 204, 215);"
+                >
+                  checkBotId
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   } 
+                </span>
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                  from
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   '
+                </span>
+                <span
+                  style="color: rgb(152, 195, 121);"
+                >
+                  botid/server
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  '
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  ;
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                 
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                  export
+                </span>
+                <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                   async
+                </span>
+                <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                   function
+                </span>
+                <span
+                  style="color: rgb(181, 126, 220);"
+                >
+                   submitFeedback
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  (
+                </span>
+                <span
+                  style="color: rgb(198, 204, 215);"
+                >
+                  formData
+                </span>
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                  :
+                </span>
+                <span
+                  style="color: rgb(229, 192, 123);"
+                >
+                   FormData
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  ) {
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                    const
+                </span>
+                <span
+                  style="color: rgb(198, 204, 215);"
+                >
+                   verification
+                </span>
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                   =
+                </span>
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                   await
+                </span>
+                <span
+                  style="color: rgb(181, 126, 220);"
+                >
+                   checkBotId
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  ();
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                 
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                    if
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   (
+                </span>
+                <span
+                  style="color: rgb(198, 204, 215);"
+                >
+                  verification
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  .
+                </span>
+                <span
+                  style="color: rgb(198, 204, 215);"
+                >
+                  isBot
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  ) {
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                      throw
+                </span>
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                   new
+                </span>
+                <span
+                  style="color: rgb(181, 126, 220);"
+                >
+                   Error
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  (
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  '
+                </span>
+                <span
+                  style="color: rgb(152, 195, 121);"
+                >
+                  Access denied
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  '
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  );
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                    }
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                 
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(95, 102, 114); font-style: italic;"
+                >
+                    // Process feedback
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                    const
+                </span>
+                <span
+                  style="color: rgb(198, 204, 215);"
+                >
+                   feedback
+                </span>
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                   =
+                </span>
+                <span
+                  style="color: rgb(198, 204, 215);"
+                >
+                   formData
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  .
+                </span>
+                <span
+                  style="color: rgb(181, 126, 220);"
+                >
+                  get
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  (
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  '
+                </span>
+                <span
+                  style="color: rgb(152, 195, 121);"
+                >
+                  feedback
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  '
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  ) 
+                </span>
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                  as
+                </span>
+                <span
+                  style="color: rgb(229, 192, 123);"
+                >
+                   string
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  ;
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                    await
+                </span>
+                <span
+                  style="color: rgb(181, 126, 220);"
+                >
+                   saveFeedback
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  (
+                </span>
+                <span
+                  style="color: rgb(198, 204, 215);"
+                >
+                  feedback
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  );
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                 
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                    return
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   { success: 
+                </span>
+                <span
+                  style="color: rgb(86, 182, 194);"
+                >
+                  true
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   };
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  }
+                </span>
+              </span>
+            </code>
+          </pre>
+        </figure>
+        <h2
+          class="group relative"
+          id="handling-verified-bots"
+          tabindex="-1"
+        >
+          <a
+            aria-label="Link to section: section"
+            class="absolute top-1/2 -left-6 -translate-y-1/2 opacity-0 group-hover:opacity-100 pt-10"
+            href="#handling-verified-bots"
+            tabindex="0"
+          >
+            <svg
+              aria-hidden="true"
+              class="hidden size-4.5 shrink-0 md:block"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M240,88.23a54.43,54.43,0,0,1-16,37L189.25,160a54.27,54.27,0,0,1-38.63,16h-.05A54.63,54.63,0,0,1,96,119.84a8,8,0,0,1,16,.45A38.62,38.62,0,0,0,150.58,160h0a38.39,38.39,0,0,0,27.31-11.31l34.75-34.75a38.63,38.63,0,0,0-54.63-54.63l-11,11A8,8,0,0,1,135.7,59l11-11A54.65,54.65,0,0,1,224,48,54.86,54.86,0,0,1,240,88.23ZM109,185.66l-11,11A38.41,38.41,0,0,1,70.6,208h0a38.63,38.63,0,0,1-27.29-65.94L78,107.31A38.63,38.63,0,0,1,144,135.71a8,8,0,0,0,16,.45A54.86,54.86,0,0,0,144,96a54.65,54.65,0,0,0-77.27,0L32,130.75A54.62,54.62,0,0,0,70.56,224h0a54.28,54.28,0,0,0,38.64-16l11-11A8,8,0,0,0,109,185.66Z"
+              />
+            </svg>
+          </a>
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="#handling-verified-bots"
+          >
+            Handling Verified Bots
+          </a>
+        </h2>
+        <p>
+          Not all bots are bad. BotID can identify verified bots like ChatGPT Operator, allowing you to permit certain AI assistants while blocking malicious ones:
+        </p>
+        <figure
+          data-rehype-pretty-code-figure=""
+        >
+          <figcaption
+            data-language="ts"
+            data-rehype-pretty-code-title=""
+            data-theme="plastic"
+          >
+            app/api/public-data/route.ts
+          </figcaption>
+          <button
+            aria-label="Copy code"
+            class="text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 !transition-all hover:text-foreground/80 active:scale-90"
+            title="Copy code"
+          >
+            <svg
+              class="size-4.5"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"
+              />
+            </svg>
+          </button>
+          <pre
+            data-language="ts"
+            data-theme="plastic"
+            tabindex="0"
+          >
+            <code
+              data-language="ts"
+              data-line-numbers=""
+              data-line-numbers-max-digits="2"
+              data-theme="plastic"
+              style="display: grid;"
+            >
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                  export
+                </span>
+                <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                   async
+                </span>
+                <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                   function
+                </span>
+                <span
+                  style="color: rgb(181, 126, 220);"
+                >
+                   GET
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  (
+                </span>
+                <span
+                  style="color: rgb(198, 204, 215);"
+                >
+                  request
+                </span>
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                  :
+                </span>
+                <span
+                  style="color: rgb(229, 192, 123);"
+                >
+                   NextRequest
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  ) {
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                    const
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   { 
+                </span>
+                <span
+                  style="color: rgb(198, 204, 215);"
+                >
+                  isBot
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  , 
+                </span>
+                <span
+                  style="color: rgb(198, 204, 215);"
+                >
+                  isVerifiedBot
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  , 
+                </span>
+                <span
+                  style="color: rgb(198, 204, 215);"
+                >
+                  verifiedBotName
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   } 
+                </span>
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                  =
+                </span>
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                   await
+                </span>
+                <span
+                  style="color: rgb(181, 126, 220);"
+                >
+                   checkBotId
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  ();
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                 
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(95, 102, 114); font-style: italic;"
+                >
+                    // Allow ChatGPT Operator but block other bots
+                </span>
+              </span>
+              
+
+              <span
+                data-highlighted-line=""
+                data-line=""
+              >
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                    if
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   (
+                </span>
+                <span
+                  style="color: rgb(198, 204, 215);"
+                >
+                  isBot
+                </span>
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                   &&
+                </span>
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                   !
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  (
+                </span>
+                <span
+                  style="color: rgb(198, 204, 215);"
+                >
+                  isVerifiedBot
+                </span>
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                   &&
+                </span>
+                <span
+                  style="color: rgb(198, 204, 215);"
+                >
+                   verifiedBotName
+                </span>
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                   ===
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   '
+                </span>
+                <span
+                  style="color: rgb(152, 195, 121);"
+                >
+                  chatgpt-operator
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  '
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  )) {
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                      return
+                </span>
+                <span
+                  style="color: rgb(198, 204, 215);"
+                >
+                   NextResponse
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  .
+                </span>
+                <span
+                  style="color: rgb(181, 126, 220);"
+                >
+                  json
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  ({ error: 
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  '
+                </span>
+                <span
+                  style="color: rgb(152, 195, 121);"
+                >
+                  Access denied
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  '
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   }, { status: 
+                </span>
+                <span
+                  style="color: rgb(86, 182, 194);"
+                >
+                  403
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   });
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                    }
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                 
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(95, 102, 114); font-style: italic;"
+                >
+                    // Return data
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                    return
+                </span>
+                <span
+                  style="color: rgb(198, 204, 215);"
+                >
+                   NextResponse
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  .
+                </span>
+                <span
+                  style="color: rgb(181, 126, 220);"
+                >
+                  json
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  ({ data: 
+                </span>
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                  await
+                </span>
+                <span
+                  style="color: rgb(181, 126, 220);"
+                >
+                   fetchPublicData
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  () });
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  }
+                </span>
+              </span>
+            </code>
+          </pre>
+        </figure>
+        <h2
+          class="group relative"
+          id="development-mode"
+          tabindex="-1"
+        >
+          <a
+            aria-label="Link to section: section"
+            class="absolute top-1/2 -left-6 -translate-y-1/2 opacity-0 group-hover:opacity-100 pt-10"
+            href="#development-mode"
+            tabindex="0"
+          >
+            <svg
+              aria-hidden="true"
+              class="hidden size-4.5 shrink-0 md:block"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M240,88.23a54.43,54.43,0,0,1-16,37L189.25,160a54.27,54.27,0,0,1-38.63,16h-.05A54.63,54.63,0,0,1,96,119.84a8,8,0,0,1,16,.45A38.62,38.62,0,0,0,150.58,160h0a38.39,38.39,0,0,0,27.31-11.31l34.75-34.75a38.63,38.63,0,0,0-54.63-54.63l-11,11A8,8,0,0,1,135.7,59l11-11A54.65,54.65,0,0,1,224,48,54.86,54.86,0,0,1,240,88.23ZM109,185.66l-11,11A38.41,38.41,0,0,1,70.6,208h0a38.63,38.63,0,0,1-27.29-65.94L78,107.31A38.63,38.63,0,0,1,144,135.71a8,8,0,0,0,16,.45A54.86,54.86,0,0,0,144,96a54.65,54.65,0,0,0-77.27,0L32,130.75A54.62,54.62,0,0,0,70.56,224h0a54.28,54.28,0,0,0,38.64-16l11-11A8,8,0,0,0,109,185.66Z"
+              />
+            </svg>
+          </a>
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="#development-mode"
+          >
+            Development Mode
+          </a>
+        </h2>
+        <p>
+          During local development, BotID automatically returns 
+          <code>
+            isBot: false
+          </code>
+           to avoid disrupting your workflow. You can test bot detection logic using development options:
+        </p>
+        <figure
+          data-rehype-pretty-code-figure=""
+        >
+          <button
+            aria-label="Copy code"
+            class="text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 !transition-all hover:text-foreground/80 active:scale-90"
+            title="Copy code"
+          >
+            <svg
+              class="size-4.5"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"
+              />
+            </svg>
+          </button>
+          <pre
+            data-language="ts"
+            data-theme="plastic"
+            tabindex="0"
+          >
+            <code
+              data-language="ts"
+              data-line-numbers=""
+              data-line-numbers-max-digits="1"
+              data-theme="plastic"
+              style="display: grid;"
+            >
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(95, 102, 114); font-style: italic;"
+                >
+                  // Testing bot detection in development
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  const
+                </span>
+                <span
+                  style="color: rgb(198, 204, 215);"
+                >
+                   verification
+                </span>
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                   =
+                </span>
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                   await
+                </span>
+                <span
+                  style="color: rgb(181, 126, 220);"
+                >
+                   checkBotId
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  ({
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                    developmentOptions: {
+                </span>
+              </span>
+              
+
+              <span
+                data-highlighted-line=""
+                data-line=""
+              >
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                      bypass: 
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  '
+                </span>
+                <span
+                  style="color: rgb(152, 195, 121);"
+                >
+                  BAD-BOT
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  '
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  , 
+                </span>
+                <span
+                  style="color: rgb(95, 102, 114); font-style: italic;"
+                >
+                  // Simulate bot detection
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                    },
+                </span>
+              </span>
+              
+
+              <span
+                data-line=""
+              >
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  });
+                </span>
+              </span>
+            </code>
+          </pre>
+        </figure>
+        <h2
+          class="group relative"
+          id="pricing"
+          tabindex="-1"
+        >
+          <a
+            aria-label="Link to section: section"
+            class="absolute top-1/2 -left-6 -translate-y-1/2 opacity-0 group-hover:opacity-100 pt-10"
+            href="#pricing"
+            tabindex="0"
+          >
+            <svg
+              aria-hidden="true"
+              class="hidden size-4.5 shrink-0 md:block"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M240,88.23a54.43,54.43,0,0,1-16,37L189.25,160a54.27,54.27,0,0,1-38.63,16h-.05A54.63,54.63,0,0,1,96,119.84a8,8,0,0,1,16,.45A38.62,38.62,0,0,0,150.58,160h0a38.39,38.39,0,0,0,27.31-11.31l34.75-34.75a38.63,38.63,0,0,0-54.63-54.63l-11,11A8,8,0,0,1,135.7,59l11-11A54.65,54.65,0,0,1,224,48,54.86,54.86,0,0,1,240,88.23ZM109,185.66l-11,11A38.41,38.41,0,0,1,70.6,208h0a38.63,38.63,0,0,1-27.29-65.94L78,107.31A38.63,38.63,0,0,1,144,135.71a8,8,0,0,0,16,.45A54.86,54.86,0,0,0,144,96a54.65,54.65,0,0,0-77.27,0L32,130.75A54.62,54.62,0,0,0,70.56,224h0a54.28,54.28,0,0,0,38.64-16l11-11A8,8,0,0,0,109,185.66Z"
+              />
+            </svg>
+          </a>
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="#pricing"
+          >
+            Pricing
+          </a>
+        </h2>
+        <p>
+          BotID offers two modes:
+        </p>
+        <ul>
+          <li>
+            <strong>
+              Basic Mode:
+            </strong>
+             Free on all plans — validates browser sessions
+          </li>
+          <li>
+            <strong>
+              Deep Analysis:
+            </strong>
+             $1 per 1,000 calls (Pro/Enterprise) — advanced detection with thousands of signals
+          </li>
+        </ul>
+        <p>
+          You're only charged when calling 
+          <code>
+            checkBotId()
+          </code>
+           with Deep Analysis enabled. Passive page views don't incur charges.
+        </p>
+        <h2
+          class="group relative"
+          id="real-world-use-cases"
+          tabindex="-1"
+        >
+          <a
+            aria-label="Link to section: section"
+            class="absolute top-1/2 -left-6 -translate-y-1/2 opacity-0 group-hover:opacity-100 pt-10"
+            href="#real-world-use-cases"
+            tabindex="0"
+          >
+            <svg
+              aria-hidden="true"
+              class="hidden size-4.5 shrink-0 md:block"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M240,88.23a54.43,54.43,0,0,1-16,37L189.25,160a54.27,54.27,0,0,1-38.63,16h-.05A54.63,54.63,0,0,1,96,119.84a8,8,0,0,1,16,.45A38.62,38.62,0,0,0,150.58,160h0a38.39,38.39,0,0,0,27.31-11.31l34.75-34.75a38.63,38.63,0,0,0-54.63-54.63l-11,11A8,8,0,0,1,135.7,59l11-11A54.65,54.65,0,0,1,224,48,54.86,54.86,0,0,1,240,88.23ZM109,185.66l-11,11A38.41,38.41,0,0,1,70.6,208h0a38.63,38.63,0,0,1-27.29-65.94L78,107.31A38.63,38.63,0,0,1,144,135.71a8,8,0,0,0,16,.45A54.86,54.86,0,0,0,144,96a54.65,54.65,0,0,0-77.27,0L32,130.75A54.62,54.62,0,0,0,70.56,224h0a54.28,54.28,0,0,0,38.64-16l11-11A8,8,0,0,0,109,185.66Z"
+              />
+            </svg>
+          </a>
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="#real-world-use-cases"
+          >
+            Real-World Use Cases
+          </a>
+        </h2>
+        <p>
+          BotID shines for protecting:
+        </p>
+        <ul>
+          <li>
+            Checkout flows: Prevent inventory hoarding by bots
+          </li>
+          <li>
+            API endpoints: Stop automated scraping and abuse
+          </li>
+          <li>
+            AI chat interfaces: Protect expensive LLM-powered features
+          </li>
+          <li>
+            Sign-up forms: Block fake account creation
+          </li>
+          <li>
+            Contact forms: Eliminate spam submissions
+          </li>
+        </ul>
+        <h2
+          class="group relative"
+          id="conclusion"
+          tabindex="-1"
+        >
+          <a
+            aria-label="Link to section: section"
+            class="absolute top-1/2 -left-6 -translate-y-1/2 opacity-0 group-hover:opacity-100 pt-10"
+            href="#conclusion"
+            tabindex="0"
+          >
+            <svg
+              aria-hidden="true"
+              class="hidden size-4.5 shrink-0 md:block"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M240,88.23a54.43,54.43,0,0,1-16,37L189.25,160a54.27,54.27,0,0,1-38.63,16h-.05A54.63,54.63,0,0,1,96,119.84a8,8,0,0,1,16,.45A38.62,38.62,0,0,0,150.58,160h0a38.39,38.39,0,0,0,27.31-11.31l34.75-34.75a38.63,38.63,0,0,0-54.63-54.63l-11,11A8,8,0,0,1,135.7,59l11-11A54.65,54.65,0,0,1,224,48,54.86,54.86,0,0,1,240,88.23ZM109,185.66l-11,11A38.41,38.41,0,0,1,70.6,208h0a38.63,38.63,0,0,1-27.29-65.94L78,107.31A38.63,38.63,0,0,1,144,135.71a8,8,0,0,0,16,.45A54.86,54.86,0,0,0,144,96a54.65,54.65,0,0,0-77.27,0L32,130.75A54.62,54.62,0,0,0,70.56,224h0a54.28,54.28,0,0,0,38.64-16l11-11A8,8,0,0,0,109,185.66Z"
+              />
+            </svg>
+          </a>
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="#conclusion"
+          >
+            Conclusion
+          </a>
+        </h2>
+        <p>
+          While the idea of invisible CAPTCHA isn't new
+          <sup>
+            1
+          </sup>
+          , Vercel BotID makes it accessible and easy to implement. By integrating BotID into your application, you can significantly enhance user experience while maintaining robust security against bots.
+        </p>
+        <p>
+          For detailed documentation and advanced configurations, visit the 
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="https://vercel.com/docs/botid"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Vercel BotID documentation
+          </a>
+          .
+        </p>
+        <hr />
+        <p>
+          <sup>
+            1
+          </sup>
+           Gooding, Sarah (March 9, 2017). 
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="https://wptavern.com/google-launches-invisible-recaptcha"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            "Google Launches Invisible reCAPTCHA"
+          </a>
+          . 
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="https://wptavern.com/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            WP Tavern
+          </a>
+          .
+        </p>
+      </article>
+    </main>
+  </div>
+</div>
+`;
+
+exports[`Content Detail Page > should render project page and match snapshot 1`] = `
+<div>
+  <script
+    type="application/ld+json"
+  >
+    [{"@context":"https://schema.org","@type":"Person","@id":"https://dulapahv.dev/#person","name":"Dulapah Vibulsanti","givenName":"Dulapah","familyName":"Vibulsanti","alternateName":"DulapahV","description":"Thai Software Engineer based in Edinburgh, United Kingdom. Passionate about creating accessible and delightful technology for everyone.","gender":"male","nationality":{"@type":"Country","name":"Thailand"},"url":"https://dulapahv.dev","image":{"@type":"ImageObject","url":"https://dulapahv.dev/og?title=Dulapah+Vibulsanti%0ASoftware+Engineer&description=Thai+Software+Engineer+based+in+Edinburgh%2C+United+Kingdom.+Passionate+about+creating+accessible+and+delightful+technology+for+everyone.","caption":"Dulapah Vibulsanti - Software Engineer","width":"1200","height":"630"},"sameAs":["https://github.com/dulapahv","https://www.linkedin.com/in/dulapahv"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"University of Glasgow","url":"https://www.gla.ac.uk/","identifier":"Russell Group University","address":{"@type":"PostalAddress","addressLocality":"Glasgow","addressRegion":"Scotland","addressCountry":"GB","postalCode":"G12 8QQ","streetAddress":"University Avenue"}},{"@type":"CollegeOrUniversity","name":"King Mongkut's Institute of Technology Ladkrabang","alternateName":"KMITL","url":"https://www.kmitl.ac.th/","address":{"@type":"PostalAddress","addressLocality":"Bangkok","addressRegion":"Bangkok","addressCountry":"TH","postalCode":"10520","streetAddress":"1 Chalong Krung 1 Alley, Lat Krabang"}},{"@type":"EducationalOrganization","name":"Suankularb Wittayalai School","url":"https://www.sk.ac.th/","address":{"@type":"PostalAddress","addressLocality":"Bangkok","addressRegion":"Phra Nakhon","addressCountry":"TH","postalCode":"10200","streetAddress":"88 Tri Phet Road"}}],"jobTitle":"Graduate Software Engineer","worksFor":{"@type":"Organization","name":"NatWest Group","url":"https://www.natwestgroup.com/","description":"One of the UK's Big Four banks, serving over 19 million customers","sameAs":"https://en.wikipedia.org/wiki/NatWest_Group"},"workLocation":{"@type":"Place","name":"Edinburgh, Scotland","address":{"@type":"PostalAddress","addressLocality":"Edinburgh","addressRegion":"Scotland","addressCountry":"GB"}},"knowsAbout":["General programming","Databases","Web frameworks & UI","Backend","Cross-platform & Desktop","DevOps & Testing","Cloud & Infrastructure","TypeScript","JavaScript","Python","C","C++","Java","Bash","PostgreSQL","MongoDB","SQLite","MySQL","Snowflake","Next.js","React.js","Tailwind CSS","shadcn/ui","Radix UI","HeroUI","daisyUI","MUI","Express.js","Prisma","WebSocket","Electron.js","Qt","GitHub Actions","GitLab CI/CD","Playwright","Jest","Sentry","Turborepo","Vercel","Cloudflare","Docker","Supabase","GCP","Nginx","Firebase","Software Engineering","Full Stack Development","Parallel and Distributed Systems","Web Development","API Development","Version Control (Git)","Agile Methodologies","Test-Driven Development","Continuous Integration/Continuous Deployment","Web Accessibility"],"hasCredential":[{"@type":"EducationalOccupationalCredential","@id":"https://dulapahv.dev/#degree-glasgow","name":"BSc (Hons) Software Engineering","description":"Double degree program with KMITL. First Class Honours with Specialization in Parallel and Distributed Systems. Final two years completed at University of Glasgow.","credentialCategory":"degree","educationalLevel":"Bachelor","dateCreated":"2023-09","recognizedBy":{"@type":"CollegeOrUniversity","name":"University of Glasgow","url":"https://www.gla.ac.uk/"}},{"@type":"EducationalOccupationalCredential","@id":"https://dulapahv.dev/#degree-kmitl","name":"BEng Software Engineering","description":"Double degree programme with University of Glasgow. First two years completed at KMITL before transferring to Glasgow.","credentialCategory":"degree","educationalLevel":"Bachelor","dateCreated":"2021-08","recognizedBy":{"@type":"CollegeOrUniversity","name":"King Mongkut's Institute of Technology Ladkrabang","url":"https://www.kmitl.ac.th/"}}],"knowsLanguage":[{"@type":"Language","name":"Thai","alternateName":"th"},{"@type":"Language","name":"English","alternateName":"en"}],"contactPoint":{"@type":"ContactPoint","contactType":"professional","areaServed":"GB","availableLanguage":["en","th"],"url":"https://dulapahv.dev/contact"},"hasOccupation":{"@type":"Occupation","name":"Software Engineer","description":"Software engineers design and create computer systems and applications to solve real-world problems.","occupationalCategory":"15-1252.00","occupationLocation":{"@type":"City","name":"Edinburgh, Scotland","address":{"@type":"PostalAddress","addressLocality":"Edinburgh","addressRegion":"Scotland","addressCountry":"GB"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dulapahv.dev/#occupation-software-engineer","name":"Software Engineer","description":"Software engineers design and create computer systems and applications to solve real-world problems.","url":"https://dulapahv.dev/#occupation-software-engineer","lastReviewed":"2007-01-09T09:41:00.000Z"}}},{"@context":"https://schema.org","@type":"WebSite","@id":"https://dulapahv.dev/#website","url":"https://dulapahv.dev","name":"DulapahV Portfolio","alternateName":"Dulapah Vibulsanti Portfolio","description":"Thai Software Engineer based in Edinburgh, United Kingdom. Passionate about creating accessible and delightful technology for everyone.","publisher":{"@id":"https://dulapahv.dev/#person"},"inLanguage":"en-US"},{"@context":"https://schema.org","@type":"CreativeWork","@id":"https://dulapahv.dev/project/issho","url":"https://dulapahv.dev/project/issho","name":"Issho - Plan with friends, faster","description":"Building a real-time collaborative calendar app that eliminates the back-and-forth of scheduling meetups","creator":{"@id":"https://dulapahv.dev/#person"},"dateCreated":"2025-07-30T23:00:00.000Z","dateModified":"2025-08-22T23:00:00.000Z","image":{"@type":"ImageObject","url":"https://dulapahv.dev/og?title=Issho+-+Plan+with+friends%2C+faster&description=Building+a+real-time+collaborative+calendar+app+that+eliminates+the+back-and-forth+of+scheduling+meetups","width":"1200","height":"630"},"inLanguage":"en-US"}]
+  </script>
+  <div
+    class="mx-auto max-w-2xl space-y-4"
+  >
+    <nav
+      aria-label="breadcrumb"
+    >
+      <ol
+        class="text-foreground-muted flex flex-wrap items-center gap-1.5 text-sm break-words sm:gap-2.5"
+      >
+        <li
+          class="inline-flex items-center gap-1.5"
+        >
+          <a
+            class="rounded-sm transition-colors hover:text-foreground focus:text-foreground"
+            href="/"
+          >
+            Home
+          </a>
+        </li>
+        <li
+          aria-hidden="true"
+          class="[&>svg]:size-3.5"
+          role="presentation"
+        >
+          <svg
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 256 256"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"
+            />
+          </svg>
+        </li>
+        <li
+          class="inline-flex items-center gap-1.5"
+        >
+          <a
+            class="rounded-sm transition-colors hover:text-foreground focus:text-foreground"
+            href="/work"
+          >
+            Work
+          </a>
+        </li>
+        <li
+          aria-hidden="true"
+          class="[&>svg]:size-3.5"
+          role="presentation"
+        >
+          <svg
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 256 256"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"
+            />
+          </svg>
+        </li>
+        <li
+          class="inline-flex items-center gap-1.5"
+        >
+          <span
+            aria-current="page"
+            aria-disabled="true"
+            class="text-foreground font-normal max-w-48 truncate"
+            role="link"
+          >
+            Issho - Plan with friends, faster
+          </span>
+        </li>
+      </ol>
+    </nav>
+  </div>
+  <div>
+    <main
+      class="mx-auto max-w-2xl space-y-4"
+    >
+      <header
+        class="space-y-2"
+      >
+        <div>
+          <h1
+            class="text-2xl font-semibold"
+          >
+            Issho - Plan with friends, faster
+          </h1>
+          <p
+            class="text-foreground-muted font-medium"
+            role="doc-subtitle"
+          >
+            Building a real-time collaborative calendar app that eliminates the back-and-forth of scheduling meetups
+          </p>
+        </div>
+        <div
+          class="text-foreground-muted space-y-1 text-sm"
+        >
+          <div
+            class="flex flex-wrap items-center gap-2"
+          >
+            <span
+              class="sr-only"
+            >
+              Content type:
+            </span>
+            <span
+              aria-label="Content type: Project"
+              class="inline-block font-medium"
+            >
+              Project
+            </span>
+            <span
+              aria-hidden="true"
+              class="text-foreground-subtle"
+            >
+              |
+            </span>
+            <div
+              class="flex gap-1"
+            >
+              <span
+                class="sr-only"
+              >
+                Duration:
+              </span>
+              <span
+                aria-hidden="true"
+              >
+                Duration:
+              </span>
+              <time
+                aria-label="Project duration from July 31, 2025 to August 23, 2025"
+                class="font-medium"
+                datetime="2025-07-30/2025-08-22"
+              >
+                July 31, 2025 - August 23, 2025
+              </time>
+            </div>
+          </div>
+          <p
+            aria-label="Estimated reading time: 3 min read"
+          >
+            <span
+              class="sr-only"
+            >
+              Reading time:
+            </span>
+            3 min read
+          </p>
+        </div>
+        <div
+          aria-label="Share options"
+          class="flex flex-wrap items-center gap-3"
+          role="group"
+        >
+          <button
+            aria-label="Copy link to clipboard"
+            class="bg-background border-border aspect-square cursor-pointer rounded-full border p-1.5 transition-colors hover:bg-background-subtle hover:border-border-strong"
+            title="Copy link to clipboard"
+          >
+            <div
+              class="text-foreground relative"
+            >
+              <svg
+                class="size-4.5"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 256 256"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M80,120h96a8,8,0,0,1,0,16H80a8,8,0,0,1,0-16Zm24,48H64a40,40,0,0,1,0-80h40a8,8,0,0,0,0-16H64a56,56,0,0,0,0,112h40a8,8,0,0,0,0-16Zm88-96H152a8,8,0,0,0,0,16h40a40,40,0,0,1,0,80H152a8,8,0,0,0,0,16h40a56,56,0,0,0,0-112Z"
+                />
+              </svg>
+            </div>
+          </button>
+          <button
+            aria-label="Share on X"
+            class="bg-background border-border aspect-square cursor-pointer rounded-full border p-2 transition-colors hover:bg-background-subtle hover:border-border-strong"
+            title="Share on X"
+          >
+            <img
+              alt=""
+              aria-hidden="true"
+              class="hidden dark:block "
+              data-nimg="1"
+              decoding="async"
+              height="16"
+              loading="lazy"
+              src="/x-white.svg"
+              style="color: transparent;"
+              width="16"
+            />
+            <img
+              alt=""
+              aria-hidden="true"
+              class="block dark:hidden "
+              data-nimg="1"
+              decoding="async"
+              height="16"
+              loading="lazy"
+              src="/x-black.svg"
+              style="color: transparent;"
+              width="16"
+            />
+          </button>
+          <button
+            aria-label="Share on Facebook"
+            class="bg-background border-border aspect-square cursor-pointer rounded-full border p-1 transition-colors hover:bg-background-subtle hover:border-border-strong"
+            title="Share on Facebook"
+          >
+            <img
+              alt=""
+              aria-hidden="true"
+              data-nimg="1"
+              decoding="async"
+              height="24"
+              loading="lazy"
+              src="/facebook.svg"
+              style="color: transparent;"
+              width="24"
+            />
+          </button>
+          <button
+            aria-label="Share on LinkedIn"
+            class="bg-background border-border aspect-square cursor-pointer rounded-full border p-1.5 transition-colors hover:bg-background-subtle hover:border-border-strong"
+            title="Share on LinkedIn"
+          >
+            <img
+              alt=""
+              aria-hidden="true"
+              data-nimg="1"
+              decoding="async"
+              height="20"
+              loading="lazy"
+              src="/linkedin.svg"
+              style="color: transparent;"
+              width="20"
+            />
+          </button>
+          <div
+            class="relative ml-0 min-[425px]:ml-auto"
+          >
+            <div
+              class="bg-background border-border flex items-center rounded-md border"
+            >
+              <button
+                aria-label="Copy page as Markdown"
+                class="flex cursor-pointer items-center gap-2 px-3 py-1.5 text-sm font-medium transition-colors border-border border-r hover:bg-background-subtle disabled:bg-background-muted disabled:text-foreground-muted disabled:cursor-not-allowed"
+                title="Copy page as Markdown"
+              >
+                <p>
+                  Copy Page
+                </p>
+              </button>
+              <button
+                aria-expanded="false"
+                aria-haspopup="true"
+                aria-label="More options"
+                class="flex cursor-pointer items-center px-2 py-2 transition-colors hover:bg-background-subtle"
+                title="More options"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="size-4 transition-transform"
+                  fill="currentColor"
+                  height="1em"
+                  viewBox="0 0 256 256"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+      <nav
+        aria-label="Table of contents"
+        class="border-border bg-background-elevated/50 rounded-md border backdrop-blur-sm"
+        role="navigation"
+      >
+        <button
+          aria-controls="toc-content"
+          aria-describedby="toc-description"
+          aria-expanded="false"
+          class="text-foreground flex w-full cursor-pointer items-center justify-between rounded-md px-4 py-3 text-sm font-semibold transition-colors hover:bg-background-muted/50"
+          type="button"
+        >
+          <span>
+            On this page
+          </span>
+          <div
+            aria-hidden="true"
+          >
+            <svg
+              class="size-4"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"
+              />
+            </svg>
+          </div>
+        </button>
+        <span
+          class="sr-only"
+          id="toc-description"
+        >
+          Toggle to 
+          show
+           table of contents with 
+          6
+           sections. Use arrow keys to navigate when expanded.
+        </span>
+      </nav>
+      <figure
+        aria-labelledby="cover-image-caption"
+        class="relative"
+        role="img"
+      >
+        <span
+          data-testid="zoom-wrapper"
+        >
+          <img
+            alt="Cover image for Issho - Plan with friends, faster project"
+            class="border-border bg-background-muted/30 overflow-hidden rounded-md border"
+            data-nimg="1"
+            decoding="async"
+            height="630"
+            src="/_next/image?url=%2Fproject%2Fissho%2Fcover.png&w=3840&q=75"
+            srcset="/_next/image?url=%2Fproject%2Fissho%2Fcover.png&w=1200&q=75 1x, /_next/image?url=%2Fproject%2Fissho%2Fcover.png&w=3840&q=75 2x"
+            style="color: transparent;"
+            width="1200"
+          />
+        </span>
+        <figcaption
+          class="sr-only"
+          id="cover-image-caption"
+        >
+          Cover image for Issho - Plan with friends, faster project
+        </figcaption>
+      </figure>
+      <article
+        aria-label="Article content"
+        class="mx-auto max-w-none font-medium prose prose-neutral dark:prose-invert prose-headings:mt-8 prose-headings:font-semibold prose-headings:[&>a]:text-foreground prose-headings:[&>a]:no-underline prose-h1:text-3xl prose-h1:font-bold prose-h2:text-2xl prose-h2:mb-6 prose-h2:mt-12 prose-h2:border-t prose-h2:border-border prose-h2:pt-10 prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3 prose-h4:text-lg prose-h4:mt-6 prose-h4:mb-2 prose-h5:text-base prose-h5:mt-4 prose-h5:mb-1 prose-h6:text-sm prose-h6:mt-2 prose-h6:mb-0 prose-p:my-5 prose-strong:text-inherit prose-strong:font-bold prose-pre:dark:bg-[#0a0a0a] prose-pre:bg-white prose-pre:border-t-border prose-pre:text-[13px]/5 prose-pre:px-0! prose-pre:[&>code:not([data-line-numbers])]:px-4 prose-figure:border prose-figure:border-border prose-figure:rounded-md prose-figure:my-4 prose-figure:relative prose-figure:[figure:has(figcaption)&>pre]:rounded-t-none prose-figure:[figure:has(figcaption)&>pre]:border-t prose-figcaption:dark:bg-black prose-figcaption:bg-[#fafafa] prose-figcaption:mt-0 prose-figcaption:py-2.5 prose-figcaption:rounded-t-md prose-figcaption:px-4 prose-figcaption:text-[13px] prose-figure:[figure:has(figcaption)&>button]:top-1 prose-blockquote:not-italic prose-blockquote:[&>p]:before:content-none prose-blockquote:[&>p]:after:content-none prose-blockquote:border prose-blockquote:!border-l! prose-blockquote:border-border! prose-blockquote:[&>p]:my-0 prose-blockquote:rounded-md prose-blockquote:p-3 prose-blockquote:text-sm prose-code:before:content-none prose-code:after:content-none prose-code:dark:bg-[#0a0a0a] prose-code:bg-white prose-code:[&>span>span]:brightness-90 dark:prose-code:[&>span>span]:brightness-100 prose-code:[&:not([data-theme])]:px-1 prose-code:[&:not([data-theme])]:py-[1.5px] prose-code:[&:not([data-theme])]:bg-background-muted prose-code:[&:not([data-theme])]:rounded-md prose-code:[&:not([data-theme])]:tracking-wide prose-code:[&:not([data-theme])]:border prose-code:[&:not([data-theme])]:border-gray-500 prose-code:[&:not([data-theme])]:font-normal prose-code:[&:not([data-theme])]:text-[13px] prose-code:text-foreground [&>details>summary]:cursor-pointer [&>details>summary]:hover:underline [&>details>ul]:my-0"
+      >
+        <p>
+          ✨ 
+          <strong>
+            Try now at 
+            <a
+              class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+              href="https://issho.dulapahv.dev"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              issho.dulapahv.dev
+            </a>
+          </strong>
+        </p>
+        <p>
+          Issho (一緒) means "together" in Japanese - and that's exactly what this app is about. It's a real-time collaborative calendar that lets you and your friends visually mark your availability and instantly find the perfect time to meet, without the endless back-and-forth messages or creating yet another account.
+        </p>
+        <h2
+          class="group relative"
+          id="the-problem"
+          tabindex="-1"
+        >
+          <a
+            aria-label="Link to section: section"
+            class="absolute top-1/2 -left-6 -translate-y-1/2 opacity-0 group-hover:opacity-100 pt-10"
+            href="#the-problem"
+            tabindex="0"
+          >
+            <svg
+              aria-hidden="true"
+              class="hidden size-4.5 shrink-0 md:block"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M240,88.23a54.43,54.43,0,0,1-16,37L189.25,160a54.27,54.27,0,0,1-38.63,16h-.05A54.63,54.63,0,0,1,96,119.84a8,8,0,0,1,16,.45A38.62,38.62,0,0,0,150.58,160h0a38.39,38.39,0,0,0,27.31-11.31l34.75-34.75a38.63,38.63,0,0,0-54.63-54.63l-11,11A8,8,0,0,1,135.7,59l11-11A54.65,54.65,0,0,1,224,48,54.86,54.86,0,0,1,240,88.23ZM109,185.66l-11,11A38.41,38.41,0,0,1,70.6,208h0a38.63,38.63,0,0,1-27.29-65.94L78,107.31A38.63,38.63,0,0,1,144,135.71a8,8,0,0,0,16,.45A54.86,54.86,0,0,0,144,96a54.65,54.65,0,0,0-77.27,0L32,130.75A54.62,54.62,0,0,0,70.56,224h0a54.28,54.28,0,0,0,38.64-16l11-11A8,8,0,0,0,109,185.66Z"
+              />
+            </svg>
+          </a>
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="#the-problem"
+          >
+            The Problem
+          </a>
+        </h2>
+        <p>
+          After finishing my studies in the UK, I had a precious 2-month window to visit family and friends in Thailand before returning to work. I wanted to make every moment count, planning meetups efficiently to see everyone I'd missed.
+        </p>
+        <p>
+          But coordinating was a nightmare:
+        </p>
+        <ul>
+          <li>
+            "Are you free next week?"
+          </li>
+          <li>
+            "Which days work for you?"
+          </li>
+          <li>
+            "How about Thursday? Oh wait, someone can't make it..."
+          </li>
+          <li>
+            <em>
+              Creates a poll
+            </em>
+          </li>
+          <li>
+            <em>
+              Half the group doesn't respond
+            </em>
+          </li>
+          <li>
+            <em>
+              Repeat for every single meetup
+            </em>
+          </li>
+        </ul>
+        <p>
+          Sound familiar? I was spending more time planning than actually meeting people. There had to be a better way.
+        </p>
+        <h2
+          class="group relative"
+          id="the-solution"
+          tabindex="-1"
+        >
+          <a
+            aria-label="Link to section: section"
+            class="absolute top-1/2 -left-6 -translate-y-1/2 opacity-0 group-hover:opacity-100 pt-10"
+            href="#the-solution"
+            tabindex="0"
+          >
+            <svg
+              aria-hidden="true"
+              class="hidden size-4.5 shrink-0 md:block"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M240,88.23a54.43,54.43,0,0,1-16,37L189.25,160a54.27,54.27,0,0,1-38.63,16h-.05A54.63,54.63,0,0,1,96,119.84a8,8,0,0,1,16,.45A38.62,38.62,0,0,0,150.58,160h0a38.39,38.39,0,0,0,27.31-11.31l34.75-34.75a38.63,38.63,0,0,0-54.63-54.63l-11,11A8,8,0,0,1,135.7,59l11-11A54.65,54.65,0,0,1,224,48,54.86,54.86,0,0,1,240,88.23ZM109,185.66l-11,11A38.41,38.41,0,0,1,70.6,208h0a38.63,38.63,0,0,1-27.29-65.94L78,107.31A38.63,38.63,0,0,1,144,135.71a8,8,0,0,0,16,.45A54.86,54.86,0,0,0,144,96a54.65,54.65,0,0,0-77.27,0L32,130.75A54.62,54.62,0,0,0,70.56,224h0a54.28,54.28,0,0,0,38.64-16l11-11A8,8,0,0,0,109,185.66Z"
+              />
+            </svg>
+          </a>
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="#the-solution"
+          >
+            The Solution
+          </a>
+        </h2>
+        <p>
+          Issho was born from this frustration. Instead of exchanging dozens of messages, what if everyone could just paint their availability on a shared calendar? No signup, no downloads, just pure simplicity.
+        </p>
+        <p>
+          Here's how it works:
+        </p>
+        <ol>
+          <li>
+            <strong>
+              Create a calendar
+            </strong>
+             - Get a unique 8-character ID and 6-digit PIN instantly
+          </li>
+          <li>
+            <strong>
+              Share with friends
+            </strong>
+             - Send them the credentials (one message!)
+          </li>
+          <li>
+            <strong>
+              Everyone marks their availability
+            </strong>
+             - Just click and drag
+          </li>
+          <li>
+            <strong>
+              Find overlaps instantly
+            </strong>
+             - The perfect time reveals itself
+          </li>
+        </ol>
+        <h2
+          class="group relative"
+          id="key-features"
+          tabindex="-1"
+        >
+          <a
+            aria-label="Link to section: section"
+            class="absolute top-1/2 -left-6 -translate-y-1/2 opacity-0 group-hover:opacity-100 pt-10"
+            href="#key-features"
+            tabindex="0"
+          >
+            <svg
+              aria-hidden="true"
+              class="hidden size-4.5 shrink-0 md:block"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M240,88.23a54.43,54.43,0,0,1-16,37L189.25,160a54.27,54.27,0,0,1-38.63,16h-.05A54.63,54.63,0,0,1,96,119.84a8,8,0,0,1,16,.45A38.62,38.62,0,0,0,150.58,160h0a38.39,38.39,0,0,0,27.31-11.31l34.75-34.75a38.63,38.63,0,0,0-54.63-54.63l-11,11A8,8,0,0,1,135.7,59l11-11A54.65,54.65,0,0,1,224,48,54.86,54.86,0,0,1,240,88.23ZM109,185.66l-11,11A38.41,38.41,0,0,1,70.6,208h0a38.63,38.63,0,0,1-27.29-65.94L78,107.31A38.63,38.63,0,0,1,144,135.71a8,8,0,0,0,16,.45A54.86,54.86,0,0,0,144,96a54.65,54.65,0,0,0-77.27,0L32,130.75A54.62,54.62,0,0,0,70.56,224h0a54.28,54.28,0,0,0,38.64-16l11-11A8,8,0,0,0,109,185.66Z"
+              />
+            </svg>
+          </a>
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="#key-features"
+          >
+            Key Features
+          </a>
+        </h2>
+        <p>
+          <strong>
+            Real-time Collaboration
+          </strong>
+           - See updates instantly as friends mark their availability. No refreshing needed.
+        </p>
+        <p>
+          <strong>
+            Smart Analytics
+          </strong>
+           - The app automatically shows you the best meeting windows, individual availability percentages, and when everyone's free.
+        </p>
+        <p>
+          <strong>
+            No Account Required
+          </strong>
+           - Share calendars with just an ID and PIN. Privacy without the hassle of signups.
+        </p>
+        <p>
+          <strong>
+            Mobile-First Design
+          </strong>
+           - Works perfectly on any device with responsive UI and intuitive touch controls.
+        </p>
+        <h2
+          class="group relative"
+          id="technical-highlights"
+          tabindex="-1"
+        >
+          <a
+            aria-label="Link to section: section"
+            class="absolute top-1/2 -left-6 -translate-y-1/2 opacity-0 group-hover:opacity-100 pt-10"
+            href="#technical-highlights"
+            tabindex="0"
+          >
+            <svg
+              aria-hidden="true"
+              class="hidden size-4.5 shrink-0 md:block"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M240,88.23a54.43,54.43,0,0,1-16,37L189.25,160a54.27,54.27,0,0,1-38.63,16h-.05A54.63,54.63,0,0,1,96,119.84a8,8,0,0,1,16,.45A38.62,38.62,0,0,0,150.58,160h0a38.39,38.39,0,0,0,27.31-11.31l34.75-34.75a38.63,38.63,0,0,0-54.63-54.63l-11,11A8,8,0,0,1,135.7,59l11-11A54.65,54.65,0,0,1,224,48,54.86,54.86,0,0,1,240,88.23ZM109,185.66l-11,11A38.41,38.41,0,0,1,70.6,208h0a38.63,38.63,0,0,1-27.29-65.94L78,107.31A38.63,38.63,0,0,1,144,135.71a8,8,0,0,0,16,.45A54.86,54.86,0,0,0,144,96a54.65,54.65,0,0,0-77.27,0L32,130.75A54.62,54.62,0,0,0,70.56,224h0a54.28,54.28,0,0,0,38.64-16l11-11A8,8,0,0,0,109,185.66Z"
+              />
+            </svg>
+          </a>
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="#technical-highlights"
+          >
+            Technical Highlights
+          </a>
+        </h2>
+        <p>
+          Built with modern web technologies for a seamless experience:
+        </p>
+        <ul>
+          <li>
+            <strong>
+              Next.js 15
+            </strong>
+             for blazing-fast performance
+          </li>
+          <li>
+            <strong>
+              Supabase Realtime
+            </strong>
+             for instant synchronization
+          </li>
+          <li>
+            <strong>
+              Prisma + PostgreSQL
+            </strong>
+             for reliable data storage
+          </li>
+          <li>
+            <strong>
+              Vercel BotID
+            </strong>
+             for invisible bot protection
+          </li>
+          <li>
+            <strong>
+              React Big Calendar
+            </strong>
+             for familiar, intuitive interface
+          </li>
+        </ul>
+        <p>
+          The app features deterministic color generation (same name = same color every time), and automatic cleanup of unused calendars after 90 days.
+        </p>
+        <h2
+          class="group relative"
+          id="impact"
+          tabindex="-1"
+        >
+          <a
+            aria-label="Link to section: section"
+            class="absolute top-1/2 -left-6 -translate-y-1/2 opacity-0 group-hover:opacity-100 pt-10"
+            href="#impact"
+            tabindex="0"
+          >
+            <svg
+              aria-hidden="true"
+              class="hidden size-4.5 shrink-0 md:block"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M240,88.23a54.43,54.43,0,0,1-16,37L189.25,160a54.27,54.27,0,0,1-38.63,16h-.05A54.63,54.63,0,0,1,96,119.84a8,8,0,0,1,16,.45A38.62,38.62,0,0,0,150.58,160h0a38.39,38.39,0,0,0,27.31-11.31l34.75-34.75a38.63,38.63,0,0,0-54.63-54.63l-11,11A8,8,0,0,1,135.7,59l11-11A54.65,54.65,0,0,1,224,48,54.86,54.86,0,0,1,240,88.23ZM109,185.66l-11,11A38.41,38.41,0,0,1,70.6,208h0a38.63,38.63,0,0,1-27.29-65.94L78,107.31A38.63,38.63,0,0,1,144,135.71a8,8,0,0,0,16,.45A54.86,54.86,0,0,0,144,96a54.65,54.65,0,0,0-77.27,0L32,130.75A54.62,54.62,0,0,0,70.56,224h0a54.28,54.28,0,0,0,38.64-16l11-11A8,8,0,0,0,109,185.66Z"
+              />
+            </svg>
+          </a>
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="#impact"
+          >
+            Impact
+          </a>
+        </h2>
+        <p>
+          Since launching, Issho has helped coordinate many meetups. Users love the simplicity:
+        </p>
+        <blockquote>
+          <p>
+            "Finally, scheduling that doesn't require 20 messages"
+          </p>
+        </blockquote>
+        <blockquote>
+          <p>
+            "This app is much easier to use than I expected"
+          </p>
+        </blockquote>
+        <p>
+          The 2 months in Thailand? I managed to see everyone I wanted to, with minimal planning overhead. Issho had already paid for itself.
+        </p>
+        <h2
+          class="group relative"
+          id="open-source"
+          tabindex="-1"
+        >
+          <a
+            aria-label="Link to section: section"
+            class="absolute top-1/2 -left-6 -translate-y-1/2 opacity-0 group-hover:opacity-100 pt-10"
+            href="#open-source"
+            tabindex="0"
+          >
+            <svg
+              aria-hidden="true"
+              class="hidden size-4.5 shrink-0 md:block"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M240,88.23a54.43,54.43,0,0,1-16,37L189.25,160a54.27,54.27,0,0,1-38.63,16h-.05A54.63,54.63,0,0,1,96,119.84a8,8,0,0,1,16,.45A38.62,38.62,0,0,0,150.58,160h0a38.39,38.39,0,0,0,27.31-11.31l34.75-34.75a38.63,38.63,0,0,0-54.63-54.63l-11,11A8,8,0,0,1,135.7,59l11-11A54.65,54.65,0,0,1,224,48,54.86,54.86,0,0,1,240,88.23ZM109,185.66l-11,11A38.41,38.41,0,0,1,70.6,208h0a38.63,38.63,0,0,1-27.29-65.94L78,107.31A38.63,38.63,0,0,1,144,135.71a8,8,0,0,0,16,.45A54.86,54.86,0,0,0,144,96a54.65,54.65,0,0,0-77.27,0L32,130.75A54.62,54.62,0,0,0,70.56,224h0a54.28,54.28,0,0,0,38.64-16l11-11A8,8,0,0,0,109,185.66Z"
+              />
+            </svg>
+          </a>
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="#open-source"
+          >
+            Open Source
+          </a>
+        </h2>
+        <p>
+          The entire project is 
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="https://github.com/dulapahv/Issho"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            open source on GitHub
+          </a>
+           under the Apache-2.0 license. Feel free to explore the code, suggest features, or contribute!
+        </p>
+        <hr />
+        <p>
+          <strong>
+            Try it yourself at 
+            <a
+              class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+              href="https://issho.dulapahv.dev"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              issho.dulapahv.dev
+            </a>
+          </strong>
+           - no signup required, of course.
+        </p>
+      </article>
+    </main>
+  </div>
+</div>
+`;
+
+exports[`Content Detail Page > should render work page and match snapshot 1`] = `
+<div>
+  <script
+    type="application/ld+json"
+  >
+    [{"@context":"https://schema.org","@type":"Person","@id":"https://dulapahv.dev/#person","name":"Dulapah Vibulsanti","givenName":"Dulapah","familyName":"Vibulsanti","alternateName":"DulapahV","description":"Thai Software Engineer based in Edinburgh, United Kingdom. Passionate about creating accessible and delightful technology for everyone.","gender":"male","nationality":{"@type":"Country","name":"Thailand"},"url":"https://dulapahv.dev","image":{"@type":"ImageObject","url":"https://dulapahv.dev/og?title=Dulapah+Vibulsanti%0ASoftware+Engineer&description=Thai+Software+Engineer+based+in+Edinburgh%2C+United+Kingdom.+Passionate+about+creating+accessible+and+delightful+technology+for+everyone.","caption":"Dulapah Vibulsanti - Software Engineer","width":"1200","height":"630"},"sameAs":["https://github.com/dulapahv","https://www.linkedin.com/in/dulapahv"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"University of Glasgow","url":"https://www.gla.ac.uk/","identifier":"Russell Group University","address":{"@type":"PostalAddress","addressLocality":"Glasgow","addressRegion":"Scotland","addressCountry":"GB","postalCode":"G12 8QQ","streetAddress":"University Avenue"}},{"@type":"CollegeOrUniversity","name":"King Mongkut's Institute of Technology Ladkrabang","alternateName":"KMITL","url":"https://www.kmitl.ac.th/","address":{"@type":"PostalAddress","addressLocality":"Bangkok","addressRegion":"Bangkok","addressCountry":"TH","postalCode":"10520","streetAddress":"1 Chalong Krung 1 Alley, Lat Krabang"}},{"@type":"EducationalOrganization","name":"Suankularb Wittayalai School","url":"https://www.sk.ac.th/","address":{"@type":"PostalAddress","addressLocality":"Bangkok","addressRegion":"Phra Nakhon","addressCountry":"TH","postalCode":"10200","streetAddress":"88 Tri Phet Road"}}],"jobTitle":"Graduate Software Engineer","worksFor":{"@type":"Organization","name":"NatWest Group","url":"https://www.natwestgroup.com/","description":"One of the UK's Big Four banks, serving over 19 million customers","sameAs":"https://en.wikipedia.org/wiki/NatWest_Group"},"workLocation":{"@type":"Place","name":"Edinburgh, Scotland","address":{"@type":"PostalAddress","addressLocality":"Edinburgh","addressRegion":"Scotland","addressCountry":"GB"}},"knowsAbout":["General programming","Databases","Web frameworks & UI","Backend","Cross-platform & Desktop","DevOps & Testing","Cloud & Infrastructure","TypeScript","JavaScript","Python","C","C++","Java","Bash","PostgreSQL","MongoDB","SQLite","MySQL","Snowflake","Next.js","React.js","Tailwind CSS","shadcn/ui","Radix UI","HeroUI","daisyUI","MUI","Express.js","Prisma","WebSocket","Electron.js","Qt","GitHub Actions","GitLab CI/CD","Playwright","Jest","Sentry","Turborepo","Vercel","Cloudflare","Docker","Supabase","GCP","Nginx","Firebase","Software Engineering","Full Stack Development","Parallel and Distributed Systems","Web Development","API Development","Version Control (Git)","Agile Methodologies","Test-Driven Development","Continuous Integration/Continuous Deployment","Web Accessibility"],"hasCredential":[{"@type":"EducationalOccupationalCredential","@id":"https://dulapahv.dev/#degree-glasgow","name":"BSc (Hons) Software Engineering","description":"Double degree program with KMITL. First Class Honours with Specialization in Parallel and Distributed Systems. Final two years completed at University of Glasgow.","credentialCategory":"degree","educationalLevel":"Bachelor","dateCreated":"2023-09","recognizedBy":{"@type":"CollegeOrUniversity","name":"University of Glasgow","url":"https://www.gla.ac.uk/"}},{"@type":"EducationalOccupationalCredential","@id":"https://dulapahv.dev/#degree-kmitl","name":"BEng Software Engineering","description":"Double degree programme with University of Glasgow. First two years completed at KMITL before transferring to Glasgow.","credentialCategory":"degree","educationalLevel":"Bachelor","dateCreated":"2021-08","recognizedBy":{"@type":"CollegeOrUniversity","name":"King Mongkut's Institute of Technology Ladkrabang","url":"https://www.kmitl.ac.th/"}}],"knowsLanguage":[{"@type":"Language","name":"Thai","alternateName":"th"},{"@type":"Language","name":"English","alternateName":"en"}],"contactPoint":{"@type":"ContactPoint","contactType":"professional","areaServed":"GB","availableLanguage":["en","th"],"url":"https://dulapahv.dev/contact"},"hasOccupation":{"@type":"Occupation","name":"Software Engineer","description":"Software engineers design and create computer systems and applications to solve real-world problems.","occupationalCategory":"15-1252.00","occupationLocation":{"@type":"City","name":"Edinburgh, Scotland","address":{"@type":"PostalAddress","addressLocality":"Edinburgh","addressRegion":"Scotland","addressCountry":"GB"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dulapahv.dev/#occupation-software-engineer","name":"Software Engineer","description":"Software engineers design and create computer systems and applications to solve real-world problems.","url":"https://dulapahv.dev/#occupation-software-engineer","lastReviewed":"2007-01-09T09:41:00.000Z"}}},{"@context":"https://schema.org","@type":"WebSite","@id":"https://dulapahv.dev/#website","url":"https://dulapahv.dev","name":"DulapahV Portfolio","alternateName":"Dulapah Vibulsanti Portfolio","description":"Thai Software Engineer based in Edinburgh, United Kingdom. Passionate about creating accessible and delightful technology for everyone.","publisher":{"@id":"https://dulapahv.dev/#person"},"inLanguage":"en-US"},{"@context":"https://schema.org","@type":"Organization","@id":"https://dulapahv.dev/work/kmitl-teaching-assistant-rust#org","name":"King Mongkut's Institute of Technology Ladkrabang (KMITL)","location":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Bangkok, Thailand"}},"employee":{"@type":"Person","@id":"https://dulapahv.dev/#person","jobTitle":"Teaching Assistant (Rust)","worksFor":{"@type":"Organization","name":"King Mongkut's Institute of Technology Ladkrabang (KMITL)"}},"image":{"@type":"ImageObject","url":"https://dulapahv.dev/og?title=Teaching+Assistant+%28Rust%29&description=King+Mongkut%27s+Institute+of+Technology+Ladkrabang+%28KMITL%29","width":"1200","height":"630"}}]
+  </script>
+  <div
+    class="mx-auto max-w-2xl space-y-4"
+  >
+    <nav
+      aria-label="breadcrumb"
+    >
+      <ol
+        class="text-foreground-muted flex flex-wrap items-center gap-1.5 text-sm break-words sm:gap-2.5"
+      >
+        <li
+          class="inline-flex items-center gap-1.5"
+        >
+          <a
+            class="rounded-sm transition-colors hover:text-foreground focus:text-foreground"
+            href="/"
+          >
+            Home
+          </a>
+        </li>
+        <li
+          aria-hidden="true"
+          class="[&>svg]:size-3.5"
+          role="presentation"
+        >
+          <svg
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 256 256"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"
+            />
+          </svg>
+        </li>
+        <li
+          class="inline-flex items-center gap-1.5"
+        >
+          <a
+            class="rounded-sm transition-colors hover:text-foreground focus:text-foreground"
+            href="/work"
+          >
+            Work
+          </a>
+        </li>
+        <li
+          aria-hidden="true"
+          class="[&>svg]:size-3.5"
+          role="presentation"
+        >
+          <svg
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 256 256"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"
+            />
+          </svg>
+        </li>
+        <li
+          class="inline-flex items-center gap-1.5"
+        >
+          <span
+            aria-current="page"
+            aria-disabled="true"
+            class="text-foreground font-normal max-w-48 truncate"
+            role="link"
+          >
+            Teaching Assistant (Rust)
+          </span>
+        </li>
+      </ol>
+    </nav>
+  </div>
+  <div>
+    <main
+      class="mx-auto max-w-2xl space-y-4"
+    >
+      <header
+        class="space-y-2"
+      >
+        <div>
+          <h1
+            class="text-2xl font-semibold"
+          >
+            Teaching Assistant (Rust)
+          </h1>
+          <p
+            class="text-foreground-muted font-medium"
+            role="doc-subtitle"
+          >
+            King Mongkut's Institute of Technology Ladkrabang (KMITL) | Bangkok, Thailand
+          </p>
+        </div>
+        <div
+          class="text-foreground-muted space-y-1 text-sm"
+        >
+          <div
+            class="flex flex-wrap items-center gap-2"
+          >
+            <span
+              class="sr-only"
+            >
+              Content type:
+            </span>
+            <span
+              aria-label="Content type: Case Study"
+              class="inline-block font-medium"
+            >
+              Case Study
+            </span>
+            <span
+              aria-hidden="true"
+              class="text-foreground-subtle"
+            >
+              |
+            </span>
+            <div
+              class="flex gap-1"
+            >
+              <span
+                class="sr-only"
+              >
+                Duration:
+              </span>
+              <span
+                aria-hidden="true"
+              >
+                Duration:
+              </span>
+              <time
+                aria-label="Employment period from August 2, 2022 to September 20, 2022"
+                class="font-medium"
+                datetime="2022-08-01/2022-09-19"
+              >
+                August 2, 2022 - September 20, 2022
+              </time>
+            </div>
+          </div>
+          <p
+            aria-label="Estimated reading time: 2 min read"
+          >
+            <span
+              class="sr-only"
+            >
+              Reading time:
+            </span>
+            2 min read
+          </p>
+        </div>
+        <div
+          aria-label="Share options"
+          class="flex flex-wrap items-center gap-3"
+          role="group"
+        >
+          <button
+            aria-label="Copy link to clipboard"
+            class="bg-background border-border aspect-square cursor-pointer rounded-full border p-1.5 transition-colors hover:bg-background-subtle hover:border-border-strong"
+            title="Copy link to clipboard"
+          >
+            <div
+              class="text-foreground relative"
+            >
+              <svg
+                class="size-4.5"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 256 256"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M80,120h96a8,8,0,0,1,0,16H80a8,8,0,0,1,0-16Zm24,48H64a40,40,0,0,1,0-80h40a8,8,0,0,0,0-16H64a56,56,0,0,0,0,112h40a8,8,0,0,0,0-16Zm88-96H152a8,8,0,0,0,0,16h40a40,40,0,0,1,0,80H152a8,8,0,0,0,0,16h40a56,56,0,0,0,0-112Z"
+                />
+              </svg>
+            </div>
+          </button>
+          <button
+            aria-label="Share on X"
+            class="bg-background border-border aspect-square cursor-pointer rounded-full border p-2 transition-colors hover:bg-background-subtle hover:border-border-strong"
+            title="Share on X"
+          >
+            <img
+              alt=""
+              aria-hidden="true"
+              class="hidden dark:block "
+              data-nimg="1"
+              decoding="async"
+              height="16"
+              loading="lazy"
+              src="/x-white.svg"
+              style="color: transparent;"
+              width="16"
+            />
+            <img
+              alt=""
+              aria-hidden="true"
+              class="block dark:hidden "
+              data-nimg="1"
+              decoding="async"
+              height="16"
+              loading="lazy"
+              src="/x-black.svg"
+              style="color: transparent;"
+              width="16"
+            />
+          </button>
+          <button
+            aria-label="Share on Facebook"
+            class="bg-background border-border aspect-square cursor-pointer rounded-full border p-1 transition-colors hover:bg-background-subtle hover:border-border-strong"
+            title="Share on Facebook"
+          >
+            <img
+              alt=""
+              aria-hidden="true"
+              data-nimg="1"
+              decoding="async"
+              height="24"
+              loading="lazy"
+              src="/facebook.svg"
+              style="color: transparent;"
+              width="24"
+            />
+          </button>
+          <button
+            aria-label="Share on LinkedIn"
+            class="bg-background border-border aspect-square cursor-pointer rounded-full border p-1.5 transition-colors hover:bg-background-subtle hover:border-border-strong"
+            title="Share on LinkedIn"
+          >
+            <img
+              alt=""
+              aria-hidden="true"
+              data-nimg="1"
+              decoding="async"
+              height="20"
+              loading="lazy"
+              src="/linkedin.svg"
+              style="color: transparent;"
+              width="20"
+            />
+          </button>
+          <div
+            class="relative ml-0 min-[425px]:ml-auto"
+          >
+            <div
+              class="bg-background border-border flex items-center rounded-md border"
+            >
+              <button
+                aria-label="Copy page as Markdown"
+                class="flex cursor-pointer items-center gap-2 px-3 py-1.5 text-sm font-medium transition-colors border-border border-r hover:bg-background-subtle disabled:bg-background-muted disabled:text-foreground-muted disabled:cursor-not-allowed"
+                title="Copy page as Markdown"
+              >
+                <p>
+                  Copy Page
+                </p>
+              </button>
+              <button
+                aria-expanded="false"
+                aria-haspopup="true"
+                aria-label="More options"
+                class="flex cursor-pointer items-center px-2 py-2 transition-colors hover:bg-background-subtle"
+                title="More options"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="size-4 transition-transform"
+                  fill="currentColor"
+                  height="1em"
+                  viewBox="0 0 256 256"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+      <nav
+        aria-label="Table of contents"
+        class="border-border bg-background-elevated/50 rounded-md border backdrop-blur-sm"
+        role="navigation"
+      >
+        <button
+          aria-controls="toc-content"
+          aria-describedby="toc-description"
+          aria-expanded="false"
+          class="text-foreground flex w-full cursor-pointer items-center justify-between rounded-md px-4 py-3 text-sm font-semibold transition-colors hover:bg-background-muted/50"
+          type="button"
+        >
+          <span>
+            On this page
+          </span>
+          <div
+            aria-hidden="true"
+          >
+            <svg
+              class="size-4"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"
+              />
+            </svg>
+          </div>
+        </button>
+        <span
+          class="sr-only"
+          id="toc-description"
+        >
+          Toggle to 
+          show
+           table of contents with 
+          6
+           sections. Use arrow keys to navigate when expanded.
+        </span>
+      </nav>
+      <figure
+        aria-labelledby="cover-image-caption"
+        class="relative"
+        role="img"
+      >
+        <span
+          data-testid="zoom-wrapper"
+        >
+          <img
+            alt="Cover image for Teaching Assistant (Rust) position at King Mongkut's Institute of Technology Ladkrabang (KMITL)"
+            class="border-border bg-background-muted/30 overflow-hidden rounded-md border"
+            data-nimg="1"
+            decoding="async"
+            height="630"
+            src="/_next/image?url=%2Fwork%2Fkmitl-ta-rust%2Fcover.jpg&w=3840&q=75"
+            srcset="/_next/image?url=%2Fwork%2Fkmitl-ta-rust%2Fcover.jpg&w=1200&q=75 1x, /_next/image?url=%2Fwork%2Fkmitl-ta-rust%2Fcover.jpg&w=3840&q=75 2x"
+            style="color: transparent;"
+            width="1200"
+          />
+        </span>
+        <figcaption
+          class="sr-only"
+          id="cover-image-caption"
+        >
+          Cover image for Teaching Assistant (Rust) position at King Mongkut's Institute of Technology Ladkrabang (KMITL)
+        </figcaption>
+      </figure>
+      <article
+        aria-label="Article content"
+        class="mx-auto max-w-none font-medium prose prose-neutral dark:prose-invert prose-headings:mt-8 prose-headings:font-semibold prose-headings:[&>a]:text-foreground prose-headings:[&>a]:no-underline prose-h1:text-3xl prose-h1:font-bold prose-h2:text-2xl prose-h2:mb-6 prose-h2:mt-12 prose-h2:border-t prose-h2:border-border prose-h2:pt-10 prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3 prose-h4:text-lg prose-h4:mt-6 prose-h4:mb-2 prose-h5:text-base prose-h5:mt-4 prose-h5:mb-1 prose-h6:text-sm prose-h6:mt-2 prose-h6:mb-0 prose-p:my-5 prose-strong:text-inherit prose-strong:font-bold prose-pre:dark:bg-[#0a0a0a] prose-pre:bg-white prose-pre:border-t-border prose-pre:text-[13px]/5 prose-pre:px-0! prose-pre:[&>code:not([data-line-numbers])]:px-4 prose-figure:border prose-figure:border-border prose-figure:rounded-md prose-figure:my-4 prose-figure:relative prose-figure:[figure:has(figcaption)&>pre]:rounded-t-none prose-figure:[figure:has(figcaption)&>pre]:border-t prose-figcaption:dark:bg-black prose-figcaption:bg-[#fafafa] prose-figcaption:mt-0 prose-figcaption:py-2.5 prose-figcaption:rounded-t-md prose-figcaption:px-4 prose-figcaption:text-[13px] prose-figure:[figure:has(figcaption)&>button]:top-1 prose-blockquote:not-italic prose-blockquote:[&>p]:before:content-none prose-blockquote:[&>p]:after:content-none prose-blockquote:border prose-blockquote:!border-l! prose-blockquote:border-border! prose-blockquote:[&>p]:my-0 prose-blockquote:rounded-md prose-blockquote:p-3 prose-blockquote:text-sm prose-code:before:content-none prose-code:after:content-none prose-code:dark:bg-[#0a0a0a] prose-code:bg-white prose-code:[&>span>span]:brightness-90 dark:prose-code:[&>span>span]:brightness-100 prose-code:[&:not([data-theme])]:px-1 prose-code:[&:not([data-theme])]:py-[1.5px] prose-code:[&:not([data-theme])]:bg-background-muted prose-code:[&:not([data-theme])]:rounded-md prose-code:[&:not([data-theme])]:tracking-wide prose-code:[&:not([data-theme])]:border prose-code:[&:not([data-theme])]:border-gray-500 prose-code:[&:not([data-theme])]:font-normal prose-code:[&:not([data-theme])]:text-[13px] prose-code:text-foreground [&>details>summary]:cursor-pointer [&>details>summary]:hover:underline [&>details>ul]:my-0"
+      >
+        <p>
+          Served as a Teaching Assistant for Rust programming courses, guiding 50-60 first-year students through systems programming concepts and Rust's unique ownership model.
+        </p>
+        <h2
+          class="group relative"
+          id="teaching-focus"
+          tabindex="-1"
+        >
+          <a
+            aria-label="Link to section: section"
+            class="absolute top-1/2 -left-6 -translate-y-1/2 opacity-0 group-hover:opacity-100 pt-10"
+            href="#teaching-focus"
+            tabindex="0"
+          >
+            <svg
+              aria-hidden="true"
+              class="hidden size-4.5 shrink-0 md:block"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M240,88.23a54.43,54.43,0,0,1-16,37L189.25,160a54.27,54.27,0,0,1-38.63,16h-.05A54.63,54.63,0,0,1,96,119.84a8,8,0,0,1,16,.45A38.62,38.62,0,0,0,150.58,160h0a38.39,38.39,0,0,0,27.31-11.31l34.75-34.75a38.63,38.63,0,0,0-54.63-54.63l-11,11A8,8,0,0,1,135.7,59l11-11A54.65,54.65,0,0,1,224,48,54.86,54.86,0,0,1,240,88.23ZM109,185.66l-11,11A38.41,38.41,0,0,1,70.6,208h0a38.63,38.63,0,0,1-27.29-65.94L78,107.31A38.63,38.63,0,0,1,144,135.71a8,8,0,0,0,16,.45A54.86,54.86,0,0,0,144,96a54.65,54.65,0,0,0-77.27,0L32,130.75A54.62,54.62,0,0,0,70.56,224h0a54.28,54.28,0,0,0,38.64-16l11-11A8,8,0,0,0,109,185.66Z"
+              />
+            </svg>
+          </a>
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="#teaching-focus"
+          >
+            Teaching Focus
+          </a>
+        </h2>
+        <h3
+          class="group relative"
+          id="rust-fundamentals"
+          tabindex="-1"
+        >
+          <a
+            aria-label="Link to section: section"
+            class="absolute top-1/2 -left-6 -translate-y-1/2 opacity-0 group-hover:opacity-100"
+            href="#rust-fundamentals"
+            tabindex="0"
+          >
+            <svg
+              aria-hidden="true"
+              class="hidden size-4.5 shrink-0 md:block"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M240,88.23a54.43,54.43,0,0,1-16,37L189.25,160a54.27,54.27,0,0,1-38.63,16h-.05A54.63,54.63,0,0,1,96,119.84a8,8,0,0,1,16,.45A38.62,38.62,0,0,0,150.58,160h0a38.39,38.39,0,0,0,27.31-11.31l34.75-34.75a38.63,38.63,0,0,0-54.63-54.63l-11,11A8,8,0,0,1,135.7,59l11-11A54.65,54.65,0,0,1,224,48,54.86,54.86,0,0,1,240,88.23ZM109,185.66l-11,11A38.41,38.41,0,0,1,70.6,208h0a38.63,38.63,0,0,1-27.29-65.94L78,107.31A38.63,38.63,0,0,1,144,135.71a8,8,0,0,0,16,.45A54.86,54.86,0,0,0,144,96a54.65,54.65,0,0,0-77.27,0L32,130.75A54.62,54.62,0,0,0,70.56,224h0a54.28,54.28,0,0,0,38.64-16l11-11A8,8,0,0,0,109,185.66Z"
+              />
+            </svg>
+          </a>
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="#rust-fundamentals"
+          >
+            Rust Fundamentals
+          </a>
+        </h3>
+        <p>
+          Supervised lab sessions covering Rust's core concepts including ownership, borrowing, and lifetimes. These concepts proved challenging for students new to systems programming, requiring clear explanations and practical examples.
+        </p>
+        <p>
+          Helped students understand Rust's memory safety guarantees and how they differ from traditional programming languages like C and C++.
+        </p>
+        <h3
+          class="group relative"
+          id="lab-management"
+          tabindex="-1"
+        >
+          <a
+            aria-label="Link to section: section"
+            class="absolute top-1/2 -left-6 -translate-y-1/2 opacity-0 group-hover:opacity-100"
+            href="#lab-management"
+            tabindex="0"
+          >
+            <svg
+              aria-hidden="true"
+              class="hidden size-4.5 shrink-0 md:block"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M240,88.23a54.43,54.43,0,0,1-16,37L189.25,160a54.27,54.27,0,0,1-38.63,16h-.05A54.63,54.63,0,0,1,96,119.84a8,8,0,0,1,16,.45A38.62,38.62,0,0,0,150.58,160h0a38.39,38.39,0,0,0,27.31-11.31l34.75-34.75a38.63,38.63,0,0,0-54.63-54.63l-11,11A8,8,0,0,1,135.7,59l11-11A54.65,54.65,0,0,1,224,48,54.86,54.86,0,0,1,240,88.23ZM109,185.66l-11,11A38.41,38.41,0,0,1,70.6,208h0a38.63,38.63,0,0,1-27.29-65.94L78,107.31A38.63,38.63,0,0,1,144,135.71a8,8,0,0,0,16,.45A54.86,54.86,0,0,0,144,96a54.65,54.65,0,0,0-77.27,0L32,130.75A54.62,54.62,0,0,0,70.56,224h0a54.28,54.28,0,0,0,38.64-16l11-11A8,8,0,0,0,109,185.66Z"
+              />
+            </svg>
+          </a>
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="#lab-management"
+          >
+            Lab Management
+          </a>
+        </h3>
+        <p>
+          Facilitated hands-on programming sessions where students worked through Rust exercises and projects. The language's strict compiler provided immediate feedback, which became a valuable teaching tool for demonstrating proper programming practices.
+        </p>
+        <h2
+          class="group relative"
+          id="student-assessment"
+          tabindex="-1"
+        >
+          <a
+            aria-label="Link to section: section"
+            class="absolute top-1/2 -left-6 -translate-y-1/2 opacity-0 group-hover:opacity-100 pt-10"
+            href="#student-assessment"
+            tabindex="0"
+          >
+            <svg
+              aria-hidden="true"
+              class="hidden size-4.5 shrink-0 md:block"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M240,88.23a54.43,54.43,0,0,1-16,37L189.25,160a54.27,54.27,0,0,1-38.63,16h-.05A54.63,54.63,0,0,1,96,119.84a8,8,0,0,1,16,.45A38.62,38.62,0,0,0,150.58,160h0a38.39,38.39,0,0,0,27.31-11.31l34.75-34.75a38.63,38.63,0,0,0-54.63-54.63l-11,11A8,8,0,0,1,135.7,59l11-11A54.65,54.65,0,0,1,224,48,54.86,54.86,0,0,1,240,88.23ZM109,185.66l-11,11A38.41,38.41,0,0,1,70.6,208h0a38.63,38.63,0,0,1-27.29-65.94L78,107.31A38.63,38.63,0,0,1,144,135.71a8,8,0,0,0,16,.45A54.86,54.86,0,0,0,144,96a54.65,54.65,0,0,0-77.27,0L32,130.75A54.62,54.62,0,0,0,70.56,224h0a54.28,54.28,0,0,0,38.64-16l11-11A8,8,0,0,0,109,185.66Z"
+              />
+            </svg>
+          </a>
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="#student-assessment"
+          >
+            Student Assessment
+          </a>
+        </h2>
+        <p>
+          Evaluated homework submissions, lab assignments, and examination papers, focusing on both code correctness and understanding of Rust's ownership principles. Provided detailed feedback to help students grasp the language's unique approach to memory management.
+        </p>
+        <h2
+          class="group relative"
+          id="unique-challenges"
+          tabindex="-1"
+        >
+          <a
+            aria-label="Link to section: section"
+            class="absolute top-1/2 -left-6 -translate-y-1/2 opacity-0 group-hover:opacity-100 pt-10"
+            href="#unique-challenges"
+            tabindex="0"
+          >
+            <svg
+              aria-hidden="true"
+              class="hidden size-4.5 shrink-0 md:block"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M240,88.23a54.43,54.43,0,0,1-16,37L189.25,160a54.27,54.27,0,0,1-38.63,16h-.05A54.63,54.63,0,0,1,96,119.84a8,8,0,0,1,16,.45A38.62,38.62,0,0,0,150.58,160h0a38.39,38.39,0,0,0,27.31-11.31l34.75-34.75a38.63,38.63,0,0,0-54.63-54.63l-11,11A8,8,0,0,1,135.7,59l11-11A54.65,54.65,0,0,1,224,48,54.86,54.86,0,0,1,240,88.23ZM109,185.66l-11,11A38.41,38.41,0,0,1,70.6,208h0a38.63,38.63,0,0,1-27.29-65.94L78,107.31A38.63,38.63,0,0,1,144,135.71a8,8,0,0,0,16,.45A54.86,54.86,0,0,0,144,96a54.65,54.65,0,0,0-77.27,0L32,130.75A54.62,54.62,0,0,0,70.56,224h0a54.28,54.28,0,0,0,38.64-16l11-11A8,8,0,0,0,109,185.66Z"
+              />
+            </svg>
+          </a>
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="#unique-challenges"
+          >
+            Unique Challenges
+          </a>
+        </h2>
+        <p>
+          Teaching Rust to first-year students presented distinct challenges compared to traditional programming languages. The ownership system and borrow checker required students to think differently about memory management from the start.
+        </p>
+        <p>
+          This experience improved my ability to break down complex programming concepts and explain Rust's safety features in accessible terms.
+        </p>
+        <h2
+          class="group relative"
+          id="impact"
+          tabindex="-1"
+        >
+          <a
+            aria-label="Link to section: section"
+            class="absolute top-1/2 -left-6 -translate-y-1/2 opacity-0 group-hover:opacity-100 pt-10"
+            href="#impact"
+            tabindex="0"
+          >
+            <svg
+              aria-hidden="true"
+              class="hidden size-4.5 shrink-0 md:block"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M240,88.23a54.43,54.43,0,0,1-16,37L189.25,160a54.27,54.27,0,0,1-38.63,16h-.05A54.63,54.63,0,0,1,96,119.84a8,8,0,0,1,16,.45A38.62,38.62,0,0,0,150.58,160h0a38.39,38.39,0,0,0,27.31-11.31l34.75-34.75a38.63,38.63,0,0,0-54.63-54.63l-11,11A8,8,0,0,1,135.7,59l11-11A54.65,54.65,0,0,1,224,48,54.86,54.86,0,0,1,240,88.23ZM109,185.66l-11,11A38.41,38.41,0,0,1,70.6,208h0a38.63,38.63,0,0,1-27.29-65.94L78,107.31A38.63,38.63,0,0,1,144,135.71a8,8,0,0,0,16,.45A54.86,54.86,0,0,0,144,96a54.65,54.65,0,0,0-77.27,0L32,130.75A54.62,54.62,0,0,0,70.56,224h0a54.28,54.28,0,0,0,38.64-16l11-11A8,8,0,0,0,109,185.66Z"
+              />
+            </svg>
+          </a>
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="#impact"
+          >
+            Impact
+          </a>
+        </h2>
+        <p>
+          Working with Rust strengthened my own understanding of systems programming principles while developing skills in explaining advanced concepts to programming beginners. The role demonstrated how modern languages can teach good programming habits from the foundation level.
+        </p>
+      </article>
+    </main>
+  </div>
+</div>
+`;
