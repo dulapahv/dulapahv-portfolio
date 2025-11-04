@@ -1,0 +1,268 @@
+---
+title: vite-plugin-jsdoc-vars
+description: Vite plugin to replace JSDoc variables in .d.ts files with build-time values
+startDate: 31-10-2025
+endDate: 30-11-2025
+image: /project/vite-plugin-jsdoc-vars/cover.png
+---
+
+A Vite plugin that replaces placeholder variables in your TypeScript declaration files (`.d.ts`) with actual values. Perfect for injecting build-time constants like versions, build dates, base URLs, or custom metadata into your library's type definitions.
+
+## Features
+
+- Replace JSDoc variables in generated `.d.ts` files
+- Configure variables via `package.json` or plugin options
+- Custom pattern matching with RegExp support
+- Works seamlessly with `vite-plugin-dts`
+- Zero runtime overhead
+
+## Table of Contents
+
+- [vite-plugin-jsdoc-vars](#vite-plugin-jsdoc-vars)
+  - [Features](#features)
+  - [Installation](#installation)
+  - [Usage](#usage)
+    - [Basic Setup](#basic-setup)
+    - [Configuration via package.json](#configuration-via-packagejson)
+    - [Configuration via Plugin Options](#configuration-via-plugin-options)
+    - [Using Variables in Your Code](#using-variables-in-your-code)
+  - [API](#api)
+    - [jsdocVarReplacer(options?)](#jsdocvarreplaceroptions)
+      - [Options](#options)
+      - [Custom Pattern Example](#custom-pattern-example)
+  - [Examples](#examples)
+    - [Dynamic Build Information](#dynamic-build-information)
+    - [API Documentation](#api-documentation)
+  - [How It Works](#how-it-works)
+  - [Troubleshooting](#troubleshooting)
+    - [Variables Not Being Replaced](#variables-not-being-replaced)
+    - [Warning: "Variable not found"](#warning-variable-not-found)
+  - [Contributing](#contributing)
+  - [License](#license)
+  - [Links](#links)
+
+## Installation
+
+```bash
+# npm
+npm install -D vite-plugin-jsdoc-vars
+
+# pnpm
+pnpm add -D vite-plugin-jsdoc-vars
+
+# yarn
+yarn add -D vite-plugin-jsdoc-vars
+```
+
+## Usage
+
+### Basic Setup
+
+Add the plugin to your `vite.config.ts`:
+
+```ts title="vite.config.ts" showLineNumbers
+import { defineConfig } from 'vite';
+import dts from 'vite-plugin-dts';
+import jsdocVarReplacer from 'vite-plugin-jsdoc-vars'; // [!code ++]
+
+export default defineConfig({
+  build: {
+    lib: {
+      entry: './src/index.ts',
+      name: 'MyLib',
+      fileName: 'index'
+    }
+  },
+  plugins: [
+    dts(), // Generate .d.ts files first
+    jsdocVarReplacer() // Then replace variables // [!code ++]
+  ]
+});
+```
+
+### Configuration via package.json
+
+Define your variables in `package.json`:
+
+```json title="package.json" showLineNumbers {4-10}
+{
+  "name": "my-library",
+  "version": "1.0.0",
+  "config": {
+    "jsdoc": {
+      "VERSION": "1.0.0",
+      "AUTHOR": "John Doe",
+      "BUILD_DATE": "2025-01-01"
+    }
+  }
+}
+```
+
+### Configuration via Plugin Options
+
+Or pass variables directly to the plugin:
+
+```ts title="vite.config.ts" showLineNumbers
+jsdocVarReplacer({
+  variables: {
+    VERSION: '1.0.0',
+    AUTHOR: 'John Doe',
+    BUILD_DATE: new Date().toISOString()
+  }
+});
+```
+
+### Using Variables in Your Code
+
+In your TypeScript source files, use placeholders wrapped in `$` signs:
+
+```ts title="src/index.ts" showLineNumbers {4-6,11}
+/**
+ * My Library
+ *
+ * @version $VERSION$
+ * @author $AUTHOR$
+ * @buildDate $BUILD_DATE$
+ */
+export class MyClass {
+  /**
+   * Get library version
+   * @returns Version string: $VERSION$
+   */
+  getVersion(): string {
+    return '1.0.0';
+  }
+}
+```
+
+After building, the generated `.d.ts` file will have the variables replaced:
+
+```ts title="dist/index.d.ts" showLineNumbers {4-6,11}
+/**
+ * My Library
+ *
+ * @version 1.0.0
+ * @author John Doe
+ * @buildDate 2025-01-01
+ */
+export declare class MyClass {
+  /**
+   * Get library version
+   * @returns Version string: 1.0.0
+   */
+  getVersion(): string;
+}
+```
+
+## API
+
+### jsdocVarReplacer(options?)
+
+#### Options
+
+| Option      | Type                     | Default                             | Description                                  |
+| ----------- | ------------------------ | ----------------------------------- | -------------------------------------------- |
+| `variables` | `Record<string, string>` | `pkg.config?.jsdoc`                 | Map of variable names to replacement strings |
+| `pattern`   | `RegExp`                 | `/\$([A-Za-z_$][A-Za-z0-9_$]*)\$/g` | Custom RegExp to match placeholders          |
+
+#### Custom Pattern Example
+
+If you prefer a different placeholder format:
+
+```ts title="vite.config.ts" showLineNumbers
+jsdocVarReplacer({
+  pattern: /\{\{(\w+)\}\}/g, // Matches {{VAR_NAME}}
+  variables: {
+    VERSION: '1.0.0'
+  }
+});
+```
+
+## Examples
+
+### Dynamic Build Information
+
+```ts title="vite.config.ts" showLineNumbers
+import { defineConfig } from 'vite';
+import dts from 'vite-plugin-dts';
+import jsdocVarReplacer from 'vite-plugin-jsdoc-vars';
+import { version } from './package.json';
+
+export default defineConfig({
+  plugins: [
+    dts(),
+    jsdocVarReplacer({
+      variables: {
+        VERSION: version,
+        BUILD_TIME: new Date().toISOString(),
+        GIT_COMMIT: process.env.GIT_COMMIT || 'dev',
+        NODE_ENV: process.env.NODE_ENV || 'production'
+      }
+    })
+  ]
+});
+```
+
+### API Documentation
+
+```ts title="src/database.ts" showLineNumbers
+/**
+ * Database Connection
+ *
+ * @version $VERSION$
+ * @since $MIN_VERSION$
+ * @deprecated Will be removed in $NEXT_MAJOR_VERSION$
+ */
+export class DatabaseConnection {
+  /**
+   * Connect to database
+   * @param url - Connection URL (format: $DB_URL_FORMAT$)
+   */
+  connect(url: string): Promise<void> {
+    // implementation
+  }
+}
+```
+
+## How It Works
+
+1. During the Vite build process, `vite-plugin-dts` generates `.d.ts` files
+2. After bundling completes, this plugin scans all `.d.ts` files in the output directory
+3. It replaces placeholder patterns with their corresponding values
+4. Only modified files are written back to disk
+
+## Troubleshooting
+
+### Variables Not Being Replaced
+
+1. Ensure `vite-plugin-dts` runs before this plugin
+2. Check that variable names match exactly (case-sensitive)
+3. Verify the pattern matches your placeholder format
+4. Check build output directory contains `.d.ts` files
+
+### Warning: "Variable not found"
+
+This means a placeholder exists in your `.d.ts` but no value was provided. Add the variable to your configuration:
+
+```ts
+jsdocVarReplacer({
+  variables: {
+    MISSING_VAR: 'value'
+  }
+});
+```
+
+## Contributing
+
+Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
+
+## License
+
+[MIT License](https://github.com/dulapahv/vite-plugin-jsdoc-vars/blob/main/LICENSE)
+
+## Links
+
+- [NPM Package](https://www.npmjs.com/package/vite-plugin-jsdoc-vars)
+- [GitHub Repository](https://github.com/dulapahv/vite-plugin-jsdoc-vars)
+- [Issue Tracker](https://github.com/dulapahv/vite-plugin-jsdoc-vars/issues)
+- [Changelog](https://github.com/dulapahv/vite-plugin-jsdoc-vars/blob/main/CHANGELOG.md)
