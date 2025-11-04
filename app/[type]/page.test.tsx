@@ -11,18 +11,18 @@ vi.mock('next/navigation', () => ({
 vi.mock('@/lib/content-utils', () => ({
   contentConfig: {
     project: {
-      title: 'Projects',
-      description: 'My projects',
+      title: 'Project',
+      description: 'Professional and personal projects I have worked on.',
       label: 'Project'
     },
     blog: {
       title: 'Blog',
-      description: 'My blog posts',
+      description: 'My thoughts, ideas, and experiences.',
       label: 'Blog'
     },
     work: {
       title: 'Work',
-      description: 'My work experience',
+      description: "Companies and clients I've worked with.",
       label: 'Work'
     }
   },
