@@ -1,0 +1,154 @@
+---
+title: How to Use Variables in JSDoc with vite-plugin-dts
+description: Learn how to incorporate variables into your JSDoc comments using vite-plugin-dts for more maintainable and consistent documentation.
+date: 05-11-2025
+image: /blog/how-to-use-variables-in-jsdoc-with-vite-plugin-dts/cover.png
+---
+
+## Introduction
+
+When documenting your code, JSDoc comments are a great way to provide additional context and information. However, sometimes you may want to use variables within your JSDoc comments to avoid repetition and make your documentation more maintainable.
+
+If you're using `vite-plugin-dts` to generate type declarations, you'll know that it doesn't natively support variable interpolation in JSDoc comments. In this blog post, we'll explore a workaround to achieve this.
+
+## Setting Up vite-plugin-dts for Variable Replacement
+
+The `vite-plugin-dts` plugin gives us a way to hook into the declaration file generation process. We can use the `beforeWriteFile` option to modify the content of the generated `.d.ts` files before they are written to disk.
+
+```ts title="vite.config.ts" showLineNumbers
+import { defineConfig } from 'vite';
+import dts from 'vite-plugin-dts';
+import type { PluginOptions } from 'vite-plugin-dts';
+import fs from 'fs';
+import path from 'path';
+
+interface JsdocVarsOptions {
+  variables?: Record<string, string>;
+  pattern?: RegExp;
+}
+
+function createBeforeWriteFile(
+  options: JsdocVarsOptions = {}
+): NonNullable<PluginOptions['beforeWriteFile']> {
+  let pkg: { config?: { jsdoc?: Record<string, string> } } = {};
+
+  try {
+    pkg = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'package.json'), 'utf-8'));
+  } catch (error) {
+    console.warn(`\x1b[33m[jsdoc-var-replacer] Could not read package.json: ${error}\x1b[0m`);
+  }
+
+  const variables = options.variables || pkg.config?.jsdoc || {};
+  const pattern = options.pattern || /\$([A-Za-z_$][A-Za-z0-9_$]*)\$/g;
+
+  return (filePath: string, content: string) => {
+    const modifiedContent = content.replace(
+      pattern,
+      (match, varName) =>
+        variables[varName] ??
+        (console.warn(`\x1b[33m[jsdoc-var-replacer] Variable not found: ${varName}\x1b[0m`), match)
+    );
+
+    return { filePath, content: modifiedContent };
+  };
+}
+
+export default defineConfig({
+  plugins: [
+    dts({
+      beforeWriteFile: createBeforeWriteFile()
+    })
+  ]
+});
+```
+
+The plugin works by reading the `package.json` file to extract variables defined under the `config.jsdoc` section. It then scans the generated `.d.ts` files for placeholders in the format `$variableName$` and replaces them with the corresponding values.
+
+These variables are replaced during the build process when generating type declarations. They won't affect your source code or runtime behavior.
+
+## Using Variables in JSDoc Comments
+
+With our `vite-plugin-dts` setup ready, we can now use variables in our JSDoc comments. Here's how to do it:
+
+1. **Define Variables**: In your `package.json`, define the variables you want to use in your JSDoc comments under the `config.jsdoc` section. You can also define them directly in the `createBeforeWriteFile` options if preferred. (see [Options and Customization](#options-and-customization) below)
+
+> [!Note]
+> If your `package.json` is located elsewhere, see [Limitations](#limitations) for instructions on how to import it manually.
+
+```json title="package.json" showLineNumbers
+{
+  "config": {
+    "jsdoc": {
+      "AUTHOR": "Your Name",
+      "VERSION": "1.0.0",
+      "BASE_URL": "https://example.com"
+    }
+  }
+}
+```
+
+2. **Use Variables in JSDoc**: In your TypeScript files, you can now use these variables in your JSDoc comments.
+
+> [!Important]
+> The variables should be wrapped with `$` symbols. This is chosen to avoid conflicts with other JSDoc syntax. You can customize the pattern in the `createBeforeWriteFile` options if needed. (see [Options and Customization](#options-and-customization) below)
+
+```ts title="src/components/Button.ts" showLineNumbers
+/**
+ * Button component function
+ * @author $AUTHOR$
+ * @version $VERSION$
+ * @see {@link $BASE_URL$/button|Button Documentation}
+ */
+function Button() {
+  // Implementation details
+}
+```
+
+3. **Build Your Project**: When you build your project, `vite-plugin-dts` will replace the variables in your JSDoc comments with the values defined in your `package.json`.
+
+```bash
+npm run build
+```
+
+4. **Check the Output**: After building, check the generated `.d.ts` files to see the replaced variables in the JSDoc comments.
+
+```ts title="dist/components/Button.d.ts" showLineNumbers
+/**
+ * Button component function
+ * @author Your Name
+ * @version 1.0.0
+ * @see {@link https://example.com/button|Button Documentation}
+ */
+function Button() {
+  // Implementation details
+}
+```
+
+And that's it! You've successfully incorporated variables into your JSDoc comments using `vite-plugin-dts`. This approach not only makes your documentation more maintainable but also ensures consistency across your codebase.
+
+## Options and Customization
+
+The `createBeforeWriteFile` function accepts an options object that allows you to customize its behavior:
+- `variables`: An object mapping variable names to their values. If not provided, it defaults to reading from `package.json` under `config.jsdoc`.
+- `pattern`: A regular expression to match variable placeholders in JSDoc comments. The default pattern matches `$variableName$`.
+Feel free to adjust these options to fit your project's needs.
+
+## Limitations
+
+The plugin only scans for a `package.json` file located in the same directory where the Vite command is executed. If your `package.json` is located elsewhere, you can manually import it using:
+
+```ts
+import pkg from '../path/to/your/package.json';
+```
+
+Then pass the config to the plugin as an argument:
+
+```ts
+dts({
+  beforeWriteFile: createBeforeWriteFile({ variables: pkg.config?.jsdoc || {} })
+});
+```
+
+## Conclusion
+
+Using variables in JSDoc comments can significantly enhance the maintainability and consistency of your documentation. With the help of `vite-plugin-dts` and a custom `beforeWriteFile` function, you can easily achieve this in your projects. Give it a try and see how it improves your documentation workflow!
