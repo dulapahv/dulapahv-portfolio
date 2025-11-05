@@ -28,12 +28,20 @@ While the official documentation covers the basics, it doesn't demonstrate how t
 
 The `&` character represents the current element (the one with the arbitrary variant class). Think of it as "this element" in your selector.
 
+### Canonical Syntax vs Arbitrary Variants
+
+Tailwind CSS now provides canonical syntax for common patterns, which is more concise and readable:
+
+- **`*:`** - Targets direct children (canonical for `[&>...]`)
+- **`**:`** - Targets all descendants (canonical for `[&_...]`)
+- **`in-[...]`** - Matches when inside a parent (canonical for `[..._&]`)
+
 ### Direct Children vs All Descendants
 
 This is the most important distinction to understand:
 
-- **`>`** - Targets only **direct children** (immediate descendants)
-- **`_`** - Targets **all descendants** at any nesting level
+- **`*:`** or **`[&>...]`** - Targets only **direct children** (immediate descendants)
+- **`**:`** or **`[&_...]`** - Targets **all descendants** at any nesting level
 
 ```html showLineNumbers {2,5,7}
 <div className="[&>p]:text-red-500 [&_span]:text-blue-500">
@@ -114,31 +122,31 @@ You can also add additional classes to the selector.
 
 ## Targeting Children by Data Attributes
 
-When you need to target elements based on their data attributes, you can use the `&` selector with the attribute wrapped in square brackets.
+When you need to target elements based on their data attributes, you can use the `*:` variant for direct children combined with the `data-[attribute="value"]` syntax.
 
 > [!NOTE]
 > This also works with other attributes, not just `data-*`, for example, `role`, `aria-*`, or custom attributes.
 
-Target immediate children with specific data attributes.
+Target immediate children with specific data attributes using the `*:data-[attribute="value"]` pattern.
 
 ```html showLineNumbers {3}
-<div className="[&>[data-type='special']]:text-red-600">
+<div className="*:data-[type='special']:text-red-600">
   <div data-type="normal">Black text</div>
   <div data-type="special">Red text</div>
 </div>
 ```
 
 <Preview>
-  <div className="[&>[data-type='special']]:text-[#e7000b]">
+  <div className="*:data-[type='special']:text-[#e7000b]">
     <div data-type="normal">Black text</div>
     <div data-type="special">Red text</div>
   </div>
 </Preview>
 
-You can also target nested elements with data attributes.
+You can also target nested elements with data attributes using the `**:` variant for all descendants.
 
 ```html showLineNumbers {3}
-<div className="[&_[data-type='special']]:text-red-600">
+<div className="**:data-[type='special']:text-red-600">
   <div>
     <div data-type="special">Red text</div>
   </div>
@@ -146,7 +154,7 @@ You can also target nested elements with data attributes.
 ```
 
 <Preview>
-  <div className="[&_[data-type='special']]:text-[#e7000b]">
+  <div className="**:data-[type='special']:text-[#e7000b]">
     <div>
       <div data-type="special">Red text</div>
     </div>
@@ -195,35 +203,35 @@ When you need to target deeply nested child elements, you can use the `&` select
 
 ## Conditional Styling Based on Parent Tag
 
-When you need to style child elements based on the tag of their parent, you can use the `&` selector in combination with the parent tag.
+When you need to style child elements based on the tag of their parent, you can use the `in-[tag]` variant to check if the element is inside a specific parent tag.
 
 ```html showLineNumbers {2}
 <p>
-  <span className="[p_&]:text-red-600">Styled if parent is p</span>
+  <span className="in-[p]:text-red-600">Styled if parent is p</span>
 </p>
 <div>
-  <span className="[p_&]:text-red-600">Styled if parent is p</span>
+  <span className="in-[p]:text-red-600">Styled if parent is p</span>
 </div>
 ```
 
 <Preview>
   <p>
-    <span className="[p_&]:text-[#e7000b]">Styled if parent is p</span>
+    <span className="in-[p]:text-[#e7000b]">Styled if parent is p</span>
   </p>
   <div>
-    <span className="[p_&]:text-[#e7000b]">Styled if parent is p</span>
+    <span className="in-[p]:text-[#e7000b]">Styled if parent is p</span>
   </div>
 </Preview>
 
 ## Conditional Styling Based on Parent Class
 
-When you need to style child elements based on the class of their parent, you can use the `&` selector in combination with the parent class.
+When you need to style child elements based on the class of their parent, you can use the `in-[.classname]` variant to check if the element is inside a parent with a specific class.
 
 ```html showLineNumbers {3}
 <div className="foo">
   <div>
-    <div className="[.foo_&]:text-red-600">Child 1</div>
-    <div className="[.bar_&]:text-red-600">Child 2</div>
+    <div className="in-[.foo]:text-red-600">Child 1</div>
+    <div className="in-[.bar]:text-red-600">Child 2</div>
   </div>
 </div>
 ```
@@ -231,31 +239,31 @@ When you need to style child elements based on the class of their parent, you ca
 <Preview>
   <div className="foo">
     <div>
-      <div className="[.foo_&]:text-[#e7000b]">Child 1</div>
-      <div className="[.bar_&]:text-[#e7000b]">Child 2</div>
+      <div className="in-[.foo]:text-[#e7000b]">Child 1</div>
+      <div className="in-[.bar]:text-[#e7000b]">Child 2</div>
     </div>
   </div>
 </Preview>
 
 ## Conditional Styling Based on Parent Attribute
 
-When you need to style child elements based on a specific attribute of their parent, you can use the `&` selector with the attribute wrapped in square brackets.
+When you need to style child elements based on a specific attribute of their parent, you can use the `in-data-[attribute="value"]` variant to check if the element is inside a parent with that data attribute.
 
 ```html showLineNumbers {2}
 <div data-type="special">
-  <p className="[[data-type='special']_&]:text-red-600">Styled if parent has data-type="special"</p>
+  <p className="in-data-[type='special']:text-red-600">Styled if parent has data-type="special"</p>
 </div>
 <div>
-  <p className="[[data-type='special']_&]:text-red-600">Not styled</p>
+  <p className="in-data-[type='special']:text-red-600">Not styled</p>
 </div>
 ```
 
 <Preview>
   <div data-type="special">
-    <p className="[[data-type='special']_&]:text-[#e7000b]">Styled if parent has data-type="special"</p>
+    <p className="in-data-[type='special']:text-[#e7000b]">Styled if parent has data-type="special"</p>
   </div>
   <div>
-    <p className="[[data-type='special']_&]:text-[#e7000b]">Not styled</p>
+    <p className="in-data-[type='special']:text-[#e7000b]">Not styled</p>
   </div>
 </Preview>
 
@@ -416,13 +424,13 @@ Tailwind CSS arbitrary variants provide powerful tools for targeting child eleme
 | `[&>.class]` | Target direct children by class |
 | `[&_.class]` | Target all descendants by class |
 | `[&>div.class1.class2]` | Target direct children with multiple classes |
-| `[&>[data-x="y"]]` | Target direct children with data attributes |
-| `[&_[data-x="y"]]` | Target any nested element with data attributes |
+| `*:data-[x="y"]` | Target direct children with data attributes |
+| `**:data-[x="y"]` | Target any nested element with data attributes |
 | `[&_[data-type='a'].class]` | Combine attributes and classes |
 | `[&>div>div>span]` | Target deeply nested children with specific path |
-| `[tag_&]` | Style based on parent's tag |
-| `[.parent_&]` | Style based on parent's class |
-| `[[data-x="y"]_&]` | Style based on parent's attributes |
+| `in-[tag]` | Style based on parent's tag |
+| `in-[.parent]` | Style based on parent's class |
+| `in-data-[x="y"]` | Style based on parent's attributes |
 | `[&>*:nth-child(n)]` | Target children by position |
 | `[&>div.class>*:nth-child(n)]` | Target nth-child within specific parent |
 | `*:[&:not(.excluded)]` | Exclude elements from universal styling |
