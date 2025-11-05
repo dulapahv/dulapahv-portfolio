@@ -29,7 +29,7 @@ export const GET = async (request: NextRequest) => {
       >
         <img src={logoSrc} alt="avatar" width={72} height={72} tw="overflow-hidden" />
         <div tw="flex flex-col">
-          <h1 tw="max-w-[48rem] text-[64px] font-bold leading-[69px] tracking-tighter m-0 text-[#F1F1F1]">
+          <h1 tw="max-w-[50rem] text-[64px] font-bold leading-[69px] tracking-tighter m-0 text-[#F1F1F1]">
             {title}
           </h1>
           {description && (
