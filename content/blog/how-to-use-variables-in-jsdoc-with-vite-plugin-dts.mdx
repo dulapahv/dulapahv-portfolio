@@ -22,13 +22,13 @@ import type { PluginOptions } from 'vite-plugin-dts';
 import fs from 'fs';
 import path from 'path';
 
-interface JsdocVarsOptions {
+interface JsdocVarReplacerOptions {
   variables?: Record<string, string>;
   pattern?: RegExp;
 }
 
-function createBeforeWriteFile(
-  options: JsdocVarsOptions = {}
+function JsdocVarReplacer(
+  options: JsdocVarReplacerOptions = {}
 ): NonNullable<PluginOptions['beforeWriteFile']> {
   let pkg: { config?: { jsdoc?: Record<string, string> } } = {};
 
@@ -56,7 +56,7 @@ function createBeforeWriteFile(
 export default defineConfig({
   plugins: [
     dts({
-      beforeWriteFile: createBeforeWriteFile()
+      beforeWriteFile: JsdocVarReplacer()
     })
   ]
 });
@@ -70,7 +70,7 @@ These variables are replaced during the build process when generating type decla
 
 With our `vite-plugin-dts` setup ready, we can now use variables in our JSDoc comments. Here's how to do it:
 
-1. **Define Variables**: In your `package.json`, define the variables you want to use in your JSDoc comments under the `config.jsdoc` section. You can also define them directly in the `createBeforeWriteFile` options if preferred. (see [Options and Customization](#options-and-customization) below)
+1. **Define Variables**: In your `package.json`, define the variables you want to use in your JSDoc comments under the `config.jsdoc` section. You can also define them directly in the `JsdocVarReplacer` options if preferred. (see [Options and Customization](#options-and-customization) below)
 
 > [!Note]
 > If your `package.json` is located elsewhere, see [Limitations](#limitations) for instructions on how to import it manually.
@@ -90,7 +90,7 @@ With our `vite-plugin-dts` setup ready, we can now use variables in our JSDoc co
 2. **Use Variables in JSDoc**: In your TypeScript files, you can now use these variables in your JSDoc comments.
 
 > [!Important]
-> The variables should be wrapped with `$` symbols. This is chosen to avoid conflicts with other JSDoc syntax. You can customize the pattern in the `createBeforeWriteFile` options if needed. (see [Options and Customization](#options-and-customization) below)
+> The variables should be wrapped with `$` symbols. This is chosen to avoid conflicts with other JSDoc syntax. You can customize the pattern in the `JsdocVarReplacer` options if needed. (see [Options and Customization](#options-and-customization) below)
 
 ```ts title="src/components/Button.ts" showLineNumbers
 /**
@@ -128,7 +128,7 @@ And that's it! You've successfully incorporated variables into your JSDoc commen
 
 ## Options and Customization
 
-The `createBeforeWriteFile` function accepts an options object that allows you to customize its behavior:
+The `JsdocVarReplacer` function accepts an options object that allows you to customize its behavior:
 - `variables`: An object mapping variable names to their values. If not provided, it defaults to reading from `package.json` under `config.jsdoc`.
 - `pattern`: A regular expression to match variable placeholders in JSDoc comments. The default pattern matches `$variableName$`.
 Feel free to adjust these options to fit your project's needs.
@@ -145,7 +145,7 @@ Then pass the config to the plugin as an argument:
 
 ```ts
 dts({
-  beforeWriteFile: createBeforeWriteFile({ variables: pkg.config?.jsdoc || {} })
+  beforeWriteFile: JsdocVarReplacer({ variables: pkg.config?.jsdoc || {} })
 });
 ```
 
