@@ -694,14 +694,6 @@ html {
 }
 
 @layer base {
-  article .react-tweet-theme {
-    @apply !border-border/50 !m-0 !max-w-none;
-  }
-
-  article [class*='quoted-tweet-container'] {
-    @apply !hidden;
-  }
-
   strong {
     @apply font-medium;
   }
@@ -807,15 +799,15 @@ code[data-line-numbers] > [data-line]::before {
 }
 
 code[data-line-numbers-max-digits='2'] > [data-line]::before {
-  @apply w-[1.25rem];
+  @apply w-5;
 }
 
 code[data-line-numbers-max-digits='3'] > [data-line]::before {
-  @apply w-[1.75rem];
+  @apply w-7;
 }
 
 code[data-line-numbers-max-digits='4'] > [data-line]::before {
-  @apply w-[2.25rem];
+  @apply w-9;
 }
 
 /* Base highlight */
@@ -838,7 +830,7 @@ code[data-line-numbers] > [data-line].diff.add {
 
 /* Make spans transparent to prevent background stacking */
 code[data-line-numbers] > [data-line].diff span {
-  @apply !bg-transparent;
+  @apply bg-transparent!;
 }
 
 /* Add the diff line markers */
@@ -876,6 +868,18 @@ code[data-line-numbers] > [data-line].warning::before {
   color: #ff9f00;
 }
 
+.indent {
+  @apply relative left-(--indent-offset) inline-block;
+}
+
+.indent:empty {
+  @apply h-lh align-bottom;
+}
+
+.indent::before {
+  @apply bg-foreground-muted absolute h-full w-px opacity-15 content-[''];
+}
+
 .markdown-alert {
   @apply border-border flex items-center gap-x-2 rounded-md border px-3 py-2;
 }
@@ -889,21 +893,21 @@ code[data-line-numbers] > [data-line].warning::before {
 }
 
 .markdown-alert-note {
-  @apply border-[var(--x-blue-600)] text-[var(--x-blue-800)] dark:text-[var(--x-blue-900)];
+  @apply border-(--x-blue-600) text-(--x-blue-800) dark:text-(--x-blue-900);
 }
 
 .markdown-alert-important {
-  @apply border-[var(--x-purple-600)] text-[var(--x-purple-800)] dark:text-[var(--x-purple-900)];
+  @apply border-(--x-purple-600) text-(--x-purple-800) dark:text-(--x-purple-900);
 }
 
 .markdown-alert-warning {
-  @apply border-[var(--x-amber-600)] text-[var(--x-amber-800)] dark:text-[var(--x-amber-900)];
+  @apply border-(--x-amber-600) text-(--x-amber-800) dark:text-(--x-amber-900);
 }
 
 .markdown-alert-tip {
-  @apply border-[var(--x-green-600)] text-[var(--x-green-800)] dark:text-[var(--x-green-900)];
+  @apply border-(--x-green-600) text-(--x-green-800) dark:text-(--x-green-900);
 }
 
 .markdown-alert-caution {
-  @apply border-[var(--x-red-600)] text-[var(--x-red-800)] dark:text-[var(--x-red-900)];
+  @apply border-(--x-red-600) text-(--x-red-800) dark:text-(--x-red-900);
 }

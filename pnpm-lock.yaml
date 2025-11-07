@@ -132,6 +132,9 @@ importers:
       '@prettier/plugin-oxc':
         specifier: ^0.0.4
         version: 0.0.4
+      '@shikijs/colorized-brackets':
+        specifier: ^3.15.0
+        version: 3.15.0
       '@tailwindcss/postcss':
         specifier: ^4.1.17
         version: 4.1.17
@@ -2069,6 +2072,9 @@ packages:
 
   '@selderee/plugin-htmlparser2@0.11.0':
     resolution: {integrity: sha512-P33hHGdldxGabLFjPPpaTxVolMrzrcegejx+0GxjrIb9Zv48D8yAIA/QTDR2dFl7Uz7urX8aX6+5bCZslr+gWQ==}
+
+  '@shikijs/colorized-brackets@3.15.0':
+    resolution: {integrity: sha512-9YN9H8SH4u2xScnJOA4Y0crqhy/PEKVG85xN6+xareVsyzShwWKWdUsVAH2r2YhNwAlXckyC5uAnZbB2UkS77w==}
 
   '@shikijs/core@3.15.0':
     resolution: {integrity: sha512-8TOG6yG557q+fMsSVa8nkEDOZNTSxjbbR8l6lF2gyr6Np+jrPlslqDxQkN6rMXCECQ3isNPZAGszAfYoJOPGlg==}
@@ -7510,6 +7516,10 @@ snapshots:
     dependencies:
       domhandler: 5.0.3
       selderee: 0.11.0
+
+  '@shikijs/colorized-brackets@3.15.0':
+    dependencies:
+      shiki: 3.15.0
 
   '@shikijs/core@3.15.0':
     dependencies:
