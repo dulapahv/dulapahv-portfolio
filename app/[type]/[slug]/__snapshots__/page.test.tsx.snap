@@ -828,6 +828,7 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
             </svg>
           </button>
           <pre
+            class="mirai_2g010y"
             data-language="bash"
             data-theme="plastic"
             tabindex="0"
@@ -931,6 +932,7 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
             </svg>
           </button>
           <pre
+            class="mirai_2g010y"
             data-language="ts"
             data-theme="plastic"
             tabindex="0"
@@ -954,7 +956,17 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 <span
                   style="color: rgb(169, 178, 195);"
                 >
-                   { 
+                   
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  {
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   
                 </span>
                 <span
                   style="color: rgb(198, 204, 215);"
@@ -964,7 +976,17 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 <span
                   style="color: rgb(169, 178, 195);"
                 >
-                   } 
+                   
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  }
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   
                 </span>
                 <span
                   style="color: rgb(224, 108, 117);"
@@ -1022,7 +1044,12 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 <span
                   style="color: rgb(169, 178, 195);"
                 >
-                   {
+                   
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  {
                 </span>
               </span>
               
@@ -1031,9 +1058,14 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
                   style="color: rgb(95, 102, 114); font-style: italic;"
                 >
-                    // Your existing config
+                  // Your existing config
                 </span>
               </span>
               
@@ -1044,7 +1076,12 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 <span
                   style="color: rgb(169, 178, 195);"
                 >
-                  };
+                  }
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  ;
                 </span>
               </span>
               
@@ -1088,7 +1125,12 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 <span
                   style="color: rgb(169, 178, 195);"
                 >
-                  );
+                  )
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  ;
                 </span>
               </span>
             </code>
@@ -1155,6 +1197,7 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
             </svg>
           </button>
           <pre
+            class="mirai_2g010y"
             data-language="ts"
             data-theme="plastic"
             tabindex="0"
@@ -1177,7 +1220,17 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 <span
                   style="color: rgb(169, 178, 195);"
                 >
-                   { 
+                   
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  {
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   
                 </span>
                 <span
                   style="color: rgb(198, 204, 215);"
@@ -1187,7 +1240,17 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 <span
                   style="color: rgb(169, 178, 195);"
                 >
-                   } 
+                   
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  }
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   
                 </span>
                 <span
                   style="color: rgb(224, 108, 117);"
@@ -1235,7 +1298,12 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 <span
                   style="color: rgb(169, 178, 195);"
                 >
-                  ({
+                  (
+                </span>
+                <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  {
                 </span>
               </span>
               
@@ -1244,9 +1312,19 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
                   style="color: rgb(169, 178, 195);"
                 >
-                    protect: [
+                  protect: 
+                </span>
+                <span
+                  style="color: rgb(229, 192, 123);"
+                >
+                  [
                 </span>
               </span>
               
@@ -1255,9 +1333,22 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
-                  style="color: rgb(169, 178, 195);"
+                  class="indent"
                 >
-                      {
+                    
+                </span>
+                <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                />
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                  {
                 </span>
               </span>
               
@@ -1266,9 +1357,24 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
                   style="color: rgb(169, 178, 195);"
                 >
-                        path: 
+                  path: 
                 </span>
                 <span
                   style="color: rgb(169, 178, 195);"
@@ -1297,9 +1403,24 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
                   style="color: rgb(169, 178, 195);"
                 >
-                        method: 
+                  method: 
                 </span>
                 <span
                   style="color: rgb(169, 178, 195);"
@@ -1328,9 +1449,27 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                />
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                  }
+                </span>
+                <span
                   style="color: rgb(169, 178, 195);"
                 >
-                      },
+                  ,
                 </span>
               </span>
               
@@ -1339,9 +1478,22 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
-                  style="color: rgb(169, 178, 195);"
+                  class="indent"
                 >
-                      {
+                    
+                </span>
+                <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                />
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                  {
                 </span>
               </span>
               
@@ -1350,9 +1502,24 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
                   style="color: rgb(169, 178, 195);"
                 >
-                        path: 
+                  path: 
                 </span>
                 <span
                   style="color: rgb(169, 178, 195);"
@@ -1381,9 +1548,24 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
                   style="color: rgb(169, 178, 195);"
                 >
-                        method: 
+                  method: 
                 </span>
                 <span
                   style="color: rgb(169, 178, 195);"
@@ -1412,9 +1594,27 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                />
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                  }
+                </span>
+                <span
                   style="color: rgb(169, 178, 195);"
                 >
-                      },
+                  ,
                 </span>
               </span>
               
@@ -1423,9 +1623,22 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                />
+                <span
+                  style="color: rgb(229, 192, 123);"
+                >
+                  ]
+                </span>
+                <span
                   style="color: rgb(169, 178, 195);"
                 >
-                    ],
+                  ,
                 </span>
               </span>
               
@@ -1434,9 +1647,19 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  }
+                </span>
+                <span
                   style="color: rgb(169, 178, 195);"
                 >
-                  });
+                  )
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  ;
                 </span>
               </span>
             </code>
@@ -1503,6 +1726,7 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
             </svg>
           </button>
           <pre
+            class="mirai_2g010y"
             data-language="ts"
             data-theme="plastic"
             tabindex="0"
@@ -1525,7 +1749,17 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 <span
                   style="color: rgb(169, 178, 195);"
                 >
-                   { 
+                   
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  {
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   
                 </span>
                 <span
                   style="color: rgb(198, 204, 215);"
@@ -1545,7 +1779,17 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 <span
                   style="color: rgb(169, 178, 195);"
                 >
-                   } 
+                   
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  }
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   
                 </span>
                 <span
                   style="color: rgb(224, 108, 117);"
@@ -1594,7 +1838,17 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 <span
                   style="color: rgb(169, 178, 195);"
                 >
-                   { 
+                   
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  {
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   
                 </span>
                 <span
                   style="color: rgb(198, 204, 215);"
@@ -1604,7 +1858,17 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 <span
                   style="color: rgb(169, 178, 195);"
                 >
-                   } 
+                   
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  }
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   
                 </span>
                 <span
                   style="color: rgb(224, 108, 117);"
@@ -1687,7 +1951,17 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 <span
                   style="color: rgb(169, 178, 195);"
                 >
-                  ) {
+                  )
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  {
                 </span>
               </span>
               
@@ -1697,9 +1971,14 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
                   style="color: rgb(97, 175, 239);"
                 >
-                    const
+                  const
                 </span>
                 <span
                   style="color: rgb(198, 204, 215);"
@@ -1722,9 +2001,19 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                    checkBotId
                 </span>
                 <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  (
+                </span>
+                <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  )
+                </span>
+                <span
                   style="color: rgb(169, 178, 195);"
                 >
-                  ();
+                  ;
                 </span>
               </span>
               
@@ -1741,14 +2030,24 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
                   style="color: rgb(224, 108, 117);"
                 >
-                    if
+                  if
                 </span>
                 <span
                   style="color: rgb(169, 178, 195);"
                 >
-                   (
+                   
+                </span>
+                <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  (
                 </span>
                 <span
                   style="color: rgb(198, 204, 215);"
@@ -1766,9 +2065,19 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                   isBot
                 </span>
                 <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  )
+                </span>
+                <span
                   style="color: rgb(169, 178, 195);"
                 >
-                  ) {
+                   
+                </span>
+                <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  {
                 </span>
               </span>
               
@@ -1778,9 +2087,19 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
                   style="color: rgb(224, 108, 117);"
                 >
-                      return
+                  return
                 </span>
                 <span
                   style="color: rgb(198, 204, 215);"
@@ -1798,9 +2117,19 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                   json
                 </span>
                 <span
+                  style="color: rgb(229, 192, 123);"
+                >
+                  (
+                </span>
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                  {
+                </span>
+                <span
                   style="color: rgb(169, 178, 195);"
                 >
-                  ({ error: 
+                   error: 
                 </span>
                 <span
                   style="color: rgb(169, 178, 195);"
@@ -1820,7 +2149,27 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 <span
                   style="color: rgb(169, 178, 195);"
                 >
-                   }, { status: 
+                   
+                </span>
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                  }
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  , 
+                </span>
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                  {
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   status: 
                 </span>
                 <span
                   style="color: rgb(86, 182, 194);"
@@ -1830,7 +2179,22 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 <span
                   style="color: rgb(169, 178, 195);"
                 >
-                   });
+                   
+                </span>
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                  }
+                </span>
+                <span
+                  style="color: rgb(229, 192, 123);"
+                >
+                  )
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  ;
                 </span>
               </span>
               
@@ -1840,9 +2204,17 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
-                  style="color: rgb(169, 178, 195);"
+                  class="indent"
                 >
-                    }
+                    
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                />
+                <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  }
                 </span>
               </span>
               
@@ -1858,9 +2230,14 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
                   style="color: rgb(95, 102, 114); font-style: italic;"
                 >
-                    // Process legitimate signup
+                  // Process legitimate signup
                 </span>
               </span>
               
@@ -1869,14 +2246,29 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
                   style="color: rgb(97, 175, 239);"
                 >
-                    const
+                  const
                 </span>
                 <span
                   style="color: rgb(169, 178, 195);"
                 >
-                   { 
+                   
+                </span>
+                <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  {
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   
                 </span>
                 <span
                   style="color: rgb(198, 204, 215);"
@@ -1886,7 +2278,17 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 <span
                   style="color: rgb(169, 178, 195);"
                 >
-                   } 
+                   
+                </span>
+                <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  }
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   
                 </span>
                 <span
                   style="color: rgb(224, 108, 117);"
@@ -1914,9 +2316,19 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                   json
                 </span>
                 <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  (
+                </span>
+                <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  )
+                </span>
+                <span
                   style="color: rgb(169, 178, 195);"
                 >
-                  ();
+                  ;
                 </span>
               </span>
               
@@ -1925,9 +2337,14 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
                   style="color: rgb(224, 108, 117);"
                 >
-                    await
+                  await
                 </span>
                 <span
                   style="color: rgb(181, 126, 220);"
@@ -1935,7 +2352,7 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                    saveToNewsletter
                 </span>
                 <span
-                  style="color: rgb(169, 178, 195);"
+                  style="color: rgb(97, 175, 239);"
                 >
                   (
                 </span>
@@ -1945,9 +2362,14 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                   email
                 </span>
                 <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  )
+                </span>
+                <span
                   style="color: rgb(169, 178, 195);"
                 >
-                  );
+                  ;
                 </span>
               </span>
               
@@ -1963,9 +2385,14 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
                   style="color: rgb(224, 108, 117);"
                 >
-                    return
+                  return
                 </span>
                 <span
                   style="color: rgb(198, 204, 215);"
@@ -1983,9 +2410,19 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                   json
                 </span>
                 <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  (
+                </span>
+                <span
+                  style="color: rgb(229, 192, 123);"
+                >
+                  {
+                </span>
+                <span
                   style="color: rgb(169, 178, 195);"
                 >
-                  ({ success: 
+                   success: 
                 </span>
                 <span
                   style="color: rgb(86, 182, 194);"
@@ -1995,7 +2432,22 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 <span
                   style="color: rgb(169, 178, 195);"
                 >
-                   });
+                   
+                </span>
+                <span
+                  style="color: rgb(229, 192, 123);"
+                >
+                  }
+                </span>
+                <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  )
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  ;
                 </span>
               </span>
               
@@ -2076,6 +2528,7 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
             </svg>
           </button>
           <pre
+            class="mirai_2g010y"
             data-language="ts"
             data-theme="plastic"
             tabindex="0"
@@ -2131,7 +2584,17 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 <span
                   style="color: rgb(169, 178, 195);"
                 >
-                   { 
+                   
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  {
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   
                 </span>
                 <span
                   style="color: rgb(198, 204, 215);"
@@ -2141,7 +2604,17 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 <span
                   style="color: rgb(169, 178, 195);"
                 >
-                   } 
+                   
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  }
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   
                 </span>
                 <span
                   style="color: rgb(224, 108, 117);"
@@ -2224,7 +2697,17 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 <span
                   style="color: rgb(169, 178, 195);"
                 >
-                  ) {
+                  )
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  {
                 </span>
               </span>
               
@@ -2233,9 +2716,14 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
                   style="color: rgb(97, 175, 239);"
                 >
-                    const
+                  const
                 </span>
                 <span
                   style="color: rgb(198, 204, 215);"
@@ -2258,9 +2746,19 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                    checkBotId
                 </span>
                 <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  (
+                </span>
+                <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  )
+                </span>
+                <span
                   style="color: rgb(169, 178, 195);"
                 >
-                  ();
+                  ;
                 </span>
               </span>
               
@@ -2276,14 +2774,24 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
                   style="color: rgb(224, 108, 117);"
                 >
-                    if
+                  if
                 </span>
                 <span
                   style="color: rgb(169, 178, 195);"
                 >
-                   (
+                   
+                </span>
+                <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  (
                 </span>
                 <span
                   style="color: rgb(198, 204, 215);"
@@ -2301,9 +2809,19 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                   isBot
                 </span>
                 <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  )
+                </span>
+                <span
                   style="color: rgb(169, 178, 195);"
                 >
-                  ) {
+                   
+                </span>
+                <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  {
                 </span>
               </span>
               
@@ -2312,9 +2830,19 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
                   style="color: rgb(224, 108, 117);"
                 >
-                      throw
+                  throw
                 </span>
                 <span
                   style="color: rgb(224, 108, 117);"
@@ -2327,7 +2855,7 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                    Error
                 </span>
                 <span
-                  style="color: rgb(169, 178, 195);"
+                  style="color: rgb(229, 192, 123);"
                 >
                   (
                 </span>
@@ -2347,9 +2875,14 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                   '
                 </span>
                 <span
+                  style="color: rgb(229, 192, 123);"
+                >
+                  )
+                </span>
+                <span
                   style="color: rgb(169, 178, 195);"
                 >
-                  );
+                  ;
                 </span>
               </span>
               
@@ -2358,9 +2891,17 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
-                  style="color: rgb(169, 178, 195);"
+                  class="indent"
                 >
-                    }
+                    
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                />
+                <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  }
                 </span>
               </span>
               
@@ -2376,9 +2917,14 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
                   style="color: rgb(95, 102, 114); font-style: italic;"
                 >
-                    // Process feedback
+                  // Process feedback
                 </span>
               </span>
               
@@ -2387,9 +2933,14 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
                   style="color: rgb(97, 175, 239);"
                 >
-                    const
+                  const
                 </span>
                 <span
                   style="color: rgb(198, 204, 215);"
@@ -2417,7 +2968,7 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                   get
                 </span>
                 <span
-                  style="color: rgb(169, 178, 195);"
+                  style="color: rgb(97, 175, 239);"
                 >
                   (
                 </span>
@@ -2437,9 +2988,14 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                   '
                 </span>
                 <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  )
+                </span>
+                <span
                   style="color: rgb(169, 178, 195);"
                 >
-                  ) 
+                   
                 </span>
                 <span
                   style="color: rgb(224, 108, 117);"
@@ -2463,9 +3019,14 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
                   style="color: rgb(224, 108, 117);"
                 >
-                    await
+                  await
                 </span>
                 <span
                   style="color: rgb(181, 126, 220);"
@@ -2473,7 +3034,7 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                    saveFeedback
                 </span>
                 <span
-                  style="color: rgb(169, 178, 195);"
+                  style="color: rgb(97, 175, 239);"
                 >
                   (
                 </span>
@@ -2483,9 +3044,14 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                   feedback
                 </span>
                 <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  )
+                </span>
+                <span
                   style="color: rgb(169, 178, 195);"
                 >
-                  );
+                  ;
                 </span>
               </span>
               
@@ -2501,14 +3067,29 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
                   style="color: rgb(224, 108, 117);"
                 >
-                    return
+                  return
                 </span>
                 <span
                   style="color: rgb(169, 178, 195);"
                 >
-                   { success: 
+                   
+                </span>
+                <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  {
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   success: 
                 </span>
                 <span
                   style="color: rgb(86, 182, 194);"
@@ -2518,7 +3099,17 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 <span
                   style="color: rgb(169, 178, 195);"
                 >
-                   };
+                   
+                </span>
+                <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  }
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  ;
                 </span>
               </span>
               
@@ -2599,6 +3190,7 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
             </svg>
           </button>
           <pre
+            class="mirai_2g010y"
             data-language="ts"
             data-theme="plastic"
             tabindex="0"
@@ -2656,7 +3248,17 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 <span
                   style="color: rgb(169, 178, 195);"
                 >
-                  ) {
+                  )
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  {
                 </span>
               </span>
               
@@ -2665,14 +3267,29 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
                   style="color: rgb(97, 175, 239);"
                 >
-                    const
+                  const
                 </span>
                 <span
                   style="color: rgb(169, 178, 195);"
                 >
-                   { 
+                   
+                </span>
+                <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  {
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   
                 </span>
                 <span
                   style="color: rgb(198, 204, 215);"
@@ -2702,7 +3319,17 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 <span
                   style="color: rgb(169, 178, 195);"
                 >
-                   } 
+                   
+                </span>
+                <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  }
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   
                 </span>
                 <span
                   style="color: rgb(224, 108, 117);"
@@ -2720,9 +3347,19 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                    checkBotId
                 </span>
                 <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  (
+                </span>
+                <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  )
+                </span>
+                <span
                   style="color: rgb(169, 178, 195);"
                 >
-                  ();
+                  ;
                 </span>
               </span>
               
@@ -2738,9 +3375,14 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
                   style="color: rgb(95, 102, 114); font-style: italic;"
                 >
-                    // Allow ChatGPT Operator but block other bots
+                  // Allow ChatGPT Operator but block other bots
                 </span>
               </span>
               
@@ -2750,14 +3392,24 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
                   style="color: rgb(224, 108, 117);"
                 >
-                    if
+                  if
                 </span>
                 <span
                   style="color: rgb(169, 178, 195);"
                 >
-                   (
+                   
+                </span>
+                <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  (
                 </span>
                 <span
                   style="color: rgb(198, 204, 215);"
@@ -2775,7 +3427,7 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                    !
                 </span>
                 <span
-                  style="color: rgb(169, 178, 195);"
+                  style="color: rgb(229, 192, 123);"
                 >
                   (
                 </span>
@@ -2815,9 +3467,24 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                   '
                 </span>
                 <span
+                  style="color: rgb(229, 192, 123);"
+                >
+                  )
+                </span>
+                <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  )
+                </span>
+                <span
                   style="color: rgb(169, 178, 195);"
                 >
-                  )) {
+                   
+                </span>
+                <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  {
                 </span>
               </span>
               
@@ -2826,9 +3493,19 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
                   style="color: rgb(224, 108, 117);"
                 >
-                      return
+                  return
                 </span>
                 <span
                   style="color: rgb(198, 204, 215);"
@@ -2846,9 +3523,19 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                   json
                 </span>
                 <span
+                  style="color: rgb(229, 192, 123);"
+                >
+                  (
+                </span>
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                  {
+                </span>
+                <span
                   style="color: rgb(169, 178, 195);"
                 >
-                  ({ error: 
+                   error: 
                 </span>
                 <span
                   style="color: rgb(169, 178, 195);"
@@ -2868,7 +3555,27 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 <span
                   style="color: rgb(169, 178, 195);"
                 >
-                   }, { status: 
+                   
+                </span>
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                  }
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  , 
+                </span>
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                  {
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                   status: 
                 </span>
                 <span
                   style="color: rgb(86, 182, 194);"
@@ -2878,7 +3585,22 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 <span
                   style="color: rgb(169, 178, 195);"
                 >
-                   });
+                   
+                </span>
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                  }
+                </span>
+                <span
+                  style="color: rgb(229, 192, 123);"
+                >
+                  )
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  ;
                 </span>
               </span>
               
@@ -2887,9 +3609,17 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
-                  style="color: rgb(169, 178, 195);"
+                  class="indent"
                 >
-                    }
+                    
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                />
+                <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  }
                 </span>
               </span>
               
@@ -2905,9 +3635,14 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
                   style="color: rgb(95, 102, 114); font-style: italic;"
                 >
-                    // Return data
+                  // Return data
                 </span>
               </span>
               
@@ -2916,9 +3651,14 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
                   style="color: rgb(224, 108, 117);"
                 >
-                    return
+                  return
                 </span>
                 <span
                   style="color: rgb(198, 204, 215);"
@@ -2936,9 +3676,19 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                   json
                 </span>
                 <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  (
+                </span>
+                <span
+                  style="color: rgb(229, 192, 123);"
+                >
+                  {
+                </span>
+                <span
                   style="color: rgb(169, 178, 195);"
                 >
-                  ({ data: 
+                   data: 
                 </span>
                 <span
                   style="color: rgb(224, 108, 117);"
@@ -2951,9 +3701,34 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                    fetchPublicData
                 </span>
                 <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                  (
+                </span>
+                <span
+                  style="color: rgb(224, 108, 117);"
+                >
+                  )
+                </span>
+                <span
                   style="color: rgb(169, 178, 195);"
                 >
-                  () });
+                   
+                </span>
+                <span
+                  style="color: rgb(229, 192, 123);"
+                >
+                  }
+                </span>
+                <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  )
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  ;
                 </span>
               </span>
               
@@ -3031,6 +3806,7 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
             </svg>
           </button>
           <pre
+            class="mirai_2g010y"
             data-language="ts"
             data-theme="plastic"
             tabindex="0"
@@ -3084,7 +3860,12 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 <span
                   style="color: rgb(169, 178, 195);"
                 >
-                  ({
+                  (
+                </span>
+                <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  {
                 </span>
               </span>
               
@@ -3093,9 +3874,19 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
                   style="color: rgb(169, 178, 195);"
                 >
-                    developmentOptions: {
+                  developmentOptions: 
+                </span>
+                <span
+                  style="color: rgb(229, 192, 123);"
+                >
+                  {
                 </span>
               </span>
               
@@ -3105,9 +3896,19 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
                   style="color: rgb(169, 178, 195);"
                 >
-                      bypass: 
+                  bypass: 
                 </span>
                 <span
                   style="color: rgb(169, 178, 195);"
@@ -3141,9 +3942,22 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
+                  class="indent"
+                >
+                    
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                />
+                <span
+                  style="color: rgb(229, 192, 123);"
+                >
+                  }
+                </span>
+                <span
                   style="color: rgb(169, 178, 195);"
                 >
-                    },
+                  ,
                 </span>
               </span>
               
@@ -3152,9 +3966,19 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 data-line=""
               >
                 <span
+                  style="color: rgb(97, 175, 239);"
+                >
+                  }
+                </span>
+                <span
                   style="color: rgb(169, 178, 195);"
                 >
-                  });
+                  )
+                </span>
+                <span
+                  style="color: rgb(169, 178, 195);"
+                >
+                  ;
                 </span>
               </span>
             </code>
