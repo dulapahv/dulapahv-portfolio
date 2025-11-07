@@ -5,7 +5,8 @@ import {
   transformerNotationDiff,
   transformerNotationErrorLevel,
   transformerNotationWordHighlight,
-  transformerRenderIndentGuides
+  transformerRenderIndentGuides,
+  transformerStyleToClass
 } from '@shikijs/transformers';
 import readingTime from 'reading-time';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
@@ -52,6 +53,9 @@ const baseTransform = async (
           keepBackground: false,
           theme: 'plastic',
           transformers: [
+            transformerStyleToClass({
+              classPrefix: 'mirai_'
+            }),
             transformerNotationDiff(),
             transformerNotationWordHighlight(),
             transformerNotationErrorLevel(),
