@@ -1,9 +1,11 @@
 import { defineCollection, defineConfig, type Context, type Meta } from '@content-collections/core';
 import { compileMDX } from '@content-collections/mdx';
+import { transformerColorizedBrackets } from '@shikijs/colorized-brackets';
 import {
   transformerNotationDiff,
   transformerNotationErrorLevel,
-  transformerNotationWordHighlight
+  transformerNotationWordHighlight,
+  transformerRenderIndentGuides
 } from '@shikijs/transformers';
 import readingTime from 'reading-time';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
@@ -52,7 +54,9 @@ const baseTransform = async (
           transformers: [
             transformerNotationDiff(),
             transformerNotationWordHighlight(),
-            transformerNotationErrorLevel()
+            transformerNotationErrorLevel(),
+            transformerColorizedBrackets(),
+            transformerRenderIndentGuides()
           ]
         }
       ],
