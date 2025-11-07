@@ -1,12 +1,9 @@
 import { defineCollection, defineConfig, type Context, type Meta } from '@content-collections/core';
 import { compileMDX } from '@content-collections/mdx';
-import { transformerColorizedBrackets } from '@shikijs/colorized-brackets';
 import {
   transformerNotationDiff,
   transformerNotationErrorLevel,
-  transformerNotationWordHighlight,
-  transformerRenderIndentGuides,
-  transformerStyleToClass
+  transformerNotationWordHighlight
 } from '@shikijs/transformers';
 import readingTime from 'reading-time';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
@@ -53,14 +50,9 @@ const baseTransform = async (
           keepBackground: false,
           theme: 'plastic',
           transformers: [
-            transformerStyleToClass({
-              classPrefix: 'mirai_'
-            }),
             transformerNotationDiff(),
             transformerNotationWordHighlight(),
-            transformerNotationErrorLevel(),
-            transformerColorizedBrackets(),
-            transformerRenderIndentGuides()
+            transformerNotationErrorLevel()
           ]
         }
       ],
