@@ -34,7 +34,7 @@ export function Pre({
         aria-label="Copy code"
         title="Copy code"
         className={cn(
-          'text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 !transition-all',
+          'text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 transition-all!',
           'hover:text-foreground/80',
           'active:scale-90'
         )}
