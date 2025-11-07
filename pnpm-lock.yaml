@@ -21,7 +21,7 @@ importers:
         specifier: ^10.0.3
         version: 10.0.3(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@shikijs/transformers':
-        specifier: ^3.15.0
+        specifier: ^3.14.0
         version: 3.15.0
       '@vercel/analytics':
         specifier: ^1.5.0
@@ -105,7 +105,7 @@ importers:
         specifier: ^1.1.5
         version: 1.1.5
       shiki:
-        specifier: ^3.15.0
+        specifier: ^3.14.0
         version: 3.15.0
       tailwind-merge:
         specifier: ^3.3.1
@@ -133,7 +133,7 @@ importers:
         specifier: ^0.0.4
         version: 0.0.4
       '@tailwindcss/postcss':
-        specifier: ^4.1.17
+        specifier: ^4.1.16
         version: 4.1.17
       '@tailwindcss/typography':
         specifier: ^0.5.19
@@ -148,7 +148,7 @@ importers:
         specifier: ^16.3.0
         version: 16.3.0(@testing-library/dom@10.4.1)(@types/react-dom@19.2.2(@types/react@19.2.2))(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@types/node':
-        specifier: ^24.10.0
+        specifier: ^24.9.2
         version: 24.10.0
       '@types/react':
         specifier: ^19.2.2
@@ -166,7 +166,7 @@ importers:
         specifier: 4.0.6
         version: 4.0.6(vitest@4.0.8)
       eslint:
-        specifier: ^9.39.1
+        specifier: ^9.38.0
         version: 9.39.1(jiti@2.6.1)
       eslint-config-next:
         specifier: 15.3.2
@@ -196,10 +196,10 @@ importers:
         specifier: ^0.6.14
         version: 0.6.14(@ianvs/prettier-plugin-sort-imports@4.7.0(@prettier/plugin-oxc@0.0.4)(content-tag@4.0.0)(prettier-plugin-ember-template-tag@2.1.0(prettier@3.6.2))(prettier@3.6.2))(@prettier/plugin-oxc@0.0.4)(prettier@3.6.2)
       tailwindcss:
-        specifier: ^4.1.17
+        specifier: ^4.1.16
         version: 4.1.17
       turbo:
-        specifier: ^2.6.0
+        specifier: ^2.5.8
         version: 2.6.0
       typescript:
         specifier: ^5.9.3
@@ -208,7 +208,7 @@ importers:
         specifier: ^5.1.4
         version: 5.1.4(typescript@5.9.3)(vite@7.2.2(@types/node@24.10.0)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))
       vitest:
-        specifier: ^4.0.8
+        specifier: ^4.0.6
         version: 4.0.8(@types/debug@4.1.12)(@types/node@24.10.0)(@vitest/ui@4.0.6)(jiti@2.6.1)(jsdom@27.1.0(bufferutil@4.0.9)(utf-8-validate@6.0.5))(lightningcss@1.30.2)(yaml@2.8.1)
 
 packages:
