@@ -45,7 +45,7 @@ exports[`ConfirmationEmailTemplate > should match snapshot 1`] = `
                     width="48"
                   />
                   <hr
-                    style="margin: 26px 0px; width: 100%; border: medium;"
+                    style="margin: 26px 0px; width: 100%; border-width: 1px medium medium; border-style: solid none none; border-color: rgb(234, 234, 234) currentcolor currentcolor; border-image: none;"
                   />
                   <p
                     class="text-default-800"
@@ -71,7 +71,7 @@ exports[`ConfirmationEmailTemplate > should match snapshot 1`] = `
                     </span>
                   </p>
                   <hr
-                    style="margin: 26px 0px; width: 100%; border: medium;"
+                    style="margin: 26px 0px; width: 100%; border-width: 1px medium medium; border-style: solid none none; border-color: rgb(234, 234, 234) currentcolor currentcolor; border-image: none;"
                   />
                   <p
                     style="font-size: 0.875rem; line-height: 1.5rem; color: rgb(0, 0, 0); margin-top: 16px; margin-bottom: 16px;"
