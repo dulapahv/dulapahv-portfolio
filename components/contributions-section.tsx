@@ -126,7 +126,7 @@ export function ContributionsSection() {
                         </span>
                       </div>
                       <div
-                        className="text-foreground-lighter group-hover:text-mirai-red ml-6 flex flex-wrap items-center gap-2 text-xs
+                        className="text-foreground-lighter group-hover:text-mirai-red ml-7 flex flex-wrap items-center gap-2 text-xs
                           transition-colors"
                       >
                         <span className="font-mono">{contribution.repository}</span>
