@@ -8,10 +8,12 @@ import {
   XIcon
 } from '@phosphor-icons/react/dist/ssr';
 
-import { getContributionsByYear, type ContributionStatus } from '@/lib/contributions';
+import {
+  getContributions,
+  getContributionsByYear,
+  type ContributionStatus
+} from '@/lib/contributions';
 import { cn } from '@/lib/utils';
-
-const contributionsData = getContributionsByYear();
 
 function getStatusConfig(status: ContributionStatus): {
   label: string;
@@ -46,7 +48,10 @@ function getStatusConfig(status: ContributionStatus): {
   }
 }
 
-export function ContributionsSection() {
+export async function ContributionsSection() {
+  const contributions = await getContributions();
+  const contributionsData = getContributionsByYear(contributions);
+
   return (
     <section className="mt-8" id="contributions">
       <h1 className="text-foreground mb-4 text-2xl font-semibold">
@@ -126,7 +131,7 @@ export function ContributionsSection() {
                         </span>
                       </div>
                       <div
-                        className="text-foreground-lighter group-hover:text-mirai-red ml-7 flex flex-wrap items-center gap-2 text-xs
+                        className="text-foreground-lighter group-hover:text-mirai-red ml-6 flex flex-wrap items-center gap-2 text-xs
                           transition-colors"
                       >
                         <span className="font-mono">{contribution.repository}</span>

@@ -10,48 +10,101 @@ export type Contribution = {
   type: 'PR' | 'ISSUE';
 };
 
-export const contributionsData: Contribution[] = [
-  {
-    title: 'fix: include width param in Cloudflare image loader to resolve Next.js warnings',
-    repository: 'opennextjs/docs',
-    number: 190,
-    url: 'https://github.com/opennextjs/docs/pull/190',
-    date: new Date('2025-11-08'),
-    status: 'MERGED',
-    type: 'PR'
-  },
-  {
-    title:
-      'fix: include width param in Next.js Cloudflare Image loader examples to resolve warnings',
-    repository: 'cloudflare/cloudflare-docs',
-    number: 26391,
-    url: 'https://github.com/cloudflare/cloudflare-docs/pull/26391',
-    date: new Date('2025-11-08'),
-    status: 'OPEN',
-    type: 'PR'
-  },
-  {
-    title: 'refactor(components): use canonical Tailwind class syntax',
-    repository: 'shadcn-ui/ui',
-    number: 8742,
-    url: 'https://github.com/shadcn/ui/pull/8742',
-    date: new Date('2025-11-08'),
-    status: 'OPEN',
-    type: 'PR'
-  },
-  {
-    title: 'feat(th.json): add Thai language support',
-    repository: 'anders94/blockchain-demo',
-    number: 142,
-    url: 'https://github.com/anders94/blockchain-demo/pull/142',
-    date: new Date('2025-09-28'),
-    status: 'OPEN',
-    type: 'PR'
-  }
-];
+const GITHUB_USERNAME = 'dulapahv';
+const GITHUB_API_BASE = 'https://api.github.com';
 
-export function getContributionsByYear(): Record<number, Contribution[]> {
-  return contributionsData
+type GitHubIssueItem = {
+  title: string;
+  html_url: string;
+  number: number;
+  repository_url: string;
+  created_at: string;
+  state: string;
+  draft?: boolean;
+  pull_request?: {
+    merged_at: string | null;
+  };
+};
+
+type GitHubSearchResponse = {
+  items: GitHubIssueItem[];
+};
+
+function mapGitHubItemToContribution(item: GitHubIssueItem, type: 'PR' | 'ISSUE'): Contribution {
+  const repository = item.repository_url.replace(`${GITHUB_API_BASE}/repos/`, '');
+
+  let status: ContributionStatus;
+  if (type === 'PR') {
+    if (item.draft) {
+      status = 'DRAFT';
+    } else if (item.pull_request?.merged_at) {
+      status = 'MERGED';
+    } else if (item.state === 'open') {
+      status = 'OPEN';
+    } else {
+      status = 'CLOSED';
+    }
+  } else {
+    status = item.state === 'open' ? 'OPEN' : 'CLOSED';
+  }
+
+  return {
+    title: item.title,
+    repository,
+    number: item.number,
+    url: item.html_url,
+    date: new Date(item.created_at),
+    status,
+    type
+  };
+}
+
+async function fetchGitHubContributions(type: 'pr' | 'issue'): Promise<Contribution[]> {
+  const token = process.env.GITHUB_TOKEN;
+  const headers: HeadersInit = {
+    Accept: 'application/vnd.github.v3+json'
+  };
+
+  if (token) {
+    headers.Authorization = `Bearer ${token}`;
+  }
+
+  const searchQuery = `author:${GITHUB_USERNAME}+type:${type}`;
+  const url = `${GITHUB_API_BASE}/search/issues?q=${searchQuery}&per_page=100`;
+
+  const response = await fetch(url, {
+    headers,
+    next: { revalidate: 3600 } // Revalidate every hour
+  });
+
+  if (!response.ok) {
+    throw new Error(`Failed to fetch ${type}s: ${response.status} ${response.statusText}`);
+  }
+
+  const data: GitHubSearchResponse = await response.json();
+  const contributionType = type === 'pr' ? 'PR' : 'ISSUE';
+
+  return data.items.map(item => mapGitHubItemToContribution(item, contributionType));
+}
+
+export async function getContributions(): Promise<Contribution[]> {
+  try {
+    const [prs, issues] = await Promise.all([
+      fetchGitHubContributions('pr'),
+      fetchGitHubContributions('issue')
+    ]);
+
+    return [...prs, ...issues];
+  } catch (error) {
+    console.error('Error fetching contributions:', error);
+    return [];
+  }
+}
+
+export function getContributionsByYear(
+  contributions: Contribution[]
+): Record<number, Contribution[]> {
+  return contributions
     .sort((a, b) => b.date.getTime() - a.date.getTime())
     .reduce(
       (acc, contribution) => {
@@ -66,11 +119,11 @@ export function getContributionsByYear(): Record<number, Contribution[]> {
     );
 }
 
-export function getContributionStats() {
+export function getContributionStats(contributions: Contribution[]) {
   return {
-    total: contributionsData.length,
-    merged: contributionsData.filter(c => c.status === 'MERGED').length,
-    open: contributionsData.filter(c => c.status === 'OPEN').length,
-    closed: contributionsData.filter(c => c.status === 'CLOSED').length
+    total: contributions.length,
+    merged: contributions.filter(c => c.status === 'MERGED').length,
+    open: contributions.filter(c => c.status === 'OPEN').length,
+    closed: contributions.filter(c => c.status === 'CLOSED').length
   };
 }
