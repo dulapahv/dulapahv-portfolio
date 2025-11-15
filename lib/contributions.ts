@@ -16,7 +16,7 @@ export const contributionsData: Contribution[] = [
     repository: 'opennextjs/docs',
     number: 190,
     url: 'https://github.com/opennextjs/docs/pull/190',
-    date: new Date('2025-11-10'),
+    date: new Date('2025-11-08'),
     status: 'MERGED',
     type: 'PR'
   },

@@ -1016,10 +1016,10 @@ exports[`Home Page > should match snapshot 1`] = `
                   •
                 </span>
                 <time
-                  aria-label="Date: Nov 10, 2025"
-                  datetime="2025-11-10"
+                  aria-label="Date: Nov 8, 2025"
+                  datetime="2025-11-08"
                 >
-                  Nov 10, 2025
+                  Nov 8, 2025
                 </time>
               </div>
             </a>
