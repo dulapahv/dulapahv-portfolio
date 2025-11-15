@@ -873,6 +873,424 @@ exports[`Home Page > should match snapshot 1`] = `
         </div>
       </div>
     </section>
+    <section
+      class="mt-8"
+      id="contributions"
+    >
+      <h1
+        class="text-foreground mb-4 text-2xl font-semibold"
+      >
+        <a
+          aria-label="Jump to Contributions section"
+          class="group relative rounded-sm hover:underline"
+          href="#contributions"
+        >
+          <svg
+            aria-hidden="true"
+            class="absolute top-1/2 -left-6 size-4.5 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-focus:opacity-100"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 256 256"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M240,88.23a54.43,54.43,0,0,1-16,37L189.25,160a54.27,54.27,0,0,1-38.63,16h-.05A54.63,54.63,0,0,1,96,119.84a8,8,0,0,1,16,.45A38.62,38.62,0,0,0,150.58,160h0a38.39,38.39,0,0,0,27.31-11.31l34.75-34.75a38.63,38.63,0,0,0-54.63-54.63l-11,11A8,8,0,0,1,135.7,59l11-11A54.65,54.65,0,0,1,224,48,54.86,54.86,0,0,1,240,88.23ZM109,185.66l-11,11A38.41,38.41,0,0,1,70.6,208h0a38.63,38.63,0,0,1-27.29-65.94L78,107.31A38.63,38.63,0,0,1,144,135.71a8,8,0,0,0,16,.45A54.86,54.86,0,0,0,144,96a54.65,54.65,0,0,0-77.27,0L32,130.75A54.62,54.62,0,0,0,70.56,224h0a54.28,54.28,0,0,0,38.64-16l11-11A8,8,0,0,0,109,185.66Z"
+            />
+          </svg>
+          <span>
+            Contributions
+          </span>
+        </a>
+      </h1>
+      <div
+        class="divide-mirai-red mb-6 divide-y divide-dashed"
+      >
+        <h2
+          class="text-mirai-red mb-2 font-normal"
+          id="2025"
+        >
+          <a
+            aria-label="Jump to 2025 section"
+            class="group relative rounded-sm underline-offset-2 hover:underline"
+            href="#2025"
+          >
+            <svg
+              aria-hidden="true"
+              class="absolute top-1/2 -left-4.5 size-3.5 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-focus:opacity-100"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M240,88.23a54.43,54.43,0,0,1-16,37L189.25,160a54.27,54.27,0,0,1-38.63,16h-.05A54.63,54.63,0,0,1,96,119.84a8,8,0,0,1,16,.45A38.62,38.62,0,0,0,150.58,160h0a38.39,38.39,0,0,0,27.31-11.31l34.75-34.75a38.63,38.63,0,0,0-54.63-54.63l-11,11A8,8,0,0,1,135.7,59l11-11A54.65,54.65,0,0,1,224,48,54.86,54.86,0,0,1,240,88.23ZM109,185.66l-11,11A38.41,38.41,0,0,1,70.6,208h0a38.63,38.63,0,0,1-27.29-65.94L78,107.31A38.63,38.63,0,0,1,144,135.71a8,8,0,0,0,16,.45A54.86,54.86,0,0,0,144,96a54.65,54.65,0,0,0-77.27,0L32,130.75A54.62,54.62,0,0,0,70.56,224h0a54.28,54.28,0,0,0,38.64-16l11-11A8,8,0,0,0,109,185.66Z"
+              />
+            </svg>
+            <span>
+              2025
+            </span>
+          </a>
+        </h2>
+        <ul
+          class="space-y-3"
+        >
+          <li
+            class="group"
+          >
+            <a
+              class="-mx-2 flex flex-col gap-1.5 rounded-md p-2"
+              href="https://github.com/opennextjs/docs/pull/190"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <div
+                class="flex items-start justify-between gap-2"
+              >
+                <div
+                  class="flex min-w-0 flex-1 items-start gap-2"
+                >
+                  <svg
+                    aria-label="Pull Request"
+                    class="mt-0.5 size-5 shrink-0 text-purple-600"
+                    fill="currentColor"
+                    height="1em"
+                    viewBox="0 0 256 256"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M104,64A32,32,0,1,0,64,95v66a32,32,0,1,0,16,0V95A32.06,32.06,0,0,0,104,64ZM56,64A16,16,0,1,1,72,80,16,16,0,0,1,56,64ZM88,192a16,16,0,1,1-16-16A16,16,0,0,1,88,192Zm120-31V110.63a23.85,23.85,0,0,0-7-17L163.31,56H192a8,8,0,0,0,0-16H144a8,8,0,0,0-8,8V96a8,8,0,0,0,16,0V67.31L189.66,105a8,8,0,0,1,2.34,5.66V161a32,32,0,1,0,16,0Zm-8,47a16,16,0,1,1,16-16A16,16,0,0,1,200,208Z"
+                    />
+                  </svg>
+                  <span
+                    class="text-foreground group-hover:text-mirai-red font-medium wrap-break-word transition-colors"
+                  >
+                    fix: include width param in Cloudflare image loader to resolve Next.js warnings
+                  </span>
+                </div>
+                <span
+                  aria-label="Status: Merged"
+                  class="inline-flex shrink-0 items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium bg-purple-100 text-purple-900"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="size-3.5"
+                    fill="currentColor"
+                    height="1em"
+                    viewBox="0 0 256 256"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M208,112a32.05,32.05,0,0,0-30.69,23l-42.21-6a8,8,0,0,1-4.95-2.71L94.43,84.55A32,32,0,1,0,72,87v82a32,32,0,1,0,16,0V101.63l30,35a24,24,0,0,0,14.83,8.14l44,6.28A32,32,0,1,0,208,112ZM64,56A16,16,0,1,1,80,72,16,16,0,0,1,64,56ZM96,200a16,16,0,1,1-16-16A16,16,0,0,1,96,200Zm112-40a16,16,0,1,1,16-16A16,16,0,0,1,208,160Z"
+                    />
+                  </svg>
+                  Merged
+                </span>
+              </div>
+              <div
+                class="text-foreground-lighter group-hover:text-mirai-red ml-6 flex flex-wrap items-center gap-2 text-xs
+                          transition-colors"
+              >
+                <span
+                  class="font-mono"
+                >
+                  opennextjs/docs
+                </span>
+                <span
+                  aria-hidden="true"
+                >
+                  •
+                </span>
+                <span
+                  class="font-mono"
+                >
+                  #
+                  190
+                </span>
+                <span
+                  aria-hidden="true"
+                >
+                  •
+                </span>
+                <time
+                  aria-label="Date: Nov 10, 2025"
+                  datetime="2025-11-10"
+                >
+                  Nov 10, 2025
+                </time>
+              </div>
+            </a>
+          </li>
+          <li
+            class="group"
+          >
+            <a
+              class="-mx-2 flex flex-col gap-1.5 rounded-md p-2"
+              href="https://github.com/cloudflare/cloudflare-docs/pull/26391"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <div
+                class="flex items-start justify-between gap-2"
+              >
+                <div
+                  class="flex min-w-0 flex-1 items-start gap-2"
+                >
+                  <svg
+                    aria-label="Pull Request"
+                    class="mt-0.5 size-5 shrink-0 text-purple-600"
+                    fill="currentColor"
+                    height="1em"
+                    viewBox="0 0 256 256"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M104,64A32,32,0,1,0,64,95v66a32,32,0,1,0,16,0V95A32.06,32.06,0,0,0,104,64ZM56,64A16,16,0,1,1,72,80,16,16,0,0,1,56,64ZM88,192a16,16,0,1,1-16-16A16,16,0,0,1,88,192Zm120-31V110.63a23.85,23.85,0,0,0-7-17L163.31,56H192a8,8,0,0,0,0-16H144a8,8,0,0,0-8,8V96a8,8,0,0,0,16,0V67.31L189.66,105a8,8,0,0,1,2.34,5.66V161a32,32,0,1,0,16,0Zm-8,47a16,16,0,1,1,16-16A16,16,0,0,1,200,208Z"
+                    />
+                  </svg>
+                  <span
+                    class="text-foreground group-hover:text-mirai-red font-medium wrap-break-word transition-colors"
+                  >
+                    fix: include width param in Next.js Cloudflare Image loader examples to resolve warnings
+                  </span>
+                </div>
+                <span
+                  aria-label="Status: Open"
+                  class="inline-flex shrink-0 items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium bg-green-100 text-green-900"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="size-3.5"
+                    fill="currentColor"
+                    height="1em"
+                    viewBox="0 0 256 256"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M104,64A32,32,0,1,0,64,95v66a32,32,0,1,0,16,0V95A32.06,32.06,0,0,0,104,64ZM56,64A16,16,0,1,1,72,80,16,16,0,0,1,56,64ZM88,192a16,16,0,1,1-16-16A16,16,0,0,1,88,192Zm120-31V110.63a23.85,23.85,0,0,0-7-17L163.31,56H192a8,8,0,0,0,0-16H144a8,8,0,0,0-8,8V96a8,8,0,0,0,16,0V67.31L189.66,105a8,8,0,0,1,2.34,5.66V161a32,32,0,1,0,16,0Zm-8,47a16,16,0,1,1,16-16A16,16,0,0,1,200,208Z"
+                    />
+                  </svg>
+                  Open
+                </span>
+              </div>
+              <div
+                class="text-foreground-lighter group-hover:text-mirai-red ml-6 flex flex-wrap items-center gap-2 text-xs
+                          transition-colors"
+              >
+                <span
+                  class="font-mono"
+                >
+                  cloudflare/cloudflare-docs
+                </span>
+                <span
+                  aria-hidden="true"
+                >
+                  •
+                </span>
+                <span
+                  class="font-mono"
+                >
+                  #
+                  26391
+                </span>
+                <span
+                  aria-hidden="true"
+                >
+                  •
+                </span>
+                <time
+                  aria-label="Date: Nov 8, 2025"
+                  datetime="2025-11-08"
+                >
+                  Nov 8, 2025
+                </time>
+              </div>
+            </a>
+          </li>
+          <li
+            class="group"
+          >
+            <a
+              class="-mx-2 flex flex-col gap-1.5 rounded-md p-2"
+              href="https://github.com/shadcn/ui/pull/8742"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <div
+                class="flex items-start justify-between gap-2"
+              >
+                <div
+                  class="flex min-w-0 flex-1 items-start gap-2"
+                >
+                  <svg
+                    aria-label="Pull Request"
+                    class="mt-0.5 size-5 shrink-0 text-purple-600"
+                    fill="currentColor"
+                    height="1em"
+                    viewBox="0 0 256 256"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M104,64A32,32,0,1,0,64,95v66a32,32,0,1,0,16,0V95A32.06,32.06,0,0,0,104,64ZM56,64A16,16,0,1,1,72,80,16,16,0,0,1,56,64ZM88,192a16,16,0,1,1-16-16A16,16,0,0,1,88,192Zm120-31V110.63a23.85,23.85,0,0,0-7-17L163.31,56H192a8,8,0,0,0,0-16H144a8,8,0,0,0-8,8V96a8,8,0,0,0,16,0V67.31L189.66,105a8,8,0,0,1,2.34,5.66V161a32,32,0,1,0,16,0Zm-8,47a16,16,0,1,1,16-16A16,16,0,0,1,200,208Z"
+                    />
+                  </svg>
+                  <span
+                    class="text-foreground group-hover:text-mirai-red font-medium wrap-break-word transition-colors"
+                  >
+                    refactor(components): use canonical Tailwind class syntax
+                  </span>
+                </div>
+                <span
+                  aria-label="Status: Open"
+                  class="inline-flex shrink-0 items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium bg-green-100 text-green-900"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="size-3.5"
+                    fill="currentColor"
+                    height="1em"
+                    viewBox="0 0 256 256"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M104,64A32,32,0,1,0,64,95v66a32,32,0,1,0,16,0V95A32.06,32.06,0,0,0,104,64ZM56,64A16,16,0,1,1,72,80,16,16,0,0,1,56,64ZM88,192a16,16,0,1,1-16-16A16,16,0,0,1,88,192Zm120-31V110.63a23.85,23.85,0,0,0-7-17L163.31,56H192a8,8,0,0,0,0-16H144a8,8,0,0,0-8,8V96a8,8,0,0,0,16,0V67.31L189.66,105a8,8,0,0,1,2.34,5.66V161a32,32,0,1,0,16,0Zm-8,47a16,16,0,1,1,16-16A16,16,0,0,1,200,208Z"
+                    />
+                  </svg>
+                  Open
+                </span>
+              </div>
+              <div
+                class="text-foreground-lighter group-hover:text-mirai-red ml-6 flex flex-wrap items-center gap-2 text-xs
+                          transition-colors"
+              >
+                <span
+                  class="font-mono"
+                >
+                  shadcn-ui/ui
+                </span>
+                <span
+                  aria-hidden="true"
+                >
+                  •
+                </span>
+                <span
+                  class="font-mono"
+                >
+                  #
+                  8742
+                </span>
+                <span
+                  aria-hidden="true"
+                >
+                  •
+                </span>
+                <time
+                  aria-label="Date: Nov 8, 2025"
+                  datetime="2025-11-08"
+                >
+                  Nov 8, 2025
+                </time>
+              </div>
+            </a>
+          </li>
+          <li
+            class="group"
+          >
+            <a
+              class="-mx-2 flex flex-col gap-1.5 rounded-md p-2"
+              href="https://github.com/anders94/blockchain-demo/pull/142"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <div
+                class="flex items-start justify-between gap-2"
+              >
+                <div
+                  class="flex min-w-0 flex-1 items-start gap-2"
+                >
+                  <svg
+                    aria-label="Pull Request"
+                    class="mt-0.5 size-5 shrink-0 text-purple-600"
+                    fill="currentColor"
+                    height="1em"
+                    viewBox="0 0 256 256"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M104,64A32,32,0,1,0,64,95v66a32,32,0,1,0,16,0V95A32.06,32.06,0,0,0,104,64ZM56,64A16,16,0,1,1,72,80,16,16,0,0,1,56,64ZM88,192a16,16,0,1,1-16-16A16,16,0,0,1,88,192Zm120-31V110.63a23.85,23.85,0,0,0-7-17L163.31,56H192a8,8,0,0,0,0-16H144a8,8,0,0,0-8,8V96a8,8,0,0,0,16,0V67.31L189.66,105a8,8,0,0,1,2.34,5.66V161a32,32,0,1,0,16,0Zm-8,47a16,16,0,1,1,16-16A16,16,0,0,1,200,208Z"
+                    />
+                  </svg>
+                  <span
+                    class="text-foreground group-hover:text-mirai-red font-medium wrap-break-word transition-colors"
+                  >
+                    feat(th.json): add Thai language support
+                  </span>
+                </div>
+                <span
+                  aria-label="Status: Open"
+                  class="inline-flex shrink-0 items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium bg-green-100 text-green-900"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="size-3.5"
+                    fill="currentColor"
+                    height="1em"
+                    viewBox="0 0 256 256"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M104,64A32,32,0,1,0,64,95v66a32,32,0,1,0,16,0V95A32.06,32.06,0,0,0,104,64ZM56,64A16,16,0,1,1,72,80,16,16,0,0,1,56,64ZM88,192a16,16,0,1,1-16-16A16,16,0,0,1,88,192Zm120-31V110.63a23.85,23.85,0,0,0-7-17L163.31,56H192a8,8,0,0,0,0-16H144a8,8,0,0,0-8,8V96a8,8,0,0,0,16,0V67.31L189.66,105a8,8,0,0,1,2.34,5.66V161a32,32,0,1,0,16,0Zm-8,47a16,16,0,1,1,16-16A16,16,0,0,1,200,208Z"
+                    />
+                  </svg>
+                  Open
+                </span>
+              </div>
+              <div
+                class="text-foreground-lighter group-hover:text-mirai-red ml-6 flex flex-wrap items-center gap-2 text-xs
+                          transition-colors"
+              >
+                <span
+                  class="font-mono"
+                >
+                  anders94/blockchain-demo
+                </span>
+                <span
+                  aria-hidden="true"
+                >
+                  •
+                </span>
+                <span
+                  class="font-mono"
+                >
+                  #
+                  142
+                </span>
+                <span
+                  aria-hidden="true"
+                >
+                  •
+                </span>
+                <time
+                  aria-label="Date: Sep 28, 2025"
+                  datetime="2025-09-28"
+                >
+                  Sep 28, 2025
+                </time>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
   </div>
   <footer
     class="mt-16"

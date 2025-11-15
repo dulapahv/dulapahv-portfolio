@@ -8,6 +8,7 @@ import { DESCRIPTION, EDUCATION_LOCATION, GITHUB_URL, LINKEDIN_URL } from '@/lib
 import { profilePageSchema } from '@/lib/json-ld';
 import { createMetadata } from '@/lib/metadata';
 import { cn } from '@/lib/utils';
+import { ContributionsSection } from '@/components/contributions-section';
 import { CurrentTime } from '@/components/current-time';
 import { Footer } from '@/components/footer';
 import { Globe } from '@/components/globe';
@@ -200,6 +201,7 @@ export default async function Home() {
           Looking forward to where my career will take me...
         </article>
         <SkillsSection />
+        <ContributionsSection />
       </ViewTransition>
       <Footer />
     </>
