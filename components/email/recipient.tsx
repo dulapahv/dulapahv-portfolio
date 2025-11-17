@@ -11,6 +11,7 @@ import {
   Tailwind,
   Text
 } from '@react-email/components';
+import { encode } from 'html-entities';
 
 import { ASSETS_URL, BASE_URL, GITHUB_URL, LINKEDIN_URL } from '@/lib/constants';
 
@@ -59,7 +60,7 @@ export function RecipientEmailTemplate({
                 <br />
                 <span
                   dangerouslySetInnerHTML={{
-                    __html: message.replace(/\n/g, '<br />')
+                    __html: encode(message).replace(/\n/g, '<br />')
                   }}
                 />
               </Text>
