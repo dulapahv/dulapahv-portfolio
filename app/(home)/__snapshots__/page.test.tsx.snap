@@ -899,7 +899,7 @@ exports[`Home Page > should match snapshot 1`] = `
             />
           </svg>
           <span>
-            Contributions
+            Open Source Contributions
           </span>
         </a>
       </h1>
@@ -991,7 +991,7 @@ exports[`Home Page > should match snapshot 1`] = `
                 </span>
               </div>
               <div
-                class="text-foreground-lighter group-hover:text-mirai-red ml-6 flex flex-wrap items-center gap-2 text-xs
+                class="text-foreground-lighter group-hover:text-mirai-red ml-7 flex flex-wrap items-center gap-2 text-xs
                           transition-colors"
               >
                 <span
@@ -1079,7 +1079,7 @@ exports[`Home Page > should match snapshot 1`] = `
                 </span>
               </div>
               <div
-                class="text-foreground-lighter group-hover:text-mirai-red ml-6 flex flex-wrap items-center gap-2 text-xs
+                class="text-foreground-lighter group-hover:text-mirai-red ml-7 flex flex-wrap items-center gap-2 text-xs
                           transition-colors"
               >
                 <span
@@ -1167,7 +1167,7 @@ exports[`Home Page > should match snapshot 1`] = `
                 </span>
               </div>
               <div
-                class="text-foreground-lighter group-hover:text-mirai-red ml-6 flex flex-wrap items-center gap-2 text-xs
+                class="text-foreground-lighter group-hover:text-mirai-red ml-7 flex flex-wrap items-center gap-2 text-xs
                           transition-colors"
               >
                 <span
@@ -1255,7 +1255,7 @@ exports[`Home Page > should match snapshot 1`] = `
                 </span>
               </div>
               <div
-                class="text-foreground-lighter group-hover:text-mirai-red ml-6 flex flex-wrap items-center gap-2 text-xs
+                class="text-foreground-lighter group-hover:text-mirai-red ml-7 flex flex-wrap items-center gap-2 text-xs
                           transition-colors"
               >
                 <span
