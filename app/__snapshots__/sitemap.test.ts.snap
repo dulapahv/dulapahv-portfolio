@@ -5,6 +5,18 @@ exports[`sitemap > should match snapshot 1`] = `
   {
     "changeFrequency": "monthly",
     "lastModified": 2007-01-09T09:41:00.000Z,
+    "priority": 0.4,
+    "url": "https://dulapahv.dev/llms.txt",
+  },
+  {
+    "changeFrequency": "monthly",
+    "lastModified": 2007-01-09T09:41:00.000Z,
+    "priority": 0.3,
+    "url": "https://dulapahv.dev/llms-full.txt",
+  },
+  {
+    "changeFrequency": "monthly",
+    "lastModified": 2007-01-09T09:41:00.000Z,
     "priority": 1,
     "url": "https://dulapahv.dev",
   },
