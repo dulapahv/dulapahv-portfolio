@@ -45,7 +45,7 @@ export const contributionsData: Contribution[] = [
     number: 142,
     url: 'https://github.com/anders94/blockchain-demo/pull/142',
     date: new Date('2025-09-28'),
-    status: 'OPEN',
+    status: 'MERGED',
     type: 'PR'
   }
 ];
