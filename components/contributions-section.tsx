@@ -62,7 +62,7 @@ export function ContributionsSection() {
             )}
             aria-hidden="true"
           />
-          <span>Contributions</span>
+          <span>Open Source Contributions</span>
         </a>
       </h1>
 
