@@ -3,6 +3,7 @@ import type {
   CollectionPage,
   ContactPage,
   CreativeWork,
+  FAQPage,
   Organization,
   Person,
   ProfilePage,
@@ -109,7 +110,17 @@ export const personSchema: WithContext<Person> = {
       addressCountry: 'GB'
     }
   },
-  knowsAbout: getAllSkillsForSchema(),
+  knowsAbout: [
+    ...getAllSkillsForSchema(),
+    'Full-Stack Web Development',
+    'TypeScript Development',
+    'React & Next.js',
+    'User Experience Design',
+    'Web Accessibility',
+    'Software Engineering'
+  ],
+  award: ['First Class Honours - BSc Software Engineering', 'Double Degree Programme Graduate'],
+  honorificSuffix: 'BSc (Hons)',
   hasCredential: [
     {
       '@type': 'EducationalOccupationalCredential',
@@ -333,10 +344,21 @@ export const createBlogPostingSchema = (post: {
   datePublished: post.date.toISOString(),
   dateModified: post.date.toISOString(),
   author: {
-    '@id': `${BASE_URL}/#person`
+    '@type': 'Person',
+    '@id': `${BASE_URL}/#person`,
+    name: NAME,
+    url: BASE_URL,
+    jobTitle: 'Graduate Software Engineer',
+    worksFor: {
+      '@type': 'Organization',
+      name: 'NatWest Group'
+    }
   },
   publisher: {
-    '@id': `${BASE_URL}/#person`
+    '@type': 'Person',
+    '@id': `${BASE_URL}/#person`,
+    name: NAME,
+    url: BASE_URL
   },
   mainEntityOfPage: {
     '@type': 'WebPage',
@@ -353,7 +375,14 @@ export const createBlogPostingSchema = (post: {
   }),
   inLanguage: 'en-US',
   articleSection: 'Blog',
-  wordCount: post.readingTime ? parseInt(post.readingTime) * 200 : undefined // Rough estimate
+  wordCount: post.readingTime ? parseInt(post.readingTime) * 200 : undefined, // Rough estimate
+  isAccessibleForFree: true,
+  isPartOf: {
+    '@type': 'Blog',
+    '@id': `${BASE_URL}/blog`,
+    name: 'DulapahV Blog',
+    url: `${BASE_URL}/blog`
+  }
 });
 
 export const createProjectSchema = (project: {
@@ -419,6 +448,25 @@ export const createWorkSchema = (work: {
     height: '630'
   }
 });
+
+export const createFAQSchema = (
+  faqs: Array<{ question: string; answer: string }>
+): WithContext<FAQPage> | null => {
+  if (!faqs || faqs.length === 0) return null;
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer
+      }
+    }))
+  };
+};
 
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 export const combineSchemas = (schemas: Array<WithContext<any>>): string => {
