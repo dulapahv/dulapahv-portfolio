@@ -18,6 +18,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.3
+    },
+    {
+      url: `${BASE_URL}/bio.txt`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.35
     }
   ];
 
