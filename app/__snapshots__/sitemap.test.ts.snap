@@ -17,6 +17,12 @@ exports[`sitemap > should match snapshot 1`] = `
   {
     "changeFrequency": "monthly",
     "lastModified": 2007-01-09T09:41:00.000Z,
+    "priority": 0.35,
+    "url": "https://dulapahv.dev/bio.txt",
+  },
+  {
+    "changeFrequency": "monthly",
+    "lastModified": 2007-01-09T09:41:00.000Z,
     "priority": 1,
     "url": "https://dulapahv.dev",
   },
