@@ -27,7 +27,7 @@ export const contributionsData: Contribution[] = [
     number: 26391,
     url: 'https://github.com/cloudflare/cloudflare-docs/pull/26391',
     date: new Date('2025-11-08'),
-    status: 'OPEN',
+    status: 'MERGED',
     type: 'PR'
   },
   {
