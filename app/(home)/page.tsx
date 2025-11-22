@@ -130,15 +130,15 @@ export default async function Home() {
       </header>
       <ViewTransition default="slide">
         {/* <ViewTransition update="none"> */}
+        <SocialLinks />
+
         <blockquote
-          className="border-l-mirai-red border-border bg-background text-foreground rounded-md border border-l-8 py-2
-            pr-2.5 pl-3 italic shadow-sm"
+          className="border-l-mirai-red border-border bg-background text-foreground my-8 rounded-md border border-l-8
+            py-2 pr-2.5 pl-3 italic shadow-sm"
         >
           &quot;I believe accessible and delightful technology has the power to transform lives, and
           that&apos;s what I&apos;ve been working toward since the very beginning.&quot;
         </blockquote>
-
-        <SocialLinks />
         {/* </ViewTransition> */}
 
         <article className="text-foreground leading-7">
