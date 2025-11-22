@@ -5,7 +5,7 @@ export const skillsData = [
     size: 'large',
     gradient: 'from-red-500 to-red-400',
     bgColor: 'bg-red-500/10 hover:bg-red-500/15',
-    skills: ['TypeScript', 'JavaScript', 'Python', 'C', 'C++', 'Java', 'Bash']
+    skills: ['TypeScript', 'JavaScript', 'Python', 'C', 'C++', 'Java', 'SQL', 'Bash']
   },
   {
     category: 'Databases',
@@ -29,7 +29,8 @@ export const skillsData = [
       'Radix UI',
       'HeroUI',
       'daisyUI',
-      'MUI'
+      'MUI',
+      'Figma'
     ]
   },
   {
@@ -40,7 +41,6 @@ export const skillsData = [
     bgColor: 'bg-teal-500/10 hover:bg-teal-500/15',
     skills: ['Express.js', 'Prisma', 'WebSocket']
   },
-
   {
     category: 'Cross-platform & Desktop',
     icon: 'DevicesIcon',
@@ -55,7 +55,15 @@ export const skillsData = [
     size: 'medium',
     gradient: 'from-green-500 to-green-400',
     bgColor: 'bg-green-500/10 hover:bg-green-500/15',
-    skills: ['GitHub Actions', 'GitLab CI/CD', 'Playwright', 'Jest', 'Sentry', 'Turborepo']
+    skills: [
+      'GitHub Actions',
+      'GitLab CI/CD',
+      'Vitest',
+      'Playwright',
+      'Jest',
+      'Sentry',
+      'Turborepo'
+    ]
   },
   {
     category: 'Cloud & Infrastructure',
@@ -63,7 +71,7 @@ export const skillsData = [
     size: 'medium',
     gradient: 'from-blue-500 to-blue-400',
     bgColor: 'bg-blue-500/10 hover:bg-blue-500/15',
-    skills: ['Vercel', 'Cloudflare', 'Docker', 'Supabase', 'GCP', 'Nginx', 'Firebase']
+    skills: ['Vercel', 'Cloudflare', 'Docker', 'Supabase', 'Nginx']
   }
 ];
 
