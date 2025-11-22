@@ -5,7 +5,7 @@ export const skillsData = [
     size: 'large',
     gradient: 'from-red-500 to-red-400',
     bgColor: 'bg-red-500/10 hover:bg-red-500/15',
-    skills: ['TypeScript', 'JavaScript', 'Python', 'C', 'C++', 'Java', 'SQL', 'Bash']
+    skills: ['TypeScript', 'JavaScript', 'Python', 'Java', 'SQL', 'C', 'C++', 'Bash']
   },
   {
     category: 'Databases',
@@ -25,12 +25,12 @@ export const skillsData = [
       'Next.js',
       'React.js',
       'Tailwind CSS',
+      'Figma',
       'shadcn/ui',
       'Radix UI',
       'HeroUI',
       'daisyUI',
-      'MUI',
-      'Figma'
+      'MUI'
     ]
   },
   {
@@ -58,11 +58,11 @@ export const skillsData = [
     skills: [
       'GitHub Actions',
       'GitLab CI/CD',
+      'Turborepo',
+      'Sentry',
       'Vitest',
       'Playwright',
-      'Jest',
-      'Sentry',
-      'Turborepo'
+      'Jest'
     ]
   },
   {
