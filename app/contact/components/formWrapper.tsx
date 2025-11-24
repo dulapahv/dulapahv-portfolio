@@ -1,4 +1,4 @@
-import type { RecipientEmailTemplateProps } from '@/components/Email';
+import type { RecipientEmailTemplateProps } from '@/components/email';
 
 import { ContactForm } from './form';
 

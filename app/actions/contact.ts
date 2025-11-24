@@ -8,7 +8,7 @@ import {
   RecipientEmailTemplate,
   type ConfirmationEmailTemplateProps,
   type RecipientEmailTemplateProps
-} from '@/components/Email';
+} from '@/components/email';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 

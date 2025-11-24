@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { sendContactEmail } from './Contact';
+import { sendContactEmail } from './contact';
 
 // Create mock send function before any imports
 const mockSend = vi.fn();

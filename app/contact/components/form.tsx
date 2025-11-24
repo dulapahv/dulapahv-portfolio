@@ -15,11 +15,11 @@ import {
 } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { useOnLeavePageConfirmation } from '@/hooks/use-on-leave-page-confirmation';
-import type { RecipientEmailTemplateProps } from '@/components/Email';
+import type { RecipientEmailTemplateProps } from '@/components/email';
 import { Input } from '@/components/input';
-import { Spinner } from '@/components/Spinner';
+import { Spinner } from '@/components/spinner';
 import { Textarea } from '@/components/text-area';
-import { sendContactEmail } from '@/app/actions/Contact';
+import { sendContactEmail } from '@/app/actions/contact';
 
 interface ContactFormProps {
   searchParams?: RecipientEmailTemplateProps;

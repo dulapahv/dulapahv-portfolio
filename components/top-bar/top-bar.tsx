@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { motion } from 'motion/react';
 
 import { cn } from '@/lib/utils';
-import { ThemeSwitcher } from '@/components/ThemeSwitcher';
+import { ThemeSwitcher } from '@/components/theme-switcher';
 
 export function TopBar() {
   const [isVisible, setIsVisible] = useState(true);
