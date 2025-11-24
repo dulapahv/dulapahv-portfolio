@@ -43,11 +43,11 @@ export default function ContactPage({ searchParams }: PageProps<'/contact'>) {
   return (
     <>
       <JsonLd schemas={[contactPageSchema]} />
-      <div className="mx-auto max-w-2xl space-y-4">
+      <div className="mx-auto max-w-3xl space-y-4">
         <Breadcrumb lastLabel={title} />
       </div>
       <ViewTransition default="slide">
-        <main className="mx-auto max-w-2xl space-y-4">
+        <main className="mx-auto max-w-3xl space-y-4">
           <header className="gap-0">
             <h1 className="text-foreground text-lg font-medium">{title}</h1>
             <p className="text-foreground-muted">{description}</p>
