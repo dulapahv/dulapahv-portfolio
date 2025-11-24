@@ -12,6 +12,7 @@ import { ThemeProvider } from 'next-themes';
 import { IS_DEV_ENV } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { Footer } from '@/components/footer';
+import { TopBar } from '@/components/top-bar';
 
 export const raleway = Raleway({
   subsets: ['latin'],
@@ -59,6 +60,7 @@ export default function GlobalError({
             <Image src="/ao.png" alt="" fill priority className="object-contain" />
           </div>
           <div id="main-content" className="mx-auto max-w-4xl space-y-4 px-4 py-16">
+            <TopBar />
             <main className="space-y-4">
               <header>
                 <h1 className="text-3xl font-semibold">Critical Error</h1>

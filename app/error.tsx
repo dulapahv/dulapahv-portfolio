@@ -8,6 +8,7 @@ import { ArrowsClockwiseIcon } from '@phosphor-icons/react/dist/ssr';
 import { IS_DEV_ENV } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { Footer } from '@/components/footer';
+import { TopBar } from '@/components/top-bar';
 
 export default function Error({
   error,
@@ -23,6 +24,7 @@ export default function Error({
 
   return (
     <>
+      <TopBar />
       <main className="space-y-4">
         <header>
           <h1 className="text-3xl font-semibold">Oops! Something Went Wrong</h1>
