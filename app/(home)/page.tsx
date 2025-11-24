@@ -16,7 +16,7 @@ import { OpenSourceCard } from '@/components/open-source-card';
 import { ProjectsCard } from '@/components/projects-card';
 import { RecentBlogsCard } from '@/components/recent-blogs-card';
 import { ResumeCard } from '@/components/resume-card';
-import { WorkCard } from '@/components/word-card';
+import { WorkCard } from '@/components/work-card';
 
 export const metadata: Metadata = createMetadata({
   title: 'Home',
