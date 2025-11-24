@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { GITHUB_URL } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 
-import { CurrentYear } from './current-year';
+import { CurrentYear } from './CurrentYear';
 
 export function Footer() {
   return (

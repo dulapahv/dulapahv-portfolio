@@ -7,7 +7,7 @@ import { ArrowsClockwiseIcon } from '@phosphor-icons/react/dist/ssr';
 
 import { IS_DEV_ENV } from '@/lib/constants';
 import { cn } from '@/lib/utils';
-import { Footer } from '@/components/footer';
+import { Footer } from '@/components/Footer';
 
 export default function Error({
   error,

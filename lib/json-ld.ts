@@ -4,7 +4,6 @@ import type {
   ContactPage,
   CreativeWork,
   FAQPage,
-  Organization,
   Person,
   ProfilePage,
   WebSite,
@@ -411,42 +410,6 @@ export const createProjectSchema = (project: {
     height: '630'
   },
   inLanguage: 'en-US'
-});
-
-export const createWorkSchema = (work: {
-  position: string;
-  company: string;
-  location: string;
-  startDate: Date;
-  endDate?: Date;
-  slug: string;
-}): WithContext<Organization> => ({
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  '@id': `${BASE_URL}/work/${work.slug}#org`,
-  name: work.company,
-  location: {
-    '@type': 'Place',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: work.location
-    }
-  },
-  employee: {
-    '@type': 'Person',
-    '@id': `${BASE_URL}/#person`,
-    jobTitle: work.position,
-    worksFor: {
-      '@type': 'Organization',
-      name: work.company
-    }
-  },
-  image: {
-    '@type': 'ImageObject',
-    url: getOgImageUrl(work.position, work.company),
-    width: '1200',
-    height: '630'
-  }
 });
 
 export const createFAQSchema = (

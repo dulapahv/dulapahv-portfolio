@@ -14,8 +14,8 @@ import {
 import { collectionSchema } from '@/lib/json-ld';
 import { createMetadata } from '@/lib/metadata';
 import { cn } from '@/lib/utils';
-import Breadcrumb from '@/components/breadcrumb';
-import { JsonLd } from '@/components/json-ld';
+import Breadcrumb from '@/components/Breadcrumb';
+import { JsonLd } from '@/components/JsonLd';
 
 export const generateMetadata = async ({ params }: PageProps<'/[type]'>): Promise<Metadata> => {
   const { type } = await params;
@@ -32,8 +32,7 @@ export const generateMetadata = async ({ params }: PageProps<'/[type]'>): Promis
 
 export const generateStaticParams = (): { type: ContentType }[] => [
   { type: 'project' },
-  { type: 'blog' },
-  { type: 'work' }
+  { type: 'blog' }
 ];
 
 export default async function TypeListingPage({ params }: PageProps<'/[type]'>) {
@@ -89,11 +88,11 @@ export default async function TypeListingPage({ params }: PageProps<'/[type]'>) 
   return (
     <>
       <JsonLd schemas={[collectionSchema(type, { title, description })]} />
-      <div className="mx-auto max-w-2xl space-y-4">
+      <div className="mx-auto max-w-3xl space-y-4">
         <Breadcrumb lastLabel={title} />
       </div>
       <ViewTransition default="slide">
-        <main className="mx-auto max-w-2xl space-y-4">
+        <main className="mx-auto max-w-3xl space-y-4">
           <header className="gap-0">
             <h1 className="text-lg font-medium">{title}</h1>
             <p className="text-foreground-muted">{description}</p>
@@ -134,7 +133,6 @@ export default async function TypeListingPage({ params }: PageProps<'/[type]'>) 
                     </h2>
                     <ul className="grid gap-6" role="list" aria-label={`${type} from ${year}`}>
                       {posts.map(post => {
-                        const isWork = 'position' in post;
                         const dateTime = getISODateString(post);
 
                         return (
@@ -145,45 +143,20 @@ export default async function TypeListingPage({ params }: PageProps<'/[type]'>) 
                                 'group -m-2 flex items-center justify-between gap-2 rounded-md p-2 transition-colors',
                                 'hover:text-mirai-red'
                               )}
-                              aria-label={
-                                isWork
-                                  ? `View details for ${post.position} at ${post.company}, ${post.location}`
-                                  : `Read ${post.title}: ${post.description}`
-                              }
+                              aria-label={`Read ${post.title}: ${post.description}`}
                             >
                               <div className="flex flex-col gap-1">
-                                {isWork ? (
-                                  <>
-                                    <h3 className="text-lg font-semibold">{post.position}</h3>
-                                    <p className="text-foreground-lighter text-sm font-medium">
-                                      {post.company}
-                                    </p>
-                                    <p className="text-foreground-lighter text-sm">
-                                      {post.location}
-                                    </p>
-                                    <time
-                                      className="text-foreground-lighter text-xs"
-                                      dateTime={dateTime}
-                                      aria-label={`Employment period: ${formatDateRange(post)}`}
-                                    >
-                                      {formatDateRange(post)}
-                                    </time>
-                                  </>
-                                ) : (
-                                  <>
-                                    <h3 className="text-lg font-semibold">{post.title}</h3>
-                                    <p className="text-foreground-lighter text-sm">
-                                      {post.description}
-                                    </p>
-                                    <time
-                                      className="text-foreground-lighter text-xs"
-                                      dateTime={dateTime}
-                                      aria-label={`Published on ${formatDateRange(post)}`}
-                                    >
-                                      {formatDateRange(post)}
-                                    </time>
-                                  </>
-                                )}
+                                <h3 className="text-lg font-semibold">{post.title}</h3>
+                                <p className="text-foreground-lighter text-sm">
+                                  {post.description}
+                                </p>
+                                <time
+                                  className="text-foreground-lighter text-xs"
+                                  dateTime={dateTime}
+                                  aria-label={`Published on ${formatDateRange(post)}`}
+                                >
+                                  {formatDateRange(post)}
+                                </time>
                               </div>
                               <CaretRightIcon
                                 className={cn(

@@ -1,7 +1,7 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { ShareButtons } from './share';
+import { ShareButtons } from './Share';
 
 vi.mock('./theme-aware-image', () => ({
   ThemeAwareImage: () => <div data-testid="theme-aware-image">X Logo</div>

@@ -5,10 +5,10 @@ exports[`Type Listing Page > should render blog listing and match snapshot 1`] =
   <script
     type="application/ld+json"
   >
-    [{"@context":"https://schema.org","@type":"Person","@id":"https://dulapahv.dev/#person","name":"Dulapah Vibulsanti","givenName":"Dulapah","familyName":"Vibulsanti","alternateName":"DulapahV","description":"Thai Software Engineer based in Edinburgh, United Kingdom. Passionate about creating accessible and delightful technology for everyone.","gender":"male","nationality":{"@type":"Country","name":"Thailand"},"url":"https://dulapahv.dev","image":{"@type":"ImageObject","url":"https://dulapahv.dev/og?title=Dulapah+Vibulsanti%0ASoftware+Engineer&description=Thai+Software+Engineer+based+in+Edinburgh%2C+United+Kingdom.+Passionate+about+creating+accessible+and+delightful+technology+for+everyone.","caption":"Dulapah Vibulsanti - Software Engineer","width":"1200","height":"630"},"sameAs":["https://github.com/dulapahv","https://www.linkedin.com/in/dulapahv"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"University of Glasgow","url":"https://www.gla.ac.uk/","identifier":"Russell Group University","address":{"@type":"PostalAddress","addressLocality":"Glasgow","addressRegion":"Scotland","addressCountry":"GB","postalCode":"G12 8QQ","streetAddress":"University Avenue"}},{"@type":"CollegeOrUniversity","name":"King Mongkut's Institute of Technology Ladkrabang","alternateName":"KMITL","url":"https://www.kmitl.ac.th/","address":{"@type":"PostalAddress","addressLocality":"Bangkok","addressRegion":"Bangkok","addressCountry":"TH","postalCode":"10520","streetAddress":"1 Chalong Krung 1 Alley, Lat Krabang"}},{"@type":"EducationalOrganization","name":"Suankularb Wittayalai School","url":"https://www.sk.ac.th/","address":{"@type":"PostalAddress","addressLocality":"Bangkok","addressRegion":"Phra Nakhon","addressCountry":"TH","postalCode":"10200","streetAddress":"88 Tri Phet Road"}}],"jobTitle":"Graduate Software Engineer","worksFor":{"@type":"Organization","name":"NatWest Group","url":"https://www.natwestgroup.com/","description":"One of the UK's Big Four banks, serving over 19 million customers","sameAs":"https://en.wikipedia.org/wiki/NatWest_Group"},"workLocation":{"@type":"Place","name":"Edinburgh, Scotland","address":{"@type":"PostalAddress","addressLocality":"Edinburgh","addressRegion":"Scotland","addressCountry":"GB"}},"knowsAbout":["General programming","Databases","Web frameworks & UI","Backend","Cross-platform & Desktop","DevOps & Testing","Cloud & Infrastructure","TypeScript","JavaScript","Python","C","C++","Java","Bash","PostgreSQL","MongoDB","SQLite","MySQL","Snowflake","Next.js","React.js","Tailwind CSS","shadcn/ui","Radix UI","HeroUI","daisyUI","MUI","Express.js","Prisma","WebSocket","Electron.js","Qt","GitHub Actions","GitLab CI/CD","Playwright","Jest","Sentry","Turborepo","Vercel","Cloudflare","Docker","Supabase","GCP","Nginx","Firebase","Software Engineering","Full Stack Development","Parallel and Distributed Systems","Web Development","API Development","Version Control (Git)","Agile Methodologies","Test-Driven Development","Continuous Integration/Continuous Deployment","Web Accessibility","Full-Stack Web Development","TypeScript Development","React & Next.js","User Experience Design","Web Accessibility","Software Engineering"],"award":["First Class Honours - BSc Software Engineering","Double Degree Programme Graduate"],"honorificSuffix":"BSc (Hons)","hasCredential":[{"@type":"EducationalOccupationalCredential","@id":"https://dulapahv.dev/#degree-glasgow","name":"BSc (Hons) Software Engineering","description":"Double degree program with KMITL. First Class Honours with Specialization in Parallel and Distributed Systems. Final two years completed at University of Glasgow.","credentialCategory":"degree","educationalLevel":"Bachelor","dateCreated":"2023-09","recognizedBy":{"@type":"CollegeOrUniversity","name":"University of Glasgow","url":"https://www.gla.ac.uk/"}},{"@type":"EducationalOccupationalCredential","@id":"https://dulapahv.dev/#degree-kmitl","name":"BEng Software Engineering","description":"Double degree programme with University of Glasgow. First two years completed at KMITL before transferring to Glasgow.","credentialCategory":"degree","educationalLevel":"Bachelor","dateCreated":"2021-08","recognizedBy":{"@type":"CollegeOrUniversity","name":"King Mongkut's Institute of Technology Ladkrabang","url":"https://www.kmitl.ac.th/"}}],"knowsLanguage":[{"@type":"Language","name":"Thai","alternateName":"th"},{"@type":"Language","name":"English","alternateName":"en"}],"contactPoint":{"@type":"ContactPoint","contactType":"professional","areaServed":"GB","availableLanguage":["en","th"],"url":"https://dulapahv.dev/contact"},"hasOccupation":{"@type":"Occupation","name":"Software Engineer","description":"Software engineers design and create computer systems and applications to solve real-world problems.","occupationalCategory":"15-1252.00","occupationLocation":{"@type":"City","name":"Edinburgh, Scotland","address":{"@type":"PostalAddress","addressLocality":"Edinburgh","addressRegion":"Scotland","addressCountry":"GB"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dulapahv.dev/#occupation-software-engineer","name":"Software Engineer","description":"Software engineers design and create computer systems and applications to solve real-world problems.","url":"https://dulapahv.dev/#occupation-software-engineer","lastReviewed":"2007-01-09T09:41:00.000Z"}}},{"@context":"https://schema.org","@type":"WebSite","@id":"https://dulapahv.dev/#website","url":"https://dulapahv.dev","name":"DulapahV Portfolio","alternateName":"Dulapah Vibulsanti Portfolio","description":"Thai Software Engineer based in Edinburgh, United Kingdom. Passionate about creating accessible and delightful technology for everyone.","publisher":{"@id":"https://dulapahv.dev/#person"},"inLanguage":"en-US"},{"@context":"https://schema.org","@type":"CollectionPage","@id":"https://dulapahv.dev/blog","url":"https://dulapahv.dev/blog","name":"Blog","description":"My thoughts, ideas, and experiences.","mainEntity":{"@type":"ItemList","numberOfItems":1,"itemListElement":[{"@type":"ListItem","position":1,"url":"https://dulapahv.dev/blog/test-project"}]},"primaryImageOfPage":{"@type":"ImageObject","url":"https://dulapahv.dev/og?title=Blog&description=My+thoughts%2C+ideas%2C+and+experiences.","width":"1200","height":"630"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://dulapahv.dev/blog#breadcrumb","name":"Breadcrumbs","itemListOrder":"https://schema.org/ItemListOrderAscending","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://dulapahv.dev"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://dulapahv.dev/blog"}]}}]
+    [{"@context":"https://schema.org","@type":"Person","@id":"https://dulapahv.dev/#person","name":"Dulapah Vibulsanti","givenName":"Dulapah","familyName":"Vibulsanti","alternateName":"DulapahV","description":"Thai Software Engineer based in Edinburgh, United Kingdom. Passionate about creating accessible and delightful technology for everyone.","gender":"male","nationality":{"@type":"Country","name":"Thailand"},"url":"https://dulapahv.dev","image":{"@type":"ImageObject","url":"https://dulapahv.dev/og?title=Dulapah+Vibulsanti%0ASoftware+Engineer&description=Thai+Software+Engineer+based+in+Edinburgh%2C+United+Kingdom.+Passionate+about+creating+accessible+and+delightful+technology+for+everyone.","caption":"Dulapah Vibulsanti - Software Engineer","width":"1200","height":"630"},"sameAs":["https://github.com/dulapahv","https://www.linkedin.com/in/dulapahv"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"University of Glasgow","url":"https://www.gla.ac.uk/","identifier":"Russell Group University","address":{"@type":"PostalAddress","addressLocality":"Glasgow","addressRegion":"Scotland","addressCountry":"GB","postalCode":"G12 8QQ","streetAddress":"University Avenue"}},{"@type":"CollegeOrUniversity","name":"King Mongkut's Institute of Technology Ladkrabang","alternateName":"KMITL","url":"https://www.kmitl.ac.th/","address":{"@type":"PostalAddress","addressLocality":"Bangkok","addressRegion":"Bangkok","addressCountry":"TH","postalCode":"10520","streetAddress":"1 Chalong Krung 1 Alley, Lat Krabang"}},{"@type":"EducationalOrganization","name":"Suankularb Wittayalai School","url":"https://www.sk.ac.th/","address":{"@type":"PostalAddress","addressLocality":"Bangkok","addressRegion":"Phra Nakhon","addressCountry":"TH","postalCode":"10200","streetAddress":"88 Tri Phet Road"}}],"jobTitle":"Graduate Software Engineer","worksFor":{"@type":"Organization","name":"NatWest Group","url":"https://www.natwestgroup.com/","description":"One of the UK's Big Four banks, serving over 19 million customers","sameAs":"https://en.wikipedia.org/wiki/NatWest_Group"},"workLocation":{"@type":"Place","name":"Edinburgh, Scotland","address":{"@type":"PostalAddress","addressLocality":"Edinburgh","addressRegion":"Scotland","addressCountry":"GB"}},"knowsAbout":["General programming","Databases","Web frameworks & UI","Backend","Cross-platform & Desktop","DevOps & Testing","Cloud & Infrastructure","TypeScript","JavaScript","Python","Java","SQL","C","C++","Bash","PostgreSQL","MongoDB","SQLite","MySQL","Snowflake","Next.js","React.js","Tailwind CSS","Figma","shadcn/ui","Radix UI","HeroUI","daisyUI","MUI","Express.js","Prisma","WebSocket","Electron.js","Qt","GitHub Actions","GitLab CI/CD","Turborepo","Sentry","Vitest","Playwright","Jest","Vercel","Cloudflare","Docker","Supabase","Nginx","Software Engineering","Full Stack Development","Parallel and Distributed Systems","Web Development","API Development","Version Control (Git)","Agile Methodologies","Test-Driven Development","Continuous Integration/Continuous Deployment","Web Accessibility","Full-Stack Web Development","TypeScript Development","React & Next.js","User Experience Design","Web Accessibility","Software Engineering"],"award":["First Class Honours - BSc Software Engineering","Double Degree Programme Graduate"],"honorificSuffix":"BSc (Hons)","hasCredential":[{"@type":"EducationalOccupationalCredential","@id":"https://dulapahv.dev/#degree-glasgow","name":"BSc (Hons) Software Engineering","description":"Double degree program with KMITL. First Class Honours with Specialization in Parallel and Distributed Systems. Final two years completed at University of Glasgow.","credentialCategory":"degree","educationalLevel":"Bachelor","dateCreated":"2023-09","recognizedBy":{"@type":"CollegeOrUniversity","name":"University of Glasgow","url":"https://www.gla.ac.uk/"}},{"@type":"EducationalOccupationalCredential","@id":"https://dulapahv.dev/#degree-kmitl","name":"BEng Software Engineering","description":"Double degree programme with University of Glasgow. First two years completed at KMITL before transferring to Glasgow.","credentialCategory":"degree","educationalLevel":"Bachelor","dateCreated":"2021-08","recognizedBy":{"@type":"CollegeOrUniversity","name":"King Mongkut's Institute of Technology Ladkrabang","url":"https://www.kmitl.ac.th/"}}],"knowsLanguage":[{"@type":"Language","name":"Thai","alternateName":"th"},{"@type":"Language","name":"English","alternateName":"en"}],"contactPoint":{"@type":"ContactPoint","contactType":"professional","areaServed":"GB","availableLanguage":["en","th"],"url":"https://dulapahv.dev/contact"},"hasOccupation":{"@type":"Occupation","name":"Software Engineer","description":"Software engineers design and create computer systems and applications to solve real-world problems.","occupationalCategory":"15-1252.00","occupationLocation":{"@type":"City","name":"Edinburgh, Scotland","address":{"@type":"PostalAddress","addressLocality":"Edinburgh","addressRegion":"Scotland","addressCountry":"GB"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dulapahv.dev/#occupation-software-engineer","name":"Software Engineer","description":"Software engineers design and create computer systems and applications to solve real-world problems.","url":"https://dulapahv.dev/#occupation-software-engineer","lastReviewed":"2007-01-09T09:41:00.000Z"}}},{"@context":"https://schema.org","@type":"WebSite","@id":"https://dulapahv.dev/#website","url":"https://dulapahv.dev","name":"DulapahV Portfolio","alternateName":"Dulapah Vibulsanti Portfolio","description":"Thai Software Engineer based in Edinburgh, United Kingdom. Passionate about creating accessible and delightful technology for everyone.","publisher":{"@id":"https://dulapahv.dev/#person"},"inLanguage":"en-US"},{"@context":"https://schema.org","@type":"CollectionPage","@id":"https://dulapahv.dev/blog","url":"https://dulapahv.dev/blog","name":"Blog","description":"My thoughts, ideas, and experiences.","mainEntity":{"@type":"ItemList","numberOfItems":1,"itemListElement":[{"@type":"ListItem","position":1,"url":"https://dulapahv.dev/blog/test-project"}]},"primaryImageOfPage":{"@type":"ImageObject","url":"https://dulapahv.dev/og?title=Blog&description=My+thoughts%2C+ideas%2C+and+experiences.","width":"1200","height":"630"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://dulapahv.dev/blog#breadcrumb","name":"Breadcrumbs","itemListOrder":"https://schema.org/ItemListOrderAscending","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://dulapahv.dev"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://dulapahv.dev/blog"}]}}]
   </script>
   <div
-    class="mx-auto max-w-2xl space-y-4"
+    class="mx-auto max-w-3xl space-y-4"
   >
     <nav
       aria-label="breadcrumb"
@@ -60,7 +60,7 @@ exports[`Type Listing Page > should render blog listing and match snapshot 1`] =
   </div>
   <div>
     <main
-      class="mx-auto max-w-2xl space-y-4"
+      class="mx-auto max-w-3xl space-y-4"
     >
       <header
         class="gap-0"
@@ -173,10 +173,10 @@ exports[`Type Listing Page > should render project listing and match snapshot 1`
   <script
     type="application/ld+json"
   >
-    [{"@context":"https://schema.org","@type":"Person","@id":"https://dulapahv.dev/#person","name":"Dulapah Vibulsanti","givenName":"Dulapah","familyName":"Vibulsanti","alternateName":"DulapahV","description":"Thai Software Engineer based in Edinburgh, United Kingdom. Passionate about creating accessible and delightful technology for everyone.","gender":"male","nationality":{"@type":"Country","name":"Thailand"},"url":"https://dulapahv.dev","image":{"@type":"ImageObject","url":"https://dulapahv.dev/og?title=Dulapah+Vibulsanti%0ASoftware+Engineer&description=Thai+Software+Engineer+based+in+Edinburgh%2C+United+Kingdom.+Passionate+about+creating+accessible+and+delightful+technology+for+everyone.","caption":"Dulapah Vibulsanti - Software Engineer","width":"1200","height":"630"},"sameAs":["https://github.com/dulapahv","https://www.linkedin.com/in/dulapahv"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"University of Glasgow","url":"https://www.gla.ac.uk/","identifier":"Russell Group University","address":{"@type":"PostalAddress","addressLocality":"Glasgow","addressRegion":"Scotland","addressCountry":"GB","postalCode":"G12 8QQ","streetAddress":"University Avenue"}},{"@type":"CollegeOrUniversity","name":"King Mongkut's Institute of Technology Ladkrabang","alternateName":"KMITL","url":"https://www.kmitl.ac.th/","address":{"@type":"PostalAddress","addressLocality":"Bangkok","addressRegion":"Bangkok","addressCountry":"TH","postalCode":"10520","streetAddress":"1 Chalong Krung 1 Alley, Lat Krabang"}},{"@type":"EducationalOrganization","name":"Suankularb Wittayalai School","url":"https://www.sk.ac.th/","address":{"@type":"PostalAddress","addressLocality":"Bangkok","addressRegion":"Phra Nakhon","addressCountry":"TH","postalCode":"10200","streetAddress":"88 Tri Phet Road"}}],"jobTitle":"Graduate Software Engineer","worksFor":{"@type":"Organization","name":"NatWest Group","url":"https://www.natwestgroup.com/","description":"One of the UK's Big Four banks, serving over 19 million customers","sameAs":"https://en.wikipedia.org/wiki/NatWest_Group"},"workLocation":{"@type":"Place","name":"Edinburgh, Scotland","address":{"@type":"PostalAddress","addressLocality":"Edinburgh","addressRegion":"Scotland","addressCountry":"GB"}},"knowsAbout":["General programming","Databases","Web frameworks & UI","Backend","Cross-platform & Desktop","DevOps & Testing","Cloud & Infrastructure","TypeScript","JavaScript","Python","C","C++","Java","Bash","PostgreSQL","MongoDB","SQLite","MySQL","Snowflake","Next.js","React.js","Tailwind CSS","shadcn/ui","Radix UI","HeroUI","daisyUI","MUI","Express.js","Prisma","WebSocket","Electron.js","Qt","GitHub Actions","GitLab CI/CD","Playwright","Jest","Sentry","Turborepo","Vercel","Cloudflare","Docker","Supabase","GCP","Nginx","Firebase","Software Engineering","Full Stack Development","Parallel and Distributed Systems","Web Development","API Development","Version Control (Git)","Agile Methodologies","Test-Driven Development","Continuous Integration/Continuous Deployment","Web Accessibility","Full-Stack Web Development","TypeScript Development","React & Next.js","User Experience Design","Web Accessibility","Software Engineering"],"award":["First Class Honours - BSc Software Engineering","Double Degree Programme Graduate"],"honorificSuffix":"BSc (Hons)","hasCredential":[{"@type":"EducationalOccupationalCredential","@id":"https://dulapahv.dev/#degree-glasgow","name":"BSc (Hons) Software Engineering","description":"Double degree program with KMITL. First Class Honours with Specialization in Parallel and Distributed Systems. Final two years completed at University of Glasgow.","credentialCategory":"degree","educationalLevel":"Bachelor","dateCreated":"2023-09","recognizedBy":{"@type":"CollegeOrUniversity","name":"University of Glasgow","url":"https://www.gla.ac.uk/"}},{"@type":"EducationalOccupationalCredential","@id":"https://dulapahv.dev/#degree-kmitl","name":"BEng Software Engineering","description":"Double degree programme with University of Glasgow. First two years completed at KMITL before transferring to Glasgow.","credentialCategory":"degree","educationalLevel":"Bachelor","dateCreated":"2021-08","recognizedBy":{"@type":"CollegeOrUniversity","name":"King Mongkut's Institute of Technology Ladkrabang","url":"https://www.kmitl.ac.th/"}}],"knowsLanguage":[{"@type":"Language","name":"Thai","alternateName":"th"},{"@type":"Language","name":"English","alternateName":"en"}],"contactPoint":{"@type":"ContactPoint","contactType":"professional","areaServed":"GB","availableLanguage":["en","th"],"url":"https://dulapahv.dev/contact"},"hasOccupation":{"@type":"Occupation","name":"Software Engineer","description":"Software engineers design and create computer systems and applications to solve real-world problems.","occupationalCategory":"15-1252.00","occupationLocation":{"@type":"City","name":"Edinburgh, Scotland","address":{"@type":"PostalAddress","addressLocality":"Edinburgh","addressRegion":"Scotland","addressCountry":"GB"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dulapahv.dev/#occupation-software-engineer","name":"Software Engineer","description":"Software engineers design and create computer systems and applications to solve real-world problems.","url":"https://dulapahv.dev/#occupation-software-engineer","lastReviewed":"2007-01-09T09:41:00.000Z"}}},{"@context":"https://schema.org","@type":"WebSite","@id":"https://dulapahv.dev/#website","url":"https://dulapahv.dev","name":"DulapahV Portfolio","alternateName":"Dulapah Vibulsanti Portfolio","description":"Thai Software Engineer based in Edinburgh, United Kingdom. Passionate about creating accessible and delightful technology for everyone.","publisher":{"@id":"https://dulapahv.dev/#person"},"inLanguage":"en-US"},{"@context":"https://schema.org","@type":"CollectionPage","@id":"https://dulapahv.dev/project","url":"https://dulapahv.dev/project","name":"Project","description":"Professional and personal projects I have worked on.","mainEntity":{"@type":"ItemList","numberOfItems":1,"itemListElement":[{"@type":"ListItem","position":1,"url":"https://dulapahv.dev/project/test-project"}]},"primaryImageOfPage":{"@type":"ImageObject","url":"https://dulapahv.dev/og?title=Project&description=Professional+and+personal+projects+I+have+worked+on.","width":"1200","height":"630"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://dulapahv.dev/project#breadcrumb","name":"Breadcrumbs","itemListOrder":"https://schema.org/ItemListOrderAscending","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://dulapahv.dev"},{"@type":"ListItem","position":2,"name":"Project","item":"https://dulapahv.dev/project"}]}}]
+    [{"@context":"https://schema.org","@type":"Person","@id":"https://dulapahv.dev/#person","name":"Dulapah Vibulsanti","givenName":"Dulapah","familyName":"Vibulsanti","alternateName":"DulapahV","description":"Thai Software Engineer based in Edinburgh, United Kingdom. Passionate about creating accessible and delightful technology for everyone.","gender":"male","nationality":{"@type":"Country","name":"Thailand"},"url":"https://dulapahv.dev","image":{"@type":"ImageObject","url":"https://dulapahv.dev/og?title=Dulapah+Vibulsanti%0ASoftware+Engineer&description=Thai+Software+Engineer+based+in+Edinburgh%2C+United+Kingdom.+Passionate+about+creating+accessible+and+delightful+technology+for+everyone.","caption":"Dulapah Vibulsanti - Software Engineer","width":"1200","height":"630"},"sameAs":["https://github.com/dulapahv","https://www.linkedin.com/in/dulapahv"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"University of Glasgow","url":"https://www.gla.ac.uk/","identifier":"Russell Group University","address":{"@type":"PostalAddress","addressLocality":"Glasgow","addressRegion":"Scotland","addressCountry":"GB","postalCode":"G12 8QQ","streetAddress":"University Avenue"}},{"@type":"CollegeOrUniversity","name":"King Mongkut's Institute of Technology Ladkrabang","alternateName":"KMITL","url":"https://www.kmitl.ac.th/","address":{"@type":"PostalAddress","addressLocality":"Bangkok","addressRegion":"Bangkok","addressCountry":"TH","postalCode":"10520","streetAddress":"1 Chalong Krung 1 Alley, Lat Krabang"}},{"@type":"EducationalOrganization","name":"Suankularb Wittayalai School","url":"https://www.sk.ac.th/","address":{"@type":"PostalAddress","addressLocality":"Bangkok","addressRegion":"Phra Nakhon","addressCountry":"TH","postalCode":"10200","streetAddress":"88 Tri Phet Road"}}],"jobTitle":"Graduate Software Engineer","worksFor":{"@type":"Organization","name":"NatWest Group","url":"https://www.natwestgroup.com/","description":"One of the UK's Big Four banks, serving over 19 million customers","sameAs":"https://en.wikipedia.org/wiki/NatWest_Group"},"workLocation":{"@type":"Place","name":"Edinburgh, Scotland","address":{"@type":"PostalAddress","addressLocality":"Edinburgh","addressRegion":"Scotland","addressCountry":"GB"}},"knowsAbout":["General programming","Databases","Web frameworks & UI","Backend","Cross-platform & Desktop","DevOps & Testing","Cloud & Infrastructure","TypeScript","JavaScript","Python","Java","SQL","C","C++","Bash","PostgreSQL","MongoDB","SQLite","MySQL","Snowflake","Next.js","React.js","Tailwind CSS","Figma","shadcn/ui","Radix UI","HeroUI","daisyUI","MUI","Express.js","Prisma","WebSocket","Electron.js","Qt","GitHub Actions","GitLab CI/CD","Turborepo","Sentry","Vitest","Playwright","Jest","Vercel","Cloudflare","Docker","Supabase","Nginx","Software Engineering","Full Stack Development","Parallel and Distributed Systems","Web Development","API Development","Version Control (Git)","Agile Methodologies","Test-Driven Development","Continuous Integration/Continuous Deployment","Web Accessibility","Full-Stack Web Development","TypeScript Development","React & Next.js","User Experience Design","Web Accessibility","Software Engineering"],"award":["First Class Honours - BSc Software Engineering","Double Degree Programme Graduate"],"honorificSuffix":"BSc (Hons)","hasCredential":[{"@type":"EducationalOccupationalCredential","@id":"https://dulapahv.dev/#degree-glasgow","name":"BSc (Hons) Software Engineering","description":"Double degree program with KMITL. First Class Honours with Specialization in Parallel and Distributed Systems. Final two years completed at University of Glasgow.","credentialCategory":"degree","educationalLevel":"Bachelor","dateCreated":"2023-09","recognizedBy":{"@type":"CollegeOrUniversity","name":"University of Glasgow","url":"https://www.gla.ac.uk/"}},{"@type":"EducationalOccupationalCredential","@id":"https://dulapahv.dev/#degree-kmitl","name":"BEng Software Engineering","description":"Double degree programme with University of Glasgow. First two years completed at KMITL before transferring to Glasgow.","credentialCategory":"degree","educationalLevel":"Bachelor","dateCreated":"2021-08","recognizedBy":{"@type":"CollegeOrUniversity","name":"King Mongkut's Institute of Technology Ladkrabang","url":"https://www.kmitl.ac.th/"}}],"knowsLanguage":[{"@type":"Language","name":"Thai","alternateName":"th"},{"@type":"Language","name":"English","alternateName":"en"}],"contactPoint":{"@type":"ContactPoint","contactType":"professional","areaServed":"GB","availableLanguage":["en","th"],"url":"https://dulapahv.dev/contact"},"hasOccupation":{"@type":"Occupation","name":"Software Engineer","description":"Software engineers design and create computer systems and applications to solve real-world problems.","occupationalCategory":"15-1252.00","occupationLocation":{"@type":"City","name":"Edinburgh, Scotland","address":{"@type":"PostalAddress","addressLocality":"Edinburgh","addressRegion":"Scotland","addressCountry":"GB"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dulapahv.dev/#occupation-software-engineer","name":"Software Engineer","description":"Software engineers design and create computer systems and applications to solve real-world problems.","url":"https://dulapahv.dev/#occupation-software-engineer","lastReviewed":"2007-01-09T09:41:00.000Z"}}},{"@context":"https://schema.org","@type":"WebSite","@id":"https://dulapahv.dev/#website","url":"https://dulapahv.dev","name":"DulapahV Portfolio","alternateName":"Dulapah Vibulsanti Portfolio","description":"Thai Software Engineer based in Edinburgh, United Kingdom. Passionate about creating accessible and delightful technology for everyone.","publisher":{"@id":"https://dulapahv.dev/#person"},"inLanguage":"en-US"},{"@context":"https://schema.org","@type":"CollectionPage","@id":"https://dulapahv.dev/project","url":"https://dulapahv.dev/project","name":"Project","description":"Professional and personal projects I have worked on.","mainEntity":{"@type":"ItemList","numberOfItems":1,"itemListElement":[{"@type":"ListItem","position":1,"url":"https://dulapahv.dev/project/test-project"}]},"primaryImageOfPage":{"@type":"ImageObject","url":"https://dulapahv.dev/og?title=Project&description=Professional+and+personal+projects+I+have+worked+on.","width":"1200","height":"630"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://dulapahv.dev/project#breadcrumb","name":"Breadcrumbs","itemListOrder":"https://schema.org/ItemListOrderAscending","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://dulapahv.dev"},{"@type":"ListItem","position":2,"name":"Project","item":"https://dulapahv.dev/project"}]}}]
   </script>
   <div
-    class="mx-auto max-w-2xl space-y-4"
+    class="mx-auto max-w-3xl space-y-4"
   >
     <nav
       aria-label="breadcrumb"
@@ -228,7 +228,7 @@ exports[`Type Listing Page > should render project listing and match snapshot 1`
   </div>
   <div>
     <main
-      class="mx-auto max-w-2xl space-y-4"
+      class="mx-auto max-w-3xl space-y-4"
     >
       <header
         class="gap-0"
@@ -291,174 +291,6 @@ exports[`Type Listing Page > should render project listing and match snapshot 1`
                 aria-label="Read Test Project: A test project"
                 class="group -m-2 flex items-center justify-between gap-2 rounded-md p-2 transition-colors hover:text-mirai-red"
                 href="/project/test-project"
-              >
-                <div
-                  class="flex flex-col gap-1"
-                >
-                  <h3
-                    class="text-lg font-semibold"
-                  >
-                    Test Project
-                  </h3>
-                  <p
-                    class="text-foreground-lighter text-sm"
-                  >
-                    A test project
-                  </p>
-                  <time
-                    aria-label="Published on Jan 2024 - Present"
-                    class="text-foreground-lighter text-xs"
-                    datetime="2024-01-01"
-                  >
-                    Jan 2024 - Present
-                  </time>
-                </div>
-                <svg
-                  aria-hidden="true"
-                  class="size-4.5 shrink-0 transition-transform group-hover:translate-x-1 group-focus:translate-x-1"
-                  fill="currentColor"
-                  height="1em"
-                  viewBox="0 0 256 256"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"
-                  />
-                </svg>
-              </a>
-            </li>
-          </ul>
-        </section>
-      </div>
-    </main>
-  </div>
-</div>
-`;
-
-exports[`Type Listing Page > should render work listing and match snapshot 1`] = `
-<div>
-  <script
-    type="application/ld+json"
-  >
-    [{"@context":"https://schema.org","@type":"Person","@id":"https://dulapahv.dev/#person","name":"Dulapah Vibulsanti","givenName":"Dulapah","familyName":"Vibulsanti","alternateName":"DulapahV","description":"Thai Software Engineer based in Edinburgh, United Kingdom. Passionate about creating accessible and delightful technology for everyone.","gender":"male","nationality":{"@type":"Country","name":"Thailand"},"url":"https://dulapahv.dev","image":{"@type":"ImageObject","url":"https://dulapahv.dev/og?title=Dulapah+Vibulsanti%0ASoftware+Engineer&description=Thai+Software+Engineer+based+in+Edinburgh%2C+United+Kingdom.+Passionate+about+creating+accessible+and+delightful+technology+for+everyone.","caption":"Dulapah Vibulsanti - Software Engineer","width":"1200","height":"630"},"sameAs":["https://github.com/dulapahv","https://www.linkedin.com/in/dulapahv"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"University of Glasgow","url":"https://www.gla.ac.uk/","identifier":"Russell Group University","address":{"@type":"PostalAddress","addressLocality":"Glasgow","addressRegion":"Scotland","addressCountry":"GB","postalCode":"G12 8QQ","streetAddress":"University Avenue"}},{"@type":"CollegeOrUniversity","name":"King Mongkut's Institute of Technology Ladkrabang","alternateName":"KMITL","url":"https://www.kmitl.ac.th/","address":{"@type":"PostalAddress","addressLocality":"Bangkok","addressRegion":"Bangkok","addressCountry":"TH","postalCode":"10520","streetAddress":"1 Chalong Krung 1 Alley, Lat Krabang"}},{"@type":"EducationalOrganization","name":"Suankularb Wittayalai School","url":"https://www.sk.ac.th/","address":{"@type":"PostalAddress","addressLocality":"Bangkok","addressRegion":"Phra Nakhon","addressCountry":"TH","postalCode":"10200","streetAddress":"88 Tri Phet Road"}}],"jobTitle":"Graduate Software Engineer","worksFor":{"@type":"Organization","name":"NatWest Group","url":"https://www.natwestgroup.com/","description":"One of the UK's Big Four banks, serving over 19 million customers","sameAs":"https://en.wikipedia.org/wiki/NatWest_Group"},"workLocation":{"@type":"Place","name":"Edinburgh, Scotland","address":{"@type":"PostalAddress","addressLocality":"Edinburgh","addressRegion":"Scotland","addressCountry":"GB"}},"knowsAbout":["General programming","Databases","Web frameworks & UI","Backend","Cross-platform & Desktop","DevOps & Testing","Cloud & Infrastructure","TypeScript","JavaScript","Python","C","C++","Java","Bash","PostgreSQL","MongoDB","SQLite","MySQL","Snowflake","Next.js","React.js","Tailwind CSS","shadcn/ui","Radix UI","HeroUI","daisyUI","MUI","Express.js","Prisma","WebSocket","Electron.js","Qt","GitHub Actions","GitLab CI/CD","Playwright","Jest","Sentry","Turborepo","Vercel","Cloudflare","Docker","Supabase","GCP","Nginx","Firebase","Software Engineering","Full Stack Development","Parallel and Distributed Systems","Web Development","API Development","Version Control (Git)","Agile Methodologies","Test-Driven Development","Continuous Integration/Continuous Deployment","Web Accessibility","Full-Stack Web Development","TypeScript Development","React & Next.js","User Experience Design","Web Accessibility","Software Engineering"],"award":["First Class Honours - BSc Software Engineering","Double Degree Programme Graduate"],"honorificSuffix":"BSc (Hons)","hasCredential":[{"@type":"EducationalOccupationalCredential","@id":"https://dulapahv.dev/#degree-glasgow","name":"BSc (Hons) Software Engineering","description":"Double degree program with KMITL. First Class Honours with Specialization in Parallel and Distributed Systems. Final two years completed at University of Glasgow.","credentialCategory":"degree","educationalLevel":"Bachelor","dateCreated":"2023-09","recognizedBy":{"@type":"CollegeOrUniversity","name":"University of Glasgow","url":"https://www.gla.ac.uk/"}},{"@type":"EducationalOccupationalCredential","@id":"https://dulapahv.dev/#degree-kmitl","name":"BEng Software Engineering","description":"Double degree programme with University of Glasgow. First two years completed at KMITL before transferring to Glasgow.","credentialCategory":"degree","educationalLevel":"Bachelor","dateCreated":"2021-08","recognizedBy":{"@type":"CollegeOrUniversity","name":"King Mongkut's Institute of Technology Ladkrabang","url":"https://www.kmitl.ac.th/"}}],"knowsLanguage":[{"@type":"Language","name":"Thai","alternateName":"th"},{"@type":"Language","name":"English","alternateName":"en"}],"contactPoint":{"@type":"ContactPoint","contactType":"professional","areaServed":"GB","availableLanguage":["en","th"],"url":"https://dulapahv.dev/contact"},"hasOccupation":{"@type":"Occupation","name":"Software Engineer","description":"Software engineers design and create computer systems and applications to solve real-world problems.","occupationalCategory":"15-1252.00","occupationLocation":{"@type":"City","name":"Edinburgh, Scotland","address":{"@type":"PostalAddress","addressLocality":"Edinburgh","addressRegion":"Scotland","addressCountry":"GB"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dulapahv.dev/#occupation-software-engineer","name":"Software Engineer","description":"Software engineers design and create computer systems and applications to solve real-world problems.","url":"https://dulapahv.dev/#occupation-software-engineer","lastReviewed":"2007-01-09T09:41:00.000Z"}}},{"@context":"https://schema.org","@type":"WebSite","@id":"https://dulapahv.dev/#website","url":"https://dulapahv.dev","name":"DulapahV Portfolio","alternateName":"Dulapah Vibulsanti Portfolio","description":"Thai Software Engineer based in Edinburgh, United Kingdom. Passionate about creating accessible and delightful technology for everyone.","publisher":{"@id":"https://dulapahv.dev/#person"},"inLanguage":"en-US"},{"@context":"https://schema.org","@type":"CollectionPage","@id":"https://dulapahv.dev/work","url":"https://dulapahv.dev/work","name":"Work","description":"Companies and clients I've worked with.","mainEntity":{"@type":"ItemList","numberOfItems":1,"itemListElement":[{"@type":"ListItem","position":1,"url":"https://dulapahv.dev/work/test-project"}]},"primaryImageOfPage":{"@type":"ImageObject","url":"https://dulapahv.dev/og?title=Work&description=Companies+and+clients+I%27ve+worked+with.","width":"1200","height":"630"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://dulapahv.dev/work#breadcrumb","name":"Breadcrumbs","itemListOrder":"https://schema.org/ItemListOrderAscending","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://dulapahv.dev"},{"@type":"ListItem","position":2,"name":"Work","item":"https://dulapahv.dev/work"}]}}]
-  </script>
-  <div
-    class="mx-auto max-w-2xl space-y-4"
-  >
-    <nav
-      aria-label="breadcrumb"
-    >
-      <ol
-        class="text-foreground-muted flex flex-wrap items-center gap-1.5 text-sm wrap-break-word sm:gap-2.5"
-      >
-        <li
-          class="inline-flex items-center gap-1.5"
-        >
-          <a
-            class="rounded-sm transition-colors hover:text-foreground focus:text-foreground"
-            href="/"
-          >
-            Home
-          </a>
-        </li>
-        <li
-          aria-hidden="true"
-          class="[&>svg]:size-3.5"
-          role="presentation"
-        >
-          <svg
-            fill="currentColor"
-            height="1em"
-            viewBox="0 0 256 256"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"
-            />
-          </svg>
-        </li>
-        <li
-          class="inline-flex items-center gap-1.5"
-        >
-          <span
-            aria-current="page"
-            aria-disabled="true"
-            class="text-foreground font-normal max-w-48 truncate"
-            role="link"
-          >
-            Work
-          </span>
-        </li>
-      </ol>
-    </nav>
-  </div>
-  <div>
-    <main
-      class="mx-auto max-w-2xl space-y-4"
-    >
-      <header
-        class="gap-0"
-      >
-        <h1
-          class="text-lg font-medium"
-        >
-          Work
-        </h1>
-        <p
-          class="text-foreground-muted"
-        >
-          Companies and clients I've worked with.
-        </p>
-      </header>
-      <div
-        aria-label="Work by year"
-        role="main"
-      >
-        <section
-          aria-labelledby="2024"
-          class="divide-mirai-red mb-8 divide-y divide-dashed"
-        >
-          <h2
-            class="text-mirai-red mb-2 font-normal"
-            id="2024"
-          >
-            <a
-              aria-label="Jump to 2024 section"
-              class="group relative rounded-sm underline-offset-2 hover:underline"
-              href="#2024"
-            >
-              <svg
-                aria-hidden="true"
-                class="absolute top-1/2 -left-4.5 size-3.5 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-focus:opacity-100"
-                fill="currentColor"
-                height="1em"
-                viewBox="0 0 256 256"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M240,88.23a54.43,54.43,0,0,1-16,37L189.25,160a54.27,54.27,0,0,1-38.63,16h-.05A54.63,54.63,0,0,1,96,119.84a8,8,0,0,1,16,.45A38.62,38.62,0,0,0,150.58,160h0a38.39,38.39,0,0,0,27.31-11.31l34.75-34.75a38.63,38.63,0,0,0-54.63-54.63l-11,11A8,8,0,0,1,135.7,59l11-11A54.65,54.65,0,0,1,224,48,54.86,54.86,0,0,1,240,88.23ZM109,185.66l-11,11A38.41,38.41,0,0,1,70.6,208h0a38.63,38.63,0,0,1-27.29-65.94L78,107.31A38.63,38.63,0,0,1,144,135.71a8,8,0,0,0,16,.45A54.86,54.86,0,0,0,144,96a54.65,54.65,0,0,0-77.27,0L32,130.75A54.62,54.62,0,0,0,70.56,224h0a54.28,54.28,0,0,0,38.64-16l11-11A8,8,0,0,0,109,185.66Z"
-                />
-              </svg>
-              <span>
-                2024
-              </span>
-            </a>
-          </h2>
-          <ul
-            aria-label="work from 2024"
-            class="grid gap-6"
-            role="list"
-          >
-            <li
-              role="listitem"
-            >
-              <a
-                aria-label="Read Test Project: A test project"
-                class="group -m-2 flex items-center justify-between gap-2 rounded-md p-2 transition-colors hover:text-mirai-red"
-                href="/work/test-project"
               >
                 <div
                   class="flex flex-col gap-1"

@@ -189,7 +189,7 @@ describe('ContactForm', () => {
 
   describe('Form submission', () => {
     beforeEach(async () => {
-      const { sendContactEmail } = await import('@/app/actions/contact');
+      const { sendContactEmail } = await import('@/app/actions/Contact');
       vi.mocked(sendContactEmail).mockResolvedValue({ success: true });
     });
 
@@ -206,7 +206,7 @@ describe('ContactForm', () => {
     });
 
     it('should submit form successfully when CAPTCHA is solved', async () => {
-      const { sendContactEmail } = await import('@/app/actions/contact');
+      const { sendContactEmail } = await import('@/app/actions/Contact');
       vi.mocked(sendContactEmail).mockResolvedValue({ success: true });
 
       render(<ContactForm />);
@@ -238,7 +238,7 @@ describe('ContactForm', () => {
     });
 
     it('should show success message after successful submission', async () => {
-      const { sendContactEmail } = await import('@/app/actions/contact');
+      const { sendContactEmail } = await import('@/app/actions/Contact');
       vi.mocked(sendContactEmail).mockResolvedValue({ success: true });
 
       render(<ContactForm />);
@@ -262,7 +262,7 @@ describe('ContactForm', () => {
     });
 
     it('should show error message on submission failure', async () => {
-      const { sendContactEmail } = await import('@/app/actions/contact');
+      const { sendContactEmail } = await import('@/app/actions/Contact');
       vi.mocked(sendContactEmail).mockResolvedValue({ error: 'Failed to send email' });
 
       render(<ContactForm />);
@@ -284,7 +284,7 @@ describe('ContactForm', () => {
     });
 
     it('should show error message on unexpected error', async () => {
-      const { sendContactEmail } = await import('@/app/actions/contact');
+      const { sendContactEmail } = await import('@/app/actions/Contact');
       vi.mocked(sendContactEmail).mockRejectedValue(new Error('Network error'));
 
       render(<ContactForm />);
@@ -308,7 +308,7 @@ describe('ContactForm', () => {
 
   describe('Loading state', () => {
     it('should show loading text during submission', async () => {
-      const { sendContactEmail } = await import('@/app/actions/contact');
+      const { sendContactEmail } = await import('@/app/actions/Contact');
       /* eslint-disable  @typescript-eslint/no-explicit-any */
       let resolveSubmit: any;
       vi.mocked(sendContactEmail).mockReturnValue(
@@ -338,7 +338,7 @@ describe('ContactForm', () => {
     });
 
     it('should disable submit button during submission', async () => {
-      const { sendContactEmail } = await import('@/app/actions/contact');
+      const { sendContactEmail } = await import('@/app/actions/Contact');
       /* eslint-disable  @typescript-eslint/no-explicit-any */
       let resolveSubmit: any;
       vi.mocked(sendContactEmail).mockReturnValue(
@@ -417,7 +417,7 @@ describe('ContactForm', () => {
     });
 
     it('should have aria-live for success message', async () => {
-      const { sendContactEmail } = await import('@/app/actions/contact');
+      const { sendContactEmail } = await import('@/app/actions/Contact');
       vi.mocked(sendContactEmail).mockResolvedValue({ success: true });
 
       render(<ContactForm />);
@@ -453,7 +453,7 @@ describe('ContactForm', () => {
 
   describe('Form reset', () => {
     it('should reset form after successful submission', async () => {
-      const { sendContactEmail } = await import('@/app/actions/contact');
+      const { sendContactEmail } = await import('@/app/actions/Contact');
       vi.mocked(sendContactEmail).mockResolvedValue({ success: true });
 
       render(<ContactForm />);

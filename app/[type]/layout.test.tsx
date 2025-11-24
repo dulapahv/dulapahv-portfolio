@@ -53,12 +53,12 @@ describe('Type Layout', () => {
     expect(screen.getByText('Blog Content')).toBeInTheDocument();
 
     rerender(
-      <TypeLayout params={Promise.resolve({ type: 'work' })}>
-        <div>Work Content</div>
+      <TypeLayout params={Promise.resolve({ type: 'blog' })}>
+        <div>Blog Content</div>
       </TypeLayout>
     );
 
-    expect(screen.getByText('Work Content')).toBeInTheDocument();
+    expect(screen.getByText('Blog Content')).toBeInTheDocument();
   });
 
   it('should match snapshot', () => {

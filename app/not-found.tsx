@@ -5,7 +5,7 @@ import { HouseIcon } from '@phosphor-icons/react/dist/ssr';
 
 import { createMetadata } from '@/lib/metadata';
 import { cn } from '@/lib/utils';
-import { Footer } from '@/components/footer';
+import { Footer } from '@/components/Footer';
 
 export const metadata: Metadata = createMetadata({
   title: '404 - Page Not Found',

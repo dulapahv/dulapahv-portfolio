@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Raleway } from 'next/font/google';
+import { IBM_Plex_Sans, Raleway } from 'next/font/google';
 import Image from 'next/image';
 
 import { Analytics } from '@vercel/analytics/next';
@@ -9,12 +9,18 @@ import { ThemeProvider } from 'next-themes';
 
 import { BASE_URL } from '@/lib/constants';
 import { cn } from '@/lib/utils';
-import { Navbar } from '@/components/navbar';
-import { ThemeSwitcher } from '@/components/theme-switcher';
+import MousePositionVarsSetter from '@/components/MousePositionSetter';
+import { Navbar } from '@/components/Navbar';
+import { TopBar } from '@/components/TopBar';
 
 import './globals.css';
 
 export const raleway = Raleway({
+  subsets: ['latin'],
+  weight: 'variable'
+});
+
+const ibmPlexSans = IBM_Plex_Sans({
   subsets: ['latin'],
   weight: 'variable'
 });
@@ -29,7 +35,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
     <html
       lang="en"
-      className={cn('bg-background dark', raleway.className, GeistMono.variable)}
+      className={cn('bg-background dark', ibmPlexSans.className, GeistMono.variable)}
       suppressHydrationWarning
     >
       <head>
@@ -43,6 +49,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
           disableTransitionOnChange
           scriptProps={{ 'data-cfasync': 'false' }}
         >
+          <MousePositionVarsSetter />
           <a
             href="#main-content"
             className={cn(
@@ -68,9 +75,9 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
           >
             <Image src="/ao.png" alt="" fill priority className="object-contain" />
           </div>
+          <TopBar />
           <Navbar />
-          <ThemeSwitcher />
-          <div id="main-content" className="mx-auto max-w-4xl space-y-4 px-4 py-16">
+          <div id="main-content" className="mx-auto max-w-7xl space-y-4 px-4 py-16 pt-24">
             {children}
           </div>
         </ThemeProvider>

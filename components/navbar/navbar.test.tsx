@@ -3,7 +3,7 @@ import { usePathname } from 'next/navigation';
 import { render, screen } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { Navbar } from './navbar';
+import { Navbar } from './Navbar';
 
 vi.mock('next/navigation', () => ({
   usePathname: vi.fn()
@@ -28,7 +28,6 @@ describe('Navbar', () => {
       render(<Navbar />);
 
       expect(screen.getByRole('link', { name: /home/i })).toBeInTheDocument();
-      expect(screen.getByRole('link', { name: /work/i })).toBeInTheDocument();
       expect(screen.getByRole('link', { name: /project/i })).toBeInTheDocument();
       expect(screen.getByRole('link', { name: /blog/i })).toBeInTheDocument();
       expect(screen.getByRole('link', { name: /contact/i })).toBeInTheDocument();
@@ -39,7 +38,6 @@ describe('Navbar', () => {
       render(<Navbar />);
 
       expect(screen.getByRole('link', { name: /home/i })).toHaveAttribute('href', '/');
-      expect(screen.getByRole('link', { name: /work/i })).toHaveAttribute('href', '/work');
       expect(screen.getByRole('link', { name: /project/i })).toHaveAttribute('href', '/project');
       expect(screen.getByRole('link', { name: /blog/i })).toHaveAttribute('href', '/blog');
       expect(screen.getByRole('link', { name: /contact/i })).toHaveAttribute('href', '/contact');
@@ -53,14 +51,6 @@ describe('Navbar', () => {
 
       const homeLink = screen.getByRole('link', { name: /home.*current/i });
       expect(homeLink).toHaveAttribute('aria-current', 'page');
-    });
-
-    it('should mark work as active when on work page', () => {
-      vi.mocked(usePathname).mockReturnValue('/work');
-      render(<Navbar />);
-
-      const workLink = screen.getByRole('link', { name: /work.*current/i });
-      expect(workLink).toHaveAttribute('aria-current', 'page');
     });
 
     it('should mark project as active when on project page', () => {
@@ -93,14 +83,6 @@ describe('Navbar', () => {
 
       const blogLink = screen.getByRole('link', { name: /blog.*current/i });
       expect(blogLink).toHaveAttribute('aria-current', 'page');
-    });
-
-    it('should only mark home as active on exact home path', () => {
-      vi.mocked(usePathname).mockReturnValue('/work');
-      render(<Navbar />);
-
-      const homeLink = screen.getByRole('link', { name: /^home$/i });
-      expect(homeLink).not.toHaveAttribute('aria-current');
     });
   });
 

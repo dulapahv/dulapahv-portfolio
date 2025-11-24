@@ -1,10 +1,10 @@
-import { Footer } from '@/components/footer';
+import { Footer } from '@/components/Footer';
 
 export default function Layout({ children }: LayoutProps<'/contact'>) {
   return (
     <>
       {children}
-      <div className="mx-auto max-w-2xl">
+      <div className="mx-auto max-w-3xl">
         <Footer />
       </div>
     </>

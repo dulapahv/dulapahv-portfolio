@@ -44,12 +44,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const typePages: MetadataRoute.Sitemap = [
     {
-      url: `${BASE_URL}/work`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7
-    },
-    {
       url: `${BASE_URL}/project`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
@@ -63,7 +57,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   ];
 
-  const types: ContentType[] = ['project', 'blog', 'work'];
+  const types: ContentType[] = ['project', 'blog'];
   const contentPages: MetadataRoute.Sitemap = types.flatMap(type =>
     getCollection(type).map(page => {
       const url = `${BASE_URL}/${type}/${page._meta.path}`;
@@ -91,7 +85,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         | 'never';
       if (type === 'blog') {
         changeFrequency = 'yearly';
-      } else if (type === 'work' || type === 'project') {
+      } else if (type === 'project') {
         const isOngoing = !('endDate' in page && page.endDate);
         changeFrequency = isOngoing ? 'monthly' : 'yearly';
       } else {

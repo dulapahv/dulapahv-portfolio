@@ -13,7 +13,7 @@ import {
 } from '@phosphor-icons/react/dist/ssr';
 
 import { cn } from '@/lib/utils';
-import { ThemeAwareImage } from '@/components/theme-aware-image';
+import { ThemeAwareImage } from '@/components/ThemeAwareImage';
 
 interface ShareButtonsProps {
   page?: {
@@ -193,7 +193,6 @@ export function ShareButtons({ page }: ShareButtonsProps) {
 
   return (
     <div className="flex flex-wrap items-center gap-3" role="group" aria-label="Share options">
-      {/* Native Share Button or Copy Link Button (fallback) */}
       {supportsNativeShare ? (
         <button
           onClick={handleNativeShare}
@@ -229,7 +228,6 @@ export function ShareButtons({ page }: ShareButtonsProps) {
         </button>
       )}
 
-      {/* X Share Button */}
       <button
         onClick={() => shareOnSocialMedia('X')}
         onKeyDown={e => handleKeyDown(e, () => shareOnSocialMedia('X'))}
@@ -250,7 +248,6 @@ export function ShareButtons({ page }: ShareButtonsProps) {
         />
       </button>
 
-      {/* Facebook Share Button */}
       <button
         onClick={() => shareOnSocialMedia('facebook')}
         onKeyDown={e => handleKeyDown(e, () => shareOnSocialMedia('facebook'))}
@@ -264,7 +261,6 @@ export function ShareButtons({ page }: ShareButtonsProps) {
         <Image src="/facebook.svg" width={24} height={24} alt="" aria-hidden="true" />
       </button>
 
-      {/* LinkedIn Share Button */}
       <button
         onClick={() => shareOnSocialMedia('linkedin')}
         onKeyDown={e => handleKeyDown(e, () => shareOnSocialMedia('linkedin'))}
@@ -278,7 +274,6 @@ export function ShareButtons({ page }: ShareButtonsProps) {
         <Image src="/linkedin.svg" width={20} height={20} alt="" aria-hidden="true" />
       </button>
 
-      {/* Copy page with dropdown */}
       {page && (
         <div className="relative ml-0 min-[425px]:ml-auto" ref={dropdownRef}>
           <div className="bg-background border-border flex items-center rounded-md border">
@@ -329,7 +324,6 @@ export function ShareButtons({ page }: ShareButtonsProps) {
             </button>
           </div>
 
-          {/* Dropdown menu */}
           {isDropdownOpen && (
             <div
               className={cn(

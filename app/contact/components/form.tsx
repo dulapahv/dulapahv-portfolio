@@ -15,11 +15,11 @@ import {
 } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { useOnLeavePageConfirmation } from '@/hooks/use-on-leave-page-confirmation';
-import type { RecipientEmailTemplateProps } from '@/components/email';
-import { Input } from '@/components/input';
-import { Spinner } from '@/components/spinner';
-import { Textarea } from '@/components/textarea';
-import { sendContactEmail } from '@/app/actions/contact';
+import type { RecipientEmailTemplateProps } from '@/components/Email';
+import { Input } from '@/components/Input';
+import { Spinner } from '@/components/Spinner';
+import { Textarea } from '@/components/TextArea';
+import { sendContactEmail } from '@/app/actions/Contact';
 
 interface ContactFormProps {
   searchParams?: RecipientEmailTemplateProps;
@@ -111,7 +111,6 @@ export const ContactForm = ({ searchParams }: ContactFormProps) => {
         defaultValue={initialMessage}
       />
 
-      {/* Success/Error Messages */}
       {submitSuccess && (
         <div className="text-success text-sm font-semibold" role="status" aria-live="polite">
           Your message has been sent successfully! You will receive a confirmation email and hear

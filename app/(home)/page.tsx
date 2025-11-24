@@ -1,27 +1,22 @@
-import { Suspense, ViewTransition } from 'react';
+import { ViewTransition } from 'react';
 import type { Metadata } from 'next';
-import { Merriweather } from 'next/font/google';
-import Image from 'next/image';
-import Link from 'next/link';
 
-import { DESCRIPTION, EDUCATION_LOCATION, GITHUB_URL, LINKEDIN_URL } from '@/lib/constants';
+import { DESCRIPTION } from '@/lib/constants';
 import { profilePageSchema } from '@/lib/json-ld';
 import { createMetadata } from '@/lib/metadata';
 import { cn } from '@/lib/utils';
-import { ContributionsSection } from '@/components/contributions-section';
-import { CurrentTime } from '@/components/current-time';
-import { Footer } from '@/components/footer';
-import { Globe } from '@/components/globe';
-import { JsonLd } from '@/components/json-ld';
-import { SkillsSection } from '@/components/skills-section';
-import { SocialLinks } from '@/components/social-links';
-import { ThemeAwareImage } from '@/components/theme-aware-image';
-import { getGitHubFollowers } from '@/app/actions/gh-follower';
-
-const merriweather = Merriweather({
-  subsets: ['latin'],
-  weight: '700'
-});
+import { AboutCard } from '@/components/AboutCard';
+import { CameraRollCard } from '@/components/CameraRollCard';
+import { Footer } from '@/components/Footer';
+import { GitHubContributionsCard } from '@/components/GithubContributionsCard';
+import { GlobeCard } from '@/components/GlobeCard';
+import { HeaderText } from '@/components/HeaderText';
+import { JsonLd } from '@/components/JsonLd';
+import { OpenSourceCard } from '@/components/OpenSourceCard';
+import { ProjectsCard } from '@/components/ProjectsCard';
+import { RecentBlogsCard } from '@/components/RecentBlogsCard';
+import { ResumeCard } from '@/components/ResumeCard';
+import { WorkCard } from '@/components/WorkCard';
 
 export const metadata: Metadata = createMetadata({
   title: 'Home',
@@ -29,179 +24,79 @@ export const metadata: Metadata = createMetadata({
   ogText: 'Dulapah Vibulsanti\nSoftware Engineer'
 });
 
-export default async function Home() {
-  const followers = await getGitHubFollowers();
-
+export default function Home() {
   return (
     <>
       <JsonLd schemas={[profilePageSchema]} />
-      <header className="flex flex-col gap-x-16 gap-y-2 tracking-wide text-balance sm:flex-row">
-        <h1
-          className={cn(
-            'order-2 mr-auto max-w-[545px] text-2xl font-semibold sm:order-1 sm:text-3xl/11',
-            merriweather.className
-          )}
-        >
-          <span className="text-mirai-red">
-            Hello{' '}
-            <Link
-              href="https://en.wiktionary.org/wiki/%E0%B8%AA%E0%B8%A7%E0%B8%B1%E0%B8%AA%E0%B8%94%E0%B8%B5"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Hello in Thai"
-            >
-              <Image
-                src="/wave.svg"
-                alt="Wave"
-                className={cn(
-                  'inline-block cursor-grab align-baseline',
-                  'hover:animate-wave',
-                  'active:cursor-grabbing'
-                )}
-                width={24}
-                height={24}
-              />{' '}
-            </Link>
-            I&apos;m Dulapah Vibulsanti{' '}
-            <Link
-              href={LINKEDIN_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Connect with me on LinkedIn"
-              className={cn(
-                'border-border bg-background inline-flex rounded-md border p-1 transition-colors',
-                'hover:bg-background-subtle hover:border-border-strong'
-              )}
-            >
-              <Image src="/linkedin.svg" alt="LinkedIn" width={24} height={24} />
-            </Link>
-            .
-          </span>
-          <br />
-          Thai{' '}
-          <Link
-            href="https://maps.app.goo.gl/uqHyX4aokhjnNn9Z7"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="View Thailand on map"
-            className={cn('inline-block align-middle transition-transform', 'hover:scale-105')}
-          >
-            <Image src="/thailand.svg" alt="Thailand" width={28} height={28} />
-          </Link>{' '}
-          Software Engineer{' '}
-          <Link
-            href={GITHUB_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`GitHub profile with ${followers} followers`}
-            className={cn(
-              'border-border bg-background inline-flex rounded-md border px-2 py-1 align-middle transition-colors',
-              'hover:bg-background-subtle hover:border-border-strong'
-            )}
-          >
-            <ThemeAwareImage
-              lightSrc="/octocat-black.svg"
-              darkSrc="/octocat-white.svg"
-              alt="GitHub"
-              width={24}
-              height={24}
-              className="align-middle"
+      <ViewTransition>
+        <header className="mb-12">
+          <HeaderText />
+          <div className="mt-12 max-w-4xl">
+            <h2 className="text-foreground-muted mb-4 text-sm font-semibold tracking-wider uppercase">
+              What I do
+            </h2>
+            <div className="flex flex-wrap gap-2">
+              {[
+                { label: 'Frontend Development', gradient: 'from-pink-500/20 to-rose-500/20' },
+                { label: 'Full-Stack Development', gradient: 'from-blue-500/20 to-cyan-500/20' },
+                { label: 'UI/UX Design', gradient: 'from-blue-600/20 to-purple-500/20' },
+                { label: 'Accessibility', gradient: 'from-amber-500/20 to-orange-500/20' }
+              ].map((skill, i) => (
+                <span
+                  key={skill.label}
+                  className={cn(
+                    `ring-border-subtle group relative inline-flex cursor-crosshair items-center gap-2 rounded-full
+                    bg-linear-to-br px-4 py-2 text-sm font-medium ring-1 backdrop-blur-sm`,
+                    skill.gradient
+                  )}
+                  style={{
+                    animationDelay: `${i * 0.1}s`,
+                    animation: 'fadeIn 0.5s ease-out forwards',
+                    opacity: 0
+                  }}
+                >
+                  <span
+                    className="bg-linear-to-br from-gray-900 to-gray-700 bg-clip-text text-transparent dark:from-white/90
+                      dark:to-white/70"
+                  >
+                    {skill.label}
+                  </span>
+                </span>
+              ))}
+            </div>
+          </div>
+        </header>
+        <main className="home-grid grid gap-5">
+          <article className="min-w-0" style={{ gridArea: '👋' }}>
+            <AboutCard />
+          </article>
+          <article className="min-w-0" style={{ gridArea: '👔' }}>
+            <WorkCard />
+          </article>
+          <article className="min-w-0" style={{ gridArea: '📝' }}>
+            <RecentBlogsCard />
+          </article>
+          <article className="min-w-0" style={{ gridArea: '📊' }}>
+            <GitHubContributionsCard username="dulapahv" />
+          </article>
+          <article className="min-w-0" style={{ gridArea: '🎨' }}>
+            <ProjectsCard />
+          </article>
+          <article className="min-w-0" style={{ gridArea: '📄' }}>
+            <ResumeCard />
+          </article>
+          <article className="min-w-0" style={{ gridArea: '🌟' }}>
+            <OpenSourceCard />
+          </article>
+          <article className="min-w-0" style={{ gridArea: '🌏' }}>
+            <GlobeCard />
+          </article>
+          <article className="min-w-0" style={{ gridArea: '📸' }}>
+            <CameraRollCard
+              images={['jp1.jpeg', 'jp2.jpeg', 'jp3.jpeg', 'edi1.jpeg', 'edi2.jpeg', 'edi3.jpeg']}
             />
-            <p className="border-border-subtle text-foreground-muted ml-2 border-l pl-2 text-base font-medium">
-              {followers}
-            </p>
-          </Link>{' '}
-          based in Edinburgh,
-          <br />
-          United Kingdom{' '}
-          <Suspense fallback="00:00">
-            <CurrentTime />
-          </Suspense>
-          .
-        </h1>
-        <Image
-          src="/avatar.jpg"
-          alt="Dulapah Vibulsanti"
-          className="ring-border-subtle bg-background-muted/50 order-1 size-24 rounded-full ring-2 sm:size-32 md:order-2"
-          width={128}
-          height={128}
-          priority
-        />
-      </header>
-      <ViewTransition default="slide">
-        {/* <ViewTransition update="none"> */}
-        <SocialLinks />
-
-        <blockquote
-          className="border-l-mirai-red border-border bg-background text-foreground my-8 rounded-md border border-l-8
-            py-2 pr-2.5 pl-3 italic shadow-sm"
-        >
-          &quot;I believe accessible and delightful technology has the power to transform lives, and
-          that&apos;s what I&apos;ve been working toward since the very beginning.&quot;
-        </blockquote>
-        {/* </ViewTransition> */}
-
-        <article className="text-foreground leading-7">
-          I&apos;m a <b className="text-foreground font-semibold">Graduate Software Engineer</b> at{' '}
-          <Link
-            href="https://www.natwestgroup.com/"
-            className={cn('text-mirai-red underline underline-offset-2', 'hover:decoration-2')}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            NatWest Group
-          </Link>
-          , one of the United Kingdom&apos;s Big Four banks, serving over 20 million customers
-          across retail, commercial, and private banking.
-          <br />
-          <br />
-          In 2024, I completed an internship at NatWest Group as a{' '}
-          <b className="text-foreground font-semibold">Software Engineer Intern</b>, where I honed
-          my skills across frontend, backend, cloud technologies, DevOps, and data analytics.
-          Following the internship, I was thrilled to receive a{' '}
-          <b className="text-foreground font-semibold">return offer</b> to join as a Graduate
-          Software Engineer, starting in September 2025.
-          <br />
-          <Globe
-            width={384}
-            height={320}
-            markers={[...EDUCATION_LOCATION]}
-            className="float-left -ml-8 h-72 w-screen cursor-grab overflow-hidden rounded-lg min-[425px]:ml-0
-              min-[425px]:w-full sm:mt-4 sm:w-96"
-          />
-          <br />
-          In 2025, I completed a double degree program in Software Engineering, earning a{' '}
-          <b className="text-foreground font-semibold">
-            Bachelor of Science with Honours (BSc Hons) with First Class Honours and Specialism in
-            Parallel and Distributed Systems
-          </b>{' '}
-          from{' '}
-          <Link
-            href="https://www.gla.ac.uk/"
-            className={cn('text-mirai-red underline underline-offset-2', 'hover:decoration-2')}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            University of Glasgow
-          </Link>
-          , a Russell Group university in the United Kingdom, and a{' '}
-          <b className="text-foreground font-semibold">Bachelor of Engineering (B.Eng.)</b> from{' '}
-          <Link
-            href="https://www.kmitl.ac.th/"
-            className={cn('text-mirai-red underline underline-offset-2', 'hover:decoration-2')}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            King Mongkut&apos;s Institute of Technology Ladkrabang (KMITL)
-          </Link>
-          , Thailand. I completed the first two years of the program in Thailand and the final two
-          years in the United Kingdom.
-          <br />
-          <br />
-          Looking forward to where my career will take me...
-        </article>
-        <SkillsSection />
-        <ContributionsSection />
+          </article>
+        </main>
       </ViewTransition>
       <Footer />
     </>

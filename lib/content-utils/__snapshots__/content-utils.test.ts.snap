@@ -4,7 +4,6 @@ exports[`content-utils > getContentStats > should match snapshot 1`] = `
 {
   "blogs": 2,
   "projects": 2,
-  "total": 6,
-  "works": 2,
+  "total": 4,
 }
 `;

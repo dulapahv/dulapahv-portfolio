@@ -6,7 +6,7 @@ exports[`Contact Layout > should match snapshot 1`] = `
     Contact Content
   </div>
   <div
-    class="mx-auto max-w-2xl"
+    class="mx-auto max-w-3xl"
   >
     <footer
       data-testid="footer"

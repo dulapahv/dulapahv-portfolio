@@ -11,7 +11,7 @@ import { ThemeProvider } from 'next-themes';
 
 import { IS_DEV_ENV } from '@/lib/constants';
 import { cn } from '@/lib/utils';
-import { Footer } from '@/components/footer';
+import { Footer } from '@/components/Footer';
 
 export const raleway = Raleway({
   subsets: ['latin'],
@@ -42,7 +42,6 @@ export default function GlobalError({
           disableTransitionOnChange
           scriptProps={{ 'data-cfasync': 'false' }}
         >
-          {/* Background decorative images */}
           <div
             aria-hidden
             role="presentation"

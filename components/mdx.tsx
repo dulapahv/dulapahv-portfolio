@@ -7,8 +7,8 @@ import Zoom from 'react-medium-image-zoom';
 
 import { cn } from '@/lib/utils';
 
-import { Link } from './link';
-import { Pre } from './pre';
+import { Link } from './Link';
+import { Pre } from './Pre';
 
 interface MdxProperties {
   readonly code: string;

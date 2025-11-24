@@ -1,1 +1,1 @@
-export * from './toc';
+export * from './Toc';

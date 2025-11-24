@@ -76,20 +76,12 @@ describe('content-utils', () => {
       expect(contentConfig.blog.label).toBe('Article');
       expect(contentConfig.blog.pluralLabel).toBe('Articles');
     });
-
-    it('should have work configuration', () => {
-      expect(contentConfig.work).toBeDefined();
-      expect(contentConfig.work.title).toBe('Work');
-      expect(contentConfig.work.label).toBe('Case Study');
-      expect(contentConfig.work.pluralLabel).toBe('Case Studies');
-    });
   });
 
   describe('isValidContentType', () => {
     it('should return true for valid content types', () => {
       expect(isValidContentType('project')).toBe(true);
       expect(isValidContentType('blog')).toBe(true);
-      expect(isValidContentType('work')).toBe(true);
     });
 
     it('should return false for invalid content types', () => {
@@ -112,18 +104,12 @@ describe('content-utils', () => {
       expect(collection).toHaveLength(2);
       expect(collection[0].slug).toBe('blog-1');
     });
-
-    it('should return correct collection for work type', () => {
-      const collection = getCollection('work');
-      expect(collection).toHaveLength(2);
-      expect(collection[0].slug).toBe('work-1');
-    });
   });
 
   describe('getAllContent', () => {
     it('should return all content from all collections', () => {
       const allContent = getAllContent();
-      expect(allContent).toHaveLength(6); // 2 projects + 2 blogs + 2 works
+      expect(allContent).toHaveLength(4); // 2 projects + 2 blogs
     });
 
     it('should add type property to each item', () => {
@@ -131,11 +117,9 @@ describe('content-utils', () => {
 
       const projects = allContent.filter(item => item.type === 'project');
       const blogs = allContent.filter(item => item.type === 'blog');
-      const works = allContent.filter(item => item.type === 'work');
 
       expect(projects).toHaveLength(2);
       expect(blogs).toHaveLength(2);
-      expect(works).toHaveLength(2);
     });
 
     it('should preserve original item properties', () => {
@@ -163,9 +147,9 @@ describe('content-utils', () => {
       expect(recent).toHaveLength(3);
     });
 
-    it('should default to 5 items when no limit specified', () => {
+    it('should default to 4 items when no limit specified', () => {
       const recent = getRecentContent();
-      expect(recent).toHaveLength(5);
+      expect(recent).toHaveLength(4);
     });
 
     it('should handle dates correctly for different content types', () => {
@@ -174,7 +158,7 @@ describe('content-utils', () => {
       // Verify the content is properly typed
       recent.forEach(item => {
         expect(item.type).toBeDefined();
-        expect(['project', 'blog', 'work']).toContain(item.type);
+        expect(['project', 'blog']).toContain(item.type);
       });
     });
   });
@@ -213,14 +197,6 @@ describe('content-utils', () => {
         expect(related[0].slug).toBe('blog-2');
       }
     });
-
-    it('should handle work items correctly', () => {
-      const related = getRelatedContent('work-1', 'work', 10);
-
-      expect(related).toHaveLength(1);
-      expect(related[0].slug).toBe('work-2');
-      expect(related[0].type).toBe('work');
-    });
   });
 
   describe('getContentByYear', () => {
@@ -253,14 +229,7 @@ describe('content-utils', () => {
       const byYear = getContentByYear();
       const allItems = Object.values(byYear).flat();
 
-      expect(allItems.length).toBe(6);
-    });
-
-    it('should handle work type filtering', () => {
-      const worksByYear = getContentByYear('work');
-
-      expect(worksByYear[2024]).toHaveLength(1);
-      expect(worksByYear[2023]).toHaveLength(1);
+      expect(allItems.length).toBe(4);
     });
   });
 
@@ -277,27 +246,6 @@ describe('content-utils', () => {
 
       expect(results).toHaveLength(1);
       expect(results[0].slug).toBe('blog-1');
-    });
-
-    it('should search in work position', () => {
-      const results = searchContent('Software Engineer');
-
-      expect(results).toHaveLength(1);
-      expect(results[0].slug).toBe('work-1');
-    });
-
-    it('should search in work company', () => {
-      const results = searchContent('Tech Company');
-
-      expect(results).toHaveLength(1);
-      expect(results[0].slug).toBe('work-1');
-    });
-
-    it('should search in work location', () => {
-      const results = searchContent('Edinburgh');
-
-      expect(results).toHaveLength(1);
-      expect(results[0].slug).toBe('work-1');
     });
 
     it('should be case insensitive', () => {
@@ -344,13 +292,12 @@ describe('content-utils', () => {
 
       expect(stats.projects).toBe(2);
       expect(stats.blogs).toBe(2);
-      expect(stats.works).toBe(2);
     });
 
     it('should return correct total count', () => {
       const stats = getContentStats();
 
-      expect(stats.total).toBe(6);
+      expect(stats.total).toBe(4);
     });
 
     it('should have all required properties', () => {
@@ -358,7 +305,6 @@ describe('content-utils', () => {
 
       expect(stats).toHaveProperty('projects');
       expect(stats).toHaveProperty('blogs');
-      expect(stats).toHaveProperty('works');
       expect(stats).toHaveProperty('total');
     });
 

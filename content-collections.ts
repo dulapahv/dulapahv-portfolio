@@ -82,69 +82,6 @@ const baseTransform = async (
   };
 };
 
-// Collection for works with position, company, and location
-const createWorkCollection = (name: string, directory: string) =>
-  defineCollection({
-    name,
-    directory,
-    include: '*.mdx',
-    schema: z => ({
-      position: z.string(),
-      company: z.string(),
-      location: z.string(),
-      startDate: z
-        .string()
-        .regex(/^\d{2}-\d{2}-\d{4}$/, 'Start date must be in DD-MM-YYYY format')
-        .transform(parseDate),
-      endDate: z
-        .string()
-        .regex(/^\d{2}-\d{2}-\d{4}$/, 'End date must be in DD-MM-YYYY format')
-        .transform(parseDate)
-        .optional(),
-      image: z.string().optional()
-    }),
-    transform: async (page, context) => {
-      const baseResult = await baseTransform(page, context);
-
-      // Calculate if this is a present/ongoing item
-      const isPresent = !page.endDate;
-
-      // For sorting purposes, use current date if no end date
-      const sortDate = page.endDate || new Date();
-
-      // Validate that startDate is before endDate if both exist
-      if (page.endDate && page.startDate > page.endDate) {
-        throw new Error(
-          `Invalid date range for ${page.company} - ${page.position}: start date (${formatDate(
-            page.startDate
-          )}) is after end date (${formatDate(page.endDate)})`
-        );
-      }
-
-      return {
-        ...page,
-        ...baseResult,
-        // Add title and description derived from work fields for compatibility
-        position: page.position,
-        company: page.company,
-        location: page.location,
-        isPresent,
-        sortDate,
-        // Add formatted date strings for easy display
-        formattedStartDate: formatDate(page.startDate),
-        formattedEndDate: page.endDate ? formatDate(page.endDate) : 'Present',
-        // Add duration calculation
-        duration: page.endDate
-          ? Math.ceil(
-              (page.endDate.getTime() - page.startDate.getTime()) / (1000 * 60 * 60 * 24 * 30)
-            ) // months
-          : Math.ceil(
-              (new Date().getTime() - page.startDate.getTime()) / (1000 * 60 * 60 * 24 * 30)
-            ) // months to present
-      };
-    }
-  });
-
 // Collection for projects with start and end dates
 const createProjectCollection = (name: string, directory: string) =>
   defineCollection({
@@ -230,10 +167,9 @@ const createBlogCollection = (name: string, directory: string) =>
   });
 
 // Create collections
-const works = createWorkCollection('works', 'content/work');
 const projects = createProjectCollection('projects', 'content/project');
 const blogs = createBlogCollection('blogs', 'content/blog');
 
 export default defineConfig({
-  collections: [works, projects, blogs]
+  collections: [projects, blogs]
 });

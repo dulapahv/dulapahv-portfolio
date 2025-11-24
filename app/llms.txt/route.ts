@@ -6,7 +6,7 @@ import { skillsData } from '@/lib/skills-data';
 export const dynamic = 'force-static';
 
 export async function GET() {
-  const types: ContentType[] = ['blog', 'project', 'work'];
+  const types: ContentType[] = ['blog', 'project'];
 
   let content = `# DulapahV Portfolio\n\n`;
 
@@ -84,16 +84,8 @@ export async function GET() {
     collection.forEach(item => {
       const url = `${BASE_URL}/${type}/${item._meta.path}`;
 
-      let title: string;
-      let description: string;
-
-      if ('position' in item) {
-        title = `${item.position} at ${item.company}`;
-        description = `${item.location}`;
-      } else {
-        title = item.title;
-        description = item.description;
-      }
+      const title = item.title;
+      const description = item.description;
 
       content += `- [${title}](${url}): ${description}\n`;
     });

@@ -9,7 +9,7 @@ import { skillsData } from '@/lib/skills-data';
 export const dynamic = 'force-static';
 
 export async function GET() {
-  const types: ContentType[] = ['blog', 'project', 'work'];
+  const types: ContentType[] = ['blog', 'project'];
   const currentDate = new Date().toISOString().split('T')[0];
 
   let content = `# DulapahV Portfolio - Complete Reference\n\n`;
@@ -53,7 +53,6 @@ export async function GET() {
   content += `- ${stats.total} open source contributions (${stats.merged} merged)\n`;
   content += `- Built ${contentConfig.project.collection.length} public projects\n`;
   content += `- Published ${contentConfig.blog.collection.length} technical articles\n`;
-  content += `- Experience across ${contentConfig.work.collection.length} organizations\n\n`;
 
   content += `**Areas of Expertise:**\n`;
   content += `- Full-stack web development (TypeScript, React, Next.js)\n`;
@@ -119,16 +118,8 @@ export async function GET() {
         const parts = fileContent.split('---');
         const markdownContent = parts.length >= 3 ? parts.slice(2).join('---').trim() : '';
 
-        let title: string;
-        let description: string;
-
-        if ('position' in item) {
-          title = `${item.position} at ${item.company}`;
-          description = `${item.location}`;
-        } else {
-          title = item.title;
-          description = item.description;
-        }
+        const title = item.title;
+        const description = item.description;
 
         content += `${'-'.repeat(80)}\n`;
         content += `title: "${title}"\n`;
@@ -160,17 +151,6 @@ export async function GET() {
           }
           if (projectItem.endDate) {
             content += `ended: "${new Date(projectItem.endDate).toISOString().split('T')[0]}"\n`;
-          }
-        } else if (type === 'work') {
-          /* eslint-disable  @typescript-eslint/no-explicit-any */
-          const workItem = item as any;
-          if (workItem.startDate) {
-            content += `started: "${new Date(workItem.startDate).toISOString().split('T')[0]}"\n`;
-          }
-          if (workItem.endDate) {
-            content += `ended: "${new Date(workItem.endDate).toISOString().split('T')[0]}"\n`;
-          } else {
-            content += `status: "Current Position"\n`;
           }
         }
 

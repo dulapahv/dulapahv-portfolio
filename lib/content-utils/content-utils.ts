@@ -1,8 +1,8 @@
-import { allBlogs, allProjects, allWorks } from 'content-collections';
+import { allBlogs, allProjects } from 'content-collections';
 
-export type ContentType = 'project' | 'blog' | 'work';
+export type ContentType = 'project' | 'blog';
 
-export type ContentItem = (typeof allProjects)[0] | (typeof allBlogs)[0] | (typeof allWorks)[0];
+export type ContentItem = (typeof allProjects)[0] | (typeof allBlogs)[0];
 
 export const contentConfig = {
   project: {
@@ -18,18 +18,11 @@ export const contentConfig = {
     collection: allBlogs,
     label: 'Article',
     pluralLabel: 'Articles'
-  },
-  work: {
-    title: 'Work',
-    description: "Companies and clients I've worked with.",
-    collection: allWorks,
-    label: 'Case Study',
-    pluralLabel: 'Case Studies'
   }
 } as const;
 
 export const isValidContentType = (type: string): type is ContentType => {
-  return type === 'project' || type === 'blog' || type === 'work';
+  return type === 'project' || type === 'blog';
 };
 
 export const getCollection = (type: ContentType) => {
@@ -45,12 +38,8 @@ export const getAllContent = (): Array<ContentItem & { type: ContentType }> => {
     ...item,
     type: 'blog' as ContentType
   }));
-  const works = allWorks.map(item => ({
-    ...item,
-    type: 'work' as ContentType
-  }));
 
-  return [...projects, ...blogs, ...works];
+  return [...projects, ...blogs];
 };
 
 // Helper function to get the relevant date for sorting
@@ -109,20 +98,10 @@ export const searchContent = (
   const searchTerm = query.toLowerCase();
 
   return content.filter(item => {
-    if ('position' in item) {
-      // For work items
-      return (
-        item.position.toLowerCase().includes(searchTerm) ||
-        item.company.toLowerCase().includes(searchTerm) ||
-        item.location.toLowerCase().includes(searchTerm)
-      );
-    } else {
-      // For projects and blogs
-      return (
-        item.title.toLowerCase().includes(searchTerm) ||
-        item.description.toLowerCase().includes(searchTerm)
-      );
-    }
+    return (
+      item.title.toLowerCase().includes(searchTerm) ||
+      item.description.toLowerCase().includes(searchTerm)
+    );
   });
 };
 
@@ -130,7 +109,6 @@ export const getContentStats = () => {
   return {
     projects: allProjects.length,
     blogs: allBlogs.length,
-    works: allWorks.length,
-    total: allProjects.length + allBlogs.length + allWorks.length
+    total: allProjects.length + allBlogs.length
   };
 };

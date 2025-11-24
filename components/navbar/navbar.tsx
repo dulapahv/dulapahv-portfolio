@@ -5,13 +5,7 @@ import type { Route } from 'next';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import {
-  AtomIcon,
-  BookOpenTextIcon,
-  BriefcaseIcon,
-  HouseIcon,
-  UserIcon
-} from '@phosphor-icons/react/dist/ssr';
+import { AtomIcon, BookOpenTextIcon, HouseIcon, UserIcon } from '@phosphor-icons/react/dist/ssr';
 import { motion } from 'motion/react';
 
 import { cn } from '@/lib/utils';
@@ -21,11 +15,6 @@ const navbarItems = [
     name: 'Home',
     icon: <HouseIcon className="size-4.5 sm:size-5" />,
     link: '/'
-  },
-  {
-    name: 'Work',
-    icon: <BriefcaseIcon className="size-4.5 sm:size-5" />,
-    link: '/work'
   },
   {
     name: 'Project',
@@ -149,14 +138,12 @@ export function Navbar() {
               <span aria-hidden="true">{item.icon}</span>
               <span className="hidden text-sm font-semibold sm:block">{item.name}</span>
 
-              {/* Screen reader only current page indicator */}
               {active && <span className="sr-only">(current page)</span>}
             </Link>
           </motion.div>
         );
       })}
 
-      {/* Screen reader instructions */}
       <div className="sr-only" aria-live="polite">
         Use arrow keys to navigate between menu items
       </div>

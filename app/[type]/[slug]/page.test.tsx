@@ -31,16 +31,4 @@ describe('Content Detail Page', () => {
     const { container } = render(component);
     expect(container).toMatchSnapshot();
   });
-
-  it('should render work page and match snapshot', async () => {
-    vi.mock('next/navigation', () => ({
-      usePathname: () => '/work/kmitl-teaching-assistant-rust'
-    }));
-    const component = await ContentPage({
-      params: Promise.resolve({ type: 'work', slug: 'kmitl-teaching-assistant-rust' }),
-      searchParams: Promise.resolve({})
-    });
-    const { container } = render(component);
-    expect(container).toMatchSnapshot();
-  });
 });

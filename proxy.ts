@@ -4,7 +4,7 @@ import type { NextRequest } from 'next/server';
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  const contentMatch = pathname.match(/^\/(blog|project|work)\/.*\.(md|mdx)$/);
+  const contentMatch = pathname.match(/^\/(blog|project)\/.*\.(md|mdx)$/);
 
   if (contentMatch) {
     const newPath = pathname.replace(/\.md$/, '.mdx');
@@ -60,5 +60,5 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/(blog|project|work)/:path*.md', '/(blog|project|work)/:path*.mdx']
+  matcher: ['/(blog|project)/:path*.md', '/(blog|project)/:path*.mdx']
 };

@@ -3,7 +3,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { useMediaQuery } from '@/hooks/use-media-query';
 
-import { TableOfContents } from './toc';
+import { TableOfContents } from './Toc';
 
 vi.mock('@/hooks/use-media-query', () => ({
   useMediaQuery: vi.fn()

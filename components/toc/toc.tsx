@@ -252,7 +252,6 @@ export function TableOfContents() {
           </ul>
         </div>
 
-        {/* Scroll to top button */}
         <AnimatePresence>
           {showScrollTop && (
             <motion.div

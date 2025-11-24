@@ -1,4 +1,4 @@
-export { RecipientEmailTemplate } from './recipient';
-export { ConfirmationEmailTemplate } from './confirmation';
-export type { RecipientEmailTemplateProps } from './recipient';
-export type { ConfirmationEmailTemplateProps } from './confirmation';
+export { RecipientEmailTemplate } from './Recipient';
+export { ConfirmationEmailTemplate } from './Confirmation';
+export type { RecipientEmailTemplateProps } from './Recipient';
+export type { ConfirmationEmailTemplateProps } from './Confirmation';

@@ -6,7 +6,7 @@ exports[`Type Layout > should match snapshot 1`] = `
     Test Content
   </div>
   <div
-    class="mx-auto max-w-2xl"
+    class="mx-auto max-w-3xl"
   >
     <footer
       data-testid="footer"

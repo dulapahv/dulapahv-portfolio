@@ -11,13 +11,13 @@ import {
   isValidContentType,
   type ContentType
 } from '@/lib/content-utils';
-import { createBlogPostingSchema, createProjectSchema, createWorkSchema } from '@/lib/json-ld';
+import { createBlogPostingSchema, createProjectSchema } from '@/lib/json-ld';
 import { createMetadata } from '@/lib/metadata';
-import Breadcrumb from '@/components/breadcrumb';
-import { JsonLd } from '@/components/json-ld';
-import { Mdx } from '@/components/mdx';
-import { ShareButtons } from '@/components/share';
-import { TableOfContents } from '@/components/toc';
+import Breadcrumb from '@/components/Breadcrumb';
+import { JsonLd } from '@/components/JsonLd';
+import { Mdx } from '@/components/Mdx';
+import { ShareButtons } from '@/components/Share';
+import { TableOfContents } from '@/components/Toc';
 
 // Helper function to get the relevant date from content
 const getContentDate = (page: { date?: Date; startDate?: Date }): Date => {
@@ -53,11 +53,7 @@ export const generateMetadata = async ({
   let title: string;
   let description: string;
 
-  if ('position' in page) {
-    // Work
-    title = `${page.position} at ${page.company}`;
-    description = `${page.position} role at ${page.company} in ${page.location}`;
-  } else if ('startDate' in page && 'title' in page) {
+  if ('startDate' in page && 'title' in page) {
     // Project
     title = page.title;
     description = page.description;
@@ -74,7 +70,7 @@ export const generateMetadata = async ({
 };
 
 export const generateStaticParams = (): { type: string; slug: string }[] => {
-  const types: ContentType[] = ['project', 'blog', 'work'];
+  const types: ContentType[] = ['project', 'blog'];
 
   return types.flatMap(type =>
     getCollection(type).map(page => ({
@@ -97,7 +93,6 @@ export default async function ContentPage({ params }: PageProps<'/[type]/[slug]'
   const { label } = contentConfig[type];
 
   // Check content type and format accordingly
-  const isWork = 'position' in page;
   const isProject = 'startDate' in page && 'title' in page;
   const isBlog = 'date' in page;
 
@@ -109,33 +104,7 @@ export default async function ContentPage({ params }: PageProps<'/[type]/[slug]'
   let dateLabel: string;
   let pageSchema;
 
-  if (isWork) {
-    title = page.position;
-    subtitle = `${page.company} | ${page.location}`;
-    const startDate = page.startDate.toLocaleDateString('en-US', {
-      month: 'long',
-      day: 'numeric',
-      year: 'numeric'
-    });
-    const endDate = page.endDate
-      ? page.endDate.toLocaleDateString('en-US', {
-          month: 'long',
-          day: 'numeric',
-          year: 'numeric'
-        })
-      : 'Present';
-    dateInfo = `${startDate} - ${endDate}`;
-    dateTimeValue = getDateRangeISO(page.startDate, page.endDate);
-    dateLabel = `Employment period from ${startDate} to ${endDate}`;
-    pageSchema = createWorkSchema({
-      position: page.position,
-      company: page.company,
-      location: page.location,
-      startDate: page.startDate,
-      endDate: page.endDate,
-      slug: page.slug
-    });
-  } else if (isProject) {
+  if (isProject) {
     title = page.title;
     subtitle = page.description;
     const startDate = page.startDate.toLocaleDateString('en-US', {
@@ -184,9 +153,7 @@ export default async function ContentPage({ params }: PageProps<'/[type]/[slug]'
 
   // Generate comprehensive alt text for images
   const generateImageAlt = (): string => {
-    if (isWork) {
-      return `Cover image for ${page.position} position at ${page.company}`;
-    } else if (isProject) {
+    if (isProject) {
       return `Cover image for ${page.title} project`;
     } else {
       return `Cover image for blog post: ${page.title}`;
@@ -196,11 +163,11 @@ export default async function ContentPage({ params }: PageProps<'/[type]/[slug]'
   return (
     <>
       <JsonLd schemas={[pageSchema]} />
-      <div className="mx-auto max-w-2xl space-y-4">
+      <div className="mx-auto max-w-3xl space-y-4">
         <Breadcrumb lastLabel={title} />
       </div>
       <ViewTransition default="slide">
-        <main className="mx-auto max-w-2xl space-y-4">
+        <main className="mx-auto max-w-3xl space-y-4">
           <header className="space-y-2">
             <div>
               <h1 className="text-2xl font-semibold">{title}</h1>

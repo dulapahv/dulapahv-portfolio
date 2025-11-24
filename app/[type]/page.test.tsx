@@ -19,14 +19,9 @@ vi.mock('@/lib/content-utils', () => ({
       title: 'Blog',
       description: 'My thoughts, ideas, and experiences.',
       label: 'Blog'
-    },
-    work: {
-      title: 'Work',
-      description: "Companies and clients I've worked with.",
-      label: 'Work'
     }
   },
-  isValidContentType: (type: string) => ['project', 'blog', 'work'].includes(type),
+  isValidContentType: (type: string) => ['project', 'blog'].includes(type),
   getContentByYear: vi.fn(() => ({
     '2024': [
       {
@@ -62,15 +57,6 @@ describe('Type Listing Page', () => {
   it('should render blog listing and match snapshot', async () => {
     const component = await TypeListingPage({
       params: Promise.resolve({ type: 'blog' }),
-      searchParams: Promise.resolve({})
-    });
-    const { container } = render(component);
-    expect(container).toMatchSnapshot();
-  });
-
-  it('should render work listing and match snapshot', async () => {
-    const component = await TypeListingPage({
-      params: Promise.resolve({ type: 'work' }),
       searchParams: Promise.resolve({})
     });
     const { container } = render(component);

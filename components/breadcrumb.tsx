@@ -33,12 +33,10 @@ const Breadcrumb = React.forwardRef<
   return (
     <nav ref={ref} aria-label="breadcrumb" className={className} {...props}>
       <BreadcrumbList>
-        {/* Home link */}
         <BreadcrumbItem>
           <BreadcrumbLink href="/">{homeLabel}</BreadcrumbLink>
         </BreadcrumbItem>
 
-        {/* Path segments */}
         {segments.map((segment, index) => {
           const href = `/${segments.slice(0, index + 1).join('/')}`;
           const isLast = index === segments.length - 1;
