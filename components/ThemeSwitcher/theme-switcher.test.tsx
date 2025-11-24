@@ -4,7 +4,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { useMediaQuery } from '@/hooks/use-media-query';
 
-import { ThemeSwitcher } from './ThemeSwitcher';
+import { ThemeSwitcher } from './theme-switcher';
 
 vi.mock('next-themes', () => ({
   useTheme: vi.fn()

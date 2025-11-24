@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-import { ConfirmationEmailTemplate } from './Confirmation';
+import { ConfirmationEmailTemplate } from './confirmation';
 
 describe('ConfirmationEmailTemplate', () => {
   const defaultProps = {

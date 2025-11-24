@@ -13,7 +13,7 @@ import {
 } from '@phosphor-icons/react/dist/ssr';
 
 import { cn } from '@/lib/utils';
-import { ThemeAwareImage } from '@/components/ThemeAwareImage';
+import { ThemeAwareImage } from '@/components/theme-aware-image';
 
 interface ShareButtonsProps {
   page?: {

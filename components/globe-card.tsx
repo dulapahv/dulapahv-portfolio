@@ -1,6 +1,6 @@
 import { EDUCATION_LOCATION, TRAVEL_LOCATIONS, WORK_LOCATION } from '@/lib/constants';
-import { Card } from '@/components/Card';
-import { Globe } from '@/components/Globe';
+import { Card } from '@/components/card';
+import { Globe } from '@/components/globe';
 
 export function GlobeCard() {
   return (

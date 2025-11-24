@@ -3,7 +3,7 @@ import { usePathname } from 'next/navigation';
 import { render, screen } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { Navbar } from './Navbar';
+import { Navbar } from './navbar';
 
 vi.mock('next/navigation', () => ({
   usePathname: vi.fn()

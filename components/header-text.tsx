@@ -2,7 +2,7 @@
 
 import { useTheme } from 'next-themes';
 
-import { SvgTextAnimationFlexible } from '@/components/SvgTextAnimation';
+import { SvgTextAnimationFlexible } from '@/components/svg-text-animation';
 
 export function HeaderText() {
   const { resolvedTheme } = useTheme();

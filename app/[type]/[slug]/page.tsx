@@ -13,9 +13,9 @@ import {
 } from '@/lib/content-utils';
 import { createBlogPostingSchema, createProjectSchema } from '@/lib/json-ld';
 import { createMetadata } from '@/lib/metadata';
-import Breadcrumb from '@/components/Breadcrumb';
-import { JsonLd } from '@/components/JsonLd';
-import { Mdx } from '@/components/Mdx';
+import Breadcrumb from '@/components/breadcrumb';
+import { JsonLd } from '@/components/json-ld';
+import { Mdx } from '@/components/mdx';
 import { ShareButtons } from '@/components/Share';
 import { TableOfContents } from '@/components/Toc';
 

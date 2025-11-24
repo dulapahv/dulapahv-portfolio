@@ -8,7 +8,7 @@ import { ArrowRightIcon, CaretLeftIcon, CaretRightIcon } from '@phosphor-icons/r
 import { allProjects } from 'content-collections';
 
 import { cn } from '@/lib/utils';
-import { Card } from '@/components/Card';
+import { Card } from '@/components/card';
 
 type ProjectWithDate = (typeof allProjects)[number] & {
   sortDate: Date;

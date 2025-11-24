@@ -5,18 +5,18 @@ import { DESCRIPTION } from '@/lib/constants';
 import { profilePageSchema } from '@/lib/json-ld';
 import { createMetadata } from '@/lib/metadata';
 import { cn } from '@/lib/utils';
-import { AboutCard } from '@/components/AboutCard';
-import { CameraRollCard } from '@/components/CameraRollCard';
-import { Footer } from '@/components/Footer';
-import { GitHubContributionsCard } from '@/components/GithubContributionsCard';
-import { GlobeCard } from '@/components/GlobeCard';
-import { HeaderText } from '@/components/HeaderText';
-import { JsonLd } from '@/components/JsonLd';
-import { OpenSourceCard } from '@/components/OpenSourceCard';
-import { ProjectsCard } from '@/components/ProjectsCard';
-import { RecentBlogsCard } from '@/components/RecentBlogsCard';
-import { ResumeCard } from '@/components/ResumeCard';
-import { WorkCard } from '@/components/WorkCard';
+import { AboutCard } from '@/components/about-card';
+import { CameraRollCard } from '@/components/camera-roll-card';
+import { Footer } from '@/components/footer';
+import { GitHubContributionsCard } from '@/components/github-contributions-card';
+import { GlobeCard } from '@/components/globe-card';
+import { HeaderText } from '@/components/header-text';
+import { JsonLd } from '@/components/json-ld';
+import { OpenSourceCard } from '@/components/open-source-card';
+import { ProjectsCard } from '@/components/projects-card';
+import { RecentBlogsCard } from '@/components/recent-blogs-card';
+import { ResumeCard } from '@/components/resume-card';
+import { WorkCard } from '@/components/word-card';
 
 export const metadata: Metadata = createMetadata({
   title: 'Home',

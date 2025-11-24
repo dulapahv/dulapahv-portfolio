@@ -4,7 +4,7 @@ import { forwardRef, useRef, type ReactNode } from 'react';
 
 import { cn } from '@/lib/utils';
 
-import { relativeMouseClassname } from './MousePositionSetter';
+import { relativeMouseClassname } from './mouse-position-setter';
 
 interface CardProps {
   children: ReactNode;

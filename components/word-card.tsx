@@ -1,7 +1,7 @@
 import { ArrowUpRightIcon } from '@phosphor-icons/react/dist/ssr';
 
 import { cn } from '@/lib/utils';
-import { Card } from '@/components/Card';
+import { Card } from '@/components/card';
 
 interface WorkExperience {
   position: string;

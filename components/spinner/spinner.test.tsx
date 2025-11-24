@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-import { Spinner } from './Spinner';
+import { Spinner } from './spinner';
 
 describe('Spinner', () => {
   it('should render spinner with loading status', () => {

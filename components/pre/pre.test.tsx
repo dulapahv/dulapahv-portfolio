@@ -1,7 +1,7 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { Pre } from './Pre';
+import { Pre } from './pre';
 
 describe('Pre', () => {
   // Mock clipboard API

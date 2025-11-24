@@ -9,7 +9,7 @@ import { ThemeProvider } from 'next-themes';
 
 import { BASE_URL } from '@/lib/constants';
 import { cn } from '@/lib/utils';
-import MousePositionVarsSetter from '@/components/MousePositionSetter';
+import MousePositionVarsSetter from '@/components/mouse-position-setter';
 import { Navbar } from '@/components/Navbar';
 import { TopBar } from '@/components/TopBar';
 

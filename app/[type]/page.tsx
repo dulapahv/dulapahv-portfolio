@@ -14,8 +14,8 @@ import {
 import { collectionSchema } from '@/lib/json-ld';
 import { createMetadata } from '@/lib/metadata';
 import { cn } from '@/lib/utils';
-import Breadcrumb from '@/components/Breadcrumb';
-import { JsonLd } from '@/components/JsonLd';
+import Breadcrumb from '@/components/breadcrumb';
+import { JsonLd } from '@/components/json-ld';
 
 export const generateMetadata = async ({ params }: PageProps<'/[type]'>): Promise<Metadata> => {
   const { type } = await params;

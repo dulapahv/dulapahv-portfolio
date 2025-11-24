@@ -1,1 +1,1 @@
-export * from './CurrentYear';
+export * from './current-year';

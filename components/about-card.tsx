@@ -4,9 +4,9 @@ import Link from 'next/link';
 import { ArrowRightIcon } from '@phosphor-icons/react/dist/ssr';
 
 import { cn } from '@/lib/utils';
-import { Card } from '@/components/Card';
+import { Card } from '@/components/card';
 
-import { ThemeAwareImage } from './ThemeAwareImage';
+import { ThemeAwareImage } from './theme-aware-image';
 
 export function AboutCard() {
   return (

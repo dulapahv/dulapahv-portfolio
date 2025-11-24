@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
 import { cn } from '@/lib/utils';
-import { Card } from '@/components/Card';
+import { Card } from '@/components/card';
 
 interface CameraRollCardProps {
   images: string[];

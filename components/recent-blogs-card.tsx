@@ -5,7 +5,7 @@ import { ArrowRightIcon } from '@phosphor-icons/react/dist/ssr';
 import { allBlogs } from 'content-collections';
 
 import { cn } from '@/lib/utils';
-import { Card } from '@/components/Card';
+import { Card } from '@/components/card';
 
 type BlogWithDate = (typeof allBlogs)[number] & {
   date: Date;

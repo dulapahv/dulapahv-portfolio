@@ -5,8 +5,8 @@ import type { ContactPage } from 'schema-dts';
 
 import { contactPageSchema } from '@/lib/json-ld';
 import { createMetadata } from '@/lib/metadata';
-import Breadcrumb from '@/components/Breadcrumb';
-import { JsonLd } from '@/components/JsonLd';
+import Breadcrumb from '@/components/breadcrumb';
+import { JsonLd } from '@/components/json-ld';
 
 import { ContactFormWrapper } from './components/formWrapper';
 

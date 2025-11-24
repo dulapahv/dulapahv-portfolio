@@ -16,9 +16,9 @@ import {
 import { cn } from '@/lib/utils';
 import { useOnLeavePageConfirmation } from '@/hooks/use-on-leave-page-confirmation';
 import type { RecipientEmailTemplateProps } from '@/components/Email';
-import { Input } from '@/components/Input';
+import { Input } from '@/components/input';
 import { Spinner } from '@/components/Spinner';
-import { Textarea } from '@/components/TextArea';
+import { Textarea } from '@/components/text-area';
 import { sendContactEmail } from '@/app/actions/Contact';
 
 interface ContactFormProps {
