@@ -41,7 +41,7 @@ export default function Home() {
                 { label: 'Full-Stack Development', gradient: 'from-blue-500/20 to-cyan-500/20' },
                 { label: 'UI/UX Design', gradient: 'from-blue-600/20 to-purple-500/20' },
                 { label: 'Accessibility', gradient: 'from-amber-500/20 to-orange-500/20' }
-              ].map((skill, i) => (
+              ].map(skill => (
                 <span
                   key={skill.label}
                   className={cn(
@@ -49,11 +49,6 @@ export default function Home() {
                     bg-linear-to-br px-4 py-2 text-sm font-medium ring-1 backdrop-blur-sm`,
                     skill.gradient
                   )}
-                  style={{
-                    animationDelay: `${i * 0.1}s`,
-                    animation: 'fadeIn 0.5s ease-out forwards',
-                    opacity: 0
-                  }}
                 >
                   <span
                     className="bg-linear-to-br from-gray-900 to-gray-700 bg-clip-text text-transparent dark:from-white/90
