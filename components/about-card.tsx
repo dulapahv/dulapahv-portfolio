@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 import { ArrowRightIcon } from '@phosphor-icons/react/dist/ssr';
 
+import { LINKEDIN_URL } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { Card } from '@/components/card';
 
@@ -63,7 +64,7 @@ export function AboutCard() {
             />
           </Link>
           <Link
-            href="https://www.linkedin.com/in/dulapahv/"
+            href={LINKEDIN_URL}
             target="_blank"
             rel="noopener noreferrer"
             className={cn(

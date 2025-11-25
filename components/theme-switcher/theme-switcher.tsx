@@ -6,8 +6,6 @@ import { MonitorIcon, MoonIcon, SunIcon } from '@phosphor-icons/react/dist/ssr';
 import { motion } from 'motion/react';
 import { useTheme } from 'next-themes';
 
-import { cn } from '@/lib/utils';
-
 export function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -27,10 +25,8 @@ export function ThemeSwitcher() {
 
   return (
     <motion.div
-      className={cn(
-        `bg-background-elevated/90 ring-border relative inline-flex h-8 items-center rounded-full ring-1
-        backdrop-blur-xl`
-      )}
+      className="bg-background-elevated/90 ring-border relative inline-flex h-8 items-center rounded-full ring-1
+        backdrop-blur-xl"
       role="group"
       aria-label="Theme selection"
     >
@@ -43,11 +39,8 @@ export function ThemeSwitcher() {
             onClick={() => handleThemeChange(key)}
             aria-label={`${label}${isActive ? ', currently selected' : ''}`}
             aria-pressed={isActive}
-            className={cn(
-              `hover:bg-background-subtle relative mx-0.5 flex size-7 items-center justify-center rounded-full
-              transition-colors`
-            )}
-            whileHover={{ scale: 1.1 }}
+            className="relative mx-0.5 flex size-7 items-center justify-center rounded-full transition-colors"
+            whileHover={{ scale: 1.15 }}
             whileTap={{ scale: 0.95 }}
           >
             {isActive && (

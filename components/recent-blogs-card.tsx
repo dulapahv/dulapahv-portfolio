@@ -60,7 +60,7 @@ export function RecentBlogsCard() {
                   >
                     {blog_.title}
                   </h3>
-                  <p className="text-foreground-muted line-clamp-2 text-xs">{blog_.description}</p>
+                  <p className="text-foreground-muted line-clamp-2 text-sm">{blog_.description}</p>
                   <time
                     className="text-foreground-muted text-xs"
                     dateTime={blog_.date.toISOString().split('T')[0]}
