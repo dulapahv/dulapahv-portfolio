@@ -1,4 +1,5 @@
 import { Suspense } from 'react';
+import { Archivo } from 'next/font/google';
 import Link from 'next/link';
 
 import { GITHUB_URL } from '@/lib/constants';
@@ -6,9 +7,11 @@ import { cn } from '@/lib/utils';
 
 import { CurrentYear } from './current-year';
 
+const archivo = Archivo({ subsets: ['latin'], weight: 'variable' });
+
 export function Footer() {
   return (
-    <footer className="mt-16">
+    <footer className={cn('mt-16', archivo.className)}>
       <div className="text-foreground-muted flex flex-col gap-y-1 text-sm">
         <p>
           ©{' '}

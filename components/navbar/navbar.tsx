@@ -2,13 +2,16 @@
 
 import { useRef } from 'react';
 import type { Route } from 'next';
+import { Archivo } from 'next/font/google';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import { AtomIcon, BookOpenTextIcon, HouseIcon, UserIcon } from '@phosphor-icons/react/dist/ssr';
+import { BookOpenTextIcon, HouseIcon, ShapesIcon, UserIcon } from '@phosphor-icons/react/dist/ssr';
 import { motion } from 'motion/react';
 
 import { cn } from '@/lib/utils';
+
+const archivo = Archivo({ subsets: ['latin'], weight: 'variable' });
 
 const navbarItems = [
   {
@@ -18,7 +21,7 @@ const navbarItems = [
   },
   {
     name: 'Project',
-    icon: <AtomIcon className="size-4.5 sm:size-5" />,
+    icon: <ShapesIcon className="size-4.5 sm:size-5" />,
     link: '/project'
   },
   {
@@ -108,9 +111,12 @@ export function Navbar() {
   return (
     <motion.nav
       ref={navRef}
-      className="bg-background-elevated/80 border-border text-foreground-subtle fixed right-1/2 bottom-4 z-50 flex
+      className={cn(
+        archivo.className,
+        `bg-background-elevated/80 border-border text-foreground-subtle fixed right-1/2 bottom-4 z-50 flex
         translate-x-1/2 items-center gap-x-6 rounded-full border px-3 py-2 shadow-lg backdrop-blur-xl
-        sm:px-4"
+        *:translate-y-0.5 sm:px-4`
+      )}
       variants={containerVariants}
       initial="hidden"
       animate="visible"
@@ -128,15 +134,22 @@ export function Navbar() {
               aria-label={`${item.name}${active ? ', current page' : ''}`}
               aria-current={active ? 'page' : undefined}
               className={cn(
-                'relative -mb-1 flex items-center gap-2 pb-1 transition-all',
-                'hover:scale-105 active:scale-98',
-                active
-                  ? 'text-mirai-red border-mirai-red border-b-2'
-                  : 'hover:text-foreground-muted'
+                'relative flex gap-2 pb-1',
+                active ? 'text-mirai-red' : 'hover:text-foreground-muted transition-colors'
               )}
             >
               <span aria-hidden="true">{item.icon}</span>
-              <span className="hidden text-sm font-medium sm:block">{item.name}</span>
+              <span className="hidden translate-y-0.5 text-sm font-medium sm:block">
+                {item.name}
+              </span>
+
+              {active && (
+                <motion.div
+                  layoutId="activeNavItem"
+                  className="bg-mirai-red absolute right-0 bottom-0 left-0 h-0.5 rounded-full"
+                  transition={{ type: 'spring', duration: 0.5 }}
+                />
+              )}
 
               {active && <span className="sr-only">(current page)</span>}
             </Link>

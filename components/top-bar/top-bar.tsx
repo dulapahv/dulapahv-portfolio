@@ -1,12 +1,17 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { Archivo } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import { motion } from 'motion/react';
 
+import { NAME } from '@/lib/constants';
+import { cn } from '@/lib/utils';
 import { ThemeSwitcher } from '@/components/theme-switcher';
+
+const archivo = Archivo({ subsets: ['latin'], weight: 'variable' });
 
 export function TopBar() {
   const [isVisible, setIsVisible] = useState(true);
@@ -39,7 +44,7 @@ export function TopBar() {
 
   return (
     <motion.div
-      className="fixed top-0 right-0 left-0 z-40 backdrop-blur-sm"
+      className={cn('fixed top-0 right-0 left-0 z-40 backdrop-blur-sm', archivo.className)}
       initial={{ y: 0 }}
       animate={{ y: isVisible ? 0 : -100 }}
       transition={{ duration: 0.3, ease: 'easeInOut' }}
@@ -51,7 +56,7 @@ export function TopBar() {
           aria-label="Go to home"
         >
           <Image src="/mirai.png" alt="Mirai logo" width={32} height={32} className="size-8" />
-          <span className="text-foreground font-medium">Dulapah Vibulsanti</span>
+          <span className="text-foreground font-medium">{NAME}</span>
         </Link>
 
         <div className="relative">
