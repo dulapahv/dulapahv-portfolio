@@ -41,6 +41,7 @@ export const ResumeCard = () => {
       href="https://dulapahv.dev/resume"
       target="_blank"
       rel="noopener noreferrer"
+      prefetch={false}
       title="View my résumé"
       className="group block h-full"
     >
