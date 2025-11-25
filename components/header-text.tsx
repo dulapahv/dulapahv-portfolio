@@ -1,23 +1,14 @@
-'use client';
-
-import { useTheme } from 'next-themes';
-
 import { SvgTextAnimationFlexible } from '@/components/svg-text-animation';
 
 export function HeaderText() {
-  const { resolvedTheme } = useTheme();
-
-  const color = resolvedTheme === 'dark' ? '#ededed' : '#111111';
-
   return (
     <>
       <div className="relative mb-4 max-w-3xl">
         <span
-          className="pointer-events-auto absolute inset-0 text-[#ededed] opacity-0 select-text"
-          style={{ fontSize: '0px' }}
+          className="text-foreground pointer-events-auto absolute inset-0 text-6xl opacity-0 select-text"
           aria-hidden="true"
         >
-          software engineering crafting
+          Software engineer crafting
         </span>
         <SvgTextAnimationFlexible
           width="1450"
@@ -27,8 +18,8 @@ export function HeaderText() {
           ariaLabel="Software engineering crafting animated text"
           duration={1.4}
           delay={0.03}
-          strokeColor={color}
-          fillColor={color}
+          strokeColor="var(--x-gray-1000)"
+          fillColor="var(--x-gray-1000)"
           letterSpacing={4}
         >
           <g
@@ -164,8 +155,7 @@ export function HeaderText() {
       </div>
       <div className="relative mb-4 max-w-3xl">
         <span
-          className="pointer-events-auto absolute inset-0 text-[#ededed] opacity-0 select-text"
-          style={{ fontSize: '0px' }}
+          className="text-foreground pointer-events-auto absolute inset-0 text-6xl opacity-0 select-text"
           aria-hidden="true"
         >
           accessible and delightful
@@ -179,8 +169,8 @@ export function HeaderText() {
           duration={1.4}
           delay={0.03}
           startDelay={0.2}
-          strokeColor={color}
-          fillColor={color}
+          strokeColor="var(--x-gray-1000)"
+          fillColor="var(--x-gray-1000)"
           letterSpacing={4}
         >
           <g
@@ -311,8 +301,7 @@ export function HeaderText() {
       </div>
       <div className="relative mb-4 max-w-3xl">
         <span
-          className="pointer-events-auto absolute inset-0 text-[#ededed] opacity-0 select-text"
-          style={{ fontSize: '0px' }}
+          className="text-foreground pointer-events-auto absolute inset-0 text-6xl opacity-0 select-text"
           aria-hidden="true"
         >
           digital experiences
@@ -326,8 +315,8 @@ export function HeaderText() {
           duration={1.4}
           delay={0.03}
           startDelay={0.4}
-          strokeColor={color}
-          fillColor={color}
+          strokeColor="var(--x-gray-1000)"
+          fillColor="var(--x-gray-1000)"
           letterSpacing={4}
         >
           <g
