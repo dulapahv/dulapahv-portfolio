@@ -35,14 +35,14 @@ export function AboutCard() {
         to open source, and check in on my pet rabbit back home via camera.
       </p>
       <span className="mt-auto flex flex-col flex-wrap justify-between sm:flex-row sm:items-center">
-        <p className="text-foreground mt-4 flex flex-wrap items-center leading-7">
+        <p className="text-foreground mt-4 flex flex-wrap items-center gap-x-3 leading-7">
           See what I&apos;ve been doing on{' '}
           <Link
             href="https://github.com/dulapahv"
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
-              'text-foreground-muted ml-2 inline-flex items-center text-sm transition-colors',
+              'text-foreground-muted inline-flex items-center text-sm transition-colors',
               'hover:text-foreground'
             )}
           >
@@ -60,7 +60,7 @@ export function AboutCard() {
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
-              'text-foreground-muted ml-2 inline-flex items-center text-sm transition-colors',
+              'text-foreground-muted inline-flex items-center text-sm transition-colors',
               'hover:text-foreground'
             )}
           >
