@@ -76,7 +76,7 @@ export async function GitHubContributionsCard({ username }: GitHubContributionsC
         </div>
 
         <div className="flex justify-center overflow-x-auto">
-          <div className="inline-flex flex-col gap-1">
+          <div className="inline-flex cursor-crosshair flex-col gap-1">
             <div className="flex gap-[3px] pl-6">
               {last52Weeks.map((_, weekIndex) => {
                 const label = getMonthLabel(weekIndex);

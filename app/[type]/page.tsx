@@ -140,10 +140,7 @@ export default async function TypeListingPage({ params }: PageProps<'/[type]'>) 
                           <li key={post._meta.path} role="listitem">
                             <Link
                               href={`/${type}/${post.slug}`}
-                              className={cn(
-                                'group -m-2 flex items-center justify-between gap-2 rounded-md p-2 transition-colors',
-                                'hover:text-mirai-red'
-                              )}
+                              className="group -m-2 flex items-center justify-between gap-2 rounded-md p-2"
                               aria-label={`Read ${post.title}: ${post.description}`}
                             >
                               <div className="flex gap-4">
@@ -159,7 +156,9 @@ export default async function TypeListingPage({ params }: PageProps<'/[type]'>) 
                                   </div>
                                 )}
                                 <div className="flex flex-col gap-1">
-                                  <h3 className="text-lg font-medium">{post.title}</h3>
+                                  <h3 className="group-hover:text-mirai-red text-lg font-medium transition-colors">
+                                    {post.title}
+                                  </h3>
                                   <p className="text-foreground-lighter text-sm">
                                     {post.description}
                                   </p>

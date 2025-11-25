@@ -105,16 +105,15 @@ export function ProjectsCard() {
         )}
       </div>
 
-      <div className="mt-4">
-        <Link
-          href={`/project/${currentProject.slug}`}
+      <Link href={`/project/${currentProject.slug}`} className="group mt-4">
+        <h3
           className={cn(
             'text-foreground block text-lg font-semibold transition-colors',
-            'hover:text-mirai-red'
+            'group-hover:text-mirai-red'
           )}
         >
           {currentProject.title}
-        </Link>
+        </h3>
         <p className="text-foreground-muted mt-2 line-clamp-2 text-sm leading-relaxed">
           {currentProject.description}
         </p>
@@ -129,7 +128,7 @@ export function ProjectsCard() {
             </span>
           )}
         </time>
-      </div>
+      </Link>
 
       {projects.length > 1 && (
         <div className="mt-auto flex items-center justify-center gap-2">
