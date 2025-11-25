@@ -180,7 +180,7 @@ export default async function ContentPage({ params }: PageProps<'/[type]/[slug]'
             <div className="text-foreground-muted space-y-1 text-sm">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="sr-only">Content type:</span>
-                <span className="inline-block font-medium" aria-label={`Content type: ${label}`}>
+                <span className="inline-block" aria-label={`Content type: ${label}`}>
                   {label}
                 </span>
                 <span aria-hidden="true" className="text-foreground-subtle">
@@ -189,7 +189,7 @@ export default async function ContentPage({ params }: PageProps<'/[type]/[slug]'
                 <div className="flex gap-1">
                   <span className="sr-only">{isBlog ? 'Publication date:' : 'Duration:'}</span>
                   <span aria-hidden="true">{isBlog ? 'Published on' : 'Duration:'}</span>
-                  <time dateTime={dateTimeValue} aria-label={dateLabel} className="font-medium">
+                  <time dateTime={dateTimeValue} aria-label={dateLabel}>
                     {dateInfo}
                   </time>
                 </div>
