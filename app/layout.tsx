@@ -53,7 +53,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
           <a
             href="#main-content"
             className={cn(
-              'bg-mirai-red sr-only rounded-md px-4! py-2! font-medium text-white transition-all',
+              'bg-mirai-red sr-only rounded-md px-4! py-2! text-white transition-all',
               'focus:ring-mirai-red focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50'
             )}
           >

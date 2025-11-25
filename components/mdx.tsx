@@ -89,7 +89,7 @@ export function Mdx({ code }: MdxProperties) {
     <article
       aria-label="Article content"
       className={cn(
-        'mx-auto max-w-none font-medium',
+        'mx-auto max-w-none',
         'prose prose-neutral dark:prose-invert',
         `prose-headings:mt-8 prose-headings:font-semibold prose-headings:[&>a]:text-foreground
         prose-headings:[&>a]:no-underline`,
@@ -114,7 +114,7 @@ export function Mdx({ code }: MdxProperties) {
         `prose-blockquote:not-italic prose-blockquote:[&>p]:before:content-none
         prose-blockquote:[&>p]:after:content-none prose-blockquote:border prose-blockquote:!border-l!
         prose-blockquote:border-border! prose-blockquote:[&>p]:my-0 prose-blockquote:rounded-md
-        prose-blockquote:p-3 prose-blockquote:text-sm`,
+        prose-blockquote:p-3 prose-blockquote:text-sm prose-blockquote:font-normal`,
         `prose-code:before:content-none prose-code:after:content-none prose-code:dark:bg-[#0a0a0a]
         prose-code:bg-white prose-code:[&>span>span]:brightness-90
         dark:prose-code:[&>span>span]:brightness-100 prose-code:[&:not([data-theme])]:px-1

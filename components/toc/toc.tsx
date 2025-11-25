@@ -225,7 +225,7 @@ export function TableOfContents() {
                   onClick={e => handleClick(e, item.id)}
                   onKeyDown={e => handleKeyDown(e, item.id, index)}
                   className={cn(
-                    'group relative block rounded-md px-3 py-1 text-sm font-medium transition-all',
+                    'group relative block rounded-md px-3 py-1 text-sm transition-all',
                     item.level === 3 ? 'pl-7' : '',
                     activeId === item.id ? 'text-mirai-red' : 'text-foreground-muted',
                     activeId !== item.id && 'hover:text-foreground'
@@ -264,8 +264,7 @@ export function TableOfContents() {
               <button
                 onClick={scrollToTop}
                 className={cn(
-                  `text-foreground-muted flex w-full cursor-pointer items-center gap-x-1.5 rounded-md text-sm
-                  font-medium`,
+                  'text-foreground-muted flex w-full cursor-pointer items-center gap-x-1.5 rounded-md text-sm',
                   'hover:text-foreground transition-colors'
                 )}
                 aria-label="Scroll to top of page"

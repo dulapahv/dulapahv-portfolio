@@ -281,7 +281,7 @@ export function ShareButtons({ page }: ShareButtonsProps) {
               onClick={copyPageAsMarkdown}
               onKeyDown={e => handleKeyDown(e, copyPageAsMarkdown)}
               className={cn(
-                'flex cursor-pointer items-center gap-2 px-3 py-1.5 text-sm font-medium transition-colors',
+                'flex cursor-pointer items-center gap-2 px-3 py-1.5 text-sm transition-colors',
                 'border-border border-r',
                 'hover:bg-background-subtle',
                 'disabled:bg-background-muted disabled:text-foreground-muted disabled:cursor-not-allowed'

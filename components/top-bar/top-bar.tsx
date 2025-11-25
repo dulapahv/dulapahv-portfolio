@@ -6,7 +6,6 @@ import Link from 'next/link';
 
 import { motion } from 'motion/react';
 
-import { cn } from '@/lib/utils';
 import { ThemeSwitcher } from '@/components/theme-switcher';
 
 export function TopBar() {
@@ -40,7 +39,7 @@ export function TopBar() {
 
   return (
     <motion.div
-      className={cn('fixed top-0 right-0 left-0 z-50 backdrop-blur-sm')}
+      className="fixed top-0 right-0 left-0 z-40 backdrop-blur-sm"
       initial={{ y: 0 }}
       animate={{ y: isVisible ? 0 : -100 }}
       transition={{ duration: 0.3, ease: 'easeInOut' }}

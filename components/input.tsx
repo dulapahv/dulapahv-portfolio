@@ -17,10 +17,7 @@ export function Input({ label, name, className, required, ...props }: InputProps
   return (
     <Form.Field className="grid gap-1" name={name}>
       <div className="flex items-baseline justify-between">
-        <Form.Label
-          className="text-foreground-muted inline-block text-sm font-medium"
-          htmlFor={fieldId}
-        >
+        <Form.Label className="text-foreground-muted inline-block text-sm" htmlFor={fieldId}>
           {label && (
             <span className={required ? 'after:text-error after:ml-0.5 after:content-["*"]' : ''}>
               {label}

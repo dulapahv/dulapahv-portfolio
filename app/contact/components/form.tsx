@@ -128,10 +128,7 @@ export const ContactForm = ({ searchParams }: ContactFormProps) => {
       )}
 
       <div className="grid gap-1">
-        <span
-          id="turnstile-label"
-          className="text-foreground-muted inline-block text-sm font-medium"
-        >
+        <span id="turnstile-label" className="text-foreground-muted inline-block text-sm">
           Let me know you&apos;re human
           <span className="after:text-error after:ml-0.5 after:content-['*']">
             <span className="sr-only"> (required)</span>
@@ -161,7 +158,7 @@ export const ContactForm = ({ searchParams }: ContactFormProps) => {
           }
           className={cn(
             `bg-mirai-red flex w-fit cursor-pointer items-center justify-center gap-2 rounded-md px-3 py-2
-            text-sm font-medium text-white transition-transform select-none`,
+            text-sm text-white transition-transform select-none`,
             'hover:bg-mirai-red/90 hover:shadow-lg',
             'active:scale-[0.98] active:shadow-md',
             'disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:shadow-none'

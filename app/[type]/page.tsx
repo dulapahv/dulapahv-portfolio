@@ -146,7 +146,7 @@ export default async function TypeListingPage({ params }: PageProps<'/[type]'>) 
                               aria-label={`Read ${post.title}: ${post.description}`}
                             >
                               <div className="flex flex-col gap-1">
-                                <h3 className="text-lg font-semibold">{post.title}</h3>
+                                <h3 className="text-lg font-medium">{post.title}</h3>
                                 <p className="text-foreground-lighter text-sm">
                                   {post.description}
                                 </p>

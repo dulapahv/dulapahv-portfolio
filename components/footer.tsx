@@ -9,7 +9,7 @@ import { CurrentYear } from './current-year';
 export function Footer() {
   return (
     <footer className="mt-16">
-      <div className="text-foreground-muted flex flex-col gap-y-1 text-sm font-medium">
+      <div className="text-foreground-muted flex flex-col gap-y-1 text-sm">
         <p>
           ©{' '}
           <Suspense fallback="2024">

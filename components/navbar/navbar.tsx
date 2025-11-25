@@ -136,7 +136,7 @@ export function Navbar() {
               )}
             >
               <span aria-hidden="true">{item.icon}</span>
-              <span className="hidden text-sm font-semibold sm:block">{item.name}</span>
+              <span className="hidden text-sm font-medium sm:block">{item.name}</span>
 
               {active && <span className="sr-only">(current page)</span>}
             </Link>

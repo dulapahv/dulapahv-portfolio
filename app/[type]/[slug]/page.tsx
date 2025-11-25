@@ -172,7 +172,7 @@ export default async function ContentPage({ params }: PageProps<'/[type]/[slug]'
             <div>
               <h1 className="text-2xl font-semibold">{title}</h1>
               {subtitle && (
-                <p className="text-foreground-muted font-medium" role="doc-subtitle">
+                <p className="text-foreground-muted" role="doc-subtitle">
                   {subtitle}
                 </p>
               )}
