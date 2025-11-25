@@ -793,11 +793,14 @@ body {
 }
 
 @keyframes tiltScaleUp {
-  from {
+  0% {
     transform: perspective(1000px) rotateX(5deg) translateY(15px) scale(0.95);
     opacity: 0;
   }
-  to {
+  40% {
+    opacity: 0;
+  }
+  100% {
     transform: perspective(1000px) rotateX(0deg) translateY(0) scale(1);
     opacity: 1;
   }
