@@ -55,7 +55,7 @@ export function TopBar() {
           className="flex items-center gap-3 transition-opacity hover:opacity-80"
           aria-label="Go to home"
         >
-          <Image src="/mirai.png" alt="Mirai logo" width={32} height={32} className="size-8" />
+          <Image src="/mirai.svg" alt="Mirai logo" width={32} height={32} className="size-8" />
           <span className="text-foreground font-medium">{NAME}</span>
         </Link>
 
