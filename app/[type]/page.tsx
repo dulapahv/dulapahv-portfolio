@@ -1,5 +1,6 @@
 import { ViewTransition } from 'react';
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
@@ -145,18 +146,31 @@ export default async function TypeListingPage({ params }: PageProps<'/[type]'>) 
                               )}
                               aria-label={`Read ${post.title}: ${post.description}`}
                             >
-                              <div className="flex flex-col gap-1">
-                                <h3 className="text-lg font-medium">{post.title}</h3>
-                                <p className="text-foreground-lighter text-sm">
-                                  {post.description}
-                                </p>
-                                <time
-                                  className="text-foreground-lighter text-xs"
-                                  dateTime={dateTime}
-                                  aria-label={`Published on ${formatDateRange(post)}`}
-                                >
-                                  {formatDateRange(post)}
-                                </time>
+                              <div className="flex items-center gap-4">
+                                {post.image && (
+                                  <div className="relative aspect-square h-20 shrink-0 overflow-hidden rounded-md min-[425px]:aspect-video">
+                                    <Image
+                                      src={post.image}
+                                      alt={post.title}
+                                      fill
+                                      className="object-cover"
+                                      sizes="150px"
+                                    />
+                                  </div>
+                                )}
+                                <div className="flex flex-col gap-1">
+                                  <h3 className="text-lg font-medium">{post.title}</h3>
+                                  <p className="text-foreground-lighter text-sm">
+                                    {post.description}
+                                  </p>
+                                  <time
+                                    className="text-foreground-lighter text-xs"
+                                    dateTime={dateTime}
+                                    aria-label={`Published on ${formatDateRange(post)}`}
+                                  >
+                                    {formatDateRange(post)}
+                                  </time>
+                                </div>
                               </div>
                               <CaretRightIcon
                                 className={cn(
