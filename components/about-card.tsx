@@ -34,7 +34,7 @@ export function AboutCard() {
         banking more intuitive—for staff and customers alike. Based in Edinburgh, I code, contribute
         to open source, and check in on my pet rabbit back home via camera.
       </p>
-      <span className="mt-auto flex flex-col justify-between sm:flex-row sm:items-center">
+      <span className="mt-auto flex flex-col flex-wrap justify-between sm:flex-row sm:items-center">
         <p className="text-foreground mt-4 flex flex-wrap items-center leading-7">
           See what I&apos;ve been doing on{' '}
           <Link
@@ -70,8 +70,8 @@ export function AboutCard() {
         <Link
           href="/contact"
           className={cn(
-            `text-foreground bg-border-subtle group mt-4 inline-flex items-center rounded-full px-4 py-2 text-sm
-            transition-colors`,
+            `text-foreground bg-border-subtle group mt-4 inline-flex w-fit items-center rounded-full px-4 py-2
+            text-sm transition-colors`,
             'hover:text-mirai-red hover:bg-border'
           )}
         >
