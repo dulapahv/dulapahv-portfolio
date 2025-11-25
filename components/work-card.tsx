@@ -1,5 +1,6 @@
 import { ArrowUpRightIcon } from '@phosphor-icons/react/dist/ssr';
 
+import { LINKEDIN_URL } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { Card } from '@/components/card';
 
@@ -52,7 +53,7 @@ export function WorkCard() {
           Work
         </h2>
         <a
-          href="https://www.linkedin.com/in/dulapahv/"
+          href={LINKEDIN_URL}
           target="_blank"
           rel="noopener noreferrer"
           title="View my LinkedIn profile"
@@ -60,58 +61,69 @@ export function WorkCard() {
         >
           <ArrowUpRightIcon
             className={cn(
-              'text-foreground-muted transition-color size-5',
+              'text-foreground-muted size-5 transition-colors',
               'group-hover/icon:text-mirai-red'
             )}
             weight="regular"
           />
         </a>
       </div>
-      <ul className="divide-border-subtle space-y-3 divide-y" role="list">
-        {works.map((work, index) => (
-          <li key={index} className="flex flex-col gap-1 pb-3 first:pb-3">
-            <p
-              className={cn(
-                'text-foreground flex items-center gap-2 text-sm font-medium transition-colors'
-              )}
+      <div className="relative flex h-full flex-col">
+        <div
+          className="from-border-strong absolute top-0 left-0 h-full w-px bg-linear-to-b to-transparent opacity-100"
+          style={{
+            backgroundImage:
+              'repeating-linear-gradient(to bottom, var(--color-border-strong) 0, var(--color-border-strong) 4px, transparent 4px, transparent 8px)',
+            maskImage: 'linear-gradient(to bottom, black 75%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, black 75%, transparent 100%)'
+          }}
+          aria-hidden="true"
+        />
+        <ul className="flex h-full flex-1 flex-col text-sm" role="list">
+          {works.map((work, index) => (
+            <li key={index} className="relative flex flex-col gap-1 pb-3 pl-4 first:pb-3">
+              <div
+                className="border-border-strong absolute top-2.5 left-0 h-px w-3 border-t border-dashed"
+                aria-hidden="true"
+              />
+              <p
+                className={cn(
+                  'text-foreground flex items-center gap-2 font-medium transition-colors'
+                )}
+              >
+                {index === 0 && work.isPresent && (
+                  <span className="relative inline-flex size-1.5 shrink-0">
+                    <span
+                      className="bg-mirai-red absolute size-1.5 animate-ping rounded-full"
+                      aria-hidden="true"
+                    />
+                    <span
+                      className="bg-mirai-red relative size-1.5 rounded-full"
+                      aria-hidden="true"
+                    />
+                  </span>
+                )}
+                {work.position} at {work.company}
+              </p>
+              <p className="text-foreground-muted">{work.location}</p>
+              <time className="text-foreground-muted text-xs">
+                {work.formattedStartDate}—{work.formattedEndDate}
+              </time>
+            </li>
+          ))}
+          <li className="mt-auto flex items-center justify-between pl-4">
+            <a
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn('text-foreground-muted transition-colors', 'hover:text-foreground')}
             >
-              {index === 0 && work.isPresent && (
-                <span className="relative inline-flex size-1.5 shrink-0">
-                  <span
-                    className="bg-mirai-red absolute size-1.5 animate-ping rounded-full"
-                    aria-hidden="true"
-                  />
-                  <span
-                    className="bg-mirai-red relative size-1.5 rounded-full"
-                    aria-hidden="true"
-                  />
-                </span>
-              )}
-              {work.position} at {work.company}
-            </p>
-            <p className="text-foreground-muted text-xs">{work.location}</p>
-            <time className="text-foreground-muted text-xs">
-              {work.formattedStartDate}—{work.formattedEndDate}
-            </time>
+              View full work experience
+            </a>
+            <span className="text-foreground-muted ml-2 transition-colors">2020-2023</span>
           </li>
-        ))}
-        <li className="mt-2 flex items-center justify-between">
-          <a
-            href="https://www.linkedin.com/in/dulapahv/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={cn(
-              'text-foreground-muted text-sm font-medium transition-colors',
-              'hover:text-foreground'
-            )}
-          >
-            View full work experience
-          </a>
-          <span className="text-foreground-muted ml-2 text-sm font-medium transition-colors">
-            2020-2023
-          </span>
-        </li>
-      </ul>
+        </ul>
+      </div>
     </Card>
   );
 }
