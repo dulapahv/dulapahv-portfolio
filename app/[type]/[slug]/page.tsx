@@ -166,7 +166,7 @@ export default async function ContentPage({ params }: PageProps<'/[type]/[slug]'
       <div className="mx-auto max-w-3xl space-y-4">
         <Breadcrumb lastLabel={title} />
       </div>
-      <ViewTransition default="slide">
+      <ViewTransition enter="slide-in-right">
         <main className="mx-auto max-w-3xl space-y-4">
           <header className="space-y-2">
             <div>

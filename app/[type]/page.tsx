@@ -91,7 +91,7 @@ export default async function TypeListingPage({ params }: PageProps<'/[type]'>) 
       <div className="mx-auto max-w-3xl space-y-4">
         <Breadcrumb lastLabel={title} />
       </div>
-      <ViewTransition default="slide">
+      <ViewTransition enter="slide-in-right">
         <main className="mx-auto max-w-3xl space-y-4">
           <header className="gap-0">
             <h1 className="text-lg font-medium">{title}</h1>

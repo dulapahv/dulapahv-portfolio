@@ -29,7 +29,7 @@ export default function Home() {
     <>
       <JsonLd schemas={[profilePageSchema]} />
       <ViewTransition>
-        <header className="mb-12">
+        <header className="animate-tilt-scale-up mb-12">
           <HeaderText />
           <div className="mt-12 max-w-4xl">
             <h2 className="text-foreground-muted mb-4 text-sm font-semibold tracking-wider uppercase">
@@ -61,7 +61,7 @@ export default function Home() {
             </div>
           </div>
         </header>
-        <main className="home-grid grid gap-5">
+        <main className="home-grid animate-tilt-scale-up grid gap-5">
           <article className="min-w-0" style={{ gridArea: '👋' }}>
             <AboutCard />
           </article>
@@ -92,8 +92,8 @@ export default function Home() {
             />
           </article>
         </main>
+        <Footer />
       </ViewTransition>
-      <Footer />
     </>
   );
 }
