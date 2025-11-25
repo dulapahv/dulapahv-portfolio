@@ -138,7 +138,7 @@ export function ProjectsCard() {
               onClick={() => goToSlide(index)}
               className={cn(
                 'h-2 rounded-full transition-all',
-                index === currentIndex ? 'bg-mirai-red w-6' : 'bg-border-strong hover:bg-border w-2'
+                index === currentIndex ? 'bg-mirai-red w-6' : 'bg-foreground/20 hover:bg-border w-2'
               )}
               aria-label={`Go to project ${index + 1}`}
             />

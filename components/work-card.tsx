@@ -70,10 +70,10 @@ export function WorkCard() {
       </div>
       <div className="relative flex h-full flex-col">
         <div
-          className="from-border-strong absolute top-0 left-0 h-full w-px bg-linear-to-b to-transparent opacity-100"
+          className="absolute top-0 left-0 h-full w-px opacity-20"
           style={{
             backgroundImage:
-              'repeating-linear-gradient(to bottom, var(--color-border-strong) 0, var(--color-border-strong) 4px, transparent 4px, transparent 8px)',
+              'repeating-linear-gradient(to bottom, var(--color-foreground) 0, var(--color-foreground) 4px, transparent 4px, transparent 8px)',
             maskImage: 'linear-gradient(to bottom, black 75%, transparent 100%)',
             WebkitMaskImage: 'linear-gradient(to bottom, black 75%, transparent 100%)'
           }}
@@ -83,7 +83,7 @@ export function WorkCard() {
           {works.map((work, index) => (
             <li key={index} className="relative flex flex-col gap-1 pb-3 pl-4 first:pb-3">
               <div
-                className="border-border-strong absolute top-2.5 left-0 h-px w-3 border-t border-dashed"
+                className="border-foreground/20 absolute top-2.5 left-0 h-px w-3 border-t border-dashed"
                 aria-hidden="true"
               />
               <p
