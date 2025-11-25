@@ -40,7 +40,7 @@ export function RecentBlogsCard() {
               <Link href={`/blog/${blog_.slug}`} className="flex gap-3">
                 {blog_.image && (
                   <div className="relative shrink-0 overflow-hidden rounded-lg">
-                    <div className="relative aspect-square h-20 overflow-hidden rounded-lg min-[425px]:aspect-video">
+                    <div className="relative mt-1 aspect-square h-20 overflow-hidden rounded-lg sm:aspect-video">
                       <Image
                         src={blog_.image}
                         alt={blog_.title}

@@ -143,9 +143,9 @@ export default async function TypeListingPage({ params }: PageProps<'/[type]'>) 
                               className="group -m-2 flex items-center justify-between gap-2 rounded-md p-2"
                               aria-label={`Read ${post.title}: ${post.description}`}
                             >
-                              <div className="flex items-center gap-4">
+                              <div className="flex gap-4">
                                 {post.image && (
-                                  <div className="relative aspect-square h-20 shrink-0 overflow-hidden rounded-md min-[425px]:aspect-video">
+                                  <div className="relative mt-1.5 aspect-square h-20 shrink-0 overflow-hidden rounded-md sm:aspect-video">
                                     <Image
                                       src={post.image}
                                       alt={post.title}
