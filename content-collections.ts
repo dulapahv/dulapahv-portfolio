@@ -26,12 +26,25 @@ const parseDate = (dateStr: string): Date => {
   return new Date(year, month - 1, day);
 };
 
-// Helper function to format date to DD-MM-YYYY
+// Helper function to format date to MMM YYYY (e.g., Feb 2024)
 const formatDate = (date: Date): string => {
-  const day = date.getDate().toString().padStart(2, '0');
-  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  const monthNames = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec'
+  ];
+  const month = monthNames[date.getMonth()];
   const year = date.getFullYear();
-  return `${day}-${month}-${year}`;
+  return `${month} ${year}`;
 };
 
 // Base transform function for MDX compilation
