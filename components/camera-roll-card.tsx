@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
+import Zoom from 'react-medium-image-zoom';
+
 import { cn } from '@/lib/utils';
 import { Card } from '@/components/card';
 
@@ -101,12 +103,12 @@ export function CameraRollCard({ images }: CameraRollCardProps) {
 
         <button
           onClick={handlePrevious}
-          className="absolute top-0 bottom-0 left-0 z-5 w-1/3 cursor-crosshair"
+          className="absolute top-0 bottom-0 left-0 z-5 w-1/6 cursor-pointer"
           aria-label="Previous image"
         />
         <button
           onClick={handleNext}
-          className="absolute top-0 right-0 bottom-0 z-5 w-2/3 cursor-crosshair"
+          className="absolute top-0 right-0 bottom-0 z-5 w-1/4 cursor-pointer"
           aria-label="Next image"
         />
 
@@ -116,13 +118,19 @@ export function CameraRollCard({ images }: CameraRollCardProps) {
         >
           {images.map((image, index) => (
             <div key={index} className="relative h-full w-full shrink-0">
-              <Image
-                src={`/camera_roll/${image}`}
-                alt={`Camera Roll image ${index + 1}`}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
+              <Zoom
+                zoomMargin={12}
+                wrapElement="span"
+                classDialog='[&_[data-rmiz-modal-overlay="visible"]]:!bg-background/40 [&_[data-rmiz-modal-overlay="visible"]]:backdrop-blur-sm'
+              >
+                <Image
+                  src={`/camera_roll/${image}`}
+                  alt={`Camera Roll image ${index + 1}`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+              </Zoom>
             </div>
           ))}
         </div>

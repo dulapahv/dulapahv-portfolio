@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { ArrowRightIcon } from '@phosphor-icons/react/dist/ssr';
+import Zoom from 'react-medium-image-zoom';
 
 import { cn } from '@/lib/utils';
 import { Card } from '@/components/card';
@@ -11,16 +12,22 @@ import { ThemeAwareImage } from './theme-aware-image';
 export function AboutCard() {
   return (
     <Card className="p-4" containerClassName="h-full">
-      <Image
-        src="/about.jpeg"
-        alt="Dulapah Vibulsanti"
-        className="rounded-lg"
-        width={1980}
-        height={1320}
-        placeholder="blur"
-        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAYAAAB4ka1VAAAAsUlEQVR4AQClAFr/Ao99af+NfnL/oYx7/498a/9nY0n/YWJB/1hfPP85Ox3/Av0M9wD6/vEA8Pb0APwO6QAnIiAAAAD+AOnn4QD///oAAuXr3AAEEOwA7u/mANre5wDl3+YABf0MAO7v9wABAQEAAuDb8wDn5wIA8/f7ANve7QC9yeMA0tfyACscMAAaEx8AAvHq+AAG9QIA9fjvAOPf9QAG8fIABPHyADc0NgBIP0gAAAAA//9MjOw2AAAABklEQVQDAH+DUIQ2I2QQAAAAAElFTkSuQmCC"
-        priority
-      />
+      <Zoom
+        zoomMargin={12}
+        wrapElement="span"
+        classDialog='[&_[data-rmiz-modal-overlay="visible"]]:!bg-background/40 [&_[data-rmiz-modal-overlay="visible"]]:backdrop-blur-sm'
+      >
+        <Image
+          src="/about.jpeg"
+          alt="Dulapah Vibulsanti"
+          className="rounded-lg"
+          width={1980}
+          height={1320}
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAYAAAB4ka1VAAAAsUlEQVR4AQClAFr/Ao99af+NfnL/oYx7/498a/9nY0n/YWJB/1hfPP85Ox3/Av0M9wD6/vEA8Pb0APwO6QAnIiAAAAD+AOnn4QD///oAAuXr3AAEEOwA7u/mANre5wDl3+YABf0MAO7v9wABAQEAAuDb8wDn5wIA8/f7ANve7QC9yeMA0tfyACscMAAaEx8AAvHq+AAG9QIA9fjvAOPf9QAG8fIABPHyADc0NgBIP0gAAAAA//9MjOw2AAAABklEQVQDAH+DUIQ2I2QQAAAAAElFTkSuQmCC"
+          priority
+        />
+      </Zoom>
       <p className="text-foreground mt-4 leading-7">
         I&apos;m a Thai software engineer who believes accessible, delightful technology has the
         power to transform lives. Currently at NatWest Group, I build frontend tools that make
