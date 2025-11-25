@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 
 import { useMediaQuery } from '@/hooks/use-media-query';
 
-interface SvgTextAnimationFlexibleProps {
+interface SvgTextAnimationProps {
   delay?: number;
   startDelay?: number;
   duration?: number;
@@ -22,7 +22,7 @@ interface SvgTextAnimationFlexibleProps {
   children: React.ReactNode;
 }
 
-export const SvgTextAnimationFlexible = ({
+export function SvgTextAnimation({
   delay = 0.1,
   startDelay = 0,
   duration = 2,
@@ -38,7 +38,7 @@ export const SvgTextAnimationFlexible = ({
   height = '100%',
   viewBox,
   children
-}: SvgTextAnimationFlexibleProps) => {
+}: SvgTextAnimationProps) {
   const svgRef = useRef<SVGSVGElement>(null);
   const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
 
@@ -98,4 +98,4 @@ export const SvgTextAnimationFlexible = ({
       {children}
     </svg>
   );
-};
+}

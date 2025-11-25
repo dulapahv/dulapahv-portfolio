@@ -1,4 +1,4 @@
-import { SvgTextAnimationFlexible } from '@/components/svg-text-animation';
+import { SvgTextAnimation } from '@/components/svg-text-animation';
 
 export function HeaderText() {
   return (
@@ -10,7 +10,7 @@ export function HeaderText() {
         >
           Software engineer crafting
         </span>
-        <SvgTextAnimationFlexible
+        <SvgTextAnimation
           width="1450"
           height="109.561"
           viewBox="0 0 1450 109.561"
@@ -151,7 +151,7 @@ export function HeaderText() {
               vectorEffect="non-scaling-stroke"
             />
           </g>
-        </SvgTextAnimationFlexible>
+        </SvgTextAnimation>
       </div>
       <div className="relative mb-4 max-w-3xl">
         <span
@@ -160,7 +160,7 @@ export function HeaderText() {
         >
           accessible and delightful
         </span>
-        <SvgTextAnimationFlexible
+        <SvgTextAnimation
           width="1450"
           height="109.561"
           viewBox="0 0 1450 109.561"
@@ -297,7 +297,7 @@ export function HeaderText() {
               vectorEffect="non-scaling-stroke"
             />
           </g>
-        </SvgTextAnimationFlexible>
+        </SvgTextAnimation>
       </div>
       <div className="relative mb-4 max-w-3xl">
         <span
@@ -306,7 +306,7 @@ export function HeaderText() {
         >
           digital experiences
         </span>
-        <SvgTextAnimationFlexible
+        <SvgTextAnimation
           width="1450"
           height="108.6"
           viewBox="0 0 1450 109.561"
@@ -418,7 +418,7 @@ export function HeaderText() {
               vectorEffect="non-scaling-stroke"
             />
           </g>
-        </SvgTextAnimationFlexible>
+        </SvgTextAnimation>
       </div>
     </>
   );
