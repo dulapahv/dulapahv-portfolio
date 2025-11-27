@@ -142,7 +142,7 @@ export async function OpenSourceCard() {
                     {statusConfig.label}
                   </span>
                 </div>
-                <div className="text-foreground-muted ml-6 flex flex-wrap items-center gap-2 text-xs transition-colors">
+                <div className="text-foreground-muted ml-7 flex flex-wrap items-center gap-2 text-xs transition-colors">
                   <span className="font-mono break-all">{contribution.repository}</span>
                   <span aria-hidden="true">•</span>
                   <span className="font-mono">#{contribution.number}</span>
