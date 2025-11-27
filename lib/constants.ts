@@ -11,7 +11,7 @@ export const GITHUB_URL = 'https://github.com/dulapahv';
 
 export const NAME = 'Dulapah Vibulsanti';
 export const DESCRIPTION =
-  'Thai Software Engineer based in Edinburgh, United Kingdom. Passionate about creating accessible and delightful technology for everyone.';
+  'Thai software engineer in Edinburgh, creating accessible, delightful digital experiences that improve lives.';
 
 export const NAME_MAX_LENGTH = 256;
 export const EMAIL_MAX_LENGTH = 256;
