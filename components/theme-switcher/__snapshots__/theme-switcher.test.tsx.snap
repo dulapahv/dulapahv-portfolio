@@ -4,13 +4,14 @@ exports[`ThemeSwitcher > Snapshot > should match snapshot with system theme 1`] 
 <div>
   <div
     aria-label="Theme selection"
-    class="bg-background-elevated/90 ring-border relative inline-flex h-8 items-center rounded-full ring-1 backdrop-blur-xl"
+    class="bg-background-elevated/90 ring-border relative inline-flex h-8 items-center rounded-full ring-1
+        backdrop-blur-xl"
     role="group"
   >
     <button
       aria-label="System theme, currently selected"
       aria-pressed="true"
-      class="hover:bg-background-subtle relative mx-0.5 flex size-7 items-center justify-center rounded-full transition-colors"
+      class="relative mx-0.5 flex size-7 items-center justify-center rounded-full transition-colors"
       type="button"
       whilehover="[object Object]"
       whiletap="[object Object]"
@@ -37,7 +38,7 @@ exports[`ThemeSwitcher > Snapshot > should match snapshot with system theme 1`] 
     <button
       aria-label="Light theme"
       aria-pressed="false"
-      class="hover:bg-background-subtle relative mx-0.5 flex size-7 items-center justify-center rounded-full transition-colors"
+      class="relative mx-0.5 flex size-7 items-center justify-center rounded-full transition-colors"
       type="button"
       whilehover="[object Object]"
       whiletap="[object Object]"
@@ -59,7 +60,7 @@ exports[`ThemeSwitcher > Snapshot > should match snapshot with system theme 1`] 
     <button
       aria-label="Dark theme"
       aria-pressed="false"
-      class="hover:bg-background-subtle relative mx-0.5 flex size-7 items-center justify-center rounded-full transition-colors"
+      class="relative mx-0.5 flex size-7 items-center justify-center rounded-full transition-colors"
       type="button"
       whilehover="[object Object]"
       whiletap="[object Object]"

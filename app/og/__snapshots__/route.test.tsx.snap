@@ -14,7 +14,7 @@ MockImageResponse {
     <img
       alt="avatar"
       height={72}
-      src="data:image/png;base64,bW9jay1maWxlLWNvbnRlbnQ="
+      src="data:image/svg+xml;base64,bW9jay1maWxlLWNvbnRlbnQ="
       tw="overflow-hidden"
       width={72}
     />

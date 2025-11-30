@@ -8,7 +8,7 @@ exports[`TableOfContents > Snapshot > should match snapshot - desktop view 1`] =
     role="navigation"
   >
     <h2
-      class="text-foreground px-3 text-sm font-semibold"
+      class="text-foreground px-3 text-sm font-medium"
     >
       On this page
     </h2>
@@ -27,7 +27,7 @@ exports[`TableOfContents > Snapshot > should match snapshot - desktop view 1`] =
           <a
             aria-current="location"
             aria-describedby="current-section-0"
-            class="group relative block rounded-md px-3 py-1 text-sm font-medium transition-all text-mirai-red"
+            class="group relative block rounded-md px-3 py-1 text-sm transition-all text-mirai-red"
             href="#heading-1"
           >
             <span
@@ -51,7 +51,7 @@ exports[`TableOfContents > Snapshot > should match snapshot - desktop view 1`] =
           class="mb-0"
         >
           <a
-            class="group relative block rounded-md px-3 py-1 text-sm font-medium transition-all pl-7 text-foreground-muted hover:text-foreground"
+            class="group relative block rounded-md px-3 py-1 text-sm transition-all pl-7 text-foreground-muted hover:text-foreground"
             href="#heading-2"
           >
             <span
@@ -69,7 +69,7 @@ exports[`TableOfContents > Snapshot > should match snapshot - desktop view 1`] =
           class="mb-0"
         >
           <a
-            class="group relative block rounded-md px-3 py-1 text-sm font-medium transition-all text-foreground-muted hover:text-foreground"
+            class="group relative block rounded-md px-3 py-1 text-sm transition-all text-foreground-muted hover:text-foreground"
             href="#heading-3"
           >
             <span
@@ -100,7 +100,7 @@ exports[`TableOfContents > Snapshot > should match snapshot - mobile view 1`] = 
       aria-controls="toc-content"
       aria-describedby="toc-description"
       aria-expanded="false"
-      class="text-foreground flex w-full cursor-pointer items-center justify-between rounded-md px-4 py-3 text-sm font-semibold transition-colors hover:bg-background-muted/50"
+      class="text-foreground flex w-full cursor-pointer items-center justify-between rounded-md px-4 py-3 text-sm font-medium transition-colors hover:bg-background-muted/50"
       type="button"
     >
       <span>
