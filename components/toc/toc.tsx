@@ -208,7 +208,7 @@ export function TableOfContents() {
         role="navigation"
         ref={tocRef}
       >
-        <h2 className="text-foreground px-3 text-sm font-semibold">On this page</h2>
+        <h2 className="text-foreground px-3 text-sm font-medium">On this page</h2>
         <div
           className="max-h-[calc(100vh-16rem)] overflow-y-auto py-2"
           role="group"
@@ -292,7 +292,7 @@ export function TableOfContents() {
         onClick={() => setIsCollapsed(!isCollapsed)}
         className={cn(
           `text-foreground flex w-full cursor-pointer items-center justify-between rounded-md px-4 py-3 text-sm
-          font-semibold transition-colors`,
+          font-medium transition-colors`,
           'hover:bg-background-muted/50'
         )}
         aria-expanded={!isCollapsed}

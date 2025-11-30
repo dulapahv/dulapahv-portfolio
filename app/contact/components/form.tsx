@@ -112,14 +112,14 @@ export const ContactForm = ({ searchParams }: ContactFormProps) => {
       />
 
       {submitSuccess && (
-        <div className="text-success text-sm font-semibold" role="status" aria-live="polite">
+        <div className="text-success text-sm font-medium" role="status" aria-live="polite">
           Your message has been sent successfully! You will receive a confirmation email and hear
           back from me soon.
         </div>
       )}
       {submitError && (
         <div
-          className="text-error text-sm font-semibold whitespace-pre-line"
+          className="text-error text-sm font-medium whitespace-pre-line"
           role="alert"
           aria-live="assertive"
         >
