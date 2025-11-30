@@ -33,7 +33,7 @@ export function ConfirmationEmailTemplate({
           <Container className="mx-auto my-10 max-w-xl rounded border border-solid border-neutral-200 p-5">
             <Section className="mt-4">
               <Img
-                src={`${ASSETS_URL}/logo192.png`}
+                src={`${ASSETS_URL}/logo512.png`}
                 width="48"
                 height="48"
                 alt="DulapahV Portfolio Logo"

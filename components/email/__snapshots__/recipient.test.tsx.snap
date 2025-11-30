@@ -40,7 +40,7 @@ exports[`RecipientEmailTemplate > should match snapshot 1`] = `
                   <img
                     alt="DulapahV Portfolio Logo"
                     height="48"
-                    src="https://assets.dulapahv.dev/logo192.png"
+                    src="https://assets.dulapahv.dev/logo512.png"
                     style="display: block; outline: none; border: medium; text-decoration: none;"
                     width="48"
                   />

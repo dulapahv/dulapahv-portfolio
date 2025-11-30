@@ -12,8 +12,8 @@ export const GET = async (request: NextRequest) => {
   const title = getParam('title');
   const description = getParam('description');
 
-  const logo = await readFile(join(process.cwd(), 'app/og/logo.png'));
-  const logoSrc = `data:image/png;base64,${logo.toString('base64')}`;
+  const logo = await readFile(join(process.cwd(), 'app/og/logo.svg'));
+  const logoSrc = `data:image/svg+xml;base64,${logo.toString('base64')}`;
   const geistBold = await readFile(join(process.cwd(), 'app/og/Geist-Bold.ttf'));
   const geistRegular = await readFile(join(process.cwd(), 'app/og/Geist-Regular.ttf'));
 
