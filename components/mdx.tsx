@@ -101,7 +101,7 @@ export function Mdx({ code }: MdxProperties) {
         'prose-h5:text-base prose-h5:mt-4 prose-h5:mb-1',
         'prose-h6:text-sm prose-h6:mt-2 prose-h6:mb-0',
         'prose-p:my-5',
-        'prose-strong:text-inherit prose-strong:font-bold',
+        'prose-strong:text-inherit prose-strong:font-semibold',
         `prose-pre:dark:bg-[#0a0a0a] prose-pre:bg-white prose-pre:border-t-border prose-pre:text-[13px]/5
         prose-pre:px-0! prose-pre:[&>code:not([data-line-numbers])]:px-4`,
         `prose-figure:border prose-figure:border-border prose-figure:rounded-md prose-figure:my-4
