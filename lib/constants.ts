@@ -8,6 +8,8 @@ export const BASE_URL = IS_DEV_ENV ? 'http://localhost:3000' : 'https://dulapahv
 export const ASSETS_URL = 'https://assets.dulapahv.dev';
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/dulapahv';
 export const GITHUB_URL = 'https://github.com/dulapahv';
+export const SPOTIFY_URL = 'https://open.spotify.com/user/31gh2o2edagehgvasq4ov3perrtm';
+export const CONTACT_EMAIL = 'contact@dulapahv.dev';
 
 export const NAME = 'Dulapah Vibulsanti';
 export const DESCRIPTION =

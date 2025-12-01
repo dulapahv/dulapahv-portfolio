@@ -1,17 +1,22 @@
-import { Suspense, ViewTransition } from 'react';
+import { ViewTransition } from 'react';
 import type { Metadata } from 'next';
+import { Archivo } from 'next/font/google';
 
 import type { ContactPage } from 'schema-dts';
 
+import { CONTACT_EMAIL } from '@/lib/constants';
 import { contactPageSchema } from '@/lib/json-ld';
 import { createMetadata } from '@/lib/metadata';
+import { cn } from '@/lib/utils';
 import Breadcrumb from '@/components/breadcrumb';
 import { JsonLd } from '@/components/json-ld';
 
-import { ContactFormWrapper } from './components/formWrapper';
+import { ContactActions } from './components/contact-actions';
+
+const archivo = Archivo({ subsets: ['latin'], weight: 'variable' });
 
 const title = 'Contact';
-const description = "Let me know what's on your mind and I'll get back to you as soon as possible.";
+const description = 'Get in touch';
 
 export const metadata: Metadata = createMetadata({
   title,
@@ -19,27 +24,7 @@ export const metadata: Metadata = createMetadata({
   ogText: 'Contact DulapahV'
 });
 
-function ContactFormSkeleton() {
-  return (
-    <div className="animate-pulse space-y-6">
-      <div className="space-y-2">
-        <div className="h-4 w-16 rounded bg-gray-200" />
-        <div className="h-10 rounded bg-gray-200" />
-      </div>
-      <div className="space-y-2">
-        <div className="h-4 w-16 rounded bg-gray-200" />
-        <div className="h-10 rounded bg-gray-200" />
-      </div>
-      <div className="space-y-2">
-        <div className="h-4 w-20 rounded bg-gray-200" />
-        <div className="h-32 rounded bg-gray-200" />
-      </div>
-      <div className="h-10 w-32 rounded bg-gray-200" />
-    </div>
-  );
-}
-
-export default function ContactPage({ searchParams }: PageProps<'/contact'>) {
+export default function ContactPage() {
   return (
     <>
       <JsonLd schemas={[contactPageSchema]} />
@@ -47,16 +32,27 @@ export default function ContactPage({ searchParams }: PageProps<'/contact'>) {
         <Breadcrumb lastLabel={title} />
       </div>
       <ViewTransition enter="slide-in-right">
-        <main className="mx-auto max-w-3xl space-y-4">
-          <header className="gap-0">
-            <h1 className="text-foreground text-lg font-medium">{title}</h1>
-            <p className="text-foreground-muted">{description}</p>
-          </header>
-          <section aria-label="Contact form">
-            <Suspense fallback={<ContactFormSkeleton />}>
-              <ContactFormWrapper searchParams={searchParams} />
-            </Suspense>
-          </section>
+        <main className="relative mx-auto flex min-h-[70vh] max-w-5xl flex-col items-center justify-center">
+          <div className="relative z-10 space-y-12 px-4 py-12 text-center">
+            <div className="space-y-6">
+              <h1 className="text-foreground">
+                Say hi, discuss future projects or job opportunities!
+              </h1>
+              <div className="space-y-2">
+                <a
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  className={cn(
+                    'text-foreground text-4xl font-light sm:text-5xl md:text-6xl',
+                    archivo.className
+                  )}
+                  aria-label={`Email address: ${CONTACT_EMAIL}`}
+                >
+                  {CONTACT_EMAIL}
+                </a>
+              </div>
+            </div>
+            <ContactActions />
+          </div>
         </main>
       </ViewTransition>
     </>
