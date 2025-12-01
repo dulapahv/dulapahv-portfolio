@@ -1,7 +1,6 @@
 import type { NextConfig } from 'next';
 
 import { withContentCollections } from '@content-collections/next';
-import { initOpenNextCloudflareForDev } from '@opennextjs/cloudflare';
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: [process.env.ALLOWED_DEV_ORIGINS || '[]'],
@@ -28,5 +27,3 @@ const nextConfig: NextConfig = {
 };
 
 export default withContentCollections(nextConfig);
-
-initOpenNextCloudflareForDev();
