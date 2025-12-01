@@ -3,8 +3,6 @@ import type { NextRequest } from 'next/server';
 
 import { ASSETS_URL } from '@/lib/constants';
 
-export const dynamic = 'force-static';
-
 async function loadGoogleFont(font: string, weight: number, text: string) {
   const url = `https://fonts.googleapis.com/css2?family=${font}:wght@${weight}&text=${encodeURIComponent(text)}`;
 
