@@ -15,6 +15,7 @@ import { OpenSourceCard } from '@/components/open-source-card';
 import { ProjectsCard } from '@/components/projects-card';
 import { RecentBlogsCard } from '@/components/recent-blogs-card';
 import { ResumeCard } from '@/components/resume-card';
+import { SpotifyCard } from '@/components/spotify-card';
 import { WorkCard } from '@/components/work-card';
 
 export const metadata: Metadata = createMetadata({
@@ -88,6 +89,9 @@ export default function Home() {
           <CameraRollCard
             images={['jp1.jpeg', 'jp2.jpeg', 'jp3.jpeg', 'edi1.jpeg', 'edi2.jpeg', 'edi3.jpeg']}
           />
+        </article>
+        <article className="min-w-0" style={{ gridArea: '🎵' }}>
+          <SpotifyCard />
         </article>
       </main>
       <Footer />
