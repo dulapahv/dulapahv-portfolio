@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { ArrowUpRightIcon } from '@phosphor-icons/react/dist/ssr';
 
 import { LINKEDIN_URL } from '@/lib/constants';
@@ -52,7 +54,7 @@ export function WorkCard() {
         <h2 className="text-foreground-muted text-xs font-semibold tracking-widest uppercase">
           Work
         </h2>
-        <a
+        <Link
           href={LINKEDIN_URL}
           target="_blank"
           rel="noopener noreferrer"
@@ -66,7 +68,7 @@ export function WorkCard() {
             )}
             weight="regular"
           />
-        </a>
+        </Link>
       </div>
       <div className="relative flex h-full flex-col">
         <div
@@ -112,14 +114,14 @@ export function WorkCard() {
             </li>
           ))}
           <li className="mt-auto flex items-center justify-between pl-4">
-            <a
+            <Link
               href={LINKEDIN_URL}
               target="_blank"
               rel="noopener noreferrer"
               className={cn('text-foreground-muted transition-colors', 'hover:text-foreground')}
             >
               View full work experience
-            </a>
+            </Link>
             <span className="text-foreground-muted ml-2 transition-colors">2020-2023</span>
           </li>
         </ul>

@@ -1,7 +1,9 @@
 'use client';
 
 import { useState } from 'react';
+import type { Route } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { CheckIcon, CopyIcon } from '@phosphor-icons/react/dist/ssr';
 
@@ -76,9 +78,9 @@ export function ContactActions() {
           );
         }
         return (
-          <a
+          <Link
             key={button.label}
-            href={button.href}
+            href={button.href as Route}
             target="_blank"
             rel="noopener noreferrer"
             title={button.label}
@@ -87,7 +89,7 @@ export function ContactActions() {
           >
             <span>{button.icon}</span>
             <span>{button.label}</span>
-          </a>
+          </Link>
         );
       })}
     </div>

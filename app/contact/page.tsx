@@ -1,6 +1,7 @@
 import { ViewTransition } from 'react';
 import type { Metadata } from 'next';
 import { Archivo } from 'next/font/google';
+import Link from 'next/link';
 
 import type { ContactPage } from 'schema-dts';
 
@@ -39,7 +40,7 @@ export default function ContactPage() {
                 Say hi, discuss future projects or job opportunities!
               </h1>
               <div className="space-y-2">
-                <a
+                <Link
                   href={`mailto:${CONTACT_EMAIL}`}
                   className={cn(
                     'text-foreground text-4xl font-light sm:text-5xl md:text-6xl',
@@ -48,7 +49,7 @@ export default function ContactPage() {
                   aria-label={`Email address: ${CONTACT_EMAIL}`}
                 >
                   {CONTACT_EMAIL}
-                </a>
+                </Link>
               </div>
             </div>
             <ContactActions />

@@ -1,3 +1,4 @@
+import type { Route } from 'next';
 import Link from 'next/link';
 
 import type { Icon } from '@phosphor-icons/react/dist/lib/types';
@@ -105,8 +106,8 @@ export async function OpenSourceCard() {
 
           return (
             <li key={contribution.url} className="group pb-3 first:pb-3">
-              <a
-                href={contribution.url}
+              <Link
+                href={contribution.url as Route}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex flex-col gap-1.5"
@@ -162,7 +163,7 @@ export async function OpenSourceCard() {
                     })}
                   </time>
                 </div>
-              </a>
+              </Link>
             </li>
           );
         })}
