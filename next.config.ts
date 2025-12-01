@@ -11,7 +11,14 @@ const nextConfig: NextConfig = {
   images: {
     loader: 'custom',
     loaderFile: './image-loader.ts',
-    qualities: [75, 100]
+    qualities: [75, 100],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'i.scdn.co',
+        pathname: '/image/**'
+      }
+    ]
   },
   experimental: {
     typedEnv: true,
