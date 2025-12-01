@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import { ArrowRightIcon } from '@phosphor-icons/react/dist/ssr';
 
-import { LINKEDIN_URL } from '@/lib/constants';
+import { LINKEDIN_URL, SPOTIFY_URL } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { Card } from '@/components/card';
 
@@ -73,6 +73,17 @@ export function AboutCard() {
             )}
           >
             <Image src="/linkedin.svg" alt="LinkedIn" className="" width={16} height={16} />
+          </Link>
+          <Link
+            href={SPOTIFY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={cn(
+              'text-foreground-muted inline-flex items-center text-sm transition-colors',
+              'hover:text-foreground'
+            )}
+          >
+            <Image src="/spotify.svg" alt="Spotify" className="" width={16} height={16} />
           </Link>
         </p>
         <Link
