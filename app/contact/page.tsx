@@ -37,7 +37,7 @@ export default function ContactPage() {
           <div className="relative z-10 space-y-12 px-4 py-12 text-center">
             <div className="space-y-6">
               <h1 className="text-foreground">
-                Say hi, discuss future projects or job opportunities!
+                Say hi, discuss future projects or job opportunities
               </h1>
               <div className="space-y-2">
                 <Link

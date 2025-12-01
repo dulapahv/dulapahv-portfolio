@@ -94,11 +94,6 @@ function mapGitHubItemToContribution(item: GitHubIssueItem, type: 'PR' | 'ISSUE'
 
 async function fetchGitHubContributions(type: 'pr' | 'issue'): Promise<Contribution[]> {
   const token = process.env.GITHUB_TOKEN;
-
-  if (!token) {
-    console.warn('GITHUB_TOKEN environment variable is not set. API requests may be rate limited.');
-  }
-
   const headers: HeadersInit = {
     Accept: 'application/vnd.github.v3+json'
   };
@@ -116,13 +111,6 @@ async function fetchGitHubContributions(type: 'pr' | 'issue'): Promise<Contribut
   });
 
   if (!response.ok) {
-    const errorText = await response.text();
-    console.error(`GitHub API error (${type}):`, {
-      status: response.status,
-      statusText: response.statusText,
-      body: errorText,
-      headers: Object.fromEntries(response.headers.entries())
-    });
     throw new Error(`Failed to fetch ${type}s: ${response.status} ${response.statusText}`);
   }
 
