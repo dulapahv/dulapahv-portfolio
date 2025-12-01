@@ -8,7 +8,6 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   typedRoutes: true,
   images: {
-    loader: 'custom',
     qualities: [75, 100],
     remotePatterns: [
       {
