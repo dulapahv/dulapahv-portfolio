@@ -29,7 +29,7 @@ export function ConfirmationEmailTemplate({
       <Head />
       <Preview>Confirmation of your message to {NAME}</Preview>
       <Tailwind>
-        <Body className="mx-auto my-auto bg-white px-2 font-sans">
+        <Body className="mx-auto my-auto px-2 font-sans">
           <Container className="mx-auto my-10 max-w-xl rounded border border-solid border-neutral-200 p-5">
             <Section className="mt-4">
               <Img
