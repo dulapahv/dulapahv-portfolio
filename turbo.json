@@ -7,7 +7,6 @@
       "inputs": ["$TURBO_DEFAULT$", "content/**"],
       "outputs": [".next/**", "!.next/cache/**"],
       "env": [
-        "RESEND_API_KEY",
         "GITHUB_TOKEN",
         "SPOTIFY_CLIENT_ID",
         "SPOTIFY_CLIENT_SECRET",
