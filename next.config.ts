@@ -9,7 +9,6 @@ const nextConfig: NextConfig = {
   typedRoutes: true,
   images: {
     loader: 'custom',
-    loaderFile: './image-loader.ts',
     qualities: [75, 100],
     remotePatterns: [
       {
