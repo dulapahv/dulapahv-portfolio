@@ -25,9 +25,6 @@ const getOgImageUrl = (title: string, description?: string): string => {
   return `${BASE_URL}/og?${params.toString()}`;
 };
 
-// Helper to get current ISO date (prevents __name bundling issues in Cloudflare Workers)
-const getCurrentISODate = () => new Date().toISOString();
-
 export const personSchema: WithContext<Person> = {
   '@context': 'https://schema.org',
   '@type': 'Person',
@@ -197,7 +194,7 @@ export const personSchema: WithContext<Person> = {
       description:
         'Software engineers design and create computer systems and applications to solve real-world problems.',
       url: `${BASE_URL}/#occupation-software-engineer`,
-      lastReviewed: getCurrentISODate()
+      lastReviewed: new Date().toISOString()
     }
   }
 };
@@ -216,8 +213,6 @@ export const websiteSchema: WithContext<WebSite> = {
   inLanguage: 'en-US'
 };
 
-const PROFILE_DATE_CREATED = '2022-12-21T00:00:00.000Z';
-
 export const profilePageSchema: WithContext<ProfilePage> = {
   '@context': 'https://schema.org',
   '@type': 'ProfilePage',
@@ -225,8 +220,8 @@ export const profilePageSchema: WithContext<ProfilePage> = {
   url: BASE_URL,
   name: 'Dulapah Vibulsanti - Software Engineer',
   description: DESCRIPTION,
-  dateCreated: PROFILE_DATE_CREATED,
-  dateModified: getCurrentISODate(),
+  dateCreated: new Date('2022-12-21').toISOString(),
+  dateModified: new Date().toISOString(),
   mainEntity: {
     '@id': `${BASE_URL}/#person`
   },
@@ -407,7 +402,7 @@ export const createProjectSchema = (project: {
     '@id': `${BASE_URL}/#person`
   },
   dateCreated: project.startDate.toISOString(),
-  dateModified: project.endDate ? project.endDate.toISOString() : getCurrentISODate(),
+  dateModified: (project.endDate || new Date()).toISOString(),
   image: {
     '@type': 'ImageObject',
     url: getOgImageUrl(project.title, project.description),
