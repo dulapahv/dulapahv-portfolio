@@ -5,19 +5,15 @@ const normalizeSrc = (src: string) => {
 };
 
 export default function cloudflareLoader({ src, width, quality }: ImageLoaderProps) {
+  if (src.startsWith('http://') || src.startsWith('https://')) {
+    return src;
+  }
   const params = [`width=${width}`];
   if (quality) {
     params.push(`quality=${quality}`);
   }
-  // For external URLs
-  if (src.startsWith('http://') || src.startsWith('https://')) {
-    if (process.env.NODE_ENV === 'development') {
-      return `${src}?${params.join('&')}`;
-    }
-    return `/cdn-cgi/image/${params.join(',')}/${normalizeSrc(src)}`;
-  }
-  // For local images
   if (process.env.NODE_ENV === 'development') {
     return `${src}?${params.join('&')}`;
   }
+  return `/cdn-cgi/image/${params.join(',')}/${normalizeSrc(src)}`;
 }
