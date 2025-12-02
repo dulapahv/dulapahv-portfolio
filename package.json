@@ -5,9 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
-    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
+    "preview": "opennextjs-cloudflare build --minify && opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build --minify && opennextjs-cloudflare deploy",
+    "upload": "opennextjs-cloudflare build --minify && opennextjs-cloudflare upload",
     "start": "next start",
     "lint": "eslint --cache",
     "lint:fix": "eslint --fix --cache",
