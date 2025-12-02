@@ -28,7 +28,6 @@
       }
     ]
   },
-
   "migrations": [
     {
       "tag": "v1",
