@@ -45,6 +45,9 @@
       "new_sqlite_classes": ["DOQueueHandler"]
     }
   ],
+  "images": {
+    "binding": "IMAGES"
+  },
   "observability": {
     "enabled": true
   }
