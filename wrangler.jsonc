@@ -8,6 +8,10 @@
     {
       "pattern": "dulapahv.dev",
       "custom_domain": true
+    },
+    {
+      "pattern": "www.dulapahv.dev",
+      "custom_domain": true
     }
   ],
   "assets": {
