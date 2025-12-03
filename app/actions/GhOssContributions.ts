@@ -95,11 +95,12 @@ function mapGitHubItemToContribution(item: GitHubIssueItem, type: 'PR' | 'ISSUE'
 async function fetchGitHubContributions(type: 'pr' | 'issue'): Promise<Contribution[]> {
   const token = process.env.GITHUB_TOKEN;
   const headers: HeadersInit = {
-    Accept: 'application/vnd.github.v3+json'
+    Accept: 'application/vnd.github.v3+json',
+    'User-Agent': 'dulapahv-portfolio'
   };
 
   if (token) {
-    headers.Authorization = `Bearer ${token}`;
+    headers.Authorization = `token ${token}`;
   }
 
   const searchQuery = `author:${GITHUB_USERNAME}+type:${type}`;
@@ -111,6 +112,14 @@ async function fetchGitHubContributions(type: 'pr' | 'issue'): Promise<Contribut
   });
 
   if (!response.ok) {
+    const errorBody = await response.text();
+    console.error(`GitHub API Error for ${type}s:`, {
+      status: response.status,
+      statusText: response.statusText,
+      body: errorBody,
+      hasToken: !!token,
+      tokenPrefix: token ? token.substring(0, 4) + '...' : 'none'
+    });
     throw new Error(`Failed to fetch ${type}s: ${response.status} ${response.statusText}`);
   }
 

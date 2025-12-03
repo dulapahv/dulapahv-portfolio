@@ -141,7 +141,7 @@ export async function getCurrentlyPlaying(): Promise<CurrentlyPlaying | null> {
 
     // If token expired, refresh and retry
     if (response.status === 401) {
-      console.warn('Access token expired, refreshing...');
+      // console.warn('Spotify access token expired, refreshing...');
       try {
         accessToken = await refreshAccessToken();
         response = await fetch('https://api.spotify.com/v1/me/player/currently-playing', {

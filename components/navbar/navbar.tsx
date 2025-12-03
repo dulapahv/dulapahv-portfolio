@@ -147,6 +147,7 @@ export function Navbar() {
                 <motion.div
                   layoutId="activeNavItem"
                   className="bg-mirai-red absolute right-0 bottom-0 left-0 h-0.5 rounded-full"
+                  initial={false}
                   transition={{ type: 'spring', duration: 0.5 }}
                 />
               )}
