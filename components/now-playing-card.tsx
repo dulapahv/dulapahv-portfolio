@@ -35,7 +35,7 @@ export function NowPlayingCard({ track }: NowPlayingCardProps) {
             href={track.external_urls.spotify as Route}
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0"
+            className="shrink-0 transition-opacity hover:opacity-80"
           >
             <Image
               src={track.album.images[0].url}

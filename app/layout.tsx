@@ -2,8 +2,6 @@ import type { Metadata } from 'next';
 import { IBM_Plex_Sans, Raleway } from 'next/font/google';
 import Image from 'next/image';
 
-import { Analytics } from '@vercel/analytics/next';
-import { SpeedInsights } from '@vercel/speed-insights/next';
 import { GeistMono } from 'geist/font/mono';
 import { ThemeProvider } from 'next-themes';
 
@@ -42,8 +40,6 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
         <meta name="darkreader-lock" />
       </head>
       <body className="text-foreground min-h-dvh leading-[1.6] text-pretty antialiased">
-        <Analytics />
-        <SpeedInsights />
         <ThemeProvider
           attribute="class"
           disableTransitionOnChange
