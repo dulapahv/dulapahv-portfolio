@@ -1,11 +1,11 @@
 'use client';
 
 /* Honestly, this is a bit of a mess. */
-import { Activity, useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 
 import { ArrowCircleUpIcon, CaretDownIcon } from '@phosphor-icons/react/dist/ssr';
-import { motion } from 'motion/react';
+import { AnimatePresence, motion } from 'motion/react';
 
 import { cn } from '@/lib/utils';
 import { useMediaQuery } from '@/hooks/use-media-query';
@@ -252,27 +252,29 @@ export function TableOfContents() {
           </ul>
         </div>
 
-        <Activity mode={showScrollTop ? 'visible' : 'hidden'}>
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 10 }}
-            transition={{ duration: 0.2 }}
-            className="mt-2 px-3"
-          >
-            <button
-              onClick={scrollToTop}
-              className={cn(
-                'text-foreground-muted flex w-full cursor-pointer items-center gap-x-1.5 rounded-md text-sm',
-                'hover:text-foreground transition-colors'
-              )}
-              aria-label="Scroll to top of page"
+        <AnimatePresence>
+          {showScrollTop && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              transition={{ duration: 0.2 }}
+              className="mt-2 px-3"
             >
-              <span>Scroll to top</span>
-              <ArrowCircleUpIcon className="size-4.5" />
-            </button>
-          </motion.div>
-        </Activity>
+              <button
+                onClick={scrollToTop}
+                className={cn(
+                  'text-foreground-muted flex w-full cursor-pointer items-center gap-x-1.5 rounded-md text-sm',
+                  'hover:text-foreground transition-colors'
+                )}
+                aria-label="Scroll to top of page"
+              >
+                <span>Scroll to top</span>
+                <ArrowCircleUpIcon className="size-4.5" />
+              </button>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
     );
   }
@@ -311,51 +313,53 @@ export function TableOfContents() {
         Use arrow keys to navigate when expanded.
       </span>
 
-      <Activity mode={!isCollapsed ? 'visible' : 'hidden'}>
-        <motion.div
-          id="toc-content"
-          initial={{ height: 0, opacity: 0 }}
-          animate={{ height: 'auto', opacity: 1 }}
-          exit={{ height: 0, opacity: 0 }}
-          transition={{ duration: 0.2, ease: 'easeInOut' }}
-          className="overflow-hidden"
-          role="group"
-          aria-label="Page sections - use arrow keys to navigate"
-        >
-          <div className="p-2">
-            <ul role="list" className="my-0! list-none pl-0">
-              {tocItems.map((item, index) => (
-                <li key={item.id} className="my-0!">
-                  <Link
-                    ref={el => {
-                      linksRef.current[index] = el;
-                    }}
-                    href={`#${item.id}`}
-                    onClick={e => handleClick(e, item.id)}
-                    onKeyDown={e => handleKeyDown(e, item.id, index)}
-                    className={cn(
-                      'text-foreground-muted block rounded-md px-3 py-1.5 text-sm transition-all',
-                      'hover:text-foreground',
-                      item.level === 3 ? 'pl-7' : ''
-                    )}
-                    aria-current={activeId === item.id ? 'location' : undefined}
-                    aria-describedby={
-                      activeId === item.id ? `current-section-mobile-${index}` : undefined
-                    }
-                  >
-                    <span className="line-clamp-2">{item.text}</span>
-                    {activeId === item.id && (
-                      <span id={`current-section-mobile-${index}`} className="sr-only">
-                        (current section)
-                      </span>
-                    )}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </motion.div>
-      </Activity>
+      <AnimatePresence initial={false}>
+        {!isCollapsed && (
+          <motion.div
+            id="toc-content"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.2, ease: 'easeInOut' }}
+            className="overflow-hidden"
+            role="group"
+            aria-label="Page sections - use arrow keys to navigate"
+          >
+            <div className="p-2">
+              <ul role="list" className="my-0! list-none pl-0">
+                {tocItems.map((item, index) => (
+                  <li key={item.id} className="my-0!">
+                    <Link
+                      ref={el => {
+                        linksRef.current[index] = el;
+                      }}
+                      href={`#${item.id}`}
+                      onClick={e => handleClick(e, item.id)}
+                      onKeyDown={e => handleKeyDown(e, item.id, index)}
+                      className={cn(
+                        'text-foreground-muted block rounded-md px-3 py-1.5 text-sm transition-all',
+                        'hover:text-foreground',
+                        item.level === 3 ? 'pl-7' : ''
+                      )}
+                      aria-current={activeId === item.id ? 'location' : undefined}
+                      aria-describedby={
+                        activeId === item.id ? `current-section-mobile-${index}` : undefined
+                      }
+                    >
+                      <span className="line-clamp-2">{item.text}</span>
+                      {activeId === item.id && (
+                        <span id={`current-section-mobile-${index}`} className="sr-only">
+                          (current section)
+                        </span>
+                      )}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }

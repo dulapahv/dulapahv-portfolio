@@ -1,6 +1,6 @@
 'use client';
 
-import { Activity, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
 import {
@@ -324,7 +324,7 @@ export function ShareButtons({ page }: ShareButtonsProps) {
             </button>
           </div>
 
-          <Activity mode={isDropdownOpen ? 'visible' : 'hidden'}>
+          {isDropdownOpen && (
             <div
               className={cn(
                 'bg-background border-border absolute top-full right-0 z-50 mt-1 min-w-[200px]',
@@ -380,7 +380,7 @@ export function ShareButtons({ page }: ShareButtonsProps) {
                 <span>Ask in NLWeb Chat</span>
               </button>
             </div>
-          </Activity>
+          )}
         </div>
       )}
     </div>
