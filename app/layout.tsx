@@ -10,6 +10,7 @@ import { cn } from '@/lib/utils';
 import MousePositionVarsSetter from '@/components/mouse-position-setter';
 import { Navbar } from '@/components/navbar';
 import { TopBar } from '@/components/top-bar';
+import { ThemeColorProvider } from '@/contexts/theme-color-context';
 
 import './globals.css';
 
@@ -45,37 +46,39 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
           disableTransitionOnChange
           scriptProps={{ 'data-cfasync': 'false' }}
         >
-          <MousePositionVarsSetter />
-          <a
-            href="#main-content"
-            className={cn(
-              'bg-mirai-red sr-only rounded-md px-4! py-2! text-white transition-all',
-              'focus:ring-mirai-red focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50'
-            )}
-          >
-            Skip to main content
-          </a>
-          <div
-            aria-hidden
-            role="presentation"
-            className="pointer-events-none fixed -top-[70%] -right-[60%] -z-50 size-[180%] overflow-clip opacity-50
-              mix-blend-darken hue-rotate-45 select-none sm:-top-[45%] sm:size-[150%] dark:mix-blend-lighten"
-          >
-            <Image src="/pinku.png" alt="" fill priority className="object-contain" />
-          </div>
-          <div
-            aria-hidden
-            role="presentation"
-            className="pointer-events-none fixed -bottom-[50%] -left-[40%] -z-50 size-[140%] overflow-clip opacity-90
-              mix-blend-darken select-none sm:-bottom-[30%] sm:size-[110%] dark:opacity-60 dark:mix-blend-lighten"
-          >
-            <Image src="/ao.png" alt="" fill priority className="object-contain" />
-          </div>
-          <TopBar />
-          <Navbar />
-          <div id="main-content" className="mx-auto max-w-7xl space-y-4 px-4 py-16 pt-24">
-            {children}
-          </div>
+          <ThemeColorProvider>
+            <MousePositionVarsSetter />
+            <a
+              href="#main-content"
+              className={cn(
+                'bg-mirai-red sr-only rounded-md px-4! py-2! text-white transition-all',
+                'focus:ring-mirai-red focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50'
+              )}
+            >
+              Skip to main content
+            </a>
+            <div
+              aria-hidden
+              role="presentation"
+              className="pointer-events-none fixed -top-[70%] -right-[60%] -z-50 size-[180%] overflow-clip opacity-50
+                mix-blend-darken hue-rotate-45 select-none sm:-top-[45%] sm:size-[150%] dark:mix-blend-lighten"
+            >
+              <Image src="/pinku.png" alt="" fill priority className="object-contain" />
+            </div>
+            <div
+              aria-hidden
+              role="presentation"
+              className="pointer-events-none fixed -bottom-[50%] -left-[40%] -z-50 size-[140%] overflow-clip opacity-90
+                mix-blend-darken select-none sm:-bottom-[30%] sm:size-[110%] dark:opacity-60 dark:mix-blend-lighten"
+            >
+              <Image src="/ao.png" alt="" fill priority className="object-contain" />
+            </div>
+            <TopBar />
+            <Navbar />
+            <div id="main-content" className="mx-auto max-w-7xl space-y-4 px-4 py-16 pt-24">
+              {children}
+            </div>
+          </ThemeColorProvider>
         </ThemeProvider>
       </body>
     </html>

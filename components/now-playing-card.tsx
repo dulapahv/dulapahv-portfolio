@@ -4,7 +4,6 @@ import type { Route } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { cn } from '@/lib/utils';
 import type { SpotifyTrack } from '@/app/actions/Spotify';
 
 interface NowPlayingCardProps {
@@ -14,17 +13,28 @@ interface NowPlayingCardProps {
 export function NowPlayingCard({ track }: NowPlayingCardProps) {
   return (
     <div
-      className={cn(
-        'relative rounded-lg bg-linear-to-br from-green-500/10 to-emerald-500/10 p-4',
-        'border border-green-500/20'
-      )}
+      className="relative rounded-lg border p-4"
+      style={{
+        background:
+          'linear-gradient(to bottom right, color-mix(in oklch, transparent, var(--x-primary-500, rgb(34 197 94)) 10%), color-mix(in oklch, transparent, var(--x-primary-600, rgb(22 163 74)) 10%))',
+        borderColor: 'color-mix(in oklch, transparent, var(--x-primary-500, rgb(34 197 94)) 20%)'
+      }}
     >
       <div className="absolute top-3 right-3 flex items-center gap-2">
         <div className="relative flex items-center justify-center">
-          <div className="absolute size-2 animate-ping rounded-full bg-green-600 opacity-75" />
-          <div className="relative size-2 rounded-full bg-green-600" />
+          <div
+            className="absolute size-2 animate-ping rounded-full opacity-75"
+            style={{ backgroundColor: 'var(--x-primary-600, rgb(22 163 74))' }}
+          />
+          <div
+            className="relative size-2 rounded-full"
+            style={{ backgroundColor: 'var(--x-primary-600, rgb(22 163 74))' }}
+          />
         </div>
-        <span className="text-xs font-semibold tracking-wider text-green-600 uppercase">
+        <span
+          className="text-xs font-semibold tracking-wider uppercase"
+          style={{ color: 'var(--x-primary-600, rgb(22 163 74))' }}
+        >
           Now Playing
         </span>
       </div>

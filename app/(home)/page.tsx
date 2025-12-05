@@ -6,6 +6,7 @@ import { createMetadata } from '@/lib/metadata';
 import { cn } from '@/lib/utils';
 import { AboutCard } from '@/components/about-card';
 import { CameraRollCard } from '@/components/camera-roll-card';
+import { ColorPickerCard } from '@/components/color-picker-card';
 import { Footer } from '@/components/footer';
 import { GitHubContributionsCard } from '@/components/github-contributions-card';
 import { GlobeCard } from '@/components/globe-card';
@@ -94,6 +95,9 @@ export default function Home() {
         </article>
         <article className="min-w-0" style={{ gridArea: '🎵' }}>
           <SpotifyCard />
+        </article>
+        <article className="min-w-0" style={{ gridArea: '🎮' }}>
+          <ColorPickerCard />
         </article>
       </main>
       <Footer />

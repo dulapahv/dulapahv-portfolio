@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import Link from 'next/link';
 
 import { ArrowUpRightIcon } from '@phosphor-icons/react/dist/ssr';
@@ -10,15 +11,15 @@ interface GitHubContributionsCardProps {
   username: string;
 }
 
-function getContributionColor(level: 0 | 1 | 2 | 3 | 4): string {
-  const colors = {
-    0: 'bg-gray-200',
-    1: 'bg-green-300',
-    2: 'bg-green-500',
-    3: 'bg-green-600',
-    4: 'bg-green-900'
+function getContributionStyle(level: 0 | 1 | 2 | 3 | 4): CSSProperties {
+  const styles = {
+    0: { backgroundColor: 'var(--color-border, rgb(229 231 235))' }, // Theme-aware gray
+    1: { backgroundColor: 'var(--x-primary-300, rgb(134 239 172))' },
+    2: { backgroundColor: 'var(--x-primary-500, rgb(34 197 94))' },
+    3: { backgroundColor: 'var(--x-primary-600, rgb(22 163 74))' },
+    4: { backgroundColor: 'var(--x-primary-900, rgb(20 83 45))' }
   };
-  return colors[level];
+  return styles[level];
 }
 
 export async function GitHubContributionsCard({ username }: GitHubContributionsCardProps) {
@@ -110,10 +111,8 @@ export async function GitHubContributionsCard({ username }: GitHubContributionsC
                     return (
                       <div
                         key={dayIndex}
-                        className={cn(
-                          'h-2.5 w-2.5 rounded-sm transition-colors',
-                          getContributionColor(day.level)
-                        )}
+                        className="h-2.5 w-2.5 rounded-sm transition-colors"
+                        style={getContributionStyle(day.level)}
                         title={`${day.count} contributions on ${new Date(day.date).toLocaleDateString()}`}
                       />
                     );
@@ -128,7 +127,8 @@ export async function GitHubContributionsCard({ username }: GitHubContributionsC
                 {([0, 1, 2, 3, 4] as const).map(level => (
                   <div
                     key={level}
-                    className={cn('h-2.5 w-2.5 rounded-sm', getContributionColor(level))}
+                    className="h-2.5 w-2.5 rounded-sm"
+                    style={getContributionStyle(level)}
                   />
                 ))}
               </div>

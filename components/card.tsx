@@ -37,9 +37,9 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(function Card(
           background:
             'linear-gradient(to bottom right, var(--color-mirai-red), var(--color-mirai-blue), var(--color-mirai-yellow))',
           maskImage:
-            'radial-gradient(50% 50% at var(--mouse-x, 9999px) var(--mouse-y, 9999px), rgba(0, 0, 0, 0.5) 40%, transparent)',
+            'radial-gradient(50% 50% at var(--mouse-x, 9999px) var(--mouse-y, 9999px), rgba(0, 0, 0, 0.5) 40%, rgba(0, 0, 0, 0.05) 100%)',
           WebkitMaskImage:
-            'radial-gradient(50% 50% at var(--mouse-x, 9999px) var(--mouse-y, 9999px), rgba(0, 0, 0, 0.5) 40%, transparent)'
+            'radial-gradient(50% 50% at var(--mouse-x, 9999px) var(--mouse-y, 9999px), rgba(0, 0, 0, 0.5) 40%, rgba(0, 0, 0, 0.05) 100%)'
         }}
       />
       <div
@@ -47,6 +47,10 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(function Card(
           'card bg-background-elevated relative z-1 flex h-full flex-col rounded-xl',
           className
         )}
+        style={{
+          background:
+            'linear-gradient(135deg, var(--color-background-elevated) 0%, color-mix(in oklch, var(--color-background-elevated), var(--color-mirai-red) 3%) 100%)'
+        }}
       >
         {children}
       </div>
