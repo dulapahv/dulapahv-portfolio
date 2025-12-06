@@ -23,7 +23,7 @@
     ]
   },
   "dependencies": {
-    "@opennextjs/cloudflare": "^1.14.3",
+    "@opennextjs/cloudflare": "^1.14.4",
     "@phosphor-icons/react": "^2.1.10",
     "@react-spring/web": "^10.0.3",
     "@shikijs/transformers": "^3.19.0",
@@ -52,7 +52,7 @@
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
-    "@commitlint/config-conventional": "^20.0.0",
+    "@commitlint/config-conventional": "^20.2.0",
     "@content-collections/core": "^0.8.2",
     "@content-collections/mdx": "^0.2.2",
     "@content-collections/next": "^0.2.9",
@@ -82,11 +82,11 @@
     "prettier-plugin-merge": "^0.7.4",
     "prettier-plugin-tailwindcss": "^0.6.14",
     "tailwindcss": "^4.1.17",
-    "turbo": "^2.6.2",
+    "turbo": "^2.6.3",
     "typescript": "^5.9.3",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^4.0.15",
-    "wrangler": "^4.52.1"
+    "wrangler": "^4.53.0"
   },
   "packageManager": "pnpm@10.24.0+sha512.01ff8ae71b4419903b65c60fb2dc9d34cf8bb6e06d03bde112ef38f7a34d6904c424ba66bea5cdcf12890230bf39f9580473140ed9c946fef328b6e5238a345a"
 }
