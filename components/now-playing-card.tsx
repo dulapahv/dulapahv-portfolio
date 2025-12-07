@@ -19,12 +19,12 @@ export function NowPlayingCard({ track }: NowPlayingCardProps) {
         'border border-green-500/20'
       )}
     >
-      <div className="absolute top-3 right-3 flex items-center gap-2">
+      <div className="absolute top-1 right-1 flex items-center gap-1.5">
         <div className="relative flex items-center justify-center">
-          <div className="absolute size-2 animate-ping rounded-full bg-green-600 opacity-75" />
-          <div className="relative size-2 rounded-full bg-green-600" />
+          <div className="absolute size-1.5 animate-ping rounded-full bg-green-600 opacity-75" />
+          <div className="relative size-1.5 rounded-full bg-green-600" />
         </div>
-        <span className="text-xs font-semibold tracking-wider text-green-600 uppercase">
+        <span className="text-[10px] font-semibold tracking-wider text-green-600 uppercase">
           Now Playing
         </span>
       </div>
@@ -57,7 +57,7 @@ export function NowPlayingCard({ track }: NowPlayingCardProps) {
             {track.name}
           </Link>
 
-          <p className="text-foreground-muted mt-1 truncate text-sm">
+          <p className="text-foreground-muted truncate text-sm">
             {track.artists.map((artist, index) => (
               <span key={artist.id}>
                 <Link
@@ -77,7 +77,7 @@ export function NowPlayingCard({ track }: NowPlayingCardProps) {
             href={track.album.external_urls.spotify as Route}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-foreground-subtle hover:text-foreground-muted mt-1 block truncate text-xs transition-colors
+            className="text-foreground-subtle hover:text-foreground-muted block truncate text-xs transition-colors
               hover:underline"
           >
             {track.album.name}
