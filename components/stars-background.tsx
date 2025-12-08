@@ -29,11 +29,13 @@ export function StarsBackground() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d', { alpha: true });
+    const ctx = canvas.getContext('2d', { alpha: true, desynchronized: true });
     if (!ctx) return;
 
     let animationFrameId: number;
     let stars: Star[] = [];
+    let cachedMouseX = 0.5;
+    let cachedMouseY = 0.5;
     // let shootingStars: ShootingStar[] = [];
 
     const resizeCanvas = () => {
@@ -44,7 +46,7 @@ export function StarsBackground() {
 
     const initStars = () => {
       stars = [];
-      const starCount = Math.floor((canvas.width * canvas.height) / 8000);
+      const starCount = Math.floor((canvas.width * canvas.height) / 10000);
 
       for (let i = 0; i < starCount; i++) {
         stars.push({
@@ -79,51 +81,37 @@ export function StarsBackground() {
       star: Star,
       time: number,
       chromaticOffset: { r: number; g: number; b: number },
-      mouseX: number,
-      mouseY: number
+      parallaxX: number,
+      parallaxY: number
     ) => {
       const twinkle = Math.sin(time * star.twinkleSpeed + star.twinkleOffset) * 0.3 + 0.7;
       const alpha = star.opacity * twinkle;
 
-      const parallaxX = (mouseX - 0.5) * 20;
-      const parallaxY = (mouseY - 0.5) * 20;
+      const baseX = star.x + parallaxX * 0.1;
+      const baseY = star.y + parallaxY * 0.1;
+      const shadowBlur = star.glowIntensity * star.size * 3;
 
-      ctx.shadowBlur = star.glowIntensity * star.size * 3;
+      ctx.shadowBlur = shadowBlur;
 
+      // Blue channel
       ctx.shadowColor = `rgba(59, 130, 246, ${alpha})`;
       ctx.fillStyle = `rgba(59, 130, 246, ${alpha * 0.9})`;
       ctx.beginPath();
-      ctx.arc(
-        star.x + parallaxX * 0.1 + chromaticOffset.b,
-        star.y + parallaxY * 0.1,
-        star.size,
-        0,
-        Math.PI * 2
-      );
+      ctx.arc(baseX + chromaticOffset.b, baseY, star.size, 0, Math.PI * 2);
       ctx.fill();
 
+      // Red channel
       ctx.shadowColor = `rgba(239, 68, 68, ${alpha})`;
       ctx.fillStyle = `rgba(239, 68, 68, ${alpha * 0.9})`;
       ctx.beginPath();
-      ctx.arc(
-        star.x + parallaxX * 0.1 + chromaticOffset.r,
-        star.y + parallaxY * 0.1,
-        star.size,
-        0,
-        Math.PI * 2
-      );
+      ctx.arc(baseX + chromaticOffset.r, baseY, star.size, 0, Math.PI * 2);
       ctx.fill();
 
+      // White channel (main star)
       ctx.shadowColor = `rgba(255, 255, 255, ${alpha})`;
       ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
       ctx.beginPath();
-      ctx.arc(
-        star.x + parallaxX * 0.1 + chromaticOffset.g,
-        star.y + parallaxY * 0.1,
-        star.size,
-        0,
-        Math.PI * 2
-      );
+      ctx.arc(baseX + chromaticOffset.g, baseY, star.size, 0, Math.PI * 2);
       ctx.fill();
     };
 
@@ -161,26 +149,38 @@ export function StarsBackground() {
     //   ctx.fill();
     // };
 
+    // Update mouse position cache less frequently for better performance
+    let lastMouseUpdate = 0;
+    const updateMousePosition = (time: number) => {
+      if (time - lastMouseUpdate > 16) {
+        // ~60fps update rate
+        const style = getComputedStyle(document.documentElement);
+        cachedMouseX = parseFloat(style.getPropertyValue('--global-mouse-x') || '0.5');
+        cachedMouseY = parseFloat(style.getPropertyValue('--global-mouse-y') || '0.5');
+        lastMouseUpdate = time;
+      }
+    };
+
     const animate = (time: number) => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      const mouseX = parseFloat(
-        getComputedStyle(document.documentElement).getPropertyValue('--global-mouse-x') || '0.5'
-      );
-      const mouseY = parseFloat(
-        getComputedStyle(document.documentElement).getPropertyValue('--global-mouse-y') || '0.5'
-      );
+      updateMousePosition(time);
 
+      // Calculate shared values once per frame
       const chromaticStrength = 6;
       const chromaticOffset = {
-        r: (mouseX - 0.5) * chromaticStrength,
+        r: (cachedMouseX - 0.5) * chromaticStrength,
         g: 0,
-        b: (0.5 - mouseX) * chromaticStrength
+        b: (0.5 - cachedMouseX) * chromaticStrength
       };
 
-      stars.forEach(star => {
-        drawStar(star, time, chromaticOffset, mouseX, mouseY);
-      });
+      const parallaxX = (cachedMouseX - 0.5) * 20;
+      const parallaxY = (cachedMouseY - 0.5) * 20;
+
+      // Draw stars with precomputed values
+      for (let i = 0; i < stars.length; i++) {
+        drawStar(stars[i], time, chromaticOffset, parallaxX, parallaxY);
+      }
 
       // Shooting stars disabled
       // shootingStars = shootingStars.filter(shootingStar => {
