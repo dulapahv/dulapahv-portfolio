@@ -27,18 +27,10 @@ export function StarsBackground() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d', { alpha: true, desynchronized: true });
+    const ctx = canvas.getContext('2d', { alpha: true });
     if (!ctx) return;
 
-    let animationFrameId: number;
     let stars: Star[] = [];
-    // let shootingStars: ShootingStar[] = [];
-
-    const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      initStars();
-    };
 
     const initStars = () => {
       stars = [];
@@ -53,6 +45,21 @@ export function StarsBackground() {
           glowIntensity: Math.random() * 3 + 1
         });
       }
+    };
+
+    const render = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (let i = 0; i < stars.length; i++) {
+        drawStar(stars[i]);
+      }
+    };
+
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      initStars();
+      render();
     };
 
     // const createShootingStar = () => {
@@ -151,44 +158,12 @@ export function StarsBackground() {
     //   ctx.fill();
     // };
 
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      // Draw stars
-      for (let i = 0; i < stars.length; i++) {
-        drawStar(stars[i]);
-      }
-
-      // Shooting stars disabled
-      // shootingStars = shootingStars.filter(shootingStar => {
-      //   drawShootingStar(shootingStar);
-
-      //   shootingStar.x += Math.cos(shootingStar.angle) * shootingStar.speed;
-      //   shootingStar.y += Math.sin(shootingStar.angle) * shootingStar.speed;
-      //   shootingStar.opacity -= 0.005;
-
-      //   return (
-      //     shootingStar.opacity > 0 &&
-      //     shootingStar.x < canvas.width + 100 &&
-      //     shootingStar.y < canvas.height + 100
-      //   );
-      // });
-
-      // if (Math.random() < 0.01) {
-      //   createShootingStar();
-      // }
-
-      animationFrameId = requestAnimationFrame(animate);
-    };
-
     window.addEventListener('resize', resizeCanvas);
 
     resizeCanvas();
-    animate();
 
     return () => {
       window.removeEventListener('resize', resizeCanvas);
-      cancelAnimationFrame(animationFrameId);
     };
   }, []);
 
