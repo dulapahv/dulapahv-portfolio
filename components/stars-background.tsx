@@ -8,8 +8,6 @@ interface Star {
   size: number;
   opacity: number;
   glowIntensity: number;
-  twinkleSpeed: number;
-  twinkleOffset: number;
 }
 
 // interface ShootingStar {
@@ -52,9 +50,7 @@ export function StarsBackground() {
           y: Math.random() * canvas.height,
           size: Math.random() * 2 + 0.5,
           opacity: Math.random() * 0.5 + 0.3,
-          glowIntensity: Math.random() * 3 + 1,
-          twinkleSpeed: Math.random() * 0.003 + 0.0005,
-          twinkleOffset: Math.random() * Math.PI * 2
+          glowIntensity: Math.random() * 3 + 1
         });
       }
     };
@@ -75,9 +71,8 @@ export function StarsBackground() {
     //   });
     // };
 
-    const drawStar = (star: Star, time: number) => {
-      const twinkle = Math.sin(time * star.twinkleSpeed + star.twinkleOffset) * 0.3 + 0.7;
-      const alpha = star.opacity * twinkle;
+    const drawStar = (star: Star) => {
+      const alpha = star.opacity;
 
       // Calculate distance from center for chromatic aberration
       const centerX = canvas.width / 2;
@@ -156,12 +151,12 @@ export function StarsBackground() {
     //   ctx.fill();
     // };
 
-    const animate = (time: number) => {
+    const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       // Draw stars
       for (let i = 0; i < stars.length; i++) {
-        drawStar(stars[i], time);
+        drawStar(stars[i]);
       }
 
       // Shooting stars disabled
@@ -189,7 +184,7 @@ export function StarsBackground() {
     window.addEventListener('resize', resizeCanvas);
 
     resizeCanvas();
-    animate(0);
+    animate();
 
     return () => {
       window.removeEventListener('resize', resizeCanvas);
