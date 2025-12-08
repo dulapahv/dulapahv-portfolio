@@ -78,6 +78,20 @@ export function StarsBackground() {
     //   });
     // };
 
+    const drawGlow = (x: number, y: number, baseSize: number, alpha: number, color: string) => {
+      // Glow layers
+      const layers = 2;
+      for (let i = 1; i <= layers; i++) {
+        const r = baseSize * (1 + i * 0.7); // bigger radius each layer
+        const a = alpha * (0.25 / i); // lower opacity each layer
+
+        ctx.fillStyle = `${color.replace('ALPHA', a.toString())}`;
+        ctx.beginPath();
+        ctx.arc(x, y, r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    };
+
     const drawStar = (star: Star) => {
       const alpha = star.opacity;
 
@@ -100,30 +114,19 @@ export function StarsBackground() {
       const offsetX = normalizedDx * chromaticStrength;
       const offsetY = normalizedDy * chromaticStrength;
 
-      const shadowBlur = star.glowIntensity * star.size * 3;
-
-      ctx.shadowBlur = shadowBlur;
+      // Apply blur filter to the star itself based on distance
+      const distance = Math.sqrt((dx / centerX) ** 2 + (dy / centerY) ** 2);
+      const sizeMult = 1 + distance * 0.5;
+      const baseSize = star.size * sizeMult;
 
       // Blue channel (inward)
-      ctx.shadowColor = `rgba(17, 229, 240, ${alpha})`;
-      ctx.fillStyle = `rgba(17, 229, 240, ${alpha * 0.9})`;
-      ctx.beginPath();
-      ctx.arc(star.x - offsetX, star.y - offsetY, star.size, 0, Math.PI * 2);
-      ctx.fill();
+      drawGlow(star.x - offsetX, star.y - offsetY, baseSize, alpha, 'rgba(17,229,240,ALPHA)');
 
       // Red channel (outward)
-      ctx.shadowColor = `rgba(184, 7, 98, ${alpha})`;
-      ctx.fillStyle = `rgba(184, 7, 98 , ${alpha * 0.9})`;
-      ctx.beginPath();
-      ctx.arc(star.x + offsetX, star.y + offsetY, star.size, 0, Math.PI * 2);
-      ctx.fill();
+      drawGlow(star.x + offsetX, star.y + offsetY, baseSize, alpha, 'rgba(184,7,98,ALPHA)');
 
       // White channel (main star - center)
-      ctx.shadowColor = `rgba(255, 255, 255, ${alpha})`;
-      ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
-      ctx.beginPath();
-      ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
-      ctx.fill();
+      drawGlow(star.x, star.y, baseSize, alpha, 'rgba(241,241,241,ALPHA)');
     };
 
     // const drawShootingStar = (shootingStar: ShootingStar) => {
