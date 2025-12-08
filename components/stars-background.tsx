@@ -36,6 +36,8 @@ export function StarsBackground() {
     let stars: Star[] = [];
     let cachedMouseX = 0.5;
     let cachedMouseY = 0.5;
+    let currentParallaxX = 0;
+    let currentParallaxY = 0;
     // let shootingStars: ShootingStar[] = [];
 
     const resizeCanvas = () => {
@@ -149,10 +151,15 @@ export function StarsBackground() {
     //   ctx.fill();
     // };
 
+    // Linear interpolation function
+    const lerp = (start: number, end: number, factor: number) => {
+      return start + (end - start) * factor;
+    };
+
     // Update mouse position cache less frequently for better performance
     let lastMouseUpdate = 0;
     const updateMousePosition = (time: number) => {
-      if (time - lastMouseUpdate > 16) {
+      if (time - lastMouseUpdate > 32) {
         // ~60fps update rate
         const style = getComputedStyle(document.documentElement);
         cachedMouseX = parseFloat(style.getPropertyValue('--global-mouse-x') || '0.5');
@@ -166,6 +173,14 @@ export function StarsBackground() {
 
       updateMousePosition(time);
 
+      // Calculate target parallax values
+      const targetParallaxX = (cachedMouseX - 0.5) * 20;
+      const targetParallaxY = (cachedMouseY - 0.5) * 20;
+
+      // Smoothly interpolate to target position
+      currentParallaxX = lerp(currentParallaxX, targetParallaxX, 0.08);
+      currentParallaxY = lerp(currentParallaxY, targetParallaxY, 0.08);
+
       // Calculate shared values once per frame
       const chromaticStrength = 6;
       const chromaticOffset = {
@@ -174,12 +189,9 @@ export function StarsBackground() {
         b: (0.5 - cachedMouseX) * chromaticStrength
       };
 
-      const parallaxX = (cachedMouseX - 0.5) * 20;
-      const parallaxY = (cachedMouseY - 0.5) * 20;
-
       // Draw stars with precomputed values
       for (let i = 0; i < stars.length; i++) {
-        drawStar(stars[i], time, chromaticOffset, parallaxX, parallaxY);
+        drawStar(stars[i], time, chromaticOffset, currentParallaxX, currentParallaxY);
       }
 
       // Shooting stars disabled
