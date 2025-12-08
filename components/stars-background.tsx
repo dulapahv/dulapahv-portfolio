@@ -90,37 +90,39 @@ export function StarsBackground() {
 
       // Chromatic aberration strength increases with distance from center
       const chromaticStrength = distanceFromCenter * 4;
-      const offsetDirection = dx; // Use horizontal distance for offset direction
 
-      const chromaticOffset = {
-        r: offsetDirection * chromaticStrength,
-        g: 0,
-        b: -offsetDirection * chromaticStrength
-      };
+      // Normalize direction vector for radial offset
+      const directionLength = Math.sqrt(dx * dx + dy * dy);
+      const normalizedDx = directionLength > 0 ? dx / directionLength : 0;
+      const normalizedDy = directionLength > 0 ? dy / directionLength : 0;
+
+      // Calculate radial offsets
+      const offsetX = normalizedDx * chromaticStrength;
+      const offsetY = normalizedDy * chromaticStrength;
 
       const shadowBlur = star.glowIntensity * star.size * 3;
 
       ctx.shadowBlur = shadowBlur;
 
-      // Blue channel
-      ctx.shadowColor = `rgba(59, 130, 246, ${alpha})`;
-      ctx.fillStyle = `rgba(59, 130, 246, ${alpha * 0.9})`;
+      // Blue channel (inward)
+      ctx.shadowColor = `rgba(17, 229, 240, ${alpha})`;
+      ctx.fillStyle = `rgba(17, 229, 240, ${alpha * 0.9})`;
       ctx.beginPath();
-      ctx.arc(star.x + chromaticOffset.b, star.y, star.size, 0, Math.PI * 2);
+      ctx.arc(star.x - offsetX, star.y - offsetY, star.size, 0, Math.PI * 2);
       ctx.fill();
 
-      // Red channel
-      ctx.shadowColor = `rgba(239, 68, 68, ${alpha})`;
-      ctx.fillStyle = `rgba(239, 68, 68, ${alpha * 0.9})`;
+      // Red channel (outward)
+      ctx.shadowColor = `rgba(184, 7, 98, ${alpha})`;
+      ctx.fillStyle = `rgba(184, 7, 98 , ${alpha * 0.9})`;
       ctx.beginPath();
-      ctx.arc(star.x + chromaticOffset.r, star.y, star.size, 0, Math.PI * 2);
+      ctx.arc(star.x + offsetX, star.y + offsetY, star.size, 0, Math.PI * 2);
       ctx.fill();
 
-      // White channel (main star)
+      // White channel (main star - center)
       ctx.shadowColor = `rgba(255, 255, 255, ${alpha})`;
       ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
       ctx.beginPath();
-      ctx.arc(star.x + chromaticOffset.g, star.y, star.size, 0, Math.PI * 2);
+      ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
       ctx.fill();
     };
 
