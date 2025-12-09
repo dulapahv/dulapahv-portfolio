@@ -1,7 +1,10 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import type { Route } from 'next';
 import { usePathname } from 'next/navigation';
+
+import { cn } from '@/lib/utils';
 
 interface Star {
   x: number;
@@ -21,13 +24,15 @@ interface Star {
 //   trailLength: number;
 // }
 
+const ALLOWED_PATHS = ['/', '/contact', '/blog', '/project'] as Route[];
+
 export function StarsBackground() {
   const pathname = usePathname();
-  const shouldRenderStars = pathname === '/' || pathname === '/contact';
+  const shouldRenderStars = ALLOWED_PATHS.includes(pathname as Route);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    if (!shouldRenderStars) return;
+    // if (!shouldRenderStars) return;
 
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -87,8 +92,8 @@ export function StarsBackground() {
       // Glow layers
       const layers = 2;
       for (let i = 1; i <= layers; i++) {
-        const r = baseSize * (1 + i * 0.7); // bigger radius each layer
-        const a = alpha * (0.25 / i); // lower opacity each layer
+        const r = baseSize * (1 + i * 0.4); // bigger radius each layer
+        const a = alpha * (0.5 / i); // lower opacity each layer
 
         ctx.fillStyle = `${color.replace('ALPHA', a.toString())}`;
         ctx.beginPath();
@@ -175,16 +180,19 @@ export function StarsBackground() {
     return () => {
       window.removeEventListener('resize', resizeCanvas);
     };
-  }, [shouldRenderStars]);
+  }, []); // to revert add: shouldRenderStars
 
-  if (!shouldRenderStars) {
-    return null;
-  }
+  // if (!shouldRenderStars) {
+  //   return null;
+  // }
 
   return (
     <canvas
       ref={canvasRef}
-      className="animate-fade-in-stars pointer-events-none fixed inset-0 -z-40"
+      className={cn(
+        'pointer-events-none fixed inset-0 -z-40',
+        shouldRenderStars ? 'animate-stars' : 'animate-fade-out'
+      )}
       aria-hidden="true"
     />
   );
