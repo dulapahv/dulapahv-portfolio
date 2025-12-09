@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { usePathname } from 'next/navigation';
 
 interface Star {
   x: number;
@@ -21,9 +22,13 @@ interface Star {
 // }
 
 export function StarsBackground() {
+  const pathname = usePathname();
+  const shouldRenderStars = pathname === '/' || pathname === '/contact';
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
+    if (!shouldRenderStars) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -170,7 +175,11 @@ export function StarsBackground() {
     return () => {
       window.removeEventListener('resize', resizeCanvas);
     };
-  }, []);
+  }, [shouldRenderStars]);
+
+  if (!shouldRenderStars) {
+    return null;
+  }
 
   return (
     <canvas
