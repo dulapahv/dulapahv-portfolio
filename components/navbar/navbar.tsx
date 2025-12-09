@@ -139,9 +139,7 @@ export function Navbar() {
               )}
             >
               <span aria-hidden="true">{item.icon}</span>
-              <span className="hidden translate-y-0.5 text-sm font-medium sm:block">
-                {item.name}
-              </span>
+              <span className="hidden text-sm font-medium sm:block">{item.name}</span>
 
               {active && (
                 <motion.div
