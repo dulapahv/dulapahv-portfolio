@@ -9,7 +9,7 @@ import { BASE_URL } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import MousePositionVarsSetter from '@/components/mouse-position-setter';
 import { Navbar } from '@/components/navbar';
-import { StarsBackground } from '@/components/stars-background';
+// import { StarsBackground } from '@/components/stars-background';
 import { TopBar } from '@/components/top-bar';
 
 import './globals.css';
@@ -46,7 +46,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
           disableTransitionOnChange
           scriptProps={{ 'data-cfasync': 'false' }}
         >
-          <StarsBackground />
+          {/* <StarsBackground /> */}
           <MousePositionVarsSetter />
           <a
             href="#main-content"
