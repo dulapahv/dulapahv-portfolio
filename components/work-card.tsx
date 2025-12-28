@@ -35,7 +35,7 @@ const works: WorkExperience[] = [
     position: 'Front-End Developer',
     company: "King Mongkut's Institute of Technology Ladkrabang (KMITL)",
     location: 'Bangkok, Thailand',
-    formattedStartDate: 'Feb 2024',
+    formattedStartDate: 'Feb 2023',
     formattedEndDate: 'Jul 2024'
   },
   {
