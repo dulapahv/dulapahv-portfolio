@@ -1,4 +1,6 @@
-'use server';
+"use server";
+
+const GITHUB_USERNAME_REGEX = /^[a-zA-Z0-9-]+$/;
 
 export interface ContributionDay {
   date: string;
@@ -11,19 +13,31 @@ export interface ContributionWeek {
 }
 
 function isValidGitHubUsername(username: string): boolean {
-  if (typeof username !== 'string') return false;
+  if (typeof username !== "string") {
+    return false;
+  }
   const trimmed = username.trim();
-  if (trimmed.length === 0 || trimmed.length > 39) return false;
-  if (!/^[a-zA-Z0-9-]+$/.test(trimmed)) return false;
-  if (trimmed.startsWith('-') || trimmed.endsWith('-')) return false;
-  if (trimmed.includes('--')) return false;
+  if (trimmed.length === 0 || trimmed.length > 39) {
+    return false;
+  }
+  if (!GITHUB_USERNAME_REGEX.test(trimmed)) {
+    return false;
+  }
+  if (trimmed.startsWith("-") || trimmed.endsWith("-")) {
+    return false;
+  }
+  if (trimmed.includes("--")) {
+    return false;
+  }
   return true;
 }
 
-export async function getGitHubContributions(username: string): Promise<ContributionWeek[]> {
+export async function getGitHubContributions(
+  username: string
+): Promise<ContributionWeek[]> {
   try {
     if (!isValidGitHubUsername(username)) {
-      throw new Error('Invalid GitHub username');
+      throw new Error("Invalid GitHub username");
     }
 
     const safeUsername = encodeURIComponent(username);
@@ -31,12 +45,12 @@ export async function getGitHubContributions(username: string): Promise<Contribu
     const response = await fetch(
       `https://github-contributions-api.jogruber.de/v4/${safeUsername}?y=last`,
       {
-        next: { revalidate: 0 }
+        next: { revalidate: 0 },
       }
     );
 
     if (!response.ok) {
-      throw new Error('Failed to fetch contributions');
+      throw new Error("Failed to fetch contributions");
     }
 
     const data = await response.json();
@@ -53,34 +67,34 @@ export async function getGitHubContributions(username: string): Promise<Contribu
     // Group contributions into weeks
     let currentWeek: (ContributionDay | null)[] = new Array(7).fill(null);
 
-    contributions.forEach(contribution => {
-      const date = new Date(contribution.date + 'T00:00:00'); // Parse as local date
+    for (const contribution of contributions) {
+      const date = new Date(`${contribution.date}T00:00:00`); // Parse as local date
       const dayOfWeek = date.getDay(); // 0 (Sunday) to 6 (Saturday)
 
       const day: ContributionDay = {
         date: contribution.date,
         count: contribution.count,
-        level: contribution.level
+        level: contribution.level,
       };
 
       // If we hit Sunday and it's not the first day, complete the previous week
-      if (dayOfWeek === 0 && currentWeek.some(d => d !== null)) {
+      if (dayOfWeek === 0 && currentWeek.some((d) => d !== null)) {
         weeks.push({ days: currentWeek });
         currentWeek = new Array(7).fill(null);
       }
 
       // Add the day to the current week
       currentWeek[dayOfWeek] = day;
-    });
+    }
 
     // Push the last week if it has any data
-    if (currentWeek.some(d => d !== null)) {
+    if (currentWeek.some((d) => d !== null)) {
       weeks.push({ days: currentWeek });
     }
 
     return weeks;
   } catch (error) {
-    console.error('Error fetching GitHub contributions:', error);
+    console.error("Error fetching GitHub contributions:", error);
     return [];
   }
 }
@@ -88,7 +102,7 @@ export async function getGitHubContributions(username: string): Promise<Contribu
 export async function getContributionStats(username: string) {
   try {
     if (!isValidGitHubUsername(username)) {
-      throw new Error('Invalid GitHub username');
+      throw new Error("Invalid GitHub username");
     }
 
     const safeUsername = encodeURIComponent(username);
@@ -96,12 +110,12 @@ export async function getContributionStats(username: string) {
     const response = await fetch(
       `https://github-contributions-api.jogruber.de/v4/${safeUsername}?y=last`,
       {
-        next: { revalidate: 3600 }
+        next: { revalidate: 3600 },
       }
     );
 
     if (!response.ok) {
-      throw new Error('Failed to fetch contributions');
+      throw new Error("Failed to fetch contributions");
     }
 
     const data = await response.json();
@@ -111,13 +125,13 @@ export async function getContributionStats(username: string) {
 
     return {
       totalContributions: total,
-      currentYear: 'the last year'
+      currentYear: "the last year",
     };
   } catch (error) {
-    console.error('Error fetching contribution stats:', error);
+    console.error("Error fetching contribution stats:", error);
     return {
       totalContributions: 0,
-      currentYear: 'the last year'
+      currentYear: "the last year",
     };
   }
 }

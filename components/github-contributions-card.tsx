@@ -1,10 +1,11 @@
-import Link from 'next/link';
-
-import { ArrowUpRightIcon } from '@phosphor-icons/react/dist/ssr';
-
-import { cn } from '@/lib/utils';
-import { Card } from '@/components/card';
-import { getContributionStats, getGitHubContributions } from '@/app/actions/GhContributions';
+import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
+import Link from "next/link";
+import {
+  getContributionStats,
+  getGitHubContributions,
+} from "@/app/actions/gh-contributions";
+import { Card } from "@/components/card";
+import { cn } from "@/lib/utils";
 
 interface GitHubContributionsCardProps {
   username: string;
@@ -12,16 +13,18 @@ interface GitHubContributionsCardProps {
 
 function getContributionColor(level: 0 | 1 | 2 | 3 | 4): string {
   const colors = {
-    0: 'bg-gray-200',
-    1: 'bg-green-300',
-    2: 'bg-green-500',
-    3: 'bg-green-600',
-    4: 'bg-green-900'
+    0: "bg-gray-200",
+    1: "bg-green-300",
+    2: "bg-green-500",
+    3: "bg-green-600",
+    4: "bg-green-900",
   };
   return colors[level];
 }
 
-export async function GitHubContributionsCard({ username }: GitHubContributionsCardProps) {
+export async function GitHubContributionsCard({
+  username,
+}: GitHubContributionsCardProps) {
   const weeks = await getGitHubContributions(username);
   const stats = await getContributionStats(username);
 
@@ -30,39 +33,43 @@ export async function GitHubContributionsCard({ username }: GitHubContributionsC
 
   // Month labels
   const getMonthLabel = (weekIndex: number) => {
-    if (weekIndex >= last52Weeks.length) return null;
+    if (weekIndex >= last52Weeks.length) {
+      return null;
+    }
     const week = last52Weeks[weekIndex];
 
     // Find the first non-null day in the week
-    const firstDay = week.days.find(d => d !== null);
-    if (!firstDay) return null;
+    const firstDay = week.days.find((d) => d !== null);
+    if (!firstDay) {
+      return null;
+    }
 
     const date = new Date(firstDay.date);
     const isFirstWeekOfMonth = date.getDate() <= 7;
 
     if (isFirstWeekOfMonth) {
-      return date.toLocaleDateString('en-US', { month: 'short' });
+      return date.toLocaleDateString("en-US", { month: "short" });
     }
     return null;
   };
 
   return (
     <Link
-      href={`https://github.com/${username}`}
-      target="_blank"
-      rel="noopener noreferrer"
-      title="View my GitHub profile"
       className="group block h-full"
+      href={`https://github.com/${username}`}
+      rel="noopener noreferrer"
+      target="_blank"
+      title="View my GitHub profile"
     >
       <Card className="flex h-full flex-col p-5">
         <div className="mb-4 flex items-start justify-between">
-          <h2 className="text-foreground-muted text-xs font-semibold tracking-widest uppercase">
+          <h2 className="font-semibold text-foreground-muted text-xs uppercase tracking-widest">
             GitHub Activity
           </h2>
           <ArrowUpRightIcon
             className={cn(
-              'text-foreground-muted size-5 transition-colors',
-              'group-hover:text-mirai-red'
+              "size-5 text-foreground-muted transition-colors",
+              "group-hover:text-mirai-red"
             )}
             weight="regular"
           />
@@ -70,8 +77,12 @@ export async function GitHubContributionsCard({ username }: GitHubContributionsC
 
         <div className="mb-4">
           <div className="text-foreground text-sm">
-            <span className="font-semibold">{stats.totalContributions.toLocaleString()}</span>
-            <span className="text-foreground-muted ml-1">contributions in {stats.currentYear}</span>
+            <span className="font-semibold">
+              {stats.totalContributions.toLocaleString()}
+            </span>
+            <span className="ml-1 text-foreground-muted">
+              contributions in {stats.currentYear}
+            </span>
           </div>
         </div>
 
@@ -81,8 +92,12 @@ export async function GitHubContributionsCard({ username }: GitHubContributionsC
               {last52Weeks.map((_, weekIndex) => {
                 const label = getMonthLabel(weekIndex);
                 return (
-                  <div key={weekIndex} className="w-2.5">
-                    {label && <span className="text-foreground-muted text-xs">{label}</span>}
+                  <div className="w-2.5" key={weekIndex}>
+                    {label && (
+                      <span className="text-foreground-muted text-xs">
+                        {label}
+                      </span>
+                    )}
                   </div>
                 );
               })}
@@ -100,20 +115,20 @@ export async function GitHubContributionsCard({ username }: GitHubContributionsC
               </div>
 
               {last52Weeks.map((week, weekIndex) => (
-                <div key={weekIndex} className="flex flex-col gap-[3px]">
+                <div className="flex flex-col gap-[3px]" key={weekIndex}>
                   {Array.from({ length: 7 }).map((_, dayIndex) => {
                     const day = week.days[dayIndex];
                     if (!day) {
-                      return <div key={dayIndex} className="h-2.5 w-2.5" />;
+                      return <div className="h-2.5 w-2.5" key={dayIndex} />;
                     }
 
                     return (
                       <div
-                        key={dayIndex}
                         className={cn(
-                          'h-2.5 w-2.5 rounded-sm transition-colors',
+                          "h-2.5 w-2.5 rounded-sm transition-colors",
                           getContributionColor(day.level)
                         )}
+                        key={dayIndex}
                         title={`${day.count} contributions on ${new Date(day.date).toLocaleDateString()}`}
                       />
                     );
@@ -125,10 +140,13 @@ export async function GitHubContributionsCard({ username }: GitHubContributionsC
             <div className="mt-2 flex items-center gap-2">
               <span className="text-foreground-muted text-xs">Less</span>
               <div className="flex gap-1">
-                {([0, 1, 2, 3, 4] as const).map(level => (
+                {([0, 1, 2, 3, 4] as const).map((level) => (
                   <div
+                    className={cn(
+                      "h-2.5 w-2.5 rounded-sm",
+                      getContributionColor(level)
+                    )}
                     key={level}
-                    className={cn('h-2.5 w-2.5 rounded-sm', getContributionColor(level))}
                   />
                 ))}
               </div>

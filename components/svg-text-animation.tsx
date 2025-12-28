@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
-import { useMediaQuery } from '@/hooks/use-media-query';
+import { useMediaQuery } from "@/hooks/use-media-query";
 
 interface SvgTextAnimationProps {
   delay?: number;
@@ -27,26 +27,30 @@ export function SvgTextAnimation({
   startDelay = 0,
   duration = 2,
   strokeWidth = 1,
-  timingFunction = 'ease-in-out',
-  strokeColor = '#ffffff',
-  fillColor = '#ffffff',
+  timingFunction = "ease-in-out",
+  strokeColor = "#ffffff",
+  fillColor = "#ffffff",
   letterSpacing = 0,
   repeat = false,
-  className = '',
-  ariaLabel = 'Animated text',
-  width = '100%',
-  height = '100%',
+  className = "",
+  ariaLabel = "Animated text",
+  width = "100%",
+  height = "100%",
   viewBox,
-  children
+  children,
 }: SvgTextAnimationProps) {
   const svgRef = useRef<SVGSVGElement>(null);
-  const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
+  const prefersReducedMotion = useMediaQuery(
+    "(prefers-reduced-motion: reduce)"
+  );
 
   useEffect(() => {
-    if (!svgRef.current || prefersReducedMotion) return;
+    if (!svgRef.current || prefersReducedMotion) {
+      return;
+    }
 
-    const paths = svgRef.current.querySelectorAll('path');
-    const mode = repeat ? 'infinite' : 'forwards';
+    const paths = svgRef.current.querySelectorAll("path");
+    const mode = repeat ? "infinite" : "forwards";
 
     paths.forEach((path, i) => {
       const length = path.getTotalLength();
@@ -70,30 +74,33 @@ export function SvgTextAnimation({
     timingFunction,
     strokeColor,
     repeat,
-    prefersReducedMotion
+    prefersReducedMotion,
+    letterSpacing,
   ]);
 
   // If user prefers reduced motion, remove animation styles from paths
   useEffect(() => {
-    if (!svgRef.current || !prefersReducedMotion) return;
+    if (!(svgRef.current && prefersReducedMotion)) {
+      return;
+    }
 
-    const paths = svgRef.current.querySelectorAll('path');
-    paths.forEach(path => {
+    const paths = svgRef.current.querySelectorAll("path");
+    paths.forEach((path) => {
       path.style.fill = fillColor;
-      path.style.stroke = 'none';
+      path.style.stroke = "none";
     });
   }, [prefersReducedMotion, fillColor]);
 
   return (
     <svg
-      ref={svgRef}
-      width={width}
-      height={height}
-      viewBox={viewBox}
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      role="img"
       aria-label={ariaLabel}
+      className={className}
+      height={height}
+      ref={svgRef}
+      role="img"
+      viewBox={viewBox}
+      width={width}
+      xmlns="http://www.w3.org/2000/svg"
     >
       {children}
     </svg>

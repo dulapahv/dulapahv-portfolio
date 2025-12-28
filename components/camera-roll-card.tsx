@@ -1,12 +1,11 @@
-'use client';
+"use client";
 
-import { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 
-import Zoom from 'react-medium-image-zoom';
-
-import { cn } from '@/lib/utils';
-import { Card } from '@/components/card';
+import Zoom from "react-medium-image-zoom";
+import { Card } from "@/components/card";
+import { cn } from "@/lib/utils";
 
 interface CameraRollCardProps {
   images: string[];
@@ -20,10 +19,12 @@ export function CameraRollCard({ images }: CameraRollCardProps) {
 
   useEffect(() => {
     progressRef.current = 0;
-  }, [currentIndex]);
+  }, []);
 
   useEffect(() => {
-    if (images.length === 0 || isPaused) return;
+    if (images.length === 0 || isPaused) {
+      return;
+    }
 
     const duration = 3000;
     const updateInterval = 30;
@@ -34,7 +35,7 @@ export function CameraRollCard({ images }: CameraRollCardProps) {
 
       if (progressRef.current >= 100) {
         progressRef.current = 0;
-        setCurrentIndex(prev => (prev + 1) % images.length);
+        setCurrentIndex((prev) => (prev + 1) % images.length);
       }
 
       forceUpdate({});
@@ -48,20 +49,20 @@ export function CameraRollCard({ images }: CameraRollCardProps) {
   };
 
   const handlePrevious = () => {
-    setCurrentIndex(prev => (prev === 0 ? images.length - 1 : prev - 1));
+    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
 
   const handleNext = () => {
-    setCurrentIndex(prev => (prev + 1) % images.length);
+    setCurrentIndex((prev) => (prev + 1) % images.length);
   };
 
   if (images.length === 0) {
     return (
       <Card className="p-5">
-        <h2 className="text-foreground-muted mb-4 text-xs font-semibold tracking-widest uppercase">
+        <h2 className="mb-4 font-semibold text-foreground-muted text-xs uppercase tracking-widest">
           Camera Roll
         </h2>
-        <div className="bg-border-subtle flex h-64 items-center justify-center rounded-lg">
+        <div className="flex h-64 items-center justify-center rounded-lg bg-border-subtle">
           <p className="text-foreground-muted text-sm">No images to display</p>
         </div>
       </Card>
@@ -70,7 +71,7 @@ export function CameraRollCard({ images }: CameraRollCardProps) {
 
   return (
     <Card className="p-5">
-      <h2 className="text-foreground-muted mb-4 text-xs font-semibold tracking-widest uppercase">
+      <h2 className="mb-4 font-semibold text-foreground-muted text-xs uppercase tracking-widest">
         Camera Roll
       </h2>
       <div
@@ -81,20 +82,21 @@ export function CameraRollCard({ images }: CameraRollCardProps) {
         <div className="absolute top-2 right-2 left-2 z-10 flex gap-1">
           {images.map((_, index) => (
             <button
+              aria-label={`Go to image ${index + 1}`}
+              className="relative h-0.5 flex-1 overflow-hidden rounded-full bg-white/30"
               key={index}
               onClick={() => handleBarClick(index)}
-              className="relative h-0.5 flex-1 overflow-hidden rounded-full bg-white/30"
-              aria-label={`Go to image ${index + 1}`}
+              type="button"
             >
               <div
                 className="h-full bg-white transition-all duration-100 ease-linear"
                 style={{
                   width:
                     index < currentIndex
-                      ? '100%'
+                      ? "100%"
                       : index === currentIndex
                         ? `${progressRef.current}%`
-                        : '0%'
+                        : "0%",
                 }}
               />
             </button>
@@ -102,14 +104,16 @@ export function CameraRollCard({ images }: CameraRollCardProps) {
         </div>
 
         <button
-          onClick={handlePrevious}
-          className="absolute top-0 bottom-0 left-0 z-5 w-1/6 cursor-pointer"
           aria-label="Previous image"
+          className="absolute top-0 bottom-0 left-0 z-5 w-1/6 cursor-pointer"
+          onClick={handlePrevious}
+          type="button"
         />
         <button
-          onClick={handleNext}
-          className="absolute top-0 right-0 bottom-0 z-5 w-1/4 cursor-pointer"
           aria-label="Next image"
+          className="absolute top-0 right-0 bottom-0 z-5 w-1/4 cursor-pointer"
+          onClick={handleNext}
+          type="button"
         />
 
         <div
@@ -117,18 +121,18 @@ export function CameraRollCard({ images }: CameraRollCardProps) {
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
           {images.map((image, index) => (
-            <div key={index} className="relative h-full w-full shrink-0">
+            <div className="relative h-full w-full shrink-0" key={index}>
               <Zoom
-                zoomMargin={12}
-                wrapElement="span"
                 classDialog='[&_[data-rmiz-modal-overlay="visible"]]:!bg-background/40 [&_[data-rmiz-modal-overlay="visible"]]:backdrop-blur-sm'
+                wrapElement="span"
+                zoomMargin={12}
               >
                 <Image
-                  src={`/camera_roll/${image}`}
                   alt={`Camera Roll image ${index + 1}`}
-                  fill
                   className="object-cover"
+                  fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  src={`/camera_roll/${image}`}
                 />
               </Zoom>
             </div>
@@ -138,8 +142,8 @@ export function CameraRollCard({ images }: CameraRollCardProps) {
 
       <span
         className={cn(
-          'text-foreground-muted mt-auto inline-block text-sm transition-colors',
-          'hover:text-foreground'
+          "mt-auto inline-block text-foreground-muted text-sm transition-colors",
+          "hover:text-foreground"
         )}
       >
         View all photos (Coming Soon)

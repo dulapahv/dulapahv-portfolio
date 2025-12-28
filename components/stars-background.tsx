@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useEffect, useRef } from 'react';
-import type { Route } from 'next';
-import { usePathname } from 'next/navigation';
+import type { Route } from "next";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef } from "react";
 
-import { cn } from '@/lib/utils';
+import { cn } from "@/lib/utils";
 
 interface Star {
   x: number;
@@ -24,7 +24,7 @@ interface Star {
 //   trailLength: number;
 // }
 
-const ALLOWED_PATHS = ['/', '/contact', '/blog', '/project'] as Route[];
+const ALLOWED_PATHS = ["/", "/contact", "/blog", "/project"] as Route[];
 
 export function StarsBackground() {
   const pathname = usePathname();
@@ -35,16 +35,20 @@ export function StarsBackground() {
     // if (!shouldRenderStars) return;
 
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!canvas) {
+      return;
+    }
 
-    const ctx = canvas.getContext('2d', { alpha: true });
-    if (!ctx) return;
+    const ctx = canvas.getContext("2d", { alpha: true });
+    if (!ctx) {
+      return;
+    }
 
     let stars: Star[] = [];
 
     const initStars = () => {
       stars = [];
-      const starCount = Math.floor((canvas.width * canvas.height) / 10000);
+      const starCount = Math.floor((canvas.width * canvas.height) / 10_000);
 
       for (let i = 0; i < starCount; i++) {
         stars.push({
@@ -52,7 +56,7 @@ export function StarsBackground() {
           y: Math.random() * canvas.height,
           size: Math.random() * 2 + 0.5,
           opacity: Math.random() * 0.5 + 0.3,
-          glowIntensity: Math.random() * 3 + 1
+          glowIntensity: Math.random() * 3 + 1,
         });
       }
     };
@@ -88,14 +92,20 @@ export function StarsBackground() {
     //   });
     // };
 
-    const drawGlow = (x: number, y: number, baseSize: number, alpha: number, color: string) => {
+    const drawGlow = (
+      x: number,
+      y: number,
+      baseSize: number,
+      alpha: number,
+      color: string
+    ) => {
       // Glow layers
       const layers = 2;
       for (let i = 1; i <= layers; i++) {
         const r = baseSize * (1 + i * 0.4); // bigger radius each layer
         const a = alpha * (0.5 / i); // lower opacity each layer
 
-        ctx.fillStyle = `${color.replace('ALPHA', a.toString())}`;
+        ctx.fillStyle = `${color.replace("ALPHA", a.toString())}`;
         ctx.beginPath();
         ctx.arc(x, y, r, 0, Math.PI * 2);
         ctx.fill();
@@ -130,13 +140,25 @@ export function StarsBackground() {
       const baseSize = star.size * sizeMult;
 
       // Blue channel (inward)
-      drawGlow(star.x - offsetX, star.y - offsetY, baseSize, alpha, 'rgba(17,229,240,ALPHA)');
+      drawGlow(
+        star.x - offsetX,
+        star.y - offsetY,
+        baseSize,
+        alpha,
+        "rgba(17,229,240,ALPHA)"
+      );
 
       // Red channel (outward)
-      drawGlow(star.x + offsetX, star.y + offsetY, baseSize, alpha, 'rgba(184,7,98,ALPHA)');
+      drawGlow(
+        star.x + offsetX,
+        star.y + offsetY,
+        baseSize,
+        alpha,
+        "rgba(184,7,98,ALPHA)"
+      );
 
       // White channel (main star - center)
-      drawGlow(star.x, star.y, baseSize, alpha, 'rgba(241,241,241,ALPHA)');
+      drawGlow(star.x, star.y, baseSize, alpha, "rgba(241,241,241,ALPHA)");
     };
 
     // const drawShootingStar = (shootingStar: ShootingStar) => {
@@ -173,12 +195,12 @@ export function StarsBackground() {
     //   ctx.fill();
     // };
 
-    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener("resize", resizeCanvas);
 
     resizeCanvas();
 
     return () => {
-      window.removeEventListener('resize', resizeCanvas);
+      window.removeEventListener("resize", resizeCanvas);
     };
   }, []); // to revert add: shouldRenderStars
 
@@ -188,12 +210,11 @@ export function StarsBackground() {
 
   return (
     <canvas
-      ref={canvasRef}
       className={cn(
-        'pointer-events-none fixed inset-0 -z-40',
-        shouldRenderStars ? 'animate-stars' : 'animate-fade-out'
+        "pointer-events-none fixed inset-0 -z-40",
+        shouldRenderStars ? "animate-stars" : "animate-fade-out"
       )}
-      aria-hidden="true"
+      ref={canvasRef}
     />
   );
 }

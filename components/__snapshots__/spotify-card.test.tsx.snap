@@ -3,20 +3,20 @@
 exports[`SpotifyCard > should match snapshot 1`] = `
 <div>
   <div
-    class="bg-border relative h-full rounded-xl p-px"
+    class="relative h-full rounded-xl bg-border p-px"
   >
     <div
       class="relative-mouse pointer-events-none absolute inset-0 rounded-xl transition-opacity duration-500"
       style="background: linear-gradient(to bottom right, var(--color-mirai-red), var(--color-mirai-blue), var(--color-mirai-yellow)); mask-image: radial-gradient(50% 50% at var(--mouse-x, 9999px) var(--mouse-y, 9999px), rgba(0, 0, 0, 0.5) 40%, transparent);"
     />
     <div
-      class="card bg-background-elevated relative z-1 rounded-xl flex h-full flex-col p-5"
+      class="card relative z-1 rounded-xl bg-background-elevated flex h-full flex-col p-5"
     >
       <div
         class="mb-4 flex items-start justify-between"
       >
         <h2
-          class="text-foreground-muted text-xs font-semibold tracking-widest uppercase"
+          class="font-semibold text-foreground-muted text-xs uppercase tracking-widest"
         >
           Spotify
         </h2>
@@ -28,7 +28,7 @@ exports[`SpotifyCard > should match snapshot 1`] = `
           title="View my Spotify profile"
         >
           <svg
-            class="text-foreground-muted size-5 transition-colors group-hover:text-mirai-red"
+            class="size-5 text-foreground-muted transition-colors group-hover:text-mirai-red"
             fill="currentColor"
             height="1em"
             viewBox="0 0 256 256"
@@ -46,7 +46,7 @@ exports[`SpotifyCard > should match snapshot 1`] = `
       >
         <div>
           <div
-            class="text-foreground mb-3 flex items-center gap-2 text-sm font-medium"
+            class="mb-3 flex items-center gap-2 font-medium text-foreground text-sm"
           >
             <svg
               class="size-4"
@@ -74,7 +74,7 @@ exports[`SpotifyCard > should match snapshot 1`] = `
               target="_blank"
             >
               <span
-                class="text-foreground-muted text-sm font-medium"
+                class="font-medium text-foreground-muted text-sm"
               >
                 1
               </span>
@@ -89,7 +89,7 @@ exports[`SpotifyCard > should match snapshot 1`] = `
                 class="min-w-0 flex-1"
               >
                 <p
-                  class="text-foreground truncate text-sm font-medium"
+                  class="truncate font-medium text-foreground text-sm"
                 >
                   Test Artist 1
                 </p>
@@ -102,7 +102,7 @@ exports[`SpotifyCard > should match snapshot 1`] = `
               target="_blank"
             >
               <span
-                class="text-foreground-muted text-sm font-medium"
+                class="font-medium text-foreground-muted text-sm"
               >
                 2
               </span>
@@ -117,7 +117,7 @@ exports[`SpotifyCard > should match snapshot 1`] = `
                 class="min-w-0 flex-1"
               >
                 <p
-                  class="text-foreground truncate text-sm font-medium"
+                  class="truncate font-medium text-foreground text-sm"
                 >
                   Test Artist 2
                 </p>
@@ -127,7 +127,7 @@ exports[`SpotifyCard > should match snapshot 1`] = `
         </div>
         <div>
           <div
-            class="text-foreground mb-3 flex items-center gap-2 text-sm font-medium"
+            class="mb-3 flex items-center gap-2 font-medium text-foreground text-sm"
           >
             <svg
               class="size-4"
@@ -152,7 +152,7 @@ exports[`SpotifyCard > should match snapshot 1`] = `
               class="flex items-center gap-3 rounded-lg p-2 transition-colors hover:bg-background-muted"
             >
               <span
-                class="text-foreground-muted text-sm font-medium"
+                class="font-medium text-foreground-muted text-sm"
               >
                 1
               </span>
@@ -174,7 +174,7 @@ exports[`SpotifyCard > should match snapshot 1`] = `
                 class="min-w-0 flex-1"
               >
                 <a
-                  class="text-foreground block truncate text-sm font-medium hover:underline"
+                  class="block truncate font-medium text-foreground text-sm hover:underline"
                   href="https://open.spotify.com/track/1"
                   rel="noopener noreferrer"
                   target="_blank"
@@ -182,11 +182,11 @@ exports[`SpotifyCard > should match snapshot 1`] = `
                   Test Track 1
                 </a>
                 <p
-                  class="text-foreground-muted truncate text-xs"
+                  class="truncate text-foreground-muted text-xs"
                 >
                   <span>
                     <a
-                      class="hover:text-foreground transition-colors hover:underline"
+                      class="transition-colors hover:text-foreground hover:underline"
                       href="https://open.spotify.com/artist/a"
                       rel="noopener noreferrer"
                       target="_blank"
@@ -201,7 +201,7 @@ exports[`SpotifyCard > should match snapshot 1`] = `
               class="flex items-center gap-3 rounded-lg p-2 transition-colors hover:bg-background-muted"
             >
               <span
-                class="text-foreground-muted text-sm font-medium"
+                class="font-medium text-foreground-muted text-sm"
               >
                 2
               </span>
@@ -223,7 +223,7 @@ exports[`SpotifyCard > should match snapshot 1`] = `
                 class="min-w-0 flex-1"
               >
                 <a
-                  class="text-foreground block truncate text-sm font-medium hover:underline"
+                  class="block truncate font-medium text-foreground text-sm hover:underline"
                   href="https://open.spotify.com/track/2"
                   rel="noopener noreferrer"
                   target="_blank"
@@ -231,11 +231,11 @@ exports[`SpotifyCard > should match snapshot 1`] = `
                   Test Track 2
                 </a>
                 <p
-                  class="text-foreground-muted truncate text-xs"
+                  class="truncate text-foreground-muted text-xs"
                 >
                   <span>
                     <a
-                      class="hover:text-foreground transition-colors hover:underline"
+                      class="transition-colors hover:text-foreground hover:underline"
                       href="https://open.spotify.com/artist/b"
                       rel="noopener noreferrer"
                       target="_blank"

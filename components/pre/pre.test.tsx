@@ -1,9 +1,11 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import { Pre } from './pre';
+import { Pre } from "./pre";
 
-describe('Pre', () => {
+const COPY_CODE_REGEX = /copy code/i;
+
+describe("Pre", () => {
   // Mock clipboard API
   const mockWriteText = vi.fn();
 
@@ -13,89 +15,89 @@ describe('Pre', () => {
 
     Object.assign(navigator, {
       clipboard: {
-        writeText: mockWriteText
-      }
+        writeText: mockWriteText,
+      },
     });
   });
 
-  describe('Component rendering', () => {
-    it('should render pre element', () => {
+  describe("Component rendering", () => {
+    it("should render pre element", () => {
       const { container } = render(
         <Pre>
           <code>const test = true;</code>
         </Pre>
       );
 
-      const preElement = container.querySelector('pre');
+      const preElement = container.querySelector("pre");
       expect(preElement).toBeInTheDocument();
     });
 
-    it('should render children inside pre element', () => {
+    it("should render children inside pre element", () => {
       const { container } = render(
         <Pre>
           <code>const test = true;</code>
         </Pre>
       );
 
-      const codeElement = container.querySelector('code');
+      const codeElement = container.querySelector("code");
       expect(codeElement).toBeInTheDocument();
-      expect(codeElement?.textContent).toBe('const test = true;');
+      expect(codeElement?.textContent).toBe("const test = true;");
     });
 
-    it('should render copy button', () => {
+    it("should render copy button", () => {
       render(
         <Pre>
           <code>const test = true;</code>
         </Pre>
       );
 
-      const copyButton = screen.getByRole('button', { name: /copy code/i });
+      const copyButton = screen.getByRole("button", { name: COPY_CODE_REGEX });
       expect(copyButton).toBeInTheDocument();
     });
 
-    it('should render CopyIcon by default', () => {
+    it("should render CopyIcon by default", () => {
       render(
         <Pre>
           <code>const test = true;</code>
         </Pre>
       );
 
-      const copyButton = screen.getByRole('button', { name: /copy code/i });
-      const svg = copyButton.querySelector('svg');
+      const copyButton = screen.getByRole("button", { name: COPY_CODE_REGEX });
+      const svg = copyButton.querySelector("svg");
 
       expect(svg).toBeInTheDocument();
     });
 
-    it('should pass props to pre element', () => {
+    it("should pass props to pre element", () => {
       const { container } = render(
         <Pre className="custom-class" data-testid="custom-pre">
           <code>test</code>
         </Pre>
       );
 
-      const preElement = container.querySelector('pre');
-      expect(preElement).toHaveClass('custom-class');
-      expect(preElement).toHaveAttribute('data-testid', 'custom-pre');
+      const preElement = container.querySelector("pre");
+      expect(preElement).toHaveClass("custom-class");
+      expect(preElement).toHaveAttribute("data-testid", "custom-pre");
     });
   });
 
-  describe('Copy functionality', () => {
-    it('should copy code to clipboard when button is clicked', async () => {
+  describe("Copy functionality", () => {
+    it("should copy code to clipboard when button is clicked", async () => {
       render(
         <Pre>
           <code>const test = true;</code>
         </Pre>
       );
 
-      const copyButton = screen.getByRole('button', { name: /copy code/i });
+      const copyButton = screen.getByRole("button", { name: COPY_CODE_REGEX });
       fireEvent.click(copyButton);
 
       await waitFor(() => {
-        expect(mockWriteText).toHaveBeenCalledWith('const test = true;');
+        expect(mockWriteText).toHaveBeenCalledWith("const test = true;");
       });
     });
 
-    it('should copy all text content from pre element', async () => {
+    it("should copy all text content from pre element", async () => {
       render(
         <Pre>
           <code>
@@ -106,42 +108,44 @@ describe('Pre', () => {
         </Pre>
       );
 
-      const copyButton = screen.getByRole('button', { name: /copy code/i });
+      const copyButton = screen.getByRole("button", { name: COPY_CODE_REGEX });
       fireEvent.click(copyButton);
 
       await waitFor(() => {
-        expect(mockWriteText).toHaveBeenCalledWith(expect.stringContaining('function hello()'));
+        expect(mockWriteText).toHaveBeenCalledWith(
+          expect.stringContaining("function hello()")
+        );
         expect(mockWriteText).toHaveBeenCalledWith(
           expect.stringContaining('console.log("Hello World")')
         );
       });
     });
 
-    it('should show CheckIcon after successful copy', async () => {
+    it("should show CheckIcon after successful copy", async () => {
       render(
         <Pre>
           <code>const test = true;</code>
         </Pre>
       );
 
-      const copyButton = screen.getByRole('button', { name: /copy code/i });
+      const copyButton = screen.getByRole("button", { name: COPY_CODE_REGEX });
       fireEvent.click(copyButton);
 
       // Button should now show check icon
       await waitFor(() => {
-        const svg = copyButton.querySelector('svg');
+        const svg = copyButton.querySelector("svg");
         expect(svg).toBeInTheDocument();
       });
     });
 
-    it('should disable button while copied state is active', async () => {
+    it("should disable button while copied state is active", async () => {
       render(
         <Pre>
           <code>const test = true;</code>
         </Pre>
       );
 
-      const copyButton = screen.getByRole('button', { name: /copy code/i });
+      const copyButton = screen.getByRole("button", { name: COPY_CODE_REGEX });
       fireEvent.click(copyButton);
 
       await waitFor(() => {
@@ -149,91 +153,91 @@ describe('Pre', () => {
       });
     });
 
-    it('should not copy if pre element has no text content', async () => {
+    it("should not copy if pre element has no text content", () => {
       render(<Pre>{null}</Pre>);
 
-      const copyButton = screen.getByRole('button', { name: /copy code/i });
+      const copyButton = screen.getByRole("button", { name: COPY_CODE_REGEX });
       fireEvent.click(copyButton);
 
       expect(mockWriteText).not.toHaveBeenCalled();
     });
   });
 
-  describe('Button attributes', () => {
-    it('should have correct aria-label', () => {
+  describe("Button attributes", () => {
+    it("should have correct aria-label", () => {
       render(
         <Pre>
           <code>test</code>
         </Pre>
       );
 
-      const copyButton = screen.getByRole('button', { name: /copy code/i });
-      expect(copyButton).toHaveAttribute('aria-label', 'Copy code');
+      const copyButton = screen.getByRole("button", { name: COPY_CODE_REGEX });
+      expect(copyButton).toHaveAttribute("aria-label", "Copy code");
     });
 
-    it('should have title attribute', () => {
+    it("should have title attribute", () => {
       render(
         <Pre>
           <code>test</code>
         </Pre>
       );
 
-      const copyButton = screen.getByRole('button', { name: /copy code/i });
-      expect(copyButton).toHaveAttribute('title', 'Copy code');
+      const copyButton = screen.getByRole("button", { name: COPY_CODE_REGEX });
+      expect(copyButton).toHaveAttribute("title", "Copy code");
     });
 
-    it('should not be disabled initially', () => {
+    it("should not be disabled initially", () => {
       render(
         <Pre>
           <code>test</code>
         </Pre>
       );
 
-      const copyButton = screen.getByRole('button', { name: /copy code/i });
+      const copyButton = screen.getByRole("button", { name: COPY_CODE_REGEX });
       expect(copyButton).not.toBeDisabled();
     });
   });
 
-  describe('Styling', () => {
-    it('should have correct CSS classes on button', () => {
+  describe("Styling", () => {
+    it("should have correct CSS classes on button", () => {
       render(
         <Pre>
           <code>test</code>
         </Pre>
       );
 
-      const copyButton = screen.getByRole('button', { name: /copy code/i });
+      const copyButton = screen.getByRole("button", { name: COPY_CODE_REGEX });
 
-      expect(copyButton.className).toContain('text-foreground-muted');
-      expect(copyButton.className).toContain('absolute');
-      expect(copyButton.className).toContain('rounded-md');
+      expect(copyButton.className).toContain("text-foreground-muted");
+      expect(copyButton.className).toContain("absolute");
+      expect(copyButton.className).toContain("rounded-md");
     });
 
-    it('should have hover styles', () => {
+    it("should have hover styles", () => {
       render(
         <Pre>
           <code>test</code>
         </Pre>
       );
 
-      const copyButton = screen.getByRole('button', { name: /copy code/i });
-      expect(copyButton.className).toContain('hover:text-foreground/80');
+      const copyButton = screen.getByRole("button", { name: COPY_CODE_REGEX });
+      expect(copyButton.className).toContain("hover:text-foreground/80");
     });
 
-    it('should have active scale animation', () => {
+    it("should have active scale animation", () => {
       render(
         <Pre>
           <code>test</code>
         </Pre>
       );
 
-      const copyButton = screen.getByRole('button', { name: /copy code/i });
-      expect(copyButton.className).toContain('active:scale-90');
+      const copyButton = screen.getByRole("button", { name: COPY_CODE_REGEX });
+      expect(copyButton.className).toContain("active:scale-90");
     });
   });
 
-  describe('Multiple code blocks', () => {
-    it('should handle multiple pre blocks independently', async () => {
+  describe("Multiple code blocks", () => {
+    it("should handle multiple pre blocks independently", async () => {
       render(
         <>
           <Pre>
@@ -245,50 +249,52 @@ describe('Pre', () => {
         </>
       );
 
-      const buttons = screen.getAllByRole('button', { name: /copy code/i });
+      const buttons = screen.getAllByRole("button", { name: COPY_CODE_REGEX });
       expect(buttons).toHaveLength(2);
 
       // Click first button
       fireEvent.click(buttons[0]);
 
       await waitFor(() => {
-        expect(mockWriteText).toHaveBeenCalledWith('first code block');
+        expect(mockWriteText).toHaveBeenCalledWith("first code block");
       });
     });
   });
 
-  describe('Edge cases', () => {
-    it('should handle empty code block', () => {
+  describe("Edge cases", () => {
+    it("should handle empty code block", () => {
       render(
         <Pre>
-          <code></code>
+          <code />
         </Pre>
       );
 
-      const copyButton = screen.getByRole('button', { name: /copy code/i });
+      const copyButton = screen.getByRole("button", { name: COPY_CODE_REGEX });
       expect(copyButton).toBeInTheDocument();
     });
 
-    it('should handle nested elements in code', async () => {
+    it("should handle nested elements in code", async () => {
       render(
         <Pre>
           <code>
-            <span>const</span> <span>test</span> = <span>true</span>;
+            <span>const</span> <span>test</span> = <span>true;</span>
           </code>
         </Pre>
       );
 
-      const copyButton = screen.getByRole('button', { name: /copy code/i });
+      const copyButton = screen.getByRole("button", { name: COPY_CODE_REGEX });
       fireEvent.click(copyButton);
 
       await waitFor(() => {
-        expect(mockWriteText).toHaveBeenCalledWith(expect.stringContaining('const test = true'));
+        expect(mockWriteText).toHaveBeenCalledWith(
+          expect.stringContaining("const test = true")
+        );
       });
     });
   });
 
-  describe('Snapshot', () => {
-    it('should match snapshot in initial state', () => {
+  describe("Snapshot", () => {
+    it("should match snapshot in initial state", () => {
       const { container } = render(
         <Pre>
           <code>const test = true;</code>
@@ -298,7 +304,7 @@ describe('Pre', () => {
       expect(container).toMatchSnapshot();
     });
 
-    it('should match snapshot with custom props', () => {
+    it("should match snapshot with custom props", () => {
       const { container } = render(
         <Pre className="custom-class" data-language="typescript">
           <code>const test: boolean = true;</code>

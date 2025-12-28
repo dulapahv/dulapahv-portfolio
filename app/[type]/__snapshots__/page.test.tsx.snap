@@ -14,7 +14,7 @@ exports[`Type Listing Page > should render blog listing and match snapshot 1`] =
       aria-label="breadcrumb"
     >
       <ol
-        class="text-foreground-muted flex flex-wrap items-center gap-1.5 text-sm wrap-break-word sm:gap-2.5"
+        class="wrap-break-word flex flex-wrap items-center gap-1.5 text-foreground-muted text-sm sm:gap-2.5"
       >
         <li
           class="inline-flex items-center gap-1.5"
@@ -49,7 +49,7 @@ exports[`Type Listing Page > should render blog listing and match snapshot 1`] =
           <span
             aria-current="page"
             aria-disabled="true"
-            class="text-foreground font-normal max-w-48 truncate"
+            class="font-normal text-foreground max-w-48 truncate"
             role="link"
           >
             Blog
@@ -66,7 +66,7 @@ exports[`Type Listing Page > should render blog listing and match snapshot 1`] =
         class="gap-0"
       >
         <h1
-          class="text-lg font-medium"
+          class="font-medium text-lg"
         >
           Blog
         </h1>
@@ -76,16 +76,15 @@ exports[`Type Listing Page > should render blog listing and match snapshot 1`] =
           My thoughts, ideas, and experiences.
         </p>
       </header>
-      <div
+      <section
         aria-label="Blog by year"
-        role="main"
       >
         <section
           aria-labelledby="2024"
-          class="divide-mirai-red mb-8 divide-y divide-dashed"
+          class="mb-8 divide-y divide-dashed divide-mirai-red"
         >
           <h2
-            class="text-mirai-red mb-2 font-normal"
+            class="mb-2 font-normal text-mirai-red"
             id="2024"
           >
             <a
@@ -114,11 +113,8 @@ exports[`Type Listing Page > should render blog listing and match snapshot 1`] =
           <ul
             aria-label="blog from 2024"
             class="grid gap-6"
-            role="list"
           >
-            <li
-              role="listitem"
-            >
+            <li>
               <a
                 aria-label="Read Test Project: A test project"
                 class="group -m-2 flex items-center justify-between gap-2 rounded-md p-2"
@@ -131,17 +127,16 @@ exports[`Type Listing Page > should render blog listing and match snapshot 1`] =
                     class="flex flex-col gap-1"
                   >
                     <h3
-                      class="group-hover:text-mirai-red text-lg font-medium transition-colors"
+                      class="font-medium text-lg transition-colors group-hover:text-mirai-red"
                     >
                       Test Project
                     </h3>
                     <p
-                      class="text-foreground-lighter line-clamp-2 text-sm"
+                      class="line-clamp-2 text-foreground-lighter text-sm"
                     >
                       A test project
                     </p>
                     <time
-                      aria-label="Published on Jan 2024 - Present"
                       class="text-foreground-lighter text-xs"
                       datetime="2024-01-01"
                     >
@@ -166,7 +161,7 @@ exports[`Type Listing Page > should render blog listing and match snapshot 1`] =
             </li>
           </ul>
         </section>
-      </div>
+      </section>
     </main>
   </div>
 </div>
@@ -186,7 +181,7 @@ exports[`Type Listing Page > should render project listing and match snapshot 1`
       aria-label="breadcrumb"
     >
       <ol
-        class="text-foreground-muted flex flex-wrap items-center gap-1.5 text-sm wrap-break-word sm:gap-2.5"
+        class="wrap-break-word flex flex-wrap items-center gap-1.5 text-foreground-muted text-sm sm:gap-2.5"
       >
         <li
           class="inline-flex items-center gap-1.5"
@@ -221,7 +216,7 @@ exports[`Type Listing Page > should render project listing and match snapshot 1`
           <span
             aria-current="page"
             aria-disabled="true"
-            class="text-foreground font-normal max-w-48 truncate"
+            class="font-normal text-foreground max-w-48 truncate"
             role="link"
           >
             Project
@@ -238,7 +233,7 @@ exports[`Type Listing Page > should render project listing and match snapshot 1`
         class="gap-0"
       >
         <h1
-          class="text-lg font-medium"
+          class="font-medium text-lg"
         >
           Project
         </h1>
@@ -248,16 +243,15 @@ exports[`Type Listing Page > should render project listing and match snapshot 1`
           Professional and personal projects I have worked on.
         </p>
       </header>
-      <div
+      <section
         aria-label="Project by year"
-        role="main"
       >
         <section
           aria-labelledby="2024"
-          class="divide-mirai-red mb-8 divide-y divide-dashed"
+          class="mb-8 divide-y divide-dashed divide-mirai-red"
         >
           <h2
-            class="text-mirai-red mb-2 font-normal"
+            class="mb-2 font-normal text-mirai-red"
             id="2024"
           >
             <a
@@ -286,11 +280,8 @@ exports[`Type Listing Page > should render project listing and match snapshot 1`
           <ul
             aria-label="project from 2024"
             class="grid gap-6"
-            role="list"
           >
-            <li
-              role="listitem"
-            >
+            <li>
               <a
                 aria-label="Read Test Project: A test project"
                 class="group -m-2 flex items-center justify-between gap-2 rounded-md p-2"
@@ -303,17 +294,16 @@ exports[`Type Listing Page > should render project listing and match snapshot 1`
                     class="flex flex-col gap-1"
                   >
                     <h3
-                      class="group-hover:text-mirai-red text-lg font-medium transition-colors"
+                      class="font-medium text-lg transition-colors group-hover:text-mirai-red"
                     >
                       Test Project
                     </h3>
                     <p
-                      class="text-foreground-lighter line-clamp-2 text-sm"
+                      class="line-clamp-2 text-foreground-lighter text-sm"
                     >
                       A test project
                     </p>
                     <time
-                      aria-label="Published on Jan 2024 - Present"
                       class="text-foreground-lighter text-xs"
                       datetime="2024-01-01"
                     >
@@ -338,7 +328,7 @@ exports[`Type Listing Page > should render project listing and match snapshot 1`
             </li>
           </ul>
         </section>
-      </div>
+      </section>
     </main>
   </div>
 </div>

@@ -1,32 +1,33 @@
-import { render } from '@testing-library/react';
-import { describe, expect, it, vi } from 'vitest';
+import { render } from "@testing-library/react";
+import { describe, expect, it, vi } from "vitest";
 
-import ContentPage from './page';
+import ContentPage from "./page";
 
-describe('Content Detail Page', () => {
-  it('should render blog post and match snapshot', async () => {
-    vi.mock('next/navigation', () => ({
-      usePathname: () => '/blog/improve-user-experience-with-invisibile-captcha'
+describe("Content Detail Page", () => {
+  it("should render blog post and match snapshot", async () => {
+    vi.mock("next/navigation", () => ({
+      usePathname: () =>
+        "/blog/improve-user-experience-with-invisibile-captcha",
     }));
 
     const component = await ContentPage({
       params: Promise.resolve({
-        type: 'blog',
-        slug: 'improve-user-experience-with-invisibile-captcha'
+        type: "blog",
+        slug: "improve-user-experience-with-invisibile-captcha",
       }),
-      searchParams: Promise.resolve({})
+      searchParams: Promise.resolve({}),
     });
     const { container } = render(component);
     expect(container).toMatchSnapshot();
   });
 
-  it('should render project page and match snapshot', async () => {
-    vi.mock('next/navigation', () => ({
-      usePathname: () => '/project/issho'
+  it("should render project page and match snapshot", async () => {
+    vi.mock("next/navigation", () => ({
+      usePathname: () => "/project/issho",
     }));
     const component = await ContentPage({
-      params: Promise.resolve({ type: 'project', slug: 'issho' }),
-      searchParams: Promise.resolve({})
+      params: Promise.resolve({ type: "project", slug: "issho" }),
+      searchParams: Promise.resolve({}),
     });
     const { container } = render(component);
     expect(container).toMatchSnapshot();

@@ -1,28 +1,26 @@
-import { ViewTransition } from 'react';
-import type { Metadata } from 'next';
-import { Archivo } from 'next/font/google';
-import Link from 'next/link';
+import type { Metadata } from "next";
+import { Archivo } from "next/font/google";
+import Link from "next/link";
+import { ViewTransition } from "react";
 
-import type { ContactPage } from 'schema-dts';
+import Breadcrumb from "@/components/breadcrumb";
+import { JsonLd } from "@/components/json-ld";
+import { CONTACT_EMAIL } from "@/lib/constants";
+import { contactPageSchema } from "@/lib/json-ld";
+import { createMetadata } from "@/lib/metadata";
+import { cn } from "@/lib/utils";
 
-import { CONTACT_EMAIL } from '@/lib/constants';
-import { contactPageSchema } from '@/lib/json-ld';
-import { createMetadata } from '@/lib/metadata';
-import { cn } from '@/lib/utils';
-import Breadcrumb from '@/components/breadcrumb';
-import { JsonLd } from '@/components/json-ld';
+import { ContactActions } from "./components/contact-actions";
 
-import { ContactActions } from './components/contact-actions';
+const archivo = Archivo({ subsets: ["latin"], weight: "variable" });
 
-const archivo = Archivo({ subsets: ['latin'], weight: 'variable' });
-
-const title = 'Contact';
-const description = 'Get in touch';
+const title = "Contact";
+const description = "Get in touch";
 
 export const metadata: Metadata = createMetadata({
   title,
   description,
-  ogText: 'Contact DulapahV'
+  ogText: "Contact DulapahV",
 });
 
 export default function ContactPage() {
@@ -41,12 +39,12 @@ export default function ContactPage() {
               </h1>
               <div className="space-y-2">
                 <Link
-                  href={`mailto:${CONTACT_EMAIL}`}
+                  aria-label={`Email address: ${CONTACT_EMAIL}`}
                   className={cn(
-                    'text-foreground text-4xl font-light sm:text-5xl md:text-6xl',
+                    "font-light text-4xl text-foreground sm:text-5xl md:text-6xl",
                     archivo.className
                   )}
-                  aria-label={`Email address: ${CONTACT_EMAIL}`}
+                  href={`mailto:${CONTACT_EMAIL}`}
                 >
                   {CONTACT_EMAIL}
                 </Link>

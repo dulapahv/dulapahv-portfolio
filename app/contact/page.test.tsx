@@ -1,14 +1,14 @@
-import { render } from '@testing-library/react';
-import { describe, expect, it, vi } from 'vitest';
+import { render } from "@testing-library/react";
+import { describe, expect, it, vi } from "vitest";
 
-import ContactPage from './page';
+import ContactPage from "./page";
 
-vi.mock('next/navigation', () => ({
-  usePathname: () => '/contact'
+vi.mock("next/navigation", () => ({
+  usePathname: () => "/contact",
 }));
 
-describe('Contact Page', () => {
-  it('should match snapshot', () => {
+describe("Contact Page", () => {
+  it("should match snapshot", () => {
     const component = ContactPage();
     const { container } = render(component);
 

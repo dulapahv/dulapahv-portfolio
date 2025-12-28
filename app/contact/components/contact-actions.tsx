@@ -1,21 +1,19 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import type { Route } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
-
-import { CheckIcon, CopyIcon } from '@phosphor-icons/react/dist/ssr';
-
-import { CONTACT_EMAIL, GITHUB_URL, LINKEDIN_URL } from '@/lib/constants';
-import { ThemeAwareImage } from '@/components/theme-aware-image';
+import { CheckIcon, CopyIcon } from "@phosphor-icons/react/dist/ssr";
+import type { Route } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import { ThemeAwareImage } from "@/components/theme-aware-image";
+import { CONTACT_EMAIL, GITHUB_URL, LINKEDIN_URL } from "@/lib/constants";
 
 interface ContactButton {
   label: string;
   action?: () => void | Promise<void>;
   href?: string;
   icon: React.ReactNode;
-  variant?: 'primary' | 'secondary';
+  variant?: "primary" | "secondary";
 }
 
 export function ContactActions() {
@@ -27,50 +25,63 @@ export function ContactActions() {
       setCopiedEmail(true);
       setTimeout(() => setCopiedEmail(false), 2000);
     } catch (error) {
-      console.error('Failed to copy email:', error);
+      console.error("Failed to copy email:", error);
     }
   };
 
   const buttons: ContactButton[] = [
     {
-      label: copiedEmail ? 'Copied!' : 'Copy Email',
+      label: copiedEmail ? "Copied!" : "Copy Email",
       action: handleCopyEmail,
-      icon: copiedEmail ? <CheckIcon className="size-5" /> : <CopyIcon className="size-5" />
+      icon: copiedEmail ? (
+        <CheckIcon className="size-5" />
+      ) : (
+        <CopyIcon className="size-5" />
+      ),
     },
     {
-      label: 'GitHub',
+      label: "GitHub",
       href: GITHUB_URL,
       icon: (
         <ThemeAwareImage
-          darkSrc="/octocat-white.svg"
-          lightSrc="/octocat-black.svg"
           alt="GitHub"
-          width={16}
+          darkSrc="/octocat-white.svg"
           height={16}
+          lightSrc="/octocat-black.svg"
+          width={16}
         />
-      )
+      ),
     },
     {
-      label: 'LinkedIn',
+      label: "LinkedIn",
       href: LINKEDIN_URL,
-      icon: <Image src="/linkedin.svg" alt="LinkedIn" className="size-5" width={16} height={16} />
-    }
+      icon: (
+        <Image
+          alt="LinkedIn"
+          className="size-5"
+          height={16}
+          src="/linkedin.svg"
+          width={16}
+        />
+      ),
+    },
   ];
 
   return (
     <div className="flex flex-wrap items-center justify-center gap-3">
-      {buttons.map(button => {
+      {buttons.map((button) => {
         const commonClasses =
-          'group relative flex items-center gap-2.5 rounded-xl px-5 py-3 text-sm transition-all duration-200 ring-1 backdrop-blur-sm cursor-pointer bg-background-elevated text-foreground ring-border hover:bg-background-muted hover:ring-border-strong';
+          "group relative flex items-center gap-2.5 rounded-xl px-5 py-3 text-sm transition-all duration-200 ring-1 backdrop-blur-sm cursor-pointer bg-background-elevated text-foreground ring-border hover:bg-background-muted hover:ring-border-strong";
 
         if (button.action) {
           return (
             <button
+              aria-label={button.label}
+              className={commonClasses}
               key={button.label}
               onClick={button.action}
               title={button.label}
-              className={commonClasses}
-              aria-label={button.label}
+              type="button"
             >
               <span>{button.icon}</span>
               <span>{button.label}</span>
@@ -79,13 +90,13 @@ export function ContactActions() {
         }
         return (
           <Link
-            key={button.label}
-            href={button.href as Route}
-            target="_blank"
-            rel="noopener noreferrer"
-            title={button.label}
-            className={commonClasses}
             aria-label={button.label}
+            className={commonClasses}
+            href={button.href as Route}
+            key={button.label}
+            rel="noopener noreferrer"
+            target="_blank"
+            title={button.label}
           >
             <span>{button.icon}</span>
             <span>{button.label}</span>

@@ -1,12 +1,10 @@
-'use client';
+"use client";
 
-import { useRef, useState } from 'react';
-import Link from 'next/link';
-
-import { ArrowUpRightIcon } from '@phosphor-icons/react/dist/ssr';
-
-import { cn } from '@/lib/utils';
-import { Card } from '@/components/card';
+import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
+import Link from "next/link";
+import { useRef, useState } from "react";
+import { Card } from "@/components/card";
+import { cn } from "@/lib/utils";
 
 export const ResumeCard = () => {
   const documentRef = useRef<HTMLDivElement>(null);
@@ -14,7 +12,9 @@ export const ResumeCard = () => {
   const [rotateY, setRotateY] = useState(0);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!documentRef.current) return;
+    if (!documentRef.current) {
+      return;
+    }
 
     const card = documentRef.current;
     const rect = card.getBoundingClientRect();
@@ -38,71 +38,71 @@ export const ResumeCard = () => {
 
   return (
     <Link
-      href="https://dulapahv.dev/resume"
-      target="_blank"
-      rel="noopener noreferrer"
-      prefetch={false}
-      title="View my résumé"
       className="group block h-full"
+      href="https://dulapahv.dev/resume"
+      prefetch={false}
+      rel="noopener noreferrer"
+      target="_blank"
+      title="View my résumé"
     >
-      <Card className="flex h-full flex-col overflow-hidden p-5" containerClassName="h-full">
+      <Card
+        className="flex h-full flex-col overflow-hidden p-5"
+        containerClassName="h-full"
+      >
         <div className="mb-4 flex items-start justify-between">
-          <h2 className="text-foreground-muted text-xs font-semibold tracking-widest uppercase">
+          <h2 className="font-semibold text-foreground-muted text-xs uppercase tracking-widest">
             Résumé
           </h2>
           <ArrowUpRightIcon
-            className="text-foreground-muted group-hover:text-mirai-red size-5 transition-colors"
+            className="size-5 text-foreground-muted transition-colors group-hover:text-mirai-red"
             weight="regular"
           />
         </div>
 
         <div
-          className="border-border-subtle relative flex flex-1 cursor-crosshair items-center justify-center
-            overflow-hidden rounded-md border"
-          onMouseMove={handleMouseMove}
+          className="relative flex flex-1 cursor-crosshair items-center justify-center overflow-hidden rounded-md border border-border-subtle"
           onMouseLeave={handleMouseLeave}
-          style={{ perspective: '1000px' }}
+          onMouseMove={handleMouseMove}
+          style={{ perspective: "1000px" }}
         >
           <div
-            className="pointer-events-none absolute inset-0
-              bg-[linear-gradient(to_right,var(--color-border-subtle)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border-subtle)_1px,transparent_1px)]"
-            style={{
-              backgroundSize: '24px 24px',
-              backgroundPosition: 'center'
-            }}
             aria-hidden="true"
+            className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,var(--color-border-subtle)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border-subtle)_1px,transparent_1px)]"
+            style={{
+              backgroundSize: "24px 24px",
+              backgroundPosition: "center",
+            }}
           />
 
           <div
-            ref={documentRef}
+            aria-hidden="true"
             className={cn(
-              `border-border bg-background-elevated relative h-32 w-24 rounded-sm border shadow-xl
-              transition-transform duration-300 ease-out`,
-              'group-hover:scale-105'
+              "relative h-32 w-24 rounded-sm border border-border bg-background-elevated shadow-xl transition-transform duration-300 ease-out",
+              "group-hover:scale-105"
             )}
+            ref={documentRef}
             style={{
               transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
-              transformStyle: 'preserve-3d'
+              transformStyle: "preserve-3d",
             }}
-            aria-hidden="true"
           >
             <div className="absolute inset-0 flex flex-col justify-evenly p-3">
-              {[...Array(6)].map((_, i) => (
-                <div key={i} className="flex gap-1">
+              {[...new Array(6)].map((_, i) => (
+                <div className="flex gap-1" key={i}>
                   <div
                     className={cn(
-                      'bg-foreground/20 h-0.5 rounded-full transition-all duration-500',
+                      "h-0.5 rounded-full bg-foreground/20 transition-all duration-500",
                       i === 0
-                        ? 'w-3/4'
+                        ? "w-3/4"
                         : i === 1
-                          ? 'w-4/5'
+                          ? "w-4/5"
                           : i === 2
-                            ? 'w-2/3'
+                            ? "w-2/3"
                             : i === 3
-                              ? 'w-3/4'
+                              ? "w-3/4"
                               : i === 4
-                                ? 'w-1/2'
-                                : 'w-3/5'
+                                ? "w-1/2"
+                                : "w-3/5"
                     )}
                   />
                 </div>

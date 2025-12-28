@@ -1,7 +1,4 @@
-'use client';
-
-import { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
+"use client";
 
 import {
   CaretDownIcon,
@@ -9,11 +6,12 @@ import {
   ExportIcon,
   LinkSimpleHorizontalIcon,
   MarkdownLogoIcon,
-  SparkleIcon
-} from '@phosphor-icons/react/dist/ssr';
-
-import { cn } from '@/lib/utils';
-import { ThemeAwareImage } from '@/components/theme-aware-image';
+  SparkleIcon,
+} from "@phosphor-icons/react/dist/ssr";
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
+import { ThemeAwareImage } from "@/components/theme-aware-image";
+import { cn } from "@/lib/utils";
 
 interface ShareButtonsProps {
   page?: {
@@ -35,14 +33,16 @@ export function ShareButtons({ page }: ShareButtonsProps) {
   const popupRefs = useRef<{ [key: string]: Window | null }>({
     X: null,
     facebook: null,
-    linkedin: null
+    linkedin: null,
   });
 
   // Check for native share support
   useEffect(() => {
     const checkShareSupport = () => {
-      if (typeof window !== 'undefined' && 'share' in navigator) {
-        setSupportsNativeShare(navigator.canShare?.({ url: window.location.href }) ?? true);
+      if (typeof window !== "undefined" && "share" in navigator) {
+        setSupportsNativeShare(
+          navigator.canShare?.({ url: window.location.href }) ?? true
+        );
       }
     };
 
@@ -52,30 +52,35 @@ export function ShareButtons({ page }: ShareButtonsProps) {
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setIsDropdownOpen(false);
       }
     };
 
     if (isDropdownOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside);
       return () => {
-        document.removeEventListener('mousedown', handleClickOutside);
+        document.removeEventListener("mousedown", handleClickOutside);
       };
     }
   }, [isDropdownOpen]);
 
   const handleNativeShare = async () => {
-    if (!navigator.share) return;
+    if (!navigator.share) {
+      return;
+    }
 
     try {
       await navigator.share({
         title: document.title,
-        url: window.location.href
+        url: window.location.href,
       });
     } catch (err) {
-      if (err instanceof Error && err.name !== 'AbortError') {
-        console.error('Share failed:', err);
+      if (err instanceof Error && err.name !== "AbortError") {
+        console.error("Share failed:", err);
         await copyToClipboard(window.location.href);
       }
     }
@@ -87,58 +92,64 @@ export function ShareButtons({ page }: ShareButtonsProps) {
       setCopied(true);
       setTimeout(() => setCopied(false), 800);
     } catch (err) {
-      console.error('Failed to copy text: ', err);
-      const textArea = document.createElement('textarea');
+      console.error("Failed to copy text: ", err);
+      const textArea = document.createElement("textarea");
       textArea.value = text;
       document.body.appendChild(textArea);
       textArea.focus();
       textArea.select();
       try {
-        document.execCommand('copy');
+        document.execCommand("copy");
         setCopied(true);
         setTimeout(() => setCopied(false), 800);
       } catch (fallbackErr) {
-        console.error('Fallback copy failed: ', fallbackErr);
+        console.error("Fallback copy failed: ", fallbackErr);
       }
       document.body.removeChild(textArea);
     }
   };
 
   const copyPageAsMarkdown = async () => {
-    if (!page) return;
+    if (!page) {
+      return;
+    }
     setIsCopying(true);
 
     try {
-      const response = await fetch(`${window.location.origin}${window.location.pathname}.md`);
-      if (!response.ok) throw new Error('Failed to fetch markdown');
+      const response = await fetch(
+        `${window.location.origin}${window.location.pathname}.md`
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch markdown");
+      }
       const markdown = await response.text();
       await copyToClipboard(markdown);
       setCopiedPage(true);
       setTimeout(() => setCopiedPage(false), 800);
     } catch (err) {
-      console.error('Error copying page as markdown:', err);
+      console.error("Error copying page as markdown:", err);
     } finally {
       setIsCopying(false);
     }
   };
 
   const viewAsMarkdown = () => {
-    window.open(`${window.location.pathname}.md`, '_blank');
+    window.open(`${window.location.pathname}.md`, "_blank");
   };
 
   const shareOnSocialMedia = (platform: string) => {
     const url = window.location.href;
     const title = document.title;
-    let shareUrl = '';
+    let shareUrl = "";
 
     switch (platform) {
-      case 'X':
+      case "X":
         shareUrl = `https://x.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`;
         break;
-      case 'facebook':
+      case "facebook":
         shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
         break;
-      case 'linkedin':
+      case "linkedin":
         shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`;
         break;
       default:
@@ -178,47 +189,57 @@ export function ShareButtons({ page }: ShareButtonsProps) {
           }
         }, 1000);
       } catch (e) {
-        console.error('Error setting up popup close check: ', e);
+        console.error("Error setting up popup close check: ", e);
         popupRefs.current[platform] = null;
       }
     }
   };
 
   const handleKeyDown = (event: React.KeyboardEvent, action: () => void) => {
-    if (event.key === 'Enter' || event.key === ' ') {
+    if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
       action();
     }
   };
 
   return (
-    <div className="flex flex-wrap items-center gap-3" role="group" aria-label="Share options">
+    <div
+      aria-label="Share options"
+      className="flex flex-wrap items-center gap-3"
+      role="group"
+    >
       {supportsNativeShare ? (
         <button
-          onClick={handleNativeShare}
-          onKeyDown={e => handleKeyDown(e, handleNativeShare)}
-          className={cn(
-            'bg-background border-border aspect-square cursor-pointer rounded-full border p-1.5 transition-colors',
-            'hover:bg-background-subtle hover:border-border-strong'
-          )}
-          title="Share this page"
           aria-label="Share this page"
+          className={cn(
+            "aspect-square cursor-pointer rounded-full border border-border bg-background p-1.5 transition-colors",
+            "hover:border-border-strong hover:bg-background-subtle"
+          )}
+          onClick={handleNativeShare}
+          onKeyDown={(e) => handleKeyDown(e, handleNativeShare)}
+          title="Share this page"
+          type="button"
         >
-          <ExportIcon className="text-foreground size-4.5" aria-hidden="true" />
+          <ExportIcon aria-hidden="true" className="size-4.5 text-foreground" />
         </button>
       ) : (
         <button
-          onClick={() => copyToClipboard(window.location.href)}
-          onKeyDown={e => handleKeyDown(e, () => copyToClipboard(window.location.href))}
+          aria-label={
+            copied ? "Link copied to clipboard" : "Copy link to clipboard"
+          }
           className={cn(
-            'bg-background border-border aspect-square cursor-pointer rounded-full border p-1.5 transition-colors',
-            'hover:bg-background-subtle hover:border-border-strong'
+            "aspect-square cursor-pointer rounded-full border border-border bg-background p-1.5 transition-colors",
+            "hover:border-border-strong hover:bg-background-subtle"
           )}
-          title={copied ? 'Link copied!' : 'Copy link to clipboard'}
-          aria-label={copied ? 'Link copied to clipboard' : 'Copy link to clipboard'}
           disabled={copied}
+          onClick={() => copyToClipboard(window.location.href)}
+          onKeyDown={(e) =>
+            handleKeyDown(e, () => copyToClipboard(window.location.href))
+          }
+          title={copied ? "Link copied!" : "Copy link to clipboard"}
+          type="button"
         >
-          <div className="text-foreground relative">
+          <div className="relative text-foreground">
             {copied ? (
               <CheckIcon className="size-4.5" />
             ) : (
@@ -229,154 +250,192 @@ export function ShareButtons({ page }: ShareButtonsProps) {
       )}
 
       <button
-        onClick={() => shareOnSocialMedia('X')}
-        onKeyDown={e => handleKeyDown(e, () => shareOnSocialMedia('X'))}
-        className={cn(
-          'bg-background border-border aspect-square cursor-pointer rounded-full border p-2 transition-colors',
-          'hover:bg-background-subtle hover:border-border-strong'
-        )}
-        title="Share on X"
         aria-label="Share on X"
+        className={cn(
+          "aspect-square cursor-pointer rounded-full border border-border bg-background p-2 transition-colors",
+          "hover:border-border-strong hover:bg-background-subtle"
+        )}
+        onClick={() => shareOnSocialMedia("X")}
+        onKeyDown={(e) => handleKeyDown(e, () => shareOnSocialMedia("X"))}
+        title="Share on X"
+        type="button"
       >
         <ThemeAwareImage
-          lightSrc="/x-black.svg"
-          darkSrc="/x-white.svg"
-          width={16}
-          height={16}
           alt=""
           aria-hidden="true"
+          darkSrc="/x-white.svg"
+          height={16}
+          lightSrc="/x-black.svg"
+          width={16}
         />
       </button>
 
       <button
-        onClick={() => shareOnSocialMedia('facebook')}
-        onKeyDown={e => handleKeyDown(e, () => shareOnSocialMedia('facebook'))}
-        className={cn(
-          'bg-background border-border aspect-square cursor-pointer rounded-full border p-1 transition-colors',
-          'hover:bg-background-subtle hover:border-border-strong'
-        )}
-        title="Share on Facebook"
         aria-label="Share on Facebook"
+        className={cn(
+          "aspect-square cursor-pointer rounded-full border border-border bg-background p-1 transition-colors",
+          "hover:border-border-strong hover:bg-background-subtle"
+        )}
+        onClick={() => shareOnSocialMedia("facebook")}
+        onKeyDown={(e) =>
+          handleKeyDown(e, () => shareOnSocialMedia("facebook"))
+        }
+        title="Share on Facebook"
+        type="button"
       >
-        <Image src="/facebook.svg" width={24} height={24} alt="" aria-hidden="true" />
+        <Image
+          alt=""
+          aria-hidden="true"
+          height={24}
+          src="/facebook.svg"
+          width={24}
+        />
       </button>
 
       <button
-        onClick={() => shareOnSocialMedia('linkedin')}
-        onKeyDown={e => handleKeyDown(e, () => shareOnSocialMedia('linkedin'))}
-        className={cn(
-          'bg-background border-border aspect-square cursor-pointer rounded-full border p-1.5 transition-colors',
-          'hover:bg-background-subtle hover:border-border-strong'
-        )}
-        title="Share on LinkedIn"
         aria-label="Share on LinkedIn"
+        className={cn(
+          "aspect-square cursor-pointer rounded-full border border-border bg-background p-1.5 transition-colors",
+          "hover:border-border-strong hover:bg-background-subtle"
+        )}
+        onClick={() => shareOnSocialMedia("linkedin")}
+        onKeyDown={(e) =>
+          handleKeyDown(e, () => shareOnSocialMedia("linkedin"))
+        }
+        title="Share on LinkedIn"
+        type="button"
       >
-        <Image src="/linkedin.svg" width={20} height={20} alt="" aria-hidden="true" />
+        <Image
+          alt=""
+          aria-hidden="true"
+          height={20}
+          src="/linkedin.svg"
+          width={20}
+        />
       </button>
 
       {page && (
         <div className="relative ml-0 min-[425px]:ml-auto" ref={dropdownRef}>
-          <div className="bg-background border-border flex items-center rounded-md border">
+          <div className="flex items-center rounded-md border border-border bg-background">
             <button
-              onClick={copyPageAsMarkdown}
-              onKeyDown={e => handleKeyDown(e, copyPageAsMarkdown)}
-              className={cn(
-                'flex cursor-pointer items-center gap-2 px-3 py-1.5 text-sm transition-colors',
-                'border-border border-r',
-                'hover:bg-background-subtle',
-                'disabled:bg-background-muted disabled:text-foreground-muted disabled:cursor-not-allowed'
-              )}
-              title={isCopying ? 'Copying...' : copiedPage ? 'Copied!' : 'Copy page as Markdown'}
               aria-label={
                 isCopying
-                  ? 'Copying page as Markdown'
+                  ? "Copying page as Markdown"
                   : copiedPage
-                    ? 'Page copied to clipboard as Markdown'
-                    : 'Copy page as Markdown'
+                    ? "Page copied to clipboard as Markdown"
+                    : "Copy page as Markdown"
               }
+              className={cn(
+                "flex cursor-pointer items-center gap-2 px-3 py-1.5 text-sm transition-colors",
+                "border-border border-r",
+                "hover:bg-background-subtle",
+                "disabled:cursor-not-allowed disabled:bg-background-muted disabled:text-foreground-muted"
+              )}
               disabled={isCopying || copiedPage}
+              onClick={copyPageAsMarkdown}
+              onKeyDown={(e) => handleKeyDown(e, copyPageAsMarkdown)}
+              title={
+                isCopying
+                  ? "Copying..."
+                  : copiedPage
+                    ? "Copied!"
+                    : "Copy page as Markdown"
+              }
+              type="button"
             >
-              {isCopying ? <p>Copying...</p> : copiedPage ? <p>Copied!</p> : <p>Copy Page</p>}
+              {isCopying ? (
+                <p>Copying...</p>
+              ) : copiedPage ? (
+                <p>Copied!</p>
+              ) : (
+                <p>Copy Page</p>
+              )}
             </button>
             <button
+              aria-expanded={isDropdownOpen}
+              aria-haspopup="true"
+              aria-label="More options"
+              className={cn(
+                "flex cursor-pointer items-center px-2 py-2 transition-colors",
+                "hover:bg-background-subtle"
+              )}
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              onKeyDown={e => {
-                if (e.key === 'Enter' || e.key === ' ') {
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
                   e.preventDefault();
                   setIsDropdownOpen(!isDropdownOpen);
-                } else if (e.key === 'Escape' && isDropdownOpen) {
+                } else if (e.key === "Escape" && isDropdownOpen) {
                   setIsDropdownOpen(false);
                 }
               }}
-              className={cn(
-                'flex cursor-pointer items-center px-2 py-2 transition-colors',
-                'hover:bg-background-subtle'
-              )}
               title="More options"
-              aria-label="More options"
-              aria-expanded={isDropdownOpen}
-              aria-haspopup="true"
+              type="button"
             >
               <CaretDownIcon
-                className={cn('size-4 transition-transform', isDropdownOpen && 'rotate-180')}
                 aria-hidden="true"
+                className={cn(
+                  "size-4 transition-transform",
+                  isDropdownOpen && "rotate-180"
+                )}
               />
             </button>
           </div>
 
           {isDropdownOpen && (
             <div
+              aria-orientation="vertical"
               className={cn(
-                'bg-background border-border absolute top-full right-0 z-50 mt-1 min-w-[200px]',
-                'rounded-md border shadow-lg'
+                "absolute top-full right-0 z-50 mt-1 min-w-[200px] border-border bg-background",
+                "rounded-md border shadow-lg"
               )}
               role="menu"
-              aria-orientation="vertical"
             >
               <button
+                className={cn(
+                  "flex w-full cursor-pointer items-center gap-2 px-3 py-2 text-foreground text-sm",
+                  "transition-colors hover:bg-background-subtle"
+                )}
                 onClick={() => {
                   viewAsMarkdown();
                   setIsDropdownOpen(false);
                 }}
-                onKeyDown={e => {
-                  if (e.key === 'Enter' || e.key === ' ') {
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
                     e.preventDefault();
                     viewAsMarkdown();
                     setIsDropdownOpen(false);
-                  } else if (e.key === 'Escape') {
+                  } else if (e.key === "Escape") {
                     setIsDropdownOpen(false);
                   }
                 }}
-                className={cn(
-                  'text-foreground flex w-full cursor-pointer items-center gap-2 px-3 py-2 text-sm',
-                  'hover:bg-background-subtle transition-colors'
-                )}
                 role="menuitem"
+                type="button"
               >
-                <MarkdownLogoIcon className="size-5" aria-hidden="true" />
+                <MarkdownLogoIcon aria-hidden="true" className="size-5" />
                 <span>View as Markdown</span>
               </button>
               <button
+                className={cn(
+                  "flex w-full cursor-pointer items-center gap-2 px-3 py-2 text-foreground text-sm",
+                  "transition-colors hover:bg-background-subtle"
+                )}
                 onClick={() => {
-                  window.open('https://chat.dulapahv.dev', '_blank');
+                  window.open("https://chat.dulapahv.dev", "_blank");
                   setIsDropdownOpen(false);
                 }}
-                onKeyDown={e => {
-                  if (e.key === 'Enter' || e.key === ' ') {
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
                     e.preventDefault();
-                    window.open('https://chat.dulapahv.dev', '_blank');
+                    window.open("https://chat.dulapahv.dev", "_blank");
                     setIsDropdownOpen(false);
-                  } else if (e.key === 'Escape') {
+                  } else if (e.key === "Escape") {
                     setIsDropdownOpen(false);
                   }
                 }}
-                className={cn(
-                  'text-foreground flex w-full cursor-pointer items-center gap-2 px-3 py-2 text-sm',
-                  'hover:bg-background-subtle transition-colors'
-                )}
                 role="menuitem"
+                type="button"
               >
-                <SparkleIcon className="size-5" aria-hidden="true" />
+                <SparkleIcon aria-hidden="true" className="size-5" />
                 <span>Ask in NLWeb Chat</span>
               </button>
             </div>

@@ -1,14 +1,16 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-
-import { ArrowRightIcon, CaretLeftIcon, CaretRightIcon } from '@phosphor-icons/react/dist/ssr';
-import { allProjects } from 'content-collections';
-
-import { cn } from '@/lib/utils';
-import { Card } from '@/components/card';
+import {
+  ArrowRightIcon,
+  CaretLeftIcon,
+  CaretRightIcon,
+} from "@phosphor-icons/react/dist/ssr";
+import { allProjects } from "content-collections";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import { Card } from "@/components/card";
+import { cn } from "@/lib/utils";
 
 type ProjectWithDate = (typeof allProjects)[number] & {
   sortDate: Date;
@@ -21,18 +23,23 @@ export function ProjectsCard() {
   const projects = [...allProjects]
     .sort(
       (a, b) =>
-        (b as ProjectWithDate).sortDate.getTime() - (a as ProjectWithDate).sortDate.getTime()
+        (b as ProjectWithDate).sortDate.getTime() -
+        (a as ProjectWithDate).sortDate.getTime()
     )
     .slice(0, 5);
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const goToPrevious = () => {
-    setCurrentIndex(prevIndex => (prevIndex === 0 ? projects.length - 1 : prevIndex - 1));
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? projects.length - 1 : prevIndex - 1
+    );
   };
 
   const goToNext = () => {
-    setCurrentIndex(prevIndex => (prevIndex === projects.length - 1 ? 0 : prevIndex + 1));
+    setCurrentIndex((prevIndex) =>
+      prevIndex === projects.length - 1 ? 0 : prevIndex + 1
+    );
   };
 
   const goToSlide = (index: number) => {
@@ -48,12 +55,12 @@ export function ProjectsCard() {
   return (
     <Card className="p-5">
       <div className="mb-4 flex items-start justify-between">
-        <h2 className="text-foreground-muted text-xs font-semibold tracking-widest uppercase">
+        <h2 className="font-semibold text-foreground-muted text-xs uppercase tracking-widest">
           Recent Projects
         </h2>
-        <Link href="/project" title="View all projects" className="group/icon">
+        <Link className="group/icon" href="/project" title="View all projects">
           <ArrowRightIcon
-            className="text-foreground-muted group-hover/icon:text-mirai-red size-5 transition-colors"
+            className="size-5 text-foreground-muted transition-colors group-hover/icon:text-mirai-red"
             weight="regular"
           />
         </Link>
@@ -62,16 +69,16 @@ export function ProjectsCard() {
       <div className="relative">
         {currentProject.image && (
           <Link
-            href={`/project/${currentProject.slug}`}
             className="group/image relative block overflow-hidden rounded-lg"
+            href={`/project/${currentProject.slug}`}
           >
             <div className="relative aspect-video w-full overflow-hidden rounded-lg">
               <Image
-                src={currentProject.image}
                 alt={currentProject.title}
-                fill
                 className="object-cover"
+                fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                src={currentProject.image}
               />
             </div>
           </Link>
@@ -80,50 +87,52 @@ export function ProjectsCard() {
         {projects.length > 1 && (
           <>
             <button
-              onClick={goToPrevious}
-              className={cn(
-                'bg-background/80 hover:bg-background absolute top-1/2 left-2 -translate-y-1/2',
-                'rounded-full p-2 backdrop-blur-sm transition-all',
-                'hover:scale-110'
-              )}
               aria-label="Previous project"
+              className={cn(
+                "absolute top-1/2 left-2 -translate-y-1/2 bg-background/80 hover:bg-background",
+                "rounded-full p-2 backdrop-blur-sm transition-all",
+                "hover:scale-110"
+              )}
+              onClick={goToPrevious}
+              type="button"
             >
-              <CaretLeftIcon className="text-foreground size-5" weight="bold" />
+              <CaretLeftIcon className="size-5 text-foreground" weight="bold" />
             </button>
             <button
-              onClick={goToNext}
-              className={cn(
-                'bg-background/80 hover:bg-background absolute top-1/2 right-2 -translate-y-1/2',
-                'rounded-full p-2 backdrop-blur-sm transition-all',
-                'hover:scale-110'
-              )}
               aria-label="Next project"
+              className={cn(
+                "absolute top-1/2 right-2 -translate-y-1/2 bg-background/80 hover:bg-background",
+                "rounded-full p-2 backdrop-blur-sm transition-all",
+                "hover:scale-110"
+              )}
+              onClick={goToNext}
+              type="button"
             >
-              <CaretRightIcon className="text-foreground size-5" weight="bold" />
+              <CaretRightIcon
+                className="size-5 text-foreground"
+                weight="bold"
+              />
             </button>
           </>
         )}
       </div>
 
-      <Link href={`/project/${currentProject.slug}`} className="group mt-4">
+      <Link className="group mt-4" href={`/project/${currentProject.slug}`}>
         <h3
           className={cn(
-            'text-foreground block text-lg font-semibold transition-colors',
-            'group-hover:text-mirai-red'
+            "block font-semibold text-foreground text-lg transition-colors",
+            "group-hover:text-mirai-red"
           )}
         >
           {currentProject.title}
         </h3>
-        <p className="text-foreground-muted mt-2 line-clamp-2 text-sm leading-relaxed">
+        <p className="mt-2 line-clamp-2 text-foreground-muted text-sm leading-relaxed">
           {currentProject.description}
         </p>
-        <time className="text-foreground-muted mt-2 block text-xs">
+        <time className="mt-2 block text-foreground-muted text-xs">
           {currentProject.formattedStartDate}—{currentProject.formattedEndDate}
           {currentProject.isOngoing && (
-            <span
-              className="bg-mirai-red/10 text-mirai-red ml-2 inline-block rounded-full px-2 py-0.5 text-[10px] font-medium
-                uppercase"
-            >
+            <span className="ml-2 inline-block rounded-full bg-mirai-red/10 px-2 py-0.5 font-medium text-[10px] text-mirai-red uppercase">
               Ongoing
             </span>
           )}
@@ -134,13 +143,16 @@ export function ProjectsCard() {
         <div className="mt-auto flex items-center justify-center gap-2">
           {projects.map((_, index) => (
             <button
+              aria-label={`Go to project ${index + 1}`}
+              className={cn(
+                "h-2 rounded-full transition-all",
+                index === currentIndex
+                  ? "w-6 bg-mirai-red"
+                  : "w-2 bg-foreground/20 hover:bg-border"
+              )}
               key={index}
               onClick={() => goToSlide(index)}
-              className={cn(
-                'h-2 rounded-full transition-all',
-                index === currentIndex ? 'bg-mirai-red w-6' : 'bg-foreground/20 hover:bg-border w-2'
-              )}
-              aria-label={`Go to project ${index + 1}`}
+              type="button"
             />
           ))}
         </div>

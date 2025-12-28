@@ -1,6 +1,6 @@
-import { Footer } from '@/components/footer';
+import { Footer } from "@/components/footer";
 
-export default function Layout({ children }: LayoutProps<'/[type]'>) {
+export default function Layout({ children }: LayoutProps<"/[type]">) {
   return (
     <>
       {children}

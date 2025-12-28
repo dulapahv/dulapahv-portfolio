@@ -1,10 +1,14 @@
-'use client';
+"use client";
 
-import { DetailedHTMLProps, HTMLAttributes, useRef, useState } from 'react';
+import { CheckIcon, CopyIcon } from "@phosphor-icons/react/dist/ssr";
+import {
+  type DetailedHTMLProps,
+  type HTMLAttributes,
+  useRef,
+  useState,
+} from "react";
 
-import { CheckIcon, CopyIcon } from '@phosphor-icons/react/dist/ssr';
-
-import { cn } from '@/lib/utils';
+import { cn } from "@/lib/utils";
 
 export function Pre({
   children,
@@ -29,17 +33,22 @@ export function Pre({
   return (
     <>
       <button
+        aria-label="Copy code"
+        className={cn(
+          "absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 text-foreground-muted transition-all!",
+          "hover:text-foreground/80",
+          "active:scale-90"
+        )}
         disabled={isCopied}
         onClick={handleClickCopy}
-        aria-label="Copy code"
         title="Copy code"
-        className={cn(
-          'text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 transition-all!',
-          'hover:text-foreground/80',
-          'active:scale-90'
-        )}
+        type="button"
       >
-        {isCopied ? <CheckIcon className="size-4.5" /> : <CopyIcon className="size-4.5" />}
+        {isCopied ? (
+          <CheckIcon className="size-4.5" />
+        ) : (
+          <CopyIcon className="size-4.5" />
+        )}
       </button>
       <pre ref={preRef} {...props}>
         {children}

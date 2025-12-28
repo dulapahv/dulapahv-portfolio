@@ -10,25 +10,25 @@ exports[`GitHubContributionsCard > should match snapshot 1`] = `
     title="View my GitHub profile"
   >
     <div
-      class="bg-border relative h-full rounded-xl p-px"
+      class="relative h-full rounded-xl bg-border p-px"
     >
       <div
         class="relative-mouse pointer-events-none absolute inset-0 rounded-xl transition-opacity duration-500"
         style="background: linear-gradient(to bottom right, var(--color-mirai-red), var(--color-mirai-blue), var(--color-mirai-yellow)); mask-image: radial-gradient(50% 50% at var(--mouse-x, 9999px) var(--mouse-y, 9999px), rgba(0, 0, 0, 0.5) 40%, transparent);"
       />
       <div
-        class="card bg-background-elevated relative z-1 rounded-xl flex h-full flex-col p-5"
+        class="card relative z-1 rounded-xl bg-background-elevated flex h-full flex-col p-5"
       >
         <div
           class="mb-4 flex items-start justify-between"
         >
           <h2
-            class="text-foreground-muted text-xs font-semibold tracking-widest uppercase"
+            class="font-semibold text-foreground-muted text-xs uppercase tracking-widest"
           >
             GitHub Activity
           </h2>
           <svg
-            class="text-foreground-muted size-5 transition-colors group-hover:text-mirai-red"
+            class="size-5 text-foreground-muted transition-colors group-hover:text-mirai-red"
             fill="currentColor"
             height="1em"
             viewBox="0 0 256 256"
@@ -52,7 +52,7 @@ exports[`GitHubContributionsCard > should match snapshot 1`] = `
               250
             </span>
             <span
-              class="text-foreground-muted ml-1"
+              class="ml-1 text-foreground-muted"
             >
               contributions in 
               the last year

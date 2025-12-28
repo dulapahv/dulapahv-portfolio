@@ -5,10 +5,9 @@ exports[`TableOfContents > Snapshot > should match snapshot - desktop view 1`] =
   <nav
     aria-label="Table of contents"
     class="fixed top-18 left-[calc(100vw/2+424px)] z-40 hidden w-56 xl:block"
-    role="navigation"
   >
     <h2
-      class="text-foreground px-3 text-sm font-medium"
+      class="px-3 font-medium text-foreground text-sm"
     >
       On this page
     </h2>
@@ -19,7 +18,6 @@ exports[`TableOfContents > Snapshot > should match snapshot - desktop view 1`] =
     >
       <ul
         class="space-y-1"
-        role="list"
       >
         <li
           class="mb-0"
@@ -93,14 +91,13 @@ exports[`TableOfContents > Snapshot > should match snapshot - mobile view 1`] = 
 <div>
   <nav
     aria-label="Table of contents"
-    class="border-border bg-background-elevated/50 rounded-md border backdrop-blur-sm"
-    role="navigation"
+    class="rounded-md border border-border bg-background-elevated/50 backdrop-blur-sm"
   >
     <button
       aria-controls="toc-content"
       aria-describedby="toc-description"
       aria-expanded="false"
-      class="text-foreground flex w-full cursor-pointer items-center justify-between rounded-md px-4 py-3 text-sm font-medium transition-colors hover:bg-background-muted/50"
+      class="flex w-full cursor-pointer items-center justify-between rounded-md px-4 py-3 font-medium text-foreground text-sm transition-colors hover:bg-background-muted/50"
       type="button"
     >
       <span>
@@ -131,7 +128,8 @@ exports[`TableOfContents > Snapshot > should match snapshot - mobile view 1`] = 
     >
       Toggle to 
       show
-       table of contents with 
+       table of contents with
+       
       3
        sections. Use arrow keys to navigate when expanded.
     </span>

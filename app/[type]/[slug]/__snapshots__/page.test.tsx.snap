@@ -14,7 +14,7 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
       aria-label="breadcrumb"
     >
       <ol
-        class="text-foreground-muted flex flex-wrap items-center gap-1.5 text-sm wrap-break-word sm:gap-2.5"
+        class="wrap-break-word flex flex-wrap items-center gap-1.5 text-foreground-muted text-sm sm:gap-2.5"
       >
         <li
           class="inline-flex items-center gap-1.5"
@@ -76,7 +76,7 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
           <span
             aria-current="page"
             aria-disabled="true"
-            class="text-foreground font-normal max-w-48 truncate"
+            class="font-normal text-foreground max-w-48 truncate"
             role="link"
           >
             Improve Captcha User Experience with Invisible CAPTCHA by Vercel BotID
@@ -94,7 +94,7 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
       >
         <div>
           <h1
-            class="text-2xl font-semibold"
+            class="font-semibold text-2xl"
           >
             Improve Captcha User Experience with Invisible CAPTCHA by Vercel BotID
           </h1>
@@ -106,7 +106,7 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
           </p>
         </div>
         <div
-          class="text-foreground-muted space-y-1 text-sm"
+          class="space-y-1 text-foreground-muted text-sm"
         >
           <div
             class="flex flex-wrap items-center gap-2"
@@ -117,7 +117,6 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
               Content type:
             </span>
             <span
-              aria-label="Content type: Article"
               class="inline-block"
             >
               Article
@@ -142,16 +141,13 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 Published on
               </span>
               <time
-                aria-label="Published on August 30, 2025"
                 datetime="2025-08-29"
               >
                 August 30, 2025
               </time>
             </div>
           </div>
-          <p
-            aria-label="Estimated reading time: 5 min read"
-          >
+          <p>
             <span
               class="sr-only"
             >
@@ -167,11 +163,12 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
         >
           <button
             aria-label="Copy link to clipboard"
-            class="bg-background border-border aspect-square cursor-pointer rounded-full border p-1.5 transition-colors hover:bg-background-subtle hover:border-border-strong"
+            class="aspect-square cursor-pointer rounded-full border border-border bg-background p-1.5 transition-colors hover:border-border-strong hover:bg-background-subtle"
             title="Copy link to clipboard"
+            type="button"
           >
             <div
-              class="text-foreground relative"
+              class="relative text-foreground"
             >
               <svg
                 class="size-4.5"
@@ -189,8 +186,9 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
           </button>
           <button
             aria-label="Share on X"
-            class="bg-background border-border aspect-square cursor-pointer rounded-full border p-2 transition-colors hover:bg-background-subtle hover:border-border-strong"
+            class="aspect-square cursor-pointer rounded-full border border-border bg-background p-2 transition-colors hover:border-border-strong hover:bg-background-subtle"
             title="Share on X"
+            type="button"
           >
             <img
               alt=""
@@ -219,8 +217,9 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
           </button>
           <button
             aria-label="Share on Facebook"
-            class="bg-background border-border aspect-square cursor-pointer rounded-full border p-1 transition-colors hover:bg-background-subtle hover:border-border-strong"
+            class="aspect-square cursor-pointer rounded-full border border-border bg-background p-1 transition-colors hover:border-border-strong hover:bg-background-subtle"
             title="Share on Facebook"
+            type="button"
           >
             <img
               alt=""
@@ -236,8 +235,9 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
           </button>
           <button
             aria-label="Share on LinkedIn"
-            class="bg-background border-border aspect-square cursor-pointer rounded-full border p-1.5 transition-colors hover:bg-background-subtle hover:border-border-strong"
+            class="aspect-square cursor-pointer rounded-full border border-border bg-background p-1.5 transition-colors hover:border-border-strong hover:bg-background-subtle"
             title="Share on LinkedIn"
+            type="button"
           >
             <img
               alt=""
@@ -255,12 +255,13 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
             class="relative ml-0 min-[425px]:ml-auto"
           >
             <div
-              class="bg-background border-border flex items-center rounded-md border"
+              class="flex items-center rounded-md border border-border bg-background"
             >
               <button
                 aria-label="Copy page as Markdown"
-                class="flex cursor-pointer items-center gap-2 px-3 py-1.5 text-sm transition-colors border-border border-r hover:bg-background-subtle disabled:bg-background-muted disabled:text-foreground-muted disabled:cursor-not-allowed"
+                class="flex cursor-pointer items-center gap-2 px-3 py-1.5 text-sm transition-colors border-border border-r hover:bg-background-subtle disabled:cursor-not-allowed disabled:bg-background-muted disabled:text-foreground-muted"
                 title="Copy page as Markdown"
+                type="button"
               >
                 <p>
                   Copy Page
@@ -272,6 +273,7 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
                 aria-label="More options"
                 class="flex cursor-pointer items-center px-2 py-2 transition-colors hover:bg-background-subtle"
                 title="More options"
+                type="button"
               >
                 <svg
                   aria-hidden="true"
@@ -293,14 +295,13 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
       </header>
       <nav
         aria-label="Table of contents"
-        class="border-border bg-background-elevated/50 rounded-md border backdrop-blur-sm"
-        role="navigation"
+        class="rounded-md border border-border bg-background-elevated/50 backdrop-blur-sm"
       >
         <button
           aria-controls="toc-content"
           aria-describedby="toc-description"
           aria-expanded="false"
-          class="text-foreground flex w-full cursor-pointer items-center justify-between rounded-md px-4 py-3 text-sm font-medium transition-colors hover:bg-background-muted/50"
+          class="flex w-full cursor-pointer items-center justify-between rounded-md px-4 py-3 font-medium text-foreground text-sm transition-colors hover:bg-background-muted/50"
           type="button"
         >
           <span>
@@ -329,7 +330,8 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
         >
           Toggle to 
           show
-           table of contents with 
+           table of contents with
+           
           15
            sections. Use arrow keys to navigate when expanded.
         </span>
@@ -344,7 +346,7 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
         >
           <img
             alt="Cover image for blog post: Improve Captcha User Experience with Invisible CAPTCHA by Vercel BotID"
-            class="border-border bg-background-muted/30 overflow-hidden rounded-md border"
+            class="overflow-hidden rounded-md border border-border bg-background-muted/30"
             data-nimg="1"
             decoding="async"
             height="630"
@@ -363,7 +365,7 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
       </figure>
       <article
         aria-label="Article content"
-        class="mx-auto max-w-none prose prose-neutral dark:prose-invert prose-headings:mt-8 prose-headings:font-semibold prose-headings:[&>a]:text-foreground prose-headings:[&>a]:no-underline prose-h1:text-3xl prose-h1:font-bold prose-h2:text-2xl prose-h2:mb-6 prose-h2:mt-12 prose-h2:border-t prose-h2:border-border prose-h2:pt-10 prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3 prose-h4:text-lg prose-h4:mt-6 prose-h4:mb-2 prose-h5:text-base prose-h5:mt-4 prose-h5:mb-1 prose-h6:text-sm prose-h6:mt-2 prose-h6:mb-0 prose-p:my-5 prose-strong:text-inherit prose-strong:font-semibold prose-pre:dark:bg-[#0a0a0a] prose-pre:bg-white prose-pre:border-t-border prose-pre:text-[13px]/5 prose-pre:px-0! prose-pre:[&>code:not([data-line-numbers])]:px-4 prose-figure:border prose-figure:border-border prose-figure:rounded-md prose-figure:my-4 prose-figure:relative prose-figure:[figure:has(figcaption)&>pre]:rounded-t-none prose-figure:[figure:has(figcaption)&>pre]:border-t prose-figcaption:dark:bg-black prose-figcaption:bg-[#fafafa] prose-figcaption:mt-0 prose-figcaption:py-2.5 prose-figcaption:rounded-t-md prose-figcaption:px-4 prose-figcaption:text-[13px] prose-figure:[figure:has(figcaption)&>button]:top-1 prose-blockquote:not-italic prose-blockquote:[&>p]:before:content-none prose-blockquote:[&>p]:after:content-none prose-blockquote:border prose-blockquote:!border-l! prose-blockquote:border-border! prose-blockquote:[&>p]:my-0 prose-blockquote:rounded-md prose-blockquote:p-3 prose-blockquote:text-sm prose-blockquote:font-normal prose-code:before:content-none prose-code:after:content-none prose-code:dark:bg-[#0a0a0a] prose-code:bg-white prose-code:[&>span>span]:brightness-90 dark:prose-code:[&>span>span]:brightness-100 prose-code:[&:not([data-theme])]:px-1 prose-code:[&:not([data-theme])]:py-[1.5px] prose-code:[&:not([data-theme])]:bg-background-muted prose-code:[&:not([data-theme])]:rounded-md prose-code:[&:not([data-theme])]:tracking-wide prose-code:[&:not([data-theme])]:border prose-code:[&:not([data-theme])]:border-gray-500 prose-code:[&:not([data-theme])]:font-normal prose-code:[&:not([data-theme])]:text-[13px] prose-code:text-foreground [&>details>summary]:cursor-pointer [&>details>summary]:hover:underline [&>details>ul]:my-0"
+        class="mx-auto max-w-none prose prose-neutral dark:prose-invert prose-headings:mt-8 prose-headings:font-semibold prose-headings:[&>a]:text-foreground prose-headings:[&>a]:no-underline prose-h1:font-bold prose-h1:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:border-border prose-h2:border-t prose-h2:pt-10 prose-h2:text-2xl prose-h3:mt-8 prose-h3:mb-3 prose-h3:text-xl prose-h4:mt-6 prose-h4:mb-2 prose-h4:text-lg prose-h5:mt-4 prose-h5:mb-1 prose-h5:text-base prose-h6:mt-2 prose-h6:mb-0 prose-h6:text-sm prose-p:my-5 prose-strong:font-semibold prose-strong:text-inherit prose-pre:border-t-border prose-pre:bg-white prose-pre:px-0! prose-pre:text-[13px]/5 prose-pre:dark:bg-[#0a0a0a] prose-pre:[&>code:not([data-line-numbers])]:px-4 prose-figure:relative prose-figure:my-4 prose-figure:rounded-md prose-figure:border prose-figure:border-border prose-figure:[figure:has(figcaption)&>pre]:rounded-t-none prose-figure:[figure:has(figcaption)&>pre]:border-t prose-figcaption:mt-0 prose-figcaption:rounded-t-md prose-figcaption:bg-[#fafafa] prose-figcaption:px-4 prose-figcaption:py-2.5 prose-figcaption:text-[13px] prose-figcaption:dark:bg-black prose-figure:[figure:has(figcaption)&>button]:top-1 prose-blockquote:!border-l! prose-blockquote:rounded-md prose-blockquote:border prose-blockquote:border-border! prose-blockquote:p-3 prose-blockquote:font-normal prose-blockquote:text-sm prose-blockquote:not-italic prose-blockquote:[&>p]:my-0 prose-blockquote:[&>p]:before:content-none prose-blockquote:[&>p]:after:content-none prose-code:bg-white prose-code:text-foreground prose-code:before:content-none prose-code:after:content-none prose-code:dark:bg-[#0a0a0a] prose-code:[&:not([data-theme])]:rounded-md prose-code:[&:not([data-theme])]:border prose-code:[&:not([data-theme])]:border-gray-500 prose-code:[&:not([data-theme])]:bg-background-muted prose-code:[&:not([data-theme])]:px-1 prose-code:[&:not([data-theme])]:py-[1.5px] prose-code:[&:not([data-theme])]:font-normal prose-code:[&:not([data-theme])]:text-[13px] prose-code:[&:not([data-theme])]:tracking-wide prose-code:[&>span>span]:brightness-90 dark:prose-code:[&>span>span]:brightness-100 [&>details>summary]:cursor-pointer [&>details>summary]:hover:underline [&>details>ul]:my-0"
       >
         <h2
           class="group relative"
@@ -460,7 +462,7 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
           >
             <img
               alt="reCAPTCHA"
-              class="mb-2 border-border bg-background-muted/30 overflow-hidden rounded-md border"
+              class="mb-2 overflow-hidden rounded-md border border-border bg-background-muted/30"
               data-nimg="1"
               decoding="async"
               height="698"
@@ -471,7 +473,7 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
               width="1240"
             />
             <span
-              class="text-foreground-muted block text-center text-sm"
+              class="block text-center text-foreground-muted text-sm"
             >
               Source: https://developers.nopecha.com/recognition/recaptcha/
             </span>
@@ -495,7 +497,7 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
           >
             <img
               alt="hCaptcha"
-              class="mb-2 border-border bg-background-muted/30 overflow-hidden rounded-md border"
+              class="mb-2 overflow-hidden rounded-md border border-border bg-background-muted/30"
               data-nimg="1"
               decoding="async"
               height="698"
@@ -506,7 +508,7 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
               width="1240"
             />
             <span
-              class="text-foreground-muted block text-center text-sm"
+              class="block text-center text-foreground-muted text-sm"
             >
               Source: https://developers.nopecha.com/token/hcaptcha/
             </span>
@@ -521,7 +523,7 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
           >
             <img
               alt="proprietary CAPTCHA"
-              class="mb-2 border-border bg-background-muted/30 overflow-hidden rounded-md border"
+              class="mb-2 overflow-hidden rounded-md border border-border bg-background-muted/30"
               data-nimg="1"
               decoding="async"
               height="698"
@@ -532,7 +534,7 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
               width="1240"
             />
             <span
-              class="text-foreground-muted block text-center text-sm"
+              class="block text-center text-foreground-muted text-sm"
             >
               Source: Chang et al., Journal of Information Security and Applications, 2024. https://doi.org/10.1016/j.jisa.2024.103711
             </span>
@@ -555,7 +557,7 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
           >
             <img
               alt="Cloudflare Turnstile"
-              class="mb-2 border-border bg-background-muted/30 overflow-hidden rounded-md border"
+              class="mb-2 overflow-hidden rounded-md border border-border bg-background-muted/30"
               data-nimg="1"
               decoding="async"
               height="698"
@@ -565,7 +567,7 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
               width="1240"
             />
             <span
-              class="text-foreground-muted block text-center text-sm"
+              class="block text-center text-foreground-muted text-sm"
             >
               Source: https://blog.cloudflare.com/turnstile-ga/
             </span>
@@ -810,8 +812,9 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
         >
           <button
             aria-label="Copy code"
-            class="text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 transition-all! hover:text-foreground/80 active:scale-90"
+            class="absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 text-foreground-muted transition-all! hover:text-foreground/80 active:scale-90"
             title="Copy code"
+            type="button"
           >
             <svg
               class="size-4.5"
@@ -914,8 +917,9 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
           </figcaption>
           <button
             aria-label="Copy code"
-            class="text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 transition-all! hover:text-foreground/80 active:scale-90"
+            class="absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 text-foreground-muted transition-all! hover:text-foreground/80 active:scale-90"
             title="Copy code"
+            type="button"
           >
             <svg
               class="size-4.5"
@@ -1179,8 +1183,9 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
           </figcaption>
           <button
             aria-label="Copy code"
-            class="text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 transition-all! hover:text-foreground/80 active:scale-90"
+            class="absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 text-foreground-muted transition-all! hover:text-foreground/80 active:scale-90"
             title="Copy code"
+            type="button"
           >
             <svg
               class="size-4.5"
@@ -1708,8 +1713,9 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
           </figcaption>
           <button
             aria-label="Copy code"
-            class="text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 transition-all! hover:text-foreground/80 active:scale-90"
+            class="absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 text-foreground-muted transition-all! hover:text-foreground/80 active:scale-90"
             title="Copy code"
+            type="button"
           >
             <svg
               class="size-4.5"
@@ -2510,8 +2516,9 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
           </figcaption>
           <button
             aria-label="Copy code"
-            class="text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 transition-all! hover:text-foreground/80 active:scale-90"
+            class="absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 text-foreground-muted transition-all! hover:text-foreground/80 active:scale-90"
             title="Copy code"
+            type="button"
           >
             <svg
               class="size-4.5"
@@ -3172,8 +3179,9 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
           </figcaption>
           <button
             aria-label="Copy code"
-            class="text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 transition-all! hover:text-foreground/80 active:scale-90"
+            class="absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 text-foreground-muted transition-all! hover:text-foreground/80 active:scale-90"
             title="Copy code"
+            type="button"
           >
             <svg
               class="size-4.5"
@@ -3788,8 +3796,9 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
         >
           <button
             aria-label="Copy code"
-            class="text-foreground-muted absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 transition-all! hover:text-foreground/80 active:scale-90"
+            class="absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 text-foreground-muted transition-all! hover:text-foreground/80 active:scale-90"
             title="Copy code"
+            type="button"
           >
             <svg
               class="size-4.5"
@@ -4187,7 +4196,7 @@ exports[`Content Detail Page > should render project page and match snapshot 1`]
       aria-label="breadcrumb"
     >
       <ol
-        class="text-foreground-muted flex flex-wrap items-center gap-1.5 text-sm wrap-break-word sm:gap-2.5"
+        class="wrap-break-word flex flex-wrap items-center gap-1.5 text-foreground-muted text-sm sm:gap-2.5"
       >
         <li
           class="inline-flex items-center gap-1.5"
@@ -4249,7 +4258,7 @@ exports[`Content Detail Page > should render project page and match snapshot 1`]
           <span
             aria-current="page"
             aria-disabled="true"
-            class="text-foreground font-normal max-w-48 truncate"
+            class="font-normal text-foreground max-w-48 truncate"
             role="link"
           >
             Issho - Plan with friends, faster
@@ -4267,7 +4276,7 @@ exports[`Content Detail Page > should render project page and match snapshot 1`]
       >
         <div>
           <h1
-            class="text-2xl font-semibold"
+            class="font-semibold text-2xl"
           >
             Issho - Plan with friends, faster
           </h1>
@@ -4279,7 +4288,7 @@ exports[`Content Detail Page > should render project page and match snapshot 1`]
           </p>
         </div>
         <div
-          class="text-foreground-muted space-y-1 text-sm"
+          class="space-y-1 text-foreground-muted text-sm"
         >
           <div
             class="flex flex-wrap items-center gap-2"
@@ -4290,7 +4299,6 @@ exports[`Content Detail Page > should render project page and match snapshot 1`]
               Content type:
             </span>
             <span
-              aria-label="Content type: Project"
               class="inline-block"
             >
               Project
@@ -4315,16 +4323,13 @@ exports[`Content Detail Page > should render project page and match snapshot 1`]
                 Duration:
               </span>
               <time
-                aria-label="Project duration from July 31, 2025 to August 23, 2025"
                 datetime="2025-07-30/2025-08-22"
               >
                 July 31, 2025 - August 23, 2025
               </time>
             </div>
           </div>
-          <p
-            aria-label="Estimated reading time: 3 min read"
-          >
+          <p>
             <span
               class="sr-only"
             >
@@ -4340,11 +4345,12 @@ exports[`Content Detail Page > should render project page and match snapshot 1`]
         >
           <button
             aria-label="Copy link to clipboard"
-            class="bg-background border-border aspect-square cursor-pointer rounded-full border p-1.5 transition-colors hover:bg-background-subtle hover:border-border-strong"
+            class="aspect-square cursor-pointer rounded-full border border-border bg-background p-1.5 transition-colors hover:border-border-strong hover:bg-background-subtle"
             title="Copy link to clipboard"
+            type="button"
           >
             <div
-              class="text-foreground relative"
+              class="relative text-foreground"
             >
               <svg
                 class="size-4.5"
@@ -4362,8 +4368,9 @@ exports[`Content Detail Page > should render project page and match snapshot 1`]
           </button>
           <button
             aria-label="Share on X"
-            class="bg-background border-border aspect-square cursor-pointer rounded-full border p-2 transition-colors hover:bg-background-subtle hover:border-border-strong"
+            class="aspect-square cursor-pointer rounded-full border border-border bg-background p-2 transition-colors hover:border-border-strong hover:bg-background-subtle"
             title="Share on X"
+            type="button"
           >
             <img
               alt=""
@@ -4392,8 +4399,9 @@ exports[`Content Detail Page > should render project page and match snapshot 1`]
           </button>
           <button
             aria-label="Share on Facebook"
-            class="bg-background border-border aspect-square cursor-pointer rounded-full border p-1 transition-colors hover:bg-background-subtle hover:border-border-strong"
+            class="aspect-square cursor-pointer rounded-full border border-border bg-background p-1 transition-colors hover:border-border-strong hover:bg-background-subtle"
             title="Share on Facebook"
+            type="button"
           >
             <img
               alt=""
@@ -4409,8 +4417,9 @@ exports[`Content Detail Page > should render project page and match snapshot 1`]
           </button>
           <button
             aria-label="Share on LinkedIn"
-            class="bg-background border-border aspect-square cursor-pointer rounded-full border p-1.5 transition-colors hover:bg-background-subtle hover:border-border-strong"
+            class="aspect-square cursor-pointer rounded-full border border-border bg-background p-1.5 transition-colors hover:border-border-strong hover:bg-background-subtle"
             title="Share on LinkedIn"
+            type="button"
           >
             <img
               alt=""
@@ -4428,12 +4437,13 @@ exports[`Content Detail Page > should render project page and match snapshot 1`]
             class="relative ml-0 min-[425px]:ml-auto"
           >
             <div
-              class="bg-background border-border flex items-center rounded-md border"
+              class="flex items-center rounded-md border border-border bg-background"
             >
               <button
                 aria-label="Copy page as Markdown"
-                class="flex cursor-pointer items-center gap-2 px-3 py-1.5 text-sm transition-colors border-border border-r hover:bg-background-subtle disabled:bg-background-muted disabled:text-foreground-muted disabled:cursor-not-allowed"
+                class="flex cursor-pointer items-center gap-2 px-3 py-1.5 text-sm transition-colors border-border border-r hover:bg-background-subtle disabled:cursor-not-allowed disabled:bg-background-muted disabled:text-foreground-muted"
                 title="Copy page as Markdown"
+                type="button"
               >
                 <p>
                   Copy Page
@@ -4445,6 +4455,7 @@ exports[`Content Detail Page > should render project page and match snapshot 1`]
                 aria-label="More options"
                 class="flex cursor-pointer items-center px-2 py-2 transition-colors hover:bg-background-subtle"
                 title="More options"
+                type="button"
               >
                 <svg
                   aria-hidden="true"
@@ -4466,14 +4477,13 @@ exports[`Content Detail Page > should render project page and match snapshot 1`]
       </header>
       <nav
         aria-label="Table of contents"
-        class="border-border bg-background-elevated/50 rounded-md border backdrop-blur-sm"
-        role="navigation"
+        class="rounded-md border border-border bg-background-elevated/50 backdrop-blur-sm"
       >
         <button
           aria-controls="toc-content"
           aria-describedby="toc-description"
           aria-expanded="false"
-          class="text-foreground flex w-full cursor-pointer items-center justify-between rounded-md px-4 py-3 text-sm font-medium transition-colors hover:bg-background-muted/50"
+          class="flex w-full cursor-pointer items-center justify-between rounded-md px-4 py-3 font-medium text-foreground text-sm transition-colors hover:bg-background-muted/50"
           type="button"
         >
           <span>
@@ -4502,7 +4512,8 @@ exports[`Content Detail Page > should render project page and match snapshot 1`]
         >
           Toggle to 
           show
-           table of contents with 
+           table of contents with
+           
           6
            sections. Use arrow keys to navigate when expanded.
         </span>
@@ -4517,7 +4528,7 @@ exports[`Content Detail Page > should render project page and match snapshot 1`]
         >
           <img
             alt="Cover image for Issho - Plan with friends, faster project"
-            class="border-border bg-background-muted/30 overflow-hidden rounded-md border"
+            class="overflow-hidden rounded-md border border-border bg-background-muted/30"
             data-nimg="1"
             decoding="async"
             height="630"
@@ -4536,7 +4547,7 @@ exports[`Content Detail Page > should render project page and match snapshot 1`]
       </figure>
       <article
         aria-label="Article content"
-        class="mx-auto max-w-none prose prose-neutral dark:prose-invert prose-headings:mt-8 prose-headings:font-semibold prose-headings:[&>a]:text-foreground prose-headings:[&>a]:no-underline prose-h1:text-3xl prose-h1:font-bold prose-h2:text-2xl prose-h2:mb-6 prose-h2:mt-12 prose-h2:border-t prose-h2:border-border prose-h2:pt-10 prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3 prose-h4:text-lg prose-h4:mt-6 prose-h4:mb-2 prose-h5:text-base prose-h5:mt-4 prose-h5:mb-1 prose-h6:text-sm prose-h6:mt-2 prose-h6:mb-0 prose-p:my-5 prose-strong:text-inherit prose-strong:font-semibold prose-pre:dark:bg-[#0a0a0a] prose-pre:bg-white prose-pre:border-t-border prose-pre:text-[13px]/5 prose-pre:px-0! prose-pre:[&>code:not([data-line-numbers])]:px-4 prose-figure:border prose-figure:border-border prose-figure:rounded-md prose-figure:my-4 prose-figure:relative prose-figure:[figure:has(figcaption)&>pre]:rounded-t-none prose-figure:[figure:has(figcaption)&>pre]:border-t prose-figcaption:dark:bg-black prose-figcaption:bg-[#fafafa] prose-figcaption:mt-0 prose-figcaption:py-2.5 prose-figcaption:rounded-t-md prose-figcaption:px-4 prose-figcaption:text-[13px] prose-figure:[figure:has(figcaption)&>button]:top-1 prose-blockquote:not-italic prose-blockquote:[&>p]:before:content-none prose-blockquote:[&>p]:after:content-none prose-blockquote:border prose-blockquote:!border-l! prose-blockquote:border-border! prose-blockquote:[&>p]:my-0 prose-blockquote:rounded-md prose-blockquote:p-3 prose-blockquote:text-sm prose-blockquote:font-normal prose-code:before:content-none prose-code:after:content-none prose-code:dark:bg-[#0a0a0a] prose-code:bg-white prose-code:[&>span>span]:brightness-90 dark:prose-code:[&>span>span]:brightness-100 prose-code:[&:not([data-theme])]:px-1 prose-code:[&:not([data-theme])]:py-[1.5px] prose-code:[&:not([data-theme])]:bg-background-muted prose-code:[&:not([data-theme])]:rounded-md prose-code:[&:not([data-theme])]:tracking-wide prose-code:[&:not([data-theme])]:border prose-code:[&:not([data-theme])]:border-gray-500 prose-code:[&:not([data-theme])]:font-normal prose-code:[&:not([data-theme])]:text-[13px] prose-code:text-foreground [&>details>summary]:cursor-pointer [&>details>summary]:hover:underline [&>details>ul]:my-0"
+        class="mx-auto max-w-none prose prose-neutral dark:prose-invert prose-headings:mt-8 prose-headings:font-semibold prose-headings:[&>a]:text-foreground prose-headings:[&>a]:no-underline prose-h1:font-bold prose-h1:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:border-border prose-h2:border-t prose-h2:pt-10 prose-h2:text-2xl prose-h3:mt-8 prose-h3:mb-3 prose-h3:text-xl prose-h4:mt-6 prose-h4:mb-2 prose-h4:text-lg prose-h5:mt-4 prose-h5:mb-1 prose-h5:text-base prose-h6:mt-2 prose-h6:mb-0 prose-h6:text-sm prose-p:my-5 prose-strong:font-semibold prose-strong:text-inherit prose-pre:border-t-border prose-pre:bg-white prose-pre:px-0! prose-pre:text-[13px]/5 prose-pre:dark:bg-[#0a0a0a] prose-pre:[&>code:not([data-line-numbers])]:px-4 prose-figure:relative prose-figure:my-4 prose-figure:rounded-md prose-figure:border prose-figure:border-border prose-figure:[figure:has(figcaption)&>pre]:rounded-t-none prose-figure:[figure:has(figcaption)&>pre]:border-t prose-figcaption:mt-0 prose-figcaption:rounded-t-md prose-figcaption:bg-[#fafafa] prose-figcaption:px-4 prose-figcaption:py-2.5 prose-figcaption:text-[13px] prose-figcaption:dark:bg-black prose-figure:[figure:has(figcaption)&>button]:top-1 prose-blockquote:!border-l! prose-blockquote:rounded-md prose-blockquote:border prose-blockquote:border-border! prose-blockquote:p-3 prose-blockquote:font-normal prose-blockquote:text-sm prose-blockquote:not-italic prose-blockquote:[&>p]:my-0 prose-blockquote:[&>p]:before:content-none prose-blockquote:[&>p]:after:content-none prose-code:bg-white prose-code:text-foreground prose-code:before:content-none prose-code:after:content-none prose-code:dark:bg-[#0a0a0a] prose-code:[&:not([data-theme])]:rounded-md prose-code:[&:not([data-theme])]:border prose-code:[&:not([data-theme])]:border-gray-500 prose-code:[&:not([data-theme])]:bg-background-muted prose-code:[&:not([data-theme])]:px-1 prose-code:[&:not([data-theme])]:py-[1.5px] prose-code:[&:not([data-theme])]:font-normal prose-code:[&:not([data-theme])]:text-[13px] prose-code:[&:not([data-theme])]:tracking-wide prose-code:[&>span>span]:brightness-90 dark:prose-code:[&>span>span]:brightness-100 [&>details>summary]:cursor-pointer [&>details>summary]:hover:underline [&>details>ul]:my-0"
       >
         <p>
           ✨ 

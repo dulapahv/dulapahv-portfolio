@@ -14,7 +14,7 @@ exports[`Contact Page > should match snapshot 1`] = `
       aria-label="breadcrumb"
     >
       <ol
-        class="text-foreground-muted flex flex-wrap items-center gap-1.5 text-sm wrap-break-word sm:gap-2.5"
+        class="wrap-break-word flex flex-wrap items-center gap-1.5 text-foreground-muted text-sm sm:gap-2.5"
       >
         <li
           class="inline-flex items-center gap-1.5"
@@ -49,7 +49,7 @@ exports[`Contact Page > should match snapshot 1`] = `
           <span
             aria-current="page"
             aria-disabled="true"
-            class="text-foreground font-normal max-w-48 truncate"
+            class="font-normal text-foreground max-w-48 truncate"
             role="link"
           >
             Contact
@@ -78,7 +78,7 @@ exports[`Contact Page > should match snapshot 1`] = `
           >
             <a
               aria-label="Email address: contact@dulapahv.dev"
-              class="text-foreground text-4xl font-light sm:text-5xl md:text-6xl mocked-archivo"
+              class="font-light text-4xl text-foreground sm:text-5xl md:text-6xl mocked-archivo"
               href="mailto:contact@dulapahv.dev"
             >
               contact@dulapahv.dev
@@ -92,6 +92,7 @@ exports[`Contact Page > should match snapshot 1`] = `
             aria-label="Copy Email"
             class="group relative flex items-center gap-2.5 rounded-xl px-5 py-3 text-sm transition-all duration-200 ring-1 backdrop-blur-sm cursor-pointer bg-background-elevated text-foreground ring-border hover:bg-background-muted hover:ring-border-strong"
             title="Copy Email"
+            type="button"
           >
             <span>
               <svg

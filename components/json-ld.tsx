@@ -1,10 +1,16 @@
-import { WithContext } from 'schema-dts';
+import type {
+  Article,
+  BreadcrumbList,
+  Person,
+  Thing,
+  WebSite,
+  WithContext,
+} from "schema-dts";
 
-import { combineSchemas, personSchema, websiteSchema } from '@/lib/json-ld';
+import { combineSchemas, personSchema, websiteSchema } from "@/lib/json-ld";
 
 interface JsonLdProps {
-  /* eslint-disable  @typescript-eslint/no-explicit-any */
-  schemas?: Array<WithContext<any>>;
+  schemas?: WithContext<Article | BreadcrumbList | Person | WebSite | Thing>[];
 }
 
 export function JsonLd({ schemas = [] }: JsonLdProps) {
@@ -13,10 +19,11 @@ export function JsonLd({ schemas = [] }: JsonLdProps) {
 
   return (
     <script
-      type="application/ld+json"
+      // biome-ignore lint/security/noDangerouslySetInnerHtml: Required for Schema.org structured data
       dangerouslySetInnerHTML={{
-        __html: combineSchemas(allSchemas).replace(/</g, '\\u003c')
+        __html: combineSchemas(allSchemas).replace(/</g, "\\u003c"),
       }}
+      type="application/ld+json"
     />
   );
 }

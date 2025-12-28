@@ -1,6 +1,7 @@
-import Image from 'next/image';
+import Image from "next/image";
 
-interface ThemeAwareImageProps extends Omit<React.ComponentProps<typeof Image>, 'src'> {
+interface ThemeAwareImageProps
+  extends Omit<React.ComponentProps<typeof Image>, "src"> {
   lightSrc: string;
   darkSrc: string;
 }
@@ -8,15 +9,23 @@ interface ThemeAwareImageProps extends Omit<React.ComponentProps<typeof Image>, 
 export function ThemeAwareImage({
   lightSrc,
   darkSrc,
-  className = '',
+  className = "",
   ...props
 }: ThemeAwareImageProps) {
   return (
     <>
       {/* eslint-disable-next-line jsx-a11y/alt-text */}
-      <Image src={darkSrc} className={`hidden dark:block ${className}`} {...props} />
+      <Image
+        className={`hidden dark:block ${className}`}
+        src={darkSrc}
+        {...props}
+      />
       {/* eslint-disable-next-line jsx-a11y/alt-text */}
-      <Image src={lightSrc} className={`block dark:hidden ${className}`} {...props} />
+      <Image
+        className={`block dark:hidden ${className}`}
+        src={lightSrc}
+        {...props}
+      />
     </>
   );
 }

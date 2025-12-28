@@ -1,46 +1,53 @@
-import { defineCollection, defineConfig, type Context, type Meta } from '@content-collections/core';
-import { compileMDX } from '@content-collections/mdx';
-import { transformerColorizedBrackets } from '@shikijs/colorized-brackets';
+import {
+  type Context,
+  defineCollection,
+  defineConfig,
+  type Meta,
+} from "@content-collections/core";
+import { compileMDX } from "@content-collections/mdx";
+import { transformerColorizedBrackets } from "@shikijs/colorized-brackets";
 import {
   transformerNotationDiff,
   transformerNotationErrorLevel,
   transformerNotationWordHighlight,
   transformerRenderIndentGuides,
-  transformerStyleToClass
-} from '@shikijs/transformers';
-import readingTime from 'reading-time';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import { rehypeGithubAlerts } from 'rehype-github-alerts';
-import rehypeKatex from 'rehype-katex';
-import rehypePresetMinify from 'rehype-preset-minify';
-import rehypePrettyCode from 'rehype-pretty-code';
-import rehypeSlug from 'rehype-slug';
-import remarkGfm from 'remark-gfm';
-import remarkMath from 'remark-math';
+  transformerStyleToClass,
+} from "@shikijs/transformers";
+import readingTime from "reading-time";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import { rehypeGithubAlerts } from "rehype-github-alerts";
+import rehypeKatex from "rehype-katex";
+import rehypePresetMinify from "rehype-preset-minify";
+import rehypePrettyCode from "rehype-pretty-code";
+import rehypeSlug from "rehype-slug";
+import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
 
-import { notificationTypes } from '@/lib/admonitions';
+import { notificationTypes } from "@/lib/admonitions";
+
+const DATE_FORMAT_REGEX = /^\d{2}-\d{2}-\d{4}$/;
 
 // Helper function to parse DD-MM-YYYY format
 const parseDate = (dateStr: string): Date => {
-  const [day, month, year] = dateStr.split('-').map(Number);
+  const [day, month, year] = dateStr.split("-").map(Number);
   return new Date(year, month - 1, day);
 };
 
 // Helper function to format date to MMM YYYY (e.g., Feb 2024)
 const formatDate = (date: Date): string => {
   const monthNames = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec'
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
   ];
   const month = monthNames[date.getMonth()];
   const year = date.getFullYear();
@@ -59,39 +66,39 @@ const baseTransform = async (
     remarkPlugins: [remarkGfm, remarkMath],
     rehypePlugins: [
       rehypeSlug,
-      [rehypeAutolinkHeadings, { behavior: 'wrap' }],
+      [rehypeAutolinkHeadings, { behavior: "wrap" }],
       [
         rehypePrettyCode,
         {
           keepBackground: false,
-          theme: 'plastic',
+          theme: "plastic",
           transformers: [
             transformerStyleToClass({
-              classPrefix: 'mirai_'
+              classPrefix: "mirai_",
             }),
             transformerNotationDiff(),
             transformerNotationWordHighlight(),
             transformerNotationErrorLevel(),
             transformerColorizedBrackets(),
-            transformerRenderIndentGuides()
-          ]
-        }
+            transformerRenderIndentGuides(),
+          ],
+        },
       ],
-      [rehypeKatex, { output: 'mathml' }],
+      [rehypeKatex, { output: "mathml" }],
       [
         rehypeGithubAlerts,
         {
-          alerts: notificationTypes
-        }
+          alerts: notificationTypes,
+        },
       ],
-      rehypePresetMinify
-    ]
+      rehypePresetMinify,
+    ],
   });
 
   return {
     body,
     slug: page._meta.path,
-    readingTime: readingTime(page.content).text
+    readingTime: readingTime(page.content).text,
   };
 };
 
@@ -100,20 +107,20 @@ const createProjectCollection = (name: string, directory: string) =>
   defineCollection({
     name,
     directory,
-    include: '*.mdx',
-    schema: z => ({
+    include: "*.mdx",
+    schema: (z) => ({
       title: z.string(),
       description: z.string(),
       startDate: z
         .string()
-        .regex(/^\d{2}-\d{2}-\d{4}$/, 'Start date must be in DD-MM-YYYY format')
+        .regex(DATE_FORMAT_REGEX, "Start date must be in DD-MM-YYYY format")
         .transform(parseDate),
       endDate: z
         .string()
-        .regex(/^\d{2}-\d{2}-\d{4}$/, 'End date must be in DD-MM-YYYY format')
+        .regex(DATE_FORMAT_REGEX, "End date must be in DD-MM-YYYY format")
         .transform(parseDate)
         .optional(),
-      image: z.string().optional()
+      image: z.string().optional(),
     }),
     transform: async (page, context) => {
       const baseResult = await baseTransform(page, context);
@@ -140,17 +147,19 @@ const createProjectCollection = (name: string, directory: string) =>
         sortDate,
         // Add formatted date strings for easy display
         formattedStartDate: formatDate(page.startDate),
-        formattedEndDate: page.endDate ? formatDate(page.endDate) : 'Ongoing',
+        formattedEndDate: page.endDate ? formatDate(page.endDate) : "Ongoing",
         // Add duration calculation
         duration: page.endDate
           ? Math.ceil(
-              (page.endDate.getTime() - page.startDate.getTime()) / (1000 * 60 * 60 * 24 * 30)
+              (page.endDate.getTime() - page.startDate.getTime()) /
+                (1000 * 60 * 60 * 24 * 30)
             ) // months
           : Math.ceil(
-              (new Date().getTime() - page.startDate.getTime()) / (1000 * 60 * 60 * 24 * 30)
-            ) // months to present
+              (Date.now() - page.startDate.getTime()) /
+                (1000 * 60 * 60 * 24 * 30)
+            ), // months to present
       };
-    }
+    },
   });
 
 // Collection for blogs with single date
@@ -158,15 +167,15 @@ const createBlogCollection = (name: string, directory: string) =>
   defineCollection({
     name,
     directory,
-    include: '*.mdx',
-    schema: z => ({
+    include: "*.mdx",
+    schema: (z) => ({
       title: z.string(),
       description: z.string(),
       date: z
         .string()
-        .regex(/^\d{2}-\d{2}-\d{4}$/, 'Date must be in DD-MM-YYYY format')
+        .regex(DATE_FORMAT_REGEX, "Date must be in DD-MM-YYYY format")
         .transform(parseDate),
-      image: z.string().optional()
+      image: z.string().optional(),
     }),
     transform: async (page, context) => {
       const baseResult = await baseTransform(page, context);
@@ -174,15 +183,15 @@ const createBlogCollection = (name: string, directory: string) =>
       return {
         ...page,
         ...baseResult,
-        formattedDate: formatDate(page.date)
+        formattedDate: formatDate(page.date),
       };
-    }
+    },
   });
 
 // Create collections
-const projects = createProjectCollection('projects', 'content/project');
-const blogs = createBlogCollection('blogs', 'content/blog');
+const projects = createProjectCollection("projects", "content/project");
+const blogs = createBlogCollection("blogs", "content/blog");
 
 export default defineConfig({
-  collections: [projects, blogs]
+  collections: [projects, blogs],
 });

@@ -1,1 +1,1 @@
-export * from './admonitions';
+export * from "./admonitions";

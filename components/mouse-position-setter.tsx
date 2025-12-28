@@ -1,38 +1,40 @@
-'use client';
+"use client";
 
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
-export const relativeMouseClassname = 'relative-mouse';
+export const relativeMouseClassname = "relative-mouse";
 
 export default function MousePositionVarsSetter() {
   useEffect(() => {
     const handler = ({ clientX, clientY }: MouseEvent) => {
-      const shinyCards = document.querySelectorAll('.' + relativeMouseClassname);
-      const targetBCRs = Array.from(shinyCards || []).map(el => ({
+      const shinyCards = document.querySelectorAll(
+        `.${relativeMouseClassname}`
+      );
+      const targetBCRs = Array.from(shinyCards || []).map((el) => ({
         el: el as HTMLElement,
-        bcr: el.getBoundingClientRect()
+        bcr: el.getBoundingClientRect(),
       }));
 
       for (const { el, bcr } of targetBCRs) {
         const x = clientX - bcr.left;
         const y = clientY - bcr.top;
 
-        el.style.setProperty(`--mouse-x`, `${x}px`);
-        el.style.setProperty(`--mouse-y`, `${y}px`);
+        el.style.setProperty("--mouse-x", `${x}px`);
+        el.style.setProperty("--mouse-y", `${y}px`);
       }
 
       document.documentElement.style.setProperty(
-        '--global-mouse-x',
+        "--global-mouse-x",
         String(clientX / window.innerWidth)
       );
       document.documentElement.style.setProperty(
-        '--global-mouse-y',
+        "--global-mouse-y",
         String(clientY / window.innerHeight)
       );
     };
-    window.addEventListener('mousemove', handler, { passive: true });
+    window.addEventListener("mousemove", handler, { passive: true });
     return () => {
-      window.removeEventListener('mousemove', handler);
+      window.removeEventListener("mousemove", handler);
     };
   }, []);
 

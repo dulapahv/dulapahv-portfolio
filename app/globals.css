@@ -1,6 +1,6 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+@import "react-medium-image-zoom/dist/styles.css";
 @plugin "@tailwindcss/typography";
-@import 'react-medium-image-zoom/dist/styles.css';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -267,7 +267,9 @@
 
   /* High Contrast Colors - Dark Theme */
   --color-background: var(--x-background-200); /* Pure black #000 */
-  --color-background-elevated: var(--x-gray-100); /* Cards, modals - Subtle elevation */
+  --color-background-elevated: var(
+    --x-gray-100
+  ); /* Cards, modals - Subtle elevation */
   --color-background-subtle: var(--x-gray-200); /* Subtle sections */
   --color-background-muted: var(--x-gray-300); /* Muted backgrounds */
 
@@ -719,13 +721,13 @@
   box-sizing: border-box;
   font-variant-ligatures: none;
   font-feature-settings:
-    'liga' 0,
-    'clig' 0;
+    "liga" 0,
+    "clig" 0;
 }
 
 html {
   text-rendering: optimizelegibility;
-  font-feature-settings: 'kern', 'ss02';
+  font-feature-settings: "kern", "ss02";
   overflow-x: hidden;
 }
 
@@ -851,15 +853,15 @@ code[data-line-numbers] > [data-line]::before {
   @apply mr-4 inline-block w-3 text-right text-gray-600;
 }
 
-code[data-line-numbers-max-digits='2'] > [data-line]::before {
+code[data-line-numbers-max-digits="2"] > [data-line]::before {
   @apply w-5;
 }
 
-code[data-line-numbers-max-digits='3'] > [data-line]::before {
+code[data-line-numbers-max-digits="3"] > [data-line]::before {
   @apply w-7;
 }
 
-code[data-line-numbers-max-digits='4'] > [data-line]::before {
+code[data-line-numbers-max-digits="4"] > [data-line]::before {
   @apply w-9;
 }
 
@@ -969,33 +971,33 @@ code[data-line-numbers] > [data-line].warning::before {
 .home-grid {
   grid-template-columns: minmax(0, 1fr);
   grid-template-areas:
-    '👋'
-    '👔'
-    '📄'
-    '📝'
-    '📊'
-    '🌟'
-    '🎨'
-    '🌏'
-    '📸'
-    '🎵'
-    '🎮'
-    '🗨️'
-    '🎬';
+    "👋"
+    "👔"
+    "📄"
+    "📝"
+    "📊"
+    "🌟"
+    "🎨"
+    "🌏"
+    "📸"
+    "🎵"
+    "🎮"
+    "🗨️"
+    "🎬";
 }
 
 @media (min-width: 768px) {
   .home-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-areas:
-      '👋 👔'
-      '👋 👔'
-      '📊 📄'
-      '🌟 📝'
-      '🎨 🌏'
-      '📸 📸'
-      '🎵 🎮'
-      '🗨️ 🎬';
+      "👋 👔"
+      "👋 👔"
+      "📊 📄"
+      "🌟 📝"
+      "🎨 🌏"
+      "📸 📸"
+      "🎵 🎮"
+      "🗨️ 🎬";
   }
 }
 
@@ -1003,13 +1005,13 @@ code[data-line-numbers] > [data-line].warning::before {
   .home-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     grid-template-areas:
-      '👋 👋 👔'
-      '👋 👋 📄'
-      '📝 📝 🎨'
-      '📊 📊 🌟'
-      '🌏 📸 🌟'
-      '🎵 🎮 🎮'
-      '🎵 🗨️ 🎬';
+      "👋 👋 👔"
+      "👋 👋 📄"
+      "📝 📝 🎨"
+      "📊 📊 🌟"
+      "🌏 📸 🌟"
+      "🎵 🎮 🎮"
+      "🎵 🗨️ 🎬";
   }
 }
 

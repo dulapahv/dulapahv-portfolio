@@ -19,7 +19,7 @@ exports[`NowPlayingCard > should match snapshot 1`] = `
         />
       </div>
       <span
-        class="text-[10px] font-semibold tracking-wider text-green-600 uppercase"
+        class="font-semibold text-[10px] text-green-600 uppercase tracking-wider"
       >
         Now Playing
       </span>
@@ -45,7 +45,7 @@ exports[`NowPlayingCard > should match snapshot 1`] = `
         class="min-w-0 flex-1"
       >
         <a
-          class="text-foreground block truncate text-base font-semibold hover:underline"
+          class="block truncate font-semibold text-base text-foreground hover:underline"
           href="https://open.spotify.com/track/123"
           rel="noopener noreferrer"
           target="_blank"
@@ -53,11 +53,11 @@ exports[`NowPlayingCard > should match snapshot 1`] = `
           Test Song
         </a>
         <p
-          class="text-foreground-muted truncate text-sm"
+          class="truncate text-foreground-muted text-sm"
         >
           <span>
             <a
-              class="hover:text-foreground transition-colors hover:underline"
+              class="transition-colors hover:text-foreground hover:underline"
               href="https://open.spotify.com/artist/1"
               rel="noopener noreferrer"
               target="_blank"
@@ -67,8 +67,7 @@ exports[`NowPlayingCard > should match snapshot 1`] = `
           </span>
         </p>
         <a
-          class="text-foreground-subtle hover:text-foreground-muted block truncate text-xs transition-colors
-              hover:underline"
+          class="block truncate text-foreground-subtle text-xs transition-colors hover:text-foreground-muted hover:underline"
           href="https://open.spotify.com/album/1"
           rel="noopener noreferrer"
           target="_blank"

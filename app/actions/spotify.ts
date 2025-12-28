@@ -1,4 +1,4 @@
-'use server';
+"use server";
 
 export interface SpotifyArtist {
   id: string;
@@ -38,24 +38,24 @@ async function refreshAccessToken(): Promise<string> {
   const clientSecret = process.env.SPOTIFY_CLIENT_SECRET;
   const refreshToken = process.env.SPOTIFY_REFRESH_TOKEN;
 
-  if (!clientId || !clientSecret || !refreshToken) {
-    throw new Error('Missing Spotify credentials');
+  if (!(clientId && clientSecret && refreshToken)) {
+    throw new Error("Missing Spotify credentials");
   }
 
-  const response = await fetch('https://accounts.spotify.com/api/token', {
-    method: 'POST',
+  const response = await fetch("https://accounts.spotify.com/api/token", {
+    method: "POST",
     headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-      Authorization: `Basic ${Buffer.from(`${clientId}:${clientSecret}`).toString('base64')}`
+      "Content-Type": "application/x-www-form-urlencoded",
+      Authorization: `Basic ${Buffer.from(`${clientId}:${clientSecret}`).toString("base64")}`,
     },
     body: new URLSearchParams({
-      grant_type: 'refresh_token',
-      refresh_token: refreshToken
-    })
+      grant_type: "refresh_token",
+      refresh_token: refreshToken,
+    }),
   });
 
   if (!response.ok) {
-    throw new Error('Failed to refresh access token');
+    throw new Error("Failed to refresh access token");
   }
 
   const data: SpotifyTokenResponse = await response.json();
@@ -72,9 +72,9 @@ async function fetchSpotifyData<T>(endpoint: string): Promise<T> {
 
   let response = await fetch(`https://api.spotify.com/v1${endpoint}`, {
     headers: {
-      Authorization: `Bearer ${accessToken}`
+      Authorization: `Bearer ${accessToken}`,
     },
-    next: { revalidate: 3600 } // Cache for 1 hour
+    next: { revalidate: 3600 }, // Cache for 1 hour
   });
 
   // If token expired, refresh and retry
@@ -82,9 +82,9 @@ async function fetchSpotifyData<T>(endpoint: string): Promise<T> {
     accessToken = await refreshAccessToken();
     response = await fetch(`https://api.spotify.com/v1${endpoint}`, {
       headers: {
-        Authorization: `Bearer ${accessToken}`
+        Authorization: `Bearer ${accessToken}`,
       },
-      next: { revalidate: 3600 }
+      next: { revalidate: 3600 },
     });
   }
 
@@ -103,7 +103,7 @@ export async function getTopArtists(limit = 5): Promise<SpotifyArtist[]> {
     );
     return data.items;
   } catch (error) {
-    console.error('Error fetching top artists:', error);
+    console.error("Error fetching top artists:", error);
     return [];
   }
 }
@@ -116,7 +116,7 @@ export async function getTopTracks(limit = 5): Promise<SpotifyTrack[]> {
     );
     return data.items;
   } catch (error) {
-    console.error('Error fetching top tracks:', error);
+    console.error("Error fetching top tracks:", error);
     return [];
   }
 }
@@ -128,30 +128,39 @@ export async function getCurrentlyPlaying(): Promise<CurrentlyPlaying | null> {
     let accessToken = process.env.SPOTIFY_ACCESS_TOKEN;
 
     if (!accessToken) {
-      console.warn('No SPOTIFY_ACCESS_TOKEN found, attempting to refresh...');
+      console.warn("No SPOTIFY_ACCESS_TOKEN found, attempting to refresh...");
       accessToken = await refreshAccessToken();
     }
 
-    let response = await fetch('https://api.spotify.com/v1/me/player/currently-playing', {
-      headers: {
-        Authorization: `Bearer ${accessToken}`
-      },
-      next: { revalidate: 0 }
-    });
+    let response = await fetch(
+      "https://api.spotify.com/v1/me/player/currently-playing",
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+        next: { revalidate: 0 },
+      }
+    );
 
     // If token expired, refresh and retry
     if (response.status === 401) {
       // console.warn('Spotify access token expired, refreshing...');
       try {
         accessToken = await refreshAccessToken();
-        response = await fetch('https://api.spotify.com/v1/me/player/currently-playing', {
-          headers: {
-            Authorization: `Bearer ${accessToken}`
-          },
-          next: { revalidate: 0 }
-        });
+        response = await fetch(
+          "https://api.spotify.com/v1/me/player/currently-playing",
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+            next: { revalidate: 0 },
+          }
+        );
       } catch (refreshError) {
-        console.error('Failed to refresh token for currently playing:', refreshError);
+        console.error(
+          "Failed to refresh token for currently playing:",
+          refreshError
+        );
         return null;
       }
     }
@@ -177,7 +186,7 @@ export async function getCurrentlyPlaying(): Promise<CurrentlyPlaying | null> {
 
     return response.json();
   } catch (error) {
-    console.error('Error fetching currently playing:', error);
+    console.error("Error fetching currently playing:", error);
     return null;
   }
 }

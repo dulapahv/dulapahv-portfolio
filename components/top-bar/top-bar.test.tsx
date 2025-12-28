@@ -1,66 +1,68 @@
-import { fireEvent, render, screen } from '@testing-library/react';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { fireEvent, render, screen } from "@testing-library/react";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import { TopBar } from './top-bar';
+import { TopBar } from "./top-bar";
 
-describe('TopBar', () => {
+const GO_TO_HOME_REGEX = /go to home/i;
+
+describe("TopBar", () => {
   beforeEach(() => {
     vi.clearAllMocks();
-    Object.defineProperty(window, 'scrollY', {
+    Object.defineProperty(window, "scrollY", {
       writable: true,
-      value: 0
+      value: 0,
     });
   });
 
-  it('should render top bar with logo and name', () => {
+  it("should render top bar with logo and name", () => {
     render(<TopBar />);
 
-    const homeLink = screen.getByRole('link', { name: /go to home/i });
+    const homeLink = screen.getByRole("link", { name: GO_TO_HOME_REGEX });
     expect(homeLink).toBeInTheDocument();
-    expect(homeLink).toHaveAttribute('href', '/');
+    expect(homeLink).toHaveAttribute("href", "/");
 
-    const logo = screen.getByAltText('Mirai logo');
+    const logo = screen.getByAltText("Mirai logo");
     expect(logo).toBeInTheDocument();
   });
 
-  it('should render theme switcher', () => {
+  it("should render theme switcher", () => {
     const { container } = render(<TopBar />);
 
-    const themeSwitcher = container.querySelector('.relative');
+    const themeSwitcher = container.querySelector(".relative");
     expect(themeSwitcher).toBeInTheDocument();
   });
 
-  it('should be visible initially', () => {
+  it("should be visible initially", () => {
     const { container } = render(<TopBar />);
 
-    const topBar = container.querySelector('.fixed');
+    const topBar = container.querySelector(".fixed");
     expect(topBar).toBeInTheDocument();
   });
 
-  it('should hide when scrolling down', () => {
+  it("should hide when scrolling down", () => {
     render(<TopBar />);
 
-    Object.defineProperty(window, 'scrollY', { writable: true, value: 100 });
+    Object.defineProperty(window, "scrollY", { writable: true, value: 100 });
     fireEvent.scroll(window);
 
-    Object.defineProperty(window, 'scrollY', { writable: true, value: 200 });
+    Object.defineProperty(window, "scrollY", { writable: true, value: 200 });
     fireEvent.scroll(window);
   });
 
-  it('should show when scrolling up', () => {
+  it("should show when scrolling up", () => {
     render(<TopBar />);
 
-    Object.defineProperty(window, 'scrollY', { writable: true, value: 200 });
+    Object.defineProperty(window, "scrollY", { writable: true, value: 200 });
     fireEvent.scroll(window);
 
-    Object.defineProperty(window, 'scrollY', { writable: true, value: 100 });
+    Object.defineProperty(window, "scrollY", { writable: true, value: 100 });
     fireEvent.scroll(window);
   });
 
-  it('should always show when near top', () => {
+  it("should always show when near top", () => {
     render(<TopBar />);
 
-    Object.defineProperty(window, 'scrollY', { writable: true, value: 5 });
+    Object.defineProperty(window, "scrollY", { writable: true, value: 5 });
     fireEvent.scroll(window);
   });
 });

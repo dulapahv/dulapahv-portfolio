@@ -1,10 +1,9 @@
-import type { Metadata } from 'next';
+import merge from "deepmerge";
+import type { Metadata } from "next";
 
-import merge from 'deepmerge';
+import { BASE_URL } from "@/lib/constants";
 
-import { BASE_URL } from '@/lib/constants';
-
-type MetadataGenerator = Omit<Metadata, 'description' | 'title'> & {
+type MetadataGenerator = Omit<Metadata, "description" | "title"> & {
   title: string;
   description: string;
   ogText?: string;
@@ -12,13 +11,13 @@ type MetadataGenerator = Omit<Metadata, 'description' | 'title'> & {
   image?: string;
 };
 
-const applicationName = 'DulapahV Portfolio';
-const author: Metadata['authors'] = {
-  name: 'Dulapah Vibulsanti',
-  url: BASE_URL
+const applicationName = "DulapahV Portfolio";
+const author: Metadata["authors"] = {
+  name: "Dulapah Vibulsanti",
+  url: BASE_URL,
 };
-const publisher = 'Dulapah Vibulsanti';
-const twitterHandle = '@dulapahv';
+const publisher = "Dulapah Vibulsanti";
+const twitterHandle = "@dulapahv";
 
 export const createMetadata = ({
   title,
@@ -40,43 +39,43 @@ export const createMetadata = ({
     authors: [author],
     creator: author.name,
     formatDetection: {
-      telephone: false
+      telephone: false,
     },
     appleWebApp: {
       capable: true,
-      statusBarStyle: 'default',
-      title: parsedTitle
+      statusBarStyle: "default",
+      title: parsedTitle,
     },
     openGraph: {
       title: parsedTitle,
       description,
-      type: 'website',
+      type: "website",
       siteName: applicationName,
-      locale: 'en_US',
+      locale: "en_US",
       url: imageUrl,
       images: [
         {
           url: imageUrl,
           width: 1200,
-          height: 630
-        }
-      ]
+          height: 630,
+        },
+      ],
     },
     publisher,
     twitter: {
       title: parsedTitle,
       description,
       creatorId: twitterHandle,
-      card: 'summary_large_image',
+      card: "summary_large_image",
       creator: twitterHandle,
       images: [
         {
           url: imageUrl,
           width: 1200,
-          height: 630
-        }
-      ]
-    }
+          height: 630,
+        },
+      ],
+    },
   };
 
   const metadata: Metadata = merge(defaultMetadata, properties);

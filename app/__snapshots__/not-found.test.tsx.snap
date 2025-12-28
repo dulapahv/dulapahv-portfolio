@@ -7,7 +7,7 @@ exports[`Not Found Page > should match snapshot 1`] = `
   >
     <header>
       <h1
-        class="text-3xl font-semibold"
+        class="font-semibold text-3xl"
       >
         Page Not Found
       </h1>
@@ -16,7 +16,7 @@ exports[`Not Found Page > should match snapshot 1`] = `
       Sorry, the page you are looking for does not exist. Please check the URL and try again.
     </p>
     <a
-      class="bg-mirai-red flex w-fit cursor-pointer items-center justify-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-white select-none hover:bg-mirai-red/90 hover:!transition-colors! hover:shadow-md active:scale-[0.98] active:transition-transform! disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:shadow-none"
+      class="flex w-fit cursor-pointer select-none items-center justify-center gap-2 rounded-md bg-mirai-red px-3 py-2 font-medium text-sm text-white hover:!transition-colors! hover:bg-mirai-red/90 hover:shadow-md active:scale-[0.98] active:transition-transform! disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:shadow-none"
       href="/"
     >
       <svg
@@ -35,7 +35,7 @@ exports[`Not Found Page > should match snapshot 1`] = `
     </a>
   </main>
   <footer
-    class="text-foreground-muted mt-8 border-t border-gray-200 pt-6 dark:border-gray-800"
+    class="mt-8 border-gray-200 border-t pt-6 text-foreground-muted dark:border-gray-800"
   >
     <p
       class="mb-2 font-semibold"
@@ -43,7 +43,7 @@ exports[`Not Found Page > should match snapshot 1`] = `
       Details:
     </p>
     <code
-      class="block text-sm break-all whitespace-pre-wrap sm:text-base"
+      class="block whitespace-pre-wrap break-all text-sm sm:text-base"
     >
       Status: 404
     </code>
@@ -52,7 +52,7 @@ exports[`Not Found Page > should match snapshot 1`] = `
     class="mt-16 mocked-archivo"
   >
     <div
-      class="text-foreground-muted flex flex-col gap-y-1 text-sm"
+      class="flex flex-col gap-y-1 text-foreground-muted text-sm"
     >
       <p>
         ©

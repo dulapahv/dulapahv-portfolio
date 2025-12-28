@@ -1,44 +1,50 @@
-import { Suspense } from 'react';
-import { Archivo } from 'next/font/google';
-import Link from 'next/link';
+import { Archivo } from "next/font/google";
+import Link from "next/link";
+import { Suspense } from "react";
 
-import { GITHUB_URL } from '@/lib/constants';
-import { cn } from '@/lib/utils';
+import { GITHUB_URL } from "@/lib/constants";
+import { cn } from "@/lib/utils";
 
-import { CurrentYear } from './current-year';
+import { CurrentYear } from "./current-year";
 
-const archivo = Archivo({ subsets: ['latin'], weight: 'variable' });
+const archivo = Archivo({ subsets: ["latin"], weight: "variable" });
 
 export function Footer() {
   return (
-    <footer className={cn('mt-16', archivo.className)}>
-      <div className="text-foreground-muted flex flex-col gap-y-1 text-sm">
+    <footer className={cn("mt-16", archivo.className)}>
+      <div className="flex flex-col gap-y-1 text-foreground-muted text-sm">
         <p>
-          ©{' '}
+          ©{" "}
           <Suspense fallback="2024">
             <CurrentYear />
-          </Suspense>{' '}
+          </Suspense>{" "}
           Dulapah Vibulsanti. All rights reserved.
         </p>
         <p>
-          View the{' '}
+          View the{" "}
           <Link
+            className={cn(
+              "text-mirai-red underline underline-offset-2",
+              "hover:decoration-2"
+            )}
             href={`${GITHUB_URL}/dulapahv-portfolio`}
-            target="_blank"
             rel="noopener noreferrer"
-            className={cn('text-mirai-red underline underline-offset-2', 'hover:decoration-2')}
+            target="_blank"
           >
             source code
           </Link>
           .
         </p>
         <p>
-          NLWeb Chat:{' '}
+          NLWeb Chat:{" "}
           <Link
+            className={cn(
+              "text-mirai-red underline underline-offset-2",
+              "hover:decoration-2"
+            )}
             href="https://chat.dulapahv.dev"
-            target="_blank"
             rel="noopener noreferrer"
-            className={cn('text-mirai-red underline underline-offset-2', 'hover:decoration-2')}
+            target="_blank"
           >
             chat.dulapahv.dev
           </Link>

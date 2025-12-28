@@ -5,26 +5,28 @@ exports[`Global Error Page > should match snapshot 1`] = `
   <div>
     <div
       aria-hidden="true"
-      class="pointer-events-none fixed -top-[70%] -right-[60%] -z-50 size-[180%] overflow-clip opacity-50
-              mix-blend-darken hue-rotate-45 select-none sm:-top-[45%] sm:size-[150%] dark:mix-blend-lighten"
+      class="pointer-events-none fixed -top-[70%] -right-[60%] -z-50 size-[180%] select-none overflow-clip opacity-50 mix-blend-darken hue-rotate-45 sm:-top-[45%] sm:size-[150%] dark:mix-blend-lighten"
       role="presentation"
     >
       <img
         alt=""
         class="object-contain"
+        height="100"
         src="/pinku.png"
+        width="100"
       />
     </div>
     <div
       aria-hidden="true"
-      class="pointer-events-none fixed -bottom-[50%] -left-[40%] -z-50 size-[140%] overflow-clip opacity-90
-              mix-blend-darken select-none sm:-bottom-[30%] sm:size-[110%] dark:opacity-60 dark:mix-blend-lighten"
+      class="pointer-events-none fixed -bottom-[50%] -left-[40%] -z-50 size-[140%] select-none overflow-clip opacity-90 mix-blend-darken sm:-bottom-[30%] sm:size-[110%] dark:opacity-60 dark:mix-blend-lighten"
       role="presentation"
     >
       <img
         alt=""
         class="object-contain"
+        height="100"
         src="/ao.png"
+        width="100"
       />
     </div>
     <div
@@ -50,7 +52,7 @@ exports[`Global Error Page > should match snapshot 1`] = `
               width="32"
             />
             <span
-              class="text-foreground font-medium"
+              class="font-medium text-foreground"
             >
               Dulapah Vibulsanti
             </span>
@@ -60,8 +62,7 @@ exports[`Global Error Page > should match snapshot 1`] = `
           >
             <div
               aria-label="Theme selection"
-              class="bg-background-elevated/90 ring-border relative inline-flex h-8 items-center rounded-full ring-1
-        backdrop-blur-xl"
+              class="relative inline-flex h-8 items-center rounded-full bg-background-elevated/90 ring-1 ring-border backdrop-blur-xl"
               role="group"
             >
               <button
@@ -72,11 +73,11 @@ exports[`Global Error Page > should match snapshot 1`] = `
                 type="button"
               >
                 <div
-                  class="border-border-subtle bg-background-muted absolute inset-0 rounded-full border shadow-sm"
+                  class="absolute inset-0 rounded-full border border-border-subtle bg-background-muted shadow-sm"
                 />
                 <svg
                   aria-hidden="true"
-                  class="text-foreground-subtle relative m-auto size-4"
+                  class="relative m-auto size-4 text-foreground-subtle"
                   fill="currentColor"
                   height="1em"
                   viewBox="0 0 256 256"
@@ -97,7 +98,7 @@ exports[`Global Error Page > should match snapshot 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="text-foreground-subtle relative m-auto size-4"
+                  class="relative m-auto size-4 text-foreground-subtle"
                   fill="currentColor"
                   height="1em"
                   viewBox="0 0 256 256"
@@ -118,7 +119,7 @@ exports[`Global Error Page > should match snapshot 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="text-foreground-subtle relative m-auto size-4"
+                  class="relative m-auto size-4 text-foreground-subtle"
                   fill="currentColor"
                   height="1em"
                   viewBox="0 0 256 256"
@@ -147,7 +148,7 @@ exports[`Global Error Page > should match snapshot 1`] = `
       >
         <header>
           <h1
-            class="text-3xl font-semibold"
+            class="font-semibold text-3xl"
           >
             Critical Error
           </h1>
@@ -167,7 +168,8 @@ exports[`Global Error Page > should match snapshot 1`] = `
           if the issue persists.
         </p>
         <button
-          class="bg-mirai-red flex w-fit cursor-pointer items-center justify-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-white select-none hover:bg-mirai-red/90 transition-colors hover:shadow-md active:scale-[0.98] active:transition-transform! disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:shadow-none"
+          class="flex w-fit cursor-pointer select-none items-center justify-center gap-2 rounded-md bg-mirai-red px-3 py-2 font-medium text-sm text-white transition-colors hover:bg-mirai-red/90 hover:shadow-md active:scale-[0.98] active:transition-transform! disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:shadow-none"
+          type="button"
         >
           <svg
             aria-hidden="true"
@@ -188,7 +190,7 @@ exports[`Global Error Page > should match snapshot 1`] = `
         </button>
       </main>
       <div
-        class="text-foreground-muted mt-8 border-t border-gray-200 pt-6 dark:border-gray-800"
+        class="mt-8 border-gray-200 border-t pt-6 text-foreground-muted dark:border-gray-800"
       >
         <p
           class="mb-2 font-semibold"
@@ -196,7 +198,7 @@ exports[`Global Error Page > should match snapshot 1`] = `
           Details:
         </p>
         <code
-          class="block text-sm break-all whitespace-pre-wrap sm:text-base"
+          class="block whitespace-pre-wrap break-all text-sm sm:text-base"
         >
           Timestamp: 09/01/2007, 09:41:00 (2007-01-09T09:41:00.000Z)
           <br />
@@ -215,7 +217,7 @@ exports[`Global Error Page > should match snapshot 1`] = `
         class="mt-16 mocked-archivo"
       >
         <div
-          class="text-foreground-muted flex flex-col gap-y-1 text-sm"
+          class="flex flex-col gap-y-1 text-foreground-muted text-sm"
         >
           <p>
             ©

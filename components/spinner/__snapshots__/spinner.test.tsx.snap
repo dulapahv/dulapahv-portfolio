@@ -4,79 +4,67 @@ exports[`Spinner > should match snapshot 1`] = `
 <div>
   <div
     aria-label="Loading"
-    class="[&>div]:bg-foreground size-5"
+    class="size-5 [&>div]:bg-foreground"
     role="status"
   >
     <div
       aria-hidden="true"
-      class="animate-spinner absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] rounded-full
-            opacity-[0.1] will-change-transform"
+      class="absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] animate-spinner rounded-full opacity-[0.1] will-change-transform"
       style="transform: rotate(0deg); animation-delay: 0.000s;"
     />
     <div
       aria-hidden="true"
-      class="animate-spinner absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] rounded-full
-            opacity-[0.1] will-change-transform"
+      class="absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] animate-spinner rounded-full opacity-[0.1] will-change-transform"
       style="transform: rotate(30deg); animation-delay: 0.083s;"
     />
     <div
       aria-hidden="true"
-      class="animate-spinner absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] rounded-full
-            opacity-[0.1] will-change-transform"
+      class="absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] animate-spinner rounded-full opacity-[0.1] will-change-transform"
       style="transform: rotate(60deg); animation-delay: 0.166s;"
     />
     <div
       aria-hidden="true"
-      class="animate-spinner absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] rounded-full
-            opacity-[0.1] will-change-transform"
+      class="absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] animate-spinner rounded-full opacity-[0.1] will-change-transform"
       style="transform: rotate(90deg); animation-delay: 0.249s;"
     />
     <div
       aria-hidden="true"
-      class="animate-spinner absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] rounded-full
-            opacity-[0.1] will-change-transform"
+      class="absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] animate-spinner rounded-full opacity-[0.1] will-change-transform"
       style="transform: rotate(120deg); animation-delay: 0.332s;"
     />
     <div
       aria-hidden="true"
-      class="animate-spinner absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] rounded-full
-            opacity-[0.1] will-change-transform"
+      class="absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] animate-spinner rounded-full opacity-[0.1] will-change-transform"
       style="transform: rotate(150deg); animation-delay: 0.415s;"
     />
     <div
       aria-hidden="true"
-      class="animate-spinner absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] rounded-full
-            opacity-[0.1] will-change-transform"
+      class="absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] animate-spinner rounded-full opacity-[0.1] will-change-transform"
       style="transform: rotate(180deg); animation-delay: 0.498s;"
     />
     <div
       aria-hidden="true"
-      class="animate-spinner absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] rounded-full
-            opacity-[0.1] will-change-transform"
+      class="absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] animate-spinner rounded-full opacity-[0.1] will-change-transform"
       style="transform: rotate(210deg); animation-delay: 0.581s;"
     />
     <div
       aria-hidden="true"
-      class="animate-spinner absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] rounded-full
-            opacity-[0.1] will-change-transform"
+      class="absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] animate-spinner rounded-full opacity-[0.1] will-change-transform"
       style="transform: rotate(240deg); animation-delay: 0.664s;"
     />
     <div
       aria-hidden="true"
-      class="animate-spinner absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] rounded-full
-            opacity-[0.1] will-change-transform"
+      class="absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] animate-spinner rounded-full opacity-[0.1] will-change-transform"
       style="transform: rotate(270deg); animation-delay: 0.747s;"
     />
     <div
       aria-hidden="true"
-      class="animate-spinner absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] rounded-full
-            opacity-[0.1] will-change-transform"
+      class="absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] animate-spinner rounded-full opacity-[0.1] will-change-transform"
       style="transform: rotate(300deg); animation-delay: 0.830s;"
     />
     <div
       aria-hidden="true"
-      class="animate-spinner absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] rounded-full
-            opacity-[0.1] will-change-transform"
+      class="absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] animate-spinner rounded-full opacity-[0.1] will-change-transform"
       style="transform: rotate(330deg); animation-delay: 0.913s;"
     />
     <span
@@ -92,80 +80,68 @@ exports[`Spinner > should match snapshot with custom size 1`] = `
 <div>
   <div
     aria-label="Loading"
-    class="[&>div]:bg-foreground size-5"
+    class="size-5 [&>div]:bg-foreground"
     role="status"
     style="width: 50px; height: 50px;"
   >
     <div
       aria-hidden="true"
-      class="animate-spinner absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] rounded-full
-            opacity-[0.1] will-change-transform"
+      class="absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] animate-spinner rounded-full opacity-[0.1] will-change-transform"
       style="transform: rotate(0deg); animation-delay: 0.000s;"
     />
     <div
       aria-hidden="true"
-      class="animate-spinner absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] rounded-full
-            opacity-[0.1] will-change-transform"
+      class="absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] animate-spinner rounded-full opacity-[0.1] will-change-transform"
       style="transform: rotate(30deg); animation-delay: 0.083s;"
     />
     <div
       aria-hidden="true"
-      class="animate-spinner absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] rounded-full
-            opacity-[0.1] will-change-transform"
+      class="absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] animate-spinner rounded-full opacity-[0.1] will-change-transform"
       style="transform: rotate(60deg); animation-delay: 0.166s;"
     />
     <div
       aria-hidden="true"
-      class="animate-spinner absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] rounded-full
-            opacity-[0.1] will-change-transform"
+      class="absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] animate-spinner rounded-full opacity-[0.1] will-change-transform"
       style="transform: rotate(90deg); animation-delay: 0.249s;"
     />
     <div
       aria-hidden="true"
-      class="animate-spinner absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] rounded-full
-            opacity-[0.1] will-change-transform"
+      class="absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] animate-spinner rounded-full opacity-[0.1] will-change-transform"
       style="transform: rotate(120deg); animation-delay: 0.332s;"
     />
     <div
       aria-hidden="true"
-      class="animate-spinner absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] rounded-full
-            opacity-[0.1] will-change-transform"
+      class="absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] animate-spinner rounded-full opacity-[0.1] will-change-transform"
       style="transform: rotate(150deg); animation-delay: 0.415s;"
     />
     <div
       aria-hidden="true"
-      class="animate-spinner absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] rounded-full
-            opacity-[0.1] will-change-transform"
+      class="absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] animate-spinner rounded-full opacity-[0.1] will-change-transform"
       style="transform: rotate(180deg); animation-delay: 0.498s;"
     />
     <div
       aria-hidden="true"
-      class="animate-spinner absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] rounded-full
-            opacity-[0.1] will-change-transform"
+      class="absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] animate-spinner rounded-full opacity-[0.1] will-change-transform"
       style="transform: rotate(210deg); animation-delay: 0.581s;"
     />
     <div
       aria-hidden="true"
-      class="animate-spinner absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] rounded-full
-            opacity-[0.1] will-change-transform"
+      class="absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] animate-spinner rounded-full opacity-[0.1] will-change-transform"
       style="transform: rotate(240deg); animation-delay: 0.664s;"
     />
     <div
       aria-hidden="true"
-      class="animate-spinner absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] rounded-full
-            opacity-[0.1] will-change-transform"
+      class="absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] animate-spinner rounded-full opacity-[0.1] will-change-transform"
       style="transform: rotate(270deg); animation-delay: 0.747s;"
     />
     <div
       aria-hidden="true"
-      class="animate-spinner absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] rounded-full
-            opacity-[0.1] will-change-transform"
+      class="absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] animate-spinner rounded-full opacity-[0.1] will-change-transform"
       style="transform: rotate(300deg); animation-delay: 0.830s;"
     />
     <div
       aria-hidden="true"
-      class="animate-spinner absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] rounded-full
-            opacity-[0.1] will-change-transform"
+      class="absolute top-[4.4%] left-[46.5%] h-[24%] w-[7%] origin-[center_190%] animate-spinner rounded-full opacity-[0.1] will-change-transform"
       style="transform: rotate(330deg); animation-delay: 0.913s;"
     />
     <span
