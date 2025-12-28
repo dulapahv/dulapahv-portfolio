@@ -1,8 +1,11 @@
 import type {
-  Article,
-  BreadcrumbList,
+  BlogPosting,
+  CollectionPage,
+  ContactPage,
+  CreativeWork,
+  FAQPage,
   Person,
-  Thing,
+  ProfilePage,
   WebSite,
   WithContext,
 } from "schema-dts";
@@ -10,7 +13,16 @@ import type {
 import { combineSchemas, personSchema, websiteSchema } from "@/lib/json-ld";
 
 interface JsonLdProps {
-  schemas?: WithContext<Article | BreadcrumbList | Person | WebSite | Thing>[];
+  schemas?: WithContext<
+    | Person
+    | WebSite
+    | ProfilePage
+    | ContactPage
+    | CollectionPage
+    | BlogPosting
+    | CreativeWork
+    | FAQPage
+  >[];
 }
 
 export function JsonLd({ schemas = [] }: JsonLdProps) {

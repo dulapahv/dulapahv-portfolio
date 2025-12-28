@@ -13,8 +13,8 @@ export function Link(props: LinkProps) {
   }
 
   // Internal route: use Next.js client routing
-  // @ts-expect-error href is a string
   if (href.startsWith("/")) {
+    // @ts-expect-error - Next.js Link requires typed Route, but we accept any string href
     return <NextLink href={href as Route} {...props} />;
   }
 

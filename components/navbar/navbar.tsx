@@ -58,7 +58,9 @@ export function Navbar() {
     }
 
     const links = navRef.current.querySelectorAll("a");
-    const currentIndex = Array.from(links).indexOf(document.activeElement);
+    const currentIndex = Array.from(links).indexOf(
+      document.activeElement as HTMLAnchorElement
+    );
 
     let newIndex = currentIndex;
 
