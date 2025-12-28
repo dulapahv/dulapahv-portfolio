@@ -10,12 +10,26 @@ export interface ContributionWeek {
   days: (ContributionDay | null)[];
 }
 
+function isValidGitHubUsername(username: string): boolean {
+  if (typeof username !== 'string') return false;
+  const trimmed = username.trim();
+  if (trimmed.length === 0 || trimmed.length > 39) return false;
+  if (!/^[a-zA-Z0-9-]+$/.test(trimmed)) return false;
+  if (trimmed.startsWith('-') || trimmed.endsWith('-')) return false;
+  if (trimmed.includes('--')) return false;
+  return true;
+}
+
 export async function getGitHubContributions(username: string): Promise<ContributionWeek[]> {
   try {
+    if (!isValidGitHubUsername(username)) {
+      throw new Error('Invalid GitHub username');
+    }
+
     const response = await fetch(
       `https://github-contributions-api.jogruber.de/v4/${username}?y=last`,
       {
-        next: { revalidate: 3600 } // Cache for 1 hour
+        next: { revalidate: 0 }
       }
     );
 
@@ -71,6 +85,10 @@ export async function getGitHubContributions(username: string): Promise<Contribu
 
 export async function getContributionStats(username: string) {
   try {
+    if (!isValidGitHubUsername(username)) {
+      throw new Error('Invalid GitHub username');
+    }
+
     const response = await fetch(
       `https://github-contributions-api.jogruber.de/v4/${username}?y=last`,
       {
