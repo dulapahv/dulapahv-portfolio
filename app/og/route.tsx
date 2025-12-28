@@ -51,11 +51,11 @@ export const GET = async (request: NextRequest) => {
         width={72}
       />
       <div tw="flex flex-col">
-        <h1 tw="max-w-[50rem] text-[64px] font-bold leading-[69px] tracking-tighter m-0 text-[#F1F1F1]">
+        <h1 tw="max-w-[50rem] text-[64px] font-bold leading-[69px] tracking-tight m-0 text-[#F1F1F1]">
           {title}
         </h1>
         {description && (
-          <p tw="max-w-[64rem] text-[24px] font-normal leading-[32px] tracking-tight text-[#A5A5A5] mt-4 mb-0">
+          <p tw="max-w-[64rem] text-[32px] font-normal leading-[36px] tracking-tight text-[#A5A5A5] mt-4 mb-0">
             {description}
           </p>
         )}
