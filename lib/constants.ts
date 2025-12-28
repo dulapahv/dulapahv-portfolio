@@ -16,7 +16,7 @@ export const CONTACT_EMAIL = "contact@dulapahv.dev";
 
 export const NAME = "Dulapah Vibulsanti";
 export const DESCRIPTION =
-  "Thai software engineer in Edinburgh, creating accessible, delightful digital experiences that improve lives.";
+  "Thai software engineer in Edinburgh, creating accessible, and delightful digital experiences that improve lives.";
 
 export const NAME_MAX_LENGTH = 256;
 export const EMAIL_MAX_LENGTH = 256;
