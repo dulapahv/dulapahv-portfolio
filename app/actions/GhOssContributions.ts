@@ -108,7 +108,7 @@ async function fetchGitHubContributions(type: 'pr' | 'issue'): Promise<Contribut
 
   const response = await fetch(url, {
     headers,
-    next: { revalidate: 3600 } // Revalidate every hour
+    next: { revalidate: 0 }
   });
 
   if (!response.ok) {

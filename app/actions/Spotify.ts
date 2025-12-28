@@ -136,7 +136,7 @@ export async function getCurrentlyPlaying(): Promise<CurrentlyPlaying | null> {
       headers: {
         Authorization: `Bearer ${accessToken}`
       },
-      next: { revalidate: 0 } // Don't cache, we want real-time data
+      next: { revalidate: 0 }
     });
 
     // If token expired, refresh and retry
