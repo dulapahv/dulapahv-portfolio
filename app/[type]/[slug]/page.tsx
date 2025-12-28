@@ -3,6 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ViewTransition } from "react";
 import Zoom from "react-medium-image-zoom";
+import type { BlogPosting, CreativeWork, WithContext } from "schema-dts";
 import Breadcrumb from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
 import { Mdx } from "@/components/mdx";

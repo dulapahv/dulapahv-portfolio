@@ -11,7 +11,7 @@ import type {
 } from "schema-dts";
 
 import { BASE_URL, DESCRIPTION, IS_DEV_ENV, NAME } from "@/lib/constants";
-import { getCollection } from "@/lib/content-utils";
+import { type ContentType, getCollection } from "@/lib/content-utils";
 import { social } from "@/lib/social";
 
 import { getAllSkillsForSchema } from "./skills-data";
