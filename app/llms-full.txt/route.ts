@@ -1,6 +1,6 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
-
+import type { allBlogs, allProjects } from "@/.content-collections/generated";
 import {
   BASE_URL,
   DESCRIPTION,
@@ -146,23 +146,25 @@ export async function GET() {
         // Add citation format
         if (type === "blog") {
           const blogItem = item as (typeof allBlogs)[0];
-          const year = blogItem.date
-            ? new Date(blogItem.date).getFullYear()
-            : new Date().getFullYear();
+          const year =
+            "date" in blogItem && blogItem.date
+              ? new Date(blogItem.date).getFullYear()
+              : new Date().getFullYear();
           content += `citation: "${NAME} (${year}). ${title}. DulapahV Portfolio. ${url}"\n`;
-          if (blogItem.date) {
+          if ("date" in blogItem && blogItem.date) {
             content += `published: "${new Date(blogItem.date).toISOString().split("T")[0]}"\n`;
           }
         } else if (type === "project") {
           const projectItem = item as (typeof allProjects)[0];
-          const year = projectItem.startDate
-            ? new Date(projectItem.startDate).getFullYear()
-            : new Date().getFullYear();
+          const year =
+            "startDate" in projectItem && projectItem.startDate
+              ? new Date(projectItem.startDate).getFullYear()
+              : new Date().getFullYear();
           content += `citation: "${NAME} (${year}). ${title} [Software]. ${url}"\n`;
-          if (projectItem.startDate) {
+          if ("startDate" in projectItem && projectItem.startDate) {
             content += `started: "${new Date(projectItem.startDate).toISOString().split("T")[0]}"\n`;
           }
-          if (projectItem.endDate) {
+          if ("endDate" in projectItem && projectItem.endDate) {
             content += `ended: "${new Date(projectItem.endDate).toISOString().split("T")[0]}"\n`;
           }
         }
