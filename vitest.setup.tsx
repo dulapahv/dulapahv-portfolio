@@ -21,6 +21,9 @@ vi.mock('react', async () => {
 vi.mock('next/font/google', () => ({
   Merriweather: () => ({
     className: 'mocked-merriweather'
+  }),
+  Archivo: () => ({
+    className: 'mocked-archivo'
   })
 }));
 

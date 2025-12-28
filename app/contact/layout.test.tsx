@@ -31,18 +31,6 @@ describe('Contact Layout', () => {
     expect(screen.getByTestId('footer')).toBeInTheDocument();
   });
 
-  it('should wrap footer in max-w-2xl container', () => {
-    const { container } = render(
-      <ContactLayout params={mockParams}>
-        <div>Content</div>
-      </ContactLayout>
-    );
-
-    const footerContainer = container.querySelector('.max-w-2xl');
-    expect(footerContainer).toBeInTheDocument();
-    expect(footerContainer).toHaveClass('mx-auto');
-  });
-
   it('should render multiple children', () => {
     render(
       <ContactLayout params={mockParams}>

@@ -26,8 +26,10 @@ export async function getGitHubContributions(username: string): Promise<Contribu
       throw new Error('Invalid GitHub username');
     }
 
+    const safeUsername = encodeURIComponent(username);
+
     const response = await fetch(
-      `https://github-contributions-api.jogruber.de/v4/${username}?y=last`,
+      `https://github-contributions-api.jogruber.de/v4/${safeUsername}?y=last`,
       {
         next: { revalidate: 0 }
       }
@@ -89,8 +91,10 @@ export async function getContributionStats(username: string) {
       throw new Error('Invalid GitHub username');
     }
 
+    const safeUsername = encodeURIComponent(username);
+
     const response = await fetch(
-      `https://github-contributions-api.jogruber.de/v4/${username}?y=last`,
+      `https://github-contributions-api.jogruber.de/v4/${safeUsername}?y=last`,
       {
         next: { revalidate: 3600 }
       }

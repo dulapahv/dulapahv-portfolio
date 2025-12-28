@@ -1,0 +1,142 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ProjectsCard > should match snapshot 1`] = `
+<div>
+  <div
+    class="bg-border relative h-full rounded-xl p-px"
+  >
+    <div
+      class="relative-mouse pointer-events-none absolute inset-0 rounded-xl transition-opacity duration-500"
+      style="background: linear-gradient(to bottom right, var(--color-mirai-red), var(--color-mirai-blue), var(--color-mirai-yellow)); mask-image: radial-gradient(50% 50% at var(--mouse-x, 9999px) var(--mouse-y, 9999px), rgba(0, 0, 0, 0.5) 40%, transparent);"
+    />
+    <div
+      class="card bg-background-elevated relative z-1 flex h-full flex-col rounded-xl p-5"
+    >
+      <div
+        class="mb-4 flex items-start justify-between"
+      >
+        <h2
+          class="text-foreground-muted text-xs font-semibold tracking-widest uppercase"
+        >
+          Recent Projects
+        </h2>
+        <a
+          class="group/icon"
+          href="/project"
+          title="View all projects"
+        >
+          <svg
+            class="text-foreground-muted group-hover/icon:text-mirai-red size-5 transition-colors"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 256 256"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"
+            />
+          </svg>
+        </a>
+      </div>
+      <div
+        class="relative"
+      >
+        <a
+          class="group/image relative block overflow-hidden rounded-lg"
+          href="/project/project-1"
+        >
+          <div
+            class="relative aspect-video w-full overflow-hidden rounded-lg"
+          >
+            <img
+              alt="Test Project 1"
+              class="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              src="/images/project1.jpg"
+            />
+          </div>
+        </a>
+        <button
+          aria-label="Previous project"
+          class="bg-background/80 hover:bg-background absolute top-1/2 left-2 -translate-y-1/2 rounded-full p-2 backdrop-blur-sm transition-all hover:scale-110"
+        >
+          <svg
+            class="text-foreground size-5"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 256 256"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M168.49,199.51a12,12,0,0,1-17,17l-80-80a12,12,0,0,1,0-17l80-80a12,12,0,0,1,17,17L97,128Z"
+            />
+          </svg>
+        </button>
+        <button
+          aria-label="Next project"
+          class="bg-background/80 hover:bg-background absolute top-1/2 right-2 -translate-y-1/2 rounded-full p-2 backdrop-blur-sm transition-all hover:scale-110"
+        >
+          <svg
+            class="text-foreground size-5"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 256 256"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M184.49,136.49l-80,80a12,12,0,0,1-17-17L159,128,87.51,56.49a12,12,0,1,1,17-17l80,80A12,12,0,0,1,184.49,136.49Z"
+            />
+          </svg>
+        </button>
+      </div>
+      <a
+        class="group mt-4"
+        href="/project/project-1"
+      >
+        <h3
+          class="text-foreground block text-lg font-semibold transition-colors group-hover:text-mirai-red"
+        >
+          Test Project 1
+        </h3>
+        <p
+          class="text-foreground-muted mt-2 line-clamp-2 text-sm leading-relaxed"
+        >
+          Description for project 1
+        </p>
+        <time
+          class="text-foreground-muted mt-2 block text-xs"
+        >
+          Jan 2024
+          —
+          Present
+          <span
+            class="bg-mirai-red/10 text-mirai-red ml-2 inline-block rounded-full px-2 py-0.5 text-[10px] font-medium
+                uppercase"
+          >
+            Ongoing
+          </span>
+        </time>
+      </a>
+      <div
+        class="mt-auto flex items-center justify-center gap-2"
+      >
+        <button
+          aria-label="Go to project 1"
+          class="h-2 rounded-full transition-all bg-mirai-red w-6"
+        />
+        <button
+          aria-label="Go to project 2"
+          class="h-2 rounded-full transition-all bg-foreground/20 hover:bg-border w-2"
+        />
+        <button
+          aria-label="Go to project 3"
+          class="h-2 rounded-full transition-all bg-foreground/20 hover:bg-border w-2"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

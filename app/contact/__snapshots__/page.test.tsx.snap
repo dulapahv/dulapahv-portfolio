@@ -60,63 +60,120 @@ exports[`Contact Page > should match snapshot 1`] = `
   </div>
   <div>
     <main
-      class="mx-auto max-w-3xl space-y-4"
+      class="relative mx-auto flex min-h-[70vh] max-w-5xl flex-col items-center justify-center"
     >
-      <header
-        class="gap-0"
-      >
-        <h1
-          class="text-foreground text-lg font-medium"
-        >
-          Contact
-        </h1>
-        <p
-          class="text-foreground-muted"
-        >
-          Let me know what's on your mind and I'll get back to you as soon as possible.
-        </p>
-      </header>
-      <section
-        aria-label="Contact form"
+      <div
+        class="relative z-10 space-y-12 px-4 py-12 text-center"
       >
         <div
-          class="animate-pulse space-y-6"
+          class="space-y-6"
         >
+          <h1
+            class="text-foreground"
+          >
+            Say hi, discuss future projects or job opportunities
+          </h1>
           <div
             class="space-y-2"
           >
-            <div
-              class="h-4 w-16 rounded bg-gray-200"
-            />
-            <div
-              class="h-10 rounded bg-gray-200"
-            />
+            <a
+              aria-label="Email address: contact@dulapahv.dev"
+              class="text-foreground text-4xl font-light sm:text-5xl md:text-6xl mocked-archivo"
+              href="mailto:contact@dulapahv.dev"
+            >
+              contact@dulapahv.dev
+            </a>
           </div>
-          <div
-            class="space-y-2"
-          >
-            <div
-              class="h-4 w-16 rounded bg-gray-200"
-            />
-            <div
-              class="h-10 rounded bg-gray-200"
-            />
-          </div>
-          <div
-            class="space-y-2"
-          >
-            <div
-              class="h-4 w-20 rounded bg-gray-200"
-            />
-            <div
-              class="h-32 rounded bg-gray-200"
-            />
-          </div>
-          <div
-            class="h-10 w-32 rounded bg-gray-200"
-          />
         </div>
-      </section>
+        <div
+          class="flex flex-wrap items-center justify-center gap-3"
+        >
+          <button
+            aria-label="Copy Email"
+            class="group relative flex items-center gap-2.5 rounded-xl px-5 py-3 text-sm transition-all duration-200 ring-1 backdrop-blur-sm cursor-pointer bg-background-elevated text-foreground ring-border hover:bg-background-muted hover:ring-border-strong"
+            title="Copy Email"
+          >
+            <span>
+              <svg
+                class="size-5"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 256 256"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"
+                />
+              </svg>
+            </span>
+            <span>
+              Copy Email
+            </span>
+          </button>
+          <a
+            aria-label="GitHub"
+            class="group relative flex items-center gap-2.5 rounded-xl px-5 py-3 text-sm transition-all duration-200 ring-1 backdrop-blur-sm cursor-pointer bg-background-elevated text-foreground ring-border hover:bg-background-muted hover:ring-border-strong"
+            href="https://github.com/dulapahv"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="GitHub"
+          >
+            <span>
+              <img
+                alt="GitHub"
+                class="hidden dark:block "
+                data-nimg="1"
+                decoding="async"
+                height="16"
+                loading="lazy"
+                src="/octocat-white.svg"
+                style="color: transparent;"
+                width="16"
+              />
+              <img
+                alt="GitHub"
+                class="block dark:hidden "
+                data-nimg="1"
+                decoding="async"
+                height="16"
+                loading="lazy"
+                src="/octocat-black.svg"
+                style="color: transparent;"
+                width="16"
+              />
+            </span>
+            <span>
+              GitHub
+            </span>
+          </a>
+          <a
+            aria-label="LinkedIn"
+            class="group relative flex items-center gap-2.5 rounded-xl px-5 py-3 text-sm transition-all duration-200 ring-1 backdrop-blur-sm cursor-pointer bg-background-elevated text-foreground ring-border hover:bg-background-muted hover:ring-border-strong"
+            href="https://www.linkedin.com/in/dulapahv"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="LinkedIn"
+          >
+            <span>
+              <img
+                alt="LinkedIn"
+                class="size-5"
+                data-nimg="1"
+                decoding="async"
+                height="16"
+                loading="lazy"
+                src="/linkedin.svg"
+                style="color: transparent;"
+                width="16"
+              />
+            </span>
+            <span>
+              LinkedIn
+            </span>
+          </a>
+        </div>
+      </div>
     </main>
   </div>
 </div>

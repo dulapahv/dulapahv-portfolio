@@ -1,0 +1,255 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SpotifyCard > should match snapshot 1`] = `
+<div>
+  <div
+    class="bg-border relative h-full rounded-xl p-px"
+  >
+    <div
+      class="relative-mouse pointer-events-none absolute inset-0 rounded-xl transition-opacity duration-500"
+      style="background: linear-gradient(to bottom right, var(--color-mirai-red), var(--color-mirai-blue), var(--color-mirai-yellow)); mask-image: radial-gradient(50% 50% at var(--mouse-x, 9999px) var(--mouse-y, 9999px), rgba(0, 0, 0, 0.5) 40%, transparent);"
+    />
+    <div
+      class="card bg-background-elevated relative z-1 rounded-xl flex h-full flex-col p-5"
+    >
+      <div
+        class="mb-4 flex items-start justify-between"
+      >
+        <h2
+          class="text-foreground-muted text-xs font-semibold tracking-widest uppercase"
+        >
+          Spotify
+        </h2>
+        <a
+          class="group"
+          href="https://open.spotify.com/user/31gh2o2edagehgvasq4ov3perrtm"
+          rel="noopener noreferrer"
+          target="_blank"
+          title="View my Spotify profile"
+        >
+          <svg
+            class="text-foreground-muted size-5 transition-colors group-hover:text-mirai-red"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 256 256"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"
+            />
+          </svg>
+        </a>
+      </div>
+      <div
+        class="flex flex-1 flex-col gap-6 overflow-y-auto"
+      >
+        <div>
+          <div
+            class="text-foreground mb-3 flex items-center gap-2 text-sm font-medium"
+          >
+            <svg
+              class="size-4"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M168,12A75.9,75.9,0,0,0,92.49,96.33L23.91,189.85a19.89,19.89,0,0,0,2,26l14.29,14.29a19.89,19.89,0,0,0,26,2l93.52-68.58A76,76,0,1,0,168,12Zm52,76a51.66,51.66,0,0,1-7.75,27.27L140.74,43.75A52,52,0,0,1,220,88ZM54.72,210.71l-9.43-9.43,56.19-76.63a76.46,76.46,0,0,0,29.87,29.87ZM116,88a51.63,51.63,0,0,1,7.75-27.27l71.51,71.51A52,52,0,0,1,116,88Z"
+              />
+            </svg>
+            <span>
+              Top Artists - Last 4 Weeks
+            </span>
+          </div>
+          <div
+            class="flex flex-col gap-2"
+          >
+            <a
+              class="flex items-center gap-3 rounded-lg p-2 transition-colors hover:bg-background-muted"
+              href="https://open.spotify.com/artist/1"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <span
+                class="text-foreground-muted text-sm font-medium"
+              >
+                1
+              </span>
+              <img
+                alt="Test Artist 1"
+                class="rounded-full"
+                height="40"
+                src="https://example.com/artist1.jpg"
+                width="40"
+              />
+              <div
+                class="min-w-0 flex-1"
+              >
+                <p
+                  class="text-foreground truncate text-sm font-medium"
+                >
+                  Test Artist 1
+                </p>
+              </div>
+            </a>
+            <a
+              class="flex items-center gap-3 rounded-lg p-2 transition-colors hover:bg-background-muted"
+              href="https://open.spotify.com/artist/2"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <span
+                class="text-foreground-muted text-sm font-medium"
+              >
+                2
+              </span>
+              <img
+                alt="Test Artist 2"
+                class="rounded-full"
+                height="40"
+                src="https://example.com/artist2.jpg"
+                width="40"
+              />
+              <div
+                class="min-w-0 flex-1"
+              >
+                <p
+                  class="text-foreground truncate text-sm font-medium"
+                >
+                  Test Artist 2
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div
+            class="text-foreground mb-3 flex items-center gap-2 text-sm font-medium"
+          >
+            <svg
+              class="size-4"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M215.38,14.54a12,12,0,0,0-10.29-2.18l-128,32A12,12,0,0,0,68,56V159.35A40,40,0,1,0,92,196V113.37l104-26v40A40,40,0,1,0,220,164V24A12,12,0,0,0,215.38,14.54ZM52,212a16,16,0,1,1,16-16A16,16,0,0,1,52,212ZM92,88.63V65.37l104-26V62.63ZM180,180a16,16,0,1,1,16-16A16,16,0,0,1,180,180Z"
+              />
+            </svg>
+            <span>
+              Top Tracks - Last 4 Weeks
+            </span>
+          </div>
+          <div
+            class="flex flex-col gap-2"
+          >
+            <div
+              class="flex items-center gap-3 rounded-lg p-2 transition-colors hover:bg-background-muted"
+            >
+              <span
+                class="text-foreground-muted text-sm font-medium"
+              >
+                1
+              </span>
+              <a
+                class="shrink-0"
+                href="https://open.spotify.com/track/1"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <img
+                  alt="Album 1"
+                  class="rounded"
+                  height="40"
+                  src="https://example.com/track1.jpg"
+                  width="40"
+                />
+              </a>
+              <div
+                class="min-w-0 flex-1"
+              >
+                <a
+                  class="text-foreground block truncate text-sm font-medium hover:underline"
+                  href="https://open.spotify.com/track/1"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Test Track 1
+                </a>
+                <p
+                  class="text-foreground-muted truncate text-xs"
+                >
+                  <span>
+                    <a
+                      class="hover:text-foreground transition-colors hover:underline"
+                      href="https://open.spotify.com/artist/a"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      Artist A
+                    </a>
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex items-center gap-3 rounded-lg p-2 transition-colors hover:bg-background-muted"
+            >
+              <span
+                class="text-foreground-muted text-sm font-medium"
+              >
+                2
+              </span>
+              <a
+                class="shrink-0"
+                href="https://open.spotify.com/track/2"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <img
+                  alt="Album 2"
+                  class="rounded"
+                  height="40"
+                  src="https://example.com/track2.jpg"
+                  width="40"
+                />
+              </a>
+              <div
+                class="min-w-0 flex-1"
+              >
+                <a
+                  class="text-foreground block truncate text-sm font-medium hover:underline"
+                  href="https://open.spotify.com/track/2"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Test Track 2
+                </a>
+                <p
+                  class="text-foreground-muted truncate text-xs"
+                >
+                  <span>
+                    <a
+                      class="hover:text-foreground transition-colors hover:underline"
+                      href="https://open.spotify.com/artist/b"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      Artist B
+                    </a>
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

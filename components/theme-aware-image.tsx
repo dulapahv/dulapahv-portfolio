@@ -13,7 +13,9 @@ export function ThemeAwareImage({
 }: ThemeAwareImageProps) {
   return (
     <>
+      {/* eslint-disable-next-line jsx-a11y/alt-text */}
       <Image src={darkSrc} className={`hidden dark:block ${className}`} {...props} />
+      {/* eslint-disable-next-line jsx-a11y/alt-text */}
       <Image src={lightSrc} className={`block dark:hidden ${className}`} {...props} />
     </>
   );

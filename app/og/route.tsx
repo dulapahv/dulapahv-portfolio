@@ -37,6 +37,7 @@ export const GET = async (request: NextRequest) => {
           'linear-gradient(to right, #1C1C1C 1px, transparent 1px), linear-gradient(to bottom, #1C1C1C 1px, transparent 1px)'
       }}
     >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={`${ASSETS_URL}/logo.svg`}
         alt="avatar"

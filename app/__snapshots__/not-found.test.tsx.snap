@@ -49,10 +49,10 @@ exports[`Not Found Page > should match snapshot 1`] = `
     </code>
   </footer>
   <footer
-    class="mt-16"
+    class="mt-16 mocked-archivo"
   >
     <div
-      class="text-foreground-muted flex flex-col gap-y-1 text-sm font-medium"
+      class="text-foreground-muted flex flex-col gap-y-1 text-sm"
     >
       <p>
         ©

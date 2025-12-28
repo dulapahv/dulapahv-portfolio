@@ -2,10 +2,13 @@
 
 exports[`robots > should match snapshot 1`] = `
 {
-  "rules": {
-    "allow": "/",
-    "userAgent": "*",
-  },
+  "host": "https://dulapahv.dev",
+  "rules": [
+    {
+      "allow": "/",
+      "userAgent": "*",
+    },
+  ],
   "sitemap": "https://dulapahv.dev/sitemap.xml",
 }
 `;

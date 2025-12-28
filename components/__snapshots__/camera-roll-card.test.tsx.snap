@@ -1,0 +1,143 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CameraRollCard > should match snapshot 1`] = `
+<div>
+  <div
+    class="bg-border relative h-full rounded-xl p-px"
+  >
+    <div
+      class="relative-mouse pointer-events-none absolute inset-0 rounded-xl transition-opacity duration-500"
+      style="background: linear-gradient(to bottom right, var(--color-mirai-red), var(--color-mirai-blue), var(--color-mirai-yellow)); mask-image: radial-gradient(50% 50% at var(--mouse-x, 9999px) var(--mouse-y, 9999px), rgba(0, 0, 0, 0.5) 40%, transparent);"
+    />
+    <div
+      class="card bg-background-elevated relative z-1 flex h-full flex-col rounded-xl p-5"
+    >
+      <h2
+        class="text-foreground-muted mb-4 text-xs font-semibold tracking-widest uppercase"
+      >
+        Camera Roll
+      </h2>
+      <div
+        class="relative mb-4 h-64 min-h-[512px] overflow-hidden rounded-lg xl:min-h-auto"
+      >
+        <div
+          class="absolute top-2 right-2 left-2 z-10 flex gap-1"
+        >
+          <button
+            aria-label="Go to image 1"
+            class="relative h-0.5 flex-1 overflow-hidden rounded-full bg-white/30"
+          >
+            <div
+              class="h-full bg-white transition-all duration-100 ease-linear"
+              style="width: 0%;"
+            />
+          </button>
+          <button
+            aria-label="Go to image 2"
+            class="relative h-0.5 flex-1 overflow-hidden rounded-full bg-white/30"
+          >
+            <div
+              class="h-full bg-white transition-all duration-100 ease-linear"
+              style="width: 0%;"
+            />
+          </button>
+          <button
+            aria-label="Go to image 3"
+            class="relative h-0.5 flex-1 overflow-hidden rounded-full bg-white/30"
+          >
+            <div
+              class="h-full bg-white transition-all duration-100 ease-linear"
+              style="width: 0%;"
+            />
+          </button>
+        </div>
+        <button
+          aria-label="Previous image"
+          class="absolute top-0 bottom-0 left-0 z-5 w-1/6 cursor-pointer"
+        />
+        <button
+          aria-label="Next image"
+          class="absolute top-0 right-0 bottom-0 z-5 w-1/4 cursor-pointer"
+        />
+        <div
+          class="flex h-full transition-transform duration-500 ease-in-out"
+          style="transform: translateX(-0%);"
+        >
+          <div
+            class="relative h-full w-full shrink-0"
+          >
+            <div>
+              <img
+                alt="Camera Roll image 1"
+                class="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                src="/camera_roll/image1.jpg"
+              />
+            </div>
+          </div>
+          <div
+            class="relative h-full w-full shrink-0"
+          >
+            <div>
+              <img
+                alt="Camera Roll image 2"
+                class="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                src="/camera_roll/image2.jpg"
+              />
+            </div>
+          </div>
+          <div
+            class="relative h-full w-full shrink-0"
+          >
+            <div>
+              <img
+                alt="Camera Roll image 3"
+                class="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                src="/camera_roll/image3.jpg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <span
+        class="text-foreground-muted mt-auto inline-block text-sm transition-colors hover:text-foreground"
+      >
+        View all photos (Coming Soon)
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CameraRollCard > should match snapshot with empty state 1`] = `
+<div>
+  <div
+    class="bg-border relative h-full rounded-xl p-px"
+  >
+    <div
+      class="relative-mouse pointer-events-none absolute inset-0 rounded-xl transition-opacity duration-500"
+      style="background: linear-gradient(to bottom right, var(--color-mirai-red), var(--color-mirai-blue), var(--color-mirai-yellow)); mask-image: radial-gradient(50% 50% at var(--mouse-x, 9999px) var(--mouse-y, 9999px), rgba(0, 0, 0, 0.5) 40%, transparent);"
+    />
+    <div
+      class="card bg-background-elevated relative z-1 flex h-full flex-col rounded-xl p-5"
+    >
+      <h2
+        class="text-foreground-muted mb-4 text-xs font-semibold tracking-widest uppercase"
+      >
+        Camera Roll
+      </h2>
+      <div
+        class="bg-border-subtle flex h-64 items-center justify-center rounded-lg"
+      >
+        <p
+          class="text-foreground-muted text-sm"
+        >
+          No images to display
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

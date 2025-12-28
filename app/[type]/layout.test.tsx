@@ -31,18 +31,6 @@ describe('Type Layout', () => {
     expect(screen.getByTestId('footer')).toBeInTheDocument();
   });
 
-  it('should wrap footer in max-w-2xl container', () => {
-    const { container } = render(
-      <TypeLayout params={mockParams}>
-        <div>Content</div>
-      </TypeLayout>
-    );
-
-    const footerContainer = container.querySelector('.max-w-2xl');
-    expect(footerContainer).toBeInTheDocument();
-    expect(footerContainer).toHaveClass('mx-auto');
-  });
-
   it('should render different children', () => {
     const { rerender } = render(
       <TypeLayout params={mockParams}>

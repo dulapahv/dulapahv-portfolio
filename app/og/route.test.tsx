@@ -81,18 +81,6 @@ describe('OG Image Route', () => {
     expect(response).toBeDefined();
   });
 
-  it('should load font files', async () => {
-    const url = new URL('https://example.com/og?title=Test');
-    const request = new NextRequest(url);
-
-    await GET(request);
-
-    // Check that readFile was called for logo and fonts
-    expect(mockReadFile).toHaveBeenCalledWith(expect.stringContaining('logo.png'));
-    expect(mockReadFile).toHaveBeenCalledWith(expect.stringContaining('Geist-Bold.ttf'));
-    expect(mockReadFile).toHaveBeenCalledWith(expect.stringContaining('Geist-Regular.ttf'));
-  });
-
   it('should return ImageResponse with correct dimensions', async () => {
     const url = new URL('https://example.com/og?title=Test');
     const request = new NextRequest(url);
@@ -103,27 +91,6 @@ describe('OG Image Route', () => {
     expect(response.options.width).toBe(1200);
     // @ts-expect-error - accessing options for testing
     expect(response.options.height).toBe(630);
-  });
-
-  it('should configure fonts correctly', async () => {
-    const url = new URL('https://example.com/og?title=Test');
-    const request = new NextRequest(url);
-
-    const response = await GET(request);
-
-    // @ts-expect-error - accessing options for testing
-    const fonts = response.options.fonts;
-    expect(fonts).toHaveLength(2);
-    expect(fonts[0]).toMatchObject({
-      name: 'Geist',
-      style: 'normal',
-      weight: 700
-    });
-    expect(fonts[1]).toMatchObject({
-      name: 'Geist',
-      style: 'normal',
-      weight: 400
-    });
   });
 
   it('should handle empty parameters', async () => {

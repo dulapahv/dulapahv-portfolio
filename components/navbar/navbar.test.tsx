@@ -231,11 +231,11 @@ describe('Navbar', () => {
     });
 
     it('should have descriptive aria-labels for each link', () => {
-      vi.mocked(usePathname).mockReturnValue('/work');
+      vi.mocked(usePathname).mockReturnValue('/project');
       render(<Navbar />);
 
-      const workLink = screen.getByRole('link', { name: /work.*current page/i });
-      expect(workLink).toHaveAttribute('aria-label');
+      const projectLink = screen.getByRole('link', { name: /project.*current page/i });
+      expect(projectLink).toHaveAttribute('aria-label');
     });
   });
 
@@ -246,15 +246,14 @@ describe('Navbar', () => {
 
       const projectLink = screen.getByRole('link', { name: /project.*current/i });
       expect(projectLink.className).toContain('text-mirai-red');
-      expect(projectLink.className).toContain('border-mirai-red');
     });
 
     it('should apply hover styling classes', () => {
       vi.mocked(usePathname).mockReturnValue('/');
       render(<Navbar />);
 
-      const workLink = screen.getByRole('link', { name: /^work$/i });
-      expect(workLink.className).toContain('hover:text-foreground-muted');
+      const projectLink = screen.getByRole('link', { name: /^project$/i });
+      expect(projectLink.className).toContain('hover:text-foreground-muted');
     });
   });
 

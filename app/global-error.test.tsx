@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import GlobalError from './global-error';
 
@@ -35,7 +35,15 @@ vi.mock('next/image', () => ({
 }));
 
 vi.mock('next-themes', () => ({
-  ThemeProvider: ({ children }: { children: React.ReactNode }) => <div>{children}</div>
+  ThemeProvider: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
+  useTheme: () => ({
+    theme: 'system',
+    setTheme: vi.fn(),
+    themes: ['light', 'dark', 'system'],
+    systemTheme: 'light',
+    resolvedTheme: 'light',
+    forcedTheme: undefined
+  })
 }));
 
 vi.mock('geist/font/mono', () => ({
@@ -49,6 +57,9 @@ vi.mock('next/font/google', () => ({
   Raleway: () => ({
     className: 'raleway-font',
     style: { fontFamily: 'Raleway' }
+  }),
+  Archivo: () => ({
+    className: 'mocked-archivo'
   })
 }));
 
