@@ -4,7 +4,7 @@ import { ArrowsClockwiseIcon } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import { useEffect } from "react";
 import { Footer } from "@/components/footer";
-import { TopBar } from "@/components/top-bar";
+import { TopBar } from "@/components/top-bar/top-bar";
 import { IS_DEV_ENV } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 

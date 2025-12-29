@@ -1,5 +1,5 @@
 import { Card } from "@/components/card";
 
-export function GitHubContributionsCardSkeleton() {
+export function Loading() {
   return <Card className="relative overflow-hidden" />;
 }

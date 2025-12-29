@@ -7,14 +7,14 @@ import type { BlogPosting, CreativeWork, WithContext } from "schema-dts";
 import Breadcrumb from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
 import { Mdx } from "@/components/mdx";
-import { ShareButtons } from "@/components/share";
-import { TableOfContents } from "@/components/toc";
+import { ShareButtons } from "@/components/share/share";
+import { TableOfContents } from "@/components/toc/toc";
 import {
   type ContentType,
   contentConfig,
   getCollection,
   isValidContentType,
-} from "@/lib/content-utils";
+} from "@/lib/content-utils/content-utils";
 import { createBlogPostingSchema, createProjectSchema } from "@/lib/json-ld";
 import { createMetadata } from "@/lib/metadata";
 

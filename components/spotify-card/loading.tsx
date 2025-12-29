@@ -1,5 +1,5 @@
 import { Card } from "@/components/card";
 
-export function OpenSourceCardSkeleton() {
+export function Loading() {
   return <Card className="relative overflow-hidden" />;
 }

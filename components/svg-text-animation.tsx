@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-import { useMediaQuery } from "@/hooks/use-media-query";
+import { useMediaQuery } from "@/hooks/use-media-query/use-media-query";
 
 interface SvgTextAnimationProps {
   delay?: number;

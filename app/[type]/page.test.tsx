@@ -8,7 +8,7 @@ vi.mock("next/navigation", () => ({
 }));
 
 // Mock content utilities with sample data
-vi.mock("@/lib/content-utils", () => ({
+vi.mock("@/lib/content-utils/content-utils", () => ({
   contentConfig: {
     project: {
       title: "Project",

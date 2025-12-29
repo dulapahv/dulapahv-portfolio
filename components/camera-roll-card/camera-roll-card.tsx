@@ -75,7 +75,7 @@ export function CameraRollCard({ images }: CameraRollCardProps) {
         Camera Roll
       </h2>
       <div
-        className="relative mb-4 h-64 min-h-[512px] overflow-hidden rounded-lg xl:min-h-auto"
+        className="relative mb-4 h-64 min-h-128 overflow-hidden rounded-lg xl:min-h-auto"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >

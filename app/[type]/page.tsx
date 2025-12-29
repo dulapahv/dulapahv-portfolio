@@ -11,7 +11,7 @@ import {
   contentConfig,
   getContentByYear,
   isValidContentType,
-} from "@/lib/content-utils";
+} from "@/lib/content-utils/content-utils";
 import { collectionSchema } from "@/lib/json-ld";
 import { createMetadata } from "@/lib/metadata";
 import { cn } from "@/lib/utils";

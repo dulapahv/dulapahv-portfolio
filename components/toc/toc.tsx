@@ -8,7 +8,7 @@ import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 /* Honestly, this is a bit of a mess. */
 import { useCallback, useEffect, useRef, useState } from "react";
-import { useMediaQuery } from "@/hooks/use-media-query";
+import { useMediaQuery } from "@/hooks/use-media-query/use-media-query";
 import { cn } from "@/lib/utils";
 
 interface TOCItem {

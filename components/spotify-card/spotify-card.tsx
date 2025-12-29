@@ -12,7 +12,7 @@ import {
   getTopTracks,
 } from "@/app/actions/spotify";
 import { Card } from "@/components/card";
-import { NowPlayingCard } from "@/components/now-playing-card";
+import { NowPlayingCard } from "@/components/now-playing-card/now-playing-card";
 import { SPOTIFY_URL } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 

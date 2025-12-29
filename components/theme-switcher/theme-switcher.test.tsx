@@ -2,7 +2,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import { useTheme } from "next-themes";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import { useMediaQuery } from "@/hooks/use-media-query";
+import { useMediaQuery } from "@/hooks/use-media-query/use-media-query";
 
 import { ThemeSwitcher } from "./theme-switcher";
 
@@ -19,7 +19,7 @@ vi.mock("next-themes", () => ({
   useTheme: vi.fn(),
 }));
 
-vi.mock("@/hooks/use-media-query", () => ({
+vi.mock("@/hooks/use-media-query/use-media-query", () => ({
   useMediaQuery: vi.fn(),
 }));
 

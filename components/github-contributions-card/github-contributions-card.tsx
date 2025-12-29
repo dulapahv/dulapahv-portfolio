@@ -88,7 +88,7 @@ export async function GitHubContributionsCard({
 
         <div className="flex justify-center overflow-x-auto">
           <div className="inline-flex cursor-crosshair flex-col gap-1">
-            <div className="flex gap-[3px] pl-6">
+            <div className="flex gap-0.75 pl-6">
               {last52Weeks.map((_, weekIndex) => {
                 const label = getMonthLabel(weekIndex);
                 return (
@@ -103,7 +103,7 @@ export async function GitHubContributionsCard({
               })}
             </div>
 
-            <div className="flex gap-[3px]">
+            <div className="flex gap-0.75">
               <div className="flex flex-col gap-px">
                 <div className="h-2" />
                 <span className="text-foreground-muted text-xs">Mon</span>
@@ -115,7 +115,7 @@ export async function GitHubContributionsCard({
               </div>
 
               {last52Weeks.map((week, weekIndex) => (
-                <div className="flex flex-col gap-[3px]" key={weekIndex}>
+                <div className="flex flex-col gap-0.75" key={weekIndex}>
                   {Array.from({ length: 7 }).map((_, dayIndex) => {
                     const day = week.days[dayIndex];
                     if (!day) {

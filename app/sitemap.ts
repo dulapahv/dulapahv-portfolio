@@ -1,7 +1,10 @@
 import type { MetadataRoute } from "next";
 
 import { BASE_URL } from "@/lib/constants";
-import { type ContentType, getCollection } from "@/lib/content-utils";
+import {
+  type ContentType,
+  getCollection,
+} from "@/lib/content-utils/content-utils";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const currentDate = new Date();

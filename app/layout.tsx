@@ -4,9 +4,9 @@ import { IBM_Plex_Sans, Raleway } from "next/font/google";
 import Image from "next/image";
 import { ThemeProvider } from "next-themes";
 import MousePositionVarsSetter from "@/components/mouse-position-setter";
-import { Navbar } from "@/components/navbar";
+import { Navbar } from "@/components/navbar/navbar";
 // import { StarsBackground } from '@/components/stars-background';
-import { TopBar } from "@/components/top-bar";
+import { TopBar } from "@/components/top-bar/top-bar";
 import { BASE_URL } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 

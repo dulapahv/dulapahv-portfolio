@@ -18,7 +18,7 @@ exports[`CameraRollCard > should match snapshot 1`] = `
         Camera Roll
       </h2>
       <div
-        class="relative mb-4 h-64 min-h-[512px] overflow-hidden rounded-lg xl:min-h-auto"
+        class="relative mb-4 h-64 min-h-128 overflow-hidden rounded-lg xl:min-h-auto"
       >
         <div
           class="absolute top-2 right-2 left-2 z-10 flex gap-1"

@@ -4,7 +4,10 @@ import {
   GITHUB_URL,
   LINKEDIN_URL,
 } from "@/lib/constants";
-import { type ContentType, contentConfig } from "@/lib/content-utils";
+import {
+  type ContentType,
+  contentConfig,
+} from "@/lib/content-utils/content-utils";
 import { contributionsData, getContributionStats } from "@/lib/contributions";
 import { skillsData } from "@/lib/skills-data";
 

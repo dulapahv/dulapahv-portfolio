@@ -23,7 +23,7 @@ import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 
-import { notificationTypes } from "@/lib/admonitions";
+import { notificationTypes } from "@/lib/admonitions/admonitions";
 
 const DATE_FORMAT_REGEX = /^\d{2}-\d{2}-\d{4}$/;
 

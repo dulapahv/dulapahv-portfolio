@@ -5,7 +5,7 @@ import { Suspense } from "react";
 import { GITHUB_URL } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
-import { CurrentYear } from "./current-year";
+import { CurrentYear } from "./current-year/current-year";
 
 const archivo = Archivo({ subsets: ["latin"], weight: "variable" });
 

@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { AboutCard } from "@/components/about-card";
-import { CameraRollCard } from "@/components/camera-roll-card";
+import { CameraRollCard } from "@/components/camera-roll-card/camera-roll-card";
 import { Footer } from "@/components/footer";
-import { GitHubContributionsCard } from "@/components/github-contributions-card";
-import { GitHubContributionsCardSkeleton } from "@/components/github-contributions-card-skeleton";
+import { GitHubContributionsCard } from "@/components/github-contributions-card/github-contributions-card";
+import { Loading as LoadingGitHub } from "@/components/github-contributions-card/loading";
 import { GlobeCard } from "@/components/globe-card";
 import { HeaderText } from "@/components/header-text";
 import { JsonLd } from "@/components/json-ld";
-import { OpenSourceCard } from "@/components/open-source-card";
-import { OpenSourceCardSkeleton } from "@/components/open-source-card-skeleton";
-import { ProjectsCard } from "@/components/projects-card";
+import { Loading as LoadingOpenSource } from "@/components/open-source-card/loading";
+import { OpenSourceCard } from "@/components/open-source-card/open-source-card";
+import { ProjectsCard } from "@/components/projects-card/projects-card";
 import { RecentBlogsCard } from "@/components/recent-blogs-card";
-import { ResumeCard } from "@/components/resume-card";
-import { SpotifyCard } from "@/components/spotify-card";
-import { SpotifyCardSkeleton } from "@/components/spotify-card-skeleton";
+import { ResumeCard } from "@/components/resume-card/resume-card";
+import { Loading as SpotifyLoading } from "@/components/spotify-card/loading";
+import { SpotifyCard } from "@/components/spotify-card/spotify-card";
 import { WorkCard } from "@/components/work-card";
 import { DESCRIPTION } from "@/lib/constants";
 import { profilePageSchema } from "@/lib/json-ld";
@@ -84,7 +84,7 @@ export default function Home() {
           <RecentBlogsCard />
         </article>
         <article className="min-w-0" style={{ gridArea: "📊" }}>
-          <Suspense fallback={<GitHubContributionsCardSkeleton />}>
+          <Suspense fallback={<LoadingGitHub />}>
             <GitHubContributionsCard username="dulapahv" />
           </Suspense>
         </article>
@@ -95,7 +95,7 @@ export default function Home() {
           <ResumeCard />
         </article>
         <article className="min-w-0" style={{ gridArea: "🌟" }}>
-          <Suspense fallback={<OpenSourceCardSkeleton />}>
+          <Suspense fallback={<LoadingOpenSource />}>
             <OpenSourceCard />
           </Suspense>
         </article>
@@ -115,7 +115,7 @@ export default function Home() {
           />
         </article>
         <article className="min-w-0" style={{ gridArea: "🎵" }}>
-          <Suspense fallback={<SpotifyCardSkeleton />}>
+          <Suspense fallback={<SpotifyLoading />}>
             <SpotifyCard />
           </Suspense>
         </article>

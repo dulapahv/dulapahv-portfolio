@@ -5,7 +5,7 @@ import { BASE_URL } from "@/lib/constants";
 import sitemap from "./sitemap";
 
 // Mock the content-utils module
-vi.mock("@/lib/content-utils", () => ({
+vi.mock("@/lib/content-utils/content-utils", () => ({
   getCollection: vi.fn((type: string) => {
     if (type === "blog") {
       return [

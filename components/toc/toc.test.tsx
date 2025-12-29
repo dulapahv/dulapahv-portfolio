@@ -1,7 +1,7 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import { useMediaQuery } from "@/hooks/use-media-query";
+import { useMediaQuery } from "@/hooks/use-media-query/use-media-query";
 
 import { TableOfContents } from "./toc";
 
@@ -13,7 +13,7 @@ const LEVEL_2_REGEX = /level 2/i;
 const LEVEL_3_REGEX = /level 3/i;
 const QUOTES_AND_SYMBOLS_REGEX = /['"!@#$%^&*()]/g;
 
-vi.mock("@/hooks/use-media-query", () => ({
+vi.mock("@/hooks/use-media-query/use-media-query", () => ({
   useMediaQuery: vi.fn(),
 }));
 

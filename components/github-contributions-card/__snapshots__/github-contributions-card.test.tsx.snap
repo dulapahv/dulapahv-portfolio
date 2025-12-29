@@ -66,7 +66,7 @@ exports[`GitHubContributionsCard > should match snapshot 1`] = `
             class="inline-flex cursor-crosshair flex-col gap-1"
           >
             <div
-              class="flex gap-[3px] pl-6"
+              class="flex gap-0.75 pl-6"
             >
               <div
                 class="w-2.5"
@@ -82,7 +82,7 @@ exports[`GitHubContributionsCard > should match snapshot 1`] = `
               />
             </div>
             <div
-              class="flex gap-[3px]"
+              class="flex gap-0.75"
             >
               <div
                 class="flex flex-col gap-px"
@@ -116,7 +116,7 @@ exports[`GitHubContributionsCard > should match snapshot 1`] = `
                 />
               </div>
               <div
-                class="flex flex-col gap-[3px]"
+                class="flex flex-col gap-0.75"
               >
                 <div
                   class="h-2.5 w-2.5 rounded-sm transition-colors bg-green-500"
@@ -143,7 +143,7 @@ exports[`GitHubContributionsCard > should match snapshot 1`] = `
                 />
               </div>
               <div
-                class="flex flex-col gap-[3px]"
+                class="flex flex-col gap-0.75"
               >
                 <div
                   class="h-2.5 w-2.5 rounded-sm transition-colors bg-green-600"

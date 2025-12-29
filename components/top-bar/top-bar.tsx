@@ -5,7 +5,7 @@ import { Archivo } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ThemeSwitcher } from "@/components/theme-switcher";
+import { ThemeSwitcher } from "@/components/theme-switcher/theme-switcher";
 import { NAME } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
