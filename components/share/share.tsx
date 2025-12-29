@@ -22,6 +22,40 @@ interface ShareButtonsProps {
   };
 }
 
+// Helper functions for button states
+const getCopyButtonLabel = (isCopying: boolean, copied: boolean): string => {
+  if (isCopying) {
+    return "Copying page as Markdown";
+  }
+  if (copied) {
+    return "Page copied to clipboard as Markdown";
+  }
+  return "Copy page as Markdown";
+};
+
+const getCopyButtonTitle = (isCopying: boolean, copied: boolean): string => {
+  if (isCopying) {
+    return "Copying...";
+  }
+  if (copied) {
+    return "Copied!";
+  }
+  return "Copy page as Markdown";
+};
+
+const getCopyButtonText = (
+  isCopying: boolean,
+  copied: boolean
+): React.ReactNode => {
+  if (isCopying) {
+    return <p>Copying...</p>;
+  }
+  if (copied) {
+    return <p>Copied!</p>;
+  }
+  return <p>Copy Page</p>;
+};
+
 export function ShareButtons({ page }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false);
   const [copiedPage, setCopiedPage] = useState(false);
@@ -206,7 +240,6 @@ export function ShareButtons({ page }: ShareButtonsProps) {
     <div
       aria-label="Share options"
       className="flex flex-wrap items-center gap-3"
-      role="group"
     >
       {supportsNativeShare ? (
         <button
@@ -318,13 +351,7 @@ export function ShareButtons({ page }: ShareButtonsProps) {
         <div className="relative ml-0 min-[425px]:ml-auto" ref={dropdownRef}>
           <div className="flex items-center rounded-md border border-border bg-background">
             <button
-              aria-label={
-                isCopying
-                  ? "Copying page as Markdown"
-                  : copiedPage
-                    ? "Page copied to clipboard as Markdown"
-                    : "Copy page as Markdown"
-              }
+              aria-label={getCopyButtonLabel(isCopying, copiedPage)}
               className={cn(
                 "flex cursor-pointer items-center gap-2 px-3 py-1.5 text-sm transition-colors",
                 "border-border border-r",
@@ -334,22 +361,10 @@ export function ShareButtons({ page }: ShareButtonsProps) {
               disabled={isCopying || copiedPage}
               onClick={copyPageAsMarkdown}
               onKeyDown={(e) => handleKeyDown(e, copyPageAsMarkdown)}
-              title={
-                isCopying
-                  ? "Copying..."
-                  : copiedPage
-                    ? "Copied!"
-                    : "Copy page as Markdown"
-              }
+              title={getCopyButtonTitle(isCopying, copiedPage)}
               type="button"
             >
-              {isCopying ? (
-                <p>Copying...</p>
-              ) : copiedPage ? (
-                <p>Copied!</p>
-              ) : (
-                <p>Copy Page</p>
-              )}
+              {getCopyButtonText(isCopying, copiedPage)}
             </button>
             <button
               aria-expanded={isDropdownOpen}

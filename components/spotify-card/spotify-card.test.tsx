@@ -12,7 +12,7 @@ vi.mock("next/image", () => ({
     src: string;
     alt: string;
     [key: string]: string | boolean | number;
-  }) => <img alt={alt} src={src} {...props} />,
+  }) => <img alt={alt} height={40} src={src} width={40} {...props} />,
 }));
 
 vi.mock("@/components/now-playing-card", () => ({

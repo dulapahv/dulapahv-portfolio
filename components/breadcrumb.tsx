@@ -130,6 +130,7 @@ const BreadcrumbPage = React.forwardRef<
     className={cn("font-normal text-foreground", className)}
     ref={ref}
     role="link"
+    tabIndex={0}
     {...props}
   />
 ));

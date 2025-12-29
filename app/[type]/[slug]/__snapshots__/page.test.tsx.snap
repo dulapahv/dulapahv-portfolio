@@ -78,6 +78,7 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
             aria-disabled="true"
             class="font-normal text-foreground max-w-48 truncate"
             role="link"
+            tabindex="0"
           >
             Improve Captcha User Experience with Invisible CAPTCHA by Vercel BotID
           </span>
@@ -159,7 +160,6 @@ exports[`Content Detail Page > should render blog post and match snapshot 1`] = 
         <div
           aria-label="Share options"
           class="flex flex-wrap items-center gap-3"
-          role="group"
         >
           <button
             aria-label="Copy link to clipboard"
@@ -4260,6 +4260,7 @@ exports[`Content Detail Page > should render project page and match snapshot 1`]
             aria-disabled="true"
             class="font-normal text-foreground max-w-48 truncate"
             role="link"
+            tabindex="0"
           >
             Issho - Plan with friends, faster
           </span>
@@ -4341,7 +4342,6 @@ exports[`Content Detail Page > should render project page and match snapshot 1`]
         <div
           aria-label="Share options"
           class="flex flex-wrap items-center gap-3"
-          role="group"
         >
           <button
             aria-label="Copy link to clipboard"

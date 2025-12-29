@@ -51,6 +51,7 @@ exports[`Contact Page > should match snapshot 1`] = `
             aria-disabled="true"
             class="font-normal text-foreground max-w-48 truncate"
             role="link"
+            tabindex="0"
           >
             Contact
           </span>

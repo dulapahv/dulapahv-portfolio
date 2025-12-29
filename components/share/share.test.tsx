@@ -65,13 +65,15 @@ describe("ShareButtons", () => {
     });
 
     it("should show copy link button when navigator.share is not available", () => {
-      // Properly remove navigator.share
-      Object.defineProperty(navigator, "share", {
-        value: undefined,
-        writable: true,
-        configurable: true,
-      });
-      delete (navigator as { share?: unknown }).share;
+      // Properly remove navigator.share by deleting the property
+      if ("share" in navigator) {
+        Object.defineProperty(navigator, "share", {
+          value: undefined,
+          writable: true,
+          configurable: true,
+        });
+        delete (navigator as { share?: unknown }).share;
+      }
 
       render(<ShareButtons />);
 
@@ -110,6 +112,12 @@ describe("ShareButtons", () => {
 
       mockClipboard.writeText.mockResolvedValue(undefined);
 
+      const consoleErrorSpy = vi
+        .spyOn(console, "error")
+        .mockImplementation(() => {
+          /* Suppress console errors for test */
+        });
+
       render(<ShareButtons />);
 
       const shareButton = screen.getByTitle("Share this page");
@@ -120,6 +128,8 @@ describe("ShareButtons", () => {
           "https://example.com/test"
         );
       });
+
+      consoleErrorSpy.mockRestore();
     });
 
     it("should not fall back to copy when navigator.share is aborted", async () => {
@@ -147,13 +157,15 @@ describe("ShareButtons", () => {
 
   describe("Copy to Clipboard", () => {
     beforeEach(() => {
-      // Properly remove navigator.share
-      Object.defineProperty(navigator, "share", {
-        value: undefined,
-        writable: true,
-        configurable: true,
-      });
-      delete (navigator as { share?: unknown }).share;
+      // Properly remove navigator.share by deleting the property
+      if ("share" in navigator) {
+        Object.defineProperty(navigator, "share", {
+          value: undefined,
+          writable: true,
+          configurable: true,
+        });
+        delete (navigator as { share?: unknown }).share;
+      }
     });
 
     it("should copy link to clipboard when copy button is clicked", async () => {
@@ -213,13 +225,15 @@ describe("ShareButtons", () => {
 
   describe("Social Media Sharing", () => {
     beforeEach(() => {
-      // Properly remove navigator.share
-      Object.defineProperty(navigator, "share", {
-        value: undefined,
-        writable: true,
-        configurable: true,
-      });
-      delete (navigator as { share?: unknown }).share;
+      // Properly remove navigator.share by deleting the property
+      if ("share" in navigator) {
+        Object.defineProperty(navigator, "share", {
+          value: undefined,
+          writable: true,
+          configurable: true,
+        });
+        delete (navigator as { share?: unknown }).share;
+      }
     });
 
     it("should open X share popup when X button is clicked", () => {
@@ -485,13 +499,15 @@ describe("ShareButtons", () => {
 
   describe("Keyboard Navigation", () => {
     beforeEach(() => {
-      // Properly remove navigator.share
-      Object.defineProperty(navigator, "share", {
-        value: undefined,
-        writable: true,
-        configurable: true,
-      });
-      delete (navigator as { share?: unknown }).share;
+      // Properly remove navigator.share by deleting the property
+      if ("share" in navigator) {
+        Object.defineProperty(navigator, "share", {
+          value: undefined,
+          writable: true,
+          configurable: true,
+        });
+        delete (navigator as { share?: unknown }).share;
+      }
     });
 
     it("should handle Enter key on copy button", async () => {

@@ -6,6 +6,12 @@ import { useRef, useState } from "react";
 import { Card } from "@/components/card";
 import { cn } from "@/lib/utils";
 
+// Helper function to get line width based on index
+const getLineWidth = (index: number): string => {
+  const widths = ["w-3/4", "w-4/5", "w-2/3", "w-3/4", "w-1/2", "w-3/5"];
+  return widths[index] || "w-3/5";
+};
+
 export const ResumeCard = () => {
   const documentRef = useRef<HTMLDivElement>(null);
   const [rotateX, setRotateX] = useState(0);
@@ -63,6 +69,7 @@ export const ResumeCard = () => {
           className="relative flex flex-1 cursor-crosshair items-center justify-center overflow-hidden rounded-md border border-border-subtle"
           onMouseLeave={handleMouseLeave}
           onMouseMove={handleMouseMove}
+          role="presentation"
           style={{ perspective: "1000px" }}
         >
           <div
@@ -88,21 +95,11 @@ export const ResumeCard = () => {
           >
             <div className="absolute inset-0 flex flex-col justify-evenly p-3">
               {[...new Array(6)].map((_, i) => (
-                <div className="flex gap-1" key={i}>
+                <div className="flex gap-1" key={`resume-line-${i}`}>
                   <div
                     className={cn(
                       "h-0.5 rounded-full bg-foreground/20 transition-all duration-500",
-                      i === 0
-                        ? "w-3/4"
-                        : i === 1
-                          ? "w-4/5"
-                          : i === 2
-                            ? "w-2/3"
-                            : i === 3
-                              ? "w-3/4"
-                              : i === 4
-                                ? "w-1/2"
-                                : "w-3/5"
+                      getLineWidth(i)
                     )}
                   />
                 </div>

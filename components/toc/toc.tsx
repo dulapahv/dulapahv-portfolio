@@ -100,24 +100,24 @@ export function TableOfContents() {
 
     const sectionObserver = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
+        for (const entry of entries) {
           const id = entry.target.getAttribute("id");
           if (entry.isIntersecting && !lockActiveId) {
             setActiveId(id ?? "");
           }
-        });
+        }
       },
       { rootMargin: "0px 0px -80% 0px", threshold: 1 }
     );
 
     const headings = Array.from(document.querySelectorAll("h2[id], h3[id]"));
-    headings.forEach((heading) => {
+    for (const heading of headings) {
       // Make headings focusable for proper tab navigation
       if (!heading.hasAttribute("tabindex")) {
         heading.setAttribute("tabindex", "-1");
       }
       sectionObserver.observe(heading);
-    });
+    }
 
     return () => {
       observer.disconnect();
@@ -186,6 +186,9 @@ export function TableOfContents() {
         linksRef.current[lastIndex]?.focus();
         break;
       }
+      default:
+        // No action for other keys
+        break;
     }
   };
 
@@ -281,6 +284,7 @@ export function TableOfContents() {
                   "transition-colors hover:text-foreground"
                 )}
                 onClick={scrollToTop}
+                type="button"
               >
                 <span>Scroll to top</span>
                 <ArrowCircleUpIcon className="size-4.5" />

@@ -11,6 +11,21 @@ interface CameraRollCardProps {
   images: string[];
 }
 
+// Helper function to calculate progress bar width
+const getProgressWidth = (
+  index: number,
+  currentIndex: number,
+  progress: number
+): string => {
+  if (index < currentIndex) {
+    return "100%";
+  }
+  if (index === currentIndex) {
+    return `${progress}%`;
+  }
+  return "0%";
+};
+
 export function CameraRollCard({ images }: CameraRollCardProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -78,25 +93,25 @@ export function CameraRollCard({ images }: CameraRollCardProps) {
         className="relative mb-4 h-64 min-h-128 overflow-hidden rounded-lg xl:min-h-auto"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
+        role="region"
       >
         <div className="absolute top-2 right-2 left-2 z-10 flex gap-1">
-          {images.map((_, index) => (
+          {images.map((image, index) => (
             <button
               aria-label={`Go to image ${index + 1}`}
               className="relative h-0.5 flex-1 overflow-hidden rounded-full bg-white/30"
-              key={index}
+              key={`progress-${image}-${index}`}
               onClick={() => handleBarClick(index)}
               type="button"
             >
               <div
                 className="h-full bg-white transition-all duration-100 ease-linear"
                 style={{
-                  width:
-                    index < currentIndex
-                      ? "100%"
-                      : index === currentIndex
-                        ? `${progressRef.current}%`
-                        : "0%",
+                  width: getProgressWidth(
+                    index,
+                    currentIndex,
+                    progressRef.current
+                  ),
                 }}
               />
             </button>
@@ -121,7 +136,10 @@ export function CameraRollCard({ images }: CameraRollCardProps) {
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
           {images.map((image, index) => (
-            <div className="relative h-full w-full shrink-0" key={index}>
+            <div
+              className="relative h-full w-full shrink-0"
+              key={`image-${image}-${index}`}
+            >
               <Zoom
                 classDialog='[&_[data-rmiz-modal-overlay="visible"]]:!bg-background/40 [&_[data-rmiz-modal-overlay="visible"]]:backdrop-blur-sm'
                 wrapElement="span"

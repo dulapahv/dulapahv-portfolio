@@ -141,7 +141,7 @@ export function ProjectsCard() {
 
       {projects.length > 1 && (
         <div className="mt-auto flex items-center justify-center gap-2">
-          {projects.map((_, index) => (
+          {projects.map((project, index) => (
             <button
               aria-label={`Go to project ${index + 1}`}
               className={cn(
@@ -150,7 +150,7 @@ export function ProjectsCard() {
                   ? "w-6 bg-mirai-red"
                   : "w-2 bg-foreground/20 hover:bg-border"
               )}
-              key={index}
+              key={`project-dot-${project.slug}`}
               onClick={() => goToSlide(index)}
               type="button"
             />

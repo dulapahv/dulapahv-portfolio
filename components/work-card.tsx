@@ -85,7 +85,7 @@ export function WorkCard() {
           {works.map((work, index) => (
             <li
               className="relative flex flex-col gap-1 pb-3 pl-4 first:pb-3"
-              key={index}
+              key={`work-${work.company}-${work.formattedStartDate}`}
             >
               <div
                 aria-hidden="true"

@@ -89,10 +89,13 @@ export async function GitHubContributionsCard({
         <div className="flex justify-center overflow-x-auto">
           <div className="inline-flex cursor-crosshair flex-col gap-1">
             <div className="flex gap-0.75 pl-6">
-              {last52Weeks.map((_, weekIndex) => {
+              {last52Weeks.map((week, weekIndex) => {
                 const label = getMonthLabel(weekIndex);
                 return (
-                  <div className="w-2.5" key={weekIndex}>
+                  <div
+                    className="w-2.5"
+                    key={`month-label-${week.days[0]?.date || weekIndex}`}
+                  >
                     {label && (
                       <span className="text-foreground-muted text-xs">
                         {label}
@@ -115,11 +118,19 @@ export async function GitHubContributionsCard({
               </div>
 
               {last52Weeks.map((week, weekIndex) => (
-                <div className="flex flex-col gap-0.75" key={weekIndex}>
+                <div
+                  className="flex flex-col gap-0.75"
+                  key={`week-${week.days[0]?.date || weekIndex}`}
+                >
                   {Array.from({ length: 7 }).map((_, dayIndex) => {
                     const day = week.days[dayIndex];
                     if (!day) {
-                      return <div className="h-2.5 w-2.5" key={dayIndex} />;
+                      return (
+                        <div
+                          className="h-2.5 w-2.5"
+                          key={`empty-${weekIndex}-${dayIndex}`}
+                        />
+                      );
                     }
 
                     return (
@@ -128,7 +139,7 @@ export async function GitHubContributionsCard({
                           "h-2.5 w-2.5 rounded-sm transition-colors",
                           getContributionColor(day.level)
                         )}
-                        key={dayIndex}
+                        key={`day-${day.date}`}
                         title={`${day.count} contributions on ${new Date(day.date).toLocaleDateString()}`}
                       />
                     );

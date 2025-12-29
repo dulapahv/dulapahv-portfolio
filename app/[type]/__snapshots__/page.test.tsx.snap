@@ -51,6 +51,7 @@ exports[`Type Listing Page > should render blog listing and match snapshot 1`] =
             aria-disabled="true"
             class="font-normal text-foreground max-w-48 truncate"
             role="link"
+            tabindex="0"
           >
             Blog
           </span>
@@ -218,6 +219,7 @@ exports[`Type Listing Page > should render project listing and match snapshot 1`
             aria-disabled="true"
             class="font-normal text-foreground max-w-48 truncate"
             role="link"
+            tabindex="0"
           >
             Project
           </span>

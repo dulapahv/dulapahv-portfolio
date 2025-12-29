@@ -60,50 +60,53 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
+  // Helper function to determine last modified date
+  const getLastModified = (
+    page: ReturnType<typeof getCollection>[number],
+    fallback: Date
+  ): Date => {
+    if ("date" in page && page.date) {
+      return page.date;
+    }
+    if ("startDate" in page && page.startDate) {
+      if ("endDate" in page && page.endDate) {
+        return page.endDate;
+      }
+      return page.startDate;
+    }
+    return fallback;
+  };
+
+  // Helper function to determine change frequency
+  const getChangeFrequency = (
+    type: ContentType,
+    page: ReturnType<typeof getCollection>[number]
+  ):
+    | "always"
+    | "hourly"
+    | "daily"
+    | "weekly"
+    | "monthly"
+    | "yearly"
+    | "never" => {
+    if (type === "blog") {
+      return "yearly";
+    }
+    if (type === "project") {
+      const isOngoing = !("endDate" in page && page.endDate);
+      return isOngoing ? "monthly" : "yearly";
+    }
+    return "yearly";
+  };
+
   const types: ContentType[] = ["project", "blog"];
   const contentPages: MetadataRoute.Sitemap = types.flatMap((type) =>
-    getCollection(type).map((page) => {
-      const url = `${BASE_URL}/${type}/${page._meta.path}`;
-
-      let lastModified: Date;
-      if ("date" in page && page.date) {
-        lastModified = page.date;
-      } else if ("startDate" in page && page.startDate) {
-        if ("endDate" in page && page.endDate) {
-          lastModified = page.endDate;
-        } else {
-          lastModified = page.startDate;
-        }
-      } else {
-        lastModified = currentDate;
-      }
-
-      let changeFrequency:
-        | "always"
-        | "hourly"
-        | "daily"
-        | "weekly"
-        | "monthly"
-        | "yearly"
-        | "never";
-      if (type === "blog") {
-        changeFrequency = "yearly";
-      } else if (type === "project") {
-        const isOngoing = !("endDate" in page && page.endDate);
-        changeFrequency = isOngoing ? "monthly" : "yearly";
-      } else {
-        changeFrequency = "yearly";
-      }
-
-      const priority = type === "blog" ? 0.5 : 0.6;
-
-      return {
-        url,
-        lastModified,
-        changeFrequency,
-        priority,
-      };
-    })
+    getCollection(type).map((page) => ({
+      url: `${BASE_URL}/${type}/${page._meta.path}`,
+      lastModified: getLastModified(page, currentDate),
+      changeFrequency: getChangeFrequency(type, page),
+      priority: type === "blog" ? 0.5 : 0.6,
+    }))
   );
 
   return [...llmPages, ...staticPages, ...typePages, ...contentPages];

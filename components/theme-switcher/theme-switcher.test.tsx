@@ -13,7 +13,7 @@ const DARK_THEME_REGEX = /dark theme/i;
 const SYSTEM_THEME_CURRENTLY_SELECTED_REGEX =
   /system theme.*currently selected/i;
 const LIGHT_THEME_CURRENTLY_SELECTED_REGEX = /light theme.*currently selected/i;
-const _DARK_THEME_CURRENTLY_SELECTED_REGEX = /dark theme.*currently selected/i;
+const DARK_THEME_CURRENTLY_SELECTED_REGEX = /dark theme.*currently selected/i;
 
 vi.mock("next-themes", () => ({
   useTheme: vi.fn(),
@@ -191,7 +191,7 @@ describe("ThemeSwitcher", () => {
 
       await waitFor(() => {
         const darkButton = screen.getByRole("button", {
-          name: /dark theme.*currently selected/i,
+          name: DARK_THEME_CURRENTLY_SELECTED_REGEX,
         });
         expect(darkButton).toHaveAttribute("aria-pressed", "true");
       });
