@@ -34,11 +34,12 @@ export function AboutCard() {
         />
       </div>
       <p className="mt-4 text-foreground leading-7">
-        I&apos;m a Thai software engineer who believes accessible, delightful
-        technology has the power to transform lives. Currently at NatWest Group,
-        I build frontend tools that make banking more intuitive—for staff and
-        customers alike. Based in Edinburgh, I code, contribute to open source,
-        and check in on my pet rabbit back home via camera.
+        I&apos;m a graduate software engineer at NatWest Group, building
+        accessible and user-centered frontend tools that make banking more
+        intuitive for both customers and staffs. I care about thoughtful design,
+        maintainable systems, and reliable software in production. I enjoy
+        contributing to open-source projects, studying Japanese, and checking in
+        on my pet rabbit back home via a camera.
       </p>
       <span className="mt-auto flex flex-col flex-wrap justify-between sm:flex-row sm:items-center">
         <p className="mt-4 flex flex-wrap items-center gap-x-3 text-foreground leading-7">
