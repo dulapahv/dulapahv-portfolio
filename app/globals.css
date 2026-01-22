@@ -1020,3 +1020,420 @@ code[data-line-numbers] > [data-line].warning::before {
     fill: var(--color-foreground);
   }
 }
+
+/* Pre-calculated SVG text animation styles for instant rendering */
+/* Base styles for all animated header text SVGs */
+.svg-anim-crafting path,
+.svg-anim-accessible path,
+.svg-anim-digital path {
+  stroke: var(--x-gray-1000);
+  stroke-width: 1px;
+  animation: svg-text-anim 1.4s forwards ease-in-out;
+}
+
+/* SVG 1: "Software engineer crafting" - 24 paths */
+.svg-anim-crafting path#\30  {
+  stroke-dasharray: 486.21px;
+  stroke-dashoffset: 486.21px;
+  animation-delay: 0s;
+  transform: translateX(0px);
+}
+.svg-anim-crafting path#\31  {
+  stroke-dasharray: 353.34px;
+  stroke-dashoffset: 353.34px;
+  animation-delay: 0.03s;
+  transform: translateX(4px);
+}
+.svg-anim-crafting path#\32  {
+  stroke-dasharray: 251.46px;
+  stroke-dashoffset: 251.46px;
+  animation-delay: 0.06s;
+  transform: translateX(8px);
+}
+.svg-anim-crafting path#\33  {
+  stroke-dasharray: 237.02px;
+  stroke-dashoffset: 237.02px;
+  animation-delay: 0.09s;
+  transform: translateX(12px);
+}
+.svg-anim-crafting path#\34  {
+  stroke-dasharray: 494.05px;
+  stroke-dashoffset: 494.05px;
+  animation-delay: 0.12s;
+  transform: translateX(16px);
+}
+.svg-anim-crafting path#\35  {
+  stroke-dasharray: 428.21px;
+  stroke-dashoffset: 428.21px;
+  animation-delay: 0.15s;
+  transform: translateX(20px);
+}
+.svg-anim-crafting path#\36  {
+  stroke-dasharray: 188.82px;
+  stroke-dashoffset: 188.82px;
+  animation-delay: 0.18s;
+  transform: translateX(24px);
+}
+.svg-anim-crafting path#\37  {
+  stroke-dasharray: 418.48px;
+  stroke-dashoffset: 418.48px;
+  animation-delay: 0.21s;
+  transform: translateX(28px);
+}
+.svg-anim-crafting path#\39  {
+  stroke-dasharray: 418.48px;
+  stroke-dashoffset: 418.48px;
+  animation-delay: 0.24s;
+  transform: translateX(32px);
+}
+.svg-anim-crafting path#\31 0 {
+  stroke-dasharray: 334.42px;
+  stroke-dashoffset: 334.42px;
+  animation-delay: 0.27s;
+  transform: translateX(36px);
+}
+.svg-anim-crafting path#\31 1 {
+  stroke-dasharray: 590.78px;
+  stroke-dashoffset: 590.78px;
+  animation-delay: 0.3s;
+  transform: translateX(40px);
+}
+.svg-anim-crafting path#\31 2 {
+  stroke-dasharray: 173.52px;
+  stroke-dashoffset: 173.52px;
+  animation-delay: 0.33s;
+  transform: translateX(44px);
+}
+.svg-anim-crafting path#\31 3 {
+  stroke-dasharray: 334.42px;
+  stroke-dashoffset: 334.42px;
+  animation-delay: 0.36s;
+  transform: translateX(48px);
+}
+.svg-anim-crafting path#\31 4 {
+  stroke-dasharray: 418.49px;
+  stroke-dashoffset: 418.49px;
+  animation-delay: 0.39s;
+  transform: translateX(52px);
+}
+.svg-anim-crafting path#\31 5 {
+  stroke-dasharray: 418.49px;
+  stroke-dashoffset: 418.49px;
+  animation-delay: 0.42s;
+  transform: translateX(56px);
+}
+.svg-anim-crafting path#\31 6 {
+  stroke-dasharray: 188.82px;
+  stroke-dashoffset: 188.82px;
+  animation-delay: 0.45s;
+  transform: translateX(60px);
+}
+.svg-anim-crafting path#\31 8 {
+  stroke-dasharray: 324.15px;
+  stroke-dashoffset: 324.15px;
+  animation-delay: 0.48s;
+  transform: translateX(64px);
+}
+.svg-anim-crafting path#\31 9 {
+  stroke-dasharray: 188.82px;
+  stroke-dashoffset: 188.82px;
+  animation-delay: 0.51s;
+  transform: translateX(68px);
+}
+.svg-anim-crafting path#\32 0 {
+  stroke-dasharray: 428.21px;
+  stroke-dashoffset: 428.21px;
+  animation-delay: 0.54s;
+  transform: translateX(72px);
+}
+.svg-anim-crafting path#\32 1 {
+  stroke-dasharray: 251.46px;
+  stroke-dashoffset: 251.46px;
+  animation-delay: 0.57s;
+  transform: translateX(76px);
+}
+.svg-anim-crafting path#\32 2 {
+  stroke-dasharray: 237.02px;
+  stroke-dashoffset: 237.02px;
+  animation-delay: 0.6s;
+  transform: translateX(80px);
+}
+.svg-anim-crafting path#\32 3 {
+  stroke-dasharray: 173.52px;
+  stroke-dashoffset: 173.52px;
+  animation-delay: 0.63s;
+  transform: translateX(84px);
+}
+.svg-anim-crafting path#\32 4 {
+  stroke-dasharray: 334.42px;
+  stroke-dashoffset: 334.42px;
+  animation-delay: 0.66s;
+  transform: translateX(88px);
+}
+.svg-anim-crafting path#\32 5 {
+  stroke-dasharray: 590.79px;
+  stroke-dashoffset: 590.79px;
+  animation-delay: 0.69s;
+  transform: translateX(92px);
+}
+
+/* SVG 2: "accessible and delightful" - 23 paths */
+.svg-anim-accessible path#\30  {
+  stroke-dasharray: 428.21px;
+  stroke-dashoffset: 428.21px;
+  animation-delay: 0.2s;
+  transform: translateX(0px);
+}
+.svg-anim-accessible path#\31  {
+  stroke-dasharray: 324.15px;
+  stroke-dashoffset: 324.15px;
+  animation-delay: 0.23s;
+  transform: translateX(4px);
+}
+.svg-anim-accessible path#\32  {
+  stroke-dasharray: 324.15px;
+  stroke-dashoffset: 324.15px;
+  animation-delay: 0.26s;
+  transform: translateX(8px);
+}
+.svg-anim-accessible path#\33  {
+  stroke-dasharray: 418.48px;
+  stroke-dashoffset: 418.48px;
+  animation-delay: 0.29s;
+  transform: translateX(12px);
+}
+.svg-anim-accessible path#\34  {
+  stroke-dasharray: 359.47px;
+  stroke-dashoffset: 359.47px;
+  animation-delay: 0.32s;
+  transform: translateX(16px);
+}
+.svg-anim-accessible path#\35  {
+  stroke-dasharray: 359.47px;
+  stroke-dashoffset: 359.47px;
+  animation-delay: 0.35s;
+  transform: translateX(20px);
+}
+.svg-anim-accessible path#\36  {
+  stroke-dasharray: 173.52px;
+  stroke-dashoffset: 173.52px;
+  animation-delay: 0.38s;
+  transform: translateX(24px);
+}
+.svg-anim-accessible path#\37  {
+  stroke-dasharray: 433.42px;
+  stroke-dashoffset: 433.42px;
+  animation-delay: 0.41s;
+  transform: translateX(28px);
+}
+.svg-anim-accessible path#\38  {
+  stroke-dasharray: 187.44px;
+  stroke-dashoffset: 187.44px;
+  animation-delay: 0.44s;
+  transform: translateX(32px);
+}
+.svg-anim-accessible path#\39  {
+  stroke-dasharray: 418.49px;
+  stroke-dashoffset: 418.49px;
+  animation-delay: 0.47s;
+  transform: translateX(36px);
+}
+.svg-anim-accessible path#\31 1 {
+  stroke-dasharray: 428.21px;
+  stroke-dashoffset: 428.21px;
+  animation-delay: 0.5s;
+  transform: translateX(40px);
+}
+.svg-anim-accessible path#\31 2 {
+  stroke-dasharray: 334.42px;
+  stroke-dashoffset: 334.42px;
+  animation-delay: 0.53s;
+  transform: translateX(44px);
+}
+.svg-anim-accessible path#\31 3 {
+  stroke-dasharray: 433.67px;
+  stroke-dashoffset: 433.67px;
+  animation-delay: 0.56s;
+  transform: translateX(48px);
+}
+.svg-anim-accessible path#\31 5 {
+  stroke-dasharray: 433.67px;
+  stroke-dashoffset: 433.67px;
+  animation-delay: 0.59s;
+  transform: translateX(52px);
+}
+.svg-anim-accessible path#\31 6 {
+  stroke-dasharray: 418.49px;
+  stroke-dashoffset: 418.49px;
+  animation-delay: 0.62s;
+  transform: translateX(56px);
+}
+.svg-anim-accessible path#\31 7 {
+  stroke-dasharray: 187.44px;
+  stroke-dashoffset: 187.44px;
+  animation-delay: 0.65s;
+  transform: translateX(60px);
+}
+.svg-anim-accessible path#\31 8 {
+  stroke-dasharray: 173.52px;
+  stroke-dashoffset: 173.52px;
+  animation-delay: 0.68s;
+  transform: translateX(64px);
+}
+.svg-anim-accessible path#\31 9 {
+  stroke-dasharray: 590.78px;
+  stroke-dashoffset: 590.78px;
+  animation-delay: 0.71s;
+  transform: translateX(68px);
+}
+.svg-anim-accessible path#\32 0 {
+  stroke-dasharray: 379.62px;
+  stroke-dashoffset: 379.62px;
+  animation-delay: 0.74s;
+  transform: translateX(72px);
+}
+.svg-anim-accessible path#\32 1 {
+  stroke-dasharray: 237.02px;
+  stroke-dashoffset: 237.02px;
+  animation-delay: 0.77s;
+  transform: translateX(76px);
+}
+.svg-anim-accessible path#\32 2 {
+  stroke-dasharray: 251.46px;
+  stroke-dashoffset: 251.46px;
+  animation-delay: 0.8s;
+  transform: translateX(80px);
+}
+.svg-anim-accessible path#\32 3 {
+  stroke-dasharray: 334.47px;
+  stroke-dashoffset: 334.47px;
+  animation-delay: 0.83s;
+  transform: translateX(84px);
+}
+.svg-anim-accessible path#\32 4 {
+  stroke-dasharray: 187.44px;
+  stroke-dashoffset: 187.44px;
+  animation-delay: 0.86s;
+  transform: translateX(88px);
+}
+
+/* SVG 3: "digital experiences" - 18 paths */
+.svg-anim-digital path#\30  {
+  stroke-dasharray: 433.67px;
+  stroke-dashoffset: 433.67px;
+  animation-delay: 0.4s;
+  transform: translateX(0px);
+}
+.svg-anim-digital path#\31  {
+  stroke-dasharray: 173.52px;
+  stroke-dashoffset: 173.52px;
+  animation-delay: 0.43s;
+  transform: translateX(4px);
+}
+.svg-anim-digital path#\32  {
+  stroke-dasharray: 590.78px;
+  stroke-dashoffset: 590.78px;
+  animation-delay: 0.46s;
+  transform: translateX(8px);
+}
+.svg-anim-digital path#\33  {
+  stroke-dasharray: 173.52px;
+  stroke-dashoffset: 173.52px;
+  animation-delay: 0.49s;
+  transform: translateX(12px);
+}
+.svg-anim-digital path#\34  {
+  stroke-dasharray: 237.02px;
+  stroke-dashoffset: 237.02px;
+  animation-delay: 0.52s;
+  transform: translateX(16px);
+}
+.svg-anim-digital path#\35  {
+  stroke-dasharray: 428.21px;
+  stroke-dashoffset: 428.21px;
+  animation-delay: 0.55s;
+  transform: translateX(20px);
+}
+.svg-anim-digital path#\36  {
+  stroke-dasharray: 187.44px;
+  stroke-dashoffset: 187.44px;
+  animation-delay: 0.58s;
+  transform: translateX(24px);
+}
+.svg-anim-digital path#\38  {
+  stroke-dasharray: 418.48px;
+  stroke-dashoffset: 418.48px;
+  animation-delay: 0.61s;
+  transform: translateX(28px);
+}
+.svg-anim-digital path#\39  {
+  stroke-dasharray: 315.71px;
+  stroke-dashoffset: 315.71px;
+  animation-delay: 0.64s;
+  transform: translateX(32px);
+}
+.svg-anim-digital path#\31 0 {
+  stroke-dasharray: 427.63px;
+  stroke-dashoffset: 427.63px;
+  animation-delay: 0.67s;
+  transform: translateX(36px);
+}
+.svg-anim-digital path#\31 1 {
+  stroke-dasharray: 418.48px;
+  stroke-dashoffset: 418.48px;
+  animation-delay: 0.7s;
+  transform: translateX(40px);
+}
+.svg-anim-digital path#\31 2 {
+  stroke-dasharray: 188.82px;
+  stroke-dashoffset: 188.82px;
+  animation-delay: 0.73s;
+  transform: translateX(44px);
+}
+.svg-anim-digital path#\31 3 {
+  stroke-dasharray: 173.52px;
+  stroke-dashoffset: 173.52px;
+  animation-delay: 0.76s;
+  transform: translateX(48px);
+}
+.svg-anim-digital path#\31 4 {
+  stroke-dasharray: 418.48px;
+  stroke-dashoffset: 418.48px;
+  animation-delay: 0.79s;
+  transform: translateX(52px);
+}
+.svg-anim-digital path#\31 5 {
+  stroke-dasharray: 334.42px;
+  stroke-dashoffset: 334.42px;
+  animation-delay: 0.82s;
+  transform: translateX(56px);
+}
+.svg-anim-digital path#\31 6 {
+  stroke-dasharray: 324.15px;
+  stroke-dashoffset: 324.15px;
+  animation-delay: 0.85s;
+  transform: translateX(60px);
+}
+.svg-anim-digital path#\31 7 {
+  stroke-dasharray: 418.48px;
+  stroke-dashoffset: 418.48px;
+  animation-delay: 0.88s;
+  transform: translateX(64px);
+}
+.svg-anim-digital path#\31 8 {
+  stroke-dasharray: 359.47px;
+  stroke-dashoffset: 359.47px;
+  animation-delay: 0.91s;
+  transform: translateX(68px);
+}
+
+/* Reduced motion preference - show text immediately without animation */
+@media (prefers-reduced-motion: reduce) {
+  .svg-anim-crafting path,
+  .svg-anim-accessible path,
+  .svg-anim-digital path {
+    animation: none;
+    stroke: none;
+    fill: var(--x-gray-1000);
+  }
+}

@@ -1,102 +1,29 @@
-"use client";
-
-import { useEffect, useRef } from "react";
-
-import { useMediaQuery } from "@/hooks/use-media-query/use-media-query";
+import { cn } from "@/lib/utils";
 
 interface SvgTextAnimationProps {
-  delay?: number;
-  startDelay?: number;
-  duration?: number;
-  strokeWidth?: number;
-  timingFunction?: string;
-  strokeColor?: string;
-  fillColor?: string;
-  letterSpacing?: number;
-  repeat?: boolean;
   className?: string;
   ariaLabel?: string;
   width?: string | number;
   height?: string | number;
   viewBox?: string;
   children: React.ReactNode;
+  animationClass?: string;
 }
 
 export function SvgTextAnimation({
-  delay = 0.1,
-  startDelay = 0,
-  duration = 2,
-  strokeWidth = 1,
-  timingFunction = "ease-in-out",
-  strokeColor = "#ffffff",
-  fillColor = "#ffffff",
-  letterSpacing = 0,
-  repeat = false,
   className = "",
   ariaLabel = "Animated text",
   width = "100%",
   height = "100%",
   viewBox,
   children,
+  animationClass,
 }: SvgTextAnimationProps) {
-  const svgRef = useRef<SVGSVGElement>(null);
-  const prefersReducedMotion = useMediaQuery(
-    "(prefers-reduced-motion: reduce)"
-  );
-
-  useEffect(() => {
-    if (!svgRef.current || prefersReducedMotion) {
-      return;
-    }
-
-    const paths = svgRef.current.querySelectorAll("path");
-    const mode = repeat ? "infinite" : "forwards";
-
-    paths.forEach((path, i) => {
-      const length = path.getTotalLength();
-
-      if (letterSpacing > 0) {
-        path.style.transform = `translateX(${i * letterSpacing}px)`;
-      }
-
-      path.style.strokeDashoffset = `${length}px`;
-      path.style.strokeDasharray = `${length}px`;
-      path.style.strokeWidth = `${strokeWidth}px`;
-      path.style.stroke = strokeColor;
-      path.style.animation = `svg-text-anim ${duration}s ${mode} ${timingFunction}`;
-      path.style.animationDelay = `${startDelay + i * delay}s`;
-    });
-  }, [
-    delay,
-    startDelay,
-    duration,
-    strokeWidth,
-    timingFunction,
-    strokeColor,
-    repeat,
-    prefersReducedMotion,
-    letterSpacing,
-  ]);
-
-  // If user prefers reduced motion, remove animation styles from paths
-  useEffect(() => {
-    if (!(svgRef.current && prefersReducedMotion)) {
-      return;
-    }
-
-    const paths = svgRef.current.querySelectorAll("path");
-    paths.forEach((path) => {
-      path.style.fill = fillColor;
-      path.style.stroke = "none";
-    });
-  }, [prefersReducedMotion, fillColor]);
-
   return (
     <svg
       aria-label={ariaLabel}
-      className={className}
+      className={cn(animationClass, className)}
       height={height}
-      ref={svgRef}
       role="img"
       viewBox={viewBox}
       width={width}

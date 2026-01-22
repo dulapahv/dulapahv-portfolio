@@ -11,14 +11,10 @@ export function HeaderText() {
           Software engineer crafting
         </span>
         <SvgTextAnimation
+          animationClass="svg-anim-crafting"
           ariaLabel="Software engineering crafting animated text"
           className="h-auto w-full"
-          delay={0.03}
-          duration={1.4}
-          fillColor="var(--x-gray-1000)"
           height="109.561"
-          letterSpacing={4}
-          strokeColor="var(--x-gray-1000)"
           viewBox="0 0 1450 109.561"
           width="1450"
         >
@@ -161,15 +157,10 @@ export function HeaderText() {
           accessible and delightful
         </span>
         <SvgTextAnimation
+          animationClass="svg-anim-accessible"
           ariaLabel="accessible and delightful animated text"
           className="h-auto w-full"
-          delay={0.03}
-          duration={1.4}
-          fillColor="var(--x-gray-1000)"
           height="109.561"
-          letterSpacing={4}
-          startDelay={0.2}
-          strokeColor="var(--x-gray-1000)"
           viewBox="0 0 1450 109.561"
           width="1450"
         >
@@ -307,15 +298,10 @@ export function HeaderText() {
           digital experiences
         </span>
         <SvgTextAnimation
+          animationClass="svg-anim-digital"
           ariaLabel="digital experiences animated text"
           className="h-auto w-full"
-          delay={0.03}
-          duration={1.4}
-          fillColor="var(--x-gray-1000)"
           height="108.6"
-          letterSpacing={4}
-          startDelay={0.4}
-          strokeColor="var(--x-gray-1000)"
           viewBox="0 0 1450 109.561"
           width="1450"
         >
