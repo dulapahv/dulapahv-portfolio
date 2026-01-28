@@ -18,7 +18,7 @@
     ]
   },
   "dependencies": {
-    "@opennextjs/cloudflare": "^1.15.1",
+    "@opennextjs/cloudflare": "^1.16.1",
     "@phosphor-icons/react": "^2.1.10",
     "@react-spring/web": "^10.0.3",
     "@shikijs/transformers": "^3.21.0",
@@ -27,11 +27,11 @@
     "cobe": "^0.6.5",
     "deepmerge": "^4.3.1",
     "geist": "^1.5.1",
-    "motion": "^12.29.0",
-    "next": "16.1.4",
+    "motion": "^12.29.2",
+    "next": "16.1.6",
     "next-themes": "^0.4.6",
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
     "react-medium-image-zoom": "^5.4.0",
     "reading-time": "^1.5.0",
     "rehype-autolink-headings": "^7.1.0",
@@ -59,7 +59,7 @@
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@types/node": "^24.10.9",
-    "@types/react": "^19.2.9",
+    "@types/react": "^19.2.10",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.2",
     "@vitest/coverage-v8": "4.0.18",
@@ -69,12 +69,12 @@
     "lint-staged": "^16.2.7",
     "next-router-mock": "^1.0.5",
     "tailwindcss": "^4.1.18",
-    "turbo": "^2.7.5",
+    "turbo": "^2.7.6",
     "typescript": "^5.9.3",
     "ultracite": "6.5.0",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^4.0.18",
-    "wrangler": "^4.60.0"
+    "wrangler": "^4.61.0"
   },
   "packageManager": "pnpm@10.28.1+sha512.7d7dbbca9e99447b7c3bf7a73286afaaf6be99251eb9498baefa7d406892f67b879adb3a1d7e687fc4ccc1a388c7175fbaae567a26ab44d1067b54fcb0d6a316"
 }
