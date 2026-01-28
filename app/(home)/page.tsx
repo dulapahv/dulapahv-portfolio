@@ -27,8 +27,6 @@ export const metadata: Metadata = createMetadata({
   ogText: "Dulapah Vibulsanti\nSoftware Engineer",
 });
 
-export const dynamic = "force-dynamic";
-
 export default function Home() {
   return (
     <>
