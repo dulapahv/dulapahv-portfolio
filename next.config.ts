@@ -4,9 +4,15 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: [process.env.ALLOWED_DEV_ORIGINS || "[]"],
-  reactCompiler: true,
   poweredByHeader: false,
+  reactCompiler: true,
   typedRoutes: true,
+  experimental: {
+    typedEnv: true,
+    viewTransition: true,
+    turbopackFileSystemCacheForDev: true,
+    optimizePackageImports: ["@phosphor-icons/react"],
+  },
   images: {
     loader: "custom",
     loaderFile: "./image-loader.ts",
@@ -18,11 +24,6 @@ const nextConfig: NextConfig = {
         pathname: "/image/**",
       },
     ],
-  },
-  experimental: {
-    typedEnv: true,
-    viewTransition: true,
-    turbopackFileSystemCacheForDev: true,
   },
 };
 
