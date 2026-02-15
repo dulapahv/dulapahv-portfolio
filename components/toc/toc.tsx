@@ -235,7 +235,9 @@ export function TableOfContents() {
                     className={cn(
                       "group relative block rounded-md px-3 py-1 text-sm",
                       item.level === 3 ? "pl-7" : "",
-                      isActive ? "text-mirai-red" : "text-foreground-muted",
+                      isActive
+                        ? "text-mirai-red transition-colors"
+                        : "text-foreground-muted",
                       !isActive && "hover:text-foreground"
                     )}
                     href={`#${item.id}`}
@@ -248,7 +250,7 @@ export function TableOfContents() {
                     <span
                       aria-hidden="true"
                       className={cn(
-                        "absolute top-1/2 left-0 h-full w-0.5 -translate-y-1/2",
+                        "absolute top-1/2 left-0 h-full w-0.5 -translate-y-1/2 transition-colors",
                         isActive
                           ? "bg-mirai-red"
                           : "bg-white/80 dark:bg-neutral-300/80"

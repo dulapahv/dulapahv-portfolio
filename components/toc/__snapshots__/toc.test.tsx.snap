@@ -24,12 +24,12 @@ exports[`TableOfContents > Snapshot > should match snapshot - desktop view 1`] =
           <a
             aria-current="location"
             aria-describedby="current-section-0"
-            class="group relative block rounded-md px-3 py-1 text-sm text-mirai-red"
+            class="group relative block rounded-md px-3 py-1 text-sm text-mirai-red transition-colors"
             href="#heading-1"
           >
             <span
               aria-hidden="true"
-              class="absolute top-1/2 left-0 h-full w-0.5 -translate-y-1/2 bg-mirai-red"
+              class="absolute top-1/2 left-0 h-full w-0.5 -translate-y-1/2 transition-colors bg-mirai-red"
             />
             <span
               class="relative line-clamp-2"
@@ -53,7 +53,7 @@ exports[`TableOfContents > Snapshot > should match snapshot - desktop view 1`] =
           >
             <span
               aria-hidden="true"
-              class="absolute top-1/2 left-0 h-full w-0.5 -translate-y-1/2 bg-white/80 dark:bg-neutral-300/80"
+              class="absolute top-1/2 left-0 h-full w-0.5 -translate-y-1/2 transition-colors bg-white/80 dark:bg-neutral-300/80"
             />
             <span
               class="relative line-clamp-2"
@@ -71,7 +71,7 @@ exports[`TableOfContents > Snapshot > should match snapshot - desktop view 1`] =
           >
             <span
               aria-hidden="true"
-              class="absolute top-1/2 left-0 h-full w-0.5 -translate-y-1/2 bg-white/80 dark:bg-neutral-300/80"
+              class="absolute top-1/2 left-0 h-full w-0.5 -translate-y-1/2 transition-colors bg-white/80 dark:bg-neutral-300/80"
             />
             <span
               class="relative line-clamp-2"
