@@ -151,7 +151,7 @@ export function ShareButtons({ page }: ShareButtonsProps) {
 
     try {
       const response = await fetch(
-        `${window.location.origin}${window.location.pathname}.md`
+        `${window.location.origin}${window.location.pathname}.mdx`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch markdown");
@@ -168,7 +168,7 @@ export function ShareButtons({ page }: ShareButtonsProps) {
   };
 
   const viewAsMarkdown = () => {
-    window.open(`${window.location.pathname}.md`, "_blank");
+    window.open(`${window.location.pathname}.mdx`, "_blank");
   };
 
   const shareOnSocialMedia = (platform: string) => {
@@ -400,7 +400,7 @@ export function ShareButtons({ page }: ShareButtonsProps) {
             <div
               aria-orientation="vertical"
               className={cn(
-                "absolute top-full right-0 z-50 mt-1 min-w-[200px] border-border bg-background",
+                "absolute top-full right-0 z-50 mt-1 min-w-50 border-border bg-background",
                 "rounded-md border shadow-lg"
               )}
               role="menu"
@@ -429,30 +429,103 @@ export function ShareButtons({ page }: ShareButtonsProps) {
                 <MarkdownLogoIcon aria-hidden="true" className="size-5" />
                 <span>View as Markdown</span>
               </button>
-              <button
-                className={cn(
-                  "flex w-full cursor-pointer items-center gap-2 px-3 py-2 text-foreground text-sm",
-                  "hover:bg-background-subtle"
-                )}
-                onClick={() => {
-                  window.open("https://chat.dulapahv.dev", "_blank");
-                  setIsDropdownOpen(false);
-                }}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    window.open("https://chat.dulapahv.dev", "_blank");
-                    setIsDropdownOpen(false);
-                  } else if (e.key === "Escape") {
-                    setIsDropdownOpen(false);
-                  }
-                }}
-                role="menuitem"
-                type="button"
-              >
-                <SparkleIcon aria-hidden="true" className="size-5" />
-                <span>Ask in NLWeb Chat</span>
-              </button>
+              {(() => {
+                const pathname = window.location.pathname;
+                const encodedMdUrl = encodeURIComponent(
+                  `${window.location.origin}${pathname}.mdx`
+                );
+                const aiPrompt = `Read+${encodedMdUrl}%2C+I+want+to+ask+questions+about+it.`;
+                const openInItems = [
+                  {
+                    label: "Open in NLWeb Chat",
+                    url: `https://chat.dulapahv.dev/?hints=search&q=${aiPrompt}`,
+                    icon: <SparkleIcon aria-hidden="true" className="size-5" />,
+                  },
+                  {
+                    label: "Open in GitHub",
+                    url: `https://github.com/dulapahv/dulapahv-portfolio/blob/main/content${pathname}.mdx`,
+                    icon: (
+                      <ThemeAwareImage
+                        alt=""
+                        aria-hidden="true"
+                        darkSrc="/octocat-white.svg"
+                        height={20}
+                        lightSrc="/octocat-black.svg"
+                        width={20}
+                      />
+                    ),
+                  },
+                  {
+                    label: "Open in ChatGPT",
+                    url: `https://chatgpt.com/?hints=search&q=${aiPrompt}`,
+                    icon: (
+                      <ThemeAwareImage
+                        alt=""
+                        aria-hidden="true"
+                        darkSrc="/chatgpt-white.svg"
+                        height={20}
+                        lightSrc="/chatgpt-black.svg"
+                        width={20}
+                      />
+                    ),
+                  },
+                  {
+                    label: "Open in Claude",
+                    url: `https://claude.ai/new?q=${aiPrompt}`,
+                    icon: (
+                      <ThemeAwareImage
+                        alt=""
+                        aria-hidden="true"
+                        darkSrc="/claude-white.svg"
+                        height={20}
+                        lightSrc="/claude-black.svg"
+                        width={20}
+                      />
+                    ),
+                  },
+                  {
+                    label: "Open in T3 Chat",
+                    url: `https://t3.chat/new?q=${aiPrompt}`,
+                    icon: (
+                      <ThemeAwareImage
+                        alt=""
+                        aria-hidden="true"
+                        darkSrc="/t3-white.svg"
+                        height={20}
+                        lightSrc="/t3-black.svg"
+                        width={20}
+                      />
+                    ),
+                  },
+                ];
+                return openInItems.map((item) => (
+                  <button
+                    className={cn(
+                      "flex w-full cursor-pointer items-center gap-2 px-3 py-2 text-foreground text-sm",
+                      "hover:bg-background-subtle"
+                    )}
+                    key={item.label}
+                    onClick={() => {
+                      window.open(item.url, "_blank");
+                      setIsDropdownOpen(false);
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        window.open(item.url, "_blank");
+                        setIsDropdownOpen(false);
+                      } else if (e.key === "Escape") {
+                        setIsDropdownOpen(false);
+                      }
+                    }}
+                    role="menuitem"
+                    type="button"
+                  >
+                    {item.icon}
+                    <span>{item.label}</span>
+                  </button>
+                ));
+              })()}
             </div>
           )}
         </div>

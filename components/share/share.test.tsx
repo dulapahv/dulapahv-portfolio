@@ -353,7 +353,7 @@ describe("ShareButtons", () => {
 
       await waitFor(() => {
         expect(global.fetch).toHaveBeenCalledWith(
-          "https://example.com/test.md"
+          "https://example.com/test.mdx"
         );
         expect(mockClipboard.writeText).toHaveBeenCalledWith("# Test Markdown");
       });
@@ -453,10 +453,10 @@ describe("ShareButtons", () => {
       const viewMarkdownButton = screen.getByText("View as Markdown");
       fireEvent.click(viewMarkdownButton);
 
-      expect(mockOpen).toHaveBeenCalledWith("/test.md", "_blank");
+      expect(mockOpen).toHaveBeenCalledWith("/test.mdx", "_blank");
     });
 
-    it('should open NLWeb Chat when "Ask in NLWeb Chat" is clicked', () => {
+    it('should open NLWeb Chat when "Open in NLWeb Chat" is clicked', () => {
       const mockOpen = vi.fn();
       window.open = mockOpen;
 
@@ -471,12 +471,79 @@ describe("ShareButtons", () => {
       const dropdownButton = screen.getByTitle("More options");
       fireEvent.click(dropdownButton);
 
-      // Click Ask in NLWeb Chat
-      const nlwebButton = screen.getByText("Ask in NLWeb Chat");
+      // Click Open in NLWeb Chat
+      const nlwebButton = screen.getByText("Open in NLWeb Chat");
       fireEvent.click(nlwebButton);
 
       expect(mockOpen).toHaveBeenCalledWith(
-        "https://chat.dulapahv.dev",
+        "https://chat.dulapahv.dev/?hints=search&q=Read+https%3A%2F%2Fexample.com%2Ftest.mdx%2C+I+want+to+ask+questions+about+it.",
+        "_blank"
+      );
+    });
+
+    it("should show 'Open in' items in dropdown", () => {
+      const mockOpen = vi.fn();
+      window.open = mockOpen;
+
+      const page = {
+        title: "Test Page",
+        content: "Test Content",
+      };
+
+      render(<ShareButtons page={page} />);
+
+      // Open dropdown
+      const dropdownButton = screen.getByTitle("More options");
+      fireEvent.click(dropdownButton);
+
+      expect(screen.getByText("Open in GitHub")).toBeInTheDocument();
+      expect(screen.getByText("Open in ChatGPT")).toBeInTheDocument();
+      expect(screen.getByText("Open in Claude")).toBeInTheDocument();
+      expect(screen.getByText("Open in T3 Chat")).toBeInTheDocument();
+    });
+
+    it('should open GitHub URL when "Open in GitHub" is clicked', () => {
+      const mockOpen = vi.fn();
+      window.open = mockOpen;
+
+      const page = {
+        title: "Test Page",
+        content: "Test Content",
+      };
+
+      render(<ShareButtons page={page} />);
+
+      const dropdownButton = screen.getByTitle("More options");
+      fireEvent.click(dropdownButton);
+
+      const githubButton = screen.getByText("Open in GitHub");
+      fireEvent.click(githubButton);
+
+      expect(mockOpen).toHaveBeenCalledWith(
+        "https://github.com/dulapahv/dulapahv-portfolio/blob/main/content/test.mdx",
+        "_blank"
+      );
+    });
+
+    it('should open Claude URL when "Open in Claude" is clicked', () => {
+      const mockOpen = vi.fn();
+      window.open = mockOpen;
+
+      const page = {
+        title: "Test Page",
+        content: "Test Content",
+      };
+
+      render(<ShareButtons page={page} />);
+
+      const dropdownButton = screen.getByTitle("More options");
+      fireEvent.click(dropdownButton);
+
+      const claudeButton = screen.getByText("Open in Claude");
+      fireEvent.click(claudeButton);
+
+      expect(mockOpen).toHaveBeenCalledWith(
+        expect.stringContaining("https://claude.ai/new?q="),
         "_blank"
       );
     });
