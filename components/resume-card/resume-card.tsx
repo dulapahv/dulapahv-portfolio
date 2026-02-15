@@ -65,6 +65,7 @@ export const ResumeCard = () => {
           />
         </div>
 
+        {/* biome-ignore lint/a11y/noStaticElementInteractions: decorative 3D tilt effect on mouse move */}
         <div
           className="relative flex flex-1 cursor-crosshair items-center justify-center overflow-hidden rounded-md border border-border-subtle"
           onMouseLeave={handleMouseLeave}
@@ -94,7 +95,7 @@ export const ResumeCard = () => {
             }}
           >
             <div className="absolute inset-0 flex flex-col justify-evenly p-3">
-              {[...new Array(6)].map((_, i) => (
+              {[0, 1, 2, 3, 4, 5].map((i) => (
                 <div className="flex gap-1" key={`resume-line-${i}`}>
                   <div
                     className={cn(

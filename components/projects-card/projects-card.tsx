@@ -77,6 +77,7 @@ export function ProjectsCard() {
                 alt={currentProject.title}
                 className="object-cover"
                 fill
+                quality={25}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 src={currentProject.image}
               />

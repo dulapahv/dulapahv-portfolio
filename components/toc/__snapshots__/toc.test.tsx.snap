@@ -11,10 +11,9 @@ exports[`TableOfContents > Snapshot > should match snapshot - desktop view 1`] =
     >
       On this page
     </h2>
-    <div
+    <fieldset
       aria-label="Page sections - use arrow keys to navigate"
-      class="max-h-[calc(100vh-16rem)] overflow-y-auto py-2"
-      role="group"
+      class="max-h-[calc(100vh-16rem)] overflow-y-auto border-none py-2"
     >
       <ul
         class="space-y-1"
@@ -82,7 +81,7 @@ exports[`TableOfContents > Snapshot > should match snapshot - desktop view 1`] =
           </a>
         </li>
       </ul>
-    </div>
+    </fieldset>
   </nav>
 </div>
 `;

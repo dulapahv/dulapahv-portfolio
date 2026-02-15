@@ -46,15 +46,14 @@ exports[`Contact Page > should match snapshot 1`] = `
         <li
           class="inline-flex items-center gap-1.5"
         >
-          <span
+          <a
             aria-current="page"
             aria-disabled="true"
             class="font-normal text-foreground max-w-48 truncate"
-            role="link"
             tabindex="0"
           >
             Contact
-          </span>
+          </a>
         </li>
       </ol>
     </nav>

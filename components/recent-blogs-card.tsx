@@ -46,6 +46,7 @@ export function RecentBlogsCard() {
                         alt={blog_.title}
                         className="object-cover"
                         fill
+                        quality={1}
                         sizes="150px"
                         src={blog_.image}
                       />

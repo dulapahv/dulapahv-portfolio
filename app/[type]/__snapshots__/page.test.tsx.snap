@@ -46,15 +46,14 @@ exports[`Type Listing Page > should render blog listing and match snapshot 1`] =
         <li
           class="inline-flex items-center gap-1.5"
         >
-          <span
+          <a
             aria-current="page"
             aria-disabled="true"
             class="font-normal text-foreground max-w-48 truncate"
-            role="link"
             tabindex="0"
           >
             Blog
-          </span>
+          </a>
         </li>
       </ol>
     </nav>
@@ -214,15 +213,14 @@ exports[`Type Listing Page > should render project listing and match snapshot 1`
         <li
           class="inline-flex items-center gap-1.5"
         >
-          <span
+          <a
             aria-current="page"
             aria-disabled="true"
             class="font-normal text-foreground max-w-48 truncate"
-            role="link"
             tabindex="0"
           >
             Project
-          </span>
+          </a>
         </li>
       </ol>
     </nav>

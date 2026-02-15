@@ -89,18 +89,19 @@ export function CameraRollCard({ images }: CameraRollCardProps) {
       <h2 className="mb-4 font-semibold text-foreground-muted text-xs uppercase tracking-widest">
         Camera Roll
       </h2>
-      <div
+      {/* biome-ignore lint/a11y/noNoninteractiveElementInteractions: pause/resume carousel on hover */}
+      <section
+        aria-label="Camera Roll"
         className="relative mb-4 h-64 min-h-128 overflow-hidden rounded-lg xl:min-h-auto"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
-        role="region"
       >
         <div className="absolute top-2 right-2 left-2 z-10 flex gap-1">
           {images.map((image, index) => (
             <button
               aria-label={`Go to image ${index + 1}`}
               className="relative h-0.5 flex-1 overflow-hidden rounded-full bg-white/30"
-              key={`progress-${image}-${index}`}
+              key={`progress-${image}`}
               onClick={() => handleBarClick(index)}
               type="button"
             >
@@ -138,7 +139,7 @@ export function CameraRollCard({ images }: CameraRollCardProps) {
           {images.map((image, index) => (
             <div
               className="relative h-full w-full shrink-0"
-              key={`image-${image}-${index}`}
+              key={`image-${image}`}
             >
               <Zoom
                 classDialog='[&_[data-rmiz-modal-overlay="visible"]]:!bg-background/40 [&_[data-rmiz-modal-overlay="visible"]]:backdrop-blur-sm'
@@ -156,7 +157,7 @@ export function CameraRollCard({ images }: CameraRollCardProps) {
             </div>
           ))}
         </div>
-      </div>
+      </section>
 
       <span
         className={cn(

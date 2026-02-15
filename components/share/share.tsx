@@ -237,7 +237,7 @@ export function ShareButtons({ page }: ShareButtonsProps) {
   };
 
   return (
-    <div
+    <section
       aria-label="Share options"
       className="flex flex-wrap items-center gap-3"
     >
@@ -457,6 +457,6 @@ export function ShareButtons({ page }: ShareButtonsProps) {
           )}
         </div>
       )}
-    </div>
+    </section>
   );
 }

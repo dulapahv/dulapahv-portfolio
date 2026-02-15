@@ -12,6 +12,7 @@ vi.mock("next/image", () => ({
     src: string;
     alt: string;
     [key: string]: string | boolean | number;
+    // biome-ignore lint/performance/noImgElement: test mock for next/image
   }) => <img alt={alt} height={40} src={src} width={40} {...props} />,
 }));
 

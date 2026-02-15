@@ -53,6 +53,7 @@ exports[`ProjectsCard > should match snapshot 1`] = `
               alt="Test Project 1"
               class="object-cover"
               height="100"
+              quality="25"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               src="/images/project1.jpg"
               width="100"

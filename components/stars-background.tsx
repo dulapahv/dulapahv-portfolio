@@ -64,8 +64,8 @@ export function StarsBackground() {
     const render = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      for (let i = 0; i < stars.length; i++) {
-        drawStar(stars[i]);
+      for (const star of stars) {
+        drawStar(star);
       }
     };
 

@@ -128,7 +128,7 @@ export async function GitHubContributionsCard({
                       return (
                         <div
                           className="h-2.5 w-2.5"
-                          key={`empty-${weekIndex}-${dayIndex}`}
+                          key={`empty-${week.days[0]?.date || weekIndex}-${dayIndex}`}
                         />
                       );
                     }

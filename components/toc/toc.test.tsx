@@ -289,8 +289,8 @@ describe("TableOfContents", () => {
       const { container } = render(<TableOfContents />);
 
       await waitFor(() => {
-        const group = container.querySelector('[role="group"]');
-        expect(group).toHaveAttribute("aria-label");
+        const fieldset = container.querySelector("fieldset");
+        expect(fieldset).toHaveAttribute("aria-label");
       });
     });
   });

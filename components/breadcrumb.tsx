@@ -121,15 +121,14 @@ const BreadcrumbLink = React.forwardRef<
 BreadcrumbLink.displayName = "BreadcrumbLink";
 
 const BreadcrumbPage = React.forwardRef<
-  HTMLSpanElement,
-  React.ComponentPropsWithoutRef<"span">
+  HTMLAnchorElement,
+  React.ComponentPropsWithoutRef<"a">
 >(({ className, ...props }, ref) => (
-  <span
+  <a
     aria-current="page"
     aria-disabled="true"
     className={cn("font-normal text-foreground", className)}
     ref={ref}
-    role="link"
     tabIndex={0}
     {...props}
   />

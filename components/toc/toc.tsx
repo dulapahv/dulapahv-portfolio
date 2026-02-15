@@ -217,56 +217,55 @@ export function TableOfContents() {
         <h2 className="px-3 font-medium text-foreground text-sm">
           On this page
         </h2>
-        <div
+        <fieldset
           aria-label="Page sections - use arrow keys to navigate"
-          className="max-h-[calc(100vh-16rem)] overflow-y-auto py-2"
-          role="group"
+          className="max-h-[calc(100vh-16rem)] overflow-y-auto border-none py-2"
         >
           <ul className="space-y-1">
-            {tocItems.map((item, index) => (
-              <li className="mb-0" key={item.id}>
-                <Link
-                  aria-current={activeId === item.id ? "location" : undefined}
-                  aria-describedby={
-                    activeId === item.id
-                      ? `current-section-${index}`
-                      : undefined
-                  }
-                  className={cn(
-                    "group relative block rounded-md px-3 py-1 text-sm transition-all",
-                    item.level === 3 ? "pl-7" : "",
-                    activeId === item.id
-                      ? "text-mirai-red"
-                      : "text-foreground-muted",
-                    activeId !== item.id && "hover:text-foreground"
-                  )}
-                  href={`#${item.id}`}
-                  onClick={(e) => handleClick(e, item.id)}
-                  onKeyDown={(e) => handleKeyDown(e, item.id, index)}
-                  ref={(el) => {
-                    linksRef.current[index] = el;
-                  }}
-                >
-                  <span
-                    aria-hidden="true"
+            {/* biome-ignore lint/complexity/noExcessiveCognitiveComplexity: TOC item rendering requires conditional styling */}
+            {tocItems.map((item, index) => {
+              const isActive = activeId === item.id;
+              return (
+                <li className="mb-0" key={item.id}>
+                  <Link
+                    aria-current={isActive ? "location" : undefined}
+                    aria-describedby={
+                      isActive ? `current-section-${index}` : undefined
+                    }
                     className={cn(
-                      "absolute top-1/2 left-0 h-full w-0.5 -translate-y-1/2 transition-all",
-                      activeId === item.id
-                        ? "bg-mirai-red"
-                        : "bg-white/80 dark:bg-neutral-300/80"
+                      "group relative block rounded-md px-3 py-1 text-sm transition-all",
+                      item.level === 3 ? "pl-7" : "",
+                      isActive ? "text-mirai-red" : "text-foreground-muted",
+                      !isActive && "hover:text-foreground"
                     )}
-                  />
-                  <span className="relative line-clamp-2">{item.text}</span>
-                  {activeId === item.id && (
-                    <span className="sr-only" id={`current-section-${index}`}>
-                      (current section)
-                    </span>
-                  )}
-                </Link>
-              </li>
-            ))}
+                    href={`#${item.id}`}
+                    onClick={(e) => handleClick(e, item.id)}
+                    onKeyDown={(e) => handleKeyDown(e, item.id, index)}
+                    ref={(el) => {
+                      linksRef.current[index] = el;
+                    }}
+                  >
+                    <span
+                      aria-hidden="true"
+                      className={cn(
+                        "absolute top-1/2 left-0 h-full w-0.5 -translate-y-1/2 transition-all",
+                        isActive
+                          ? "bg-mirai-red"
+                          : "bg-white/80 dark:bg-neutral-300/80"
+                      )}
+                    />
+                    <span className="relative line-clamp-2">{item.text}</span>
+                    {isActive && (
+                      <span className="sr-only" id={`current-section-${index}`}>
+                        (current section)
+                      </span>
+                    )}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
-        </div>
+        </fieldset>
 
         <AnimatePresence>
           {showScrollTop && (

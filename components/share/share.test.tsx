@@ -72,6 +72,7 @@ describe("ShareButtons", () => {
           writable: true,
           configurable: true,
         });
+        // biome-ignore lint/performance/noDelete: must delete property so "share" in navigator returns false
         delete (navigator as { share?: unknown }).share;
       }
 
@@ -164,6 +165,7 @@ describe("ShareButtons", () => {
           writable: true,
           configurable: true,
         });
+        // biome-ignore lint/performance/noDelete: must delete property so "share" in navigator returns false
         delete (navigator as { share?: unknown }).share;
       }
     });
@@ -232,6 +234,7 @@ describe("ShareButtons", () => {
           writable: true,
           configurable: true,
         });
+        // biome-ignore lint/performance/noDelete: must delete property so "share" in navigator returns false
         delete (navigator as { share?: unknown }).share;
       }
     });
@@ -506,6 +509,7 @@ describe("ShareButtons", () => {
           writable: true,
           configurable: true,
         });
+        // biome-ignore lint/performance/noDelete: must delete property so "share" in navigator returns false
         delete (navigator as { share?: unknown }).share;
       }
     });
