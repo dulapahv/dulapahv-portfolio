@@ -35,9 +35,8 @@ export function Pre({
       <button
         aria-label="Copy code"
         className={cn(
-          "absolute top-[5px] right-2 z-50 cursor-pointer rounded-md p-2 text-foreground-muted transition-all!",
-          "hover:text-foreground/80",
-          "active:scale-90"
+          "absolute top-1.25 right-2 z-50 cursor-pointer rounded-md p-2 text-foreground-muted",
+          "hover:text-foreground/80"
         )}
         disabled={isCopied}
         onClick={handleClickCopy}

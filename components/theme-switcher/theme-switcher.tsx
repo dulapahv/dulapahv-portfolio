@@ -36,7 +36,7 @@ export function ThemeSwitcher() {
           <motion.button
             aria-label={`${label}${isActive ? ", currently selected" : ""}`}
             aria-pressed={isActive}
-            className="relative mx-0.5 flex size-7 items-center justify-center rounded-full transition-colors"
+            className="relative mx-0.5 flex size-7 items-center justify-center rounded-full"
             key={key}
             onClick={() => handleThemeChange(key)}
             type="button"

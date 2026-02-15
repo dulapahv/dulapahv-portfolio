@@ -46,7 +46,7 @@ export async function SpotifyCard() {
         >
           <ArrowUpRightIcon
             className={cn(
-              "size-5 text-foreground-muted transition-colors",
+              "size-5 text-foreground-muted",
               "group-hover:text-mirai-red"
             )}
             weight="regular"
@@ -67,7 +67,7 @@ export async function SpotifyCard() {
               {topArtists.map((artist, index) => (
                 <Link
                   className={cn(
-                    "flex items-center gap-3 rounded-lg p-2 transition-colors",
+                    "flex items-center gap-3 rounded-lg p-2",
                     "hover:bg-background-muted"
                   )}
                   href={artist.external_urls.spotify as Route}
@@ -108,7 +108,7 @@ export async function SpotifyCard() {
               {topTracks.map((track, index) => (
                 <div
                   className={cn(
-                    "flex items-center gap-3 rounded-lg p-2 transition-colors",
+                    "flex items-center gap-3 rounded-lg p-2",
                     "hover:bg-background-muted"
                   )}
                   key={track.id}
@@ -145,7 +145,7 @@ export async function SpotifyCard() {
                       {track.artists.map((artist, artistIndex) => (
                         <span key={artist.id}>
                           <Link
-                            className="transition-colors hover:text-foreground hover:underline"
+                            className="hover:text-foreground hover:underline"
                             href={artist.external_urls.spotify as Route}
                             rel="noopener noreferrer"
                             target="_blank"

@@ -519,7 +519,7 @@ exports[`Home Page > should match snapshot 1`] = `
               See what I've been doing on
                
               <a
-                class="inline-flex items-center text-foreground-muted text-sm transition-colors hover:text-foreground"
+                class="inline-flex items-center text-foreground-muted text-sm hover:text-foreground"
                 href="https://github.com/dulapahv"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -548,7 +548,7 @@ exports[`Home Page > should match snapshot 1`] = `
                 />
               </a>
               <a
-                class="inline-flex items-center text-foreground-muted text-sm transition-colors hover:text-foreground"
+                class="inline-flex items-center text-foreground-muted text-sm hover:text-foreground"
                 href="https://www.linkedin.com/in/dulapahv"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -566,7 +566,7 @@ exports[`Home Page > should match snapshot 1`] = `
                 />
               </a>
               <a
-                class="inline-flex items-center text-foreground-muted text-sm transition-colors hover:text-foreground"
+                class="inline-flex items-center text-foreground-muted text-sm hover:text-foreground"
                 href="https://open.spotify.com/user/31gh2o2edagehgvasq4ov3perrtm"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -585,7 +585,7 @@ exports[`Home Page > should match snapshot 1`] = `
               </a>
             </p>
             <a
-              class="group mt-4 inline-flex w-fit items-center rounded-full bg-border-subtle px-4 py-2 text-foreground text-sm transition-colors hover:bg-border hover:text-mirai-red"
+              class="group mt-4 inline-flex w-fit items-center rounded-full bg-border-subtle px-4 py-2 text-foreground text-sm hover:bg-border hover:text-mirai-red"
               href="/contact"
             >
               Let's talk!
@@ -636,7 +636,7 @@ exports[`Home Page > should match snapshot 1`] = `
               title="View my LinkedIn profile"
             >
               <svg
-                class="size-5 text-foreground-muted transition-colors group-hover/icon:text-mirai-red"
+                class="size-5 text-foreground-muted group-hover/icon:text-mirai-red"
                 fill="currentColor"
                 height="1em"
                 viewBox="0 0 256 256"
@@ -668,7 +668,7 @@ exports[`Home Page > should match snapshot 1`] = `
                   class="absolute top-2.5 left-0 h-px w-3 border-foreground/20 border-t border-dashed"
                 />
                 <p
-                  class="flex items-center gap-2 font-medium text-foreground transition-colors"
+                  class="flex items-center gap-2 font-medium text-foreground"
                 >
                   <span
                     class="relative inline-flex size-1.5 shrink-0"
@@ -707,7 +707,7 @@ exports[`Home Page > should match snapshot 1`] = `
                   class="absolute top-2.5 left-0 h-px w-3 border-foreground/20 border-t border-dashed"
                 />
                 <p
-                  class="flex items-center gap-2 font-medium text-foreground transition-colors"
+                  class="flex items-center gap-2 font-medium text-foreground"
                 >
                   Software Engineer Intern
                    at 
@@ -734,7 +734,7 @@ exports[`Home Page > should match snapshot 1`] = `
                   class="absolute top-2.5 left-0 h-px w-3 border-foreground/20 border-t border-dashed"
                 />
                 <p
-                  class="flex items-center gap-2 font-medium text-foreground transition-colors"
+                  class="flex items-center gap-2 font-medium text-foreground"
                 >
                   Front-End Developer
                    at 
@@ -761,7 +761,7 @@ exports[`Home Page > should match snapshot 1`] = `
                   class="absolute top-2.5 left-0 h-px w-3 border-foreground/20 border-t border-dashed"
                 />
                 <p
-                  class="flex items-center gap-2 font-medium text-foreground transition-colors"
+                  class="flex items-center gap-2 font-medium text-foreground"
                 >
                   Full-Stack Developer Intern
                    at 
@@ -784,7 +784,7 @@ exports[`Home Page > should match snapshot 1`] = `
                 class="mt-auto flex items-center justify-between pl-4"
               >
                 <a
-                  class="text-foreground-muted transition-colors hover:text-foreground"
+                  class="text-foreground-muted hover:text-foreground"
                   href="https://www.linkedin.com/in/dulapahv"
                   rel="noopener noreferrer"
                   target="_blank"
@@ -792,7 +792,7 @@ exports[`Home Page > should match snapshot 1`] = `
                   View full work experience
                 </a>
                 <span
-                  class="ml-2 text-foreground-muted transition-colors"
+                  class="ml-2 text-foreground-muted"
                 >
                   2020-2023
                 </span>
@@ -876,7 +876,7 @@ exports[`Home Page > should match snapshot 1`] = `
                   class="flex min-w-0 flex-1 flex-col gap-1"
                 >
                   <h3
-                    class="font-medium text-foreground text-sm transition-colors group-hover/item:text-mirai-red"
+                    class="font-medium text-foreground text-sm group-hover/item:text-mirai-red"
                   >
                     How to Use Variables in JSDoc with vite-plugin-dts
                   </h3>
@@ -924,7 +924,7 @@ exports[`Home Page > should match snapshot 1`] = `
                   class="flex min-w-0 flex-1 flex-col gap-1"
                 >
                   <h3
-                    class="font-medium text-foreground text-sm transition-colors group-hover/item:text-mirai-red"
+                    class="font-medium text-foreground text-sm group-hover/item:text-mirai-red"
                   >
                     Improve Captcha User Experience with Invisible CAPTCHA by Vercel BotID
                   </h3>
@@ -972,7 +972,7 @@ exports[`Home Page > should match snapshot 1`] = `
                   class="flex min-w-0 flex-1 flex-col gap-1"
                 >
                   <h3
-                    class="font-medium text-foreground text-sm transition-colors group-hover/item:text-mirai-red"
+                    class="font-medium text-foreground text-sm group-hover/item:text-mirai-red"
                   >
                     How I Became a Software Engineer (Even Though I Wanted to Be a Heart Surgeon)
                   </h3>
@@ -1020,7 +1020,7 @@ exports[`Home Page > should match snapshot 1`] = `
                   class="flex min-w-0 flex-1 flex-col gap-1"
                 >
                   <h3
-                    class="font-medium text-foreground text-sm transition-colors group-hover/item:text-mirai-red"
+                    class="font-medium text-foreground text-sm group-hover/item:text-mirai-red"
                   >
                     Structural and Contextual Styling with Tailwind CSS Arbitrary Variants
                   </h3>
@@ -1080,7 +1080,7 @@ exports[`Home Page > should match snapshot 1`] = `
               title="View all projects"
             >
               <svg
-                class="size-5 text-foreground-muted transition-colors group-hover/icon:text-mirai-red"
+                class="size-5 text-foreground-muted group-hover/icon:text-mirai-red"
                 fill="currentColor"
                 height="1em"
                 viewBox="0 0 256 256"
@@ -1118,7 +1118,7 @@ exports[`Home Page > should match snapshot 1`] = `
             </a>
             <button
               aria-label="Previous project"
-              class="absolute top-1/2 left-2 -translate-y-1/2 bg-background/80 hover:bg-background rounded-full p-2 backdrop-blur-sm transition-all hover:scale-110"
+              class="absolute top-1/2 left-2 -translate-y-1/2 bg-background/80 hover:bg-background rounded-full p-2 backdrop-blur-sm"
               type="button"
             >
               <svg
@@ -1136,7 +1136,7 @@ exports[`Home Page > should match snapshot 1`] = `
             </button>
             <button
               aria-label="Next project"
-              class="absolute top-1/2 right-2 -translate-y-1/2 bg-background/80 hover:bg-background rounded-full p-2 backdrop-blur-sm transition-all hover:scale-110"
+              class="absolute top-1/2 right-2 -translate-y-1/2 bg-background/80 hover:bg-background rounded-full p-2 backdrop-blur-sm"
               type="button"
             >
               <svg
@@ -1158,7 +1158,7 @@ exports[`Home Page > should match snapshot 1`] = `
             href="/project/issho"
           >
             <h3
-              class="block font-semibold text-foreground text-lg transition-colors group-hover:text-mirai-red"
+              class="block font-semibold text-foreground text-lg group-hover:text-mirai-red"
             >
               Issho - Plan with friends, faster
             </h3>
@@ -1180,27 +1180,27 @@ exports[`Home Page > should match snapshot 1`] = `
           >
             <button
               aria-label="Go to project 1"
-              class="h-2 rounded-full transition-all w-6 bg-mirai-red"
+              class="h-2 rounded-full w-6 bg-mirai-red"
               type="button"
             />
             <button
               aria-label="Go to project 2"
-              class="h-2 rounded-full transition-all w-2 bg-foreground/20 hover:bg-border"
+              class="h-2 rounded-full w-2 bg-foreground/20 hover:bg-border"
               type="button"
             />
             <button
               aria-label="Go to project 3"
-              class="h-2 rounded-full transition-all w-2 bg-foreground/20 hover:bg-border"
+              class="h-2 rounded-full w-2 bg-foreground/20 hover:bg-border"
               type="button"
             />
             <button
               aria-label="Go to project 4"
-              class="h-2 rounded-full transition-all w-2 bg-foreground/20 hover:bg-border"
+              class="h-2 rounded-full w-2 bg-foreground/20 hover:bg-border"
               type="button"
             />
             <button
               aria-label="Go to project 5"
-              class="h-2 rounded-full transition-all w-2 bg-foreground/20 hover:bg-border"
+              class="h-2 rounded-full w-2 bg-foreground/20 hover:bg-border"
               type="button"
             />
           </div>
@@ -1237,7 +1237,7 @@ exports[`Home Page > should match snapshot 1`] = `
                 Résumé
               </h2>
               <svg
-                class="size-5 text-foreground-muted transition-colors group-hover:text-mirai-red"
+                class="size-5 text-foreground-muted group-hover:text-mirai-red"
                 fill="currentColor"
                 height="1em"
                 viewBox="0 0 256 256"
@@ -1271,42 +1271,42 @@ exports[`Home Page > should match snapshot 1`] = `
                     class="flex gap-1"
                   >
                     <div
-                      class="h-0.5 rounded-full bg-foreground/20 transition-all duration-500 w-3/4"
+                      class="h-0.5 rounded-full bg-foreground/20 w-3/4"
                     />
                   </div>
                   <div
                     class="flex gap-1"
                   >
                     <div
-                      class="h-0.5 rounded-full bg-foreground/20 transition-all duration-500 w-4/5"
+                      class="h-0.5 rounded-full bg-foreground/20 w-4/5"
                     />
                   </div>
                   <div
                     class="flex gap-1"
                   >
                     <div
-                      class="h-0.5 rounded-full bg-foreground/20 transition-all duration-500 w-2/3"
+                      class="h-0.5 rounded-full bg-foreground/20 w-2/3"
                     />
                   </div>
                   <div
                     class="flex gap-1"
                   >
                     <div
-                      class="h-0.5 rounded-full bg-foreground/20 transition-all duration-500 w-3/4"
+                      class="h-0.5 rounded-full bg-foreground/20 w-3/4"
                     />
                   </div>
                   <div
                     class="flex gap-1"
                   >
                     <div
-                      class="h-0.5 rounded-full bg-foreground/20 transition-all duration-500 w-1/2"
+                      class="h-0.5 rounded-full bg-foreground/20 w-1/2"
                     />
                   </div>
                   <div
                     class="flex gap-1"
                   >
                     <div
-                      class="h-0.5 rounded-full bg-foreground/20 transition-all duration-500 w-3/5"
+                      class="h-0.5 rounded-full bg-foreground/20 w-3/5"
                     />
                   </div>
                 </div>
@@ -1575,7 +1575,7 @@ exports[`Home Page > should match snapshot 1`] = `
             </div>
           </section>
           <span
-            class="mt-auto inline-block text-foreground-muted text-sm transition-colors hover:text-foreground"
+            class="mt-auto inline-block text-foreground-muted text-sm hover:text-foreground"
           >
             View all photos (Coming Soon)
           </span>

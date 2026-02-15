@@ -223,17 +223,6 @@ describe("Pre", () => {
       const copyButton = screen.getByRole("button", { name: COPY_CODE_REGEX });
       expect(copyButton.className).toContain("hover:text-foreground/80");
     });
-
-    it("should have active scale animation", () => {
-      render(
-        <Pre>
-          <code>test</code>
-        </Pre>
-      );
-
-      const copyButton = screen.getByRole("button", { name: COPY_CODE_REGEX });
-      expect(copyButton.className).toContain("active:scale-90");
-    });
   });
 
   describe("Multiple code blocks", () => {

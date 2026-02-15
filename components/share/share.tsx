@@ -245,7 +245,7 @@ export function ShareButtons({ page }: ShareButtonsProps) {
         <button
           aria-label="Share this page"
           className={cn(
-            "aspect-square cursor-pointer rounded-full border border-border bg-background p-1.5 transition-colors",
+            "aspect-square cursor-pointer rounded-full border border-border bg-background p-1.5",
             "hover:border-border-strong hover:bg-background-subtle"
           )}
           onClick={handleNativeShare}
@@ -261,7 +261,7 @@ export function ShareButtons({ page }: ShareButtonsProps) {
             copied ? "Link copied to clipboard" : "Copy link to clipboard"
           }
           className={cn(
-            "aspect-square cursor-pointer rounded-full border border-border bg-background p-1.5 transition-colors",
+            "aspect-square cursor-pointer rounded-full border border-border bg-background p-1.5",
             "hover:border-border-strong hover:bg-background-subtle"
           )}
           disabled={copied}
@@ -285,7 +285,7 @@ export function ShareButtons({ page }: ShareButtonsProps) {
       <button
         aria-label="Share on X"
         className={cn(
-          "aspect-square cursor-pointer rounded-full border border-border bg-background p-2 transition-colors",
+          "aspect-square cursor-pointer rounded-full border border-border bg-background p-2",
           "hover:border-border-strong hover:bg-background-subtle"
         )}
         onClick={() => shareOnSocialMedia("X")}
@@ -306,7 +306,7 @@ export function ShareButtons({ page }: ShareButtonsProps) {
       <button
         aria-label="Share on Facebook"
         className={cn(
-          "aspect-square cursor-pointer rounded-full border border-border bg-background p-1 transition-colors",
+          "aspect-square cursor-pointer rounded-full border border-border bg-background p-1",
           "hover:border-border-strong hover:bg-background-subtle"
         )}
         onClick={() => shareOnSocialMedia("facebook")}
@@ -328,7 +328,7 @@ export function ShareButtons({ page }: ShareButtonsProps) {
       <button
         aria-label="Share on LinkedIn"
         className={cn(
-          "aspect-square cursor-pointer rounded-full border border-border bg-background p-1.5 transition-colors",
+          "aspect-square cursor-pointer rounded-full border border-border bg-background p-1.5",
           "hover:border-border-strong hover:bg-background-subtle"
         )}
         onClick={() => shareOnSocialMedia("linkedin")}
@@ -353,7 +353,7 @@ export function ShareButtons({ page }: ShareButtonsProps) {
             <button
               aria-label={getCopyButtonLabel(isCopying, copiedPage)}
               className={cn(
-                "flex cursor-pointer items-center gap-2 px-3 py-1.5 text-sm transition-colors",
+                "flex cursor-pointer items-center gap-2 px-3 py-1.5 text-sm",
                 "border-border border-r",
                 "hover:bg-background-subtle",
                 "disabled:cursor-not-allowed disabled:bg-background-muted disabled:text-foreground-muted"
@@ -371,7 +371,7 @@ export function ShareButtons({ page }: ShareButtonsProps) {
               aria-haspopup="true"
               aria-label="More options"
               className={cn(
-                "flex cursor-pointer items-center px-2 py-2 transition-colors",
+                "flex cursor-pointer items-center px-2 py-2",
                 "hover:bg-background-subtle"
               )}
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
@@ -408,7 +408,7 @@ export function ShareButtons({ page }: ShareButtonsProps) {
               <button
                 className={cn(
                   "flex w-full cursor-pointer items-center gap-2 px-3 py-2 text-foreground text-sm",
-                  "transition-colors hover:bg-background-subtle"
+                  "hover:bg-background-subtle"
                 )}
                 onClick={() => {
                   viewAsMarkdown();
@@ -432,7 +432,7 @@ export function ShareButtons({ page }: ShareButtonsProps) {
               <button
                 className={cn(
                   "flex w-full cursor-pointer items-center gap-2 px-3 py-2 text-foreground text-sm",
-                  "transition-colors hover:bg-background-subtle"
+                  "hover:bg-background-subtle"
                 )}
                 onClick={() => {
                   window.open("https://chat.dulapahv.dev", "_blank");

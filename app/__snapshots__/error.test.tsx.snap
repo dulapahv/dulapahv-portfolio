@@ -10,7 +10,7 @@ exports[`Error Page > should match snapshot 1`] = `
       class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3"
     >
       <a
-        class="flex items-center gap-3 transition-opacity hover:opacity-80"
+        class="flex items-center gap-3 hover:opacity-80"
         href="/"
       >
         <img
@@ -41,7 +41,7 @@ exports[`Error Page > should match snapshot 1`] = `
           <button
             aria-label="System theme"
             aria-pressed="false"
-            class="relative mx-0.5 flex size-7 items-center justify-center rounded-full transition-colors"
+            class="relative mx-0.5 flex size-7 items-center justify-center rounded-full"
             tabindex="0"
             type="button"
           >
@@ -62,7 +62,7 @@ exports[`Error Page > should match snapshot 1`] = `
           <button
             aria-label="Light theme"
             aria-pressed="false"
-            class="relative mx-0.5 flex size-7 items-center justify-center rounded-full transition-colors"
+            class="relative mx-0.5 flex size-7 items-center justify-center rounded-full"
             tabindex="0"
             type="button"
           >
@@ -83,7 +83,7 @@ exports[`Error Page > should match snapshot 1`] = `
           <button
             aria-label="Dark theme"
             aria-pressed="false"
-            class="relative mx-0.5 flex size-7 items-center justify-center rounded-full transition-colors"
+            class="relative mx-0.5 flex size-7 items-center justify-center rounded-full"
             tabindex="0"
             type="button"
           >
@@ -137,7 +137,7 @@ exports[`Error Page > should match snapshot 1`] = `
       if the issue persists.
     </p>
     <button
-      class="flex w-fit cursor-pointer select-none items-center justify-center gap-2 rounded-md bg-mirai-red px-3 py-2 text-sm text-white transition-colors hover:bg-mirai-red/90 hover:shadow-md active:scale-[0.98] active:transition-transform! disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:shadow-none"
+      class="flex w-fit cursor-pointer select-none items-center justify-center gap-2 rounded-md bg-mirai-red px-3 py-2 text-sm text-white hover:bg-mirai-red/90 hover:shadow-md active:scale-[0.98] active:transition-transform! disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:shadow-none"
       type="button"
     >
       <svg

@@ -128,7 +128,7 @@ export async function OpenSourceCard() {
                     />
                     <span
                       className={cn(
-                        "wrap-break-word font-medium text-foreground text-sm transition-colors",
+                        "wrap-break-word font-medium text-foreground text-sm",
                         "group-hover:text-mirai-red"
                       )}
                     >
@@ -150,7 +150,7 @@ export async function OpenSourceCard() {
                     {statusConfig.label}
                   </span>
                 </div>
-                <div className="ml-7 flex flex-wrap items-center gap-2 text-foreground-muted text-xs transition-colors">
+                <div className="ml-7 flex flex-wrap items-center gap-2 text-foreground-muted text-xs">
                   <span className="break-all font-mono">
                     {contribution.repository}
                   </span>

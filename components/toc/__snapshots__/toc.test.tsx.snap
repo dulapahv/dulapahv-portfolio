@@ -24,12 +24,12 @@ exports[`TableOfContents > Snapshot > should match snapshot - desktop view 1`] =
           <a
             aria-current="location"
             aria-describedby="current-section-0"
-            class="group relative block rounded-md px-3 py-1 text-sm transition-all text-mirai-red"
+            class="group relative block rounded-md px-3 py-1 text-sm text-mirai-red"
             href="#heading-1"
           >
             <span
               aria-hidden="true"
-              class="absolute top-1/2 left-0 h-full w-0.5 -translate-y-1/2 transition-all bg-mirai-red"
+              class="absolute top-1/2 left-0 h-full w-0.5 -translate-y-1/2 bg-mirai-red"
             />
             <span
               class="relative line-clamp-2"
@@ -48,12 +48,12 @@ exports[`TableOfContents > Snapshot > should match snapshot - desktop view 1`] =
           class="mb-0"
         >
           <a
-            class="group relative block rounded-md px-3 py-1 text-sm transition-all pl-7 text-foreground-muted hover:text-foreground"
+            class="group relative block rounded-md px-3 py-1 text-sm pl-7 text-foreground-muted hover:text-foreground"
             href="#heading-2"
           >
             <span
               aria-hidden="true"
-              class="absolute top-1/2 left-0 h-full w-0.5 -translate-y-1/2 transition-all bg-white/80 dark:bg-neutral-300/80"
+              class="absolute top-1/2 left-0 h-full w-0.5 -translate-y-1/2 bg-white/80 dark:bg-neutral-300/80"
             />
             <span
               class="relative line-clamp-2"
@@ -66,12 +66,12 @@ exports[`TableOfContents > Snapshot > should match snapshot - desktop view 1`] =
           class="mb-0"
         >
           <a
-            class="group relative block rounded-md px-3 py-1 text-sm transition-all text-foreground-muted hover:text-foreground"
+            class="group relative block rounded-md px-3 py-1 text-sm text-foreground-muted hover:text-foreground"
             href="#heading-3"
           >
             <span
               aria-hidden="true"
-              class="absolute top-1/2 left-0 h-full w-0.5 -translate-y-1/2 transition-all bg-white/80 dark:bg-neutral-300/80"
+              class="absolute top-1/2 left-0 h-full w-0.5 -translate-y-1/2 bg-white/80 dark:bg-neutral-300/80"
             />
             <span
               class="relative line-clamp-2"
@@ -96,7 +96,7 @@ exports[`TableOfContents > Snapshot > should match snapshot - mobile view 1`] = 
       aria-controls="toc-content"
       aria-describedby="toc-description"
       aria-expanded="false"
-      class="flex w-full cursor-pointer items-center justify-between rounded-md px-4 py-3 font-medium text-foreground text-sm transition-colors hover:bg-background-muted/50"
+      class="flex w-full cursor-pointer items-center justify-between rounded-md px-4 py-3 font-medium text-foreground text-sm hover:bg-background-muted/50"
       type="button"
     >
       <span>

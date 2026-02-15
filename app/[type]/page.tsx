@@ -171,7 +171,7 @@ export default async function TypeListingPage({
                                   </div>
                                 )}
                                 <div className="flex flex-col gap-1">
-                                  <h3 className="font-medium text-lg transition-colors group-hover:text-mirai-red">
+                                  <h3 className="font-medium text-lg group-hover:text-mirai-red">
                                     {post.title}
                                   </h3>
                                   <p className="line-clamp-2 text-foreground-lighter text-sm">

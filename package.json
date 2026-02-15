@@ -10,6 +10,7 @@
     "test:watch": "vitest --watch",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --watch=false --coverage",
+    "fix": "pnpm dlx ultracite fix",
     "prepare": "husky"
   },
   "lint-staged": {

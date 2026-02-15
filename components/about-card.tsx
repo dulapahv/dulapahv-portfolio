@@ -55,7 +55,7 @@ export function AboutCard() {
           See what I&apos;ve been doing on{" "}
           <Link
             className={cn(
-              "inline-flex items-center text-foreground-muted text-sm transition-colors",
+              "inline-flex items-center text-foreground-muted text-sm",
               "hover:text-foreground"
             )}
             href="https://github.com/dulapahv"
@@ -73,7 +73,7 @@ export function AboutCard() {
           </Link>
           <Link
             className={cn(
-              "inline-flex items-center text-foreground-muted text-sm transition-colors",
+              "inline-flex items-center text-foreground-muted text-sm",
               "hover:text-foreground"
             )}
             href={LINKEDIN_URL}
@@ -90,7 +90,7 @@ export function AboutCard() {
           </Link>
           <Link
             className={cn(
-              "inline-flex items-center text-foreground-muted text-sm transition-colors",
+              "inline-flex items-center text-foreground-muted text-sm",
               "hover:text-foreground"
             )}
             href={SPOTIFY_URL}
@@ -108,7 +108,7 @@ export function AboutCard() {
         </p>
         <Link
           className={cn(
-            "group mt-4 inline-flex w-fit items-center rounded-full bg-border-subtle px-4 py-2 text-foreground text-sm transition-colors",
+            "group mt-4 inline-flex w-fit items-center rounded-full bg-border-subtle px-4 py-2 text-foreground text-sm",
             "hover:bg-border hover:text-mirai-red"
           )}
           href="/contact"

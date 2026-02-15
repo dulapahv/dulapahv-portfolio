@@ -52,7 +52,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <MousePositionVarsSetter />
           <a
             className={cn(
-              "sr-only rounded-md bg-mirai-red px-4! py-2! text-white transition-all",
+              "sr-only rounded-md bg-mirai-red px-4! py-2! text-white",
               "focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:ring-mirai-red"
             )}
             href="#main-content"

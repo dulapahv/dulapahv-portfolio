@@ -56,7 +56,7 @@ export function RecentBlogsCard() {
                 <div className="flex min-w-0 flex-1 flex-col gap-1">
                   <h3
                     className={cn(
-                      "font-medium text-foreground text-sm transition-colors",
+                      "font-medium text-foreground text-sm",
                       "group-hover/item:text-mirai-red"
                     )}
                   >

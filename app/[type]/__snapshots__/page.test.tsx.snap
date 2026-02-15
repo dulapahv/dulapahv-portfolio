@@ -20,7 +20,7 @@ exports[`Type Listing Page > should render blog listing and match snapshot 1`] =
           class="inline-flex items-center gap-1.5"
         >
           <a
-            class="rounded-sm transition-colors hover:text-foreground focus:text-foreground"
+            class="rounded-sm hover:text-foreground focus:text-foreground"
             href="/"
           >
             Home
@@ -127,7 +127,7 @@ exports[`Type Listing Page > should render blog listing and match snapshot 1`] =
                     class="flex flex-col gap-1"
                   >
                     <h3
-                      class="font-medium text-lg transition-colors group-hover:text-mirai-red"
+                      class="font-medium text-lg group-hover:text-mirai-red"
                     >
                       Test Project
                     </h3>
@@ -187,7 +187,7 @@ exports[`Type Listing Page > should render project listing and match snapshot 1`
           class="inline-flex items-center gap-1.5"
         >
           <a
-            class="rounded-sm transition-colors hover:text-foreground focus:text-foreground"
+            class="rounded-sm hover:text-foreground focus:text-foreground"
             href="/"
           >
             Home
@@ -294,7 +294,7 @@ exports[`Type Listing Page > should render project listing and match snapshot 1`
                     class="flex flex-col gap-1"
                   >
                     <h3
-                      class="font-medium text-lg transition-colors group-hover:text-mirai-red"
+                      class="font-medium text-lg group-hover:text-mirai-red"
                     >
                       Test Project
                     </h3>

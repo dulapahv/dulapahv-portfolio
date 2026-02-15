@@ -60,7 +60,7 @@ export const ResumeCard = () => {
             Résumé
           </h2>
           <ArrowUpRightIcon
-            className="size-5 text-foreground-muted transition-colors group-hover:text-mirai-red"
+            className="size-5 text-foreground-muted group-hover:text-mirai-red"
             weight="regular"
           />
         </div>
@@ -99,7 +99,7 @@ export const ResumeCard = () => {
                 <div className="flex gap-1" key={`resume-line-${i}`}>
                   <div
                     className={cn(
-                      "h-0.5 rounded-full bg-foreground/20 transition-all duration-500",
+                      "h-0.5 rounded-full bg-foreground/20",
                       getLineWidth(i)
                     )}
                   />

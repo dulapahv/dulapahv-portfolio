@@ -53,7 +53,7 @@ export function TopBar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
         <Link
           aria-label="Go to home"
-          className="flex items-center gap-3 transition-opacity hover:opacity-80"
+          className="flex items-center gap-3 hover:opacity-80"
           href="/"
         >
           <Image

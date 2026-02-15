@@ -60,7 +60,7 @@ export function ProjectsCard() {
         </h2>
         <Link className="group/icon" href="/project" title="View all projects">
           <ArrowRightIcon
-            className="size-5 text-foreground-muted transition-colors group-hover/icon:text-mirai-red"
+            className="size-5 text-foreground-muted group-hover/icon:text-mirai-red"
             weight="regular"
           />
         </Link>
@@ -91,8 +91,7 @@ export function ProjectsCard() {
               aria-label="Previous project"
               className={cn(
                 "absolute top-1/2 left-2 -translate-y-1/2 bg-background/80 hover:bg-background",
-                "rounded-full p-2 backdrop-blur-sm transition-all",
-                "hover:scale-110"
+                "rounded-full p-2 backdrop-blur-sm"
               )}
               onClick={goToPrevious}
               type="button"
@@ -103,8 +102,7 @@ export function ProjectsCard() {
               aria-label="Next project"
               className={cn(
                 "absolute top-1/2 right-2 -translate-y-1/2 bg-background/80 hover:bg-background",
-                "rounded-full p-2 backdrop-blur-sm transition-all",
-                "hover:scale-110"
+                "rounded-full p-2 backdrop-blur-sm"
               )}
               onClick={goToNext}
               type="button"
@@ -121,7 +119,7 @@ export function ProjectsCard() {
       <Link className="group mt-4" href={`/project/${currentProject.slug}`}>
         <h3
           className={cn(
-            "block font-semibold text-foreground text-lg transition-colors",
+            "block font-semibold text-foreground text-lg",
             "group-hover:text-mirai-red"
           )}
         >
@@ -146,7 +144,7 @@ export function ProjectsCard() {
             <button
               aria-label={`Go to project ${index + 1}`}
               className={cn(
-                "h-2 rounded-full transition-all",
+                "h-2 rounded-full",
                 index === currentIndex
                   ? "w-6 bg-mirai-red"
                   : "w-2 bg-foreground/20 hover:bg-border"

@@ -20,7 +20,7 @@ exports[`Contact Page > should match snapshot 1`] = `
           class="inline-flex items-center gap-1.5"
         >
           <a
-            class="rounded-sm transition-colors hover:text-foreground focus:text-foreground"
+            class="rounded-sm hover:text-foreground focus:text-foreground"
             href="/"
           >
             Home
@@ -90,7 +90,7 @@ exports[`Contact Page > should match snapshot 1`] = `
         >
           <button
             aria-label="Copy Email"
-            class="group relative flex items-center gap-2.5 rounded-xl px-5 py-3 text-sm transition-all duration-200 ring-1 backdrop-blur-sm cursor-pointer bg-background-elevated text-foreground ring-border hover:bg-background-muted hover:ring-border-strong"
+            class="group relative flex items-center gap-2.5 rounded-xl px-5 py-3 text-sm ring-1 backdrop-blur-sm cursor-pointer bg-background-elevated text-foreground ring-border hover:bg-background-muted hover:ring-border-strong"
             title="Copy Email"
             type="button"
           >
@@ -114,7 +114,7 @@ exports[`Contact Page > should match snapshot 1`] = `
           </button>
           <a
             aria-label="GitHub"
-            class="group relative flex items-center gap-2.5 rounded-xl px-5 py-3 text-sm transition-all duration-200 ring-1 backdrop-blur-sm cursor-pointer bg-background-elevated text-foreground ring-border hover:bg-background-muted hover:ring-border-strong"
+            class="group relative flex items-center gap-2.5 rounded-xl px-5 py-3 text-sm ring-1 backdrop-blur-sm cursor-pointer bg-background-elevated text-foreground ring-border hover:bg-background-muted hover:ring-border-strong"
             href="https://github.com/dulapahv"
             rel="noopener noreferrer"
             target="_blank"
@@ -150,7 +150,7 @@ exports[`Contact Page > should match snapshot 1`] = `
           </a>
           <a
             aria-label="LinkedIn"
-            class="group relative flex items-center gap-2.5 rounded-xl px-5 py-3 text-sm transition-all duration-200 ring-1 backdrop-blur-sm cursor-pointer bg-background-elevated text-foreground ring-border hover:bg-background-muted hover:ring-border-strong"
+            class="group relative flex items-center gap-2.5 rounded-xl px-5 py-3 text-sm ring-1 backdrop-blur-sm cursor-pointer bg-background-elevated text-foreground ring-border hover:bg-background-muted hover:ring-border-strong"
             href="https://www.linkedin.com/in/dulapahv"
             rel="noopener noreferrer"
             target="_blank"

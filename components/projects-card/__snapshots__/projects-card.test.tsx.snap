@@ -26,7 +26,7 @@ exports[`ProjectsCard > should match snapshot 1`] = `
           title="View all projects"
         >
           <svg
-            class="size-5 text-foreground-muted transition-colors group-hover/icon:text-mirai-red"
+            class="size-5 text-foreground-muted group-hover/icon:text-mirai-red"
             fill="currentColor"
             height="1em"
             viewBox="0 0 256 256"
@@ -62,7 +62,7 @@ exports[`ProjectsCard > should match snapshot 1`] = `
         </a>
         <button
           aria-label="Previous project"
-          class="absolute top-1/2 left-2 -translate-y-1/2 bg-background/80 hover:bg-background rounded-full p-2 backdrop-blur-sm transition-all hover:scale-110"
+          class="absolute top-1/2 left-2 -translate-y-1/2 bg-background/80 hover:bg-background rounded-full p-2 backdrop-blur-sm"
           type="button"
         >
           <svg
@@ -80,7 +80,7 @@ exports[`ProjectsCard > should match snapshot 1`] = `
         </button>
         <button
           aria-label="Next project"
-          class="absolute top-1/2 right-2 -translate-y-1/2 bg-background/80 hover:bg-background rounded-full p-2 backdrop-blur-sm transition-all hover:scale-110"
+          class="absolute top-1/2 right-2 -translate-y-1/2 bg-background/80 hover:bg-background rounded-full p-2 backdrop-blur-sm"
           type="button"
         >
           <svg
@@ -102,7 +102,7 @@ exports[`ProjectsCard > should match snapshot 1`] = `
         href="/project/project-1"
       >
         <h3
-          class="block font-semibold text-foreground text-lg transition-colors group-hover:text-mirai-red"
+          class="block font-semibold text-foreground text-lg group-hover:text-mirai-red"
         >
           Test Project 1
         </h3>
@@ -129,17 +129,17 @@ exports[`ProjectsCard > should match snapshot 1`] = `
       >
         <button
           aria-label="Go to project 1"
-          class="h-2 rounded-full transition-all w-6 bg-mirai-red"
+          class="h-2 rounded-full w-6 bg-mirai-red"
           type="button"
         />
         <button
           aria-label="Go to project 2"
-          class="h-2 rounded-full transition-all w-2 bg-foreground/20 hover:bg-border"
+          class="h-2 rounded-full w-2 bg-foreground/20 hover:bg-border"
           type="button"
         />
         <button
           aria-label="Go to project 3"
-          class="h-2 rounded-full transition-all w-2 bg-foreground/20 hover:bg-border"
+          class="h-2 rounded-full w-2 bg-foreground/20 hover:bg-border"
           type="button"
         />
       </div>

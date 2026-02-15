@@ -119,7 +119,7 @@ exports[`OpenSourceCard > should match snapshot 1`] = `
                   />
                 </svg>
                 <span
-                  class="wrap-break-word font-medium text-foreground text-sm transition-colors group-hover:text-mirai-red"
+                  class="wrap-break-word font-medium text-foreground text-sm group-hover:text-mirai-red"
                 >
                   Add new feature
                 </span>
@@ -144,7 +144,7 @@ exports[`OpenSourceCard > should match snapshot 1`] = `
               </span>
             </div>
             <div
-              class="ml-7 flex flex-wrap items-center gap-2 text-foreground-muted text-xs transition-colors"
+              class="ml-7 flex flex-wrap items-center gap-2 text-foreground-muted text-xs"
             >
               <span
                 class="break-all font-mono"
@@ -204,7 +204,7 @@ exports[`OpenSourceCard > should match snapshot 1`] = `
                   />
                 </svg>
                 <span
-                  class="wrap-break-word font-medium text-foreground text-sm transition-colors group-hover:text-mirai-red"
+                  class="wrap-break-word font-medium text-foreground text-sm group-hover:text-mirai-red"
                 >
                   Fix bug in component
                 </span>
@@ -229,7 +229,7 @@ exports[`OpenSourceCard > should match snapshot 1`] = `
               </span>
             </div>
             <div
-              class="ml-7 flex flex-wrap items-center gap-2 text-foreground-muted text-xs transition-colors"
+              class="ml-7 flex flex-wrap items-center gap-2 text-foreground-muted text-xs"
             >
               <span
                 class="break-all font-mono"
@@ -289,7 +289,7 @@ exports[`OpenSourceCard > should match snapshot 1`] = `
                   />
                 </svg>
                 <span
-                  class="wrap-break-word font-medium text-foreground text-sm transition-colors group-hover:text-mirai-red"
+                  class="wrap-break-word font-medium text-foreground text-sm group-hover:text-mirai-red"
                 >
                   Update documentation
                 </span>
@@ -314,7 +314,7 @@ exports[`OpenSourceCard > should match snapshot 1`] = `
               </span>
             </div>
             <div
-              class="ml-7 flex flex-wrap items-center gap-2 text-foreground-muted text-xs transition-colors"
+              class="ml-7 flex flex-wrap items-center gap-2 text-foreground-muted text-xs"
             >
               <span
                 class="break-all font-mono"

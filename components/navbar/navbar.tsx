@@ -146,9 +146,7 @@ export function Navbar() {
               aria-label={`${item.name}${active ? ", current page" : ""}`}
               className={cn(
                 "relative flex gap-2 pb-1",
-                active
-                  ? "text-mirai-red"
-                  : "transition-colors hover:text-foreground-muted"
+                active ? "text-mirai-red" : "hover:text-foreground-muted"
               )}
               href={item.link as Route}
             >

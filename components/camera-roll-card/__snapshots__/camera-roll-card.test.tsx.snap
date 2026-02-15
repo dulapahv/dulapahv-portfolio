@@ -114,7 +114,7 @@ exports[`CameraRollCard > should match snapshot 1`] = `
         </div>
       </section>
       <span
-        class="mt-auto inline-block text-foreground-muted text-sm transition-colors hover:text-foreground"
+        class="mt-auto inline-block text-foreground-muted text-sm hover:text-foreground"
       >
         View all photos (Coming Soon)
       </span>

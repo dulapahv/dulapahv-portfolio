@@ -60,7 +60,7 @@ export function NowPlayingCard({ track }: NowPlayingCardProps) {
             {track.artists.map((artist, index) => (
               <span key={artist.id}>
                 <Link
-                  className="transition-colors hover:text-foreground hover:underline"
+                  className="hover:text-foreground hover:underline"
                   href={artist.external_urls.spotify as Route}
                   rel="noopener noreferrer"
                   target="_blank"
@@ -73,7 +73,7 @@ export function NowPlayingCard({ track }: NowPlayingCardProps) {
           </p>
 
           <Link
-            className="block truncate text-foreground-subtle text-xs transition-colors hover:text-foreground-muted hover:underline"
+            className="block truncate text-foreground-subtle text-xs hover:text-foreground-muted hover:underline"
             href={track.album.external_urls.spotify as Route}
             rel="noopener noreferrer"
             target="_blank"

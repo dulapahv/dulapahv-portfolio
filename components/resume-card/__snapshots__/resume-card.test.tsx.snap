@@ -28,7 +28,7 @@ exports[`ResumeCard > should match snapshot 1`] = `
             Résumé
           </h2>
           <svg
-            class="size-5 text-foreground-muted transition-colors group-hover:text-mirai-red"
+            class="size-5 text-foreground-muted group-hover:text-mirai-red"
             fill="currentColor"
             height="1em"
             viewBox="0 0 256 256"
@@ -62,42 +62,42 @@ exports[`ResumeCard > should match snapshot 1`] = `
                 class="flex gap-1"
               >
                 <div
-                  class="h-0.5 rounded-full bg-foreground/20 transition-all duration-500 w-3/4"
+                  class="h-0.5 rounded-full bg-foreground/20 w-3/4"
                 />
               </div>
               <div
                 class="flex gap-1"
               >
                 <div
-                  class="h-0.5 rounded-full bg-foreground/20 transition-all duration-500 w-4/5"
+                  class="h-0.5 rounded-full bg-foreground/20 w-4/5"
                 />
               </div>
               <div
                 class="flex gap-1"
               >
                 <div
-                  class="h-0.5 rounded-full bg-foreground/20 transition-all duration-500 w-2/3"
+                  class="h-0.5 rounded-full bg-foreground/20 w-2/3"
                 />
               </div>
               <div
                 class="flex gap-1"
               >
                 <div
-                  class="h-0.5 rounded-full bg-foreground/20 transition-all duration-500 w-3/4"
+                  class="h-0.5 rounded-full bg-foreground/20 w-3/4"
                 />
               </div>
               <div
                 class="flex gap-1"
               >
                 <div
-                  class="h-0.5 rounded-full bg-foreground/20 transition-all duration-500 w-1/2"
+                  class="h-0.5 rounded-full bg-foreground/20 w-1/2"
                 />
               </div>
               <div
                 class="flex gap-1"
               >
                 <div
-                  class="h-0.5 rounded-full bg-foreground/20 transition-all duration-500 w-3/5"
+                  class="h-0.5 rounded-full bg-foreground/20 w-3/5"
                 />
               </div>
             </div>

@@ -233,7 +233,7 @@ export function TableOfContents() {
                       isActive ? `current-section-${index}` : undefined
                     }
                     className={cn(
-                      "group relative block rounded-md px-3 py-1 text-sm transition-all",
+                      "group relative block rounded-md px-3 py-1 text-sm",
                       item.level === 3 ? "pl-7" : "",
                       isActive ? "text-mirai-red" : "text-foreground-muted",
                       !isActive && "hover:text-foreground"
@@ -248,7 +248,7 @@ export function TableOfContents() {
                     <span
                       aria-hidden="true"
                       className={cn(
-                        "absolute top-1/2 left-0 h-full w-0.5 -translate-y-1/2 transition-all",
+                        "absolute top-1/2 left-0 h-full w-0.5 -translate-y-1/2",
                         isActive
                           ? "bg-mirai-red"
                           : "bg-white/80 dark:bg-neutral-300/80"
@@ -280,7 +280,7 @@ export function TableOfContents() {
                 aria-label="Scroll to top of page"
                 className={cn(
                   "flex w-full cursor-pointer items-center gap-x-1.5 rounded-md text-foreground-muted text-sm",
-                  "transition-colors hover:text-foreground"
+                  "hover:text-foreground"
                 )}
                 onClick={scrollToTop}
                 type="button"
@@ -307,7 +307,7 @@ export function TableOfContents() {
         aria-describedby="toc-description"
         aria-expanded={!isCollapsed}
         className={cn(
-          "flex w-full cursor-pointer items-center justify-between rounded-md px-4 py-3 font-medium text-foreground text-sm transition-colors",
+          "flex w-full cursor-pointer items-center justify-between rounded-md px-4 py-3 font-medium text-foreground text-sm",
           "hover:bg-background-muted/50"
         )}
         onClick={() => setIsCollapsed(!isCollapsed)}
@@ -353,7 +353,7 @@ export function TableOfContents() {
                           : undefined
                       }
                       className={cn(
-                        "block rounded-md px-3 py-1.5 text-foreground-muted text-sm transition-all",
+                        "block rounded-md px-3 py-1.5 text-foreground-muted text-sm",
                         "hover:text-foreground",
                         item.level === 3 ? "pl-7" : ""
                       )}

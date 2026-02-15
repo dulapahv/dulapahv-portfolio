@@ -57,7 +57,7 @@ exports[`NowPlayingCard > should match snapshot 1`] = `
         >
           <span>
             <a
-              class="transition-colors hover:text-foreground hover:underline"
+              class="hover:text-foreground hover:underline"
               href="https://open.spotify.com/artist/1"
               rel="noopener noreferrer"
               target="_blank"
@@ -67,7 +67,7 @@ exports[`NowPlayingCard > should match snapshot 1`] = `
           </span>
         </p>
         <a
-          class="block truncate text-foreground-subtle text-xs transition-colors hover:text-foreground-muted hover:underline"
+          class="block truncate text-foreground-subtle text-xs hover:text-foreground-muted hover:underline"
           href="https://open.spotify.com/album/1"
           rel="noopener noreferrer"
           target="_blank"

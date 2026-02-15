@@ -109,7 +109,7 @@ const BreadcrumbLink = React.forwardRef<
   return (
     <Link
       className={cn(
-        "rounded-sm transition-colors",
+        "rounded-sm",
         "hover:text-foreground focus:text-foreground",
         className
       )}

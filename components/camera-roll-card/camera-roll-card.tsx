@@ -161,7 +161,7 @@ export function CameraRollCard({ images }: CameraRollCardProps) {
 
       <span
         className={cn(
-          "mt-auto inline-block text-foreground-muted text-sm transition-colors",
+          "mt-auto inline-block text-foreground-muted text-sm",
           "hover:text-foreground"
         )}
       >

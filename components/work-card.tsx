@@ -61,7 +61,7 @@ export function WorkCard() {
         >
           <ArrowUpRightIcon
             className={cn(
-              "size-5 text-foreground-muted transition-colors",
+              "size-5 text-foreground-muted",
               "group-hover/icon:text-mirai-red"
             )}
             weight="regular"
@@ -93,7 +93,7 @@ export function WorkCard() {
               />
               <p
                 className={cn(
-                  "flex items-center gap-2 font-medium text-foreground transition-colors"
+                  "flex items-center gap-2 font-medium text-foreground"
                 )}
               >
                 {index === 0 && work.isPresent && (
@@ -118,19 +118,14 @@ export function WorkCard() {
           ))}
           <li className="mt-auto flex items-center justify-between pl-4">
             <Link
-              className={cn(
-                "text-foreground-muted transition-colors",
-                "hover:text-foreground"
-              )}
+              className={cn("text-foreground-muted", "hover:text-foreground")}
               href={LINKEDIN_URL}
               rel="noopener noreferrer"
               target="_blank"
             >
               View full work experience
             </Link>
-            <span className="ml-2 text-foreground-muted transition-colors">
-              2020-2023
-            </span>
+            <span className="ml-2 text-foreground-muted">2020-2023</span>
           </li>
         </ul>
       </div>

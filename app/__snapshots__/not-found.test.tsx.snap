@@ -16,7 +16,7 @@ exports[`Not Found Page > should match snapshot 1`] = `
       Sorry, the page you are looking for does not exist. Please check the URL and try again.
     </p>
     <a
-      class="flex w-fit cursor-pointer select-none items-center justify-center gap-2 rounded-md bg-mirai-red px-3 py-2 font-medium text-sm text-white hover:!transition-colors! hover:bg-mirai-red/90 hover:shadow-md active:scale-[0.98] active:transition-transform! disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:shadow-none"
+      class="flex w-fit cursor-pointer select-none items-center justify-center gap-2 rounded-md bg-mirai-red px-3 py-2 font-medium text-sm text-white hover:!! hover:bg-mirai-red/90 hover:shadow-md active:scale-[0.98] active:transition-transform! disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:shadow-none"
       href="/"
     >
       <svg

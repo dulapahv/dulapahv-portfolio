@@ -71,7 +71,7 @@ export function ContactActions() {
     <div className="flex flex-wrap items-center justify-center gap-3">
       {buttons.map((button) => {
         const commonClasses =
-          "group relative flex items-center gap-2.5 rounded-xl px-5 py-3 text-sm transition-all duration-200 ring-1 backdrop-blur-sm cursor-pointer bg-background-elevated text-foreground ring-border hover:bg-background-muted hover:ring-border-strong";
+          "group relative flex items-center gap-2.5 rounded-xl px-5 py-3 text-sm ring-1 backdrop-blur-sm cursor-pointer bg-background-elevated text-foreground ring-border hover:bg-background-muted hover:ring-border-strong";
 
         if (button.action) {
           return (

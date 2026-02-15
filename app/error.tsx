@@ -58,7 +58,7 @@ Digest: ${error.digest || "N/A"}
         <button
           className={cn(
             "flex w-fit cursor-pointer select-none items-center justify-center gap-2 rounded-md bg-mirai-red px-3 py-2 text-sm text-white",
-            "transition-colors hover:bg-mirai-red/90 hover:shadow-md",
+            "hover:bg-mirai-red/90 hover:shadow-md",
             "active:scale-[0.98] active:transition-transform!",
             "disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:shadow-none"
           )}

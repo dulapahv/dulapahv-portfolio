@@ -68,7 +68,7 @@ export async function GitHubContributionsCard({
           </h2>
           <ArrowUpRightIcon
             className={cn(
-              "size-5 text-foreground-muted transition-colors",
+              "size-5 text-foreground-muted",
               "group-hover:text-mirai-red"
             )}
             weight="regular"
@@ -136,7 +136,7 @@ export async function GitHubContributionsCard({
                     return (
                       <div
                         className={cn(
-                          "h-2.5 w-2.5 rounded-sm transition-colors",
+                          "h-2.5 w-2.5 rounded-sm",
                           getContributionColor(day.level)
                         )}
                         key={`day-${day.date}`}
