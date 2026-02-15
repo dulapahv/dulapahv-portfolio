@@ -164,7 +164,7 @@ export default async function TypeListingPage({
                                       alt={post.title}
                                       className="object-cover"
                                       fill
-                                      quality={1}
+                                      quality={5}
                                       sizes="150px"
                                       src={post.image}
                                     />
