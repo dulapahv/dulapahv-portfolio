@@ -1,4 +1,5 @@
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import { ShareButtons } from "./share";
@@ -26,6 +27,7 @@ describe("ShareButtons", () => {
     Object.defineProperty(navigator, "clipboard", {
       value: mockClipboard,
       writable: true,
+      configurable: true,
     });
 
     Object.defineProperty(document, "title", {
@@ -93,7 +95,7 @@ describe("ShareButtons", () => {
       render(<ShareButtons />);
 
       const shareButton = screen.getByTitle("Share this page");
-      fireEvent.click(shareButton);
+      await userEvent.click(shareButton);
 
       await waitFor(() => {
         expect(mockShare).toHaveBeenCalledWith({
@@ -122,7 +124,7 @@ describe("ShareButtons", () => {
       render(<ShareButtons />);
 
       const shareButton = screen.getByTitle("Share this page");
-      fireEvent.click(shareButton);
+      await userEvent.click(shareButton);
 
       await waitFor(() => {
         expect(mockClipboard.writeText).toHaveBeenCalledWith(
@@ -146,7 +148,7 @@ describe("ShareButtons", () => {
       render(<ShareButtons />);
 
       const shareButton = screen.getByTitle("Share this page");
-      fireEvent.click(shareButton);
+      await userEvent.click(shareButton);
 
       await waitFor(() => {
         expect(mockShare).toHaveBeenCalled();
@@ -176,7 +178,7 @@ describe("ShareButtons", () => {
       render(<ShareButtons />);
 
       const copyButton = screen.getByTitle("Copy link to clipboard");
-      fireEvent.click(copyButton);
+      await userEvent.click(copyButton);
 
       await waitFor(() => {
         expect(mockClipboard.writeText).toHaveBeenCalledWith(
@@ -191,7 +193,7 @@ describe("ShareButtons", () => {
       render(<ShareButtons />);
 
       const copyButton = screen.getByTitle("Copy link to clipboard");
-      fireEvent.click(copyButton);
+      await userEvent.click(copyButton);
 
       await waitFor(() => {
         expect(screen.getByTitle("Link copied!")).toBeInTheDocument();
@@ -215,7 +217,7 @@ describe("ShareButtons", () => {
       render(<ShareButtons />);
 
       const copyButton = screen.getByTitle("Copy link to clipboard");
-      fireEvent.click(copyButton);
+      await userEvent.click(copyButton);
 
       await waitFor(() => {
         expect(document.execCommand).toHaveBeenCalledWith("copy");
@@ -239,14 +241,14 @@ describe("ShareButtons", () => {
       }
     });
 
-    it("should open X share popup when X button is clicked", () => {
+    it("should open X share popup when X button is clicked", async () => {
       const mockOpen = vi.fn();
       window.open = mockOpen;
 
       render(<ShareButtons />);
 
       const xButton = screen.getByTitle("Share on X");
-      fireEvent.click(xButton);
+      await userEvent.click(xButton);
 
       expect(mockOpen).toHaveBeenCalledWith(
         expect.stringContaining("https://x.com/intent/tweet"),
@@ -255,14 +257,14 @@ describe("ShareButtons", () => {
       );
     });
 
-    it("should open Facebook share popup when Facebook button is clicked", () => {
+    it("should open Facebook share popup when Facebook button is clicked", async () => {
       const mockOpen = vi.fn();
       window.open = mockOpen;
 
       render(<ShareButtons />);
 
       const facebookButton = screen.getByTitle("Share on Facebook");
-      fireEvent.click(facebookButton);
+      await userEvent.click(facebookButton);
 
       expect(mockOpen).toHaveBeenCalledWith(
         expect.stringContaining("https://www.facebook.com/sharer"),
@@ -271,14 +273,14 @@ describe("ShareButtons", () => {
       );
     });
 
-    it("should open LinkedIn share popup when LinkedIn button is clicked", () => {
+    it("should open LinkedIn share popup when LinkedIn button is clicked", async () => {
       const mockOpen = vi.fn();
       window.open = mockOpen;
 
       render(<ShareButtons />);
 
       const linkedInButton = screen.getByTitle("Share on LinkedIn");
-      fireEvent.click(linkedInButton);
+      await userEvent.click(linkedInButton);
 
       expect(mockOpen).toHaveBeenCalledWith(
         expect.stringContaining(
@@ -289,7 +291,7 @@ describe("ShareButtons", () => {
       );
     });
 
-    it("should reuse existing popup window if not closed", () => {
+    it("should reuse existing popup window if not closed", async () => {
       const mockPopup = {
         closed: false,
         focus: vi.fn(),
@@ -303,11 +305,11 @@ describe("ShareButtons", () => {
       const xButton = screen.getByTitle("Share on X");
 
       // First click
-      fireEvent.click(xButton);
+      await userEvent.click(xButton);
       expect(mockOpen).toHaveBeenCalledTimes(1);
 
       // Second click - should reuse popup
-      fireEvent.click(xButton);
+      await userEvent.click(xButton);
       expect(mockOpen).toHaveBeenCalledTimes(1);
       expect(mockPopup.focus).toHaveBeenCalled();
     });
@@ -349,7 +351,7 @@ describe("ShareButtons", () => {
       render(<ShareButtons page={page} />);
 
       const copyPageButton = screen.getByText("Copy Page");
-      fireEvent.click(copyPageButton);
+      await userEvent.click(copyPageButton);
 
       await waitFor(() => {
         expect(global.fetch).toHaveBeenCalledWith(
@@ -375,7 +377,7 @@ describe("ShareButtons", () => {
       render(<ShareButtons page={page} />);
 
       const copyPageButton = screen.getByText("Copy Page");
-      fireEvent.click(copyPageButton);
+      await userEvent.click(copyPageButton);
 
       await waitFor(() => {
         expect(screen.getByText("Copied!")).toBeInTheDocument();
@@ -401,7 +403,7 @@ describe("ShareButtons", () => {
       render(<ShareButtons page={page} />);
 
       const copyPageButton = screen.getByText("Copy Page");
-      fireEvent.click(copyPageButton);
+      await userEvent.click(copyPageButton);
 
       await waitFor(() => {
         expect(consoleErrorSpy).toHaveBeenCalled();
@@ -412,7 +414,7 @@ describe("ShareButtons", () => {
   });
 
   describe("Dropdown Menu", () => {
-    it("should toggle dropdown when dropdown button is clicked", () => {
+    it("should toggle dropdown when dropdown button is clicked", async () => {
       const page = {
         title: "Test Page",
         content: "Test Content",
@@ -426,15 +428,15 @@ describe("ShareButtons", () => {
       expect(screen.queryByText("View as Markdown")).not.toBeInTheDocument();
 
       // Click to open
-      fireEvent.click(dropdownButton);
+      await userEvent.click(dropdownButton);
       expect(screen.getByText("View as Markdown")).toBeInTheDocument();
 
       // Click to close
-      fireEvent.click(dropdownButton);
+      await userEvent.click(dropdownButton);
       expect(screen.queryByText("View as Markdown")).not.toBeInTheDocument();
     });
 
-    it('should open markdown in new tab when "View as Markdown" is clicked', () => {
+    it('should open markdown in new tab when "View as Markdown" is clicked', async () => {
       const mockOpen = vi.fn();
       window.open = mockOpen;
 
@@ -447,16 +449,16 @@ describe("ShareButtons", () => {
 
       // Open dropdown
       const dropdownButton = screen.getByTitle("More options");
-      fireEvent.click(dropdownButton);
+      await userEvent.click(dropdownButton);
 
       // Click View as Markdown
       const viewMarkdownButton = screen.getByText("View as Markdown");
-      fireEvent.click(viewMarkdownButton);
+      await userEvent.click(viewMarkdownButton);
 
       expect(mockOpen).toHaveBeenCalledWith("/test.mdx", "_blank");
     });
 
-    it('should open NLWeb Chat when "Open in NLWeb Chat" is clicked', () => {
+    it('should open NLWeb Chat when "Open in NLWeb Chat" is clicked', async () => {
       const mockOpen = vi.fn();
       window.open = mockOpen;
 
@@ -469,11 +471,11 @@ describe("ShareButtons", () => {
 
       // Open dropdown
       const dropdownButton = screen.getByTitle("More options");
-      fireEvent.click(dropdownButton);
+      await userEvent.click(dropdownButton);
 
       // Click Open in NLWeb Chat
       const nlwebButton = screen.getByText("Open in NLWeb Chat");
-      fireEvent.click(nlwebButton);
+      await userEvent.click(nlwebButton);
 
       expect(mockOpen).toHaveBeenCalledWith(
         "https://chat.dulapahv.dev/?hints=search&q=Read+https%3A%2F%2Fexample.com%2Ftest.mdx%2C+I+want+to+ask+questions+about+it.",
@@ -481,7 +483,7 @@ describe("ShareButtons", () => {
       );
     });
 
-    it("should show 'Open in' items in dropdown", () => {
+    it("should show 'Open in' items in dropdown", async () => {
       const mockOpen = vi.fn();
       window.open = mockOpen;
 
@@ -494,7 +496,7 @@ describe("ShareButtons", () => {
 
       // Open dropdown
       const dropdownButton = screen.getByTitle("More options");
-      fireEvent.click(dropdownButton);
+      await userEvent.click(dropdownButton);
 
       expect(screen.getByText("Open in GitHub")).toBeInTheDocument();
       expect(screen.getByText("Open in ChatGPT")).toBeInTheDocument();
@@ -502,7 +504,7 @@ describe("ShareButtons", () => {
       expect(screen.getByText("Open in T3 Chat")).toBeInTheDocument();
     });
 
-    it('should open GitHub URL when "Open in GitHub" is clicked', () => {
+    it('should open GitHub URL when "Open in GitHub" is clicked', async () => {
       const mockOpen = vi.fn();
       window.open = mockOpen;
 
@@ -514,10 +516,10 @@ describe("ShareButtons", () => {
       render(<ShareButtons page={page} />);
 
       const dropdownButton = screen.getByTitle("More options");
-      fireEvent.click(dropdownButton);
+      await userEvent.click(dropdownButton);
 
       const githubButton = screen.getByText("Open in GitHub");
-      fireEvent.click(githubButton);
+      await userEvent.click(githubButton);
 
       expect(mockOpen).toHaveBeenCalledWith(
         "https://github.com/dulapahv/dulapahv-portfolio/blob/main/content/test.mdx",
@@ -525,7 +527,7 @@ describe("ShareButtons", () => {
       );
     });
 
-    it('should open Claude URL when "Open in Claude" is clicked', () => {
+    it('should open Claude URL when "Open in Claude" is clicked', async () => {
       const mockOpen = vi.fn();
       window.open = mockOpen;
 
@@ -537,10 +539,10 @@ describe("ShareButtons", () => {
       render(<ShareButtons page={page} />);
 
       const dropdownButton = screen.getByTitle("More options");
-      fireEvent.click(dropdownButton);
+      await userEvent.click(dropdownButton);
 
       const claudeButton = screen.getByText("Open in Claude");
-      fireEvent.click(claudeButton);
+      await userEvent.click(claudeButton);
 
       expect(mockOpen).toHaveBeenCalledWith(
         expect.stringContaining("https://claude.ai/new?q="),
@@ -548,7 +550,7 @@ describe("ShareButtons", () => {
       );
     });
 
-    it("should close dropdown when clicking outside", () => {
+    it("should close dropdown when clicking outside", async () => {
       const page = {
         title: "Test Page",
         content: "Test Content",
@@ -558,11 +560,11 @@ describe("ShareButtons", () => {
 
       // Open dropdown
       const dropdownButton = screen.getByTitle("More options");
-      fireEvent.click(dropdownButton);
+      await userEvent.click(dropdownButton);
       expect(screen.getByText("View as Markdown")).toBeInTheDocument();
 
       // Click outside
-      fireEvent.mouseDown(document.body);
+      await userEvent.click(document.body);
       expect(screen.queryByText("View as Markdown")).not.toBeInTheDocument();
     });
   });
@@ -587,7 +589,8 @@ describe("ShareButtons", () => {
       render(<ShareButtons />);
 
       const copyButton = screen.getByTitle("Copy link to clipboard");
-      fireEvent.keyDown(copyButton, { key: "Enter" });
+      copyButton.focus();
+      await userEvent.keyboard("{Enter}");
 
       await waitFor(() => {
         expect(mockClipboard.writeText).toHaveBeenCalled();
@@ -600,14 +603,15 @@ describe("ShareButtons", () => {
       render(<ShareButtons />);
 
       const copyButton = screen.getByTitle("Copy link to clipboard");
-      fireEvent.keyDown(copyButton, { key: " " });
+      copyButton.focus();
+      await userEvent.keyboard(" ");
 
       await waitFor(() => {
         expect(mockClipboard.writeText).toHaveBeenCalled();
       });
     });
 
-    it("should handle Escape key to close dropdown", () => {
+    it("should handle Escape key to close dropdown", async () => {
       const page = {
         title: "Test Page",
         content: "Test Content",
@@ -616,13 +620,13 @@ describe("ShareButtons", () => {
       render(<ShareButtons page={page} />);
 
       const dropdownButton = screen.getByTitle("More options");
-      fireEvent.click(dropdownButton);
+      await userEvent.click(dropdownButton);
 
       // Dropdown should be open
       expect(screen.getByText("View as Markdown")).toBeInTheDocument();
 
       // Press Escape
-      fireEvent.keyDown(dropdownButton, { key: "Escape" });
+      await userEvent.keyboard("{Escape}");
 
       // Dropdown should be closed
       expect(screen.queryByText("View as Markdown")).not.toBeInTheDocument();

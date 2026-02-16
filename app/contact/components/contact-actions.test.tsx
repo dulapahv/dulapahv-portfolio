@@ -1,4 +1,5 @@
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { ContactActions } from "./contact-actions";
@@ -11,10 +12,10 @@ const LINKEDIN_REGEX = /linkedin/i;
 describe("ContactActions", () => {
   beforeEach(() => {
     vi.clearAllMocks();
-    Object.assign(navigator, {
-      clipboard: {
-        writeText: vi.fn().mockResolvedValue(undefined),
-      },
+    Object.defineProperty(navigator, "clipboard", {
+      value: { writeText: vi.fn().mockResolvedValue(undefined) },
+      writable: true,
+      configurable: true,
     });
   });
 
@@ -30,7 +31,7 @@ describe("ContactActions", () => {
     render(<ContactActions />);
 
     const copyButton = screen.getByRole("button", { name: COPY_EMAIL_REGEX });
-    fireEvent.click(copyButton);
+    await userEvent.click(copyButton);
 
     await waitFor(() => {
       expect(navigator.clipboard.writeText).toHaveBeenCalledWith(
@@ -45,7 +46,7 @@ describe("ContactActions", () => {
     render(<ContactActions />);
 
     const copyButton = screen.getByRole("button", { name: COPY_EMAIL_REGEX });
-    fireEvent.click(copyButton);
+    await userEvent.click(copyButton);
 
     await waitFor(() => {
       expect(screen.getByText("Copied!")).toBeInTheDocument();

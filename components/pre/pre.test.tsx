@@ -1,4 +1,5 @@
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { Pre } from "./pre";
@@ -6,17 +7,16 @@ import { Pre } from "./pre";
 const COPY_CODE_REGEX = /copy code/i;
 
 describe("Pre", () => {
-  // Mock clipboard API
   const mockWriteText = vi.fn();
 
   beforeEach(() => {
     vi.clearAllMocks();
     mockWriteText.mockResolvedValue(undefined);
 
-    Object.assign(navigator, {
-      clipboard: {
-        writeText: mockWriteText,
-      },
+    Object.defineProperty(navigator, "clipboard", {
+      value: { writeText: mockWriteText },
+      writable: true,
+      configurable: true,
     });
   });
 
@@ -90,7 +90,7 @@ describe("Pre", () => {
       );
 
       const copyButton = screen.getByRole("button", { name: COPY_CODE_REGEX });
-      fireEvent.click(copyButton);
+      await userEvent.click(copyButton);
 
       await waitFor(() => {
         expect(mockWriteText).toHaveBeenCalledWith("const test = true;");
@@ -109,7 +109,7 @@ describe("Pre", () => {
       );
 
       const copyButton = screen.getByRole("button", { name: COPY_CODE_REGEX });
-      fireEvent.click(copyButton);
+      await userEvent.click(copyButton);
 
       await waitFor(() => {
         expect(mockWriteText).toHaveBeenCalledWith(
@@ -129,7 +129,7 @@ describe("Pre", () => {
       );
 
       const copyButton = screen.getByRole("button", { name: COPY_CODE_REGEX });
-      fireEvent.click(copyButton);
+      await userEvent.click(copyButton);
 
       // Button should now show check icon
       await waitFor(() => {
@@ -146,18 +146,18 @@ describe("Pre", () => {
       );
 
       const copyButton = screen.getByRole("button", { name: COPY_CODE_REGEX });
-      fireEvent.click(copyButton);
+      await userEvent.click(copyButton);
 
       await waitFor(() => {
         expect(copyButton).toBeDisabled();
       });
     });
 
-    it("should not copy if pre element has no text content", () => {
+    it("should not copy if pre element has no text content", async () => {
       render(<Pre>{null}</Pre>);
 
       const copyButton = screen.getByRole("button", { name: COPY_CODE_REGEX });
-      fireEvent.click(copyButton);
+      await userEvent.click(copyButton);
 
       expect(mockWriteText).not.toHaveBeenCalled();
     });
@@ -242,7 +242,7 @@ describe("Pre", () => {
       expect(buttons).toHaveLength(2);
 
       // Click first button
-      fireEvent.click(buttons[0]);
+      await userEvent.click(buttons[0]);
 
       await waitFor(() => {
         expect(mockWriteText).toHaveBeenCalledWith("first code block");
@@ -272,7 +272,7 @@ describe("Pre", () => {
       );
 
       const copyButton = screen.getByRole("button", { name: COPY_CODE_REGEX });
-      fireEvent.click(copyButton);
+      await userEvent.click(copyButton);
 
       await waitFor(() => {
         expect(mockWriteText).toHaveBeenCalledWith(

@@ -1,4 +1,5 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 
 import { ProjectsCard } from "./projects-card";
@@ -72,33 +73,33 @@ describe("ProjectsCard", () => {
     expect(screen.getByText("Description for project 1")).toBeInTheDocument();
   });
 
-  it("should navigate to next project when next button is clicked", () => {
+  it("should navigate to next project when next button is clicked", async () => {
     render(<ProjectsCard />);
 
     const nextButton = screen.getByRole("button", { name: NEXT_PROJECT_REGEX });
-    fireEvent.click(nextButton);
+    await userEvent.click(nextButton);
 
     expect(screen.getByText("Test Project 2")).toBeInTheDocument();
   });
 
-  it("should navigate to previous project when previous button is clicked", () => {
+  it("should navigate to previous project when previous button is clicked", async () => {
     render(<ProjectsCard />);
 
     const prevButton = screen.getByRole("button", {
       name: PREVIOUS_PROJECT_REGEX,
     });
-    fireEvent.click(prevButton);
+    await userEvent.click(prevButton);
 
     expect(screen.getByText("Test Project 3")).toBeInTheDocument();
   });
 
-  it("should navigate to specific project when dot indicator is clicked", () => {
+  it("should navigate to specific project when dot indicator is clicked", async () => {
     render(<ProjectsCard />);
 
     const dotIndicators = screen.getAllByRole("button", {
       name: GO_TO_PROJECT_REGEX,
     });
-    fireEvent.click(dotIndicators[1]);
+    await userEvent.click(dotIndicators[1]);
 
     expect(screen.getByText("Test Project 2")).toBeInTheDocument();
   });

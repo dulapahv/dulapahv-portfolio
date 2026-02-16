@@ -1,4 +1,5 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import ErrorPage from "./error";
@@ -86,13 +87,13 @@ describe("Error Page", () => {
     expect(tryAgainButton).toBeInTheDocument();
   });
 
-  it("should call reset function when try again button is clicked", () => {
+  it("should call reset function when try again button is clicked", async () => {
     render(<ErrorPage error={mockError} reset={mockReset} />);
 
     const tryAgainButton = screen.getByRole("button", {
       name: TRY_AGAIN_REGEX,
     });
-    fireEvent.click(tryAgainButton);
+    await userEvent.click(tryAgainButton);
 
     expect(mockReset).toHaveBeenCalledTimes(1);
   });

@@ -1,4 +1,5 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 
 import { CameraRollCard } from "./camera-roll-card";
@@ -51,35 +52,35 @@ describe("CameraRollCard", () => {
     expect(screen.getByText("No images to display")).toBeInTheDocument();
   });
 
-  it("should navigate to next image when next button is clicked", () => {
+  it("should navigate to next image when next button is clicked", async () => {
     render(<CameraRollCard images={mockImages} />);
 
     const nextButton = screen.getByRole("button", { name: NEXT_IMAGE_REGEX });
-    fireEvent.click(nextButton);
+    await userEvent.click(nextButton);
 
     // The component should update to show the next image
     expect(nextButton).toBeInTheDocument();
   });
 
-  it("should navigate to previous image when previous button is clicked", () => {
+  it("should navigate to previous image when previous button is clicked", async () => {
     render(<CameraRollCard images={mockImages} />);
 
     const prevButton = screen.getByRole("button", {
       name: PREVIOUS_IMAGE_REGEX,
     });
-    fireEvent.click(prevButton);
+    await userEvent.click(prevButton);
 
     // The component should update to show the previous image
     expect(prevButton).toBeInTheDocument();
   });
 
-  it("should navigate to specific image when progress bar is clicked", () => {
+  it("should navigate to specific image when progress bar is clicked", async () => {
     render(<CameraRollCard images={mockImages} />);
 
     const indicators = screen.getAllByRole("button", {
       name: GO_TO_IMAGE_REGEX,
     });
-    fireEvent.click(indicators[1]);
+    await userEvent.click(indicators[1]);
 
     // The component should update to show the clicked image
     expect(indicators[1]).toBeInTheDocument();
