@@ -437,11 +437,6 @@ export function ShareButtons({ page }: ShareButtonsProps) {
                 const aiPrompt = `Read+${encodedMdUrl}%2C+I+want+to+ask+questions+about+it.`;
                 const openInItems = [
                   {
-                    label: "Open in NLWeb Chat",
-                    url: `https://chat.dulapahv.dev/?hints=search&q=${aiPrompt}`,
-                    icon: <SparkleIcon aria-hidden="true" className="size-5" />,
-                  },
-                  {
                     label: "Open in GitHub",
                     url: `https://github.com/dulapahv/dulapahv-portfolio/blob/main/content${pathname}.mdx`,
                     icon: (
@@ -454,6 +449,11 @@ export function ShareButtons({ page }: ShareButtonsProps) {
                         width={20}
                       />
                     ),
+                  },
+                  {
+                    label: "Open in NLWeb Chat",
+                    url: `https://chat.dulapahv.dev/?hints=search&q=${aiPrompt}`,
+                    icon: <SparkleIcon aria-hidden="true" className="size-5" />,
                   },
                   {
                     label: "Open in ChatGPT",
