@@ -129,17 +129,17 @@ exports[`ProjectsCard > should match snapshot 1`] = `
       >
         <button
           aria-label="Go to project 1"
-          class="h-2 rounded-full w-6 bg-mirai-red"
+          class="h-2 rounded-full transition-all w-6 bg-mirai-red"
           type="button"
         />
         <button
           aria-label="Go to project 2"
-          class="h-2 rounded-full w-2 bg-foreground/20 hover:bg-border"
+          class="h-2 rounded-full transition-all w-2 bg-foreground/20 hover:bg-border"
           type="button"
         />
         <button
           aria-label="Go to project 3"
-          class="h-2 rounded-full w-2 bg-foreground/20 hover:bg-border"
+          class="h-2 rounded-full transition-all w-2 bg-foreground/20 hover:bg-border"
           type="button"
         />
       </div>

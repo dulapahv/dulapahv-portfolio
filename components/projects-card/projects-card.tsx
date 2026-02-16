@@ -144,7 +144,7 @@ export function ProjectsCard() {
             <button
               aria-label={`Go to project ${index + 1}`}
               className={cn(
-                "h-2 rounded-full",
+                "h-2 rounded-full transition-all",
                 index === currentIndex
                   ? "w-6 bg-mirai-red"
                   : "w-2 bg-foreground/20 hover:bg-border"
