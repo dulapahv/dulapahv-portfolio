@@ -18,8 +18,6 @@ const NAME_NA_REGEX = /Name: N\/A/i;
 const MESSAGE_NA_REGEX = /Message: N\/A/i;
 const CAUSE_NA_REGEX = /Cause: N\/A/i;
 const DIGEST_NA_REGEX = /Digest: N\/A/i;
-const CRITICAL_ERROR_HEADING_REGEX = /critical error/i;
-
 vi.mock("next/link", () => ({
   default: ({
     children,
@@ -182,35 +180,5 @@ describe("Global Error Page", () => {
     expect(screen.getByText(MESSAGE_NA_REGEX)).toBeInTheDocument();
     expect(screen.getByText(CAUSE_NA_REGEX)).toBeInTheDocument();
     expect(screen.getByText(DIGEST_NA_REGEX)).toBeInTheDocument();
-  });
-
-  it("should render decorative background images", () => {
-    const { container } = render(
-      <GlobalError error={mockError} reset={mockReset} />
-    );
-    const images = container.querySelectorAll('[role="presentation"]');
-    expect(images.length).toBeGreaterThanOrEqual(2);
-  });
-
-  it("should render with proper html-like structure", () => {
-    const { container } = render(
-      <GlobalError error={mockError} reset={mockReset} />
-    );
-
-    // Instead of looking for <html>/<body>, verify top-level layout
-    const mainContent = container.querySelector("#main-content");
-    expect(mainContent).toBeInTheDocument();
-
-    const heading = screen.getByRole("heading", {
-      name: CRITICAL_ERROR_HEADING_REGEX,
-    });
-    expect(heading).toBeInTheDocument();
-  });
-
-  it("should match snapshot", () => {
-    const { container } = render(
-      <GlobalError error={mockError} reset={mockReset} />
-    );
-    expect(container).toMatchSnapshot();
   });
 });

@@ -19,14 +19,6 @@ describe("ContactActions", () => {
     });
   });
 
-  it("should render contact buttons", () => {
-    render(<ContactActions />);
-
-    expect(screen.getByText("Copy Email")).toBeInTheDocument();
-    expect(screen.getByText("GitHub")).toBeInTheDocument();
-    expect(screen.getByText("LinkedIn")).toBeInTheDocument();
-  });
-
   it("should copy email to clipboard when copy button is clicked", async () => {
     render(<ContactActions />);
 

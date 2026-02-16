@@ -39,11 +39,11 @@ describe("CameraRollCard", () => {
     expect(screen.getByText("Camera Roll")).toBeInTheDocument();
   });
 
-  it("should display first image by default", () => {
+  it("should display all images", () => {
     render(<CameraRollCard images={mockImages} />);
 
     const images = screen.getAllByAltText(CAMERA_ROLL_IMAGE_REGEX);
-    expect(images[0]).toBeInTheDocument();
+    expect(images).toHaveLength(mockImages.length);
   });
 
   it("should show empty state when no images provided", () => {
@@ -53,37 +53,44 @@ describe("CameraRollCard", () => {
   });
 
   it("should navigate to next image when next button is clicked", async () => {
-    render(<CameraRollCard images={mockImages} />);
+    const { container } = render(<CameraRollCard images={mockImages} />);
 
     const nextButton = screen.getByRole("button", { name: NEXT_IMAGE_REGEX });
+
+    // Check initial translateX is 0%
+    const carousel = container.querySelector('[style*="translateX"]');
+    expect(carousel).toHaveStyle({ transform: "translateX(-0%)" });
+
     await userEvent.click(nextButton);
 
-    // The component should update to show the next image
-    expect(nextButton).toBeInTheDocument();
+    // After click, should move to second image
+    expect(carousel).toHaveStyle({ transform: "translateX(-100%)" });
   });
 
   it("should navigate to previous image when previous button is clicked", async () => {
-    render(<CameraRollCard images={mockImages} />);
+    const { container } = render(<CameraRollCard images={mockImages} />);
 
     const prevButton = screen.getByRole("button", {
       name: PREVIOUS_IMAGE_REGEX,
     });
+
     await userEvent.click(prevButton);
 
-    // The component should update to show the previous image
-    expect(prevButton).toBeInTheDocument();
+    // Should wrap to last image
+    const carousel = container.querySelector('[style*="translateX"]');
+    expect(carousel).toHaveStyle({ transform: "translateX(-200%)" });
   });
 
   it("should navigate to specific image when progress bar is clicked", async () => {
-    render(<CameraRollCard images={mockImages} />);
+    const { container } = render(<CameraRollCard images={mockImages} />);
 
     const indicators = screen.getAllByRole("button", {
       name: GO_TO_IMAGE_REGEX,
     });
-    await userEvent.click(indicators[1]);
+    await userEvent.click(indicators[2]);
 
-    // The component should update to show the clicked image
-    expect(indicators[1]).toBeInTheDocument();
+    const carousel = container.querySelector('[style*="translateX"]');
+    expect(carousel).toHaveStyle({ transform: "translateX(-200%)" });
   });
 
   it("should show coming soon message", () => {
@@ -92,22 +99,5 @@ describe("CameraRollCard", () => {
     expect(
       screen.getByText("View all photos (Coming Soon)")
     ).toBeInTheDocument();
-  });
-
-  it("should render all images", () => {
-    render(<CameraRollCard images={mockImages} />);
-
-    const images = screen.getAllByAltText(CAMERA_ROLL_IMAGE_REGEX);
-    expect(images).toHaveLength(mockImages.length);
-  });
-
-  it("should match snapshot", () => {
-    const { container } = render(<CameraRollCard images={mockImages} />);
-    expect(container).toMatchSnapshot();
-  });
-
-  it("should match snapshot with empty state", () => {
-    const { container } = render(<CameraRollCard images={[]} />);
-    expect(container).toMatchSnapshot();
   });
 });

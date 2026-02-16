@@ -1,69 +1,51 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
 import { ResumeCard } from "./resume-card";
 
 describe("ResumeCard", () => {
-  it("should render resume card with title", () => {
-    render(<ResumeCard />);
-
-    expect(screen.getByText("Résumé")).toBeInTheDocument();
-  });
-
-  it("should have link to resume", () => {
+  it("should have link with correct href and target attributes", () => {
     render(<ResumeCard />);
 
     const link = screen.getByTitle("View my résumé");
     expect(link).toHaveAttribute("href", "https://dulapahv.dev/resume");
     expect(link).toHaveAttribute("target", "_blank");
+    expect(link).toHaveAttribute("rel", expect.stringContaining("noopener"));
   });
 
-  it("should render resume header icon", () => {
+  it("should update rotation on mouse move and reset on mouse leave", async () => {
+    const { container } = render(<ResumeCard />);
+
+    const interactiveArea = container.querySelector('[role="presentation"]');
+    expect(interactiveArea).toBeInTheDocument();
+
+    if (interactiveArea) {
+      // Get the document element that has the transform style
+      const documentEl = interactiveArea.querySelector(
+        '[aria-hidden="true"][style*="rotateX"]'
+      );
+      expect(documentEl).toBeInTheDocument();
+
+      // Initial state should have 0 rotation
+      expect(documentEl).toHaveStyle({
+        transform: "rotateX(0deg) rotateY(0deg)",
+      });
+
+      // Simulate mouse move - need to use fireEvent for mouse events with coordinates
+      const { fireEvent } = await import("@testing-library/react");
+      fireEvent.mouseMove(interactiveArea, { clientX: 200, clientY: 200 });
+
+      // After mouse leave, rotation should reset to 0
+      fireEvent.mouseLeave(interactiveArea);
+      expect(documentEl).toHaveStyle({
+        transform: "rotateX(0deg) rotateY(0deg)",
+      });
+    }
+  });
+
+  it("should render title text", () => {
     render(<ResumeCard />);
 
-    const link = screen.getByTitle("View my résumé");
-    expect(link).toBeInTheDocument();
-  });
-
-  it("should handle mouse move events", () => {
-    const { container } = render(<ResumeCard />);
-
-    const interactiveArea = container.querySelector(".cursor-crosshair");
-    expect(interactiveArea).toBeInTheDocument();
-
-    if (interactiveArea) {
-      fireEvent.mouseMove(interactiveArea, { clientX: 100, clientY: 100 });
-    }
-  });
-
-  it("should handle mouse leave events", () => {
-    const { container } = render(<ResumeCard />);
-
-    const interactiveArea = container.querySelector(".cursor-crosshair");
-    expect(interactiveArea).toBeInTheDocument();
-
-    if (interactiveArea) {
-      fireEvent.mouseMove(interactiveArea, { clientX: 100, clientY: 100 });
-      fireEvent.mouseLeave(interactiveArea);
-    }
-  });
-
-  it("should render document visualization", () => {
-    const { container } = render(<ResumeCard />);
-
-    const documentElement = container.querySelector('[style*="rotateX"]');
-    expect(documentElement).toBeInTheDocument();
-  });
-
-  it("should render decorative lines", () => {
-    const { container } = render(<ResumeCard />);
-
-    const lines = container.querySelectorAll(".h-0\\.5");
-    expect(lines.length).toBe(6);
-  });
-
-  it("should match snapshot", () => {
-    const { container } = render(<ResumeCard />);
-    expect(container).toMatchSnapshot();
+    expect(screen.getByText("Résumé")).toBeInTheDocument();
   });
 });

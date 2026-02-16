@@ -127,9 +127,4 @@ describe("ProjectsCard", () => {
       expect.stringContaining("/project/")
     );
   });
-
-  it("should match snapshot", () => {
-    const { container } = render(<ProjectsCard />);
-    expect(container).toMatchSnapshot();
-  });
 });

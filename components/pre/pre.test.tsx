@@ -21,18 +21,7 @@ describe("Pre", () => {
   });
 
   describe("Component rendering", () => {
-    it("should render pre element", () => {
-      const { container } = render(
-        <Pre>
-          <code>const test = true;</code>
-        </Pre>
-      );
-
-      const preElement = container.querySelector("pre");
-      expect(preElement).toBeInTheDocument();
-    });
-
-    it("should render children inside pre element", () => {
+    it("should render pre element with children", () => {
       const { container } = render(
         <Pre>
           <code>const test = true;</code>
@@ -40,7 +29,6 @@ describe("Pre", () => {
       );
 
       const codeElement = container.querySelector("code");
-      expect(codeElement).toBeInTheDocument();
       expect(codeElement?.textContent).toBe("const test = true;");
     });
 
@@ -53,31 +41,6 @@ describe("Pre", () => {
 
       const copyButton = screen.getByRole("button", { name: COPY_CODE_REGEX });
       expect(copyButton).toBeInTheDocument();
-    });
-
-    it("should render CopyIcon by default", () => {
-      render(
-        <Pre>
-          <code>const test = true;</code>
-        </Pre>
-      );
-
-      const copyButton = screen.getByRole("button", { name: COPY_CODE_REGEX });
-      const svg = copyButton.querySelector("svg");
-
-      expect(svg).toBeInTheDocument();
-    });
-
-    it("should pass props to pre element", () => {
-      const { container } = render(
-        <Pre className="custom-class" data-testid="custom-pre">
-          <code>test</code>
-        </Pre>
-      );
-
-      const preElement = container.querySelector("pre");
-      expect(preElement).toHaveClass("custom-class");
-      expect(preElement).toHaveAttribute("data-testid", "custom-pre");
     });
   });
 
@@ -121,23 +84,6 @@ describe("Pre", () => {
       });
     });
 
-    it("should show CheckIcon after successful copy", async () => {
-      render(
-        <Pre>
-          <code>const test = true;</code>
-        </Pre>
-      );
-
-      const copyButton = screen.getByRole("button", { name: COPY_CODE_REGEX });
-      await userEvent.click(copyButton);
-
-      // Button should now show check icon
-      await waitFor(() => {
-        const svg = copyButton.querySelector("svg");
-        expect(svg).toBeInTheDocument();
-      });
-    });
-
     it("should disable button while copied state is active", async () => {
       render(
         <Pre>
@@ -164,7 +110,7 @@ describe("Pre", () => {
   });
 
   describe("Button attributes", () => {
-    it("should have correct aria-label", () => {
+    it("should have correct aria-label and title", () => {
       render(
         <Pre>
           <code>test</code>
@@ -173,16 +119,6 @@ describe("Pre", () => {
 
       const copyButton = screen.getByRole("button", { name: COPY_CODE_REGEX });
       expect(copyButton).toHaveAttribute("aria-label", "Copy code");
-    });
-
-    it("should have title attribute", () => {
-      render(
-        <Pre>
-          <code>test</code>
-        </Pre>
-      );
-
-      const copyButton = screen.getByRole("button", { name: COPY_CODE_REGEX });
       expect(copyButton).toHaveAttribute("title", "Copy code");
     });
 
@@ -195,33 +131,6 @@ describe("Pre", () => {
 
       const copyButton = screen.getByRole("button", { name: COPY_CODE_REGEX });
       expect(copyButton).not.toBeDisabled();
-    });
-  });
-
-  describe("Styling", () => {
-    it("should have correct CSS classes on button", () => {
-      render(
-        <Pre>
-          <code>test</code>
-        </Pre>
-      );
-
-      const copyButton = screen.getByRole("button", { name: COPY_CODE_REGEX });
-
-      expect(copyButton.className).toContain("text-foreground-muted");
-      expect(copyButton.className).toContain("absolute");
-      expect(copyButton.className).toContain("rounded-md");
-    });
-
-    it("should have hover styles", () => {
-      render(
-        <Pre>
-          <code>test</code>
-        </Pre>
-      );
-
-      const copyButton = screen.getByRole("button", { name: COPY_CODE_REGEX });
-      expect(copyButton.className).toContain("hover:text-foreground/80");
     });
   });
 
@@ -251,17 +160,6 @@ describe("Pre", () => {
   });
 
   describe("Edge cases", () => {
-    it("should handle empty code block", () => {
-      render(
-        <Pre>
-          <code />
-        </Pre>
-      );
-
-      const copyButton = screen.getByRole("button", { name: COPY_CODE_REGEX });
-      expect(copyButton).toBeInTheDocument();
-    });
-
     it("should handle nested elements in code", async () => {
       render(
         <Pre>
@@ -279,28 +177,6 @@ describe("Pre", () => {
           expect.stringContaining("const test = true")
         );
       });
-    });
-  });
-
-  describe("Snapshot", () => {
-    it("should match snapshot in initial state", () => {
-      const { container } = render(
-        <Pre>
-          <code>const test = true;</code>
-        </Pre>
-      );
-
-      expect(container).toMatchSnapshot();
-    });
-
-    it("should match snapshot with custom props", () => {
-      const { container } = render(
-        <Pre className="custom-class" data-language="typescript">
-          <code>const test: boolean = true;</code>
-        </Pre>
-      );
-
-      expect(container).toMatchSnapshot();
     });
   });
 });

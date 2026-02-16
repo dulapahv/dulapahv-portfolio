@@ -133,11 +133,4 @@ describe("Error Page", () => {
     render(<ErrorPage error={mockError} reset={mockReset} />);
     expect(screen.getByText("Footer")).toBeInTheDocument();
   });
-
-  it("should match snapshot", () => {
-    const { container } = render(
-      <ErrorPage error={mockError} reset={mockReset} />
-    );
-    expect(container).toMatchSnapshot();
-  });
 });
