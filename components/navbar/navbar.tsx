@@ -13,6 +13,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useRef } from "react";
 
+import { useWebHaptics } from "web-haptics/react";
+
 import { cn } from "@/lib/utils";
 
 const archivo = Archivo({ subsets: ["latin"], weight: "variable" });
@@ -43,6 +45,7 @@ const navbarItems = [
 export function Navbar() {
   const pathname = usePathname();
   const navRef = useRef<HTMLElement>(null);
+  const { trigger } = useWebHaptics();
 
   const isActive = (link: string) => {
     if (link === "/") {
@@ -149,6 +152,7 @@ export function Navbar() {
                 active ? "text-mirai-red" : "hover:text-foreground-muted"
               )}
               href={item.link as Route}
+              onClick={() => trigger([{ duration: 25 }], { intensity: 0.7 })}
             >
               <span aria-hidden="true">{item.icon}</span>
               <span className="hidden font-medium text-sm sm:block">

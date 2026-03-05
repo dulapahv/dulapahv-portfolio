@@ -10,6 +10,7 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { useWebHaptics } from "web-haptics/react";
 import { ThemeAwareImage } from "@/components/theme-aware-image";
 import { cn } from "@/lib/utils";
 
@@ -63,6 +64,7 @@ export function ShareButtons({ page }: ShareButtonsProps) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isCopying, setIsCopying] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const { trigger } = useWebHaptics();
 
   const popupRefs = useRef<{ [key: string]: Window | null }>({
     X: null,
@@ -107,6 +109,7 @@ export function ShareButtons({ page }: ShareButtonsProps) {
       return;
     }
 
+    trigger("nudge");
     try {
       await navigator.share({
         title: document.title,
@@ -123,6 +126,7 @@ export function ShareButtons({ page }: ShareButtonsProps) {
   const copyToClipboard = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
+      trigger("success");
       setCopied(true);
       setTimeout(() => setCopied(false), 800);
     } catch (err) {
@@ -172,6 +176,7 @@ export function ShareButtons({ page }: ShareButtonsProps) {
   };
 
   const shareOnSocialMedia = (platform: string) => {
+    trigger("nudge");
     const url = window.location.href;
     const title = document.title;
     let shareUrl = "";

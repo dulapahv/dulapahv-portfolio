@@ -8,6 +8,7 @@ import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 /* Honestly, this is a bit of a mess. */
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useWebHaptics } from "web-haptics/react";
 import { useMediaQuery } from "@/hooks/use-media-query/use-media-query";
 import { cn } from "@/lib/utils";
 
@@ -26,6 +27,7 @@ export function TableOfContents() {
   const [showScrollTop, setShowScrollTop] = useState<boolean>(false);
   const isDesktop = useMediaQuery("(min-width: 1350px)");
   const tocRef = useRef<HTMLDivElement>(null);
+  const { trigger } = useWebHaptics();
   const linksRef = useRef<(HTMLAnchorElement | null)[]>([]);
 
   // Handle scroll visibility for scroll to top button
@@ -146,6 +148,7 @@ export function TableOfContents() {
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
+    trigger("nudge");
     scrollToElement(id);
   };
 
@@ -312,7 +315,10 @@ export function TableOfContents() {
           "flex w-full cursor-pointer items-center justify-between rounded-md px-4 py-3 font-medium text-foreground text-sm",
           "hover:bg-background-muted/50"
         )}
-        onClick={() => setIsCollapsed(!isCollapsed)}
+        onClick={() => {
+          trigger("nudge");
+          setIsCollapsed(!isCollapsed);
+        }}
         type="button"
       >
         <span>On this page</span>

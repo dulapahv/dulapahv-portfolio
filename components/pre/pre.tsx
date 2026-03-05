@@ -7,6 +7,7 @@ import {
   useRef,
   useState,
 } from "react";
+import { useWebHaptics } from "web-haptics/react";
 
 import { cn } from "@/lib/utils";
 
@@ -16,12 +17,14 @@ export function Pre({
 }: DetailedHTMLProps<HTMLAttributes<HTMLPreElement>, HTMLPreElement>) {
   const [isCopied, setIsCopied] = useState(false);
   const preRef = useRef<HTMLPreElement>(null);
+  const { trigger } = useWebHaptics();
 
   const handleClickCopy = async () => {
     const code = preRef.current?.textContent;
 
     if (code) {
       await navigator.clipboard.writeText(code);
+      trigger("success");
       setIsCopied(true);
 
       setTimeout(() => {

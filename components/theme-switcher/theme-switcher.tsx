@@ -4,10 +4,12 @@ import { MonitorIcon, MoonIcon, SunIcon } from "@phosphor-icons/react/dist/ssr";
 import { motion } from "motion/react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { useWebHaptics } from "web-haptics/react";
 
 export function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const { trigger } = useWebHaptics();
   useEffect(() => setMounted(true), []);
 
   if (!mounted) {
@@ -21,6 +23,7 @@ export function ThemeSwitcher() {
   ];
 
   const handleThemeChange = (newTheme: string) => {
+    trigger("nudge");
     setTheme(newTheme);
   };
 

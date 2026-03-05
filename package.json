@@ -45,7 +45,8 @@
     "remark-math": "^6.0.0",
     "schema-dts": "^1.1.5",
     "shiki": "^4.0.0",
-    "tailwind-merge": "^3.5.0"
+    "tailwind-merge": "^3.5.0",
+    "web-haptics": "^0.0.6"
   },
   "devDependencies": {
     "@biomejs/biome": "2.3.10",
