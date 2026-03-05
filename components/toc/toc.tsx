@@ -148,7 +148,7 @@ export function TableOfContents() {
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
-    trigger("nudge");
+    trigger([{ duration: 8 }], { intensity: 0.3 });
     scrollToElement(id);
   };
 
@@ -316,7 +316,7 @@ export function TableOfContents() {
           "hover:bg-background-muted/50"
         )}
         onClick={() => {
-          trigger("nudge");
+          trigger([{ duration: 8 }], { intensity: 0.3 });
           setIsCollapsed(!isCollapsed);
         }}
         type="button"

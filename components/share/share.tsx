@@ -109,7 +109,7 @@ export function ShareButtons({ page }: ShareButtonsProps) {
       return;
     }
 
-    trigger("nudge");
+    trigger([{ duration: 8 }], { intensity: 0.3 });
     try {
       await navigator.share({
         title: document.title,
@@ -131,6 +131,7 @@ export function ShareButtons({ page }: ShareButtonsProps) {
       setTimeout(() => setCopied(false), 800);
     } catch (err) {
       console.error("Failed to copy text: ", err);
+      trigger("error");
       const textArea = document.createElement("textarea");
       textArea.value = text;
       document.body.appendChild(textArea);
@@ -176,7 +177,7 @@ export function ShareButtons({ page }: ShareButtonsProps) {
   };
 
   const shareOnSocialMedia = (platform: string) => {
-    trigger("nudge");
+    trigger([{ duration: 8 }], { intensity: 0.3 });
     const url = window.location.href;
     const title = document.title;
     let shareUrl = "";

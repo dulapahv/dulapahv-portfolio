@@ -24,7 +24,7 @@ export function Pre({
 
     if (code) {
       await navigator.clipboard.writeText(code);
-      trigger("success");
+      trigger([{ duration: 8 }], { intensity: 0.3 });
       setIsCopied(true);
 
       setTimeout(() => {

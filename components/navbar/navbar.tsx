@@ -152,7 +152,7 @@ export function Navbar() {
                 active ? "text-mirai-red" : "hover:text-foreground-muted"
               )}
               href={item.link as Route}
-              onClick={() => trigger([{ duration: 25 }], { intensity: 0.7 })}
+              onClick={() => trigger([{ duration: 8 }], { intensity: 0.3 })}
             >
               <span aria-hidden="true">{item.icon}</span>
               <span className="hidden font-medium text-sm sm:block">

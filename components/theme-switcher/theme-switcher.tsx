@@ -23,7 +23,7 @@ export function ThemeSwitcher() {
   ];
 
   const handleThemeChange = (newTheme: string) => {
-    trigger("nudge");
+    trigger([{ duration: 8 }], { intensity: 0.3 });
     setTheme(newTheme);
   };
 
