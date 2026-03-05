@@ -124,9 +124,10 @@ export function ShareButtons({ page }: ShareButtonsProps) {
   };
 
   const copyToClipboard = async (text: string) => {
+    trigger([{ duration: 8 }], { intensity: 0.3 });
     try {
       await navigator.clipboard.writeText(text);
-      trigger("success");
+      trigger([{ duration: 8 }], { intensity: 0.3 });
       setCopied(true);
       setTimeout(() => setCopied(false), 800);
     } catch (err) {
