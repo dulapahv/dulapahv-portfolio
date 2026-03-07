@@ -238,7 +238,7 @@ export default async function ContentPage({
                   alt={generateImageAlt()}
                   className="overflow-hidden rounded-md border border-border bg-background-muted/30"
                   height={630}
-                  priority
+                  loading="eager"
                   quality={100}
                   src={page.image}
                   width={1200}

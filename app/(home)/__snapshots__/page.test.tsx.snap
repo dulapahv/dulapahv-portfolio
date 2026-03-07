@@ -490,6 +490,7 @@ exports[`Home Page > should match snapshot 1`] = `
               data-nimg="1"
               decoding="async"
               height="1320"
+              loading="eager"
               src="/_next/image?url=%2Fabout.jpeg&w=3840&q=75"
               srcset="/_next/image?url=%2Fabout.jpeg&w=2048&q=75 1x, /_next/image?url=%2Fabout.jpeg&w=3840&q=75 2x"
               style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat; background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1980 1320'%3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGaussianBlur stdDeviation='20'/%3E%3CfeColorMatrix values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 100 -1' result='s'/%3E%3CfeFlood x='0' y='0' width='100%25' height='100%25'/%3E%3CfeComposite operator='out' in='s'/%3E%3CfeComposite in2='SourceGraphic'/%3E%3CfeGaussianBlur stdDeviation='20'/%3E%3C/filter%3E%3Cimage width='100%25' height='100%25' x='0' y='0' preserveAspectRatio='none' style='filter: url(%23b);' href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAYAAAB4ka1VAAAAsUlEQVR4AQClAFr/Ao99af+NfnL/oYx7/498a/9nY0n/YWJB/1hfPP85Ox3/Av0M9wD6/vEA8Pb0APwO6QAnIiAAAAD+AOnn4QD///oAAuXr3AAEEOwA7u/mANre5wDl3+YABf0MAO7v9wABAQEAAuDb8wDn5wIA8/f7ANve7QC9yeMA0tfyACscMAAaEx8AAvHq+AAG9QIA9fjvAOPf9QAG8fIABPHyADc0NgBIP0gAAAAA//9MjOw2AAAABklEQVQDAH+DUIQ2I2QQAAAAAElFTkSuQmCC'/%3E%3C/svg%3E");"

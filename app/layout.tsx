@@ -67,8 +67,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <Image
               alt=""
               className="object-contain"
+              fetchPriority="high"
               fill
-              priority
+              loading="eager"
               src="/pinku.png"
             />
           </div>
@@ -81,7 +82,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               alt=""
               className="object-contain"
               fill
-              priority
+              loading="eager"
               src="/ao.png"
             />
           </div>

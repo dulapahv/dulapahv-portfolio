@@ -53,8 +53,9 @@ export default function GlobalError({
             <Image
               alt=""
               className="object-contain"
+              fetchPriority="high"
               fill
-              priority
+              loading="eager"
               src="/pinku.png"
             />
           </div>
@@ -67,7 +68,7 @@ export default function GlobalError({
               alt=""
               className="object-contain"
               fill
-              priority
+              loading="eager"
               src="/ao.png"
             />
           </div>
