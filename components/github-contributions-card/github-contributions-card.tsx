@@ -127,7 +127,7 @@ export async function GitHubContributionsCard({
                     if (!day) {
                       return (
                         <div
-                          className="h-2.5 w-2.5"
+                          className="size-2.5"
                           key={`empty-${week.days[0]?.date || weekIndex}-${dayIndex}`}
                         />
                       );
@@ -136,7 +136,7 @@ export async function GitHubContributionsCard({
                     return (
                       <div
                         className={cn(
-                          "h-2.5 w-2.5 rounded-sm",
+                          "size-2.5 rounded-sm",
                           getContributionColor(day.level)
                         )}
                         key={`day-${day.date}`}
@@ -154,7 +154,7 @@ export async function GitHubContributionsCard({
                 {([0, 1, 2, 3, 4] as const).map((level) => (
                   <div
                     className={cn(
-                      "h-2.5 w-2.5 rounded-sm",
+                      "size-2.5 rounded-sm",
                       getContributionColor(level)
                     )}
                     key={level}
