@@ -3,6 +3,24 @@ import { describe, expect, it, vi } from "vitest";
 
 import Home from "./page";
 
+// Mock content-collections for allProjects used in page
+vi.mock("content-collections", () => ({
+  allProjects: [
+    {
+      slug: "project-1",
+      title: "Test Project 1",
+      description: "Description 1",
+      image: "/images/project1.jpg",
+      sortDate: new Date("2024-01-01"),
+      startDate: new Date("2024-01-01"),
+      formattedStartDate: "Jan 2024",
+      formattedEndDate: "Present",
+      isOngoing: true,
+    },
+  ],
+  allBlogs: [],
+}));
+
 // Mock async server components
 vi.mock(
   "@/components/github-contributions-card/github-contributions-card",

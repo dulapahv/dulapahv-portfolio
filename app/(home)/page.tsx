@@ -1,3 +1,4 @@
+import { allProjects } from "content-collections";
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { AboutCard } from "@/components/about-card";
@@ -17,6 +18,7 @@ import { Loading as SpotifyLoading } from "@/components/spotify-card/loading";
 import { SpotifyCard } from "@/components/spotify-card/spotify-card";
 import { WorkCard } from "@/components/work-card";
 import { DESCRIPTION } from "@/lib/constants";
+import type { Project } from "@/lib/content-utils/content-utils";
 import { profilePageSchema } from "@/lib/json-ld";
 import { createMetadata } from "@/lib/metadata";
 import { cn } from "@/lib/utils";
@@ -28,6 +30,29 @@ export const metadata: Metadata = createMetadata({
 });
 
 export default function Home() {
+  const recentProjects = ([...allProjects] as Project[])
+    .sort((a, b) => b.sortDate.getTime() - a.sortDate.getTime())
+    .slice(0, 5)
+    .map(
+      ({
+        slug,
+        title,
+        description,
+        image,
+        formattedStartDate,
+        formattedEndDate,
+        isOngoing,
+      }) => ({
+        slug,
+        title,
+        description,
+        image,
+        formattedStartDate,
+        formattedEndDate,
+        isOngoing,
+      })
+    );
+
   return (
     <>
       <JsonLd schemas={[profilePageSchema]} />
@@ -87,7 +112,7 @@ export default function Home() {
           </Suspense>
         </article>
         <article className="min-w-0" style={{ gridArea: "🎨" }}>
-          <ProjectsCard />
+          <ProjectsCard projects={recentProjects} />
         </article>
         <article className="min-w-0" style={{ gridArea: "📄" }}>
           <ResumeCard />

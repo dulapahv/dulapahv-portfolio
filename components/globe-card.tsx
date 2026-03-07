@@ -1,10 +1,20 @@
+"use client";
+
+import dynamic from "next/dynamic";
 import { Card } from "@/components/card";
-import { Globe } from "@/components/globe";
 import {
   EDUCATION_LOCATION,
   TRAVEL_LOCATIONS,
   WORK_LOCATION,
 } from "@/lib/constants";
+
+const Globe = dynamic(
+  () => import("@/components/globe").then((mod) => mod.Globe),
+  {
+    ssr: false,
+    loading: () => <div className="h-80 w-full rounded-lg" />,
+  }
+);
 
 export function GlobeCard() {
   return (

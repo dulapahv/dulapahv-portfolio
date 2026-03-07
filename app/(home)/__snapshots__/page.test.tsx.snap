@@ -846,200 +846,7 @@ exports[`Home Page > should match snapshot 1`] = `
           </div>
           <ul
             class="space-y-3 divide-y divide-border-subtle"
-          >
-            <li
-              class="group/item pb-3 first:pb-3"
-            >
-              <a
-                class="flex gap-3"
-                href="/blog/how-to-use-variables-in-jsdoc-with-vite-plugin-dts"
-              >
-                <div
-                  class="relative shrink-0 overflow-hidden rounded-lg"
-                >
-                  <div
-                    class="relative mt-1 aspect-square h-20 overflow-hidden rounded-lg sm:aspect-video"
-                  >
-                    <img
-                      alt="How to Use Variables in JSDoc with vite-plugin-dts"
-                      class="object-cover"
-                      data-nimg="fill"
-                      decoding="async"
-                      loading="lazy"
-                      sizes="150px"
-                      src="/_next/image?url=%2Fblog%2Fhow-to-use-variables-in-jsdoc-with-vite-plugin-dts%2Fcover.png&w=3840&q=0"
-                      srcset="/_next/image?url=%2Fblog%2Fhow-to-use-variables-in-jsdoc-with-vite-plugin-dts%2Fcover.png&w=32&q=0 32w, /_next/image?url=%2Fblog%2Fhow-to-use-variables-in-jsdoc-with-vite-plugin-dts%2Fcover.png&w=48&q=0 48w, /_next/image?url=%2Fblog%2Fhow-to-use-variables-in-jsdoc-with-vite-plugin-dts%2Fcover.png&w=64&q=0 64w, /_next/image?url=%2Fblog%2Fhow-to-use-variables-in-jsdoc-with-vite-plugin-dts%2Fcover.png&w=96&q=0 96w, /_next/image?url=%2Fblog%2Fhow-to-use-variables-in-jsdoc-with-vite-plugin-dts%2Fcover.png&w=128&q=0 128w, /_next/image?url=%2Fblog%2Fhow-to-use-variables-in-jsdoc-with-vite-plugin-dts%2Fcover.png&w=256&q=0 256w, /_next/image?url=%2Fblog%2Fhow-to-use-variables-in-jsdoc-with-vite-plugin-dts%2Fcover.png&w=384&q=0 384w, /_next/image?url=%2Fblog%2Fhow-to-use-variables-in-jsdoc-with-vite-plugin-dts%2Fcover.png&w=640&q=0 640w, /_next/image?url=%2Fblog%2Fhow-to-use-variables-in-jsdoc-with-vite-plugin-dts%2Fcover.png&w=750&q=0 750w, /_next/image?url=%2Fblog%2Fhow-to-use-variables-in-jsdoc-with-vite-plugin-dts%2Fcover.png&w=828&q=0 828w, /_next/image?url=%2Fblog%2Fhow-to-use-variables-in-jsdoc-with-vite-plugin-dts%2Fcover.png&w=1080&q=0 1080w, /_next/image?url=%2Fblog%2Fhow-to-use-variables-in-jsdoc-with-vite-plugin-dts%2Fcover.png&w=1200&q=0 1200w, /_next/image?url=%2Fblog%2Fhow-to-use-variables-in-jsdoc-with-vite-plugin-dts%2Fcover.png&w=1920&q=0 1920w, /_next/image?url=%2Fblog%2Fhow-to-use-variables-in-jsdoc-with-vite-plugin-dts%2Fcover.png&w=2048&q=0 2048w, /_next/image?url=%2Fblog%2Fhow-to-use-variables-in-jsdoc-with-vite-plugin-dts%2Fcover.png&w=3840&q=0 3840w"
-                      style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="flex min-w-0 flex-1 flex-col gap-1"
-                >
-                  <h3
-                    class="font-medium text-foreground text-sm group-hover/item:text-mirai-red"
-                  >
-                    How to Use Variables in JSDoc with vite-plugin-dts
-                  </h3>
-                  <p
-                    class="line-clamp-2 text-foreground-muted text-sm"
-                  >
-                    Learn how to incorporate variables into your JSDoc comments using vite-plugin-dts for more maintainable and consistent documentation.
-                  </p>
-                  <time
-                    class="text-foreground-muted text-xs"
-                    datetime="2025-11-05"
-                  >
-                    Nov 5, 2025
-                  </time>
-                </div>
-              </a>
-            </li>
-            <li
-              class="group/item pb-3 first:pb-3"
-            >
-              <a
-                class="flex gap-3"
-                href="/blog/improve-user-experience-with-invisibile-captcha"
-              >
-                <div
-                  class="relative shrink-0 overflow-hidden rounded-lg"
-                >
-                  <div
-                    class="relative mt-1 aspect-square h-20 overflow-hidden rounded-lg sm:aspect-video"
-                  >
-                    <img
-                      alt="Improve Captcha User Experience with Invisible CAPTCHA by Vercel BotID"
-                      class="object-cover"
-                      data-nimg="fill"
-                      decoding="async"
-                      loading="lazy"
-                      sizes="150px"
-                      src="/_next/image?url=%2Fblog%2Fvercel-botid-invisible-protection%2Fcover.png&w=3840&q=0"
-                      srcset="/_next/image?url=%2Fblog%2Fvercel-botid-invisible-protection%2Fcover.png&w=32&q=0 32w, /_next/image?url=%2Fblog%2Fvercel-botid-invisible-protection%2Fcover.png&w=48&q=0 48w, /_next/image?url=%2Fblog%2Fvercel-botid-invisible-protection%2Fcover.png&w=64&q=0 64w, /_next/image?url=%2Fblog%2Fvercel-botid-invisible-protection%2Fcover.png&w=96&q=0 96w, /_next/image?url=%2Fblog%2Fvercel-botid-invisible-protection%2Fcover.png&w=128&q=0 128w, /_next/image?url=%2Fblog%2Fvercel-botid-invisible-protection%2Fcover.png&w=256&q=0 256w, /_next/image?url=%2Fblog%2Fvercel-botid-invisible-protection%2Fcover.png&w=384&q=0 384w, /_next/image?url=%2Fblog%2Fvercel-botid-invisible-protection%2Fcover.png&w=640&q=0 640w, /_next/image?url=%2Fblog%2Fvercel-botid-invisible-protection%2Fcover.png&w=750&q=0 750w, /_next/image?url=%2Fblog%2Fvercel-botid-invisible-protection%2Fcover.png&w=828&q=0 828w, /_next/image?url=%2Fblog%2Fvercel-botid-invisible-protection%2Fcover.png&w=1080&q=0 1080w, /_next/image?url=%2Fblog%2Fvercel-botid-invisible-protection%2Fcover.png&w=1200&q=0 1200w, /_next/image?url=%2Fblog%2Fvercel-botid-invisible-protection%2Fcover.png&w=1920&q=0 1920w, /_next/image?url=%2Fblog%2Fvercel-botid-invisible-protection%2Fcover.png&w=2048&q=0 2048w, /_next/image?url=%2Fblog%2Fvercel-botid-invisible-protection%2Fcover.png&w=3840&q=0 3840w"
-                      style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="flex min-w-0 flex-1 flex-col gap-1"
-                >
-                  <h3
-                    class="font-medium text-foreground text-sm group-hover/item:text-mirai-red"
-                  >
-                    Improve Captcha User Experience with Invisible CAPTCHA by Vercel BotID
-                  </h3>
-                  <p
-                    class="line-clamp-2 text-foreground-muted text-sm"
-                  >
-                    Protect your site from bots without frustrating users. Learn how to implementing Vercel BotID's invisible CAPTCHA in Next.js.
-                  </p>
-                  <time
-                    class="text-foreground-muted text-xs"
-                    datetime="2025-08-29"
-                  >
-                    Aug 30, 2025
-                  </time>
-                </div>
-              </a>
-            </li>
-            <li
-              class="group/item pb-3 first:pb-3"
-            >
-              <a
-                class="flex gap-3"
-                href="/blog/how-i-became-a-software-engineer"
-              >
-                <div
-                  class="relative shrink-0 overflow-hidden rounded-lg"
-                >
-                  <div
-                    class="relative mt-1 aspect-square h-20 overflow-hidden rounded-lg sm:aspect-video"
-                  >
-                    <img
-                      alt="How I Became a Software Engineer (Even Though I Wanted to Be a Heart Surgeon)"
-                      class="object-cover"
-                      data-nimg="fill"
-                      decoding="async"
-                      loading="lazy"
-                      sizes="150px"
-                      src="/_next/image?url=%2Fblog%2Fhow-i-became-a-software-engineer%2Fcover.png&w=3840&q=0"
-                      srcset="/_next/image?url=%2Fblog%2Fhow-i-became-a-software-engineer%2Fcover.png&w=32&q=0 32w, /_next/image?url=%2Fblog%2Fhow-i-became-a-software-engineer%2Fcover.png&w=48&q=0 48w, /_next/image?url=%2Fblog%2Fhow-i-became-a-software-engineer%2Fcover.png&w=64&q=0 64w, /_next/image?url=%2Fblog%2Fhow-i-became-a-software-engineer%2Fcover.png&w=96&q=0 96w, /_next/image?url=%2Fblog%2Fhow-i-became-a-software-engineer%2Fcover.png&w=128&q=0 128w, /_next/image?url=%2Fblog%2Fhow-i-became-a-software-engineer%2Fcover.png&w=256&q=0 256w, /_next/image?url=%2Fblog%2Fhow-i-became-a-software-engineer%2Fcover.png&w=384&q=0 384w, /_next/image?url=%2Fblog%2Fhow-i-became-a-software-engineer%2Fcover.png&w=640&q=0 640w, /_next/image?url=%2Fblog%2Fhow-i-became-a-software-engineer%2Fcover.png&w=750&q=0 750w, /_next/image?url=%2Fblog%2Fhow-i-became-a-software-engineer%2Fcover.png&w=828&q=0 828w, /_next/image?url=%2Fblog%2Fhow-i-became-a-software-engineer%2Fcover.png&w=1080&q=0 1080w, /_next/image?url=%2Fblog%2Fhow-i-became-a-software-engineer%2Fcover.png&w=1200&q=0 1200w, /_next/image?url=%2Fblog%2Fhow-i-became-a-software-engineer%2Fcover.png&w=1920&q=0 1920w, /_next/image?url=%2Fblog%2Fhow-i-became-a-software-engineer%2Fcover.png&w=2048&q=0 2048w, /_next/image?url=%2Fblog%2Fhow-i-became-a-software-engineer%2Fcover.png&w=3840&q=0 3840w"
-                      style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="flex min-w-0 flex-1 flex-col gap-1"
-                >
-                  <h3
-                    class="font-medium text-foreground text-sm group-hover/item:text-mirai-red"
-                  >
-                    How I Became a Software Engineer (Even Though I Wanted to Be a Heart Surgeon)
-                  </h3>
-                  <p
-                    class="line-clamp-2 text-foreground-muted text-sm"
-                  >
-                    A personal journey from chasing medicine to discovering a love for code.
-                  </p>
-                  <time
-                    class="text-foreground-muted text-xs"
-                    datetime="2025-06-27"
-                  >
-                    Jun 28, 2025
-                  </time>
-                </div>
-              </a>
-            </li>
-            <li
-              class="group/item pb-3 first:pb-3"
-            >
-              <a
-                class="flex gap-3"
-                href="/blog/tailwind-css-arbitrary-variants-guide"
-              >
-                <div
-                  class="relative shrink-0 overflow-hidden rounded-lg"
-                >
-                  <div
-                    class="relative mt-1 aspect-square h-20 overflow-hidden rounded-lg sm:aspect-video"
-                  >
-                    <img
-                      alt="Structural and Contextual Styling with Tailwind CSS Arbitrary Variants"
-                      class="object-cover"
-                      data-nimg="fill"
-                      decoding="async"
-                      loading="lazy"
-                      sizes="150px"
-                      src="/_next/image?url=%2Fblog%2Ftailwind-css-arbitrary-variants-guide%2Fcover.png&w=3840&q=0"
-                      srcset="/_next/image?url=%2Fblog%2Ftailwind-css-arbitrary-variants-guide%2Fcover.png&w=32&q=0 32w, /_next/image?url=%2Fblog%2Ftailwind-css-arbitrary-variants-guide%2Fcover.png&w=48&q=0 48w, /_next/image?url=%2Fblog%2Ftailwind-css-arbitrary-variants-guide%2Fcover.png&w=64&q=0 64w, /_next/image?url=%2Fblog%2Ftailwind-css-arbitrary-variants-guide%2Fcover.png&w=96&q=0 96w, /_next/image?url=%2Fblog%2Ftailwind-css-arbitrary-variants-guide%2Fcover.png&w=128&q=0 128w, /_next/image?url=%2Fblog%2Ftailwind-css-arbitrary-variants-guide%2Fcover.png&w=256&q=0 256w, /_next/image?url=%2Fblog%2Ftailwind-css-arbitrary-variants-guide%2Fcover.png&w=384&q=0 384w, /_next/image?url=%2Fblog%2Ftailwind-css-arbitrary-variants-guide%2Fcover.png&w=640&q=0 640w, /_next/image?url=%2Fblog%2Ftailwind-css-arbitrary-variants-guide%2Fcover.png&w=750&q=0 750w, /_next/image?url=%2Fblog%2Ftailwind-css-arbitrary-variants-guide%2Fcover.png&w=828&q=0 828w, /_next/image?url=%2Fblog%2Ftailwind-css-arbitrary-variants-guide%2Fcover.png&w=1080&q=0 1080w, /_next/image?url=%2Fblog%2Ftailwind-css-arbitrary-variants-guide%2Fcover.png&w=1200&q=0 1200w, /_next/image?url=%2Fblog%2Ftailwind-css-arbitrary-variants-guide%2Fcover.png&w=1920&q=0 1920w, /_next/image?url=%2Fblog%2Ftailwind-css-arbitrary-variants-guide%2Fcover.png&w=2048&q=0 2048w, /_next/image?url=%2Fblog%2Ftailwind-css-arbitrary-variants-guide%2Fcover.png&w=3840&q=0 3840w"
-                      style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="flex min-w-0 flex-1 flex-col gap-1"
-                >
-                  <h3
-                    class="font-medium text-foreground text-sm group-hover/item:text-mirai-red"
-                  >
-                    Structural and Contextual Styling with Tailwind CSS Arbitrary Variants
-                  </h3>
-                  <p
-                    class="line-clamp-2 text-foreground-muted text-sm"
-                  >
-                    Go beyond utility classes and learn how to target children, style elements by parent context, and handle complex structures—without custom CSS or JavaScript.
-                  </p>
-                  <time
-                    class="text-foreground-muted text-xs"
-                    datetime="2025-06-18"
-                  >
-                    Jun 19, 2025
-                  </time>
-                </div>
-              </a>
-            </li>
-          </ul>
+          />
         </div>
       </div>
     </article>
@@ -1099,112 +906,52 @@ exports[`Home Page > should match snapshot 1`] = `
           >
             <a
               class="group/image relative block overflow-hidden rounded-lg"
-              href="/project/issho"
+              href="/project/project-1"
             >
               <div
                 class="relative aspect-video w-full overflow-hidden rounded-lg"
               >
                 <img
-                  alt="Issho - Plan with friends, faster"
+                  alt="Test Project 1"
                   class="object-cover"
                   data-nimg="fill"
                   decoding="async"
                   loading="lazy"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  src="/_next/image?url=%2Fproject%2Fissho%2Fcover.png&w=3840&q=0"
-                  srcset="/_next/image?url=%2Fproject%2Fissho%2Fcover.png&w=256&q=0 256w, /_next/image?url=%2Fproject%2Fissho%2Fcover.png&w=384&q=0 384w, /_next/image?url=%2Fproject%2Fissho%2Fcover.png&w=640&q=0 640w, /_next/image?url=%2Fproject%2Fissho%2Fcover.png&w=750&q=0 750w, /_next/image?url=%2Fproject%2Fissho%2Fcover.png&w=828&q=0 828w, /_next/image?url=%2Fproject%2Fissho%2Fcover.png&w=1080&q=0 1080w, /_next/image?url=%2Fproject%2Fissho%2Fcover.png&w=1200&q=0 1200w, /_next/image?url=%2Fproject%2Fissho%2Fcover.png&w=1920&q=0 1920w, /_next/image?url=%2Fproject%2Fissho%2Fcover.png&w=2048&q=0 2048w, /_next/image?url=%2Fproject%2Fissho%2Fcover.png&w=3840&q=0 3840w"
+                  src="/_next/image?url=%2Fimages%2Fproject1.jpg&w=3840&q=0"
+                  srcset="/_next/image?url=%2Fimages%2Fproject1.jpg&w=256&q=0 256w, /_next/image?url=%2Fimages%2Fproject1.jpg&w=384&q=0 384w, /_next/image?url=%2Fimages%2Fproject1.jpg&w=640&q=0 640w, /_next/image?url=%2Fimages%2Fproject1.jpg&w=750&q=0 750w, /_next/image?url=%2Fimages%2Fproject1.jpg&w=828&q=0 828w, /_next/image?url=%2Fimages%2Fproject1.jpg&w=1080&q=0 1080w, /_next/image?url=%2Fimages%2Fproject1.jpg&w=1200&q=0 1200w, /_next/image?url=%2Fimages%2Fproject1.jpg&w=1920&q=0 1920w, /_next/image?url=%2Fimages%2Fproject1.jpg&w=2048&q=0 2048w, /_next/image?url=%2Fimages%2Fproject1.jpg&w=3840&q=0 3840w"
                   style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
                 />
               </div>
             </a>
-            <button
-              aria-label="Previous project"
-              class="absolute top-1/2 left-2 -translate-y-1/2 bg-background/80 hover:bg-background rounded-full p-2 backdrop-blur-sm"
-              type="button"
-            >
-              <svg
-                class="size-5 text-foreground"
-                fill="currentColor"
-                height="1em"
-                viewBox="0 0 256 256"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M168.49,199.51a12,12,0,0,1-17,17l-80-80a12,12,0,0,1,0-17l80-80a12,12,0,0,1,17,17L97,128Z"
-                />
-              </svg>
-            </button>
-            <button
-              aria-label="Next project"
-              class="absolute top-1/2 right-2 -translate-y-1/2 bg-background/80 hover:bg-background rounded-full p-2 backdrop-blur-sm"
-              type="button"
-            >
-              <svg
-                class="size-5 text-foreground"
-                fill="currentColor"
-                height="1em"
-                viewBox="0 0 256 256"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M184.49,136.49l-80,80a12,12,0,0,1-17-17L159,128,87.51,56.49a12,12,0,1,1,17-17l80,80A12,12,0,0,1,184.49,136.49Z"
-                />
-              </svg>
-            </button>
           </div>
           <a
             class="group mt-4"
-            href="/project/issho"
+            href="/project/project-1"
           >
             <h3
               class="block font-semibold text-foreground text-lg group-hover:text-mirai-red"
             >
-              Issho - Plan with friends, faster
+              Test Project 1
             </h3>
             <p
               class="mt-2 line-clamp-2 text-foreground-muted text-sm leading-relaxed"
             >
-              Building a real-time collaborative calendar app that eliminates the back-and-forth of scheduling meetups
+              Description 1
             </p>
             <time
               class="mt-2 block text-foreground-muted text-xs"
             >
-              Jul 2025
+              Jan 2024
               —
-              Aug 2025
+              Present
+              <span
+                class="ml-2 inline-block rounded-full bg-mirai-red/10 px-2 py-0.5 font-medium text-[10px] text-mirai-red uppercase"
+              >
+                Ongoing
+              </span>
             </time>
           </a>
-          <div
-            class="mt-auto flex items-center justify-center gap-2"
-          >
-            <button
-              aria-label="Go to project 1"
-              class="h-2 rounded-full transition-all w-6 bg-mirai-red"
-              type="button"
-            />
-            <button
-              aria-label="Go to project 2"
-              class="h-2 rounded-full transition-all w-2 bg-foreground/20 hover:bg-border"
-              type="button"
-            />
-            <button
-              aria-label="Go to project 3"
-              class="h-2 rounded-full transition-all w-2 bg-foreground/20 hover:bg-border"
-              type="button"
-            />
-            <button
-              aria-label="Go to project 4"
-              class="h-2 rounded-full transition-all w-2 bg-foreground/20 hover:bg-border"
-              type="button"
-            />
-            <button
-              aria-label="Go to project 5"
-              class="h-2 rounded-full transition-all w-2 bg-foreground/20 hover:bg-border"
-              type="button"
-            />
-          </div>
         </div>
       </div>
     </article>
@@ -1350,10 +1097,8 @@ exports[`Home Page > should match snapshot 1`] = `
             class="-mt-4 flex items-center justify-center"
           >
             <div
-              data-testid="globe"
-            >
-              Globe
-            </div>
+              class="h-80 w-full rounded-lg"
+            />
           </div>
         </div>
       </div>

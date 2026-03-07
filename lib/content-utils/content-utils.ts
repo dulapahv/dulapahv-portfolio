@@ -2,7 +2,21 @@ import { allBlogs, allProjects } from "content-collections";
 
 export type ContentType = "project" | "blog";
 
-export type ContentItem = (typeof allProjects)[0] | (typeof allBlogs)[0];
+// content-collections doesn't correctly infer transform output types,
+// so we augment the base type with the fields added by the transform
+export type Project = (typeof allProjects)[number] & {
+  sortDate: Date;
+  formattedStartDate: string;
+  formattedEndDate: string;
+  isOngoing: boolean;
+  duration: number;
+};
+
+export type Blog = (typeof allBlogs)[number] & {
+  formattedDate: string;
+};
+
+export type ContentItem = Project | Blog;
 
 export const contentConfig = {
   project: {

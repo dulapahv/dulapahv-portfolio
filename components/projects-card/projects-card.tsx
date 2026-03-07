@@ -5,29 +5,29 @@ import {
   CaretLeftIcon,
   CaretRightIcon,
 } from "@phosphor-icons/react/dist/ssr";
-import { allProjects } from "content-collections";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { Card } from "@/components/card";
+import type { Project } from "@/lib/content-utils/content-utils";
 import { cn } from "@/lib/utils";
 
-type ProjectWithDate = (typeof allProjects)[number] & {
-  sortDate: Date;
-  formattedStartDate: string;
-  formattedEndDate: string;
-  isOngoing: boolean;
-};
+export type ProjectCardItem = Pick<
+  Project,
+  | "slug"
+  | "title"
+  | "description"
+  | "image"
+  | "formattedStartDate"
+  | "formattedEndDate"
+  | "isOngoing"
+>;
 
-export function ProjectsCard() {
-  const projects = [...allProjects]
-    .sort(
-      (a, b) =>
-        (b as ProjectWithDate).sortDate.getTime() -
-        (a as ProjectWithDate).sortDate.getTime()
-    )
-    .slice(0, 5);
+interface ProjectsCardProps {
+  readonly projects: readonly ProjectCardItem[];
+}
 
+export function ProjectsCard({ projects }: ProjectsCardProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const goToPrevious = () => {
@@ -50,7 +50,7 @@ export function ProjectsCard() {
     return null;
   }
 
-  const currentProject = projects[currentIndex] as ProjectWithDate;
+  const currentProject = projects[currentIndex];
 
   return (
     <Card className="p-5">
