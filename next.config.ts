@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
   experimental: {
     typedEnv: true,
     viewTransition: true,
-    inlineCss: true,
+    // inlineCss: true,
     turbopackFileSystemCacheForBuild: true,
     browserDebugInfoInTerminal: true,
     optimizePackageImports: ["@phosphor-icons/react"],
