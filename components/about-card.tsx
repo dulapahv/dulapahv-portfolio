@@ -97,13 +97,7 @@ export function AboutCard() {
             rel="noopener noreferrer"
             target="_blank"
           >
-            <Image
-              alt="Spotify"
-              className=""
-              height={16}
-              src="/spotify.svg"
-              width={16}
-            />
+            <Image alt="Spotify" height={16} src="/spotify.svg" width={16} />
           </Link>
         </p>
         <Link

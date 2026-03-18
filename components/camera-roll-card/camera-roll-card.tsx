@@ -137,22 +137,21 @@ export function CameraRollCard({ images }: CameraRollCardProps) {
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
           {images.map((image, index) => (
-            <div
-              className="relative h-full w-full shrink-0"
-              key={`image-${image}`}
-            >
+            <div className="relative size-full shrink-0" key={`image-${image}`}>
               <Zoom
                 classDialog='[&_[data-rmiz-modal-overlay="visible"]]:!bg-background/40 [&_[data-rmiz-modal-overlay="visible"]]:backdrop-blur-sm'
                 wrapElement="span"
                 zoomMargin={12}
               >
-                <Image
-                  alt={`Camera Roll image ${index + 1}`}
-                  className="object-cover"
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  src={`/camera_roll/${image}`}
-                />
+                <span className="relative block size-full">
+                  <Image
+                    alt={`Camera Roll image ${index + 1}`}
+                    className="object-cover"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    src={`/camera_roll/${image}`}
+                  />
+                </span>
               </Zoom>
             </div>
           ))}
