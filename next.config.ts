@@ -7,12 +7,14 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   reactCompiler: true,
   typedRoutes: true,
+  logging: {
+    browserToTerminal: true,
+  },
   experimental: {
     typedEnv: true,
     viewTransition: true,
     // inlineCss: true,
     turbopackFileSystemCacheForBuild: true,
-    browserDebugInfoInTerminal: true,
     optimizePackageImports: ["@phosphor-icons/react"],
   },
   images: {
