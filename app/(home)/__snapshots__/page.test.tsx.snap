@@ -917,8 +917,8 @@ exports[`Home Page > should match snapshot 1`] = `
                   decoding="async"
                   loading="lazy"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  src="/_next/image?url=%2Fimages%2Fproject1.jpg&w=3840&q=75"
-                  srcset="/_next/image?url=%2Fimages%2Fproject1.jpg&w=256&q=75 256w, /_next/image?url=%2Fimages%2Fproject1.jpg&w=384&q=75 384w, /_next/image?url=%2Fimages%2Fproject1.jpg&w=640&q=75 640w, /_next/image?url=%2Fimages%2Fproject1.jpg&w=750&q=75 750w, /_next/image?url=%2Fimages%2Fproject1.jpg&w=828&q=75 828w, /_next/image?url=%2Fimages%2Fproject1.jpg&w=1080&q=75 1080w, /_next/image?url=%2Fimages%2Fproject1.jpg&w=1200&q=75 1200w, /_next/image?url=%2Fimages%2Fproject1.jpg&w=1920&q=75 1920w, /_next/image?url=%2Fimages%2Fproject1.jpg&w=2048&q=75 2048w, /_next/image?url=%2Fimages%2Fproject1.jpg&w=3840&q=75 3840w"
+                  src="/_next/image?url=%2Fimages%2Fproject1.jpg&w=3840&q=0"
+                  srcset="/_next/image?url=%2Fimages%2Fproject1.jpg&w=256&q=0 256w, /_next/image?url=%2Fimages%2Fproject1.jpg&w=384&q=0 384w, /_next/image?url=%2Fimages%2Fproject1.jpg&w=640&q=0 640w, /_next/image?url=%2Fimages%2Fproject1.jpg&w=750&q=0 750w, /_next/image?url=%2Fimages%2Fproject1.jpg&w=828&q=0 828w, /_next/image?url=%2Fimages%2Fproject1.jpg&w=1080&q=0 1080w, /_next/image?url=%2Fimages%2Fproject1.jpg&w=1200&q=0 1200w, /_next/image?url=%2Fimages%2Fproject1.jpg&w=1920&q=0 1920w, /_next/image?url=%2Fimages%2Fproject1.jpg&w=2048&q=0 2048w, /_next/image?url=%2Fimages%2Fproject1.jpg&w=3840&q=0 3840w"
                   style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
                 />
               </div>
