@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: "/camera_roll/",
+      disallow: "/camera-roll/",
     },
     sitemap: `${BASE_URL}/sitemap.xml`,
   };

@@ -97,7 +97,7 @@ describe("CameraRollCard", () => {
     render(<CameraRollCard images={mockImages} />);
 
     expect(
-      screen.getByText("View all photos (Coming Soon)")
+      screen.getByText("View my camera roll")
     ).toBeInTheDocument();
   });
 });

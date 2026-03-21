@@ -1,6 +1,8 @@
 "use client";
 
+import { CameraIcon } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 import Zoom from "react-medium-image-zoom";
@@ -158,14 +160,17 @@ export function CameraRollCard({ images }: CameraRollCardProps) {
         </div>
       </section>
 
-      <span
+      {/* Subdomain route to the camera-roll project at dulapahv.dev/camera-roll */}
+      <Link
         className={cn(
-          "mt-auto inline-block text-foreground-muted text-sm",
+          "mt-auto inline-flex items-center gap-1.5 text-foreground-muted text-sm",
           "hover:text-foreground"
         )}
+        href="/camera-roll"
       >
-        View all photos (Coming Soon)
-      </span>
+        <CameraIcon className="size-4" />
+        View my camera roll
+      </Link>
     </Card>
   );
 }
