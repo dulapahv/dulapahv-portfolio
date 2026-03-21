@@ -94,7 +94,7 @@ export function CameraRollCard({ images }: CameraRollCardProps) {
       {/* biome-ignore lint/a11y/noNoninteractiveElementInteractions: pause/resume carousel on hover */}
       <section
         aria-label="Camera Roll"
-        className="relative mb-4 h-64 min-h-128 overflow-hidden rounded-lg xl:min-h-auto"
+        className="relative mb-4 h-full min-h-64 overflow-hidden rounded-lg xl:min-h-auto"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
