@@ -1123,7 +1123,7 @@ exports[`Home Page > should match snapshot 1`] = `
           </h2>
           <section
             aria-label="Camera Roll"
-            class="relative mb-4 h-64 min-h-128 overflow-hidden rounded-lg xl:min-h-auto"
+            class="relative mb-4 h-full min-h-64 overflow-hidden rounded-lg xl:min-h-auto"
           >
             <div
               class="absolute top-2 right-2 left-2 z-10 flex gap-1"
