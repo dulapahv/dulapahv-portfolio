@@ -1,6 +1,6 @@
 "use client";
 
-import { CameraIcon } from "@phosphor-icons/react/dist/ssr";
+import { ArrowUpRightIcon, CameraIcon } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
@@ -88,9 +88,26 @@ export function CameraRollCard({ images }: CameraRollCardProps) {
 
   return (
     <Card className="p-5">
-      <h2 className="mb-4 font-semibold text-foreground-muted text-xs uppercase tracking-widest">
-        Camera Roll
-      </h2>
+      <div className="mb-4 flex items-start justify-between">
+        <h2 className="font-semibold text-foreground-muted text-xs uppercase tracking-widest">
+          Camera Roll
+        </h2>
+        <Link
+          className="group"
+          href={"/camera-roll"}
+          rel="noopener noreferrer"
+          target="_blank"
+          title="View my camera roll"
+        >
+          <ArrowUpRightIcon
+            className={cn(
+              "size-5 text-foreground-muted",
+              "group-hover:text-mirai-red"
+            )}
+            weight="regular"
+          />
+        </Link>
+      </div>
       {/* biome-ignore lint/a11y/noNoninteractiveElementInteractions: pause/resume carousel on hover */}
       <section
         aria-label="Camera Roll"
