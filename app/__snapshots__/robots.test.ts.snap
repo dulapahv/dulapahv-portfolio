@@ -4,7 +4,10 @@ exports[`robots > should match snapshot 1`] = `
 {
   "rules": {
     "allow": "/",
-    "disallow": "/camera-roll/",
+    "disallow": [
+      "/camera_roll/",
+      "/camera-roll/",
+    ],
     "userAgent": "*",
   },
   "sitemap": "https://dulapahv.dev/sitemap.xml",
