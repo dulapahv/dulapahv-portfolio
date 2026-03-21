@@ -167,6 +167,8 @@ export function CameraRollCard({ images }: CameraRollCardProps) {
           "hover:text-foreground"
         )}
         href="/camera-roll"
+        rel="noopener noreferrer"
+        target="_blank"
       >
         <CameraIcon className="size-4" />
         View my camera roll
