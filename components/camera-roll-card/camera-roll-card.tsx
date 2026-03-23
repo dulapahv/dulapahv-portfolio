@@ -95,6 +95,7 @@ export function CameraRollCard({ images }: CameraRollCardProps) {
         <Link
           className="group"
           href={"/camera-roll"}
+          prefetch={false}
           rel="noopener noreferrer"
           target="_blank"
           title="View my camera roll"
@@ -184,6 +185,7 @@ export function CameraRollCard({ images }: CameraRollCardProps) {
           "hover:text-foreground"
         )}
         href="/camera-roll"
+        prefetch={false}
         rel="noopener noreferrer"
         target="_blank"
       >
