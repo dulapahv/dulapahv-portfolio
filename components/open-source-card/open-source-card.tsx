@@ -1,6 +1,7 @@
 import type { Icon } from "@phosphor-icons/react/dist/lib/types";
 import {
   ArrowUpRightIcon,
+  CheckCircleIcon,
   CircleIcon,
   GitMergeIcon,
   GitPullRequestIcon,
@@ -17,7 +18,10 @@ import {
 import { Card } from "@/components/card";
 import { cn } from "@/lib/utils";
 
-function getStatusConfig(status: ContributionStatus): {
+function getStatusConfig(
+  status: ContributionStatus,
+  type: "PR" | "ISSUE"
+): {
   label: string;
   className: string;
   icon?: Icon;
@@ -36,11 +40,17 @@ function getStatusConfig(status: ContributionStatus): {
         icon: GitPullRequestIcon,
       };
     case "CLOSED":
-      return {
-        label: "Closed",
-        className: "bg-red-100 text-red-900",
-        icon: XIcon,
-      };
+      return type === "ISSUE"
+        ? {
+            label: "Closed",
+            className: "bg-purple-100 text-purple-900",
+            icon: CheckCircleIcon,
+          }
+        : {
+            label: "Closed",
+            className: "bg-red-100 text-red-900",
+            icon: XIcon,
+          };
     case "DRAFT":
       return {
         label: "Draft",
@@ -101,7 +111,10 @@ export async function OpenSourceCard() {
 
       <ul className="space-y-3 divide-y divide-border-subtle">
         {recentContributions.map((contribution) => {
-          const statusConfig = getStatusConfig(contribution.status);
+          const statusConfig = getStatusConfig(
+            contribution.status,
+            contribution.type
+          );
           const TypeIcon =
             contribution.type === "PR" ? GitPullRequestIcon : CircleIcon;
 
