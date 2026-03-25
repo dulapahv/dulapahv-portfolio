@@ -103,19 +103,19 @@ export default function Home() {
         <article className="min-w-0" style={{ gridArea: "👔" }}>
           <WorkCard />
         </article>
+        <article className="min-w-0" style={{ gridArea: "📄" }}>
+          <ResumeCard />
+        </article>
         <article className="min-w-0" style={{ gridArea: "📝" }}>
           <RecentBlogsCard />
+        </article>
+        <article className="min-w-0" style={{ gridArea: "🎨" }}>
+          <ProjectsCard projects={recentProjects} />
         </article>
         <article className="min-w-0" style={{ gridArea: "📊" }}>
           <Suspense fallback={<LoadingGitHub />}>
             <GitHubContributionsCard username="dulapahv" />
           </Suspense>
-        </article>
-        <article className="min-w-0" style={{ gridArea: "🎨" }}>
-          <ProjectsCard projects={recentProjects} />
-        </article>
-        <article className="min-w-0" style={{ gridArea: "📄" }}>
-          <ResumeCard />
         </article>
         <article className="min-w-0" style={{ gridArea: "🌟" }}>
           <Suspense fallback={<LoadingOpenSource />}>
