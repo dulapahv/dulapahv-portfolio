@@ -19,7 +19,7 @@
     ]
   },
   "dependencies": {
-    "@opennextjs/cloudflare": "^1.17.3",
+    "@opennextjs/cloudflare": "^1.18.0",
     "@phosphor-icons/react": "^2.1.10",
     "@react-spring/web": "^10.0.3",
     "@shikijs/transformers": "^4.0.2",
@@ -65,19 +65,19 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.2.0",
-    "@vitest/coverage-v8": "4.1.0",
-    "@vitest/ui": "4.0.16",
+    "@vitest/coverage-v8": "4.1.2",
+    "@vitest/ui": "4.1.2",
     "husky": "^9.1.7",
     "jsdom": "^27.4.0",
     "lint-staged": "^16.4.0",
     "next-router-mock": "^1.0.5",
     "tailwindcss": "^4.2.2",
-    "turbo": "^2.8.20",
+    "turbo": "^2.8.21",
     "typescript": "^5.9.3",
     "ultracite": "6.5.0",
     "vite-tsconfig-paths": "^5.1.4",
-    "vitest": "^4.1.1",
-    "wrangler": "^4.76.0"
+    "vitest": "^4.1.2",
+    "wrangler": "^4.78.0"
   },
-  "packageManager": "pnpm@10.28.1+sha512.7d7dbbca9e99447b7c3bf7a73286afaaf6be99251eb9498baefa7d406892f67b879adb3a1d7e687fc4ccc1a388c7175fbaae567a26ab44d1067b54fcb0d6a316"
+  "packageManager": "pnpm@10.33.0+sha512.10568bb4a6afb58c9eb3630da90cc9516417abebd3fabbe6739f0ae795728da1491e9db5a544c76ad8eb7570f5c4bb3d6c637b2cb41bfdcdb47fa823c8649319"
 }
