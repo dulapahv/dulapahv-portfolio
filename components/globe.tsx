@@ -10,13 +10,22 @@ interface GlobeProps {
   readonly height: number;
   readonly markers: COBEOptions["markers"];
   className?: string;
+  isPaused?: boolean;
 }
 
-export function Globe({ width, height, markers, className }: GlobeProps) {
+export function Globe({
+  width,
+  height,
+  markers,
+  className,
+  isPaused,
+}: GlobeProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const pointerInteracting = useRef<number | null>(null);
   const pointerInteractionMovement = useRef(0);
   const phiRef = useRef(-4);
+  const isPausedRef = useRef(isPaused);
+  isPausedRef.current = isPaused;
 
   const [{ r }, api] = useSpring(() => ({
     r: 0,
@@ -68,8 +77,8 @@ export function Globe({ width, height, markers, className }: GlobeProps) {
           : [0.960_78, 0.960_78, 0.960_78],
       markers,
       onRender: (state) => {
-        // Auto-rotate when not dragging
-        if (!pointerInteracting.current) {
+        // Auto-rotate when not dragging and not paused
+        if (!(pointerInteracting.current || isPausedRef.current)) {
           phiRef.current += 0.002;
         }
 

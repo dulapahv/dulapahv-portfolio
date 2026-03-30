@@ -1,6 +1,11 @@
 "use client";
 
-import { ArrowUpRightIcon, CameraIcon } from "@phosphor-icons/react/dist/ssr";
+import {
+  ArrowUpRightIcon,
+  CameraIcon,
+  PauseIcon,
+  PlayIcon,
+} from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
@@ -30,7 +35,9 @@ const getProgressWidth = (
 
 export function CameraRollCard({ images }: CameraRollCardProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
+  const [isManuallyPaused, setIsManuallyPaused] = useState(false);
+  const isPaused = isHovering || isManuallyPaused;
   const progressRef = useRef(0);
   const [, forceUpdate] = useState({});
 
@@ -113,8 +120,8 @@ export function CameraRollCard({ images }: CameraRollCardProps) {
       <section
         aria-label="Camera Roll"
         className="relative mb-4 h-full min-h-64 overflow-hidden rounded-lg xl:min-h-auto"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
+        onMouseEnter={() => setIsHovering(true)}
+        onMouseLeave={() => setIsHovering(false)}
       >
         <div className="absolute top-2 right-2 left-2 z-10 flex gap-1">
           {images.map((image, index) => (
@@ -151,6 +158,20 @@ export function CameraRollCard({ images }: CameraRollCardProps) {
           onClick={handleNext}
           type="button"
         />
+
+        <button
+          aria-label={isManuallyPaused ? "Resume slideshow" : "Pause slideshow"}
+          className="absolute right-2 bottom-2 z-10 cursor-pointer rounded-full bg-background-elevated/50 p-1.5 text-foreground-muted backdrop-blur-sm hover:bg-background-elevated/60 hover:text-foreground"
+          onClick={() => setIsManuallyPaused((prev) => !prev)}
+          title={isManuallyPaused ? "Resume slideshow" : "Pause slideshow"}
+          type="button"
+        >
+          {isManuallyPaused ? (
+            <PlayIcon className="size-4" weight="fill" />
+          ) : (
+            <PauseIcon className="size-4" weight="fill" />
+          )}
+        </button>
 
         <div
           className="flex h-full transition-transform duration-500 ease-in-out"
