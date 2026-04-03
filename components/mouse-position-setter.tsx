@@ -8,7 +8,9 @@ export default function MousePositionVarsSetter() {
   useEffect(() => {
     const handler = ({ clientX, clientY }: MouseEvent) => {
       // Skip expensive DOM reads while destruction mode is active
-      if ((window as Record<string, unknown>).__destructionModeActive) {
+      if (
+        (window as unknown as Record<string, unknown>).__destructionModeActive
+      ) {
         return;
       }
       const shinyCards = document.querySelectorAll(

@@ -90,7 +90,7 @@ export function useDestructionMode() {
     }
     activeRef.current = true;
 
-    (window as Record<string, unknown>)[DESTRUCTION_FLAG] = true;
+    (window as unknown as Record<string, unknown>)[DESTRUCTION_FLAG] = true;
     document.documentElement.style.overflowX = "hidden";
 
     const engine = Engine.create({ gravity: { x: 0, y: 0, scale: 0 } });
@@ -229,7 +229,7 @@ export function useDestructionMode() {
     activeRef.current = false;
     cancelAnimationFrame(rafRef.current);
 
-    (window as Record<string, unknown>)[DESTRUCTION_FLAG] = false;
+    (window as unknown as Record<string, unknown>)[DESTRUCTION_FLAG] = false;
     document.documentElement.style.overflowX = "";
 
     if (scrollHandlerRef.current) {
