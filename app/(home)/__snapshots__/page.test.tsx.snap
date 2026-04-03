@@ -12,6 +12,7 @@ exports[`Home Page > should match snapshot 1`] = `
   >
     <div
       class="relative mb-4 max-w-3xl"
+      data-destructible="true"
     >
       <span
         aria-hidden="true"
@@ -153,6 +154,7 @@ exports[`Home Page > should match snapshot 1`] = `
     </div>
     <div
       class="relative mb-4 max-w-3xl"
+      data-destructible="true"
     >
       <span
         aria-hidden="true"
@@ -289,6 +291,7 @@ exports[`Home Page > should match snapshot 1`] = `
     </div>
     <div
       class="relative mb-4 max-w-3xl"
+      data-destructible="true"
     >
       <span
         aria-hidden="true"
@@ -400,6 +403,7 @@ exports[`Home Page > should match snapshot 1`] = `
     </div>
     <div
       class="mt-12 max-w-4xl"
+      data-destructible="true"
     >
       <h2
         class="mb-4 font-semibold text-foreground-muted text-sm uppercase tracking-wider"
@@ -453,6 +457,7 @@ exports[`Home Page > should match snapshot 1`] = `
   >
     <article
       class="min-w-0"
+      data-destructible="true"
       style="grid-area: 👋;"
     >
       <div
@@ -608,6 +613,7 @@ exports[`Home Page > should match snapshot 1`] = `
     </article>
     <article
       class="min-w-0"
+      data-destructible="true"
       style="grid-area: 👔;"
     >
       <div
@@ -804,6 +810,7 @@ exports[`Home Page > should match snapshot 1`] = `
     </article>
     <article
       class="min-w-0"
+      data-destructible="true"
       style="grid-area: 📄;"
     >
       <a
@@ -913,6 +920,7 @@ exports[`Home Page > should match snapshot 1`] = `
     </article>
     <article
       class="min-w-0"
+      data-destructible="true"
       style="grid-area: 📝;"
     >
       <div
@@ -960,6 +968,7 @@ exports[`Home Page > should match snapshot 1`] = `
     </article>
     <article
       class="min-w-0"
+      data-destructible="true"
       style="grid-area: 🎨;"
     >
       <div
@@ -1055,6 +1064,7 @@ exports[`Home Page > should match snapshot 1`] = `
     </article>
     <article
       class="min-w-0"
+      data-destructible="true"
       style="grid-area: 📊;"
     >
       <div
@@ -1065,6 +1075,7 @@ exports[`Home Page > should match snapshot 1`] = `
     </article>
     <article
       class="min-w-0"
+      data-destructible="true"
       style="grid-area: 🌟;"
     >
       <div
@@ -1075,6 +1086,7 @@ exports[`Home Page > should match snapshot 1`] = `
     </article>
     <article
       class="min-w-0"
+      data-destructible="true"
       style="grid-area: 🌏;"
     >
       <div
@@ -1123,6 +1135,7 @@ exports[`Home Page > should match snapshot 1`] = `
     </article>
     <article
       class="min-w-0"
+      data-destructible="true"
       style="grid-area: 📸;"
     >
       <div
@@ -1430,6 +1443,7 @@ exports[`Home Page > should match snapshot 1`] = `
     </article>
     <article
       class="min-w-0"
+      data-destructible="true"
       style="grid-area: 🎵;"
     >
       <div
@@ -1438,9 +1452,61 @@ exports[`Home Page > should match snapshot 1`] = `
         Spotify
       </div>
     </article>
+    <article
+      class="min-w-0"
+      data-destructible="true"
+      style="grid-area: 🎮;"
+    >
+      <div
+        class="relative h-full rounded-xl bg-border p-px"
+      >
+        <div
+          class="relative-mouse pointer-events-none absolute inset-0 rounded-xl transition-opacity duration-500"
+          style="background: linear-gradient(to bottom right, var(--color-mirai-red), var(--color-mirai-blue), var(--color-mirai-yellow)); mask-image: radial-gradient(50% 50% at var(--mouse-x, 9999px) var(--mouse-y, 9999px), rgba(0, 0, 0, 0.5) 40%, transparent);"
+        />
+        <div
+          class="card relative z-1 h-full rounded-xl bg-background-elevated flex flex-col gap-3 p-5"
+        >
+          <h2
+            class="font-semibold text-foreground-muted text-xs uppercase tracking-widest"
+          >
+            Destruction Mode
+          </h2>
+          <p
+            class="text-foreground-muted text-sm"
+          >
+            Enable to unleash chaos on this page.
+          </p>
+          <div
+            class="mt-auto"
+          >
+            <button
+              aria-label="Enable destruction mode"
+              class="inline-flex cursor-pointer items-center gap-1.5 rounded-full bg-error-subtle px-3 py-1.5 text-error text-sm hover:bg-error hover:text-foreground"
+              type="button"
+            >
+              <svg
+                class="size-4"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 256 256"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M236.8,188.09,149.35,36.22h0a24.76,24.76,0,0,0-42.7,0L19.2,188.09a23.51,23.51,0,0,0,0,23.72A24.35,24.35,0,0,0,40.55,224h174.9a24.35,24.35,0,0,0,21.33-12.19A23.51,23.51,0,0,0,236.8,188.09ZM222.93,203.8a8.5,8.5,0,0,1-7.48,4.2H40.55a8.5,8.5,0,0,1-7.48-4.2,7.59,7.59,0,0,1,0-7.72L120.52,44.21a8.75,8.75,0,0,1,15,0l87.45,151.87A7.59,7.59,0,0,1,222.93,203.8ZM120,144V104a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,180Z"
+                />
+              </svg>
+              Enable
+            </button>
+          </div>
+        </div>
+      </div>
+    </article>
   </main>
   <footer
     class="mt-16 mocked-archivo"
+    data-destructible="true"
   >
     <div
       class="flex flex-col gap-y-1 text-foreground-muted text-sm"

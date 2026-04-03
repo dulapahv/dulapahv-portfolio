@@ -5,6 +5,7 @@ exports[`Navbar > Snapshot > should match snapshot on blog page 1`] = `
   <nav
     aria-label="Main navigation"
     class="mocked-archivo fixed right-1/2 bottom-4 z-50 flex translate-x-1/2 items-center gap-x-6 rounded-full border border-border bg-background-elevated/80 px-3 py-2 text-foreground-subtle shadow-lg backdrop-blur-xl *:translate-y-0.5 sm:px-4"
+    data-destructible="true"
     role="navigation"
     style="opacity: 0; transform: translateY(100px);"
   >
@@ -160,6 +161,7 @@ exports[`Navbar > Snapshot > should match snapshot on home page 1`] = `
   <nav
     aria-label="Main navigation"
     class="mocked-archivo fixed right-1/2 bottom-4 z-50 flex translate-x-1/2 items-center gap-x-6 rounded-full border border-border bg-background-elevated/80 px-3 py-2 text-foreground-subtle shadow-lg backdrop-blur-xl *:translate-y-0.5 sm:px-4"
+    data-destructible="true"
     role="navigation"
     style="opacity: 0; transform: translateY(100px);"
   >

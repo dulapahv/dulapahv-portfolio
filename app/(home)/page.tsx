@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { AboutCard } from "@/components/about-card";
 import { CameraRollCard } from "@/components/camera-roll-card/camera-roll-card";
+import { DestructionModeCard } from "@/components/destruction-mode-card/destruction-mode-card";
 import { Footer } from "@/components/footer";
 import { GitHubContributionsCard } from "@/components/github-contributions-card/github-contributions-card";
 import { Loading as LoadingGitHub } from "@/components/github-contributions-card/loading";
@@ -58,7 +59,7 @@ export default function Home() {
       <JsonLd schemas={[profilePageSchema]} />
       <header className="mb-12 animate-tilt-scale-up">
         <HeaderText />
-        <div className="mt-12 max-w-4xl">
+        <div className="mt-12 max-w-4xl" data-destructible>
           <h2 className="mb-4 font-semibold text-foreground-muted text-sm uppercase tracking-wider">
             What I do
           </h2>
@@ -97,35 +98,71 @@ export default function Home() {
         </div>
       </header>
       <main className="home-grid grid animate-tilt-scale-up gap-5">
-        <article className="min-w-0" style={{ gridArea: "👋" }}>
+        <article
+          className="min-w-0"
+          data-destructible
+          style={{ gridArea: "👋" }}
+        >
           <AboutCard />
         </article>
-        <article className="min-w-0" style={{ gridArea: "👔" }}>
+        <article
+          className="min-w-0"
+          data-destructible
+          style={{ gridArea: "👔" }}
+        >
           <WorkCard />
         </article>
-        <article className="min-w-0" style={{ gridArea: "📄" }}>
+        <article
+          className="min-w-0"
+          data-destructible
+          style={{ gridArea: "📄" }}
+        >
           <ResumeCard />
         </article>
-        <article className="min-w-0" style={{ gridArea: "📝" }}>
+        <article
+          className="min-w-0"
+          data-destructible
+          style={{ gridArea: "📝" }}
+        >
           <RecentBlogsCard />
         </article>
-        <article className="min-w-0" style={{ gridArea: "🎨" }}>
+        <article
+          className="min-w-0"
+          data-destructible
+          style={{ gridArea: "🎨" }}
+        >
           <ProjectsCard projects={recentProjects} />
         </article>
-        <article className="min-w-0" style={{ gridArea: "📊" }}>
+        <article
+          className="min-w-0"
+          data-destructible
+          style={{ gridArea: "📊" }}
+        >
           <Suspense fallback={<LoadingGitHub />}>
             <GitHubContributionsCard username="dulapahv" />
           </Suspense>
         </article>
-        <article className="min-w-0" style={{ gridArea: "🌟" }}>
+        <article
+          className="min-w-0"
+          data-destructible
+          style={{ gridArea: "🌟" }}
+        >
           <Suspense fallback={<LoadingOpenSource />}>
             <OpenSourceCard />
           </Suspense>
         </article>
-        <article className="min-w-0" style={{ gridArea: "🌏" }}>
+        <article
+          className="min-w-0"
+          data-destructible
+          style={{ gridArea: "🌏" }}
+        >
           <GlobeCard />
         </article>
-        <article className="min-w-0" style={{ gridArea: "📸" }}>
+        <article
+          className="min-w-0"
+          data-destructible
+          style={{ gridArea: "📸" }}
+        >
           <CameraRollCard
             images={[
               "jp1.jpeg",
@@ -137,10 +174,21 @@ export default function Home() {
             ]}
           />
         </article>
-        <article className="min-w-0" style={{ gridArea: "🎵" }}>
+        <article
+          className="min-w-0"
+          data-destructible
+          style={{ gridArea: "🎵" }}
+        >
           <Suspense fallback={<SpotifyLoading />}>
             <SpotifyCard />
           </Suspense>
+        </article>
+        <article
+          className="min-w-0"
+          data-destructible
+          style={{ gridArea: "🎮" }}
+        >
+          <DestructionModeCard />
         </article>
       </main>
       <Footer />

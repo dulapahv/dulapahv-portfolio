@@ -3,7 +3,7 @@ import { SvgTextAnimation } from "@/components/svg-text-animation";
 export function HeaderText() {
   return (
     <>
-      <div className="relative mb-4 max-w-3xl">
+      <div className="relative mb-4 max-w-3xl" data-destructible>
         <span
           aria-hidden="true"
           className="pointer-events-auto absolute inset-0 select-text text-6xl text-foreground opacity-0"
@@ -149,7 +149,7 @@ export function HeaderText() {
           </g>
         </SvgTextAnimation>
       </div>
-      <div className="relative mb-4 max-w-3xl">
+      <div className="relative mb-4 max-w-3xl" data-destructible>
         <span
           aria-hidden="true"
           className="pointer-events-auto absolute inset-0 select-text text-6xl text-foreground opacity-0"
@@ -290,7 +290,7 @@ export function HeaderText() {
           </g>
         </SvgTextAnimation>
       </div>
-      <div className="relative mb-4 max-w-3xl">
+      <div className="relative mb-4 max-w-3xl" data-destructible>
         <span
           aria-hidden="true"
           className="pointer-events-auto absolute inset-0 select-text text-6xl text-foreground opacity-0"

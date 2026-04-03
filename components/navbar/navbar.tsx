@@ -129,6 +129,7 @@ export function Navbar() {
         archivo.className,
         "fixed right-1/2 bottom-4 z-50 flex translate-x-1/2 items-center gap-x-6 rounded-full border border-border bg-background-elevated/80 px-3 py-2 text-foreground-subtle shadow-lg backdrop-blur-xl *:translate-y-0.5 sm:px-4"
       )}
+      data-destructible
       initial="hidden"
       onKeyDown={handleKeyDown}
       ref={navRef}
