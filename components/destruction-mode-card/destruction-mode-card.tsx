@@ -75,7 +75,7 @@ export function DestructionModeCard() {
 
   return (
     <>
-      <Card className="flex flex-col gap-3 p-5">
+      <Card className="flex flex-col gap-3 p-5" containerClassName="h-fit">
         <h2 className="font-semibold text-foreground-muted text-xs uppercase tracking-widest">
           Destruction Mode
         </h2>

@@ -1458,7 +1458,7 @@ exports[`Home Page > should match snapshot 1`] = `
       style="grid-area: 🎮;"
     >
       <div
-        class="relative h-full rounded-xl bg-border p-px"
+        class="relative rounded-xl bg-border p-px h-fit"
       >
         <div
           class="relative-mouse pointer-events-none absolute inset-0 rounded-xl transition-opacity duration-500"
