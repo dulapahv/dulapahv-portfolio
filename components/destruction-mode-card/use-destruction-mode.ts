@@ -136,10 +136,12 @@ export function useDestructionMode() {
     wallsRef.current = walls;
     World.add(engine.world, walls);
 
-    const cards = document.querySelectorAll<HTMLElement>("[data-destructible]");
+    const elements = document.querySelectorAll<HTMLElement>(
+      "[data-destructible]"
+    );
     const bodies: ElementBody[] = [];
 
-    for (const element of cards) {
+    for (const element of elements) {
       const prevAnimation = element.style.animation;
       element.style.animation = "none";
 
