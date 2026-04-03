@@ -59,7 +59,7 @@ export default function Home() {
       <JsonLd schemas={[profilePageSchema]} />
       <header className="mb-12 animate-tilt-scale-up">
         <HeaderText />
-        <div className="mt-12 max-w-4xl" data-destructible>
+        <div className="mt-12 w-fit max-w-4xl" data-destructible>
           <h2 className="mb-4 font-semibold text-foreground-muted text-sm uppercase tracking-wider">
             What I do
           </h2>
