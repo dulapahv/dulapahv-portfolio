@@ -29,11 +29,11 @@
     "deepmerge": "^4.3.1",
     "geist": "^1.7.0",
     "motion": "^12.38.0",
-    "next": "16.2.1",
+    "next": "16.2.2",
     "next-themes": "^0.4.6",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "react-medium-image-zoom": "^5.4.1",
+    "react-medium-image-zoom": "^5.4.2",
     "reading-time": "^1.5.0",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-github-alerts": "^4.2.0",
@@ -61,7 +61,7 @@
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^14.6.1",
-    "@types/node": "^24.12.0",
+    "@types/node": "^24.12.1",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.2.0",
@@ -72,12 +72,12 @@
     "lint-staged": "^16.4.0",
     "next-router-mock": "^1.0.5",
     "tailwindcss": "^4.2.2",
-    "turbo": "^2.8.21",
+    "turbo": "^2.9.3",
     "typescript": "^5.9.3",
     "ultracite": "6.5.0",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^4.1.2",
-    "wrangler": "^4.78.0"
+    "wrangler": "^4.80.0"
   },
   "packageManager": "pnpm@10.33.0+sha512.10568bb4a6afb58c9eb3630da90cc9516417abebd3fabbe6739f0ae795728da1491e9db5a544c76ad8eb7570f5c4bb3d6c637b2cb41bfdcdb47fa823c8649319"
 }
