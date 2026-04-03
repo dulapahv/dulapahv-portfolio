@@ -91,7 +91,7 @@ export function useDestructionMode() {
     activeRef.current = true;
 
     (window as unknown as Record<string, unknown>)[DESTRUCTION_FLAG] = true;
-    document.documentElement.style.overflowX = "hidden";
+    document.body.style.overflowX = "clip";
 
     const engine = Engine.create({ gravity: { x: 0, y: 0, scale: 0 } });
     engineRef.current = engine;
@@ -101,7 +101,7 @@ export function useDestructionMode() {
     const viewW = window.innerWidth;
     const viewH = window.innerHeight;
     const docW = Math.max(document.documentElement.scrollWidth, viewW);
-    const docH = Math.max(document.documentElement.scrollHeight, viewH) - 2; // Account for potential off-by-one in scrollHeight
+    const docH = Math.max(document.documentElement.scrollHeight, viewH);
 
     const walls = [
       Bodies.rectangle(
@@ -230,7 +230,7 @@ export function useDestructionMode() {
     cancelAnimationFrame(rafRef.current);
 
     (window as unknown as Record<string, unknown>)[DESTRUCTION_FLAG] = false;
-    document.documentElement.style.overflowX = "";
+    document.body.style.overflowX = "";
 
     if (scrollHandlerRef.current) {
       window.removeEventListener("scroll", scrollHandlerRef.current);
