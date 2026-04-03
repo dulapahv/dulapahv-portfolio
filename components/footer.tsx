@@ -11,7 +11,7 @@ const archivo = Archivo({ subsets: ["latin"], weight: "variable" });
 
 export function Footer() {
   return (
-    <footer className={cn("mt-16", archivo.className)} data-destructible>
+    <footer className={cn("mt-16 w-fit", archivo.className)} data-destructible>
       <div className="flex flex-col gap-y-1 text-foreground-muted text-sm">
         <p>
           ©{" "}
