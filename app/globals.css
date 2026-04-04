@@ -7,9 +7,9 @@
 /* Vercel-Inspired Design System */
 :root {
   /* Custom Brand Colors */
-  --color-mirai-red: oklch(68.82% 0.2033 4.93);
-  --color-mirai-blue: oklch(74.26% 0.1347 245.71);
-  --color-mirai-yellow: oklch(89.22% 0.1627 95.78);
+  --color-mirai-red: oklch(68.8% 0.203 4.94);
+  --color-mirai-blue: oklch(74.3% 0.135 245.71);
+  --color-mirai-yellow: oklch(86.8% 0.153 86.83);
 
   /* Base Colors - Light Theme */
   --x-background-100: oklch(100% 0 0);
