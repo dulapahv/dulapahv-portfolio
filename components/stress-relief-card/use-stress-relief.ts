@@ -217,6 +217,32 @@ export function useStressRelief() {
       canvas.style.cursor = "grab";
     });
 
+    let lastTouchX = 0;
+    let lastTouchY = 0;
+    canvas.addEventListener(
+      "touchstart",
+      (e: TouchEvent) => {
+        if (e.touches.length === 1) {
+          lastTouchX = e.touches[0].clientX;
+          lastTouchY = e.touches[0].clientY;
+        }
+      },
+      { passive: true }
+    );
+    canvas.addEventListener(
+      "touchmove",
+      (e: TouchEvent) => {
+        if (!mouseConstraint.body && e.touches.length === 1) {
+          const dx = lastTouchX - e.touches[0].clientX;
+          const dy = lastTouchY - e.touches[0].clientY;
+          window.scrollBy(dx, dy);
+          lastTouchX = e.touches[0].clientX;
+          lastTouchY = e.touches[0].clientY;
+        }
+      },
+      { passive: true }
+    );
+
     const runner = Runner.create();
     Runner.run(runner, engine);
     runnerRef.current = runner;
