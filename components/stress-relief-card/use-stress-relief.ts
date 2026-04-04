@@ -6,7 +6,7 @@ import { useCallback, useEffect, useRef } from "react";
 const { Engine, World, Bodies, Body, Mouse, MouseConstraint, Events, Runner } =
   Matter;
 
-const DESTRUCTION_FLAG = "__destructionModeActive";
+const STRESS_RELIEF_FLAG = "__stressReliefActive";
 
 interface ElementBody {
   body: Matter.Body;
@@ -58,7 +58,7 @@ function cleanupPhysics(
   }
 }
 
-export function useDestructionMode() {
+export function useStressRelief() {
   const engineRef = useRef<Matter.Engine | null>(null);
   const runnerRef = useRef<Matter.Runner | null>(null);
   const elementBodiesRef = useRef<ElementBody[]>([]);
@@ -90,7 +90,7 @@ export function useDestructionMode() {
     }
     activeRef.current = true;
 
-    (window as unknown as Record<string, unknown>)[DESTRUCTION_FLAG] = true;
+    (window as unknown as Record<string, unknown>)[STRESS_RELIEF_FLAG] = true;
     document.body.style.overflowX = "clip";
 
     const engine = Engine.create({ gravity: { x: 0, y: 0, scale: 0 } });
@@ -231,7 +231,7 @@ export function useDestructionMode() {
     activeRef.current = false;
     cancelAnimationFrame(rafRef.current);
 
-    (window as unknown as Record<string, unknown>)[DESTRUCTION_FLAG] = false;
+    (window as unknown as Record<string, unknown>)[STRESS_RELIEF_FLAG] = false;
     document.body.style.overflowX = "";
 
     if (scrollHandlerRef.current) {

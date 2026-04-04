@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { AboutCard } from "@/components/about-card";
 import { CameraRollCard } from "@/components/camera-roll-card/camera-roll-card";
-import { DestructionModeCard } from "@/components/destruction-mode-card/destruction-mode-card";
 import { Footer } from "@/components/footer";
 import { GitHubContributionsCard } from "@/components/github-contributions-card/github-contributions-card";
 import { Loading as LoadingGitHub } from "@/components/github-contributions-card/loading";
@@ -17,6 +16,7 @@ import { RecentBlogsCard } from "@/components/recent-blogs-card";
 import { ResumeCard } from "@/components/resume-card/resume-card";
 import { Loading as SpotifyLoading } from "@/components/spotify-card/loading";
 import { SpotifyCard } from "@/components/spotify-card/spotify-card";
+import { StressReliefCard } from "@/components/stress-relief-card/stress-relief-card";
 import { WorkCard } from "@/components/work-card";
 import { DESCRIPTION } from "@/lib/constants";
 import type { Project } from "@/lib/content-utils/content-utils";
@@ -188,7 +188,7 @@ export default function Home() {
           data-destructible
           style={{ gridArea: "🎮" }}
         >
-          <DestructionModeCard />
+          <StressReliefCard />
         </article>
       </main>
       <Footer />

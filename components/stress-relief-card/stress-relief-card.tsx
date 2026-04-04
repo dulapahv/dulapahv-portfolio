@@ -4,16 +4,16 @@ import {
   ArrowCounterClockwiseIcon,
   FireIcon,
   ShuffleIcon,
-  WarningIcon,
+  SparkleIcon,
 } from "@phosphor-icons/react/dist/ssr";
 import { useCallback, useState } from "react";
 import { createPortal } from "react-dom";
 
 import { Card } from "@/components/card";
 
-import { useDestructionMode } from "./use-destruction-mode";
+import { useStressRelief } from "./use-stress-relief";
 
-function DestructionToolbar({
+function StressReliefToolbar({
   onReset,
   onExplode,
   onShake,
@@ -24,14 +24,15 @@ function DestructionToolbar({
 }) {
   return createPortal(
     <div
-      aria-label="Destruction mode controls"
+      aria-label="Stress relief controls"
       className="fixed right-8 bottom-8 z-9999 flex items-center gap-2 rounded-xl border border-border bg-background-elevated px-4 py-3 shadow-lg backdrop-blur-md"
       role="toolbar"
     >
       <button
-        aria-label="Disable destruction mode"
+        aria-label="Reset stress relief"
         className="inline-flex cursor-pointer items-center gap-1.5 rounded-full bg-error-subtle px-3 py-1.5 text-error text-sm hover:bg-error hover:text-foreground"
         onClick={onReset}
+        title="Reset stress relief"
         type="button"
       >
         <ArrowCounterClockwiseIcon className="size-4" />
@@ -41,6 +42,7 @@ function DestructionToolbar({
         aria-label="Explode all elements"
         className="inline-flex cursor-pointer items-center gap-1.5 rounded-full bg-warning-subtle px-3 py-1.5 text-sm text-warning hover:bg-warning hover:text-foreground"
         onClick={onExplode}
+        title="Explode all elements"
         type="button"
       >
         <FireIcon className="size-4" />
@@ -50,6 +52,7 @@ function DestructionToolbar({
         aria-label="Shake all elements"
         className="inline-flex cursor-pointer items-center gap-1.5 rounded-full bg-accent-subtle px-3 py-1.5 text-accent text-sm hover:bg-accent hover:text-foreground"
         onClick={onShake}
+        title="Shake all elements"
         type="button"
       >
         <ShuffleIcon className="size-4" />
@@ -60,9 +63,9 @@ function DestructionToolbar({
   );
 }
 
-export function DestructionModeCard() {
+export function StressReliefCard() {
   const [isActive, setIsActive] = useState(false);
-  const { activate, reset, explode, shake } = useDestructionMode();
+  const { activate, reset, explode, shake } = useStressRelief();
 
   const handleEnable = useCallback(() => {
     activate();
@@ -77,29 +80,30 @@ export function DestructionModeCard() {
     <>
       <Card className="flex flex-col gap-3 p-5" containerClassName="h-fit">
         <h2 className="font-semibold text-foreground-muted text-xs uppercase tracking-widest">
-          Destruction Mode
+          Stress Relief
         </h2>
         <p className="text-foreground-muted text-sm">
           {isActive
-            ? "Chaos unleashed! Drag elements or use the toolbar."
-            : "Enable to unleash chaos on this page."}
+            ? "Go wild! Drag elements or use the toolbar."
+            : "Feeling stressed? Toss things around."}
         </p>
         {!isActive && (
           <div className="mt-auto">
             <button
-              aria-label="Enable destruction mode"
-              className="inline-flex cursor-pointer items-center gap-1.5 rounded-full bg-error-subtle px-3 py-1.5 text-error text-sm hover:bg-error hover:text-foreground"
+              aria-label="Enable stress relief"
+              className="inline-flex cursor-pointer items-center gap-1.5 rounded-full bg-accent-subtle px-3 py-1.5 text-sm hover:bg-accent"
               onClick={handleEnable}
+              title="Enable stress relief"
               type="button"
             >
-              <WarningIcon className="size-4" />
+              <SparkleIcon className="size-4" />
               Enable
             </button>
           </div>
         )}
       </Card>
       {isActive && (
-        <DestructionToolbar
+        <StressReliefToolbar
           onExplode={explode}
           onReset={handleReset}
           onShake={shake}

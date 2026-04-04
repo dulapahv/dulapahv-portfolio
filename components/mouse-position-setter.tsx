@@ -7,10 +7,8 @@ export const relativeMouseClassname = "relative-mouse";
 export default function MousePositionVarsSetter() {
   useEffect(() => {
     const handler = ({ clientX, clientY }: MouseEvent) => {
-      // Skip expensive DOM reads while destruction mode is active
-      if (
-        (window as unknown as Record<string, unknown>).__destructionModeActive
-      ) {
+      // Skip expensive DOM reads while stress relief is active
+      if ((window as unknown as Record<string, unknown>).__stressReliefActive) {
         return;
       }
       const shinyCards = document.querySelectorAll(
