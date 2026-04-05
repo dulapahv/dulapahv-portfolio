@@ -81,7 +81,7 @@ export async function SpotifyCard() {
                   {artist.images[0] && (
                     <Image
                       alt={artist.name}
-                      className="rounded-full"
+                      className="size-10 shrink-0 rounded-full object-cover"
                       height={40}
                       src={artist.images[0].url}
                       width={40}

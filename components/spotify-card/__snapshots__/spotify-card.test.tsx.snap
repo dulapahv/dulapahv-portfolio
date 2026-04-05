@@ -80,7 +80,7 @@ exports[`SpotifyCard > should match snapshot 1`] = `
               </span>
               <img
                 alt="Test Artist 1"
-                class="rounded-full"
+                class="size-10 shrink-0 rounded-full object-cover"
                 height="40"
                 src="https://example.com/artist1.jpg"
                 width="40"
@@ -108,7 +108,7 @@ exports[`SpotifyCard > should match snapshot 1`] = `
               </span>
               <img
                 alt="Test Artist 2"
-                class="rounded-full"
+                class="size-10 shrink-0 rounded-full object-cover"
                 height="40"
                 src="https://example.com/artist2.jpg"
                 width="40"
