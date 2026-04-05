@@ -9,7 +9,7 @@ import { ThemeProvider } from "next-themes";
 import { useEffect } from "react";
 import { Footer } from "@/components/footer";
 import { TopBar } from "@/components/top-bar/top-bar";
-import { IS_DEV_ENV } from "@/lib/constants";
+import { CONTACT_EMAIL, IS_DEV_ENV } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export const raleway = Raleway({
@@ -73,7 +73,7 @@ export default function GlobalError({
             />
           </div>
           <div
-            className="mx-auto max-w-4xl space-y-4 px-4 py-16"
+            className="mx-auto max-w-7xl space-y-4 px-4 py-16 pt-24"
             id="main-content"
           >
             <TopBar />
@@ -83,30 +83,13 @@ export default function GlobalError({
               </header>
               <p className="text-foreground-muted">
                 A critical error occurred and the application could not recover.
-                Please try again or{" "}
+                Please try again or contact me at{" "}
                 <Link
-                  className={cn(
-                    "text-mirai-red underline underline-offset-4",
-                    "hover:text-mirai-red"
-                  )}
-                  href={`/contact?message=${encodeURIComponent(
-                    `Please describe what you were doing when this error occurred:
-
-
-
-Please do not remove the details below, they help me identify and fix the issue faster.
-====================
-Critical Error Details:
-Timestamp: ${new Date().toLocaleString()} (${new Date().toISOString()})
-Path: ${typeof window !== "undefined" ? window.location.pathname : "N/A"}
-Name: ${error.name || "N/A"}
-Message: ${error.message || "N/A"}
-Cause: ${error.cause || "N/A"}
-Digest: ${error.digest || "N/A"}
-====================`
-                  )}`}
+                  aria-label={`Email address: ${CONTACT_EMAIL}`}
+                  className={cn("font-semibold text-mirai-red")}
+                  href={`mailto:${CONTACT_EMAIL}`}
                 >
-                  contact me
+                  {CONTACT_EMAIL}
                 </Link>{" "}
                 if the issue persists.
               </p>

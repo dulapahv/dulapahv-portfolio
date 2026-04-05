@@ -6,7 +6,7 @@ import ErrorPage from "./error";
 
 // Regex patterns for testing
 const ERROR_MESSAGE_REGEX = /An error occurred while rendering this page/i;
-const CONTACT_ME_REGEX = /contact me/i;
+const CONTACT_LINK_REGEX = /contact@dulapahv\.dev/i;
 const TRY_AGAIN_REGEX = /try again/i;
 const DETAILS_REGEX = /Details:/i;
 const NAME_TEST_ERROR_REGEX = /Name: TestError/i;
@@ -71,11 +71,13 @@ describe("Error Page", () => {
     render(<ErrorPage error={mockError} reset={mockReset} />);
     expect(screen.getByText(ERROR_MESSAGE_REGEX)).toBeInTheDocument();
 
-    const contactLink = screen.getByRole("link", { name: CONTACT_ME_REGEX });
+    const contactLink = screen.getByRole("link", {
+      name: CONTACT_LINK_REGEX,
+    });
     expect(contactLink).toBeInTheDocument();
     expect(contactLink).toHaveAttribute(
       "href",
-      expect.stringContaining("/contact")
+      expect.stringContaining("mailto:")
     );
   });
 

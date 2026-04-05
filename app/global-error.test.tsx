@@ -7,7 +7,7 @@ import GlobalError from "./global-error";
 // Regex patterns for testing
 const CRITICAL_ERROR_REGEX =
   /A critical error occurred and the application could not recover/i;
-const CONTACT_ME_REGEX = /contact me/i;
+const CONTACT_LINK_REGEX = /contact@dulapahv\.dev/i;
 const TRY_AGAIN_REGEX = /try again/i;
 const DETAILS_REGEX = /Details:/i;
 const NAME_CRITICAL_ERROR_REGEX = /Name: CriticalError/i;
@@ -124,11 +124,13 @@ describe("Global Error Page", () => {
     render(<GlobalError error={mockError} reset={mockReset} />);
     expect(screen.getByText(CRITICAL_ERROR_REGEX)).toBeInTheDocument();
 
-    const contactLink = screen.getByRole("link", { name: CONTACT_ME_REGEX });
+    const contactLink = screen.getByRole("link", {
+      name: CONTACT_LINK_REGEX,
+    });
     expect(contactLink).toBeInTheDocument();
     expect(contactLink).toHaveAttribute(
       "href",
-      expect.stringContaining("/contact")
+      expect.stringContaining("mailto:")
     );
   });
 

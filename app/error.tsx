@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useEffect } from "react";
 import { Footer } from "@/components/footer";
 import { TopBar } from "@/components/top-bar/top-bar";
-import { IS_DEV_ENV } from "@/lib/constants";
+import { CONTACT_EMAIL, IS_DEV_ENV } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export default function ErrorPage({
@@ -28,30 +28,14 @@ export default function ErrorPage({
           <h1 className="font-semibold text-3xl">Oops! Something Went Wrong</h1>
         </header>
         <p className="text-foreground-muted">
-          An error occurred while rendering this page. Please try again later or{" "}
+          An error occurred while rendering this page. Please try again later or
+          contact me at{" "}
           <Link
-            className={cn(
-              "text-mirai-red underline underline-offset-2",
-              "hover:decoration-2"
-            )}
-            href={`/contact?message=${encodeURIComponent(
-              `Please describe what you were doing when this error occurred:
-
-
-
-Please do not remove the details below, they help me identify and fix the issue faster.
-====================
-Error Details:
-Timestamp: ${new Date().toLocaleString()} (${new Date().toISOString()})
-Path: ${typeof window !== "undefined" ? window.location.pathname : "N/A"}
-Name: ${error.name || "N/A"}
-Message: ${error.message || "N/A"}
-Cause: ${error.cause || "N/A"}
-Digest: ${error.digest || "N/A"}
-====================`
-            )}`}
+            aria-label={`Email address: ${CONTACT_EMAIL}`}
+            className={cn("font-semibold text-mirai-red")}
+            href={`mailto:${CONTACT_EMAIL}`}
           >
-            contact me
+            {CONTACT_EMAIL}
           </Link>{" "}
           if the issue persists.
         </p>
