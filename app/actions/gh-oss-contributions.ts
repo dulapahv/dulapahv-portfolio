@@ -17,33 +17,8 @@ const GITHUB_API_BASE = "https://api.github.com";
 
 // Manually filtered out contributions (e.g., spam, irrelevant, test PRs)
 const FILTERED_URLS: string[] = [
-  "https://github.com/dulapahv/Issho/issues/2",
-  "https://github.com/dulapahv/Issho/issues/1",
-  "https://github.com/dulapahv/dulapahv-portfolio/pull/99",
-  "https://github.com/dulapahv/dulapahv-portfolio/pull/98",
-  "https://github.com/dulapahv/dulapahv-portfolio/pull/97",
-  "https://github.com/dulapahv/CodeX/pull/7",
-  "https://github.com/dulapahv/gistda-sphere-reactjs/pull/14",
-  "https://github.com/dulapahv/gistda-sphere-reactjs/pull/13",
-  "https://github.com/dulapahv/CodeX/issues/2",
-  "https://github.com/dulapahv/CodeX/issues/1",
-  "https://github.com/dulapahv/gistda-sphere-reactjs/pull/4",
-  "https://github.com/dulapahv/dulapahv-portfolio/pull/41",
-  "https://github.com/dulapahv/dulapahv-portfolio/pull/40",
   "https://github.com/vercel/next.js/issues/60006",
-  "https://github.com/dulapahv/dulapahv/pull/1",
-  "https://github.com/dulapahv/v2-dulapahv-portfolio/pull/1",
-  "https://github.com/dulapahv/Bookstore/pull/13",
-  "https://github.com/dulapahv/Bookstore/pull/12",
-  "https://github.com/dulapahv/Bookstore/pull/11",
-  "https://github.com/dulapahv/Bookstore/pull/10",
-  "https://github.com/dulapahv/Bookstore/pull/9",
-  "https://github.com/dulapahv/Bookstore/pull/8",
-  "https://github.com/dulapahv/Bookstore/pull/5",
-  "https://github.com/dulapahv/Bookstore/pull/4",
   "https://github.com/doki-theme/doki-master-theme/issues/124",
-  "https://github.com/dulapahv/Bookstore/pull/2",
-  "https://github.com/dulapahv/AceMath/pull/1",
 ];
 
 interface GitHubIssueItem {
@@ -138,7 +113,13 @@ async function fetchGitHubContributions(
 
   return data.items
     .map((item) => mapGitHubItemToContribution(item, contributionType))
-    .filter((contribution) => !FILTERED_URLS.includes(contribution.url));
+    .filter(
+      (contribution) =>
+        !(
+          contribution.repository.startsWith(`${GITHUB_USERNAME}/`) ||
+          FILTERED_URLS.includes(contribution.url)
+        )
+    );
 }
 
 export async function getContributions(): Promise<Contribution[]> {

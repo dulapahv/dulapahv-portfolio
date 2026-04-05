@@ -75,12 +75,12 @@ describe("GitHub OSS Contributions Actions", () => {
       expect(result).toEqual([]);
     });
 
-    it("should filter out specified URLs", async () => {
+    it("should filter out personal repo contributions and specified URLs", async () => {
       const mockPRResponse = {
         items: [
           {
             title: "Filtered PR",
-            html_url: "https://github.com/dulapahv/Issho/issues/2", // This is in FILTERED_URLS
+            html_url: "https://github.com/dulapahv/Issho/issues/2",
             number: 2,
             repository_url: "https://api.github.com/repos/dulapahv/Issho",
             created_at: "2024-01-01T00:00:00Z",
