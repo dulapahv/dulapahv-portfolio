@@ -12,6 +12,7 @@ import {
   getTopTracks,
 } from "@/app/actions/spotify";
 import { Card } from "@/components/card";
+import { Marquee } from "@/components/marquee/marquee";
 import { NowPlayingCard } from "@/components/now-playing-card/now-playing-card";
 import { SPOTIFY_URL } from "@/lib/constants";
 import { cn } from "@/lib/utils";
@@ -88,9 +89,9 @@ export async function SpotifyCard() {
                     />
                   )}
                   <div className="min-w-0 flex-1">
-                    <p className="truncate font-medium text-foreground text-sm">
+                    <Marquee className="font-medium text-foreground text-sm">
                       {artist.name}
-                    </p>
+                    </Marquee>
                   </div>
                 </Link>
               ))}
@@ -133,15 +134,17 @@ export async function SpotifyCard() {
                     </Link>
                   )}
                   <div className="min-w-0 flex-1">
-                    <Link
-                      className="block truncate font-medium text-foreground text-sm hover:underline"
-                      href={track.external_urls.spotify as Route}
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                      {track.name}
-                    </Link>
-                    <p className="truncate text-foreground-muted text-xs">
+                    <Marquee>
+                      <Link
+                        className="font-medium text-foreground text-sm hover:underline"
+                        href={track.external_urls.spotify as Route}
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        {track.name}
+                      </Link>
+                    </Marquee>
+                    <Marquee className="text-foreground-muted text-xs">
                       {track.artists.map((artist, artistIndex) => (
                         <span key={artist.id}>
                           <Link
@@ -155,7 +158,7 @@ export async function SpotifyCard() {
                           {artistIndex < track.artists.length - 1 && ", "}
                         </span>
                       ))}
-                    </p>
+                    </Marquee>
                   </div>
                 </div>
               ))}

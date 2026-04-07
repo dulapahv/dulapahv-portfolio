@@ -88,11 +88,15 @@ exports[`SpotifyCard > should match snapshot 1`] = `
               <div
                 class="min-w-0 flex-1"
               >
-                <p
-                  class="truncate font-medium text-foreground text-sm"
+                <div
+                  class="@container overflow-hidden font-medium text-foreground text-sm"
                 >
-                  Test Artist 1
-                </p>
+                  <div
+                    class="inline-block min-w-full whitespace-nowrap motion-safe:animate-[marquee-scroll_12s_linear_infinite_alternate] motion-reduce:animate-none"
+                  >
+                    Test Artist 1
+                  </div>
+                </div>
               </div>
             </a>
             <a
@@ -116,11 +120,15 @@ exports[`SpotifyCard > should match snapshot 1`] = `
               <div
                 class="min-w-0 flex-1"
               >
-                <p
-                  class="truncate font-medium text-foreground text-sm"
+                <div
+                  class="@container overflow-hidden font-medium text-foreground text-sm"
                 >
-                  Test Artist 2
-                </p>
+                  <div
+                    class="inline-block min-w-full whitespace-nowrap motion-safe:animate-[marquee-scroll_12s_linear_infinite_alternate] motion-reduce:animate-none"
+                  >
+                    Test Artist 2
+                  </div>
+                </div>
               </div>
             </a>
           </div>
@@ -173,28 +181,40 @@ exports[`SpotifyCard > should match snapshot 1`] = `
               <div
                 class="min-w-0 flex-1"
               >
-                <a
-                  class="block truncate font-medium text-foreground text-sm hover:underline"
-                  href="https://open.spotify.com/track/1"
-                  rel="noopener noreferrer"
-                  target="_blank"
+                <div
+                  class="@container overflow-hidden"
                 >
-                  Test Track 1
-                </a>
-                <p
-                  class="truncate text-foreground-muted text-xs"
-                >
-                  <span>
+                  <div
+                    class="inline-block min-w-full whitespace-nowrap motion-safe:animate-[marquee-scroll_12s_linear_infinite_alternate] motion-reduce:animate-none"
+                  >
                     <a
-                      class="hover:text-foreground hover:underline"
-                      href="https://open.spotify.com/artist/a"
+                      class="font-medium text-foreground text-sm hover:underline"
+                      href="https://open.spotify.com/track/1"
                       rel="noopener noreferrer"
                       target="_blank"
                     >
-                      Artist A
+                      Test Track 1
                     </a>
-                  </span>
-                </p>
+                  </div>
+                </div>
+                <div
+                  class="@container overflow-hidden text-foreground-muted text-xs"
+                >
+                  <div
+                    class="inline-block min-w-full whitespace-nowrap motion-safe:animate-[marquee-scroll_12s_linear_infinite_alternate] motion-reduce:animate-none"
+                  >
+                    <span>
+                      <a
+                        class="hover:text-foreground hover:underline"
+                        href="https://open.spotify.com/artist/a"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        Artist A
+                      </a>
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
             <div
@@ -222,28 +242,40 @@ exports[`SpotifyCard > should match snapshot 1`] = `
               <div
                 class="min-w-0 flex-1"
               >
-                <a
-                  class="block truncate font-medium text-foreground text-sm hover:underline"
-                  href="https://open.spotify.com/track/2"
-                  rel="noopener noreferrer"
-                  target="_blank"
+                <div
+                  class="@container overflow-hidden"
                 >
-                  Test Track 2
-                </a>
-                <p
-                  class="truncate text-foreground-muted text-xs"
-                >
-                  <span>
+                  <div
+                    class="inline-block min-w-full whitespace-nowrap motion-safe:animate-[marquee-scroll_12s_linear_infinite_alternate] motion-reduce:animate-none"
+                  >
                     <a
-                      class="hover:text-foreground hover:underline"
-                      href="https://open.spotify.com/artist/b"
+                      class="font-medium text-foreground text-sm hover:underline"
+                      href="https://open.spotify.com/track/2"
                       rel="noopener noreferrer"
                       target="_blank"
                     >
-                      Artist B
+                      Test Track 2
                     </a>
-                  </span>
-                </p>
+                  </div>
+                </div>
+                <div
+                  class="@container overflow-hidden text-foreground-muted text-xs"
+                >
+                  <div
+                    class="inline-block min-w-full whitespace-nowrap motion-safe:animate-[marquee-scroll_12s_linear_infinite_alternate] motion-reduce:animate-none"
+                  >
+                    <span>
+                      <a
+                        class="hover:text-foreground hover:underline"
+                        href="https://open.spotify.com/artist/b"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        Artist B
+                      </a>
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

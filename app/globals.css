@@ -691,6 +691,24 @@
   }
 }
 
+/*
+ * Marquee — scrolls content back-and-forth only when it overflows.
+ * `100cqw - 100%` is the container width minus the inner element's own width:
+ *   - fits        → value is 0  → no movement
+ *   - overflows   → value is negative → translates to reveal the end
+ * `min-width: 100%` keeps short content from collapsing inside the container.
+ */
+@keyframes marquee-scroll {
+  0%,
+  10% {
+    transform: translateX(0);
+  }
+  90%,
+  100% {
+    transform: translateX(min(0px, 100cqw - 100%));
+  }
+}
+
 /* Base Styles */
 * {
   box-sizing: border-box;

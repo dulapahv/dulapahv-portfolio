@@ -44,36 +44,56 @@ exports[`NowPlayingCard > should match snapshot 1`] = `
       <div
         class="min-w-0 flex-1"
       >
-        <a
-          class="block truncate font-semibold text-base text-foreground hover:underline"
-          href="https://open.spotify.com/track/123"
-          rel="noopener noreferrer"
-          target="_blank"
+        <div
+          class="@container overflow-hidden"
         >
-          Test Song
-        </a>
-        <p
-          class="truncate text-foreground-muted text-sm"
-        >
-          <span>
+          <div
+            class="inline-block min-w-full whitespace-nowrap motion-safe:animate-[marquee-scroll_12s_linear_infinite_alternate] motion-reduce:animate-none"
+          >
             <a
-              class="hover:text-foreground hover:underline"
-              href="https://open.spotify.com/artist/1"
+              class="font-semibold text-base text-foreground hover:underline"
+              href="https://open.spotify.com/track/123"
               rel="noopener noreferrer"
               target="_blank"
             >
-              Test Artist
+              Test Song
             </a>
-          </span>
-        </p>
-        <a
-          class="block truncate text-foreground-subtle text-xs hover:text-foreground-muted hover:underline"
-          href="https://open.spotify.com/album/1"
-          rel="noopener noreferrer"
-          target="_blank"
+          </div>
+        </div>
+        <div
+          class="@container overflow-hidden text-foreground-muted text-sm"
         >
-          Test Album
-        </a>
+          <div
+            class="inline-block min-w-full whitespace-nowrap motion-safe:animate-[marquee-scroll_12s_linear_infinite_alternate] motion-reduce:animate-none"
+          >
+            <span>
+              <a
+                class="hover:text-foreground hover:underline"
+                href="https://open.spotify.com/artist/1"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Test Artist
+              </a>
+            </span>
+          </div>
+        </div>
+        <div
+          class="@container overflow-hidden"
+        >
+          <div
+            class="inline-block min-w-full whitespace-nowrap motion-safe:animate-[marquee-scroll_12s_linear_infinite_alternate] motion-reduce:animate-none"
+          >
+            <a
+              class="text-foreground-subtle text-xs hover:text-foreground-muted hover:underline"
+              href="https://open.spotify.com/album/1"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Test Album
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>

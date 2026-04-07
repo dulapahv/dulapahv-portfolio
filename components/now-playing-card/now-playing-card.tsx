@@ -4,6 +4,7 @@ import type { Route } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import type { SpotifyTrack } from "@/app/actions/spotify";
+import { Marquee } from "@/components/marquee/marquee";
 import { cn } from "@/lib/utils";
 
 interface NowPlayingCardProps {
@@ -47,16 +48,18 @@ export function NowPlayingCard({ track }: NowPlayingCardProps) {
         )}
 
         <div className="min-w-0 flex-1">
-          <Link
-            className="block truncate font-semibold text-base text-foreground hover:underline"
-            href={track.external_urls.spotify as Route}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            {track.name}
-          </Link>
+          <Marquee>
+            <Link
+              className="font-semibold text-base text-foreground hover:underline"
+              href={track.external_urls.spotify as Route}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              {track.name}
+            </Link>
+          </Marquee>
 
-          <p className="truncate text-foreground-muted text-sm">
+          <Marquee className="text-foreground-muted text-sm">
             {track.artists.map((artist, index) => (
               <span key={artist.id}>
                 <Link
@@ -70,16 +73,18 @@ export function NowPlayingCard({ track }: NowPlayingCardProps) {
                 {index < track.artists.length - 1 && ", "}
               </span>
             ))}
-          </p>
+          </Marquee>
 
-          <Link
-            className="block truncate text-foreground-subtle text-xs hover:text-foreground-muted hover:underline"
-            href={track.album.external_urls.spotify as Route}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            {track.album.name}
-          </Link>
+          <Marquee>
+            <Link
+              className="text-foreground-subtle text-xs hover:text-foreground-muted hover:underline"
+              href={track.album.external_urls.spotify as Route}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              {track.album.name}
+            </Link>
+          </Marquee>
         </div>
       </div>
     </div>
