@@ -1,0 +1,166 @@
+---
+title: CSS-Only Marquee That Scrolls Only When Text Overflows
+description: Build a pure CSS marquee that automatically scrolls overflowing text back and forth using container queries. No JavaScript needed.
+date: 09-04-2026
+image: /blog/css-only-marquee-overflow-scroll/cover.png
+---
+
+export function Marquee({ children }) {
+  return (
+    <div className="@container overflow-hidden">
+      <div className="inline-block min-w-full whitespace-nowrap motion-safe:animate-[marquee-scroll_12s_linear_infinite_alternate] motion-reduce:animate-none text-xl text-mirai-red">
+        {children}
+      </div>
+    </div>
+  );
+}
+
+
+## The Problem
+
+You have a container with a fixed width and text that might be too long to fit. The classic solution is `text-overflow: ellipsis`, but that permanently hides the overflowing content. What if you want users to see the full text, like Spotify does with long track names and artist lists?
+
+The goal: a marquee that scrolls text back and forth **only when it overflows**, and does nothing when it fits. No JavaScript, no client components. Pure CSS.
+
+## The Core Trick
+
+The entire approach hinges on one CSS expression:
+
+```css showLineNumbers
+transform: translateX(min(0px, 100cqw - 100%));
+```
+
+Here's why this works:
+
+- `100cqw` is the **container's width** (via CSS container queries)
+- `100%` in a `transform` resolves to the **element's own width**
+- When the text fits: `100cqw - 100%` is `0` or positive, so `min(0px, ...)` evaluates to `0`. No movement.
+- When the text overflows: `100cqw - 100%` is negative (e.g., `-120px`), so `min(0px, -120px)` evaluates to `-120px`. The element shifts left by exactly the overflow amount.
+
+A single animation handles both cases. Text that fits stays perfectly still. Text that overflows scrolls to reveal the rest.
+
+## CSS Implementation
+
+### The Keyframes
+
+```css title="styles.css" showLineNumbers
+@keyframes marquee-scroll {
+  0%,
+  10% {
+    transform: translateX(0);
+  }
+  90%,
+  100% {
+    transform: translateX(min(0px, 100cqw - 100%));
+  }
+}
+```
+
+The `0%, 10%` and `90%, 100%` create a brief pause at each end before the animation reverses direction. This gives users a moment to read the text at both positions.
+
+### The Styles
+
+```css title="styles.css" showLineNumbers
+.marquee {
+  container-type: inline-size;
+  overflow: hidden;
+}
+
+.marquee-inner {
+  display: inline-block;
+  min-width: 100%;
+  white-space: nowrap;
+  animation: marquee-scroll 12s linear infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-inner {
+    animation: none;
+  }
+}
+```
+
+There are three key properties on the inner element:
+
+1. **`display: inline-block`**: lets the element grow wider than its parent based on content
+2. **`min-width: 100%`**: ensures short text still fills the container (so `100cqw - 100%` evaluates to exactly `0`)
+3. **`white-space: nowrap`**: prevents text from wrapping to a new line
+
+The `animation: ... alternate` makes the animation bounce back and forth instead of looping. Combined with the pauses in the keyframes, the text scrolls to the end, pauses, scrolls back to the start, pauses, and repeats.
+
+### The HTML
+
+```html showLineNumbers
+<div class="marquee">
+  <div class="marquee-inner">
+    This is a really long text that will scroll back and forth
+  </div>
+</div>
+```
+
+That's it. No data attributes, no JavaScript measurements, no resize observers.
+
+Here's a live example. Notice how the short text stays still while the long text scrolls:
+
+**Short text (no scrolling):**
+
+<Marquee>Short text</Marquee>
+
+**Long text (scrolls back and forth):**
+
+<Marquee>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+</Marquee>
+
+## Tailwind CSS Implementation
+
+In Tailwind v4, `@container` sets `container-type: inline-size`. Combined with arbitrary animation values, we can skip the CSS classes entirely (except the keyframes).
+
+### The Keyframes
+
+You still need the keyframes defined in your CSS file since Tailwind can't generate `@keyframes` declarations inline:
+
+```css title="app/globals.css" showLineNumbers
+@keyframes marquee-scroll {
+  0%,
+  10% {
+    transform: translateX(0);
+  }
+  90%,
+  100% {
+    transform: translateX(min(0px, 100cqw - 100%));
+  }
+}
+```
+
+### The Component
+
+```tsx title="Marquee.tsx" showLineNumbers
+export function Marquee({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <div className={`@container overflow-hidden ${className}`}>
+      <div className="inline-block min-w-full whitespace-nowrap motion-safe:animate-[marquee-scroll_12s_linear_infinite_alternate] motion-reduce:animate-none">
+        {children}
+      </div>
+    </div>
+  );
+}
+```
+
+## Tuning the Animation
+
+You can adjust the behavior by changing a few values:
+
+- **Duration** (`12s`): Longer = slower scroll. Shorter = faster. Adjust based on the typical amount of overflow
+- **Pause duration** (`10%` / `90%`): Increase for longer pauses at each end (e.g., `20%` / `80%`)
+- **Easing** (`linear`): Use `ease-in-out` for a softer start/stop feel
+
+## Conclusion
+
+The `min(0px, 100cqw - 100%)` pattern is the key insight that makes this work. It lets a single CSS animation handle both overflowing and non-overflowing text without any JavaScript measurement. The container query unit (`cqw`) gives us the container's width from the child's perspective, and `100%` in a transform gives us the element's own width — comparing the two tells us exactly how far to scroll.
