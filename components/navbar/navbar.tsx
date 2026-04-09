@@ -11,7 +11,7 @@ import type { Route } from "next";
 import { Archivo } from "next/font/google";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { useWebHaptics } from "web-haptics/react";
 
@@ -46,6 +46,11 @@ export function Navbar() {
   const pathname = usePathname();
   const navRef = useRef<HTMLElement>(null);
   const { trigger } = useWebHaptics();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const isActive = (link: string) => {
     if (link === "/") {
@@ -165,7 +170,11 @@ export function Navbar() {
                   className="absolute right-0 bottom-0 left-0 h-0.5 rounded-full bg-mirai-red"
                   initial={false}
                   layoutId="activeNavItem"
-                  transition={{ type: "spring", duration: 0.5 }}
+                  transition={
+                    mounted
+                      ? { type: "spring", duration: 0.5 }
+                      : { duration: 0 }
+                  }
                 />
               )}
 
