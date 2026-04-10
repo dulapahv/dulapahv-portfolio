@@ -104,9 +104,6 @@ exports[`Navbar > Snapshot > should match snapshot on blog page 1`] = `
         >
           Blog
         </span>
-        <div
-          class="absolute right-0 bottom-0 left-0 h-0.5 rounded-full bg-mirai-red"
-        />
         <span
           class="sr-only"
         >
@@ -196,9 +193,6 @@ exports[`Navbar > Snapshot > should match snapshot on home page 1`] = `
         >
           Home
         </span>
-        <div
-          class="absolute right-0 bottom-0 left-0 h-0.5 rounded-full bg-mirai-red"
-        />
         <span
           class="sr-only"
         >

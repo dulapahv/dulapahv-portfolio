@@ -11,7 +11,7 @@ import type { Route } from "next";
 import { Archivo } from "next/font/google";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import { useWebHaptics } from "web-haptics/react";
 
@@ -45,7 +45,13 @@ const navbarItems = [
 export function Navbar() {
   const pathname = usePathname();
   const navRef = useRef<HTMLElement>(null);
+  const linkRefs = useRef(new Map<string, HTMLAnchorElement>());
   const { trigger } = useWebHaptics();
+  const [indicator, setIndicator] = useState<{
+    left: number;
+    width: number;
+    top: number;
+  } | null>(null);
 
   const isActive = (link: string) => {
     if (link === "/") {
@@ -53,6 +59,33 @@ export function Navbar() {
     }
     return pathname.startsWith(link);
   };
+
+  const activeLink = navbarItems.find((item) => isActive(item.link))?.link;
+
+  const updateIndicator = useCallback(() => {
+    if (!activeLink) {
+      setIndicator(null);
+      return;
+    }
+    const linkEl = linkRefs.current.get(activeLink);
+    if (!linkEl?.offsetParent) {
+      return;
+    }
+
+    const parent = linkEl.offsetParent as HTMLElement;
+    setIndicator({
+      left: parent.offsetLeft + linkEl.offsetLeft,
+      width: linkEl.offsetWidth,
+      top: parent.offsetTop + linkEl.offsetTop + linkEl.offsetHeight - 2,
+    });
+  }, [activeLink]);
+
+  useEffect(() => {
+    updateIndicator();
+    window.addEventListener("resize", updateIndicator);
+    document.fonts?.ready.then(updateIndicator);
+    return () => window.removeEventListener("resize", updateIndicator);
+  }, [updateIndicator]);
 
   // Handle arrow key navigation
   const handleKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
@@ -154,26 +187,32 @@ export function Navbar() {
               )}
               href={item.link as Route}
               onClick={() => trigger([{ duration: 8 }], { intensity: 0.3 })}
+              ref={(el) => {
+                if (el) {
+                  linkRefs.current.set(item.link, el);
+                }
+              }}
             >
               <span aria-hidden="true">{item.icon}</span>
               <span className="hidden font-medium text-sm sm:block">
                 {item.name}
               </span>
 
-              {active && (
-                <motion.div
-                  className="absolute right-0 bottom-0 left-0 h-0.5 rounded-full bg-mirai-red"
-                  initial={false}
-                  layoutId="activeNavItem"
-                  transition={{ type: "spring", duration: 0.5 }}
-                />
-              )}
-
               {active && <span className="sr-only">(current page)</span>}
             </Link>
           </motion.div>
         );
       })}
+
+      {indicator && (
+        <motion.div
+          animate={{ left: indicator.left, width: indicator.width }}
+          className="pointer-events-none absolute h-0.5 rounded-full bg-mirai-red"
+          initial={false}
+          style={{ top: indicator.top }}
+          transition={{ type: "spring", duration: 0.5 }}
+        />
+      )}
 
       <div aria-live="polite" className="sr-only">
         Use arrow keys to navigate between menu items
