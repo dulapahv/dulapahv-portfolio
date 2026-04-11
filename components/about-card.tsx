@@ -26,11 +26,11 @@ export function AboutCard() {
           alt="Dulapah Vibulsanti"
           blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAYAAAB4ka1VAAAAsUlEQVR4AQClAFr/Ao99af+NfnL/oYx7/498a/9nY0n/YWJB/1hfPP85Ox3/Av0M9wD6/vEA8Pb0APwO6QAnIiAAAAD+AOnn4QD///oAAuXr3AAEEOwA7u/mANre5wDl3+YABf0MAO7v9wABAQEAAuDb8wDn5wIA8/f7ANve7QC9yeMA0tfyACscMAAaEx8AAvHq+AAG9QIA9fjvAOPf9QAG8fIABPHyADc0NgBIP0gAAAAA//9MjOw2AAAABklEQVQDAH+DUIQ2I2QQAAAAAElFTkSuQmCC"
           className="cursor-crosshair rounded-lg transition-transform duration-300 group-hover:rotate-1 group-hover:scale-105"
-          height={1320}
+          height={1877}
           loading="eager"
           placeholder="blur"
-          src="/about.jpeg"
-          width={1980}
+          src="/about.jpg"
+          width={2815}
         />
       </div>
       <p className="mt-4 text-foreground leading-7">
