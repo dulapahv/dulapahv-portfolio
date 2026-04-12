@@ -1,14 +1,9 @@
-"use client";
-
 import { CaretRightIcon, DotsThreeIcon } from "@phosphor-icons/react/dist/ssr";
-import type { Route } from "next";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import React from "react";
+import { Fragment } from "react";
 
+import { Link } from "@/components/link";
 import { cn } from "@/lib/utils";
 
-// Helper function to format segment text
 function formatSegment(segment: string): string {
   return segment
     .split("-")
@@ -16,21 +11,26 @@ function formatSegment(segment: string): string {
     .join(" ");
 }
 
-// Main dynamic breadcrumb component
-const Breadcrumb = React.forwardRef<
-  HTMLElement,
-  React.ComponentPropsWithoutRef<"nav"> & {
-    separator?: React.ReactNode;
-    homeLabel?: string;
-    lastLabel?: string;
-    className?: string;
-  }
->(({ separator, homeLabel = "Home", lastLabel, className, ...props }, ref) => {
-  const pathname = usePathname();
+interface BreadcrumbProps extends React.ComponentPropsWithoutRef<"nav"> {
+  pathname: string;
+  separator?: React.ReactNode;
+  homeLabel?: string;
+  lastLabel?: string;
+  className?: string;
+}
+
+function Breadcrumb({
+  pathname,
+  separator,
+  homeLabel = "Home",
+  lastLabel,
+  className,
+  ...props
+}: BreadcrumbProps) {
   const segments = pathname.split("/").filter(Boolean);
 
   return (
-    <nav aria-label="breadcrumb" className={className} ref={ref} {...props}>
+    <nav aria-label="breadcrumb" className={className} {...props}>
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink href="/">{homeLabel}</BreadcrumbLink>
@@ -42,7 +42,7 @@ const Breadcrumb = React.forwardRef<
           const label = formatSegment(segment);
 
           return (
-            <React.Fragment key={segment}>
+            <Fragment key={segment}>
               <BreadcrumbSeparator>{separator}</BreadcrumbSeparator>
               <BreadcrumbItem>
                 {isLast ? (
@@ -50,62 +50,52 @@ const Breadcrumb = React.forwardRef<
                     {lastLabel ?? label}
                   </BreadcrumbPage>
                 ) : (
-                  <BreadcrumbLink href={href as Route}>{label}</BreadcrumbLink>
+                  <BreadcrumbLink href={href}>{label}</BreadcrumbLink>
                 )}
               </BreadcrumbItem>
-            </React.Fragment>
+            </Fragment>
           );
         })}
       </BreadcrumbList>
     </nav>
   );
-});
-Breadcrumb.displayName = "Breadcrumb";
+}
 
-// Static breadcrumb wrapper for manual control
-const BreadcrumbStatic = React.forwardRef<
-  HTMLElement,
-  React.ComponentPropsWithoutRef<"nav">
->(({ ...props }, ref) => <nav aria-label="breadcrumb" ref={ref} {...props} />);
-BreadcrumbStatic.displayName = "BreadcrumbStatic";
+function BreadcrumbStatic(props: React.ComponentPropsWithoutRef<"nav">) {
+  return <nav aria-label="breadcrumb" {...props} />;
+}
 
-const BreadcrumbList = React.forwardRef<
-  HTMLOListElement,
-  React.ComponentPropsWithoutRef<"ol">
->(({ className, ...props }, ref) => (
-  <ol
-    className={cn(
-      "wrap-break-word flex flex-wrap items-center gap-1.5 text-foreground-muted text-sm sm:gap-2.5",
-      className
-    )}
-    ref={ref}
-    {...props}
-  />
-));
-BreadcrumbList.displayName = "BreadcrumbList";
+function BreadcrumbList({
+  className,
+  ...props
+}: React.ComponentPropsWithoutRef<"ol">) {
+  return (
+    <ol
+      className={cn(
+        "wrap-break-word flex flex-wrap items-center gap-1.5 text-foreground-muted text-sm sm:gap-2.5",
+        className
+      )}
+      {...props}
+    />
+  );
+}
 
-const BreadcrumbItem = React.forwardRef<
-  HTMLLIElement,
-  React.ComponentPropsWithoutRef<"li">
->(({ className, ...props }, ref) => (
-  <li
-    className={cn("inline-flex items-center gap-1.5", className)}
-    ref={ref}
-    {...props}
-  />
-));
-BreadcrumbItem.displayName = "BreadcrumbItem";
+function BreadcrumbItem({
+  className,
+  ...props
+}: React.ComponentPropsWithoutRef<"li">) {
+  return (
+    <li
+      className={cn("inline-flex items-center gap-1.5", className)}
+      {...props}
+    />
+  );
+}
 
-const BreadcrumbLink = React.forwardRef<
-  HTMLAnchorElement,
-  React.ComponentPropsWithoutRef<typeof Link> & {
-    asChild?: boolean;
-  }
->(({ asChild, className, ...props }, ref) => {
-  if (asChild) {
-    return <React.Fragment {...props} />;
-  }
-
+function BreadcrumbLink({
+  className,
+  ...props
+}: React.ComponentPropsWithoutRef<typeof Link>) {
   return (
     <Link
       className={cn(
@@ -113,64 +103,62 @@ const BreadcrumbLink = React.forwardRef<
         "hover:text-foreground focus:text-foreground",
         className
       )}
-      ref={ref}
       {...props}
     />
   );
-});
-BreadcrumbLink.displayName = "BreadcrumbLink";
+}
 
-const BreadcrumbPage = React.forwardRef<
-  HTMLAnchorElement,
-  React.ComponentPropsWithoutRef<"a">
->(({ className, ...props }, ref) => (
-  <a
-    aria-current="page"
-    aria-disabled="true"
-    className={cn("font-normal text-foreground", className)}
-    ref={ref}
-    tabIndex={0}
-    {...props}
-  />
-));
-BreadcrumbPage.displayName = "BreadcrumbPage";
+function BreadcrumbPage({
+  className,
+  ...props
+}: React.ComponentPropsWithoutRef<"a">) {
+  return (
+    <a
+      aria-current="page"
+      aria-disabled="true"
+      className={cn("font-normal text-foreground", className)}
+      tabIndex={0}
+      {...props}
+    />
+  );
+}
 
-const BreadcrumbSeparator = ({
+function BreadcrumbSeparator({
   children,
   className,
   ...props
-}: React.ComponentProps<"li">) => (
-  <li
-    aria-hidden="true"
-    className={cn("[&>svg]:size-3.5", className)}
-    role="presentation"
-    {...props}
-  >
-    {children ?? <CaretRightIcon />}
-  </li>
-);
-BreadcrumbSeparator.displayName = "BreadcrumbSeparator";
+}: React.ComponentProps<"li">) {
+  return (
+    <li
+      aria-hidden="true"
+      className={cn("[&>svg]:size-3.5", className)}
+      role="presentation"
+      {...props}
+    >
+      {children ?? <CaretRightIcon />}
+    </li>
+  );
+}
 
-const BreadcrumbEllipsis = ({
+function BreadcrumbEllipsis({
   className,
   ...props
-}: React.ComponentProps<"span">) => (
-  <span
-    aria-hidden="true"
-    className={cn("flex size-9 items-center justify-center", className)}
-    role="presentation"
-    {...props}
-  >
-    <DotsThreeIcon className="size-4" />
-    <span className="sr-only">More</span>
-  </span>
-);
-BreadcrumbEllipsis.displayName = "BreadcrumbEllipsis";
+}: React.ComponentProps<"span">) {
+  return (
+    <span
+      aria-hidden="true"
+      className={cn("flex size-9 items-center justify-center", className)}
+      role="presentation"
+      {...props}
+    >
+      <DotsThreeIcon className="size-4" />
+      <span className="sr-only">More</span>
+    </span>
+  );
+}
 
-// Export the dynamic breadcrumb as default
 export default Breadcrumb;
 
-// Export individual components for custom implementations
 export {
   Breadcrumb,
   BreadcrumbStatic,

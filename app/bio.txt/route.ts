@@ -6,12 +6,14 @@ import {
   NAME,
 } from "@/lib/constants";
 import { contributionsData, getContributionStats } from "@/lib/contributions";
+import { toISODate } from "@/lib/date";
 import { skillsData } from "@/lib/skills-data";
+import { textResponse } from "@/lib/text-response";
 
 export const dynamic = "force-static";
 
 export function GET() {
-  const currentDate = new Date().toISOString().split("T")[0];
+  const currentDate = toISODate(new Date());
   const stats = getContributionStats();
 
   let content = `# ${NAME} (DulapahV)\n\n`;
@@ -92,7 +94,7 @@ export function GET() {
     .slice(0, 5);
   for (const contrib of mergedContributions) {
     content += `- **${contrib.repository}:** ${contrib.title}\n`;
-    content += `  Status: ${contrib.status} | Date: ${contrib.date.toISOString().split("T")[0]}\n`;
+    content += `  Status: ${contrib.status} | Date: ${toISODate(contrib.date)}\n`;
   }
   content += "\n";
 
@@ -165,9 +167,5 @@ export function GET() {
   content += `Document generated: ${currentDate}\n`;
   content += `For the most up-to-date information, visit: ${BASE_URL}\n`;
 
-  return new Response(content.trim(), {
-    headers: {
-      "Content-Type": "text/plain; charset=utf-8",
-    },
-  });
+  return textResponse(content);
 }

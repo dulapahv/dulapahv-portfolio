@@ -143,6 +143,7 @@ const createProjectCollection = (name: string, directory: string) =>
       return {
         ...page,
         ...baseResult,
+        kind: "project" as const,
         isOngoing,
         sortDate,
         // Add formatted date strings for easy display
@@ -183,6 +184,7 @@ const createBlogCollection = (name: string, directory: string) =>
       return {
         ...page,
         ...baseResult,
+        kind: "blog" as const,
         formattedDate: formatDate(page.date),
       };
     },

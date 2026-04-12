@@ -17,12 +17,14 @@ import {
 vi.mock("content-collections", () => ({
   allProjects: [
     {
+      kind: "project",
       slug: "project-1",
       title: "Project One",
       description: "First project description",
       startDate: new Date("2024-01-15"),
     },
     {
+      kind: "project",
       slug: "project-2",
       title: "Project Two",
       description: "Second project description",
@@ -31,32 +33,18 @@ vi.mock("content-collections", () => ({
   ],
   allBlogs: [
     {
+      kind: "blog",
       slug: "blog-1",
       title: "Blog Post One",
       description: "First blog description",
       date: new Date("2024-02-10"),
     },
     {
+      kind: "blog",
       slug: "blog-2",
       title: "Blog Post Two",
       description: "Second blog description",
       date: new Date("2024-04-05"),
-    },
-  ],
-  allWorks: [
-    {
-      slug: "work-1",
-      position: "Software Engineer",
-      company: "Tech Company",
-      location: "Edinburgh",
-      startDate: new Date("2023-06-01"),
-    },
-    {
-      slug: "work-2",
-      position: "Frontend Developer",
-      company: "Digital Agency",
-      location: "London",
-      startDate: new Date("2024-01-01"),
     },
   ],
 }));
@@ -112,11 +100,11 @@ describe("content-utils", () => {
       expect(allContent).toHaveLength(4); // 2 projects + 2 blogs
     });
 
-    it("should add type property to each item", () => {
+    it("should discriminate items by kind", () => {
       const allContent = getAllContent();
 
-      const projects = allContent.filter((item) => item.type === "project");
-      const blogs = allContent.filter((item) => item.type === "blog");
+      const projects = allContent.filter((item) => item.kind === "project");
+      const blogs = allContent.filter((item) => item.kind === "blog");
 
       expect(projects).toHaveLength(2);
       expect(blogs).toHaveLength(2);
@@ -128,7 +116,7 @@ describe("content-utils", () => {
 
       expect(project).toBeDefined();
       expect(project?.title).toBe("Project One");
-      expect(project?.type).toBe("project");
+      expect(project?.kind).toBe("project");
     });
   });
 
@@ -155,10 +143,9 @@ describe("content-utils", () => {
     it("should handle dates correctly for different content types", () => {
       const recent = getRecentContent(10);
 
-      // Verify the content is properly typed
       for (const item of recent) {
-        expect(item.type).toBeDefined();
-        expect(["project", "blog"]).toContain(item.type);
+        expect(item.kind).toBeDefined();
+        expect(["project", "blog"]).toContain(item.kind);
       }
     });
   });
@@ -175,7 +162,7 @@ describe("content-utils", () => {
       const related = getRelatedContent("blog-1", "blog", 10);
 
       for (const item of related) {
-        expect(item.type).toBe("blog");
+        expect(item.kind).toBe("blog");
       }
     });
 
@@ -220,7 +207,7 @@ describe("content-utils", () => {
 
       for (const yearContent of Object.values(blogsByYear)) {
         for (const item of yearContent) {
-          expect("date" in item).toBe(true);
+          expect(item.kind).toBe("blog");
         }
       }
     });
@@ -261,8 +248,7 @@ describe("content-utils", () => {
       const results = searchContent("project", "project" as ContentType);
 
       for (const item of results) {
-        // Should only contain projects
-        expect("startDate" in item).toBe(true);
+        expect(item.kind).toBe("project");
       }
     });
 

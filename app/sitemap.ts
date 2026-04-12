@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 
 import { BASE_URL } from "@/lib/constants";
 import {
+  type ContentItem,
   type ContentType,
   getCollection,
 } from "@/lib/content-utils/content-utils";
@@ -60,51 +61,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // Helper function to determine last modified date
-  const getLastModified = (
-    page: ReturnType<typeof getCollection>[number],
-    fallback: Date
-  ): Date => {
-    if ("date" in page && page.date) {
+  const getLastModified = (page: ContentItem): Date => {
+    if (page.kind === "blog") {
       return page.date;
     }
-    if ("startDate" in page && page.startDate) {
-      if ("endDate" in page && page.endDate) {
-        return page.endDate;
-      }
-      return page.startDate;
-    }
-    return fallback;
+    return page.endDate ?? page.startDate;
   };
 
-  // Helper function to determine change frequency
   const getChangeFrequency = (
-    type: ContentType,
-    page: ReturnType<typeof getCollection>[number]
-  ):
-    | "always"
-    | "hourly"
-    | "daily"
-    | "weekly"
-    | "monthly"
-    | "yearly"
-    | "never" => {
-    if (type === "blog") {
+    page: ContentItem
+  ): MetadataRoute.Sitemap[number]["changeFrequency"] => {
+    if (page.kind === "blog") {
       return "yearly";
     }
-    if (type === "project") {
-      const isOngoing = !("endDate" in page && page.endDate);
-      return isOngoing ? "monthly" : "yearly";
-    }
-    return "yearly";
+    return page.isOngoing ? "monthly" : "yearly";
   };
 
   const types: ContentType[] = ["project", "blog"];
   const contentPages: MetadataRoute.Sitemap = types.flatMap((type) =>
     getCollection(type).map((page) => ({
       url: `${BASE_URL}/${type}/${page._meta.path}`,
-      lastModified: getLastModified(page, currentDate),
-      changeFrequency: getChangeFrequency(type, page),
+      lastModified: getLastModified(page),
+      changeFrequency: getChangeFrequency(page),
       priority: type === "blog" ? 0.5 : 0.6,
     }))
   );

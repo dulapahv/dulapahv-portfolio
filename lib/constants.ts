@@ -18,14 +18,7 @@ export const NAME = "Dulapah Vibulsanti";
 export const DESCRIPTION =
   "Thai software engineer based in Edinburgh, building accessible, user-centered digital experiences.";
 
-export const NAME_MAX_LENGTH = 256;
-export const EMAIL_MAX_LENGTH = 256;
-export const MESSAGE_MAX_LENGTH = 2000;
-
-export const EMAIL_REGEX = /^\S+@\S+\.\S+$/;
-export const TURNSTILE_SITE_KEY = IS_DEV_ENV
-  ? "1x00000000000000000000AA"
-  : "0x4AAAAAAACYFWWcTzhCNWz4";
+export const RELATIVE_MOUSE_CLASSNAME = "relative-mouse";
 
 export const EDUCATION_LOCATION: COBEOptions["markers"] = [
   // KMITL, Thailand

@@ -1,9 +1,8 @@
 "use client";
 
-import type { Route } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import type { SpotifyTrack } from "@/app/actions/spotify";
+import { Link } from "@/components/link";
 import { Marquee } from "@/components/marquee/marquee";
 import { cn } from "@/lib/utils";
 
@@ -30,13 +29,8 @@ export function NowPlayingCard({ track }: NowPlayingCardProps) {
       </div>
 
       <div className="flex items-center gap-4">
-        {track.album.images[0] && (
-          <Link
-            className="shrink-0"
-            href={track.external_urls.spotify as Route}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
+        {track.album.images[0] ? (
+          <Link className="shrink-0" href={track.external_urls.spotify}>
             <Image
               alt={track.album.name}
               className="rounded shadow-lg"
@@ -45,15 +39,13 @@ export function NowPlayingCard({ track }: NowPlayingCardProps) {
               width={64}
             />
           </Link>
-        )}
+        ) : null}
 
         <div className="min-w-0 flex-1">
           <Marquee>
             <Link
               className="font-semibold text-base text-foreground hover:underline"
-              href={track.external_urls.spotify as Route}
-              rel="noopener noreferrer"
-              target="_blank"
+              href={track.external_urls.spotify}
             >
               {track.name}
             </Link>
@@ -64,13 +56,11 @@ export function NowPlayingCard({ track }: NowPlayingCardProps) {
               <span key={artist.id}>
                 <Link
                   className="hover:text-foreground hover:underline"
-                  href={artist.external_urls.spotify as Route}
-                  rel="noopener noreferrer"
-                  target="_blank"
+                  href={artist.external_urls.spotify}
                 >
                   {artist.name}
                 </Link>
-                {index < track.artists.length - 1 && ", "}
+                {index < track.artists.length - 1 ? ", " : null}
               </span>
             ))}
           </Marquee>
@@ -78,9 +68,7 @@ export function NowPlayingCard({ track }: NowPlayingCardProps) {
           <Marquee>
             <Link
               className="text-foreground-subtle text-xs hover:text-foreground-muted hover:underline"
-              href={track.album.external_urls.spotify as Route}
-              rel="noopener noreferrer"
-              target="_blank"
+              href={track.album.external_urls.spotify}
             >
               {track.album.name}
             </Link>

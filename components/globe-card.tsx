@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { useState } from "react";
 
 import { Card } from "@/components/card";
+import { CardHeader } from "@/components/card-header";
 import {
   EDUCATION_LOCATION,
   TRAVEL_LOCATIONS,
@@ -19,24 +20,24 @@ const Globe = dynamic(
   }
 );
 
+const GLOBE_MARKERS = [
+  ...EDUCATION_LOCATION,
+  ...WORK_LOCATION,
+  ...TRAVEL_LOCATIONS,
+];
+
 export function GlobeCard() {
   const [isPaused, setIsPaused] = useState(false);
 
   return (
     <Card className="p-5">
-      <h2 className="mb-4 font-semibold text-foreground-muted text-xs uppercase tracking-widest">
-        Places I&apos;ve Been To
-      </h2>
+      <CardHeader title="Places I've Been To" />
       <div className="relative -mt-4 flex items-center justify-center">
         <Globe
           className="h-80 w-full cursor-grab overflow-hidden rounded-lg"
           height={320}
           isPaused={isPaused}
-          markers={[
-            ...EDUCATION_LOCATION,
-            ...WORK_LOCATION,
-            ...TRAVEL_LOCATIONS,
-          ]}
+          markers={GLOBE_MARKERS}
           width={384}
         />
         <button

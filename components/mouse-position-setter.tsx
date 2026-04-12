@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-export const relativeMouseClassname = "relative-mouse";
+import { RELATIVE_MOUSE_CLASSNAME } from "@/lib/constants";
 
 export default function MousePositionVarsSetter() {
   useEffect(() => {
@@ -12,7 +12,7 @@ export default function MousePositionVarsSetter() {
         return;
       }
       const shinyCards = document.querySelectorAll(
-        `.${relativeMouseClassname}`
+        `.${RELATIVE_MOUSE_CLASSNAME}`
       );
       const targetBCRs = Array.from(shinyCards || []).map((el) => ({
         el: el as HTMLElement,

@@ -1,12 +1,12 @@
 "use client";
 
 import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
-import Link from "next/link";
 import { useRef, useState } from "react";
 import { Card } from "@/components/card";
+import { CardHeader } from "@/components/card-header";
+import { Link } from "@/components/link";
 import { cn } from "@/lib/utils";
 
-// Helper function to get line width based on index
 const getLineWidth = (index: number): string => {
   const widths = ["w-3/4", "w-4/5", "w-2/3", "w-3/4", "w-1/2", "w-3/5"];
   return widths[index] || "w-3/5";
@@ -25,13 +25,11 @@ export const ResumeCard = () => {
     const card = documentRef.current;
     const rect = card.getBoundingClientRect();
 
-    // Get mouse position relative to card center
     const x = e.clientX - rect.left - rect.width / 2;
     const y = e.clientY - rect.top - rect.height / 2;
 
-    // Calculate rotation (subtle effect)
-    const rotateY = (x / rect.width) * 20; // Max 20 degrees
-    const rotateX = -(y / rect.height) * 20; // Max 20 degrees
+    const rotateY = (x / rect.width) * 20;
+    const rotateX = -(y / rect.height) * 20;
 
     setRotateY(rotateY);
     setRotateX(rotateX);
@@ -46,24 +44,21 @@ export const ResumeCard = () => {
     <Link
       className="group block h-full"
       href="https://dulapahv.dev/resume"
-      prefetch={false}
-      rel="noopener noreferrer"
-      target="_blank"
       title="View my résumé"
     >
       <Card
         className="flex h-full flex-col overflow-hidden p-5"
         containerClassName="h-full"
       >
-        <div className="mb-4 flex items-start justify-between">
-          <h2 className="font-semibold text-foreground-muted text-xs uppercase tracking-widest">
-            Résumé
-          </h2>
-          <ArrowUpRightIcon
-            className="size-5 text-foreground-muted group-hover:text-mirai-red"
-            weight="regular"
-          />
-        </div>
+        <CardHeader
+          action={
+            <ArrowUpRightIcon
+              className="size-5 text-foreground-muted transition-colors group-hover:text-mirai-red"
+              weight="regular"
+            />
+          }
+          title="Résumé"
+        />
 
         {/* biome-ignore lint/a11y/noStaticElementInteractions: decorative 3D tilt effect on mouse move */}
         <div

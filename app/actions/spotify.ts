@@ -32,7 +32,9 @@ interface SpotifyTokenResponse {
   refresh_token?: string;
 }
 
-// Refresh the Spotify access token
+const SPOTIFY_API_BASE = "https://api.spotify.com/v1";
+const DEFAULT_REVALIDATE = 3600;
+
 async function refreshAccessToken(): Promise<string> {
   const clientId = process.env.SPOTIFY_CLIENT_ID;
   const clientSecret = process.env.SPOTIFY_CLIENT_SECRET;
@@ -59,34 +61,38 @@ async function refreshAccessToken(): Promise<string> {
   }
 
   const data: SpotifyTokenResponse = await response.json();
+
   return data.access_token;
 }
 
-// Fetch data from Spotify with automatic token refresh
-async function fetchSpotifyData<T>(endpoint: string): Promise<T> {
+async function fetchWithAuth(
+  url: string,
+  revalidate = DEFAULT_REVALIDATE
+): Promise<Response> {
   let accessToken = process.env.SPOTIFY_ACCESS_TOKEN;
 
   if (!accessToken) {
     accessToken = await refreshAccessToken();
   }
 
-  let response = await fetch(`https://api.spotify.com/v1${endpoint}`, {
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-    },
-    next: { revalidate: 3600 }, // Cache for 1 hour
+  let response = await fetch(url, {
+    headers: { Authorization: `Bearer ${accessToken}` },
+    next: { revalidate },
   });
 
-  // If token expired, refresh and retry
   if (response.status === 401) {
     accessToken = await refreshAccessToken();
-    response = await fetch(`https://api.spotify.com/v1${endpoint}`, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-      next: { revalidate: 3600 },
+    response = await fetch(url, {
+      headers: { Authorization: `Bearer ${accessToken}` },
+      next: { revalidate },
     });
   }
+
+  return response;
+}
+
+async function fetchSpotifyData<T>(endpoint: string): Promise<T> {
+  const response = await fetchWithAuth(`${SPOTIFY_API_BASE}${endpoint}`);
 
   if (!response.ok) {
     throw new Error(`Spotify API error: ${response.statusText}`);
@@ -95,7 +101,6 @@ async function fetchSpotifyData<T>(endpoint: string): Promise<T> {
   return response.json();
 }
 
-// Get top artists
 export async function getTopArtists(limit = 5): Promise<SpotifyArtist[]> {
   try {
     const data = await fetchSpotifyData<{ items: SpotifyArtist[] }>(
@@ -108,7 +113,6 @@ export async function getTopArtists(limit = 5): Promise<SpotifyArtist[]> {
   }
 }
 
-// Get top tracks
 export async function getTopTracks(limit = 5): Promise<SpotifyTrack[]> {
   try {
     const data = await fetchSpotifyData<{ items: SpotifyTrack[] }>(
@@ -121,59 +125,21 @@ export async function getTopTracks(limit = 5): Promise<SpotifyTrack[]> {
   }
 }
 
-// Get currently playing track
-// Note: Requires 'user-read-currently-playing' or 'user-read-playback-state' scope
 export async function getCurrentlyPlaying(): Promise<CurrentlyPlaying | null> {
   try {
-    let accessToken = process.env.SPOTIFY_ACCESS_TOKEN;
-
-    if (!accessToken) {
-      console.warn("No SPOTIFY_ACCESS_TOKEN found, attempting to refresh...");
-      accessToken = await refreshAccessToken();
-    }
-
-    let response = await fetch(
-      "https://api.spotify.com/v1/me/player/currently-playing",
-      {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-        next: { revalidate: 0 },
-      }
+    const response = await fetchWithAuth(
+      `${SPOTIFY_API_BASE}/me/player/currently-playing`,
+      0
     );
 
-    // If token expired, refresh and retry
-    if (response.status === 401) {
-      // console.warn('Spotify access token expired, refreshing...');
-      try {
-        accessToken = await refreshAccessToken();
-        response = await fetch(
-          "https://api.spotify.com/v1/me/player/currently-playing",
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-            next: { revalidate: 0 },
-          }
-        );
-      } catch (refreshError) {
-        console.error(
-          "Failed to refresh token for currently playing:",
-          refreshError
-        );
-        return null;
-      }
-    }
-
-    // 204 means no content (nothing playing)
+    // 204 means nothing is playing
     if (response.status === 204) {
       return null;
     }
 
-    // Still unauthorized after refresh - likely missing scope
     if (response.status === 401 || response.status === 403) {
       console.error(
-        'Spotify API authorization failed. Please ensure your access token has the "user-read-currently-playing" or "user-read-playback-state" scope.'
+        'Spotify API authorization failed. Ensure your token has the "user-read-currently-playing" or "user-read-playback-state" scope.'
       );
       return null;
     }

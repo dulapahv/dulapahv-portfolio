@@ -7,18 +7,18 @@ import {
   PlayIcon,
 } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 import Zoom from "react-medium-image-zoom";
 import { Card } from "@/components/card";
+import { CardHeader } from "@/components/card-header";
+import { Link } from "@/components/link";
 import { cn } from "@/lib/utils";
 
 interface CameraRollCardProps {
   images: string[];
 }
 
-// Helper function to calculate progress bar width
 const getProgressWidth = (
   index: number,
   currentIndex: number,
@@ -37,9 +37,10 @@ export function CameraRollCard({ images }: CameraRollCardProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
   const [isManuallyPaused, setIsManuallyPaused] = useState(false);
-  const isPaused = isHovering || isManuallyPaused;
-  const progressRef = useRef(0);
   const [, forceUpdate] = useState({});
+  const progressRef = useRef(0);
+
+  const isPaused = isHovering || isManuallyPaused;
 
   useEffect(() => {
     progressRef.current = 0;
@@ -83,9 +84,7 @@ export function CameraRollCard({ images }: CameraRollCardProps) {
   if (images.length === 0) {
     return (
       <Card className="p-5">
-        <h2 className="mb-4 font-semibold text-foreground-muted text-xs uppercase tracking-widest">
-          Camera Roll
-        </h2>
+        <CardHeader title="Camera Roll" />
         <div className="flex h-64 items-center justify-center rounded-lg bg-border-subtle">
           <p className="text-foreground-muted text-sm">No images to display</p>
         </div>
@@ -95,27 +94,25 @@ export function CameraRollCard({ images }: CameraRollCardProps) {
 
   return (
     <Card className="p-5">
-      <div className="mb-4 flex items-start justify-between">
-        <h2 className="font-semibold text-foreground-muted text-xs uppercase tracking-widest">
-          Camera Roll
-        </h2>
-        <Link
-          className="group"
-          href={"/camera-roll"}
-          prefetch={false}
-          rel="noopener noreferrer"
-          target="_blank"
-          title="View my camera roll"
-        >
-          <ArrowUpRightIcon
-            className={cn(
-              "size-5 text-foreground-muted",
-              "group-hover:text-mirai-red"
-            )}
-            weight="regular"
-          />
-        </Link>
-      </div>
+      <CardHeader
+        action={
+          <Link
+            className="group/icon"
+            href="/camera-roll"
+            prefetch={false}
+            rel="noopener noreferrer"
+            target="_blank"
+            title="View my camera roll"
+          >
+            <ArrowUpRightIcon
+              className="size-5 text-foreground-muted transition-colors group-hover/icon:text-mirai-red"
+              weight="regular"
+            />
+          </Link>
+        }
+        title="Camera Roll"
+      />
+
       {/* biome-ignore lint/a11y/noNoninteractiveElementInteractions: pause/resume carousel on hover */}
       <section
         aria-label="Camera Roll"
@@ -199,7 +196,6 @@ export function CameraRollCard({ images }: CameraRollCardProps) {
         </div>
       </section>
 
-      {/* Subdomain route to the camera-roll project at dulapahv.dev/camera-roll */}
       <Link
         className={cn(
           "mt-auto inline-flex items-center gap-1.5 text-foreground-muted text-sm",

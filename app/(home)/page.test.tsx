@@ -7,6 +7,7 @@ import Home from "./page";
 vi.mock("content-collections", () => ({
   allProjects: [
     {
+      kind: "project",
       slug: "project-1",
       title: "Test Project 1",
       description: "Description 1",

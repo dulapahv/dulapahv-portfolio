@@ -1,7 +1,7 @@
 import { HouseIcon } from "@phosphor-icons/react/dist/ssr";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Footer } from "@/components/footer";
+import { Link } from "@/components/link";
 import { createMetadata } from "@/lib/metadata";
 import { cn } from "@/lib/utils";
 
@@ -34,12 +34,14 @@ export default function NotFound() {
           Return Home
         </Link>
       </main>
+
       <footer className="mt-8 border-gray-200 border-t pt-6 text-foreground-muted dark:border-gray-800">
         <p className="mb-2 font-semibold">Details:</p>
         <code className="block whitespace-pre-wrap break-all text-sm sm:text-base">
           Status: 404
         </code>
       </footer>
+
       <Footer />
     </>
   );

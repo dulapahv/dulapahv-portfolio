@@ -1,17 +1,19 @@
 import { CaretRightIcon, LinkIcon } from "@phosphor-icons/react/dist/ssr";
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ViewTransition } from "react";
 import Breadcrumb from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
+import { Link } from "@/components/link";
 import {
+  type ContentItem,
   type ContentType,
   contentConfig,
   getContentByYear,
   isValidContentType,
 } from "@/lib/content-utils/content-utils";
+import { formatMonthYear, formatShortDate, toISODate } from "@/lib/date";
 import { collectionSchema } from "@/lib/json-ld";
 import { createMetadata } from "@/lib/metadata";
 import { cn } from "@/lib/utils";
@@ -52,60 +54,23 @@ export default async function TypeListingPage({
   const contentByYear = getContentByYear(type);
   const hasContent = Object.keys(contentByYear).length > 0;
 
-  // Helper function to format date range
-  const formatDateRange = (post: {
-    date?: Date;
-    startDate?: Date;
-    endDate?: Date;
-  }) => {
-    if ("date" in post && post.date) {
-      // Blog posts - single date with day
-      return post.date.toLocaleDateString("en-US", {
-        month: "short",
-        day: "numeric",
-        year: "numeric",
-      });
+  const formatDateRange = (post: ContentItem): string => {
+    if (post.kind === "blog") {
+      return formatShortDate(post.date);
     }
-    if ("startDate" in post && post.startDate) {
-      // Work and projects - date range without day
-      const startDate = post.startDate.toLocaleDateString("en-US", {
-        month: "short",
-        year: "numeric",
-      });
-
-      if ("endDate" in post && post.endDate) {
-        const endDate = post.endDate.toLocaleDateString("en-US", {
-          month: "short",
-          year: "numeric",
-        });
-        return `${startDate} - ${endDate}`;
-      }
-      return `${startDate} - Present`;
-    }
-
-    return "";
+    const startDate = formatMonthYear(post.startDate);
+    const endDate = post.endDate ? formatMonthYear(post.endDate) : "Present";
+    return `${startDate} - ${endDate}`;
   };
 
-  // Helper function to get ISO date string for datetime attribute
-  const getISODateString = (post: {
-    date?: Date;
-    startDate?: Date;
-    endDate?: Date;
-  }) => {
-    if ("date" in post && post.date) {
-      return post.date.toISOString().split("T")[0];
-    }
-    if ("startDate" in post && post.startDate) {
-      return post.startDate.toISOString().split("T")[0];
-    }
-    return "";
-  };
+  const getISODateString = (post: ContentItem): string =>
+    toISODate(post.kind === "blog" ? post.date : post.startDate);
 
   return (
     <>
       <JsonLd schemas={[collectionSchema(type, { title, description })]} />
       <div className="mx-auto max-w-3xl space-y-4">
-        <Breadcrumb lastLabel={title} />
+        <Breadcrumb lastLabel={title} pathname={`/${type}`} />
       </div>
       <ViewTransition enter="slide-in-right">
         <main className="mx-auto max-w-3xl space-y-4">
@@ -158,7 +123,7 @@ export default async function TypeListingPage({
                               href={`/${type}/${post.slug}`}
                             >
                               <div className="flex gap-4">
-                                {post.image && (
+                                {post.image ? (
                                   <div className="relative mt-1.5 aspect-square h-20 shrink-0 overflow-hidden rounded-md sm:aspect-video">
                                     <Image
                                       alt={post.title}
@@ -169,7 +134,7 @@ export default async function TypeListingPage({
                                       src={post.image}
                                     />
                                   </div>
-                                )}
+                                ) : null}
                                 <div className="flex flex-col gap-1">
                                   <h3 className="font-medium text-lg group-hover:text-mirai-red">
                                     {post.title}

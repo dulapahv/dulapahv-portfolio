@@ -1,22 +1,55 @@
-import { allBlogs, allProjects } from "content-collections";
+import {
+  allBlogs as rawBlogs,
+  allProjects as rawProjects,
+} from "content-collections";
 
 export type ContentType = "project" | "blog";
 
-// content-collections doesn't correctly infer transform output types,
-// so we augment the base type with the fields added by the transform
-export type Project = (typeof allProjects)[number] & {
+interface Meta {
+  path: string;
+}
+type MdxBody = string;
+
+// content-collections doesn't correctly infer transform output types, so we
+// declare the shape explicitly here. The `kind` field is added by each
+// transform in content-collections.ts and discriminates the union.
+export interface Project {
+  kind: "project";
+  _meta: Meta;
+  title: string;
+  description: string;
+  startDate: Date;
+  endDate?: Date;
+  image?: string;
+  body: MdxBody;
+  content: string;
+  slug: string;
+  readingTime: string;
+  isOngoing: boolean;
   sortDate: Date;
   formattedStartDate: string;
   formattedEndDate: string;
-  isOngoing: boolean;
   duration: number;
-};
+}
 
-export type Blog = (typeof allBlogs)[number] & {
+export interface Blog {
+  kind: "blog";
+  _meta: Meta;
+  title: string;
+  description: string;
+  date: Date;
+  image?: string;
+  body: MdxBody;
+  content: string;
+  slug: string;
+  readingTime: string;
   formattedDate: string;
-};
+}
 
 export type ContentItem = Project | Blog;
+
+export const allProjects = rawProjects as unknown as Project[];
+export const allBlogs = rawBlogs as unknown as Blog[];
 
 export const contentConfig = {
   project: {
@@ -39,57 +72,38 @@ export const isValidContentType = (type: string): type is ContentType => {
   return type === "project" || type === "blog";
 };
 
-export const getCollection = (type: ContentType) => {
+export function getCollection(type: "project"): Project[];
+export function getCollection(type: "blog"): Blog[];
+export function getCollection(type: ContentType): ContentItem[];
+export function getCollection(type: ContentType): ContentItem[] {
   return contentConfig[type].collection;
-};
+}
 
-export const getAllContent = (): Array<ContentItem & { type: ContentType }> => {
-  const projects = allProjects.map((item) => ({
-    ...item,
-    type: "project" as ContentType,
-  }));
-  const blogs = allBlogs.map((item) => ({
-    ...item,
-    type: "blog" as ContentType,
-  }));
+export const getAllContent = (): ContentItem[] => [...allProjects, ...allBlogs];
 
-  return [...projects, ...blogs];
-};
+const getRelevantDate = (item: ContentItem): Date =>
+  item.kind === "blog" ? item.date : item.startDate;
 
-// Helper function to get the relevant date for sorting
-const getRelevantDate = (item: ContentItem): Date => {
-  if ("date" in item) {
-    return item.date;
-  }
-  // For work/project items, use startDate for sorting
-  return item.startDate;
-};
-
-export const getRecentContent = (
-  limit = 5
-): Array<ContentItem & { type: ContentType }> => {
-  return getAllContent()
+export const getRecentContent = (limit = 5): ContentItem[] =>
+  getAllContent()
     .sort((a, b) => getRelevantDate(b).getTime() - getRelevantDate(a).getTime())
     .slice(0, limit);
-};
 
 export const getRelatedContent = (
   currentSlug: string,
   currentType: ContentType,
   limit = 3
-): Array<ContentItem & { type: ContentType }> => {
-  const allContent = getAllContent();
-
-  // Filter out current item and get items of the same type
-  return allContent
-    .filter((item) => !(item.slug === currentSlug && item.type === currentType))
-    .filter((item) => item.type === currentType)
+): ContentItem[] =>
+  getAllContent()
+    .filter((item) => !(item.slug === currentSlug && item.kind === currentType))
+    .filter((item) => item.kind === currentType)
     .sort((a, b) => getRelevantDate(b).getTime() - getRelevantDate(a).getTime())
     .slice(0, limit);
-};
 
-export const getContentByYear = (type?: ContentType) => {
-  const content = type ? getCollection(type) : getAllContent();
+export const getContentByYear = (
+  type?: ContentType
+): Record<number, ContentItem[]> => {
+  const content: ContentItem[] = type ? getCollection(type) : getAllContent();
 
   return content
     .sort((a, b) => getRelevantDate(b).getTime() - getRelevantDate(a).getTime())
@@ -102,23 +116,22 @@ export const getContentByYear = (type?: ContentType) => {
         acc[year].push(post);
         return acc;
       },
-      {} as Record<number, typeof content>
+      {} as Record<number, ContentItem[]>
     );
 };
 
 export const searchContent = (
   query: string,
   type?: ContentType
-): Array<ContentItem & { type?: ContentType }> => {
-  const content = type ? getCollection(type) : getAllContent();
+): ContentItem[] => {
+  const content: ContentItem[] = type ? getCollection(type) : getAllContent();
   const searchTerm = query.toLowerCase();
 
-  return content.filter((item) => {
-    return (
+  return content.filter(
+    (item) =>
       item.title.toLowerCase().includes(searchTerm) ||
       item.description.toLowerCase().includes(searchTerm)
-    );
-  });
+  );
 };
 
 export const getContentStats = () => {

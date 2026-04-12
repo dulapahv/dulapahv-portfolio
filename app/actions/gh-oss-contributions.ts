@@ -1,21 +1,10 @@
 "use server";
 
-export type ContributionStatus = "MERGED" | "OPEN" | "CLOSED" | "DRAFT";
-
-export interface Contribution {
-  title: string;
-  repository: string;
-  number: number;
-  url: string;
-  date: Date;
-  status: ContributionStatus;
-  type: "PR" | "ISSUE";
-}
+import type { Contribution, ContributionStatus } from "@/lib/contributions";
 
 const GITHUB_USERNAME = "dulapahv";
 const GITHUB_API_BASE = "https://api.github.com";
 
-// Manually filtered out contributions (e.g., spam, irrelevant, test PRs)
 const FILTERED_URLS: string[] = [
   "https://github.com/vercel/next.js/issues/60006",
   "https://github.com/doki-theme/doki-master-theme/issues/124",
@@ -48,6 +37,7 @@ function mapGitHubItemToContribution(
   );
 
   let status: ContributionStatus;
+
   if (type === "PR") {
     if (item.draft) {
       status = "DRAFT";

@@ -1,6 +1,3 @@
-import { readFile } from "node:fs/promises";
-import { join } from "node:path";
-import type { allBlogs, allProjects } from "@/.content-collections/generated";
 import {
   BASE_URL,
   DESCRIPTION,
@@ -13,20 +10,20 @@ import {
   contentConfig,
 } from "@/lib/content-utils/content-utils";
 import { contributionsData, getContributionStats } from "@/lib/contributions";
+import { toISODate } from "@/lib/date";
 import { skillsData } from "@/lib/skills-data";
+import { textResponse } from "@/lib/text-response";
 
 export const dynamic = "force-static";
 
-// biome-ignore lint/complexity/noExcessiveCognitiveComplexity: Complex content generation function
-export async function GET() {
+export function GET() {
   const types: ContentType[] = ["blog", "project"];
-  const currentDate = new Date().toISOString().split("T")[0];
+  const currentDate = toISODate(new Date());
 
   let content = "# DulapahV Portfolio - Complete Reference\n\n";
 
   content += `> This document provides a comprehensive overview of DulapahV's professional portfolio, including full content of blog posts, projects, and work experiences. Optimized for AI language models and generative engines.\n\n`;
 
-  // Metadata section
   content += "## Document Metadata\n";
   content += "@document-type: Complete Portfolio Reference\n";
   content += `@last-updated: ${currentDate}\n`;
@@ -42,7 +39,6 @@ export async function GET() {
   content += "@location: Edinburgh, Scotland, United Kingdom\n";
   content += "@timezone: Europe/London\n\n";
 
-  // Who section
   content += `${"=".repeat(80)}\n`;
   content += "SECTION: About DulapahV\n";
   content += "Description: Professional background and key information\n";
@@ -106,7 +102,7 @@ export async function GET() {
     content += `url: "${contrib.url}"\n`;
     content += `type: ${contrib.type}\n`;
     content += `status: ${contrib.status}\n`;
-    content += `date: ${contrib.date.toISOString().split("T")[0]}\n`;
+    content += `date: ${toISODate(contrib.date)}\n`;
     content += `${"-".repeat(80)}\n\n`;
   }
 
@@ -122,73 +118,37 @@ export async function GET() {
 
     for (const item of collection) {
       const url = `${BASE_URL}/${type}/${item._meta.path}`;
-      const filePath = join(
-        process.cwd(),
-        "content",
-        type,
-        `${item._meta.path}.mdx`
-      );
+      const title = item.title;
+      const description = item.description;
 
-      try {
-        const fileContent = await readFile(filePath, "utf-8");
+      content += `${"-".repeat(80)}\n`;
+      content += `title: "${title}"\n`;
+      content += `description: "${description}"\n`;
+      content += `source: "${url}"\n`;
+      content += `author: "${NAME}"\n`;
+      content += `type: "${type}"\n`;
 
-        const parts = fileContent.split("---");
-        const markdownContent =
-          parts.length >= 3 ? parts.slice(2).join("---").trim() : "";
-
-        const title = item.title;
-        const description = item.description;
-
-        content += `${"-".repeat(80)}\n`;
-        content += `title: "${title}"\n`;
-        content += `description: "${description}"\n`;
-        content += `source: "${url}"\n`;
-        content += `author: "${NAME}"\n`;
-        content += `type: "${type}"\n`;
-
-        // Add citation format
-        if (type === "blog") {
-          const blogItem = item as (typeof allBlogs)[0];
-          const year =
-            "date" in blogItem && blogItem.date
-              ? new Date(blogItem.date).getFullYear()
-              : new Date().getFullYear();
-          content += `citation: "${NAME} (${year}). ${title}. DulapahV Portfolio. ${url}"\n`;
-          if ("date" in blogItem && blogItem.date) {
-            content += `published: "${new Date(blogItem.date).toISOString().split("T")[0]}"\n`;
-          }
-        } else if (type === "project") {
-          const projectItem = item as (typeof allProjects)[0];
-          const year =
-            "startDate" in projectItem && projectItem.startDate
-              ? new Date(projectItem.startDate).getFullYear()
-              : new Date().getFullYear();
-          content += `citation: "${NAME} (${year}). ${title} [Software]. ${url}"\n`;
-          if ("startDate" in projectItem && projectItem.startDate) {
-            content += `started: "${new Date(projectItem.startDate).toISOString().split("T")[0]}"\n`;
-          }
-          if ("endDate" in projectItem && projectItem.endDate) {
-            content += `ended: "${new Date(projectItem.endDate).toISOString().split("T")[0]}"\n`;
-          }
+      if (item.kind === "blog") {
+        const year = item.date.getFullYear();
+        content += `citation: "${NAME} (${year}). ${title}. DulapahV Portfolio. ${url}"\n`;
+        content += `published: "${toISODate(item.date)}"\n`;
+      } else {
+        const year = item.startDate.getFullYear();
+        content += `citation: "${NAME} (${year}). ${title} [Software]. ${url}"\n`;
+        content += `started: "${toISODate(item.startDate)}"\n`;
+        if (item.endDate) {
+          content += `ended: "${toISODate(item.endDate)}"\n`;
         }
-
-        content += `${"-".repeat(80)}\n\n`;
-
-        content += `# ${title}\n\n`;
-
-        content += markdownContent;
-        content += "\n\n";
-      } catch (error) {
-        console.error(`Error reading file ${filePath}:`, error);
       }
+
+      content += `${"-".repeat(80)}\n\n`;
+      content += `# ${title}\n\n`;
+      content += item.content.trim();
+      content += "\n\n";
     }
 
     content += "\n";
   }
 
-  return new Response(content.trim(), {
-    headers: {
-      "Content-Type": "text/plain; charset=utf-8",
-    },
-  });
+  return textResponse(content);
 }

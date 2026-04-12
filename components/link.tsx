@@ -2,22 +2,48 @@ import type { Route } from "next";
 import NextLink from "next/link";
 import type { ComponentProps } from "react";
 
-type LinkProps = ComponentProps<"a">;
+type NextLinkProps = ComponentProps<typeof NextLink>;
+type AnchorProps = ComponentProps<"a">;
 
-export function Link(props: LinkProps) {
-  const href = props.href ?? "";
+type LinkProps = Omit<AnchorProps, "href"> & {
+  href: string;
+  prefetch?: NextLinkProps["prefetch"];
+  scroll?: NextLinkProps["scroll"];
+  replace?: NextLinkProps["replace"];
+};
 
-  // Pure in-page anchor
+const isProtocolLink = (href: string): boolean =>
+  href.startsWith("mailto:") ||
+  href.startsWith("tel:") ||
+  href.startsWith("sms:");
+
+const isExternalLink = (href: string): boolean =>
+  href.startsWith("http://") || href.startsWith("https://");
+
+export function Link({ href, prefetch, scroll, replace, ...rest }: LinkProps) {
+  // In-page anchor
   if (href.startsWith("#")) {
-    return <a {...props} />;
+    return <a href={href} {...rest} />;
   }
 
-  // Internal route: use Next.js client routing
-  if (href.startsWith("/")) {
-    // @ts-expect-error - Next.js Link requires typed Route, but we accept any string href
-    return <NextLink href={href as Route} {...props} />;
+  // mailto:, tel:, sms
+  if (isProtocolLink(href)) {
+    return <a href={href} {...rest} />;
   }
 
-  // External link
-  return <a {...props} rel="noopener noreferrer" target="_blank" />;
+  // External http(s) URL
+  if (isExternalLink(href)) {
+    return <a href={href} rel="noopener" target="_blank" {...rest} />;
+  }
+
+  // Internal route
+  return (
+    <NextLink
+      href={href as Route}
+      prefetch={prefetch}
+      replace={replace}
+      scroll={scroll}
+      {...rest}
+    />
+  );
 }

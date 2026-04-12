@@ -6,31 +6,31 @@ import { GitHubContributionsCard } from "./github-contributions-card";
 const CONTRIBUTIONS_IN_LAST_YEAR_REGEX = /contributions in the last year/i;
 
 vi.mock("@/app/actions/gh-contributions", () => ({
-  getGitHubContributions: vi.fn().mockResolvedValue([
-    {
-      days: [
-        { date: "2024-01-01", count: 5, level: 2 },
-        { date: "2024-01-02", count: 3, level: 1 },
-        null,
-        null,
-        null,
-        null,
-        null,
-      ],
-    },
-    {
-      days: [
-        { date: "2024-01-08", count: 8, level: 3 },
-        { date: "2024-01-09", count: 0, level: 0 },
-        null,
-        null,
-        null,
-        null,
-        null,
-      ],
-    },
-  ]),
-  getContributionStats: vi.fn().mockResolvedValue({
+  getGitHubContributionsData: vi.fn().mockResolvedValue({
+    weeks: [
+      {
+        days: [
+          { date: "2024-01-01", count: 5, level: 2 },
+          { date: "2024-01-02", count: 3, level: 1 },
+          null,
+          null,
+          null,
+          null,
+          null,
+        ],
+      },
+      {
+        days: [
+          { date: "2024-01-08", count: 8, level: 3 },
+          { date: "2024-01-09", count: 0, level: 0 },
+          null,
+          null,
+          null,
+          null,
+          null,
+        ],
+      },
+    ],
     totalContributions: 250,
     currentYear: "the last year",
   }),

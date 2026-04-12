@@ -1,25 +1,23 @@
-import { allProjects } from "content-collections";
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import { Suspense } from "react";
 import { AboutCard } from "@/components/about-card";
 import { CameraRollCard } from "@/components/camera-roll-card/camera-roll-card";
+import { CardSkeleton } from "@/components/card-skeleton";
 import { Footer } from "@/components/footer";
 import { GitHubContributionsCard } from "@/components/github-contributions-card/github-contributions-card";
-import { Loading as LoadingGitHub } from "@/components/github-contributions-card/loading";
 import { GlobeCard } from "@/components/globe-card";
 import { HeaderText } from "@/components/header-text";
 import { JsonLd } from "@/components/json-ld";
-import { Loading as LoadingOpenSource } from "@/components/open-source-card/loading";
 import { OpenSourceCard } from "@/components/open-source-card/open-source-card";
 import { ProjectsCard } from "@/components/projects-card/projects-card";
 import { RecentBlogsCard } from "@/components/recent-blogs-card";
 import { ResumeCard } from "@/components/resume-card/resume-card";
-import { Loading as SpotifyLoading } from "@/components/spotify-card/loading";
 import { SpotifyCard } from "@/components/spotify-card/spotify-card";
 import { StressReliefCard } from "@/components/stress-relief-card/stress-relief-card";
 import { WorkCard } from "@/components/work-card";
 import { DESCRIPTION } from "@/lib/constants";
-import type { Project } from "@/lib/content-utils/content-utils";
+import { allProjects } from "@/lib/content-utils/content-utils";
 import { profilePageSchema } from "@/lib/json-ld";
 import { createMetadata } from "@/lib/metadata";
 import { cn } from "@/lib/utils";
@@ -30,33 +28,70 @@ export const metadata: Metadata = createMetadata({
   ogText: "Dulapah Vibulsanti\nSoftware Engineer",
 });
 
-export default function Home() {
-  const recentProjects = ([...allProjects] as Project[])
-    .sort((a, b) => b.sortDate.getTime() - a.sortDate.getTime())
-    .slice(0, 5)
-    .map(
-      ({
-        slug,
-        title,
-        description,
-        image,
-        formattedStartDate,
-        formattedEndDate,
-        isOngoing,
-      }) => ({
-        slug,
-        title,
-        description,
-        image,
-        formattedStartDate,
-        formattedEndDate,
-        isOngoing,
-      })
-    );
+const SKILLS = [
+  {
+    label: "Frontend Development",
+    gradient: "from-pink-500/20 to-rose-500/20",
+  },
+  {
+    label: "Full-Stack Development",
+    gradient: "from-blue-500/20 to-cyan-500/20",
+  },
+  {
+    label: "UI/UX Design",
+    gradient: "from-blue-600/20 to-purple-500/20",
+  },
+  {
+    label: "Accessibility",
+    gradient: "from-amber-500/20 to-orange-500/20",
+  },
+] as const;
 
+const CAMERA_IMAGES = [
+  "jp1.jpeg",
+  "jp2.jpeg",
+  "jp3.jpeg",
+  "edi1.jpeg",
+  "edi2.jpeg",
+  "edi3.jpeg",
+] as const;
+
+const recentProjects = [...allProjects]
+  .sort((a, b) => b.sortDate.getTime() - a.sortDate.getTime())
+  .slice(0, 5)
+  .map(
+    ({
+      slug,
+      title,
+      description,
+      image,
+      formattedStartDate,
+      formattedEndDate,
+      isOngoing,
+    }) => ({
+      slug,
+      title,
+      description,
+      image,
+      formattedStartDate,
+      formattedEndDate,
+      isOngoing,
+    })
+  );
+
+function GridCell({ area, children }: { area: string; children: ReactNode }) {
+  return (
+    <article className="min-w-0" data-destructible style={{ gridArea: area }}>
+      {children}
+    </article>
+  );
+}
+
+export default function Home() {
   return (
     <>
       <JsonLd schemas={[profilePageSchema]} />
+
       <header className="mb-12 animate-tilt-scale-up">
         <HeaderText />
         <div className="mt-12 w-fit max-w-4xl" data-destructible>
@@ -64,24 +99,7 @@ export default function Home() {
             What I do
           </h2>
           <div className="flex flex-wrap gap-2">
-            {[
-              {
-                label: "Frontend Development",
-                gradient: "from-pink-500/20 to-rose-500/20",
-              },
-              {
-                label: "Full-Stack Development",
-                gradient: "from-blue-500/20 to-cyan-500/20",
-              },
-              {
-                label: "UI/UX Design",
-                gradient: "from-blue-600/20 to-purple-500/20",
-              },
-              {
-                label: "Accessibility",
-                gradient: "from-amber-500/20 to-orange-500/20",
-              },
-            ].map((skill) => (
+            {SKILLS.map((skill) => (
               <span
                 className={cn(
                   "group relative inline-flex cursor-crosshair items-center gap-2 rounded-full bg-linear-to-br px-4 py-2 font-medium text-sm ring-1 ring-border-subtle backdrop-blur-sm",
@@ -97,100 +115,49 @@ export default function Home() {
           </div>
         </div>
       </header>
+
       <main className="home-grid grid animate-tilt-scale-up gap-5">
-        <article
-          className="min-w-0"
-          data-destructible
-          style={{ gridArea: "👋" }}
-        >
+        <GridCell area="👋">
           <AboutCard />
-        </article>
-        <article
-          className="min-w-0"
-          data-destructible
-          style={{ gridArea: "👔" }}
-        >
+        </GridCell>
+        <GridCell area="👔">
           <WorkCard />
-        </article>
-        <article
-          className="min-w-0"
-          data-destructible
-          style={{ gridArea: "📄" }}
-        >
+        </GridCell>
+        <GridCell area="📄">
           <ResumeCard />
-        </article>
-        <article
-          className="min-w-0"
-          data-destructible
-          style={{ gridArea: "📝" }}
-        >
+        </GridCell>
+        <GridCell area="📝">
           <RecentBlogsCard />
-        </article>
-        <article
-          className="min-w-0"
-          data-destructible
-          style={{ gridArea: "🎨" }}
-        >
+        </GridCell>
+        <GridCell area="🎨">
           <ProjectsCard projects={recentProjects} />
-        </article>
-        <article
-          className="min-w-0"
-          data-destructible
-          style={{ gridArea: "📊" }}
-        >
-          <Suspense fallback={<LoadingGitHub />}>
+        </GridCell>
+        <GridCell area="📊">
+          <Suspense fallback={<CardSkeleton />}>
             <GitHubContributionsCard username="dulapahv" />
           </Suspense>
-        </article>
-        <article
-          className="min-w-0"
-          data-destructible
-          style={{ gridArea: "🌟" }}
-        >
-          <Suspense fallback={<LoadingOpenSource />}>
+        </GridCell>
+        <GridCell area="🌟">
+          <Suspense fallback={<CardSkeleton minHeight="min-h-96" />}>
             <OpenSourceCard />
           </Suspense>
-        </article>
-        <article
-          className="min-w-0"
-          data-destructible
-          style={{ gridArea: "🌏" }}
-        >
+        </GridCell>
+        <GridCell area="🌏">
           <GlobeCard />
-        </article>
-        <article
-          className="min-w-0"
-          data-destructible
-          style={{ gridArea: "📸" }}
-        >
-          <CameraRollCard
-            images={[
-              "jp1.jpeg",
-              "jp2.jpeg",
-              "jp3.jpeg",
-              "edi1.jpeg",
-              "edi2.jpeg",
-              "edi3.jpeg",
-            ]}
-          />
-        </article>
-        <article
-          className="min-w-0"
-          data-destructible
-          style={{ gridArea: "🎵" }}
-        >
-          <Suspense fallback={<SpotifyLoading />}>
+        </GridCell>
+        <GridCell area="📸">
+          <CameraRollCard images={[...CAMERA_IMAGES]} />
+        </GridCell>
+        <GridCell area="🎵">
+          <Suspense fallback={<CardSkeleton minHeight="min-h-96" />}>
             <SpotifyCard />
           </Suspense>
-        </article>
-        <article
-          className="min-w-0"
-          data-destructible
-          style={{ gridArea: "🎮" }}
-        >
+        </GridCell>
+        <GridCell area="🎮">
           <StressReliefCard />
-        </article>
+        </GridCell>
       </main>
+
       <Footer />
     </>
   );

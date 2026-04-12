@@ -1,85 +1,69 @@
 import { ArrowRightIcon } from "@phosphor-icons/react/dist/ssr";
-import { allBlogs } from "content-collections";
 import Image from "next/image";
-import Link from "next/link";
 import { Card } from "@/components/card";
+import { CardHeader, CardHeaderIconLink } from "@/components/card-header";
+import { Link } from "@/components/link";
+import { allBlogs } from "@/lib/content-utils/content-utils";
+import { formatShortDate, toISODate } from "@/lib/date";
 import { cn } from "@/lib/utils";
 
-type BlogWithDate = (typeof allBlogs)[number] & {
-  date: Date;
-};
+const RECENT_BLOGS = [...allBlogs]
+  .sort((a, b) => b.date.getTime() - a.date.getTime())
+  .slice(0, 4);
 
 export function RecentBlogsCard() {
-  const blogs = [...allBlogs]
-    .sort(
-      (a, b) =>
-        (b as BlogWithDate).date.getTime() - (a as BlogWithDate).date.getTime()
-    )
-    .slice(0, 4);
-
   return (
     <Card className="p-5">
-      <div className="mb-4 flex items-start justify-between">
-        <h2 className="font-semibold text-foreground-muted text-xs uppercase tracking-widest">
-          Recent Blogs
-        </h2>
-        <Link className="group/icon" href="/blog" title="View all blogs">
-          <ArrowRightIcon
-            className={cn(
-              "size-5 text-foreground-muted transition-color transition-transform",
-              "group-hover/icon:text-mirai-red"
-            )}
-            weight="regular"
+      <CardHeader
+        action={
+          <CardHeaderIconLink
+            href="/blog"
+            icon={ArrowRightIcon}
+            title="View all blogs"
           />
-        </Link>
-      </div>
+        }
+        title="Recent Blogs"
+      />
       <ul className="space-y-3 divide-y divide-border-subtle">
-        {blogs.map((blog) => {
-          const blog_ = blog as BlogWithDate;
-          return (
-            <li className="group/item pb-3 first:pb-3" key={blog_.slug}>
-              <Link className="flex gap-3" href={`/blog/${blog_.slug}`}>
-                {blog_.image && (
-                  <div className="relative shrink-0 overflow-hidden rounded-lg">
-                    <div className="relative mt-1 aspect-square h-20 overflow-hidden rounded-lg sm:aspect-video">
-                      <Image
-                        alt={blog_.title}
-                        className="object-cover"
-                        fill
-                        quality={1}
-                        sizes="150px"
-                        src={blog_.image}
-                      />
-                    </div>
+        {RECENT_BLOGS.map((blog) => (
+          <li className="group/item pb-3 first:pb-3" key={blog.slug}>
+            <Link className="flex gap-3" href={`/blog/${blog.slug}`}>
+              {blog.image ? (
+                <div className="relative shrink-0 overflow-hidden rounded-lg">
+                  <div className="relative mt-1 aspect-square h-20 overflow-hidden rounded-lg sm:aspect-video">
+                    <Image
+                      alt={blog.title}
+                      className="object-cover"
+                      fill
+                      quality={1}
+                      sizes="150px"
+                      src={blog.image}
+                    />
                   </div>
-                )}
-                <div className="flex min-w-0 flex-1 flex-col gap-1">
-                  <h3
-                    className={cn(
-                      "font-medium text-foreground text-sm",
-                      "group-hover/item:text-mirai-red"
-                    )}
-                  >
-                    {blog_.title}
-                  </h3>
-                  <p className="line-clamp-2 text-foreground-muted text-sm">
-                    {blog_.description}
-                  </p>
-                  <time
-                    className="text-foreground-muted text-xs"
-                    dateTime={blog_.date.toISOString().split("T")[0]}
-                  >
-                    {blog_.date.toLocaleDateString("en-US", {
-                      month: "short",
-                      day: "numeric",
-                      year: "numeric",
-                    })}
-                  </time>
                 </div>
-              </Link>
-            </li>
-          );
-        })}
+              ) : null}
+              <div className="flex min-w-0 flex-1 flex-col gap-1">
+                <h3
+                  className={cn(
+                    "font-medium text-foreground text-sm",
+                    "group-hover/item:text-mirai-red"
+                  )}
+                >
+                  {blog.title}
+                </h3>
+                <p className="line-clamp-2 text-foreground-muted text-sm">
+                  {blog.description}
+                </p>
+                <time
+                  className="text-foreground-muted text-xs"
+                  dateTime={toISODate(blog.date)}
+                >
+                  {formatShortDate(blog.date)}
+                </time>
+              </div>
+            </Link>
+          </li>
+        ))}
       </ul>
     </Card>
   );

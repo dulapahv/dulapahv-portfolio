@@ -21,14 +21,14 @@ exports[`SpotifyCard > should match snapshot 1`] = `
           Spotify
         </h2>
         <a
-          class="group"
+          class="group/icon"
           href="https://open.spotify.com/user/31gh2o2edagehgvasq4ov3perrtm"
-          rel="noopener noreferrer"
+          rel="noopener"
           target="_blank"
           title="View my Spotify profile"
         >
           <svg
-            class="size-5 text-foreground-muted group-hover:text-mirai-red"
+            class="size-5 text-foreground-muted transition-colors group-hover/icon:text-mirai-red"
             fill="currentColor"
             height="1em"
             viewBox="0 0 256 256"
@@ -70,7 +70,7 @@ exports[`SpotifyCard > should match snapshot 1`] = `
             <a
               class="flex items-center gap-3 rounded-lg p-2 hover:bg-background-muted"
               href="https://open.spotify.com/artist/1"
-              rel="noopener noreferrer"
+              rel="noopener"
               target="_blank"
             >
               <span
@@ -102,7 +102,7 @@ exports[`SpotifyCard > should match snapshot 1`] = `
             <a
               class="flex items-center gap-3 rounded-lg p-2 hover:bg-background-muted"
               href="https://open.spotify.com/artist/2"
-              rel="noopener noreferrer"
+              rel="noopener"
               target="_blank"
             >
               <span
@@ -167,7 +167,7 @@ exports[`SpotifyCard > should match snapshot 1`] = `
               <a
                 class="shrink-0"
                 href="https://open.spotify.com/track/1"
-                rel="noopener noreferrer"
+                rel="noopener"
                 target="_blank"
               >
                 <img
@@ -190,7 +190,7 @@ exports[`SpotifyCard > should match snapshot 1`] = `
                     <a
                       class="font-medium text-foreground text-sm hover:underline"
                       href="https://open.spotify.com/track/1"
-                      rel="noopener noreferrer"
+                      rel="noopener"
                       target="_blank"
                     >
                       Test Track 1
@@ -207,7 +207,7 @@ exports[`SpotifyCard > should match snapshot 1`] = `
                       <a
                         class="hover:text-foreground hover:underline"
                         href="https://open.spotify.com/artist/a"
-                        rel="noopener noreferrer"
+                        rel="noopener"
                         target="_blank"
                       >
                         Artist A
@@ -228,7 +228,7 @@ exports[`SpotifyCard > should match snapshot 1`] = `
               <a
                 class="shrink-0"
                 href="https://open.spotify.com/track/2"
-                rel="noopener noreferrer"
+                rel="noopener"
                 target="_blank"
               >
                 <img
@@ -251,7 +251,7 @@ exports[`SpotifyCard > should match snapshot 1`] = `
                     <a
                       class="font-medium text-foreground text-sm hover:underline"
                       href="https://open.spotify.com/track/2"
-                      rel="noopener noreferrer"
+                      rel="noopener"
                       target="_blank"
                     >
                       Test Track 2
@@ -268,7 +268,7 @@ exports[`SpotifyCard > should match snapshot 1`] = `
                       <a
                         class="hover:text-foreground hover:underline"
                         href="https://open.spotify.com/artist/b"
-                        rel="noopener noreferrer"
+                        rel="noopener"
                         target="_blank"
                       >
                         Artist B

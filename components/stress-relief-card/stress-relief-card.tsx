@@ -10,6 +10,7 @@ import { useCallback, useState } from "react";
 import { createPortal } from "react-dom";
 
 import { Card } from "@/components/card";
+import { CardHeader } from "@/components/card-header";
 
 import { useStressRelief } from "./use-stress-relief";
 
@@ -67,8 +68,8 @@ export function StressReliefCard() {
   const [isActive, setIsActive] = useState(false);
   const { activate, reset, explode, shake } = useStressRelief();
 
-  const handleEnable = useCallback(() => {
-    activate();
+  const handleEnable = useCallback(async () => {
+    await activate();
     setIsActive(true);
   }, [activate]);
 
@@ -78,17 +79,15 @@ export function StressReliefCard() {
 
   return (
     <>
-      <Card className="flex flex-col gap-3 p-5" containerClassName="h-fit">
-        <h2 className="font-semibold text-foreground-muted text-xs uppercase tracking-widest">
-          Stress Relief
-        </h2>
+      <Card className="flex flex-col p-5" containerClassName="h-fit">
+        <CardHeader title="Stress Relief" />
         <p className="text-foreground-muted text-sm">
           {isActive
             ? "Go wild! Drag elements or use the toolbar."
             : "Feeling stressed? Toss things around."}
         </p>
-        {!isActive && (
-          <div className="mt-auto">
+        {isActive ? null : (
+          <div className="mt-3">
             <button
               aria-label="Enable stress relief"
               className="inline-flex cursor-pointer items-center gap-1.5 rounded-full bg-accent-subtle px-3 py-1.5 text-sm hover:bg-accent"
@@ -102,13 +101,13 @@ export function StressReliefCard() {
           </div>
         )}
       </Card>
-      {isActive && (
+      {isActive ? (
         <StressReliefToolbar
           onExplode={explode}
           onReset={handleReset}
           onShake={shake}
         />
-      )}
+      ) : null}
     </>
   );
 }

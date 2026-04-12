@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Archivo } from "next/font/google";
-import Link from "next/link";
 import { ViewTransition } from "react";
 
 import Breadcrumb from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
+import { Link } from "@/components/link";
 import { CONTACT_EMAIL } from "@/lib/constants";
 import { contactPageSchema } from "@/lib/json-ld";
 import { createMetadata } from "@/lib/metadata";
@@ -28,7 +28,7 @@ export default function ContactPage() {
     <>
       <JsonLd schemas={[contactPageSchema]} />
       <div className="mx-auto max-w-3xl space-y-4">
-        <Breadcrumb lastLabel={title} />
+        <Breadcrumb lastLabel={title} pathname="/contact" />
       </div>
       <ViewTransition enter="slide-in-right">
         <main className="relative mx-auto flex min-h-[70vh] max-w-5xl flex-col items-center justify-center">
@@ -50,6 +50,7 @@ export default function ContactPage() {
                 </Link>
               </div>
             </div>
+
             <ContactActions />
           </div>
         </main>

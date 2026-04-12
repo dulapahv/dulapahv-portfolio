@@ -1,11 +1,12 @@
 "use client";
 
 import { ArrowsClockwiseIcon } from "@phosphor-icons/react/dist/ssr";
-import Link from "next/link";
 import { useEffect } from "react";
+import { ErrorDetails } from "@/components/error-details";
 import { Footer } from "@/components/footer";
+import { Link } from "@/components/link";
 import { TopBar } from "@/components/top-bar/top-bar";
-import { CONTACT_EMAIL, IS_DEV_ENV } from "@/lib/constants";
+import { CONTACT_EMAIL } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export default function ErrorPage({
@@ -16,7 +17,6 @@ export default function ErrorPage({
   reset: () => void;
 }) {
   useEffect(() => {
-    // Log the error to an error reporting service
     console.error(error);
   }, [error]);
 
@@ -56,31 +56,9 @@ export default function ErrorPage({
           <span>Try Again</span>
         </button>
       </main>
-      <div className="mt-8 border-gray-200 border-t pt-6 text-foreground-muted dark:border-gray-800">
-        <p className="mb-2 font-semibold">Details:</p>
-        <code className="block whitespace-pre-wrap break-all text-sm sm:text-base">
-          {`Timestamp: ${new Date().toLocaleString()} (${new Date().toISOString()})`}
-          <br />
-          {`Path: ${typeof window !== "undefined" ? window.location.pathname : "N/A"}`}
-          <br />
-          {`Name: ${error.name || "N/A"}`}
-          <br />
-          {`Message: ${error.message || "N/A"}`}
-          <br />
-          {`Cause: ${error.cause || "N/A"}`}
-          <br />
-          {`Digest: ${error.digest || "N/A"}`}
-          {IS_DEV_ENV && (
-            <>
-              <br />
-              Stack Trace:
-              <pre className="overflow-x-auto rounded bg-background-elevated p-2 text-xs">
-                {error.stack}
-              </pre>
-            </>
-          )}
-        </code>
-      </div>
+
+      <ErrorDetails error={error} />
+
       <Footer />
     </>
   );

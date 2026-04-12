@@ -46,13 +46,13 @@ export function ThemeSwitcher() {
             whileHover={{ scale: 1.15 }}
             whileTap={{ scale: 0.95 }}
           >
-            {isActive && (
+            {isActive ? (
               <motion.div
                 className="absolute inset-0 rounded-full border border-border-subtle bg-background-muted shadow-sm"
                 layoutId={"activeTheme"}
                 transition={{ type: "spring", duration: 0.5 }}
               />
-            )}
+            ) : null}
             <Icon
               aria-hidden="true"
               className="relative m-auto size-4 text-foreground-subtle"

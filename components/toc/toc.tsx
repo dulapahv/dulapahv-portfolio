@@ -5,197 +5,26 @@ import {
   CaretDownIcon,
 } from "@phosphor-icons/react/dist/ssr";
 import { AnimatePresence, motion } from "motion/react";
-import Link from "next/link";
-/* Honestly, this is a bit of a mess. */
-import { useCallback, useEffect, useRef, useState } from "react";
-import { useWebHaptics } from "web-haptics/react";
+import { Link } from "@/components/link";
 import { useMediaQuery } from "@/hooks/use-media-query/use-media-query";
 import { cn } from "@/lib/utils";
-
-interface TOCItem {
-  id: string;
-  text: string;
-  level: number;
-}
+import { useToc } from "./use-toc";
 
 export function TableOfContents() {
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [tocItems, setTocItems] = useState<TOCItem[]>([]);
-  const [activeId, setActiveId] = useState<string>("");
-  const [lockActiveId, setLockActiveId] = useState<boolean>(false);
-  const [isCollapsed, setIsCollapsed] = useState<boolean>(true);
-  const [showScrollTop, setShowScrollTop] = useState<boolean>(false);
+  const {
+    isLoading,
+    tocItems,
+    activeId,
+    showScrollTop,
+    isCollapsed,
+    toggleCollapsed,
+    handleClick,
+    handleKeyDown,
+    scrollToTop,
+    linksRef,
+  } = useToc();
   const isDesktop = useMediaQuery("(min-width: 1350px)");
-  const tocRef = useRef<HTMLDivElement>(null);
-  const { trigger } = useWebHaptics();
-  const linksRef = useRef<(HTMLAnchorElement | null)[]>([]);
 
-  // Handle scroll visibility for scroll to top button
-  useEffect(() => {
-    const handleScroll = () => {
-      // Show button after scrolling down 300px
-      setShowScrollTop(window.scrollY > 300);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const updateTOC = () => {
-      const headings = Array.from(document.querySelectorAll("h2[id], h3[id]"));
-      const newTocItems = headings.map((el) => ({
-        id: el.id,
-        text: el.textContent || "",
-        level: Number.parseInt(el.tagName[1], 10),
-      }));
-      setTocItems(newTocItems);
-      setIsLoading(false);
-
-      // Reset links ref array
-      linksRef.current = new Array(newTocItems.length).fill(null);
-
-      // Only set initial active ID if we don't have one yet
-      setActiveId((currentActiveId) => {
-        if (currentActiveId === "" && newTocItems.length > 0) {
-          const hash = window.location.hash.replace("#", "");
-          if (hash && newTocItems.some((item) => item.id === hash)) {
-            return hash;
-          }
-          return newTocItems[0].id;
-        }
-        return currentActiveId;
-      });
-    };
-
-    updateTOC();
-
-    const mdxContainer = document.querySelector("article");
-    if (!mdxContainer) {
-      return;
-    }
-
-    const observer = new MutationObserver((mutations) => {
-      // Check if the mutation is just a button state change
-      const isButtonChange = mutations.some((mutation) => {
-        const target = mutation.target as HTMLElement;
-        return (
-          target.closest("button") ||
-          (mutation.type === "attributes" &&
-            mutation.attributeName === "disabled") ||
-          (mutation.type === "childList" && target.querySelector("svg"))
-        );
-      });
-
-      // Only update TOC for structural changes, not button state changes
-      if (!isButtonChange) {
-        updateTOC();
-      }
-    });
-
-    observer.observe(mdxContainer, {
-      childList: true,
-      subtree: true,
-      attributes: true,
-      attributeFilter: ["disabled"],
-    });
-
-    const sectionObserver = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          const id = entry.target.getAttribute("id");
-          if (entry.isIntersecting && !lockActiveId) {
-            setActiveId(id ?? "");
-          }
-        }
-      },
-      { rootMargin: "0px 0px -80% 0px", threshold: 1 }
-    );
-
-    const headings = Array.from(document.querySelectorAll("h2[id], h3[id]"));
-    for (const heading of headings) {
-      // Make headings focusable for proper tab navigation
-      if (!heading.hasAttribute("tabindex")) {
-        heading.setAttribute("tabindex", "-1");
-      }
-      sectionObserver.observe(heading);
-    }
-
-    return () => {
-      observer.disconnect();
-      sectionObserver.disconnect();
-    };
-  }, [lockActiveId]);
-
-  const scrollToElement = useCallback((id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ block: "start" });
-      window.history.replaceState(null, "", `#${id}`);
-      setActiveId(id);
-      setLockActiveId(true);
-      setTimeout(() => setLockActiveId(false), 500);
-
-      // Focus the target heading for screen readers after scroll completes
-      element.focus({ preventScroll: true });
-    }
-  }, []);
-
-  const scrollToTop = useCallback(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    window.history.replaceState(null, "", window.location.pathname);
-  }, []);
-
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-    e.preventDefault();
-    trigger([{ duration: 8 }], { intensity: 0.3 });
-    scrollToElement(id);
-  };
-
-  const handleKeyDown = (
-    e: React.KeyboardEvent<HTMLAnchorElement>,
-    id: string,
-    index: number
-  ) => {
-    switch (e.key) {
-      case "Enter":
-      case " ":
-        e.preventDefault();
-        scrollToElement(id);
-        break;
-      case "ArrowDown": {
-        e.preventDefault();
-        e.stopPropagation();
-        const nextIndex = Math.min(index + 1, tocItems.length - 1);
-        linksRef.current[nextIndex]?.focus();
-        break;
-      }
-      case "ArrowUp": {
-        e.preventDefault();
-        e.stopPropagation();
-        const prevIndex = Math.max(index - 1, 0);
-        linksRef.current[prevIndex]?.focus();
-        break;
-      }
-      case "Home":
-        e.preventDefault();
-        e.stopPropagation();
-        linksRef.current[0]?.focus();
-        break;
-      case "End": {
-        e.preventDefault();
-        e.stopPropagation();
-        const lastIndex = tocItems.length - 1;
-        linksRef.current[lastIndex]?.focus();
-        break;
-      }
-      default:
-        // No action for other keys
-        break;
-    }
-  };
-
-  // Show loading state while scanning for headings
   if (isLoading) {
     return (
       <div className="flex w-full items-center rounded-md border border-border bg-background-elevated/50 px-4 py-3 text-foreground-muted text-sm backdrop-blur-sm xl:hidden">
@@ -204,22 +33,20 @@ export function TableOfContents() {
     );
   }
 
-  // Don't render if there are no headings
   if (tocItems.length === 0) {
     return null;
   }
 
-  // Desktop view - fixed sidebar
   if (isDesktop) {
     return (
       <nav
         aria-label="Table of contents"
         className="fixed top-18 left-[calc(100vw/2+424px)] z-40 hidden w-56 xl:block"
-        ref={tocRef}
       >
         <h2 className="px-3 font-medium text-foreground text-sm">
           On this page
         </h2>
+
         <fieldset
           aria-label="Page sections - use arrow keys to navigate"
           className="max-h-[calc(100vh-16rem)] overflow-y-auto border-none py-2"
@@ -260,11 +87,11 @@ export function TableOfContents() {
                       )}
                     />
                     <span className="relative line-clamp-2">{item.text}</span>
-                    {isActive && (
+                    {isActive ? (
                       <span className="sr-only" id={`current-section-${index}`}>
                         (current section)
                       </span>
-                    )}
+                    ) : null}
                   </Link>
                 </li>
               );
@@ -273,7 +100,7 @@ export function TableOfContents() {
         </fieldset>
 
         <AnimatePresence>
-          {showScrollTop && (
+          {showScrollTop ? (
             <motion.div
               animate={{ opacity: 1, y: 0 }}
               className="mt-2 px-3"
@@ -294,18 +121,16 @@ export function TableOfContents() {
                 <ArrowCircleUpIcon className="size-4.5" />
               </button>
             </motion.div>
-          )}
+          ) : null}
         </AnimatePresence>
       </nav>
     );
   }
 
-  // Mobile view - collapsible at top
   return (
     <nav
       aria-label="Table of contents"
       className="rounded-md border border-border bg-background-elevated/50 backdrop-blur-sm"
-      ref={tocRef}
     >
       <button
         aria-controls="toc-content"
@@ -315,10 +140,7 @@ export function TableOfContents() {
           "flex w-full cursor-pointer items-center justify-between rounded-md px-4 py-3 font-medium text-foreground text-sm",
           "hover:bg-background-muted/50"
         )}
-        onClick={() => {
-          trigger([{ duration: 8 }], { intensity: 0.3 });
-          setIsCollapsed(!isCollapsed);
-        }}
+        onClick={toggleCollapsed}
         type="button"
       >
         <span>On this page</span>
@@ -336,7 +158,7 @@ export function TableOfContents() {
       </span>
 
       <AnimatePresence initial={false}>
-        {!isCollapsed && (
+        {isCollapsed ? null : (
           <motion.div
             animate={{ height: "auto", opacity: 1 }}
             aria-label="Page sections - use arrow keys to navigate"
@@ -373,14 +195,14 @@ export function TableOfContents() {
                       }}
                     >
                       <span className="line-clamp-2">{item.text}</span>
-                      {activeId === item.id && (
+                      {activeId === item.id ? (
                         <span
                           className="sr-only"
                           id={`current-section-mobile-${index}`}
                         >
                           (current section)
                         </span>
-                      )}
+                      ) : null}
                     </Link>
                   </li>
                 ))}

@@ -1,15 +1,20 @@
 "use client";
 
-import Matter from "matter-js";
+import type * as MatterNS from "matter-js";
 import { useCallback, useEffect, useRef } from "react";
 
-const { Engine, World, Bodies, Body, Mouse, MouseConstraint, Events, Runner } =
-  Matter;
+type MatterModule = typeof MatterNS;
+
+let matterModulePromise: Promise<MatterModule> | null = null;
+function loadMatter(): Promise<MatterModule> {
+  matterModulePromise ??= import("matter-js").then((m) => m.default ?? m);
+  return matterModulePromise;
+}
 
 const STRESS_RELIEF_FLAG = "__stressReliefActive";
 
 interface ElementBody {
-  body: Matter.Body;
+  body: MatterNS.Body;
   element: HTMLElement;
   originalStyles: {
     transform: string;
@@ -26,7 +31,7 @@ const RESTITUTION = 0.4;
 const FRICTION = 0.3;
 const WALL_THICKNESS = 200;
 
-function enableGravity(engine: Matter.Engine) {
+function enableGravity(engine: MatterNS.Engine) {
   engine.gravity.y = 1;
   engine.gravity.scale = 0.001;
 }
@@ -42,16 +47,17 @@ function restoreElementStyles(eb: ElementBody) {
 }
 
 function cleanupPhysics(
-  runner: Matter.Runner | null,
-  engine: Matter.Engine | null,
+  Matter: MatterModule,
+  runner: MatterNS.Runner | null,
+  engine: MatterNS.Engine | null,
   canvas: HTMLCanvasElement | null
 ) {
   if (runner) {
-    Runner.stop(runner);
+    Matter.Runner.stop(runner);
   }
   if (engine) {
-    World.clear(engine.world, false);
-    Engine.clear(engine);
+    Matter.World.clear(engine.world, false);
+    Matter.Engine.clear(engine);
   }
   if (canvas) {
     canvas.remove();
@@ -59,10 +65,11 @@ function cleanupPhysics(
 }
 
 export function useStressRelief() {
-  const engineRef = useRef<Matter.Engine | null>(null);
-  const runnerRef = useRef<Matter.Runner | null>(null);
+  const matterRef = useRef<MatterModule | null>(null);
+  const engineRef = useRef<MatterNS.Engine | null>(null);
+  const runnerRef = useRef<MatterNS.Runner | null>(null);
   const elementBodiesRef = useRef<ElementBody[]>([]);
-  const wallsRef = useRef<Matter.Body[]>([]);
+  const wallsRef = useRef<MatterNS.Body[]>([]);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const activeRef = useRef(false);
   const rafRef = useRef<number>(0);
@@ -84,11 +91,16 @@ export function useStressRelief() {
     }
   }, []);
 
-  const activate = useCallback(() => {
+  const activate = useCallback(async () => {
     if (activeRef.current) {
       return;
     }
     activeRef.current = true;
+
+    const Matter = await loadMatter();
+    matterRef.current = Matter;
+    const { Engine, World, Bodies, Mouse, MouseConstraint, Events, Runner } =
+      Matter;
 
     (window as unknown as Record<string, unknown>)[STRESS_RELIEF_FLAG] = true;
     document.body.style.overflowX = "clip";
@@ -132,7 +144,7 @@ export function useStressRelief() {
         WALL_THICKNESS,
         { isStatic: true }
       ),
-    ];
+    ] as MatterNS.Body[];
     wallsRef.current = walls;
     World.add(engine.world, walls);
 
@@ -269,7 +281,14 @@ export function useStressRelief() {
       wheelHandlerRef.current = null;
     }
 
-    cleanupPhysics(runnerRef.current, engineRef.current, canvasRef.current);
+    if (matterRef.current) {
+      cleanupPhysics(
+        matterRef.current,
+        runnerRef.current,
+        engineRef.current,
+        canvasRef.current
+      );
+    }
     runnerRef.current = null;
     engineRef.current = null;
     canvasRef.current = null;
@@ -282,9 +301,10 @@ export function useStressRelief() {
   }, []);
 
   const explode = useCallback(() => {
-    if (!(activeRef.current && engineRef.current)) {
+    if (!(activeRef.current && engineRef.current && matterRef.current)) {
       return;
     }
+    const { Body } = matterRef.current;
     enableGravity(engineRef.current);
 
     const cx = window.scrollX + window.innerWidth / 2;
@@ -304,9 +324,10 @@ export function useStressRelief() {
   }, []);
 
   const shake = useCallback(() => {
-    if (!(activeRef.current && engineRef.current)) {
+    if (!(activeRef.current && engineRef.current && matterRef.current)) {
       return;
     }
+    const { Body } = matterRef.current;
     enableGravity(engineRef.current);
 
     for (const { body } of elementBodiesRef.current) {
@@ -325,8 +346,8 @@ export function useStressRelief() {
         return;
       }
 
-      if (runnerRef.current) {
-        Runner.stop(runnerRef.current);
+      if (runnerRef.current && matterRef.current) {
+        matterRef.current.Runner.stop(runnerRef.current);
       }
       cancelAnimationFrame(rafRef.current);
 

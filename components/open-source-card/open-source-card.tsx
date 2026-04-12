@@ -1,6 +1,5 @@
 import type { Icon } from "@phosphor-icons/react/dist/lib/types";
 import {
-  ArrowUpRightIcon,
   CheckCircleIcon,
   CircleIcon,
   GitMergeIcon,
@@ -8,14 +7,16 @@ import {
   PencilSimpleIcon,
   XIcon,
 } from "@phosphor-icons/react/dist/ssr";
-import type { Route } from "next";
-import Link from "next/link";
 import {
-  type ContributionStatus,
   getContributionStats,
   getContributions,
 } from "@/app/actions/gh-oss-contributions";
 import { Card } from "@/components/card";
+import { CardHeader, CardHeaderIconLink } from "@/components/card-header";
+import { Link } from "@/components/link";
+import { GITHUB_URL } from "@/lib/constants";
+import type { ContributionStatus } from "@/lib/contributions";
+import { formatShortDate, toISODate } from "@/lib/date";
 import { cn } from "@/lib/utils";
 
 function getStatusConfig(
@@ -66,43 +67,33 @@ export async function OpenSourceCard() {
   const contributions = await getContributions();
   const stats = await getContributionStats(contributions);
 
-  // Get recent contributions (limit to 5)
   const recentContributions = contributions
     .sort((a, b) => b.date.getTime() - a.date.getTime())
     .slice(0, 5);
 
   return (
     <Card className="p-5">
-      <div className="mb-4 flex items-start justify-between">
-        <h2 className="font-semibold text-foreground-muted text-xs uppercase tracking-widest">
-          Open Source Contributions
-        </h2>
-        <Link
-          className="group/icon"
-          href="https://github.com/dulapahv"
-          rel="noopener noreferrer"
-          target="_blank"
-          title="View my GitHub profile"
-        >
-          <ArrowUpRightIcon
-            className={cn(
-              "size-5 text-foreground-muted transition-color",
-              "group-hover/icon:text-mirai-red"
-            )}
-            weight="regular"
+      <CardHeader
+        action={
+          <CardHeaderIconLink
+            href={GITHUB_URL}
+            title="View my GitHub profile"
           />
-        </Link>
-      </div>
+        }
+        title="Open Source Contributions"
+      />
 
       <div className="mb-4 flex flex-wrap gap-x-4 gap-y-2">
         <div className="flex items-baseline gap-1.5 text-foreground text-sm">
           <span className="font-semibold">{stats.total}</span>
           <span className="text-foreground-muted text-xs">total</span>
         </div>
+
         <div className="flex items-baseline gap-1.5 text-foreground text-sm">
           <span className="font-semibold text-purple-900">{stats.merged}</span>
           <span className="text-foreground-muted text-xs">merged</span>
         </div>
+
         <div className="flex items-baseline gap-1.5 text-foreground text-sm">
           <span className="font-semibold text-green-900">{stats.open}</span>
           <span className="text-foreground-muted text-xs">open</span>
@@ -120,12 +111,7 @@ export async function OpenSourceCard() {
 
           return (
             <li className="group pb-3 first:pb-3" key={contribution.url}>
-              <Link
-                className="flex flex-col gap-1.5"
-                href={contribution.url as Route}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
+              <Link className="flex flex-col gap-1.5" href={contribution.url}>
                 <div className="flex items-start justify-between gap-2">
                   <div className="flex min-w-0 flex-1 items-start gap-2">
                     <TypeIcon
@@ -154,15 +140,16 @@ export async function OpenSourceCard() {
                       statusConfig.className
                     )}
                   >
-                    {statusConfig.icon && (
+                    {statusConfig.icon ? (
                       <statusConfig.icon
                         aria-hidden={true}
                         className="size-3"
                       />
-                    )}
+                    ) : null}
                     {statusConfig.label}
                   </span>
                 </div>
+
                 <div className="ml-7 flex flex-wrap items-center gap-2 text-foreground-muted text-xs">
                   <span className="break-all font-mono">
                     {contribution.repository}
@@ -170,14 +157,8 @@ export async function OpenSourceCard() {
                   <span aria-hidden="true">•</span>
                   <span className="font-mono">#{contribution.number}</span>
                   <span aria-hidden="true">•</span>
-                  <time
-                    dateTime={contribution.date.toISOString().split("T")[0]}
-                  >
-                    {contribution.date.toLocaleDateString("en-US", {
-                      month: "short",
-                      day: "numeric",
-                      year: "numeric",
-                    })}
+                  <time dateTime={toISODate(contribution.date)}>
+                    {formatShortDate(contribution.date)}
                   </time>
                 </div>
               </Link>
@@ -186,9 +167,9 @@ export async function OpenSourceCard() {
         })}
       </ul>
 
-      {contributions.length === 0 && (
+      {contributions.length === 0 ? (
         <p className="text-foreground-muted text-sm">No contributions found</p>
-      )}
+      ) : null}
     </Card>
   );
 }

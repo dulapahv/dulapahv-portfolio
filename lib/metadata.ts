@@ -2,6 +2,7 @@ import merge from "deepmerge";
 import type { Metadata } from "next";
 
 import { BASE_URL } from "@/lib/constants";
+import { buildOgUrl } from "@/lib/og-url";
 
 type MetadataGenerator = Omit<Metadata, "description" | "title"> & {
   title: string;
@@ -29,8 +30,7 @@ export const createMetadata = ({
 }: MetadataGenerator): Metadata => {
   const parsedTitle = `${title} | ${applicationName}`;
   const imageUrl =
-    image ??
-    `/og?title=${encodeURIComponent(ogText ?? title)}&description=${encodeURIComponent(ogDescription ?? description)}`;
+    image ?? buildOgUrl(ogText ?? title, ogDescription ?? description);
 
   const defaultMetadata: Metadata = {
     title: parsedTitle,

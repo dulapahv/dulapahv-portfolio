@@ -7,14 +7,13 @@ import {
   UserIcon,
 } from "@phosphor-icons/react/dist/ssr";
 import { motion } from "motion/react";
-import type { Route } from "next";
 import { Archivo } from "next/font/google";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import { useWebHaptics } from "web-haptics/react";
 
+import { Link } from "@/components/link";
 import { cn } from "@/lib/utils";
 
 const archivo = Archivo({ subsets: ["latin"], weight: "variable" });
@@ -87,7 +86,6 @@ export function Navbar() {
     return () => window.removeEventListener("resize", updateIndicator);
   }, [updateIndicator]);
 
-  // Handle arrow key navigation
   const handleKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
     if (!navRef.current) {
       return;
@@ -185,7 +183,7 @@ export function Navbar() {
                 "relative flex gap-2 pb-1",
                 active ? "text-mirai-red" : "hover:text-foreground-muted"
               )}
-              href={item.link as Route}
+              href={item.link}
               onClick={() => trigger([{ duration: 8 }], { intensity: 0.3 })}
               ref={(el) => {
                 if (el) {
@@ -198,13 +196,13 @@ export function Navbar() {
                 {item.name}
               </span>
 
-              {active && <span className="sr-only">(current page)</span>}
+              {active ? <span className="sr-only">(current page)</span> : null}
             </Link>
           </motion.div>
         );
       })}
 
-      {indicator && (
+      {indicator ? (
         <motion.div
           animate={{ left: indicator.left, width: indicator.width }}
           className="pointer-events-none absolute h-0.5 rounded-full bg-mirai-red"
@@ -212,7 +210,7 @@ export function Navbar() {
           style={{ top: indicator.top }}
           transition={{ type: "spring", duration: 0.5 }}
         />
-      )}
+      ) : null}
 
       <div aria-live="polite" className="sr-only">
         Use arrow keys to navigate between menu items

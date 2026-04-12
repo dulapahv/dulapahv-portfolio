@@ -5,7 +5,7 @@ exports[`GitHubContributionsCard > should match snapshot 1`] = `
   <a
     class="group block h-full"
     href="https://github.com/testuser"
-    rel="noopener noreferrer"
+    rel="noopener"
     target="_blank"
     title="View my GitHub profile"
   >
@@ -28,7 +28,7 @@ exports[`GitHubContributionsCard > should match snapshot 1`] = `
             GitHub Activity
           </h2>
           <svg
-            class="size-5 text-foreground-muted group-hover:text-mirai-red"
+            class="size-5 text-foreground-muted transition-colors group-hover:text-mirai-red"
             fill="currentColor"
             height="1em"
             viewBox="0 0 256 256"
@@ -41,23 +41,19 @@ exports[`GitHubContributionsCard > should match snapshot 1`] = `
           </svg>
         </div>
         <div
-          class="mb-4"
+          class="mb-4 text-foreground text-sm"
         >
-          <div
-            class="text-foreground text-sm"
+          <span
+            class="font-semibold"
           >
-            <span
-              class="font-semibold"
-            >
-              250
-            </span>
-            <span
-              class="ml-1 text-foreground-muted"
-            >
-              contributions in 
-              the last year
-            </span>
-          </div>
+            250
+          </span>
+          <span
+            class="ml-1 text-foreground-muted"
+          >
+            contributions in 
+            the last year
+          </span>
         </div>
         <div
           class="flex justify-center overflow-x-auto"

@@ -10,6 +10,7 @@ vi.mock("@/lib/content-utils/content-utils", () => ({
     if (type === "blog") {
       return [
         {
+          kind: "blog",
           _meta: { path: "test-blog-post" },
           date: new Date("2024-01-15"),
         },
@@ -18,6 +19,7 @@ vi.mock("@/lib/content-utils/content-utils", () => ({
     if (type === "project") {
       return [
         {
+          kind: "project",
           _meta: { path: "test-project" },
           startDate: new Date("2023-05-01"),
           endDate: new Date("2023-08-01"),

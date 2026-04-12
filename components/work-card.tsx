@@ -1,6 +1,6 @@
-import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
-import Link from "next/link";
 import { Card } from "@/components/card";
+import { CardHeader, CardHeaderIconLink } from "@/components/card-header";
+import { Link } from "@/components/link";
 import { LINKEDIN_URL } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
@@ -48,26 +48,15 @@ const works: WorkExperience[] = [
 export function WorkCard() {
   return (
     <Card className="p-5">
-      <div className="mb-4 flex items-start justify-between">
-        <h2 className="font-semibold text-foreground-muted text-xs uppercase tracking-widest">
-          Work
-        </h2>
-        <Link
-          className="group/icon"
-          href={LINKEDIN_URL}
-          rel="noopener noreferrer"
-          target="_blank"
-          title="View my LinkedIn profile"
-        >
-          <ArrowUpRightIcon
-            className={cn(
-              "size-5 text-foreground-muted",
-              "group-hover/icon:text-mirai-red"
-            )}
-            weight="regular"
+      <CardHeader
+        action={
+          <CardHeaderIconLink
+            href={LINKEDIN_URL}
+            title="View my LinkedIn profile"
           />
-        </Link>
-      </div>
+        }
+        title="Work"
+      />
       <div className="relative flex h-full flex-col">
         <div
           aria-hidden="true"
@@ -81,6 +70,7 @@ export function WorkCard() {
               "linear-gradient(to bottom, black 75%, transparent 100%)",
           }}
         />
+
         <ul className="flex h-full flex-1 flex-col text-sm">
           {works.map((work, index) => (
             <li
@@ -96,7 +86,7 @@ export function WorkCard() {
                   "flex items-center gap-2 font-medium text-foreground"
                 )}
               >
-                {index === 0 && work.isPresent && (
+                {index === 0 && work.isPresent ? (
                   <span className="relative inline-flex size-1.5 shrink-0">
                     <span
                       aria-hidden="true"
@@ -107,7 +97,7 @@ export function WorkCard() {
                       className="relative size-1.5 rounded-full bg-mirai-red"
                     />
                   </span>
-                )}
+                ) : null}
                 {work.position} at {work.company}
               </p>
               <p className="text-foreground-muted">{work.location}</p>
@@ -120,8 +110,6 @@ export function WorkCard() {
             <Link
               className={cn("text-foreground-muted", "hover:text-foreground")}
               href={LINKEDIN_URL}
-              rel="noopener noreferrer"
-              target="_blank"
             >
               View full work experience
             </Link>

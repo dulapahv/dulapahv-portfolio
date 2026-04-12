@@ -3,13 +3,14 @@
 import { ArrowsClockwiseIcon } from "@phosphor-icons/react/dist/ssr";
 import { GeistMono } from "geist/font/mono";
 import { Raleway } from "next/font/google";
-import Image from "next/image";
-import Link from "next/link";
 import { ThemeProvider } from "next-themes";
 import { useEffect } from "react";
+import { BackgroundDecor } from "@/components/background-decor";
+import { ErrorDetails } from "@/components/error-details";
 import { Footer } from "@/components/footer";
+import { Link } from "@/components/link";
 import { TopBar } from "@/components/top-bar/top-bar";
-import { CONTACT_EMAIL, IS_DEV_ENV } from "@/lib/constants";
+import { CONTACT_EMAIL } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export const raleway = Raleway({
@@ -25,7 +26,6 @@ export default function GlobalError({
   reset: () => void;
 }) {
   useEffect(() => {
-    // Log the error to an error reporting service
     console.error(error);
   }, [error]);
 
@@ -45,33 +45,7 @@ export default function GlobalError({
           disableTransitionOnChange
           scriptProps={{ "data-cfasync": "false" }}
         >
-          <div
-            aria-hidden
-            className="pointer-events-none fixed -top-[70%] -right-[60%] -z-50 size-[180%] select-none overflow-clip opacity-50 mix-blend-darken hue-rotate-45 sm:-top-[45%] sm:size-[150%] dark:mix-blend-lighten"
-            role="presentation"
-          >
-            <Image
-              alt=""
-              className="object-contain"
-              fetchPriority="high"
-              fill
-              loading="eager"
-              src="/pinku.png"
-            />
-          </div>
-          <div
-            aria-hidden
-            className="pointer-events-none fixed -bottom-[50%] -left-[40%] -z-50 size-[140%] select-none overflow-clip opacity-90 mix-blend-darken sm:-bottom-[30%] sm:size-[110%] dark:opacity-60 dark:mix-blend-lighten"
-            role="presentation"
-          >
-            <Image
-              alt=""
-              className="object-contain"
-              fill
-              loading="eager"
-              src="/ao.png"
-            />
-          </div>
+          <BackgroundDecor />
           <div
             className="mx-auto max-w-7xl space-y-4 px-4 py-16 pt-24"
             id="main-content"
@@ -110,31 +84,7 @@ export default function GlobalError({
                 <span>Try Again</span>
               </button>
             </main>
-            <div className="mt-8 border-gray-200 border-t pt-6 text-foreground-muted dark:border-gray-800">
-              <p className="mb-2 font-semibold">Details:</p>
-              <code className="block whitespace-pre-wrap break-all text-sm sm:text-base">
-                {`Timestamp: ${new Date().toLocaleString()} (${new Date().toISOString()})`}
-                <br />
-                {`Path: ${typeof window !== "undefined" ? window.location.pathname : "N/A"}`}
-                <br />
-                {`Name: ${error.name || "N/A"}`}
-                <br />
-                {`Message: ${error.message || "N/A"}`}
-                <br />
-                {`Cause: ${error.cause || "N/A"}`}
-                <br />
-                {`Digest: ${error.digest || "N/A"}`}
-                {IS_DEV_ENV && (
-                  <>
-                    <br />
-                    Stack Trace:
-                    <pre className="overflow-x-auto rounded bg-background-elevated p-2 text-xs">
-                      {error.stack}
-                    </pre>
-                  </>
-                )}
-              </code>
-            </div>
+            <ErrorDetails error={error} />
             <Footer />
           </div>
         </ThemeProvider>

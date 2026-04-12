@@ -3,8 +3,8 @@
 import { motion } from "motion/react";
 import { Archivo } from "next/font/google";
 import Image from "next/image";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Link } from "@/components/link";
 import { ThemeSwitcher } from "@/components/theme-switcher/theme-switcher";
 import { NAME } from "@/lib/constants";
 import { cn } from "@/lib/utils";
@@ -13,24 +13,25 @@ const archivo = Archivo({ subsets: ["latin"], weight: "variable" });
 
 export function TopBar() {
   const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const lastScrollYRef = useRef(0);
+  const tickingRef = useRef(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      if (currentScrollY < 10) {
-        // Always show at the top
-        setIsVisible(true);
-      } else if (currentScrollY > lastScrollY) {
-        // Scrolling down - hide
-        setIsVisible(false);
-      } else {
-        // Scrolling up - show
-        setIsVisible(true);
+      if (tickingRef.current) {
+        return;
       }
+      tickingRef.current = true;
 
-      setLastScrollY(currentScrollY);
+      requestAnimationFrame(() => {
+        const currentScrollY = window.scrollY;
+        const nextVisible =
+          currentScrollY < 10 || currentScrollY <= lastScrollYRef.current;
+
+        setIsVisible((prev) => (prev === nextVisible ? prev : nextVisible));
+        lastScrollYRef.current = currentScrollY;
+        tickingRef.current = false;
+      });
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -38,7 +39,7 @@ export function TopBar() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [lastScrollY]);
+  }, []);
 
   return (
     <motion.div

@@ -13,8 +13,8 @@ interface MdxProperties {
   readonly code: string;
 }
 
-function a(props: HTMLProps<HTMLAnchorElement>) {
-  if (typeof props.href !== "string") {
+function a({ href, ...rest }: HTMLProps<HTMLAnchorElement>) {
+  if (typeof href !== "string") {
     throw new TypeError("href is required");
   }
 
@@ -24,7 +24,8 @@ function a(props: HTMLProps<HTMLAnchorElement>) {
         "text-mirai-red underline-offset-2",
         "hover:underline hover:decoration-2"
       )}
-      {...props}
+      href={href}
+      {...rest}
     />
   );
 }
@@ -52,11 +53,11 @@ function img(props: HTMLProps<HTMLImageElement>) {
         unoptimized={props.src.startsWith("http") || props.src.endsWith(".gif")}
         width={1240}
       />
-      {props.title && (
+      {props.title ? (
         <span className="block text-center text-foreground-muted text-sm">
           {props.title}
         </span>
-      )}
+      ) : null}
     </Zoom>
   );
 }
@@ -70,7 +71,7 @@ function createHeading(level: "h2" | "h3" | "h4" | "h5" | "h6") {
     const HeadingTag = level;
     return (
       <HeadingTag id={id} {...props} className="group relative">
-        {id && (
+        {id ? (
           <Link
             aria-label={`Link to section: ${typeof children === "string" ? children : "section"}`}
             className={cn(
@@ -86,7 +87,7 @@ function createHeading(level: "h2" | "h3" | "h4" | "h5" | "h6") {
               className="hidden size-4.5 shrink-0 md:block"
             />
           </Link>
-        )}
+        ) : null}
         {children}
       </HeadingTag>
     );

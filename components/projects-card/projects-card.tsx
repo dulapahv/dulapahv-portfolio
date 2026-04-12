@@ -6,9 +6,10 @@ import {
   CaretRightIcon,
 } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 import { Card } from "@/components/card";
+import { CardHeader, CardHeaderIconLink } from "@/components/card-header";
+import { Link } from "@/components/link";
 import type { Project } from "@/lib/content-utils/content-utils";
 import { cn } from "@/lib/utils";
 
@@ -30,21 +31,13 @@ interface ProjectsCardProps {
 export function ProjectsCard({ projects }: ProjectsCardProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const goToPrevious = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? projects.length - 1 : prevIndex - 1
-    );
-  };
+  const goToPrevious = () =>
+    setCurrentIndex((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
 
-  const goToNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === projects.length - 1 ? 0 : prevIndex + 1
-    );
-  };
+  const goToNext = () =>
+    setCurrentIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
 
-  const goToSlide = (index: number) => {
-    setCurrentIndex(index);
-  };
+  const goToSlide = (index: number) => setCurrentIndex(index);
 
   if (!projects || projects.length === 0) {
     return null;
@@ -54,20 +47,19 @@ export function ProjectsCard({ projects }: ProjectsCardProps) {
 
   return (
     <Card className="p-5">
-      <div className="mb-4 flex items-start justify-between">
-        <h2 className="font-semibold text-foreground-muted text-xs uppercase tracking-widest">
-          Recent Projects
-        </h2>
-        <Link className="group/icon" href="/project" title="View all projects">
-          <ArrowRightIcon
-            className="size-5 text-foreground-muted group-hover/icon:text-mirai-red"
-            weight="regular"
+      <CardHeader
+        action={
+          <CardHeaderIconLink
+            href="/project"
+            icon={ArrowRightIcon}
+            title="View all projects"
           />
-        </Link>
-      </div>
+        }
+        title="Recent Projects"
+      />
 
       <div className="relative">
-        {currentProject.image && (
+        {currentProject.image ? (
           <Link
             className="group/image relative block overflow-hidden rounded-lg"
             href={`/project/${currentProject.slug}`}
@@ -83,9 +75,9 @@ export function ProjectsCard({ projects }: ProjectsCardProps) {
               />
             </div>
           </Link>
-        )}
+        ) : null}
 
-        {projects.length > 1 && (
+        {projects.length > 1 ? (
           <>
             <button
               aria-label="Previous project"
@@ -113,7 +105,7 @@ export function ProjectsCard({ projects }: ProjectsCardProps) {
               />
             </button>
           </>
-        )}
+        ) : null}
       </div>
 
       <Link className="group mt-4" href={`/project/${currentProject.slug}`}>
@@ -130,15 +122,15 @@ export function ProjectsCard({ projects }: ProjectsCardProps) {
         </p>
         <time className="mt-2 block text-foreground-muted text-xs">
           {currentProject.formattedStartDate}—{currentProject.formattedEndDate}
-          {currentProject.isOngoing && (
+          {currentProject.isOngoing ? (
             <span className="ml-2 inline-block rounded-full bg-mirai-red/10 px-2 py-0.5 font-medium text-[10px] text-mirai-red uppercase">
               Ongoing
             </span>
-          )}
+          ) : null}
         </time>
       </Link>
 
-      {projects.length > 1 && (
+      {projects.length > 1 ? (
         <div className="mt-auto flex items-center justify-center gap-2">
           {projects.map((project, index) => (
             <button
@@ -155,7 +147,7 @@ export function ProjectsCard({ projects }: ProjectsCardProps) {
             />
           ))}
         </div>
-      )}
+      ) : null}
     </Card>
   );
 }

@@ -1,10 +1,9 @@
 "use client";
 
 import { CheckIcon, CopyIcon } from "@phosphor-icons/react/dist/ssr";
-import type { Route } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
+import { Link } from "@/components/link";
 import { ThemeAwareImage } from "@/components/theme-aware-image";
 import { CONTACT_EMAIL, GITHUB_URL, LINKEDIN_URL } from "@/lib/constants";
 
@@ -92,10 +91,8 @@ export function ContactActions() {
           <Link
             aria-label={button.label}
             className={commonClasses}
-            href={button.href as Route}
+            href={button.href ?? ""}
             key={button.label}
-            rel="noopener noreferrer"
-            target="_blank"
             title={button.label}
           >
             <span>{button.icon}</span>

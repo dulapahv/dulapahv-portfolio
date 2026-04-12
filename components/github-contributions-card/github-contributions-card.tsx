@@ -1,10 +1,9 @@
 import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
-import Link from "next/link";
-import {
-  getContributionStats,
-  getGitHubContributions,
-} from "@/app/actions/gh-contributions";
+import { getGitHubContributionsData } from "@/app/actions/gh-contributions";
 import { Card } from "@/components/card";
+import { CardHeader } from "@/components/card-header";
+import { Link } from "@/components/link";
+import { formatMonth } from "@/lib/date";
 import { cn } from "@/lib/utils";
 
 interface GitHubContributionsCardProps {
@@ -25,31 +24,27 @@ function getContributionColor(level: 0 | 1 | 2 | 3 | 4): string {
 export async function GitHubContributionsCard({
   username,
 }: GitHubContributionsCardProps) {
-  const weeks = await getGitHubContributions(username);
-  const stats = await getContributionStats(username);
+  const { weeks, totalContributions, currentYear } =
+    await getGitHubContributionsData(username);
 
-  // Get last 52 weeks (1 year)
   const last52Weeks = weeks.slice(-52);
 
-  // Month labels
   const getMonthLabel = (weekIndex: number) => {
     if (weekIndex >= last52Weeks.length) {
       return null;
     }
-    const week = last52Weeks[weekIndex];
 
-    // Find the first non-null day in the week
+    const week = last52Weeks[weekIndex];
     const firstDay = week.days.find((d) => d !== null);
     if (!firstDay) {
       return null;
     }
 
     const date = new Date(firstDay.date);
-    const isFirstWeekOfMonth = date.getDate() <= 7;
-
-    if (isFirstWeekOfMonth) {
-      return date.toLocaleDateString("en-US", { month: "short" });
+    if (date.getDate() <= 7) {
+      return formatMonth(date);
     }
+
     return null;
   };
 
@@ -57,33 +52,26 @@ export async function GitHubContributionsCard({
     <Link
       className="group block h-full"
       href={`https://github.com/${username}`}
-      rel="noopener noreferrer"
-      target="_blank"
       title="View my GitHub profile"
     >
       <Card className="flex h-full flex-col p-5">
-        <div className="mb-4 flex items-start justify-between">
-          <h2 className="font-semibold text-foreground-muted text-xs uppercase tracking-widest">
-            GitHub Activity
-          </h2>
-          <ArrowUpRightIcon
-            className={cn(
-              "size-5 text-foreground-muted",
-              "group-hover:text-mirai-red"
-            )}
-            weight="regular"
-          />
-        </div>
+        <CardHeader
+          action={
+            <ArrowUpRightIcon
+              className="size-5 text-foreground-muted transition-colors group-hover:text-mirai-red"
+              weight="regular"
+            />
+          }
+          title="GitHub Activity"
+        />
 
-        <div className="mb-4">
-          <div className="text-foreground text-sm">
-            <span className="font-semibold">
-              {stats.totalContributions.toLocaleString()}
-            </span>
-            <span className="ml-1 text-foreground-muted">
-              contributions in {stats.currentYear}
-            </span>
-          </div>
+        <div className="mb-4 text-foreground text-sm">
+          <span className="font-semibold">
+            {totalContributions.toLocaleString()}
+          </span>
+          <span className="ml-1 text-foreground-muted">
+            contributions in {currentYear}
+          </span>
         </div>
 
         <div className="flex justify-center overflow-x-auto">
@@ -96,11 +84,11 @@ export async function GitHubContributionsCard({
                     className="w-2.5"
                     key={`month-label-${week.days[0]?.date || weekIndex}`}
                   >
-                    {label && (
+                    {label ? (
                       <span className="text-foreground-muted text-xs">
                         {label}
                       </span>
-                    )}
+                    ) : null}
                   </div>
                 );
               })}

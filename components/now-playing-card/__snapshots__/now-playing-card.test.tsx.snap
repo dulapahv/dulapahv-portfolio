@@ -30,7 +30,7 @@ exports[`NowPlayingCard > should match snapshot 1`] = `
       <a
         class="shrink-0"
         href="https://open.spotify.com/track/123"
-        rel="noopener noreferrer"
+        rel="noopener"
         target="_blank"
       >
         <img
@@ -53,7 +53,7 @@ exports[`NowPlayingCard > should match snapshot 1`] = `
             <a
               class="font-semibold text-base text-foreground hover:underline"
               href="https://open.spotify.com/track/123"
-              rel="noopener noreferrer"
+              rel="noopener"
               target="_blank"
             >
               Test Song
@@ -70,7 +70,7 @@ exports[`NowPlayingCard > should match snapshot 1`] = `
               <a
                 class="hover:text-foreground hover:underline"
                 href="https://open.spotify.com/artist/1"
-                rel="noopener noreferrer"
+                rel="noopener"
                 target="_blank"
               >
                 Test Artist
@@ -87,7 +87,7 @@ exports[`NowPlayingCard > should match snapshot 1`] = `
             <a
               class="text-foreground-subtle text-xs hover:text-foreground-muted hover:underline"
               href="https://open.spotify.com/album/1"
-              rel="noopener noreferrer"
+              rel="noopener"
               target="_blank"
             >
               Test Album

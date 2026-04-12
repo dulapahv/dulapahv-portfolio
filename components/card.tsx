@@ -1,10 +1,7 @@
-"use client";
+import type { ReactNode } from "react";
 
-import { forwardRef, type ReactNode, useRef } from "react";
-
+import { RELATIVE_MOUSE_CLASSNAME } from "@/lib/constants";
 import { cn } from "@/lib/utils";
-
-import { relativeMouseClassname } from "./mouse-position-setter";
 
 interface CardProps {
   children?: ReactNode;
@@ -12,14 +9,18 @@ interface CardProps {
   containerClassName?: string;
   as?: "div" | "article";
   id?: string;
+  ref?: React.Ref<HTMLDivElement>;
 }
 
-export const Card = forwardRef<HTMLDivElement, CardProps>(function Card(
-  { children, className = "", containerClassName = "", as = "div", id },
-  ref
-) {
+export function Card({
+  children,
+  className = "",
+  containerClassName = "",
+  as = "div",
+  id,
+  ref,
+}: CardProps) {
   const Component = as;
-  const borderRef = useRef<HTMLDivElement>(null);
 
   return (
     <Component
@@ -32,9 +33,8 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(function Card(
     >
       <div
         className={cn(
-          `${relativeMouseClassname} pointer-events-none absolute inset-0 rounded-xl transition-opacity duration-500`
+          `${RELATIVE_MOUSE_CLASSNAME} pointer-events-none absolute inset-0 rounded-xl transition-opacity duration-500`
         )}
-        ref={borderRef}
         style={{
           background:
             "linear-gradient(to bottom right, var(--color-mirai-red), var(--color-mirai-blue), var(--color-mirai-yellow))",
@@ -54,4 +54,4 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(function Card(
       </div>
     </Component>
   );
-});
+}

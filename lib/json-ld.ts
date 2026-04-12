@@ -15,18 +15,10 @@ import {
   type ContentType,
   getCollection,
 } from "@/lib/content-utils/content-utils";
+import { buildOgUrl } from "@/lib/og-url";
 import { social } from "@/lib/social";
 
 import { getAllSkillsForSchema } from "./skills-data";
-
-// Helper to generate OG image URLs
-const getOgImageUrl = (title: string, description?: string): string => {
-  const params = new URLSearchParams({
-    title,
-    ...(description && { description }),
-  });
-  return `${BASE_URL}/og?${params.toString()}`;
-};
 
 export const personSchema: WithContext<Person> = {
   "@context": "https://schema.org",
@@ -45,7 +37,9 @@ export const personSchema: WithContext<Person> = {
   url: BASE_URL,
   image: {
     "@type": "ImageObject",
-    url: getOgImageUrl("Dulapah Vibulsanti\nSoftware Engineer", DESCRIPTION),
+    url: buildOgUrl("Dulapah Vibulsanti\nSoftware Engineer", DESCRIPTION, {
+      absolute: true,
+    }),
     caption: "Dulapah Vibulsanti - Software Engineer",
     width: "1200",
     height: "630",
@@ -234,7 +228,9 @@ export const profilePageSchema: WithContext<ProfilePage> = {
   },
   primaryImageOfPage: {
     "@type": "ImageObject",
-    url: getOgImageUrl("Dulapah Vibulsanti\nSoftware Engineer", DESCRIPTION),
+    url: buildOgUrl("Dulapah Vibulsanti\nSoftware Engineer", DESCRIPTION, {
+      absolute: true,
+    }),
     width: "1200",
     height: "630",
   },
@@ -253,9 +249,10 @@ export const contactPageSchema: WithContext<ContactPage> = {
   },
   primaryImageOfPage: {
     "@type": "ImageObject",
-    url: getOgImageUrl(
+    url: buildOgUrl(
       "Contact DulapahV",
-      "Let me know what's on your mind and I'll get back to you as soon as possible."
+      "Let me know what's on your mind and I'll get back to you as soon as possible.",
+      { absolute: true }
     ),
     width: "1200",
     height: "630",
@@ -306,7 +303,7 @@ export const collectionSchema = (
   },
   primaryImageOfPage: {
     "@type": "ImageObject",
-    url: getOgImageUrl(config.title, config.description),
+    url: buildOgUrl(config.title, config.description, { absolute: true }),
     width: "1200",
     height: "630",
   },
@@ -371,7 +368,7 @@ export const createBlogPostingSchema = (post: {
   },
   image: {
     "@type": "ImageObject",
-    url: getOgImageUrl(post.title, post.description),
+    url: buildOgUrl(post.title, post.description, { absolute: true }),
     width: "1200",
     height: "630",
   },
@@ -413,7 +410,7 @@ export const createProjectSchema = (project: {
   dateModified: (project.endDate || new Date()).toISOString(),
   image: {
     "@type": "ImageObject",
-    url: getOgImageUrl(project.title, project.description),
+    url: buildOgUrl(project.title, project.description, { absolute: true }),
     width: "1200",
     height: "630",
   },

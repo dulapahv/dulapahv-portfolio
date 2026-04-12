@@ -1,8 +1,8 @@
 import { ArrowRightIcon } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
-import Link from "next/link";
 import { Card } from "@/components/card";
-import { LINKEDIN_URL, SPOTIFY_URL } from "@/lib/constants";
+import { Link } from "@/components/link";
+import { GITHUB_URL, LINKEDIN_URL, SPOTIFY_URL } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 import { ThemeAwareImage } from "./theme-aware-image";
@@ -33,6 +33,7 @@ export function AboutCard() {
           width={2791}
         />
       </div>
+
       <p className="mt-4 text-foreground leading-7">
         I&apos;m a Thai Graduate Software Engineer at NatWest Group in
         Edinburgh, UK, focused on thoughtful design and building reliable,
@@ -50,6 +51,7 @@ export function AboutCard() {
         Japanese, listen to music, play relaxing games, and spy on my pet rabbit
         back home via a camera.
       </p>
+
       <span className="mt-auto flex flex-col flex-wrap justify-between sm:flex-row sm:items-center">
         <p className="mt-4 flex flex-wrap items-center gap-x-3 text-foreground leading-7">
           See what I&apos;ve been doing on{" "}
@@ -58,9 +60,7 @@ export function AboutCard() {
               "inline-flex items-center text-foreground-muted text-sm",
               "hover:text-foreground"
             )}
-            href="https://github.com/dulapahv"
-            rel="noopener noreferrer"
-            target="_blank"
+            href={GITHUB_URL}
           >
             <ThemeAwareImage
               alt="GitHub"
@@ -77,8 +77,6 @@ export function AboutCard() {
               "hover:text-foreground"
             )}
             href={LINKEDIN_URL}
-            rel="noopener noreferrer"
-            target="_blank"
           >
             <Image
               alt="LinkedIn"
@@ -94,8 +92,6 @@ export function AboutCard() {
               "hover:text-foreground"
             )}
             href={SPOTIFY_URL}
-            rel="noopener noreferrer"
-            target="_blank"
           >
             <Image alt="Spotify" height={16} src="/spotify.svg" width={16} />
           </Link>

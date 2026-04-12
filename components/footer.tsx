@@ -1,7 +1,7 @@
 import { Archivo } from "next/font/google";
-import Link from "next/link";
 import { Suspense } from "react";
 
+import { Link } from "@/components/link";
 import { GITHUB_URL } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
@@ -28,8 +28,6 @@ export function Footer() {
               "hover:decoration-2"
             )}
             href={`${GITHUB_URL}/dulapahv-portfolio`}
-            rel="noopener noreferrer"
-            target="_blank"
           >
             source code
           </Link>
@@ -43,8 +41,6 @@ export function Footer() {
               "hover:decoration-2"
             )}
             href="https://chat.dulapahv.dev"
-            rel="noopener noreferrer"
-            target="_blank"
           >
             chat.dulapahv.dev
           </Link>

@@ -53,21 +53,17 @@ export const skillsData = [
   },
 ];
 
-// Helper function to get all skills for schema
 export const getAllSkillsForSchema = (): string[] => {
   const allSkills: string[] = [];
 
-  // Add categories first
   for (const category of skillsData) {
     allSkills.push(category.category);
   }
 
-  // Then add individual skills
   for (const category of skillsData) {
     allSkills.push(...category.skills);
   }
 
-  // Add any additional high-level skills not in the UI
   allSkills.push(
     "Software Engineering",
     "Full Stack Development",

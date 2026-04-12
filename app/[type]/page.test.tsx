@@ -25,6 +25,7 @@ vi.mock("@/lib/content-utils/content-utils", () => ({
   getContentByYear: vi.fn(() => ({
     "2024": [
       {
+        kind: "project",
         _meta: { path: "test-project" },
         slug: "test-project",
         title: "Test Project",
@@ -35,6 +36,7 @@ vi.mock("@/lib/content-utils/content-utils", () => ({
   })),
   getCollection: vi.fn(() => [
     {
+      kind: "project",
       _meta: { path: "test-project" },
       slug: "test-project",
       title: "Test Project",

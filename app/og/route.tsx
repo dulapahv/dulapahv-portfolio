@@ -54,11 +54,11 @@ export const GET = async (request: NextRequest) => {
         <h1 tw="max-w-[50rem] text-[64px] font-bold leading-[69px] tracking-tight m-0 text-[#F1F1F1]">
           {title}
         </h1>
-        {description && (
+        {description ? (
           <p tw="max-w-[64rem] text-[32px] font-normal leading-[36px] tracking-tight text-[#A5A5A5] mt-4 mb-0">
             {description}
           </p>
-        )}
+        ) : null}
       </div>
     </div>,
     {

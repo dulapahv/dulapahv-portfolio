@@ -1,17 +1,16 @@
 import {
-  ArrowUpRightIcon,
   MicrophoneStageIcon,
   MusicNotesIcon,
 } from "@phosphor-icons/react/dist/ssr";
-import type { Route } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import {
   getCurrentlyPlaying,
   getTopArtists,
   getTopTracks,
 } from "@/app/actions/spotify";
 import { Card } from "@/components/card";
+import { CardHeader, CardHeaderIconLink } from "@/components/card-header";
+import { Link } from "@/components/link";
 import { Marquee } from "@/components/marquee/marquee";
 import { NowPlayingCard } from "@/components/now-playing-card/now-playing-card";
 import { SPOTIFY_URL } from "@/lib/constants";
@@ -34,31 +33,20 @@ export async function SpotifyCard() {
 
   return (
     <Card className="flex h-full flex-col p-5">
-      <div className="mb-4 flex items-start justify-between">
-        <h2 className="font-semibold text-foreground-muted text-xs uppercase tracking-widest">
-          Spotify
-        </h2>
-        <Link
-          className="group"
-          href={SPOTIFY_URL}
-          rel="noopener noreferrer"
-          target="_blank"
-          title="View my Spotify profile"
-        >
-          <ArrowUpRightIcon
-            className={cn(
-              "size-5 text-foreground-muted",
-              "group-hover:text-mirai-red"
-            )}
-            weight="regular"
+      <CardHeader
+        action={
+          <CardHeaderIconLink
+            href={SPOTIFY_URL}
+            title="View my Spotify profile"
           />
-        </Link>
-      </div>
+        }
+        title="Spotify"
+      />
 
       <div className="flex flex-1 flex-col gap-6 overflow-y-auto">
-        {nowPlaying && <NowPlayingCard track={nowPlaying} />}
+        {nowPlaying ? <NowPlayingCard track={nowPlaying} /> : null}
 
-        {topArtists.length > 0 && (
+        {topArtists.length > 0 ? (
           <div>
             <div className="mb-3 flex items-center gap-2 font-medium text-foreground text-sm">
               <MicrophoneStageIcon className="size-4" weight="bold" />
@@ -71,15 +59,13 @@ export async function SpotifyCard() {
                     "flex items-center gap-3 rounded-lg p-2",
                     "hover:bg-background-muted"
                   )}
-                  href={artist.external_urls.spotify as Route}
+                  href={artist.external_urls.spotify}
                   key={artist.id}
-                  rel="noopener noreferrer"
-                  target="_blank"
                 >
                   <span className="font-medium text-foreground-muted text-sm">
                     {index + 1}
                   </span>
-                  {artist.images[0] && (
+                  {artist.images[0] ? (
                     <Image
                       alt={artist.name}
                       className="size-10 shrink-0 rounded-full object-cover"
@@ -87,7 +73,7 @@ export async function SpotifyCard() {
                       src={artist.images[0].url}
                       width={40}
                     />
-                  )}
+                  ) : null}
                   <div className="min-w-0 flex-1">
                     <Marquee className="font-medium text-foreground text-sm">
                       {artist.name}
@@ -97,9 +83,9 @@ export async function SpotifyCard() {
               ))}
             </div>
           </div>
-        )}
+        ) : null}
 
-        {topTracks.length > 0 && (
+        {topTracks.length > 0 ? (
           <div>
             <div className="mb-3 flex items-center gap-2 font-medium text-foreground text-sm">
               <MusicNotesIcon className="size-4" weight="bold" />
@@ -117,12 +103,10 @@ export async function SpotifyCard() {
                   <span className="font-medium text-foreground-muted text-sm">
                     {index + 1}
                   </span>
-                  {track.album.images[0] && (
+                  {track.album.images[0] ? (
                     <Link
                       className="shrink-0"
-                      href={track.external_urls.spotify as Route}
-                      rel="noopener noreferrer"
-                      target="_blank"
+                      href={track.external_urls.spotify}
                     >
                       <Image
                         alt={track.album.name}
@@ -132,14 +116,12 @@ export async function SpotifyCard() {
                         width={40}
                       />
                     </Link>
-                  )}
+                  ) : null}
                   <div className="min-w-0 flex-1">
                     <Marquee>
                       <Link
                         className="font-medium text-foreground text-sm hover:underline"
-                        href={track.external_urls.spotify as Route}
-                        rel="noopener noreferrer"
-                        target="_blank"
+                        href={track.external_urls.spotify}
                       >
                         {track.name}
                       </Link>
@@ -149,13 +131,11 @@ export async function SpotifyCard() {
                         <span key={artist.id}>
                           <Link
                             className="hover:text-foreground hover:underline"
-                            href={artist.external_urls.spotify as Route}
-                            rel="noopener noreferrer"
-                            target="_blank"
+                            href={artist.external_urls.spotify}
                           >
                             {artist.name}
                           </Link>
-                          {artistIndex < track.artists.length - 1 && ", "}
+                          {artistIndex < track.artists.length - 1 ? ", " : null}
                         </span>
                       ))}
                     </Marquee>
@@ -164,7 +144,7 @@ export async function SpotifyCard() {
               ))}
             </div>
           </div>
-        )}
+        ) : null}
       </div>
     </Card>
   );

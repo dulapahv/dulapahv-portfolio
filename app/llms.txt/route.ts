@@ -10,6 +10,7 @@ import {
 } from "@/lib/content-utils/content-utils";
 import { contributionsData, getContributionStats } from "@/lib/contributions";
 import { skillsData } from "@/lib/skills-data";
+import { textResponse } from "@/lib/text-response";
 
 export const dynamic = "force-static";
 
@@ -20,7 +21,6 @@ export function GET() {
 
   content += `> This document provides an overview of DulapahV's portfolio, including skills, open source contributions, and detailed listings of blog posts, projects, and work experiences.\n\n`;
 
-  // Who section
   content += "## Who is DulapahV?\n\n";
   content += "**Name:** Dulapah Vibulsanti (DulapahV)\n";
   content += "**Role:** Graduate Software Engineer at NatWest Group\n";
@@ -109,9 +109,5 @@ export function GET() {
     content += "\n";
   }
 
-  return new Response(content.trim(), {
-    headers: {
-      "Content-Type": "text/plain; charset=utf-8",
-    },
-  });
+  return textResponse(content);
 }

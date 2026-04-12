@@ -2,6 +2,8 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
+import { GITHUB_URL } from "@/lib/constants";
+
 import { ShareButtons } from "./share";
 
 vi.mock("./theme-aware-image", () => ({
@@ -522,7 +524,7 @@ describe("ShareButtons", () => {
       await userEvent.click(githubButton);
 
       expect(mockOpen).toHaveBeenCalledWith(
-        "https://github.com/dulapahv/dulapahv-portfolio/blob/main/content/test.mdx",
+        `${GITHUB_URL}/dulapahv-portfolio/blob/main/content/test.mdx`,
         "_blank"
       );
     });

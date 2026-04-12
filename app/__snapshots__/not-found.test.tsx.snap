@@ -68,7 +68,7 @@ exports[`Not Found Page > should match snapshot 1`] = `
         <a
           class="text-mirai-red underline underline-offset-2 hover:decoration-2"
           href="https://github.com/dulapahv/dulapahv-portfolio"
-          rel="noopener noreferrer"
+          rel="noopener"
           target="_blank"
         >
           source code
@@ -81,7 +81,7 @@ exports[`Not Found Page > should match snapshot 1`] = `
         <a
           class="text-mirai-red underline underline-offset-2 hover:decoration-2"
           href="https://chat.dulapahv.dev"
-          rel="noopener noreferrer"
+          rel="noopener"
           target="_blank"
         >
           chat.dulapahv.dev
