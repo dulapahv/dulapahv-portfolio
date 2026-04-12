@@ -12,7 +12,7 @@ import { AboutCard } from "./components/about-card";
 import { CameraRollCard } from "./components/camera-roll-card/camera-roll-card";
 import { CardSkeleton } from "./components/card-skeleton";
 import { GitHubContributionsCard } from "./components/github-contributions-card/github-contributions-card";
-import { GlobeCard } from "./components/globe-card";
+import { GlobeCard } from "./components/globe/globe-card";
 import { HeaderText } from "./components/header-text";
 import { OpenSourceCard } from "./components/open-source-card/open-source-card";
 import { ProjectsCard } from "./components/projects-card/projects-card";

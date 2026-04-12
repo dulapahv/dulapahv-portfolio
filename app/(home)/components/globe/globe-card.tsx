@@ -8,8 +8,8 @@ import {
   TRAVEL_LOCATIONS,
   WORK_LOCATION,
 } from "@/lib/constants";
-import { Card } from "./card";
-import { CardHeader } from "./card-header";
+import { Card } from "../card";
+import { CardHeader } from "../card-header";
 
 const Globe = dynamic(() => import("./globe").then((mod) => mod.Globe), {
   ssr: false,
