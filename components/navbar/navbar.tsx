@@ -7,7 +7,6 @@ import {
   UserIcon,
 } from "@phosphor-icons/react/dist/ssr";
 import { motion } from "motion/react";
-import { Archivo } from "next/font/google";
 import { usePathname } from "next/navigation";
 import {
   type KeyboardEvent,
@@ -21,8 +20,6 @@ import { useWebHaptics } from "web-haptics/react";
 
 import { Link } from "@/components/link";
 import { cn } from "@/lib/utils";
-
-const archivo = Archivo({ subsets: ["latin"], weight: "variable" });
 
 const navbarItems = [
   {
@@ -162,10 +159,7 @@ export function Navbar() {
     <motion.nav
       animate="visible"
       aria-label="Main navigation"
-      className={cn(
-        archivo.className,
-        "fixed right-1/2 bottom-4 z-50 flex translate-x-1/2 items-center gap-x-6 rounded-full border border-border bg-background-elevated/80 px-3 py-2 text-foreground-subtle shadow-lg backdrop-blur-xl *:translate-y-0.5 sm:px-4"
-      )}
+      className="fixed right-1/2 bottom-4 z-50 flex translate-x-1/2 items-center gap-x-6 rounded-full border border-border bg-background-elevated/80 px-3 py-2 font-archivo text-foreground-subtle shadow-lg backdrop-blur-xl *:translate-y-0.5 sm:px-4"
       data-destructible
       initial="hidden"
       onKeyDown={handleKeyDown}

@@ -78,7 +78,7 @@ exports[`Contact Page > should match snapshot 1`] = `
           >
             <a
               aria-label="Email address: contact@dulapahv.dev"
-              class="font-light text-4xl text-foreground sm:text-5xl md:text-6xl mocked-archivo"
+              class="font-archivo font-light text-4xl text-foreground sm:text-5xl md:text-6xl"
               href="mailto:contact@dulapahv.dev"
             >
               contact@dulapahv.dev

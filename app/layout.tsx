@@ -1,6 +1,5 @@
-import { GeistMono } from "geist/font/mono";
 import type { Metadata } from "next";
-import { IBM_Plex_Sans, Raleway } from "next/font/google";
+import { Archivo, Geist_Mono, IBM_Plex_Sans } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { BackgroundDecor } from "@/components/background-decor";
 import MousePositionVarsSetter from "@/components/mouse-position-setter";
@@ -12,9 +11,16 @@ import { cn } from "@/lib/utils";
 
 import "./globals.css";
 
-export const raleway = Raleway({
+const archivo = Archivo({
   subsets: ["latin"],
   weight: "variable",
+  variable: "--font-archivo",
+});
+
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-geist-mono",
 });
 
 const ibmPlexSans = IBM_Plex_Sans({
@@ -34,7 +40,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={cn(
         "dark bg-background",
         ibmPlexSans.className,
-        GeistMono.variable
+        archivo.variable,
+        geistMono.variable
       )}
       lang="en"
       suppressHydrationWarning

@@ -154,9 +154,6 @@
   --color-overlay: var(--x-gray-alpha-800);
   --color-shadow: var(--x-gray-alpha-200);
   --color-ring: var(--x-blue-700);
-
-  /* Fonts */
-  --font-mono: var(--font-geist-mono);
 }
 
 /* Dark Theme */
@@ -310,6 +307,10 @@
 
 /* Theme Configuration */
 @theme {
+  /* Fonts */
+  --font-archivo: var(--font-archivo);
+  --font-mono: var(--font-geist-mono);
+
   /* Brand Colors */
   --color-mirai-red: var(--color-mirai-red);
   --color-mirai-blue: var(--color-mirai-blue);

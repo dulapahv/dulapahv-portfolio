@@ -1,4 +1,3 @@
-import { Archivo } from "next/font/google";
 import { Suspense } from "react";
 
 import { Link } from "@/components/link";
@@ -7,11 +6,9 @@ import { cn } from "@/lib/utils";
 
 import { CurrentYear } from "./current-year/current-year";
 
-const archivo = Archivo({ subsets: ["latin"], weight: "variable" });
-
 export function Footer() {
   return (
-    <footer className={cn("mt-16 w-fit", archivo.className)} data-destructible>
+    <footer className={cn("mt-16 w-fit font-archivo")} data-destructible>
       <div className="flex flex-col gap-y-1 text-foreground-muted text-sm">
         <p>
           ©{" "}

@@ -1,15 +1,12 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Archivo } from "next/font/google";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@/components/link";
 import { ThemeSwitcher } from "@/components/theme-switcher/theme-switcher";
 import { NAME } from "@/lib/constants";
 import { cn } from "@/lib/utils";
-
-const archivo = Archivo({ subsets: ["latin"], weight: "variable" });
 
 export function TopBar() {
   const [isVisible, setIsVisible] = useState(true);
@@ -51,8 +48,7 @@ export function TopBar() {
     <motion.div
       animate={{ y: isVisible ? 0 : -100 }}
       className={cn(
-        "fixed top-0 right-0 left-0 z-40 backdrop-blur-sm",
-        archivo.className
+        "fixed top-0 right-0 left-0 z-40 font-archivo backdrop-blur-sm"
       )}
       initial={false}
       transition={{ duration: 0.3, ease: "easeInOut" }}

@@ -1556,7 +1556,7 @@ exports[`Home Page > should match snapshot 1`] = `
     </article>
   </main>
   <footer
-    class="mt-16 w-fit mocked-archivo"
+    class="mt-16 w-fit font-archivo"
     data-destructible="true"
   >
     <div

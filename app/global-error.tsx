@@ -1,8 +1,7 @@
 "use client";
 
 import { ArrowsClockwiseIcon } from "@phosphor-icons/react/dist/ssr";
-import { GeistMono } from "geist/font/mono";
-import { Raleway } from "next/font/google";
+import { Archivo, Geist_Mono, IBM_Plex_Sans } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { useEffect } from "react";
 import { BackgroundDecor } from "@/components/background-decor";
@@ -13,7 +12,19 @@ import { TopBar } from "@/components/top-bar/top-bar";
 import { CONTACT_EMAIL } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
-export const raleway = Raleway({
+const archivo = Archivo({
+  subsets: ["latin"],
+  weight: "variable",
+  variable: "--font-archivo",
+});
+
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-geist-mono",
+});
+
+const ibmPlexSans = IBM_Plex_Sans({
   subsets: ["latin"],
   weight: "variable",
 });
@@ -33,8 +44,9 @@ export default function GlobalError({
     <html
       className={cn(
         "dark bg-background",
-        raleway.className,
-        GeistMono.variable
+        ibmPlexSans.className,
+        archivo.variable,
+        geistMono.variable
       )}
       lang="en"
       suppressHydrationWarning
@@ -84,7 +96,9 @@ export default function GlobalError({
                 <span>Try Again</span>
               </button>
             </main>
+
             <ErrorDetails error={error} />
+
             <Footer />
           </div>
         </ThemeProvider>

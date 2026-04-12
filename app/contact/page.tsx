@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Archivo } from "next/font/google";
 import { ViewTransition } from "react";
 
 import Breadcrumb from "@/components/breadcrumb";
@@ -8,11 +7,8 @@ import { Link } from "@/components/link";
 import { CONTACT_EMAIL } from "@/lib/constants";
 import { contactPageSchema } from "@/lib/json-ld/json-ld";
 import { createMetadata } from "@/lib/metadata";
-import { cn } from "@/lib/utils";
 
 import { ContactActions } from "./components/contact-actions";
-
-const archivo = Archivo({ subsets: ["latin"], weight: "variable" });
 
 const title = "Contact";
 const description = "Get in touch";
@@ -40,10 +36,7 @@ export default function ContactPage() {
               <div className="space-y-2">
                 <Link
                   aria-label={`Email address: ${CONTACT_EMAIL}`}
-                  className={cn(
-                    "font-light text-4xl text-foreground sm:text-5xl md:text-6xl",
-                    archivo.className
-                  )}
+                  className="font-archivo font-light text-4xl text-foreground sm:text-5xl md:text-6xl"
                   href={`mailto:${CONTACT_EMAIL}`}
                 >
                   {CONTACT_EMAIL}

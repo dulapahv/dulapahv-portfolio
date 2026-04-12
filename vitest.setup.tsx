@@ -24,9 +24,6 @@ vi.mock("next/font/google", () => ({
   Merriweather: () => ({
     className: "mocked-merriweather",
   }),
-  Archivo: () => ({
-    className: "mocked-archivo",
-  }),
 }));
 
 vi.mock("react-medium-image-zoom", () => ({

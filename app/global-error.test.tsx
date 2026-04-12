@@ -73,20 +73,18 @@ vi.mock("next-themes", () => ({
   }),
 }));
 
-vi.mock("geist/font/mono", () => ({
-  GeistMono: {
+vi.mock("next/font/google", () => ({
+  Archivo: () => ({
+    variable: "archivo-variable",
+    className: "archivo",
+  }),
+  Geist_Mono: () => ({
     variable: "geist-mono-variable",
     className: "geist-mono",
-  },
-}));
-
-vi.mock("next/font/google", () => ({
-  Raleway: () => ({
-    className: "raleway-font",
-    style: { fontFamily: "Raleway" },
   }),
-  Archivo: () => ({
-    className: "mocked-archivo",
+  IBM_Plex_Sans: () => ({
+    className: "ibm-plex-sans-font",
+    style: { fontFamily: "IBM Plex Sans" },
   }),
 }));
 
