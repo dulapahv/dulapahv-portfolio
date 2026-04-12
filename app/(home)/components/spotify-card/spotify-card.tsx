@@ -13,7 +13,7 @@ import { SPOTIFY_URL } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { Card } from "../card";
 import { CardHeader, CardHeaderIconLink } from "../card-header";
-import { Marquee } from "../marquee/marquee";
+import { Marquee } from "../marquee";
 import { NowPlayingCard } from "../now-playing-card/now-playing-card";
 
 export async function SpotifyCard() {

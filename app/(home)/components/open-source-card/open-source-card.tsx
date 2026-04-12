@@ -13,7 +13,7 @@ import {
 } from "@/app/actions/gh-oss-contributions";
 import { Link } from "@/components/link";
 import { GITHUB_URL } from "@/lib/constants";
-import type { ContributionStatus } from "@/lib/contributions";
+import type { ContributionStatus } from "@/lib/contributions/contributions";
 import { formatShortDate, toISODate } from "@/lib/date";
 import { cn } from "@/lib/utils";
 import { Card } from "../card";

@@ -10,7 +10,11 @@ import type {
   WithContext,
 } from "schema-dts";
 
-import { combineSchemas, personSchema, websiteSchema } from "@/lib/json-ld";
+import {
+  combineSchemas,
+  personSchema,
+  websiteSchema,
+} from "@/lib/json-ld/json-ld";
 
 interface JsonLdProps {
   schemas?: WithContext<

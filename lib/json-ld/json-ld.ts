@@ -18,7 +18,7 @@ import {
 import { buildOgUrl } from "@/lib/og-url";
 import { social } from "@/lib/social";
 
-import { getAllSkillsForSchema } from "./skills-data";
+import { getAllSkillsForSchema } from "../skills-data";
 
 export const personSchema: WithContext<Person> = {
   "@context": "https://schema.org",

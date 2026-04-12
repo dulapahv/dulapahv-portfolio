@@ -4,7 +4,7 @@ import Image from "next/image";
 import type { SpotifyTrack } from "@/app/actions/spotify";
 import { Link } from "@/components/link";
 import { cn } from "@/lib/utils";
-import { Marquee } from "../marquee/marquee";
+import { Marquee } from "../marquee";
 
 interface NowPlayingCardProps {
   track: SpotifyTrack;

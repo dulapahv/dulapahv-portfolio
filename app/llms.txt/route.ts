@@ -8,7 +8,10 @@ import {
   type ContentType,
   contentConfig,
 } from "@/lib/content-utils/content-utils";
-import { contributionsData, getContributionStats } from "@/lib/contributions";
+import {
+  contributionsData,
+  getContributionStats,
+} from "@/lib/contributions/contributions";
 import { skillsData } from "@/lib/skills-data";
 import { textResponse } from "@/lib/text-response";
 

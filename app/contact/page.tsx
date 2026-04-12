@@ -6,7 +6,7 @@ import Breadcrumb from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
 import { Link } from "@/components/link";
 import { CONTACT_EMAIL } from "@/lib/constants";
-import { contactPageSchema } from "@/lib/json-ld";
+import { contactPageSchema } from "@/lib/json-ld/json-ld";
 import { createMetadata } from "@/lib/metadata";
 import { cn } from "@/lib/utils";
 

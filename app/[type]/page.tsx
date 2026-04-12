@@ -14,7 +14,7 @@ import {
   isValidContentType,
 } from "@/lib/content-utils/content-utils";
 import { formatMonthYear, formatShortDate, toISODate } from "@/lib/date";
-import { collectionSchema } from "@/lib/json-ld";
+import { collectionSchema } from "@/lib/json-ld/json-ld";
 import { createMetadata } from "@/lib/metadata";
 import { cn } from "@/lib/utils";
 

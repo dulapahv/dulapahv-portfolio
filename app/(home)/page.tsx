@@ -5,7 +5,7 @@ import { Footer } from "@/components/footer";
 import { JsonLd } from "@/components/json-ld";
 import { DESCRIPTION } from "@/lib/constants";
 import { allProjects } from "@/lib/content-utils/content-utils";
-import { profilePageSchema } from "@/lib/json-ld";
+import { profilePageSchema } from "@/lib/json-ld/json-ld";
 import { createMetadata } from "@/lib/metadata";
 import { cn } from "@/lib/utils";
 import { AboutCard } from "./components/about-card";

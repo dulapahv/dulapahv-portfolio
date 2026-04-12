@@ -14,7 +14,10 @@ import {
   isValidContentType,
 } from "@/lib/content-utils/content-utils";
 import { formatISODateRange, formatLongDate, toISODate } from "@/lib/date";
-import { createBlogPostingSchema, createProjectSchema } from "@/lib/json-ld";
+import {
+  createBlogPostingSchema,
+  createProjectSchema,
+} from "@/lib/json-ld/json-ld";
 import { createMetadata } from "@/lib/metadata";
 import { ShareButtons } from "./components/share/share";
 import { TableOfContents } from "./components/toc/toc";

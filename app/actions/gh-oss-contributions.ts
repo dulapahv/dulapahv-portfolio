@@ -1,6 +1,9 @@
 "use server";
 
-import type { Contribution, ContributionStatus } from "@/lib/contributions";
+import type {
+  Contribution,
+  ContributionStatus,
+} from "@/lib/contributions/contributions";
 
 const GITHUB_USERNAME = "dulapahv";
 const GITHUB_API_BASE = "https://api.github.com";
