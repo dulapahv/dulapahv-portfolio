@@ -1,5 +1,10 @@
 import { CaretRightIcon, DotsThreeIcon } from "@phosphor-icons/react/dist/ssr";
-import { Fragment } from "react";
+import {
+  type ComponentProps,
+  type ComponentPropsWithoutRef,
+  Fragment,
+  type ReactNode,
+} from "react";
 
 import { Link } from "@/components/link";
 import { cn } from "@/lib/utils";
@@ -11,9 +16,9 @@ function formatSegment(segment: string): string {
     .join(" ");
 }
 
-interface BreadcrumbProps extends React.ComponentPropsWithoutRef<"nav"> {
+interface BreadcrumbProps extends ComponentPropsWithoutRef<"nav"> {
   pathname: string;
-  separator?: React.ReactNode;
+  separator?: ReactNode;
   homeLabel?: string;
   lastLabel?: string;
   className?: string;
@@ -61,14 +66,14 @@ function Breadcrumb({
   );
 }
 
-function BreadcrumbStatic(props: React.ComponentPropsWithoutRef<"nav">) {
+function BreadcrumbStatic(props: ComponentPropsWithoutRef<"nav">) {
   return <nav aria-label="breadcrumb" {...props} />;
 }
 
 function BreadcrumbList({
   className,
   ...props
-}: React.ComponentPropsWithoutRef<"ol">) {
+}: ComponentPropsWithoutRef<"ol">) {
   return (
     <ol
       className={cn(
@@ -83,7 +88,7 @@ function BreadcrumbList({
 function BreadcrumbItem({
   className,
   ...props
-}: React.ComponentPropsWithoutRef<"li">) {
+}: ComponentPropsWithoutRef<"li">) {
   return (
     <li
       className={cn("inline-flex items-center gap-1.5", className)}
@@ -95,7 +100,7 @@ function BreadcrumbItem({
 function BreadcrumbLink({
   className,
   ...props
-}: React.ComponentPropsWithoutRef<typeof Link>) {
+}: ComponentPropsWithoutRef<typeof Link>) {
   return (
     <Link
       className={cn(
@@ -111,7 +116,7 @@ function BreadcrumbLink({
 function BreadcrumbPage({
   className,
   ...props
-}: React.ComponentPropsWithoutRef<"a">) {
+}: ComponentPropsWithoutRef<"a">) {
   return (
     <a
       aria-current="page"
@@ -127,7 +132,7 @@ function BreadcrumbSeparator({
   children,
   className,
   ...props
-}: React.ComponentProps<"li">) {
+}: ComponentProps<"li">) {
   return (
     <li
       aria-hidden="true"
@@ -140,10 +145,7 @@ function BreadcrumbSeparator({
   );
 }
 
-function BreadcrumbEllipsis({
-  className,
-  ...props
-}: React.ComponentProps<"span">) {
+function BreadcrumbEllipsis({ className, ...props }: ComponentProps<"span">) {
   return (
     <span
       aria-hidden="true"

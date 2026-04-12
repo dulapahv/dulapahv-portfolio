@@ -6,7 +6,7 @@ import {
   LinkSimpleHorizontalIcon,
 } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { type KeyboardEvent, useEffect, useState } from "react";
 import { useWebHaptics } from "web-haptics/react";
 import { ThemeAwareImage } from "@/components/theme-aware-image";
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard/use-copy-to-clipboard";
@@ -56,7 +56,7 @@ export function ShareButtons({ page }: ShareButtonsProps) {
 
   const copyCurrentUrl = () => copy(window.location.href);
 
-  const handleKeyDown = (event: React.KeyboardEvent, action: () => void) => {
+  const handleKeyDown = (event: KeyboardEvent, action: () => void) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
       action();

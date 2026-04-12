@@ -1,7 +1,8 @@
 import Image from "next/image";
+import type { ComponentProps } from "react";
 
 interface ThemeAwareImageProps
-  extends Omit<React.ComponentProps<typeof Image>, "src"> {
+  extends Omit<ComponentProps<typeof Image>, "src"> {
   lightSrc: string;
   darkSrc: string;
 }

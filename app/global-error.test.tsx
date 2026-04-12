@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import type { ReactNode } from "react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-
 import GlobalError from "./global-error";
 
 // Regex patterns for testing
@@ -24,7 +24,7 @@ vi.mock("next/link", () => ({
     href,
     className,
   }: {
-    children: React.ReactNode;
+    children: ReactNode;
     href: string;
     className?: string;
   }) => (
@@ -60,7 +60,7 @@ vi.mock("next/image", () => ({
 }));
 
 vi.mock("next-themes", () => ({
-  ThemeProvider: ({ children }: { children: React.ReactNode }) => (
+  ThemeProvider: ({ children }: { children: ReactNode }) => (
     <div>{children}</div>
   ),
   useTheme: () => ({

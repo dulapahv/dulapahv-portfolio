@@ -1,5 +1,6 @@
 "use client";
 
+import type { KeyboardEvent, MouseEvent } from "react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useWebHaptics } from "web-haptics/react";
 
@@ -131,7 +132,7 @@ export function useToc() {
   }, []);
 
   const handleClick = useCallback(
-    (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    (e: MouseEvent<HTMLAnchorElement>, id: string) => {
       e.preventDefault();
       trigger([{ duration: 8 }], { intensity: 0.3 });
       scrollToElement(id);
@@ -140,7 +141,7 @@ export function useToc() {
   );
 
   const handleKeyDown = useCallback(
-    (e: React.KeyboardEvent<HTMLAnchorElement>, id: string, index: number) => {
+    (e: KeyboardEvent<HTMLAnchorElement>, id: string, index: number) => {
       switch (e.key) {
         case "Enter":
         case " ":

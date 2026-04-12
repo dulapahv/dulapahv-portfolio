@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import type { ReactNode } from "react";
 import { describe, expect, it, vi } from "vitest";
-
 import { CameraRollCard } from "./camera-roll-card";
 
 const CAMERA_ROLL_IMAGE_REGEX = /camera roll image/i;
@@ -25,9 +25,7 @@ vi.mock("next/image", () => ({
 }));
 
 vi.mock("react-medium-image-zoom", () => ({
-  default: ({ children }: { children: React.ReactNode }) => (
-    <div>{children}</div>
-  ),
+  default: ({ children }: { children: ReactNode }) => <div>{children}</div>,
 }));
 
 describe("CameraRollCard", () => {

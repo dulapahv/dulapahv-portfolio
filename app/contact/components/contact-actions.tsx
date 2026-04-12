@@ -2,7 +2,7 @@
 
 import { CheckIcon, CopyIcon } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
-import { useState } from "react";
+import { type ReactNode, useState } from "react";
 import { Link } from "@/components/link";
 import { ThemeAwareImage } from "@/components/theme-aware-image";
 import { CONTACT_EMAIL, GITHUB_URL, LINKEDIN_URL } from "@/lib/constants";
@@ -11,7 +11,7 @@ interface ContactButton {
   label: string;
   action?: () => void | Promise<void>;
   href?: string;
-  icon: React.ReactNode;
+  icon: ReactNode;
   variant?: "primary" | "secondary";
 }
 

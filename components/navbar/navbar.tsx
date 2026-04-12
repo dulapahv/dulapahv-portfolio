@@ -9,7 +9,13 @@ import {
 import { motion } from "motion/react";
 import { Archivo } from "next/font/google";
 import { usePathname } from "next/navigation";
-import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  type KeyboardEvent,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 import { useWebHaptics } from "web-haptics/react";
 
@@ -86,7 +92,7 @@ export function Navbar() {
     return () => window.removeEventListener("resize", updateIndicator);
   }, [updateIndicator]);
 
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
+  const handleKeyDown = (event: KeyboardEvent<HTMLElement>) => {
     if (!navRef.current) {
       return;
     }

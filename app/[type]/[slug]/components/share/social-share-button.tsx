@@ -1,6 +1,6 @@
 "use client";
 
-import type { ReactNode } from "react";
+import type { KeyboardEvent, ReactNode } from "react";
 import { useRef } from "react";
 import { useWebHaptics } from "web-haptics/react";
 import { cn } from "@/lib/utils";
@@ -78,7 +78,7 @@ export function SocialShareButton({
     }, 1000);
   };
 
-  const handleKeyDown = (event: React.KeyboardEvent) => {
+  const handleKeyDown = (event: KeyboardEvent) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
       openPopup();

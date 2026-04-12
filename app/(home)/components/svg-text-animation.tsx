@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 interface SvgTextAnimationProps {
@@ -6,7 +7,7 @@ interface SvgTextAnimationProps {
   width?: string | number;
   height?: string | number;
   viewBox?: string;
-  children: React.ReactNode;
+  children: ReactNode;
   animationClass?: string;
 }
 

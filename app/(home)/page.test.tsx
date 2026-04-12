@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
+import type { ReactNode } from "react";
 import { describe, expect, it, vi } from "vitest";
-
 import Home from "./page";
 
 // Mock content-collections for allProjects used in page
@@ -56,7 +56,7 @@ vi.mock("@/components/spotify-card/loading", () => ({
 
 // Mock SVG text animation to avoid jsdom SVG method errors
 vi.mock("@/components/svg-text-animation", () => ({
-  SvgTextAnimation: ({ children }: { children: React.ReactNode }) => (
+  SvgTextAnimation: ({ children }: { children: ReactNode }) => (
     <div>{children}</div>
   ),
 }));

@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
-import { useRef, useState } from "react";
+import { type MouseEvent, useRef, useState } from "react";
 import { Link } from "@/components/link";
 import { cn } from "@/lib/utils";
 import { Card } from "../card";
@@ -17,7 +17,7 @@ export const ResumeCard = () => {
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     if (!documentRef.current) {
       return;
     }

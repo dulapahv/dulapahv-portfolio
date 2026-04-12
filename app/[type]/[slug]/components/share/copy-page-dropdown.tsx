@@ -5,7 +5,7 @@ import {
   MarkdownLogoIcon,
   SparkleIcon,
 } from "@phosphor-icons/react/dist/ssr";
-import type { ReactNode } from "react";
+import type { KeyboardEvent, ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
 import { ThemeAwareImage } from "@/components/theme-aware-image";
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard/use-copy-to-clipboard";
@@ -191,14 +191,14 @@ export function CopyPageDropdown() {
     setIsDropdownOpen(false);
   };
 
-  const handleCopyKeyDown = (event: React.KeyboardEvent) => {
+  const handleCopyKeyDown = (event: KeyboardEvent) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
       copyPageAsMarkdown();
     }
   };
 
-  const handleDropdownToggleKeyDown = (event: React.KeyboardEvent) => {
+  const handleDropdownToggleKeyDown = (event: KeyboardEvent) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
       setIsDropdownOpen((open) => !open);
@@ -207,10 +207,7 @@ export function CopyPageDropdown() {
     }
   };
 
-  const handleMenuItemKeyDown = (
-    event: React.KeyboardEvent,
-    action: () => void
-  ) => {
+  const handleMenuItemKeyDown = (event: KeyboardEvent, action: () => void) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
       action();

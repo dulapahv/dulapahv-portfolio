@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { ReactNode, Ref } from "react";
 
 import { RELATIVE_MOUSE_CLASSNAME } from "@/lib/constants";
 import { cn } from "@/lib/utils";
@@ -9,7 +9,7 @@ interface CardProps {
   containerClassName?: string;
   as?: "div" | "article";
   id?: string;
-  ref?: React.Ref<HTMLDivElement>;
+  ref?: Ref<HTMLDivElement>;
 }
 
 export function Card({

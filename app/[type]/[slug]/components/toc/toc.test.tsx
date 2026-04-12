@@ -1,8 +1,7 @@
 import { render, screen, waitFor } from "@testing-library/react";
+import type { FragmentProps, HTMLProps } from "react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
-
 import { useMediaQuery } from "@/hooks/use-media-query/use-media-query";
-
 import { TableOfContents } from "./toc";
 
 const TABLE_OF_CONTENTS_REGEX = /table of contents/i;
@@ -19,21 +18,21 @@ vi.mock("@/hooks/use-media-query/use-media-query", () => ({
 
 vi.mock("motion/react", () => ({
   motion: {
-    div: ({ children, ...props }: React.HTMLProps<HTMLDivElement>) => (
+    div: ({ children, ...props }: HTMLProps<HTMLDivElement>) => (
       <div {...props}>{children}</div>
     ),
-    nav: ({ children, ...props }: React.HTMLProps<HTMLDivElement>) => (
+    nav: ({ children, ...props }: HTMLProps<HTMLDivElement>) => (
       <nav {...props}>{children}</nav>
     ),
     /* eslint-disable  @typescript-eslint/no-explicit-any */
     button: ({ children, ...props }: any) => (
       <button {...props}>{children}</button>
     ),
-    li: ({ children, ...props }: React.HTMLProps<HTMLLIElement>) => (
+    li: ({ children, ...props }: HTMLProps<HTMLLIElement>) => (
       <li {...props}>{children}</li>
     ),
   },
-  AnimatePresence: ({ children }: React.FragmentProps) => <>{children}</>,
+  AnimatePresence: ({ children }: FragmentProps) => <>{children}</>,
 }));
 
 describe("TableOfContents", () => {

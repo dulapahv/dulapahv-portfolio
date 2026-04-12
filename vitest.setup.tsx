@@ -1,3 +1,5 @@
+import type { PropsWithChildren } from "react";
+
 import "@testing-library/jest-dom/vitest";
 
 import { vi } from "vitest";
@@ -14,9 +16,7 @@ vi.mock("react", async () => {
   const actual = await vi.importActual("react");
   return {
     ...actual,
-    ViewTransition: ({ children }: React.PropsWithChildren) => (
-      <div>{children}</div>
-    ),
+    ViewTransition: ({ children }: PropsWithChildren) => <div>{children}</div>,
   };
 });
 
@@ -30,7 +30,7 @@ vi.mock("next/font/google", () => ({
 }));
 
 vi.mock("react-medium-image-zoom", () => ({
-  default: ({ children }: React.PropsWithChildren) => (
+  default: ({ children }: PropsWithChildren) => (
     <span data-testid="zoom-wrapper">{children}</span>
   ),
 }));
