@@ -17,6 +17,12 @@ export function TopBar() {
   const tickingRef = useRef(false);
 
   useEffect(() => {
+    const initialScrollY = window.scrollY;
+    lastScrollYRef.current = initialScrollY;
+    if (initialScrollY >= 10) {
+      setIsVisible(false);
+    }
+
     const handleScroll = () => {
       if (tickingRef.current) {
         return;
@@ -48,7 +54,7 @@ export function TopBar() {
         "fixed top-0 right-0 left-0 z-40 backdrop-blur-sm",
         archivo.className
       )}
-      initial={{ y: 0 }}
+      initial={false}
       transition={{ duration: 0.3, ease: "easeInOut" }}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
