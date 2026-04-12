@@ -9,8 +9,8 @@ import {
 import { useCallback, useState } from "react";
 import { createPortal } from "react-dom";
 
-import { Card } from "@/components/card";
-import { CardHeader } from "@/components/card-header";
+import { Card } from "../card";
+import { CardHeader } from "../card-header";
 
 import { useStressRelief } from "./use-stress-relief";
 

@@ -1,4 +1,4 @@
-import { SvgTextAnimation } from "@/components/svg-text-animation";
+import { SvgTextAnimation } from "./svg-text-animation";
 
 export function HeaderText() {
   return (

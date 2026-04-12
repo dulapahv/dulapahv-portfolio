@@ -1,4 +1,4 @@
-import { Card } from "@/components/card";
+import { Card } from "./card";
 
 interface CardSkeletonProps {
   /** Tailwind min-height class, e.g. `"min-h-48"` or `"min-h-96"`. */

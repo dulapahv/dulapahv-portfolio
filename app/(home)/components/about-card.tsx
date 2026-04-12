@@ -1,11 +1,10 @@
 import { ArrowRightIcon } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
-import { Card } from "@/components/card";
 import { Link } from "@/components/link";
+import { ThemeAwareImage } from "@/components/theme-aware-image";
 import { GITHUB_URL, LINKEDIN_URL, SPOTIFY_URL } from "@/lib/constants";
 import { cn } from "@/lib/utils";
-
-import { ThemeAwareImage } from "./theme-aware-image";
+import { Card } from "./card";
 
 export function AboutCard() {
   return (

@@ -1,10 +1,10 @@
 import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
 import { getGitHubContributionsData } from "@/app/actions/gh-contributions";
-import { Card } from "@/components/card";
-import { CardHeader } from "@/components/card-header";
 import { Link } from "@/components/link";
 import { formatMonth } from "@/lib/date";
 import { cn } from "@/lib/utils";
+import { Card } from "../card";
+import { CardHeader } from "../card-header";
 
 interface GitHubContributionsCardProps {
   username: string;

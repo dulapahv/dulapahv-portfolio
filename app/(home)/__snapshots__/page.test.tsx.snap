@@ -20,7 +20,15 @@ exports[`Home Page > should match snapshot 1`] = `
       >
         Software engineer crafting
       </span>
-      <div>
+      <svg
+        aria-label="Software engineering crafting animated text"
+        class="svg-anim-crafting h-auto w-full"
+        height="109.561"
+        role="img"
+        viewBox="0 0 1450 109.561"
+        width="1450"
+        xmlns="http://www.w3.org/2000/svg"
+      >
         <g
           fill="none"
           fill-rule="evenodd"
@@ -150,7 +158,7 @@ exports[`Home Page > should match snapshot 1`] = `
             vector-effect="non-scaling-stroke"
           />
         </g>
-      </div>
+      </svg>
     </div>
     <div
       class="relative mb-4 max-w-3xl"
@@ -162,7 +170,15 @@ exports[`Home Page > should match snapshot 1`] = `
       >
         accessible and delightful
       </span>
-      <div>
+      <svg
+        aria-label="accessible and delightful animated text"
+        class="svg-anim-accessible h-auto w-full"
+        height="109.561"
+        role="img"
+        viewBox="0 0 1450 109.561"
+        width="1450"
+        xmlns="http://www.w3.org/2000/svg"
+      >
         <g
           fill="none"
           fill-rule="evenodd"
@@ -287,7 +303,7 @@ exports[`Home Page > should match snapshot 1`] = `
             vector-effect="non-scaling-stroke"
           />
         </g>
-      </div>
+      </svg>
     </div>
     <div
       class="relative mb-4 max-w-3xl"
@@ -299,7 +315,15 @@ exports[`Home Page > should match snapshot 1`] = `
       >
         digital experiences
       </span>
-      <div>
+      <svg
+        aria-label="digital experiences animated text"
+        class="svg-anim-digital h-auto w-full"
+        height="108.6"
+        role="img"
+        viewBox="0 0 1450 109.561"
+        width="1450"
+        xmlns="http://www.w3.org/2000/svg"
+      >
         <g
           fill="none"
           fill-rule="evenodd"
@@ -399,7 +423,7 @@ exports[`Home Page > should match snapshot 1`] = `
             vector-effect="non-scaling-stroke"
           />
         </g>
-      </div>
+      </svg>
     </div>
     <div
       class="mt-12 w-fit max-w-4xl"
@@ -1068,9 +1092,15 @@ exports[`Home Page > should match snapshot 1`] = `
       style="grid-area: 📊;"
     >
       <div
-        data-testid="github-contributions-card"
+        class="relative h-full rounded-xl bg-border p-px min-h-48"
       >
-        GitHub Contributions
+        <div
+          class="relative-mouse pointer-events-none absolute inset-0 rounded-xl transition-opacity duration-500"
+          style="background: linear-gradient(to bottom right, var(--color-mirai-red), var(--color-mirai-blue), var(--color-mirai-yellow)); mask-image: radial-gradient(50% 50% at var(--mouse-x, 9999px) var(--mouse-y, 9999px), rgba(0, 0, 0, 0.5) 40%, transparent);"
+        />
+        <div
+          class="card z-1 flex h-full flex-col rounded-xl bg-background-elevated relative overflow-hidden"
+        />
       </div>
     </article>
     <article
@@ -1079,9 +1109,15 @@ exports[`Home Page > should match snapshot 1`] = `
       style="grid-area: 🌟;"
     >
       <div
-        data-testid="open-source-card"
+        class="relative h-full rounded-xl bg-border p-px min-h-96"
       >
-        Open Source
+        <div
+          class="relative-mouse pointer-events-none absolute inset-0 rounded-xl transition-opacity duration-500"
+          style="background: linear-gradient(to bottom right, var(--color-mirai-red), var(--color-mirai-blue), var(--color-mirai-yellow)); mask-image: radial-gradient(50% 50% at var(--mouse-x, 9999px) var(--mouse-y, 9999px), rgba(0, 0, 0, 0.5) 40%, transparent);"
+        />
+        <div
+          class="card z-1 flex h-full flex-col rounded-xl bg-background-elevated relative overflow-hidden"
+        />
       </div>
     </article>
     <article
@@ -1451,9 +1487,15 @@ exports[`Home Page > should match snapshot 1`] = `
       style="grid-area: 🎵;"
     >
       <div
-        data-testid="spotify-card"
+        class="relative h-full rounded-xl bg-border p-px min-h-96"
       >
-        Spotify
+        <div
+          class="relative-mouse pointer-events-none absolute inset-0 rounded-xl transition-opacity duration-500"
+          style="background: linear-gradient(to bottom right, var(--color-mirai-red), var(--color-mirai-blue), var(--color-mirai-yellow)); mask-image: radial-gradient(50% 50% at var(--mouse-x, 9999px) var(--mouse-y, 9999px), rgba(0, 0, 0, 0.5) 40%, transparent);"
+        />
+        <div
+          class="card z-1 flex h-full flex-col rounded-xl bg-background-elevated relative overflow-hidden"
+        />
       </div>
     </article>
     <article

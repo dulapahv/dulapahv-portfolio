@@ -1,26 +1,26 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Suspense } from "react";
-import { AboutCard } from "@/components/about-card";
-import { CameraRollCard } from "@/components/camera-roll-card/camera-roll-card";
-import { CardSkeleton } from "@/components/card-skeleton";
 import { Footer } from "@/components/footer";
-import { GitHubContributionsCard } from "@/components/github-contributions-card/github-contributions-card";
-import { GlobeCard } from "@/components/globe-card";
-import { HeaderText } from "@/components/header-text";
 import { JsonLd } from "@/components/json-ld";
-import { OpenSourceCard } from "@/components/open-source-card/open-source-card";
-import { ProjectsCard } from "@/components/projects-card/projects-card";
-import { RecentBlogsCard } from "@/components/recent-blogs-card";
-import { ResumeCard } from "@/components/resume-card/resume-card";
-import { SpotifyCard } from "@/components/spotify-card/spotify-card";
-import { StressReliefCard } from "@/components/stress-relief-card/stress-relief-card";
-import { WorkCard } from "@/components/work-card";
 import { DESCRIPTION } from "@/lib/constants";
 import { allProjects } from "@/lib/content-utils/content-utils";
 import { profilePageSchema } from "@/lib/json-ld";
 import { createMetadata } from "@/lib/metadata";
 import { cn } from "@/lib/utils";
+import { AboutCard } from "./components/about-card";
+import { CameraRollCard } from "./components/camera-roll-card/camera-roll-card";
+import { CardSkeleton } from "./components/card-skeleton";
+import { GitHubContributionsCard } from "./components/github-contributions-card/github-contributions-card";
+import { GlobeCard } from "./components/globe-card";
+import { HeaderText } from "./components/header-text";
+import { OpenSourceCard } from "./components/open-source-card/open-source-card";
+import { ProjectsCard } from "./components/projects-card/projects-card";
+import { RecentBlogsCard } from "./components/recent-blogs-card";
+import { ResumeCard } from "./components/resume-card/resume-card";
+import { SpotifyCard } from "./components/spotify-card/spotify-card";
+import { StressReliefCard } from "./components/stress-relief-card/stress-relief-card";
+import { WorkCard } from "./components/work-card";
 
 export const metadata: Metadata = createMetadata({
   title: "Home",

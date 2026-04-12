@@ -8,13 +8,13 @@ import {
   getTopArtists,
   getTopTracks,
 } from "@/app/actions/spotify";
-import { Card } from "@/components/card";
-import { CardHeader, CardHeaderIconLink } from "@/components/card-header";
 import { Link } from "@/components/link";
-import { Marquee } from "@/components/marquee/marquee";
-import { NowPlayingCard } from "@/components/now-playing-card/now-playing-card";
 import { SPOTIFY_URL } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+import { Card } from "../card";
+import { CardHeader, CardHeaderIconLink } from "../card-header";
+import { Marquee } from "../marquee/marquee";
+import { NowPlayingCard } from "../now-playing-card/now-playing-card";
 
 export async function SpotifyCard() {
   const [currentlyPlaying, topArtists, topTracks] = await Promise.all([

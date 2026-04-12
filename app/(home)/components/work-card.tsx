@@ -1,8 +1,8 @@
-import { Card } from "@/components/card";
-import { CardHeader, CardHeaderIconLink } from "@/components/card-header";
 import { Link } from "@/components/link";
 import { LINKEDIN_URL } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+import { Card } from "./card";
+import { CardHeader, CardHeaderIconLink } from "./card-header";
 
 interface WorkExperience {
   position: string;

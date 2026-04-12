@@ -3,22 +3,18 @@
 import { PauseIcon, PlayIcon } from "@phosphor-icons/react/dist/ssr";
 import dynamic from "next/dynamic";
 import { useState } from "react";
-
-import { Card } from "@/components/card";
-import { CardHeader } from "@/components/card-header";
 import {
   EDUCATION_LOCATION,
   TRAVEL_LOCATIONS,
   WORK_LOCATION,
 } from "@/lib/constants";
+import { Card } from "./card";
+import { CardHeader } from "./card-header";
 
-const Globe = dynamic(
-  () => import("@/components/globe").then((mod) => mod.Globe),
-  {
-    ssr: false,
-    loading: () => <div className="h-80 w-full rounded-lg" />,
-  }
-);
+const Globe = dynamic(() => import("./globe").then((mod) => mod.Globe), {
+  ssr: false,
+  loading: () => <div className="h-80 w-full rounded-lg" />,
+});
 
 const GLOBE_MARKERS = [
   ...EDUCATION_LOCATION,

@@ -7,11 +7,11 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import { useState } from "react";
-import { Card } from "@/components/card";
-import { CardHeader, CardHeaderIconLink } from "@/components/card-header";
 import { Link } from "@/components/link";
 import type { Project } from "@/lib/content-utils/content-utils";
 import { cn } from "@/lib/utils";
+import { Card } from "../card";
+import { CardHeader, CardHeaderIconLink } from "../card-header";
 
 export type ProjectCardItem = Pick<
   Project,

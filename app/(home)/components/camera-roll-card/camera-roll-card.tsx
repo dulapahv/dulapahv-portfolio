@@ -10,10 +10,10 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 import Zoom from "react-medium-image-zoom";
-import { Card } from "@/components/card";
-import { CardHeader } from "@/components/card-header";
 import { Link } from "@/components/link";
 import { cn } from "@/lib/utils";
+import { Card } from "../card";
+import { CardHeader } from "../card-header";
 
 interface CameraRollCardProps {
   images: string[];

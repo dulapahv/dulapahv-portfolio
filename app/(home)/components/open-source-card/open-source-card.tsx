@@ -11,13 +11,13 @@ import {
   getContributionStats,
   getContributions,
 } from "@/app/actions/gh-oss-contributions";
-import { Card } from "@/components/card";
-import { CardHeader, CardHeaderIconLink } from "@/components/card-header";
 import { Link } from "@/components/link";
 import { GITHUB_URL } from "@/lib/constants";
 import type { ContributionStatus } from "@/lib/contributions";
 import { formatShortDate, toISODate } from "@/lib/date";
 import { cn } from "@/lib/utils";
+import { Card } from "../card";
+import { CardHeader, CardHeaderIconLink } from "../card-header";
 
 function getStatusConfig(
   status: ContributionStatus,

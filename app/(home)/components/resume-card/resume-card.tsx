@@ -2,10 +2,10 @@
 
 import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
 import { useRef, useState } from "react";
-import { Card } from "@/components/card";
-import { CardHeader } from "@/components/card-header";
 import { Link } from "@/components/link";
 import { cn } from "@/lib/utils";
+import { Card } from "../card";
+import { CardHeader } from "../card-header";
 
 const getLineWidth = (index: number): string => {
   const widths = ["w-3/4", "w-4/5", "w-2/3", "w-3/4", "w-1/2", "w-3/5"];

@@ -1,11 +1,11 @@
 import { ArrowRightIcon } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
-import { Card } from "@/components/card";
-import { CardHeader, CardHeaderIconLink } from "@/components/card-header";
 import { Link } from "@/components/link";
 import { allBlogs } from "@/lib/content-utils/content-utils";
 import { formatShortDate, toISODate } from "@/lib/date";
 import { cn } from "@/lib/utils";
+import { Card } from "./card";
+import { CardHeader, CardHeaderIconLink } from "./card-header";
 
 const RECENT_BLOGS = [...allBlogs]
   .sort((a, b) => b.date.getTime() - a.date.getTime())

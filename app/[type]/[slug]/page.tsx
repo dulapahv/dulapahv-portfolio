@@ -6,8 +6,6 @@ import Zoom from "react-medium-image-zoom";
 import Breadcrumb from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
 import { Mdx } from "@/components/mdx";
-import { ShareButtons } from "@/components/share/share";
-import { TableOfContents } from "@/components/toc/toc";
 import {
   type ContentItem,
   type ContentType,
@@ -18,6 +16,8 @@ import {
 import { formatISODateRange, formatLongDate, toISODate } from "@/lib/date";
 import { createBlogPostingSchema, createProjectSchema } from "@/lib/json-ld";
 import { createMetadata } from "@/lib/metadata";
+import { ShareButtons } from "./components/share/share";
+import { TableOfContents } from "./components/toc/toc";
 
 function getContentMeta(page: ContentItem) {
   if (page.kind === "project") {
