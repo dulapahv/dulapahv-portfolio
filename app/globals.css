@@ -633,6 +633,7 @@
   --animate-fade-in: fadeIn 2s ease-out both;
   --animate-stars: stars 6s linear both;
   --animate-fade-out: fadeOut 0.5s ease-in both;
+  --animate-camera-roll-progress: camera-roll-progress 3s linear forwards;
 }
 
 /* Custom Animations */

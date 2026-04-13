@@ -98,8 +98,7 @@ export function CameraRollCard({ images }: CameraRollCardProps) {
               <div
                 className={cn(
                   "h-full bg-white",
-                  index === currentIndex &&
-                    "animate-[camera-roll-progress_3s_linear_forwards]"
+                  index === currentIndex && "animate-camera-roll-progress"
                 )}
                 key={
                   index === currentIndex

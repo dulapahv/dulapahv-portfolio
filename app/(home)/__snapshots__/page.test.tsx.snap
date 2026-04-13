@@ -1230,7 +1230,7 @@ exports[`Home Page > should match snapshot 1`] = `
                 type="button"
               >
                 <div
-                  class="h-full bg-white animate-[camera-roll-progress_3s_linear_forwards]"
+                  class="h-full bg-white animate-camera-roll-progress"
                   style="animation-play-state: running;"
                 />
               </button>
