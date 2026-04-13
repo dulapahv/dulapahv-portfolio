@@ -22,7 +22,7 @@ MockImageResponse {
       tw="flex flex-col"
     >
       <h1
-        tw="m-0 max-w-[54.5rem] font-bold text-[#F1F1F1] text-[64px] leading-[69px] tracking-tight"
+        tw="m-0 max-w-[54.2rem] font-bold text-[#F1F1F1] text-[64px] leading-[69px] tracking-tight"
       >
         Snapshot Test
       </h1>
