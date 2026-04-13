@@ -51,11 +51,17 @@ export const GET = async (request: NextRequest) => {
         width={72}
       />
       <div tw="flex flex-col">
-        <h1 tw="m-0 max-w-[53.52rem] font-bold text-[#F1F1F1] text-[64px] leading-[69px] tracking-tight">
+        <h1
+          style={{ whiteSpace: "pre-wrap" }}
+          tw="m-0 font-bold text-[#F1F1F1] text-[64px] leading-[69px] tracking-tight"
+        >
           {title}
         </h1>
         {description ? (
-          <p tw="mt-4 mb-0 max-w-[60rem] font-normal text-[#A5A5A5] text-[32px] leading-[36px] tracking-tight">
+          <p
+            style={{ whiteSpace: "pre-wrap" }}
+            tw="mt-4 mb-0 font-normal text-[#A5A5A5] text-[32px] leading-[36px] tracking-tight"
+          >
             {description}
           </p>
         ) : null}
