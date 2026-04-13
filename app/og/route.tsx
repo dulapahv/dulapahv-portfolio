@@ -40,7 +40,7 @@ export const GET = async (request: NextRequest) => {
         backgroundImage:
           "linear-gradient(to right, #1C1C1C 1px, transparent 1px), linear-gradient(to bottom, #1C1C1C 1px, transparent 1px)",
       }}
-      tw="flex flex-col justify-between items-start w-full h-full bg-black p-12"
+      tw="flex h-full w-full flex-col items-start justify-between bg-black p-12"
     >
       {/* biome-ignore lint/performance/noImgElement: OG image generation requires img tag */}
       <img
@@ -51,11 +51,11 @@ export const GET = async (request: NextRequest) => {
         width={72}
       />
       <div tw="flex flex-col">
-        <h1 tw="max-w-[50rem] text-[64px] font-bold leading-[69px] tracking-tight m-0 text-[#F1F1F1]">
+        <h1 tw="m-0 max-w-216 font-bold text-[#F1F1F1] text-[64px] leading-[69px] tracking-tight">
           {title}
         </h1>
         {description ? (
-          <p tw="max-w-[64rem] text-[32px] font-normal leading-[36px] tracking-tight text-[#A5A5A5] mt-4 mb-0">
+          <p tw="mt-4 mb-0 max-w-240 font-normal text-[#A5A5A5] text-[32px] leading-[36px] tracking-tight">
             {description}
           </p>
         ) : null}
