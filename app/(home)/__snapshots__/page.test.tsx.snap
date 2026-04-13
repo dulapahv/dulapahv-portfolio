@@ -1230,8 +1230,8 @@ exports[`Home Page > should match snapshot 1`] = `
                 type="button"
               >
                 <div
-                  class="h-full bg-white transition-all duration-100 ease-linear"
-                  style="width: 0%;"
+                  class="h-full bg-white animate-[camera-roll-progress_3s_linear_forwards]"
+                  style="animation-play-state: running;"
                 />
               </button>
               <button
@@ -1240,7 +1240,7 @@ exports[`Home Page > should match snapshot 1`] = `
                 type="button"
               >
                 <div
-                  class="h-full bg-white transition-all duration-100 ease-linear"
+                  class="h-full bg-white"
                   style="width: 0%;"
                 />
               </button>
@@ -1250,7 +1250,7 @@ exports[`Home Page > should match snapshot 1`] = `
                 type="button"
               >
                 <div
-                  class="h-full bg-white transition-all duration-100 ease-linear"
+                  class="h-full bg-white"
                   style="width: 0%;"
                 />
               </button>
@@ -1260,7 +1260,7 @@ exports[`Home Page > should match snapshot 1`] = `
                 type="button"
               >
                 <div
-                  class="h-full bg-white transition-all duration-100 ease-linear"
+                  class="h-full bg-white"
                   style="width: 0%;"
                 />
               </button>
@@ -1270,7 +1270,7 @@ exports[`Home Page > should match snapshot 1`] = `
                 type="button"
               >
                 <div
-                  class="h-full bg-white transition-all duration-100 ease-linear"
+                  class="h-full bg-white"
                   style="width: 0%;"
                 />
               </button>
@@ -1280,7 +1280,7 @@ exports[`Home Page > should match snapshot 1`] = `
                 type="button"
               >
                 <div
-                  class="h-full bg-white transition-all duration-100 ease-linear"
+                  class="h-full bg-white"
                   style="width: 0%;"
                 />
               </button>

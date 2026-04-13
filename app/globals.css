@@ -692,6 +692,15 @@
   }
 }
 
+@keyframes camera-roll-progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
 /*
  * Marquee — scrolls content back-and-forth only when it overflows.
  * `100cqw - 100%` is the container width minus the inner element's own width:

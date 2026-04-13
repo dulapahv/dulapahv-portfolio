@@ -7,7 +7,7 @@ import {
   PlayIcon,
 } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 import Zoom from "react-medium-image-zoom";
 import { Link } from "@/components/link";
@@ -19,66 +19,32 @@ interface CameraRollCardProps {
   images: string[];
 }
 
-const getProgressWidth = (
-  index: number,
-  currentIndex: number,
-  progress: number
-): string => {
-  if (index < currentIndex) {
-    return "100%";
-  }
-  if (index === currentIndex) {
-    return `${progress}%`;
-  }
-  return "0%";
-};
-
 export function CameraRollCard({ images }: CameraRollCardProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
   const [isManuallyPaused, setIsManuallyPaused] = useState(false);
-  const [, forceUpdate] = useState({});
-  const progressRef = useRef(0);
+  const [animationKey, setAnimationKey] = useState(0);
 
   const isPaused = isHovering || isManuallyPaused;
 
-  useEffect(() => {
-    progressRef.current = 0;
-  }, []);
-
-  useEffect(() => {
-    if (images.length === 0 || isPaused) {
-      return;
-    }
-
-    const duration = 3000;
-    const updateInterval = 30;
-    const increment = (updateInterval / duration) * 100;
-
-    const interval = setInterval(() => {
-      progressRef.current += increment;
-
-      if (progressRef.current >= 100) {
-        progressRef.current = 0;
-        setCurrentIndex((prev) => (prev + 1) % images.length);
-      }
-
-      forceUpdate({});
-    }, updateInterval);
-
-    return () => clearInterval(interval);
-  }, [isPaused, images.length]);
+  const handleSlideChange = () => {
+    setCurrentIndex((prev) => (prev + 1) % images.length);
+    setAnimationKey((prev) => prev + 1);
+  };
 
   const handleBarClick = (index: number) => {
     setCurrentIndex(index);
+    setAnimationKey((prev) => prev + 1);
   };
 
   const handlePrevious = () => {
     setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+    setAnimationKey((prev) => prev + 1);
   };
 
   const handleNext = () => {
     setCurrentIndex((prev) => (prev + 1) % images.length);
+    setAnimationKey((prev) => prev + 1);
   };
 
   if (images.length === 0) {
@@ -130,14 +96,26 @@ export function CameraRollCard({ images }: CameraRollCardProps) {
               type="button"
             >
               <div
-                className="h-full bg-white transition-all duration-100 ease-linear"
-                style={{
-                  width: getProgressWidth(
-                    index,
-                    currentIndex,
-                    progressRef.current
-                  ),
-                }}
+                className={cn(
+                  "h-full bg-white",
+                  index === currentIndex &&
+                    "animate-[camera-roll-progress_3s_linear_forwards]"
+                )}
+                key={
+                  index === currentIndex
+                    ? `active-${animationKey}`
+                    : `done-${index}`
+                }
+                onAnimationEnd={
+                  index === currentIndex ? handleSlideChange : undefined
+                }
+                style={
+                  index === currentIndex
+                    ? {
+                        animationPlayState: isPaused ? "paused" : "running",
+                      }
+                    : { width: index < currentIndex ? "100%" : "0%" }
+                }
               />
             </button>
           ))}
