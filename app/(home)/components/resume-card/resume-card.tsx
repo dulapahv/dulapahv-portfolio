@@ -62,34 +62,28 @@ export const ResumeCard = () => {
 
         {/* biome-ignore lint/a11y/noStaticElementInteractions: decorative 3D tilt effect on mouse move */}
         <div
-          className="relative flex flex-1 cursor-crosshair items-center justify-center overflow-hidden rounded-md border border-border-subtle"
+          className="perspective-[1000px] relative flex flex-1 cursor-crosshair items-center justify-center overflow-hidden rounded-md border border-border-subtle"
           onMouseLeave={handleMouseLeave}
           onMouseMove={handleMouseMove}
           role="presentation"
-          style={{ perspective: "1000px" }}
         >
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,var(--color-border-subtle)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border-subtle)_1px,transparent_1px)]"
-            style={{
-              backgroundSize: "24px 24px",
-              backgroundPosition: "center",
-            }}
+            className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,var(--color-border-subtle)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border-subtle)_1px,transparent_1px)] bg-center bg-size-[24px_24px]"
           />
 
           <div
             aria-hidden="true"
             className={cn(
-              "relative h-32 w-24 rounded-sm border border-border bg-background-elevated shadow-xl transition-transform duration-300 ease-out",
+              "transform-3d relative h-32 w-24 rounded-sm border border-border bg-background-elevated shadow-xl transition-transform duration-300 ease-out",
               "group-hover:scale-105"
             )}
             ref={documentRef}
             style={{
               transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
-              transformStyle: "preserve-3d",
             }}
           >
-            <div className="absolute inset-0 flex flex-col justify-evenly p-3">
+            <div className="backface-hidden absolute inset-0 flex flex-col justify-evenly p-3">
               {[0, 1, 2, 3, 4, 5].map((i) => (
                 <div className="flex gap-1" key={`resume-line-${i}`}>
                   <div
@@ -100,6 +94,9 @@ export const ResumeCard = () => {
                   />
                 </div>
               ))}
+            </div>
+            <div className="backface-hidden absolute inset-0 flex rotate-y-180 select-none items-center justify-center text-foreground/60 text-sm">
+              ฅ^•ﻌ•^ฅ
             </div>
           </div>
         </div>

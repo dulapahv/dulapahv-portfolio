@@ -876,22 +876,20 @@ exports[`Home Page > should match snapshot 1`] = `
               </svg>
             </div>
             <div
-              class="relative flex flex-1 cursor-crosshair items-center justify-center overflow-hidden rounded-md border border-border-subtle"
+              class="perspective-[1000px] relative flex flex-1 cursor-crosshair items-center justify-center overflow-hidden rounded-md border border-border-subtle"
               role="presentation"
-              style="perspective: 1000px;"
             >
               <div
                 aria-hidden="true"
-                class="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,var(--color-border-subtle)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border-subtle)_1px,transparent_1px)]"
-                style="background-size: 24px 24px; background-position: center center;"
+                class="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,var(--color-border-subtle)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border-subtle)_1px,transparent_1px)] bg-center bg-size-[24px_24px]"
               />
               <div
                 aria-hidden="true"
-                class="relative h-32 w-24 rounded-sm border border-border bg-background-elevated shadow-xl transition-transform duration-300 ease-out group-hover:scale-105"
-                style="transform: rotateX(0deg) rotateY(0deg); transform-style: preserve-3d;"
+                class="transform-3d relative h-32 w-24 rounded-sm border border-border bg-background-elevated shadow-xl transition-transform duration-300 ease-out group-hover:scale-105"
+                style="transform: rotateX(0deg) rotateY(0deg);"
               >
                 <div
-                  class="absolute inset-0 flex flex-col justify-evenly p-3"
+                  class="backface-hidden absolute inset-0 flex flex-col justify-evenly p-3"
                 >
                   <div
                     class="flex gap-1"
@@ -935,6 +933,11 @@ exports[`Home Page > should match snapshot 1`] = `
                       class="h-0.5 rounded-full bg-foreground/20 w-3/5"
                     />
                   </div>
+                </div>
+                <div
+                  class="backface-hidden absolute inset-0 flex rotate-y-180 select-none items-center justify-center text-foreground/60 text-sm"
+                >
+                  ฅ^•ﻌ•^ฅ
                 </div>
               </div>
             </div>
