@@ -51,7 +51,7 @@ export const GET = async (request: NextRequest) => {
         width={72}
       />
       <div tw="flex flex-col">
-        <h1 tw="m-0 max-w-[55rem] font-bold text-[#F1F1F1] text-[64px] leading-[69px] tracking-tight">
+        <h1 tw="m-0 max-w-[54.5rem] font-bold text-[#F1F1F1] text-[64px] leading-[69px] tracking-tight">
           {title}
         </h1>
         {description ? (
