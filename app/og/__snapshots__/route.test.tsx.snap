@@ -15,7 +15,6 @@ MockImageResponse {
       alt="avatar"
       height={72}
       src="https://assets.dulapahv.dev/logo.svg"
-      tw="overflow-hidden"
       width={72}
     />
     <div

@@ -25,9 +25,9 @@ function splitLines(value: string): string[] {
     return value.split("\n");
   }
 
-  // if (value.includes("||")) {
-  //   return value.split("||");
-  // }
+  if (value.includes("||")) {
+    return value.split("||");
+  }
 
   return [value];
 }

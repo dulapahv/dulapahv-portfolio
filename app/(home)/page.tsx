@@ -25,7 +25,7 @@ import { WorkCard } from "./components/work-card";
 export const metadata: Metadata = createMetadata({
   title: "Home",
   description: DESCRIPTION,
-  ogText: "Dulapah Vibulsanti\nSoftware Engineer",
+  ogText: "Dulapah Vibulsanti||Software Engineer",
 });
 
 const SKILLS = [
