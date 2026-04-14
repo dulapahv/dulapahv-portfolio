@@ -5,11 +5,39 @@ import { ASSETS_URL } from "@/lib/constants";
 
 const FONT_URL_REGEX = /src: url\((.+)\) format\('(opentype|truetype)'\)/;
 
+function normalizeText(value: string | null): string {
+  if (!value) {
+    return "";
+  }
+
+  return value
+    .replace(/\\n/g, "\n") // literal "\n"
+    .replace(/\r\n/g, "\n") // CRLF
+    .replace(/\r/g, "\n"); // old Mac CR
+}
+
+function splitLines(value: string): string[] {
+  if (!value) {
+    return [];
+  }
+
+  if (value.includes("\n")) {
+    return value.split("\n");
+  }
+
+  // if (value.includes("||")) {
+  //   return value.split("||");
+  // }
+
+  return [value];
+}
+
 async function loadGoogleFont(font: string, weight: number, text: string) {
-  const url = `https://fonts.googleapis.com/css2?family=${font}:wght@${weight}&text=${encodeURIComponent(text)}`;
+  const url = `https://fonts.googleapis.com/css2?family=${font}:wght@${weight}&text=${encodeURIComponent(
+    text
+  )}`;
 
   const css = await (await fetch(url)).text();
-
   const resource = css.match(FONT_URL_REGEX);
 
   if (resource) {
@@ -28,13 +56,16 @@ export const GET = async (request: NextRequest) => {
     );
   };
 
-  const title = getParam("title") || "";
-  const description = getParam("description") || "";
+  const rawTitle = getParam("title");
+  const rawDescription = getParam("description");
 
-  const textForFont = `${title || ""}${description || ""}` || " ";
+  const title = normalizeText(rawTitle);
+  const description = normalizeText(rawDescription);
 
-  const decodedTitle = decodeURIComponent(title);
-  const decodedDescription = decodeURIComponent(description);
+  const titleLines = splitLines(title);
+  const descriptionLines = splitLines(description);
+
+  const textForFont = `${title}${description}` || " ";
 
   return new ImageResponse(
     <div
@@ -46,17 +77,12 @@ export const GET = async (request: NextRequest) => {
       tw="flex h-full w-full flex-col items-start justify-between bg-black p-12"
     >
       {/* biome-ignore lint/performance/noImgElement: OG image generation requires img tag */}
-      <img
-        alt="avatar"
-        height={72}
-        src={`${ASSETS_URL}/logo.svg`}
-        tw="overflow-hidden"
-        width={72}
-      />
+      <img alt="avatar" height={72} src={`${ASSETS_URL}/logo.svg`} width={72} />
+
       <div tw="flex flex-col">
-        {decodedTitle.split(/\n/g).map((line, i) => (
+        {titleLines.map((line, i) => (
           <h1
-            // biome-ignore lint/suspicious/noArrayIndexKey: The title is static and won't change, so using the index as a key is acceptable in this case.
+            // biome-ignore lint/suspicious/noArrayIndexKey: The description is static and won't change, so using the index as a key is acceptable in this case.
             key={i}
             style={{ whiteSpace: "pre-wrap" }}
             tw="m-0 font-bold text-[#F1F1F1] text-[64px] leading-[69px] tracking-tight flex"
@@ -65,18 +91,17 @@ export const GET = async (request: NextRequest) => {
           </h1>
         ))}
 
-        {description
-          ? decodedDescription.split(/\n/g).map((line, i) => (
-              <p
-                // biome-ignore lint/suspicious/noArrayIndexKey: The description is static and won't change, so using the index as a key is acceptable in this case.
-                key={i}
-                style={{ whiteSpace: "pre-wrap" }}
-                tw="mt-4 mb-0 font-normal text-[#A5A5A5] text-[32px] leading-[36px] tracking-tight flex"
-              >
-                {line}
-              </p>
-            ))
-          : null}
+        {descriptionLines.length > 0 &&
+          descriptionLines.map((line, i) => (
+            <p
+              // biome-ignore lint/suspicious/noArrayIndexKey: The description is static and won't change, so using the index as a key is acceptable in this case.
+              key={i}
+              style={{ whiteSpace: "pre-wrap" }}
+              tw="mt-4 mb-0 font-normal text-[#A5A5A5] text-[32px] leading-[36px] tracking-tight flex"
+            >
+              {line}
+            </p>
+          ))}
       </div>
     </div>,
     {
