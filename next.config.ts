@@ -15,7 +15,7 @@ const nextConfig: NextConfig = {
     viewTransition: true,
     // inlineCss: true,
     turbopackFileSystemCacheForBuild: true,
-    optimizePackageImports: ["@phosphor-icons/react"],
+    optimizePackageImports: ["@phosphor-icons/react", "motion"],
   },
   images: {
     loader: "custom",
