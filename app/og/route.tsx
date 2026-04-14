@@ -51,28 +51,34 @@ export const GET = async (request: NextRequest) => {
         width={72}
       />
       <div tw="flex flex-col">
-        {title.split("\\n").map((line, _i) => (
-          <>
+        {title
+          .replace(/\n/g, "\\n")
+          .split("\\n")
+          .map((line, i) => (
             <h1
+              // biome-ignore lint/suspicious/noArrayIndexKey: The title is static and won't change, so using the index as a key is acceptable in this case.
+              key={i}
               style={{ whiteSpace: "pre-wrap" }}
               tw="m-0 font-bold text-[#F1F1F1] text-[64px] leading-[69px] tracking-tight flex"
             >
               {line}
             </h1>
-          </>
-        ))}
+          ))}
 
         {description
-          ? description.split("\\n").map((line, _i) => (
-              <>
+          ? description
+              .replace(/\n/g, "\\n")
+              .split("\\n")
+              .map((line, i) => (
                 <p
+                  // biome-ignore lint/suspicious/noArrayIndexKey: The description is static and won't change, so using the index as a key is acceptable in this case.
+                  key={i}
                   style={{ whiteSpace: "pre-wrap" }}
                   tw="mt-4 mb-0 font-normal text-[#A5A5A5] text-[32px] leading-[36px] tracking-tight flex"
                 >
                   {line}
                 </p>
-              </>
-            ))
+              ))
           : null}
       </div>
     </div>,

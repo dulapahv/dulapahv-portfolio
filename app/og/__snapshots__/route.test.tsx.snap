@@ -21,30 +21,26 @@ MockImageResponse {
     <div
       tw="flex flex-col"
     >
-      <React.Fragment>
-        <h1
-          style={
-            {
-              "whiteSpace": "pre-wrap",
-            }
+      <h1
+        style={
+          {
+            "whiteSpace": "pre-wrap",
           }
-          tw="m-0 font-bold text-[#F1F1F1] text-[64px] leading-[69px] tracking-tight flex"
-        >
-          Snapshot Test
-        </h1>
-      </React.Fragment>
-      <React.Fragment>
-        <p
-          style={
-            {
-              "whiteSpace": "pre-wrap",
-            }
+        }
+        tw="m-0 font-bold text-[#F1F1F1] text-[64px] leading-[69px] tracking-tight flex"
+      >
+        Snapshot Test
+      </h1>
+      <p
+        style={
+          {
+            "whiteSpace": "pre-wrap",
           }
-          tw="mt-4 mb-0 font-normal text-[#A5A5A5] text-[32px] leading-[36px] tracking-tight flex"
-        >
-          Snapshot Description
-        </p>
-      </React.Fragment>
+        }
+        tw="mt-4 mb-0 font-normal text-[#A5A5A5] text-[32px] leading-[36px] tracking-tight flex"
+      >
+        Snapshot Description
+      </p>
     </div>
   </div>,
   "options": {
