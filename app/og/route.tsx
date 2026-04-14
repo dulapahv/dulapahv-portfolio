@@ -53,16 +53,26 @@ export const GET = async (request: NextRequest) => {
       <div tw="flex flex-col">
         <h1
           style={{ whiteSpace: "pre-wrap" }}
-          tw="m-0 font-bold text-[#F1F1F1] text-[64px] leading-[69px] tracking-tight"
+          tw="m-0 font-bold text-[#F1F1F1] text-[64px] leading-[69px] tracking-tight flex"
         >
-          {title}
+          {title.split("\\n").map((line, _i) => (
+            <>
+              {line}
+              <br />
+            </>
+          ))}
         </h1>
         {description ? (
           <p
             style={{ whiteSpace: "pre-wrap" }}
-            tw="mt-4 mb-0 font-normal text-[#A5A5A5] text-[32px] leading-[36px] tracking-tight"
+            tw="mt-4 mb-0 font-normal text-[#A5A5A5] text-[32px] leading-[36px] tracking-tight flex"
           >
-            {description}
+            {description.split("\\n").map((line, _i) => (
+              <>
+                {line}
+                <br />
+              </>
+            ))}
           </p>
         ) : null}
       </div>

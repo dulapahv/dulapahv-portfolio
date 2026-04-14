@@ -27,9 +27,12 @@ MockImageResponse {
             "whiteSpace": "pre-wrap",
           }
         }
-        tw="m-0 font-bold text-[#F1F1F1] text-[64px] leading-[69px] tracking-tight"
+        tw="m-0 font-bold text-[#F1F1F1] text-[64px] leading-[69px] tracking-tight flex"
       >
-        Snapshot Test
+        <React.Fragment>
+          Snapshot Test
+          <br />
+        </React.Fragment>
       </h1>
       <p
         style={
@@ -37,9 +40,12 @@ MockImageResponse {
             "whiteSpace": "pre-wrap",
           }
         }
-        tw="mt-4 mb-0 font-normal text-[#A5A5A5] text-[32px] leading-[36px] tracking-tight"
+        tw="mt-4 mb-0 font-normal text-[#A5A5A5] text-[32px] leading-[36px] tracking-tight flex"
       >
-        Snapshot Description
+        <React.Fragment>
+          Snapshot Description
+          <br />
+        </React.Fragment>
       </p>
     </div>
   </div>,
