@@ -112,14 +112,14 @@ describe("Global Error Page", () => {
   });
 
   it("should render critical error heading", () => {
-    render(<GlobalError error={mockError} reset={mockReset} />);
+    render(<GlobalError error={mockError} unstable_retry={mockReset} />);
     expect(
       screen.getByRole("heading", { name: "Critical Error" })
     ).toBeInTheDocument();
   });
 
   it("should render error message with contact link", () => {
-    render(<GlobalError error={mockError} reset={mockReset} />);
+    render(<GlobalError error={mockError} unstable_retry={mockReset} />);
     expect(screen.getByText(CRITICAL_ERROR_REGEX)).toBeInTheDocument();
 
     const contactLink = screen.getByRole("link", {
@@ -133,7 +133,7 @@ describe("Global Error Page", () => {
   });
 
   it("should render try again button", () => {
-    render(<GlobalError error={mockError} reset={mockReset} />);
+    render(<GlobalError error={mockError} unstable_retry={mockReset} />);
     const tryAgainButton = screen.getByRole("button", {
       name: TRY_AGAIN_REGEX,
     });
@@ -141,7 +141,7 @@ describe("Global Error Page", () => {
   });
 
   it("should call reset function when try again button is clicked", async () => {
-    render(<GlobalError error={mockError} reset={mockReset} />);
+    render(<GlobalError error={mockError} unstable_retry={mockReset} />);
 
     const tryAgainButton = screen.getByRole("button", {
       name: TRY_AGAIN_REGEX,
@@ -152,7 +152,7 @@ describe("Global Error Page", () => {
   });
 
   it("should display error details", () => {
-    render(<GlobalError error={mockError} reset={mockReset} />);
+    render(<GlobalError error={mockError} unstable_retry={mockReset} />);
 
     expect(screen.getByText(DETAILS_REGEX)).toBeInTheDocument();
     expect(screen.getByText(NAME_CRITICAL_ERROR_REGEX)).toBeInTheDocument();
@@ -163,7 +163,7 @@ describe("Global Error Page", () => {
 
   it("should log error to console on mount", () => {
     const consoleErrorSpy = vi.spyOn(console, "error");
-    render(<GlobalError error={mockError} reset={mockReset} />);
+    render(<GlobalError error={mockError} unstable_retry={mockReset} />);
 
     expect(consoleErrorSpy).toHaveBeenCalledWith(mockError);
   });
@@ -174,7 +174,7 @@ describe("Global Error Page", () => {
       message: "",
     } as Error & { digest?: string };
 
-    render(<GlobalError error={minimalError} reset={mockReset} />);
+    render(<GlobalError error={minimalError} unstable_retry={mockReset} />);
 
     expect(screen.getByText(NAME_NA_REGEX)).toBeInTheDocument();
     expect(screen.getByText(MESSAGE_NA_REGEX)).toBeInTheDocument();

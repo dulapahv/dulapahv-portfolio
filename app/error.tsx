@@ -11,10 +11,10 @@ import { cn } from "@/lib/utils";
 
 export default function ErrorPage({
   error,
-  reset,
+  unstable_retry,
 }: {
   error: Error & { digest?: string };
-  reset: () => void;
+  unstable_retry: () => void;
 }) {
   useEffect(() => {
     console.error(error);
@@ -46,7 +46,7 @@ export default function ErrorPage({
             "active:scale-[0.98] active:transition-transform!",
             "disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:shadow-none"
           )}
-          onClick={reset}
+          onClick={unstable_retry}
           type="button"
         >
           <ArrowsClockwiseIcon

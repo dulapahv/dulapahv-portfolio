@@ -61,14 +61,14 @@ describe("Error Page", () => {
   });
 
   it("should render error heading", () => {
-    render(<ErrorPage error={mockError} reset={mockReset} />);
+    render(<ErrorPage error={mockError} unstable_retry={mockReset} />);
     expect(
       screen.getByRole("heading", { name: "Oops! Something Went Wrong" })
     ).toBeInTheDocument();
   });
 
   it("should render error message with contact link", () => {
-    render(<ErrorPage error={mockError} reset={mockReset} />);
+    render(<ErrorPage error={mockError} unstable_retry={mockReset} />);
     expect(screen.getByText(ERROR_MESSAGE_REGEX)).toBeInTheDocument();
 
     const contactLink = screen.getByRole("link", {
@@ -82,7 +82,7 @@ describe("Error Page", () => {
   });
 
   it("should render try again button", () => {
-    render(<ErrorPage error={mockError} reset={mockReset} />);
+    render(<ErrorPage error={mockError} unstable_retry={mockReset} />);
     const tryAgainButton = screen.getByRole("button", {
       name: TRY_AGAIN_REGEX,
     });
@@ -90,7 +90,7 @@ describe("Error Page", () => {
   });
 
   it("should call reset function when try again button is clicked", async () => {
-    render(<ErrorPage error={mockError} reset={mockReset} />);
+    render(<ErrorPage error={mockError} unstable_retry={mockReset} />);
 
     const tryAgainButton = screen.getByRole("button", {
       name: TRY_AGAIN_REGEX,
@@ -101,7 +101,7 @@ describe("Error Page", () => {
   });
 
   it("should display error details", () => {
-    render(<ErrorPage error={mockError} reset={mockReset} />);
+    render(<ErrorPage error={mockError} unstable_retry={mockReset} />);
 
     expect(screen.getByText(DETAILS_REGEX)).toBeInTheDocument();
     expect(screen.getByText(NAME_TEST_ERROR_REGEX)).toBeInTheDocument();
@@ -112,7 +112,7 @@ describe("Error Page", () => {
 
   it("should log error to console on mount", () => {
     const consoleErrorSpy = vi.spyOn(console, "error");
-    render(<ErrorPage error={mockError} reset={mockReset} />);
+    render(<ErrorPage error={mockError} unstable_retry={mockReset} />);
 
     expect(consoleErrorSpy).toHaveBeenCalledWith(mockError);
   });
@@ -123,7 +123,7 @@ describe("Error Page", () => {
       message: "",
     } as Error & { digest?: string };
 
-    render(<ErrorPage error={minimalError} reset={mockReset} />);
+    render(<ErrorPage error={minimalError} unstable_retry={mockReset} />);
 
     expect(screen.getByText(NAME_NA_REGEX)).toBeInTheDocument();
     expect(screen.getByText(MESSAGE_NA_REGEX)).toBeInTheDocument();
@@ -132,7 +132,7 @@ describe("Error Page", () => {
   });
 
   it("should render Footer component", () => {
-    render(<ErrorPage error={mockError} reset={mockReset} />);
+    render(<ErrorPage error={mockError} unstable_retry={mockReset} />);
     expect(screen.getByText("Footer")).toBeInTheDocument();
   });
 });
