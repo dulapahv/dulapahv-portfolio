@@ -29,7 +29,7 @@
     "deepmerge": "^4.3.1",
     "matter-js": "^0.20.0",
     "motion": "^12.38.0",
-    "next": "16.2.3",
+    "next": "16.2.4",
     "next-themes": "^0.4.6",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
@@ -67,7 +67,7 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.2.0",
     "@vitest/coverage-v8": "4.1.4",
-    "@vitest/ui": "4.1.2",
+    "@vitest/ui": "4.1.4",
     "husky": "^9.1.7",
     "jsdom": "^27.4.0",
     "lint-staged": "^16.4.0",
@@ -78,7 +78,7 @@
     "ultracite": "6.5.0",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^4.1.4",
-    "wrangler": "^4.81.1"
+    "wrangler": "^4.83.0"
   },
   "packageManager": "pnpm@10.33.0+sha512.10568bb4a6afb58c9eb3630da90cc9516417abebd3fabbe6739f0ae795728da1491e9db5a544c76ad8eb7570f5c4bb3d6c637b2cb41bfdcdb47fa823c8649319"
 }
