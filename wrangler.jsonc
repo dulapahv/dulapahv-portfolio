@@ -2,7 +2,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "main": ".open-next/worker.js",
   "name": "dulapahv-portfolio",
-  "compatibility_date": "2026-03-17",
+  "compatibility_date": "2026-04-20",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "keep_names": false,
   "routes": [
