@@ -1,0 +1,100 @@
+---
+title: gistda-sphere-react
+description: A React wrapper for the GISTDA Sphere Map API with full TypeScript support. Build interactive maps of Thailand using declarative components, hooks, and built-in overlays.
+startDate: 06-02-2026
+image: /project/gistda-sphere-react/cover.png
+---
+
+**[Documentation](https://gistda-sphere-react.dulapahv.dev/docs)** | **[Playground](https://gistda-sphere-react.dulapahv.dev/playground)** | **[GitHub](https://github.com/dulapahv/gistda-sphere-react)** | **[npm](https://www.npmjs.com/package/gistda-sphere-react)**
+
+> [!NOTE]
+> This is an **unofficial** community project. It's not affiliated with, endorsed by, or supported by Geo-Informatics and Space Technology Development Agency (GISTDA). For official docs and support, see [sphere.gistda.or.th](https://sphere.gistda.or.th/).
+
+<br />
+
+> [!WARNING]
+> The project is still under active development, so APIs may change between releases.
+
+`gistda-sphere-react` is a React wrapper around the [GISTDA Sphere Map API](https://sphere.gistda.or.th/), the mapping platform run by Thailand's Geo-Informatics and Space Technology Development Agency (GISTDA). It lets you use Sphere's Thailand-focused map data (traffic, PM2.5, hotspots, flood, drought, satellite imagery, live CCTV, and so on) from a React app, with real components, hooks, and TypeScript types.
+
+## Why I built this
+
+I interned at GISTDA as a full-stack software engineer from June to August 2023. While I was there, I kept running into the same problem: there was no React library for Sphere. If you wanted to use it in a React app, your options were basically to inject the script tag yourself, reach for the global `window.sphere` object, and write everything against an imperative API with zero type safety. No autocomplete, no compile-time checks, no typed event payloads, nothing.
+
+For a platform that ships this much Thailand-specific data, that felt like a lot of friction to push onto every team building on top of it. So once I had some time, I decided to build the library I wished had existed while I was working there.
+
+`gistda-sphere-react` handles the script loading, wraps the imperative API in normal React components and hooks, cleans up overlays for you, and ships full TypeScript types for every component, hook, and option. Dropping a marker on a Sphere map should feel like rendering any other component, and now it does.
+
+## Quick start
+
+```bash
+npm install gistda-sphere-react
+```
+
+```tsx
+import { SphereProvider, SphereMap, Marker } from 'gistda-sphere-react';
+
+function App() {
+  return (
+    <SphereProvider apiKey="YOUR_API_KEY">
+      <SphereMap
+        center={{ lon: 100.5018, lat: 13.7563 }}
+        zoom={10}
+        style={{ width: '100%', height: '500px' }}
+      >
+        <Marker
+          position={{ lon: 100.5018, lat: 13.7563 }}
+          title="Bangkok"
+          detail="Capital of Thailand"
+        />
+      </SphereMap>
+    </SphereProvider>
+  );
+}
+```
+
+You can grab an API key from the [Sphere dashboard](https://sphere.gistda.or.th/). Register an account, create a key, and restrict it to the hosts you'll actually use it from (like `localhost` or `yourdomain.com`).
+
+## What's included
+
+### Declarative components
+
+Build your map the same way you build the rest of your React tree:
+
+- `SphereProvider` for the API key and shared config
+- `SphereMap` for the map itself
+- `Marker`, `Polygon`, `Polyline`, `Circle`, `Rectangle`, `Dot` for geometry
+- `Popup` for info windows attached to features
+- `Layer` for mounting built-in or custom layers
+
+### Hooks
+
+Hooks for the parts of Sphere that are actually stateful:
+
+- `useMap`, `useSphere`, `useMapControls` for when you need the underlying map instance
+- `useSearch`, `useRoute`, `useTags` for geocoding, routing, and tag queries
+- `useMarkers`, `usePolygons`, `usePolylines`, `useCircles`, `useOverlays` for managing overlays programmatically
+
+### Event hooks
+
+For subscribing to map events without wiring up listeners by hand:
+
+- `useMapReady`, `useMapClick`, `useMapZoom`, `useMapLocation`
+- `useOverlayClick`
+- `useMapEvent` as a general-purpose escape hatch for anything else
+
+### Built-in layers and overlays
+
+All of Sphere's Thailand-specific data layers are available without extra setup: traffic, PM2.5, hotspot, flood, drought, and satellite imagery. The package also ships predefined overlay collections for live CCTV cameras, traffic events, and air quality data, so you can drop them onto a map with a single component.
+
+### Fully typed
+
+Every component, hook, and option has TypeScript types, and all the relevant types are exported from the package entry. You shouldn't need to touch `any` or write your own definitions to build a real app on top of this.
+
+## Docs and playground
+
+The [documentation site](https://gistda-sphere-react.dulapahv.dev/docs) has installation, a getting-started walkthrough, component and hook references, and worked examples. The [playground](https://gistda-sphere-react.dulapahv.dev/playground) lives in the same site, so you can try the API in the browser without cloning anything.
+
+## Open source
+
+`gistda-sphere-react` is MIT-licensed and lives on [GitHub](https://github.com/dulapahv/gistda-sphere-react). Issues, feature requests, and PRs are all welcome, especially from anyone else who's tried to use Sphere from React and hit the same walls.
