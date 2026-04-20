@@ -15,6 +15,7 @@ const nextConfig: NextConfig = {
     viewTransition: true,
     // inlineCss: true,
     turbopackFileSystemCacheForBuild: true,
+    turbopackServerSideNestedAsyncChunking: true,
     optimizePackageImports: ["@phosphor-icons/react", "motion"],
   },
   images: {
