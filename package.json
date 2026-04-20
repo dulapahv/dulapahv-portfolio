@@ -39,7 +39,7 @@
     "@content-collections/core": "^0.8.2",
     "@content-collections/mdx": "^0.2.2",
     "@content-collections/next": "^0.2.11",
-    "@opennextjs/cloudflare": "^1.19.1",
+    "@opennextjs/cloudflare": "^1.19.2",
     "@shikijs/colorized-brackets": "^4.0.2",
     "@shikijs/transformers": "^4.0.2",
     "@tailwindcss/postcss": "^4.2.2",
