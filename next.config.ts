@@ -16,7 +16,11 @@ const nextConfig: NextConfig = {
     // inlineCss: true,
     turbopackFileSystemCacheForBuild: true,
     turbopackServerSideNestedAsyncChunking: true,
-    optimizePackageImports: ["@phosphor-icons/react", "motion"],
+    optimizePackageImports: [
+      "@phosphor-icons/react",
+      "react-medium-image-zoom",
+      "cobe",
+    ],
   },
   images: {
     loader: "custom",

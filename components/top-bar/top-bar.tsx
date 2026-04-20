@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "motion/react";
+// biome-ignore lint/performance/noNamespaceImport: motion/react-m is meant to be namespace-imported so LazyMotion can tree-shake unused animation features
+import * as m from "motion/react-m";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@/components/link";
@@ -45,7 +46,7 @@ export function TopBar() {
   }, []);
 
   return (
-    <motion.div
+    <m.div
       animate={{ y: isVisible ? 0 : -100 }}
       className={cn(
         "fixed top-0 right-0 left-0 z-40 font-archivo backdrop-blur-sm"
@@ -73,6 +74,6 @@ export function TopBar() {
           <ThemeSwitcher />
         </div>
       </div>
-    </motion.div>
+    </m.div>
   );
 }

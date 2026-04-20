@@ -6,7 +6,8 @@ import {
   ShapesIcon,
   UserIcon,
 } from "@phosphor-icons/react/dist/ssr";
-import { motion } from "motion/react";
+// biome-ignore lint/performance/noNamespaceImport: motion/react-m is meant to be namespace-imported so LazyMotion can tree-shake unused animation features
+import * as m from "motion/react-m";
 import { usePathname } from "next/navigation";
 import {
   type KeyboardEvent,
@@ -156,7 +157,7 @@ export function Navbar() {
   };
 
   return (
-    <motion.nav
+    <m.nav
       animate="visible"
       aria-label="Main navigation"
       className="fixed right-1/2 bottom-4 z-50 flex translate-x-1/2 items-center gap-x-6 rounded-full border border-border bg-background-elevated/80 px-3 py-2 font-archivo text-foreground-subtle shadow-lg backdrop-blur-xl *:translate-y-0.5 sm:px-4"
@@ -171,11 +172,7 @@ export function Navbar() {
         const active = isActive(item.link);
 
         return (
-          <motion.div
-            className="relative"
-            key={item.link}
-            variants={itemVariants}
-          >
+          <m.div className="relative" key={item.link} variants={itemVariants}>
             <Link
               aria-current={active ? "page" : undefined}
               aria-label={`${item.name}${active ? ", current page" : ""}`}
@@ -198,12 +195,12 @@ export function Navbar() {
 
               {active ? <span className="sr-only">(current page)</span> : null}
             </Link>
-          </motion.div>
+          </m.div>
         );
       })}
 
       {indicator ? (
-        <motion.div
+        <m.div
           animate={{ left: indicator.left, width: indicator.width }}
           className="pointer-events-none absolute h-0.5 rounded-full bg-mirai-red"
           initial={false}
@@ -215,6 +212,6 @@ export function Navbar() {
       <div aria-live="polite" className="sr-only">
         Use arrow keys to navigate between menu items
       </div>
-    </motion.nav>
+    </m.nav>
   );
 }

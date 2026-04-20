@@ -11,15 +11,9 @@ exports[`ThemeSwitcher > Snapshot > should match snapshot with system theme 1`] 
       aria-label="System theme, currently selected"
       aria-pressed="true"
       class="relative mx-0.5 flex size-7 items-center justify-center rounded-full"
+      tabindex="0"
       type="button"
-      whilehover="[object Object]"
-      whiletap="[object Object]"
     >
-      <div
-        class="absolute inset-0 rounded-full border border-border-subtle bg-background-muted shadow-sm"
-        layoutid="activeTheme"
-        transition="[object Object]"
-      />
       <svg
         aria-hidden="true"
         class="relative m-auto size-4 text-foreground-subtle"
@@ -38,9 +32,8 @@ exports[`ThemeSwitcher > Snapshot > should match snapshot with system theme 1`] 
       aria-label="Light theme"
       aria-pressed="false"
       class="relative mx-0.5 flex size-7 items-center justify-center rounded-full"
+      tabindex="0"
       type="button"
-      whilehover="[object Object]"
-      whiletap="[object Object]"
     >
       <svg
         aria-hidden="true"
@@ -60,9 +53,8 @@ exports[`ThemeSwitcher > Snapshot > should match snapshot with system theme 1`] 
       aria-label="Dark theme"
       aria-pressed="false"
       class="relative mx-0.5 flex size-7 items-center justify-center rounded-full"
+      tabindex="0"
       type="button"
-      whilehover="[object Object]"
-      whiletap="[object Object]"
     >
       <svg
         aria-hidden="true"

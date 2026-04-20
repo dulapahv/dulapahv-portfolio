@@ -30,7 +30,6 @@ export default defineConfig({
         "**/vitest.setup.*",
         "**/node_modules/**",
         "components/globe.tsx",
-        "components/stars-background.tsx",
         "components/svg-text-animation.tsx",
         "components/mouse-position-setter.tsx",
         "**/loading.tsx",

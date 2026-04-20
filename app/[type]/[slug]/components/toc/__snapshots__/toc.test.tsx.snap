@@ -103,9 +103,7 @@ exports[`TableOfContents > Snapshot > should match snapshot - mobile view 1`] = 
         On this page
       </span>
       <div
-        animate="[object Object]"
         aria-hidden="true"
-        transition="[object Object]"
       >
         <svg
           class="size-4"

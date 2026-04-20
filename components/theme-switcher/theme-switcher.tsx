@@ -1,26 +1,61 @@
 "use client";
 
 import { MonitorIcon, MoonIcon, SunIcon } from "@phosphor-icons/react/dist/ssr";
-import { motion } from "motion/react";
+// biome-ignore lint/performance/noNamespaceImport: motion/react-m is meant to be namespace-imported so LazyMotion can tree-shake unused animation features
+import * as m from "motion/react-m";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useWebHaptics } from "web-haptics/react";
+
+const themes = [
+  { key: "system", icon: MonitorIcon, label: "System theme" },
+  { key: "light", icon: SunIcon, label: "Light theme" },
+  { key: "dark", icon: MoonIcon, label: "Dark theme" },
+];
 
 export function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const { trigger } = useWebHaptics();
+  const buttonsRef = useRef(new Map<string, HTMLButtonElement>());
+  const [indicator, setIndicator] = useState<{
+    left: number;
+    top: number;
+    width: number;
+    height: number;
+  } | null>(null);
+
   useEffect(() => setMounted(true), []);
+
+  const updateIndicator = useCallback(() => {
+    if (!theme) {
+      setIndicator(null);
+      return;
+    }
+    const btn = buttonsRef.current.get(theme);
+    if (!btn?.offsetParent) {
+      return;
+    }
+    setIndicator({
+      left: btn.offsetLeft,
+      top: btn.offsetTop,
+      width: btn.offsetWidth,
+      height: btn.offsetHeight,
+    });
+  }, [theme]);
+
+  useEffect(() => {
+    if (!mounted) {
+      return;
+    }
+    updateIndicator();
+    window.addEventListener("resize", updateIndicator);
+    return () => window.removeEventListener("resize", updateIndicator);
+  }, [mounted, updateIndicator]);
 
   if (!mounted) {
     return null;
   }
-
-  const themes = [
-    { key: "system", icon: MonitorIcon, label: "System theme" },
-    { key: "light", icon: SunIcon, label: "Light theme" },
-    { key: "dark", icon: MoonIcon, label: "Dark theme" },
-  ];
 
   const handleThemeChange = (newTheme: string) => {
     trigger([{ duration: 8 }], { intensity: 0.3 });
@@ -28,42 +63,49 @@ export function ThemeSwitcher() {
   };
 
   return (
-    <motion.div
+    <m.div
       aria-label="Theme selection"
       className="relative inline-flex h-8 items-center rounded-full bg-background-elevated/90 ring-1 ring-border backdrop-blur-xl"
       role="group"
     >
+      {indicator ? (
+        <m.div
+          animate={{ left: indicator.left, width: indicator.width }}
+          className="pointer-events-none absolute rounded-full border border-border-subtle bg-background-muted shadow-sm"
+          initial={false}
+          style={{ top: indicator.top, height: indicator.height }}
+          transition={{ type: "spring", duration: 0.5 }}
+        />
+      ) : null}
       {themes.map(({ key, icon: Icon, label }) => {
         const isActive = theme === key;
         return (
-          <motion.button
+          <m.button
             aria-label={`${label}${isActive ? ", currently selected" : ""}`}
             aria-pressed={isActive}
             className="relative mx-0.5 flex size-7 items-center justify-center rounded-full"
             key={key}
             onClick={() => handleThemeChange(key)}
+            ref={(el) => {
+              if (el) {
+                buttonsRef.current.set(key, el);
+              }
+            }}
             type="button"
             whileHover={{ scale: 1.15 }}
             whileTap={{ scale: 0.95 }}
           >
-            {isActive ? (
-              <motion.div
-                className="absolute inset-0 rounded-full border border-border-subtle bg-background-muted shadow-sm"
-                layoutId={"activeTheme"}
-                transition={{ type: "spring", duration: 0.5 }}
-              />
-            ) : null}
             <Icon
               aria-hidden="true"
               className="relative m-auto size-4 text-foreground-subtle"
             />
-          </motion.button>
+          </m.button>
         );
       })}
 
       <div aria-atomic="true" aria-live="polite" className="sr-only">
         Theme changed to {themes.find((t) => t.key === theme)?.label}
       </div>
-    </motion.div>
+    </m.div>
   );
 }

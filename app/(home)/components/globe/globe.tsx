@@ -1,6 +1,5 @@
 "use client";
 
-import { useSpring } from "@react-spring/web";
 import createGlobe, { type COBEOptions } from "cobe";
 import { useTheme } from "next-themes";
 import { useEffect, useRef } from "react";
@@ -13,6 +12,8 @@ interface GlobeProps {
   isPaused?: boolean;
 }
 
+const DRAG_LERP = 0.08;
+
 export function Globe({
   width,
   height,
@@ -24,18 +25,10 @@ export function Globe({
   const pointerInteracting = useRef<number | null>(null);
   const pointerInteractionMovement = useRef(0);
   const phiRef = useRef(-4);
+  const rRef = useRef(0);
+  const rTargetRef = useRef(0);
   const isPausedRef = useRef(isPaused);
   isPausedRef.current = isPaused;
-
-  const [{ r }, api] = useSpring(() => ({
-    r: 0,
-    config: {
-      mass: 1,
-      tension: 280,
-      friction: 40,
-      precision: 0.001,
-    },
-  }));
 
   const { resolvedTheme } = useTheme();
 
@@ -82,8 +75,10 @@ export function Globe({
           phiRef.current += 0.002;
         }
 
-        // Apply the rotation with spring offset
-        state.phi = phiRef.current + r.get();
+        // Ease current rotation offset toward drag target
+        rRef.current += (rTargetRef.current - rRef.current) * DRAG_LERP;
+
+        state.phi = phiRef.current + rRef.current;
         state.width = currentWidth * 2;
         state.height = height * 2;
       },
@@ -93,7 +88,7 @@ export function Globe({
       globe.destroy();
       window.removeEventListener("resize", onResize);
     };
-  }, [width, height, resolvedTheme, markers, r]);
+  }, [width, height, resolvedTheme, markers]);
 
   return (
     <canvas
@@ -103,9 +98,7 @@ export function Globe({
         if (pointerInteracting.current !== null) {
           const delta = e.clientX - pointerInteracting.current;
           pointerInteractionMovement.current = delta;
-          api.start({
-            r: delta / 200,
-          });
+          rTargetRef.current = delta / 200;
         }
       }}
       onPointerDown={(e) => {
@@ -131,9 +124,7 @@ export function Globe({
         if (pointerInteracting.current !== null && e.touches[0]) {
           const delta = e.touches[0].clientX - pointerInteracting.current;
           pointerInteractionMovement.current = delta;
-          api.start({
-            r: delta / 100,
-          });
+          rTargetRef.current = delta / 100;
         }
       }}
       ref={canvasRef}

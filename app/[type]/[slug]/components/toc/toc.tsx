@@ -4,7 +4,9 @@ import {
   ArrowCircleUpIcon,
   CaretDownIcon,
 } from "@phosphor-icons/react/dist/ssr";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence } from "motion/react";
+// biome-ignore lint/performance/noNamespaceImport: motion/react-m is meant to be namespace-imported so LazyMotion can tree-shake unused animation features
+import * as m from "motion/react-m";
 import { Link } from "@/components/link";
 import { useMediaQuery } from "@/hooks/use-media-query/use-media-query";
 import { cn } from "@/lib/utils";
@@ -101,7 +103,7 @@ export function TableOfContents() {
 
         <AnimatePresence>
           {showScrollTop ? (
-            <motion.div
+            <m.div
               animate={{ opacity: 1, y: 0 }}
               className="mt-2 px-3"
               exit={{ opacity: 0, y: 10 }}
@@ -120,7 +122,7 @@ export function TableOfContents() {
                 <span>Scroll to top</span>
                 <ArrowCircleUpIcon className="size-4.5" />
               </button>
-            </motion.div>
+            </m.div>
           ) : null}
         </AnimatePresence>
       </nav>
@@ -144,13 +146,13 @@ export function TableOfContents() {
         type="button"
       >
         <span>On this page</span>
-        <motion.div
+        <m.div
           animate={{ rotate: isCollapsed ? 0 : 180 }}
           aria-hidden="true"
           transition={{ duration: 0.2 }}
         >
           <CaretDownIcon className="size-4" />
-        </motion.div>
+        </m.div>
       </button>
       <span className="sr-only" id="toc-description">
         Toggle to {isCollapsed ? "show" : "hide"} table of contents with{" "}
@@ -159,7 +161,7 @@ export function TableOfContents() {
 
       <AnimatePresence initial={false}>
         {isCollapsed ? null : (
-          <motion.div
+          <m.div
             animate={{ height: "auto", opacity: 1 }}
             aria-label="Page sections - use arrow keys to navigate"
             className="overflow-hidden"
@@ -208,7 +210,7 @@ export function TableOfContents() {
                 ))}
               </ul>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </nav>

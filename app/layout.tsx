@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Archivo, Geist_Mono, IBM_Plex_Sans } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { BackgroundDecor } from "@/components/background-decor";
+import { LazyMotionProvider } from "@/components/lazy-motion-provider";
 import MousePositionVarsSetter from "@/components/mouse-position-setter";
 import { Navbar } from "@/components/navbar/navbar";
-// import { StarsBackground } from '@/components/stars-background';
 import { TopBar } from "@/components/top-bar/top-bar";
 import { BASE_URL } from "@/lib/constants";
 import { cn } from "@/lib/utils";
@@ -55,28 +55,29 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           disableTransitionOnChange
           scriptProps={{ "data-cfasync": "false" }}
         >
-          {/* <StarsBackground /> */}
-          <MousePositionVarsSetter />
-          <a
-            className={cn(
-              "sr-only rounded-md bg-mirai-red px-4! py-2! text-white",
-              "focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:ring-mirai-red"
-            )}
-            href="#main-content"
-          >
-            Skip to main content
-          </a>
-          <BackgroundDecor />
+          <LazyMotionProvider>
+            <MousePositionVarsSetter />
+            <a
+              className={cn(
+                "sr-only rounded-md bg-mirai-red px-4! py-2! text-white",
+                "focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:ring-mirai-red"
+              )}
+              href="#main-content"
+            >
+              Skip to main content
+            </a>
+            <BackgroundDecor />
 
-          <TopBar />
-          <Navbar />
+            <TopBar />
+            <Navbar />
 
-          <div
-            className="mx-auto max-w-7xl space-y-4 px-4 py-16 pt-24"
-            id="main-content"
-          >
-            {children}
-          </div>
+            <div
+              className="mx-auto max-w-7xl space-y-4 px-4 py-16 pt-24"
+              id="main-content"
+            >
+              {children}
+            </div>
+          </LazyMotionProvider>
         </ThemeProvider>
       </body>
     </html>
