@@ -4,23 +4,25 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: [process.env.ALLOWED_DEV_ORIGINS || "[]"],
-  poweredByHeader: false,
-  reactCompiler: true,
-  typedRoutes: true,
-  logging: {
-    browserToTerminal: true,
-  },
+  // Cloudflare's edge already gzip/brotli-compresses responses — skipping
+  // Next's in-worker compression saves per-request CPU on CF Workers.
+  compress: false,
   experimental: {
     typedEnv: true,
     viewTransition: true,
-    // inlineCss: true,
+    cssChunking: "strict",
+    optimizePackageImports: ["@phosphor-icons/react"],
     turbopackFileSystemCacheForBuild: true,
     turbopackServerSideNestedAsyncChunking: true,
-    optimizePackageImports: [
-      "@phosphor-icons/react",
-      "react-medium-image-zoom",
-      "cobe",
-    ],
+    // inlineCss: true,
+  },
+  // Cloudflare generates/validates etags at the edge — skipping Next's
+  // etag hashing saves per-request CPU on CF Workers.
+  generateEtags: false,
+  poweredByHeader: false,
+  reactCompiler: true,
+  logging: {
+    browserToTerminal: true,
   },
   images: {
     loader: "custom",
@@ -34,6 +36,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  typedRoutes: true,
 };
 
 export default withContentCollections(nextConfig);
