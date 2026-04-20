@@ -1,6 +1,6 @@
 ---
 title: gistda-sphere-react
-description: A React wrapper for the GISTDA Sphere Map API with full TypeScript support. Build interactive maps of Thailand using declarative components, hooks, and built-in overlays.
+description: React wrapper for the GISTDA Sphere Map API with full TypeScript support. Build interactive maps of Thailand using declarative components, hooks, and built-in overlays.
 startDate: 06-02-2026
 image: /project/gistda-sphere-react/cover.png
 ---
@@ -8,12 +8,12 @@ image: /project/gistda-sphere-react/cover.png
 **[Documentation](https://gistda-sphere-react.dulapahv.dev/docs)** | **[Playground](https://gistda-sphere-react.dulapahv.dev/playground)** | **[GitHub](https://github.com/dulapahv/gistda-sphere-react)** | **[npm](https://www.npmjs.com/package/gistda-sphere-react)**
 
 > [!NOTE]
-> This is an **unofficial** community project. It's not affiliated with, endorsed by, or supported by Geo-Informatics and Space Technology Development Agency (GISTDA). For official docs and support, see [sphere.gistda.or.th](https://sphere.gistda.or.th/).
+> This is an **unofficial** community project and is not affiliated with, endorsed by, or supported by Geo-Informatics and Space Technology Development Agency (GISTDA). For official documentation and support, please visit [sphere.gistda.or.th](https://sphere.gistda.or.th/).
 
 <br />
 
 > [!WARNING]
-> The project is still under active development, so APIs may change between releases.
+> This project is currently under active development. APIs may change between releases.
 
 `gistda-sphere-react` is a React wrapper around the [GISTDA Sphere Map API](https://sphere.gistda.or.th/), the mapping platform run by Thailand's Geo-Informatics and Space Technology Development Agency (GISTDA). It lets you use Sphere's Thailand-focused map data (traffic, PM2.5, hotspots, flood, drought, satellite imagery, live CCTV, and so on) from a React app, with real components, hooks, and TypeScript types.
 
@@ -31,7 +31,7 @@ For a platform that ships this much Thailand-specific data, that felt like a lot
 npm install gistda-sphere-react
 ```
 
-```tsx
+```tsx showLineNumbers title="src/App.tsx"
 import { SphereProvider, SphereMap, Marker } from 'gistda-sphere-react';
 
 function App() {
