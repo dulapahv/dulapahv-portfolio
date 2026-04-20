@@ -122,11 +122,6 @@ export function ProjectsCard({ projects }: ProjectsCardProps) {
         </p>
         <time className="mt-2 block text-foreground-muted text-xs">
           {currentProject.formattedStartDate}—{currentProject.formattedEndDate}
-          {currentProject.isOngoing ? (
-            <span className="ml-2 inline-block rounded-full bg-mirai-red/10 px-2 py-0.5 font-medium text-[10px] text-mirai-red uppercase">
-              Ongoing
-            </span>
-          ) : null}
         </time>
       </Link>
 

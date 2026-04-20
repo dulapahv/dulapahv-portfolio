@@ -1079,11 +1079,6 @@ exports[`Home Page > should match snapshot 1`] = `
               Jan 2024
               —
               Present
-              <span
-                class="ml-2 inline-block rounded-full bg-mirai-red/10 px-2 py-0.5 font-medium text-[10px] text-mirai-red uppercase"
-              >
-                Ongoing
-              </span>
             </time>
           </a>
         </div>

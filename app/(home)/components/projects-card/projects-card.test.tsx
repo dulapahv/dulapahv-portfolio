@@ -100,12 +100,6 @@ describe("ProjectsCard", () => {
     expect(screen.getByText("Test Project 2")).toBeInTheDocument();
   });
 
-  it("should show ongoing badge for ongoing projects", () => {
-    render(<ProjectsCard projects={mockProjects} />);
-
-    expect(screen.getByText("Ongoing")).toBeInTheDocument();
-  });
-
   it("should have link to view all projects", () => {
     render(<ProjectsCard projects={mockProjects} />);
 
