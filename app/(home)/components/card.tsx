@@ -33,16 +33,8 @@ export function Card({
     >
       <div
         className={cn(
-          `${RELATIVE_MOUSE_CLASSNAME} pointer-events-none absolute inset-0 rounded-xl transition-opacity duration-500`
+          `${RELATIVE_MOUSE_CLASSNAME} mask-[radial-gradient(50%_50%_at_var(--mouse-x,9999px)_var(--mouse-y,9999px),rgba(0,0,0,0.5)_40%,transparent)] pointer-events-none absolute inset-0 rounded-xl bg-linear-to-br from-mirai-red via-mirai-blue to-mirai-yellow transition-opacity duration-500`
         )}
-        style={{
-          background:
-            "linear-gradient(to bottom right, var(--color-mirai-red), var(--color-mirai-blue), var(--color-mirai-yellow))",
-          maskImage:
-            "radial-gradient(50% 50% at var(--mouse-x, 9999px) var(--mouse-y, 9999px), rgba(0, 0, 0, 0.5) 40%, transparent)",
-          WebkitMaskImage:
-            "radial-gradient(50% 50% at var(--mouse-x, 9999px) var(--mouse-y, 9999px), rgba(0, 0, 0, 0.5) 40%, transparent)",
-        }}
       />
       <div
         className={cn(

@@ -488,8 +488,7 @@ exports[`Home Page > should match snapshot 1`] = `
         class="relative rounded-xl bg-border p-px h-full"
       >
         <div
-          class="relative-mouse pointer-events-none absolute inset-0 rounded-xl transition-opacity duration-500"
-          style="background: linear-gradient(to bottom right, var(--color-mirai-red), var(--color-mirai-blue), var(--color-mirai-yellow)); mask-image: radial-gradient(50% 50% at var(--mouse-x, 9999px) var(--mouse-y, 9999px), rgba(0, 0, 0, 0.5) 40%, transparent);"
+          class="relative-mouse mask-[radial-gradient(50%_50%_at_var(--mouse-x,9999px)_var(--mouse-y,9999px),rgba(0,0,0,0.5)_40%,transparent)] pointer-events-none absolute inset-0 rounded-xl bg-linear-to-br from-mirai-red via-mirai-blue to-mirai-yellow transition-opacity duration-500"
         />
         <div
           class="card relative z-1 flex h-full flex-col rounded-xl bg-background-elevated p-4"
@@ -644,8 +643,7 @@ exports[`Home Page > should match snapshot 1`] = `
         class="relative h-full rounded-xl bg-border p-px"
       >
         <div
-          class="relative-mouse pointer-events-none absolute inset-0 rounded-xl transition-opacity duration-500"
-          style="background: linear-gradient(to bottom right, var(--color-mirai-red), var(--color-mirai-blue), var(--color-mirai-yellow)); mask-image: radial-gradient(50% 50% at var(--mouse-x, 9999px) var(--mouse-y, 9999px), rgba(0, 0, 0, 0.5) 40%, transparent);"
+          class="relative-mouse mask-[radial-gradient(50%_50%_at_var(--mouse-x,9999px)_var(--mouse-y,9999px),rgba(0,0,0,0.5)_40%,transparent)] pointer-events-none absolute inset-0 rounded-xl bg-linear-to-br from-mirai-red via-mirai-blue to-mirai-yellow transition-opacity duration-500"
         />
         <div
           class="card relative z-1 flex h-full flex-col rounded-xl bg-background-elevated p-5"
@@ -684,8 +682,7 @@ exports[`Home Page > should match snapshot 1`] = `
           >
             <div
               aria-hidden="true"
-              class="absolute top-0 left-0 h-full w-px opacity-20"
-              style="background-image: repeating-linear-gradient(to bottom, var(--color-foreground) 0, var(--color-foreground) 4px, transparent 4px, transparent 8px); mask-image: linear-gradient(to bottom, black 75%, transparent 100%);"
+              class="mask-b-from-75% mask-b-to-100% absolute top-0 left-0 h-full w-px bg-[repeating-linear-gradient(to_bottom,var(--color-foreground)_0,var(--color-foreground)_4px,transparent_4px,transparent_8px)] opacity-20"
             />
             <ul
               class="flex h-full flex-1 flex-col text-sm"
@@ -848,8 +845,7 @@ exports[`Home Page > should match snapshot 1`] = `
           class="relative rounded-xl bg-border p-px h-full"
         >
           <div
-            class="relative-mouse pointer-events-none absolute inset-0 rounded-xl transition-opacity duration-500"
-            style="background: linear-gradient(to bottom right, var(--color-mirai-red), var(--color-mirai-blue), var(--color-mirai-yellow)); mask-image: radial-gradient(50% 50% at var(--mouse-x, 9999px) var(--mouse-y, 9999px), rgba(0, 0, 0, 0.5) 40%, transparent);"
+            class="relative-mouse mask-[radial-gradient(50%_50%_at_var(--mouse-x,9999px)_var(--mouse-y,9999px),rgba(0,0,0,0.5)_40%,transparent)] pointer-events-none absolute inset-0 rounded-xl bg-linear-to-br from-mirai-red via-mirai-blue to-mirai-yellow transition-opacity duration-500"
           />
           <div
             class="card relative z-1 rounded-xl bg-background-elevated flex h-full flex-col overflow-hidden p-5"
@@ -954,8 +950,7 @@ exports[`Home Page > should match snapshot 1`] = `
         class="relative h-full rounded-xl bg-border p-px"
       >
         <div
-          class="relative-mouse pointer-events-none absolute inset-0 rounded-xl transition-opacity duration-500"
-          style="background: linear-gradient(to bottom right, var(--color-mirai-red), var(--color-mirai-blue), var(--color-mirai-yellow)); mask-image: radial-gradient(50% 50% at var(--mouse-x, 9999px) var(--mouse-y, 9999px), rgba(0, 0, 0, 0.5) 40%, transparent);"
+          class="relative-mouse mask-[radial-gradient(50%_50%_at_var(--mouse-x,9999px)_var(--mouse-y,9999px),rgba(0,0,0,0.5)_40%,transparent)] pointer-events-none absolute inset-0 rounded-xl bg-linear-to-br from-mirai-red via-mirai-blue to-mirai-yellow transition-opacity duration-500"
         />
         <div
           class="card relative z-1 flex h-full flex-col rounded-xl bg-background-elevated p-5"
@@ -1002,8 +997,7 @@ exports[`Home Page > should match snapshot 1`] = `
         class="relative h-full rounded-xl bg-border p-px"
       >
         <div
-          class="relative-mouse pointer-events-none absolute inset-0 rounded-xl transition-opacity duration-500"
-          style="background: linear-gradient(to bottom right, var(--color-mirai-red), var(--color-mirai-blue), var(--color-mirai-yellow)); mask-image: radial-gradient(50% 50% at var(--mouse-x, 9999px) var(--mouse-y, 9999px), rgba(0, 0, 0, 0.5) 40%, transparent);"
+          class="relative-mouse mask-[radial-gradient(50%_50%_at_var(--mouse-x,9999px)_var(--mouse-y,9999px),rgba(0,0,0,0.5)_40%,transparent)] pointer-events-none absolute inset-0 rounded-xl bg-linear-to-br from-mirai-red via-mirai-blue to-mirai-yellow transition-opacity duration-500"
         />
         <div
           class="card relative z-1 flex h-full flex-col rounded-xl bg-background-elevated p-5"
@@ -1093,8 +1087,7 @@ exports[`Home Page > should match snapshot 1`] = `
         class="relative h-full rounded-xl bg-border p-px min-h-48"
       >
         <div
-          class="relative-mouse pointer-events-none absolute inset-0 rounded-xl transition-opacity duration-500"
-          style="background: linear-gradient(to bottom right, var(--color-mirai-red), var(--color-mirai-blue), var(--color-mirai-yellow)); mask-image: radial-gradient(50% 50% at var(--mouse-x, 9999px) var(--mouse-y, 9999px), rgba(0, 0, 0, 0.5) 40%, transparent);"
+          class="relative-mouse mask-[radial-gradient(50%_50%_at_var(--mouse-x,9999px)_var(--mouse-y,9999px),rgba(0,0,0,0.5)_40%,transparent)] pointer-events-none absolute inset-0 rounded-xl bg-linear-to-br from-mirai-red via-mirai-blue to-mirai-yellow transition-opacity duration-500"
         />
         <div
           class="card z-1 flex h-full flex-col rounded-xl bg-background-elevated relative overflow-hidden"
@@ -1110,8 +1103,7 @@ exports[`Home Page > should match snapshot 1`] = `
         class="relative h-full rounded-xl bg-border p-px min-h-96"
       >
         <div
-          class="relative-mouse pointer-events-none absolute inset-0 rounded-xl transition-opacity duration-500"
-          style="background: linear-gradient(to bottom right, var(--color-mirai-red), var(--color-mirai-blue), var(--color-mirai-yellow)); mask-image: radial-gradient(50% 50% at var(--mouse-x, 9999px) var(--mouse-y, 9999px), rgba(0, 0, 0, 0.5) 40%, transparent);"
+          class="relative-mouse mask-[radial-gradient(50%_50%_at_var(--mouse-x,9999px)_var(--mouse-y,9999px),rgba(0,0,0,0.5)_40%,transparent)] pointer-events-none absolute inset-0 rounded-xl bg-linear-to-br from-mirai-red via-mirai-blue to-mirai-yellow transition-opacity duration-500"
         />
         <div
           class="card z-1 flex h-full flex-col rounded-xl bg-background-elevated relative overflow-hidden"
@@ -1127,8 +1119,7 @@ exports[`Home Page > should match snapshot 1`] = `
         class="relative h-full rounded-xl bg-border p-px"
       >
         <div
-          class="relative-mouse pointer-events-none absolute inset-0 rounded-xl transition-opacity duration-500"
-          style="background: linear-gradient(to bottom right, var(--color-mirai-red), var(--color-mirai-blue), var(--color-mirai-yellow)); mask-image: radial-gradient(50% 50% at var(--mouse-x, 9999px) var(--mouse-y, 9999px), rgba(0, 0, 0, 0.5) 40%, transparent);"
+          class="relative-mouse mask-[radial-gradient(50%_50%_at_var(--mouse-x,9999px)_var(--mouse-y,9999px),rgba(0,0,0,0.5)_40%,transparent)] pointer-events-none absolute inset-0 rounded-xl bg-linear-to-br from-mirai-red via-mirai-blue to-mirai-yellow transition-opacity duration-500"
         />
         <div
           class="card relative z-1 flex h-full flex-col rounded-xl bg-background-elevated p-5"
@@ -1180,8 +1171,7 @@ exports[`Home Page > should match snapshot 1`] = `
         class="relative h-full rounded-xl bg-border p-px"
       >
         <div
-          class="relative-mouse pointer-events-none absolute inset-0 rounded-xl transition-opacity duration-500"
-          style="background: linear-gradient(to bottom right, var(--color-mirai-red), var(--color-mirai-blue), var(--color-mirai-yellow)); mask-image: radial-gradient(50% 50% at var(--mouse-x, 9999px) var(--mouse-y, 9999px), rgba(0, 0, 0, 0.5) 40%, transparent);"
+          class="relative-mouse mask-[radial-gradient(50%_50%_at_var(--mouse-x,9999px)_var(--mouse-y,9999px),rgba(0,0,0,0.5)_40%,transparent)] pointer-events-none absolute inset-0 rounded-xl bg-linear-to-br from-mirai-red via-mirai-blue to-mirai-yellow transition-opacity duration-500"
         />
         <div
           class="card relative z-1 flex h-full flex-col rounded-xl bg-background-elevated p-5"
@@ -1488,8 +1478,7 @@ exports[`Home Page > should match snapshot 1`] = `
         class="relative h-full rounded-xl bg-border p-px min-h-96"
       >
         <div
-          class="relative-mouse pointer-events-none absolute inset-0 rounded-xl transition-opacity duration-500"
-          style="background: linear-gradient(to bottom right, var(--color-mirai-red), var(--color-mirai-blue), var(--color-mirai-yellow)); mask-image: radial-gradient(50% 50% at var(--mouse-x, 9999px) var(--mouse-y, 9999px), rgba(0, 0, 0, 0.5) 40%, transparent);"
+          class="relative-mouse mask-[radial-gradient(50%_50%_at_var(--mouse-x,9999px)_var(--mouse-y,9999px),rgba(0,0,0,0.5)_40%,transparent)] pointer-events-none absolute inset-0 rounded-xl bg-linear-to-br from-mirai-red via-mirai-blue to-mirai-yellow transition-opacity duration-500"
         />
         <div
           class="card z-1 flex h-full flex-col rounded-xl bg-background-elevated relative overflow-hidden"
@@ -1505,8 +1494,7 @@ exports[`Home Page > should match snapshot 1`] = `
         class="relative rounded-xl bg-border p-px h-fit"
       >
         <div
-          class="relative-mouse pointer-events-none absolute inset-0 rounded-xl transition-opacity duration-500"
-          style="background: linear-gradient(to bottom right, var(--color-mirai-red), var(--color-mirai-blue), var(--color-mirai-yellow)); mask-image: radial-gradient(50% 50% at var(--mouse-x, 9999px) var(--mouse-y, 9999px), rgba(0, 0, 0, 0.5) 40%, transparent);"
+          class="relative-mouse mask-[radial-gradient(50%_50%_at_var(--mouse-x,9999px)_var(--mouse-y,9999px),rgba(0,0,0,0.5)_40%,transparent)] pointer-events-none absolute inset-0 rounded-xl bg-linear-to-br from-mirai-red via-mirai-blue to-mirai-yellow transition-opacity duration-500"
         />
         <div
           class="card relative z-1 h-full rounded-xl bg-background-elevated flex flex-col p-5"

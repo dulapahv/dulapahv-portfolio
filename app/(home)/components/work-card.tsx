@@ -60,15 +60,7 @@ export function WorkCard() {
       <div className="relative flex h-full flex-col">
         <div
           aria-hidden="true"
-          className="absolute top-0 left-0 h-full w-px opacity-20"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(to bottom, var(--color-foreground) 0, var(--color-foreground) 4px, transparent 4px, transparent 8px)",
-            maskImage:
-              "linear-gradient(to bottom, black 75%, transparent 100%)",
-            WebkitMaskImage:
-              "linear-gradient(to bottom, black 75%, transparent 100%)",
-          }}
+          className="mask-b-from-75% mask-b-to-100% absolute top-0 left-0 h-full w-px bg-[repeating-linear-gradient(to_bottom,var(--color-foreground)_0,var(--color-foreground)_4px,transparent_4px,transparent_8px)] opacity-20"
         />
 
         <ul className="flex h-full flex-1 flex-col text-sm">
