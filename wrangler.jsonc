@@ -49,12 +49,10 @@
     "enabled": true,
     "logs": {
       "enabled": true,
-      "invocation_logs": true,
-      "destinations": ["grafana-logs"]
+      "invocation_logs": true
     },
     "traces": {
-      "enabled": true,
-      "destinations": ["grafana-traces"]
+      "enabled": true
     }
   }
 }
