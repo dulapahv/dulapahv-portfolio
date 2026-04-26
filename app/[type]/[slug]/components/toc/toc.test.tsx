@@ -1,7 +1,8 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import type { FragmentProps, HTMLProps } from "react";
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { useMediaQuery } from "@/hooks/use-media-query/use-media-query";
+import type { TocItem } from "@/lib/content-utils/content-utils";
 import { TableOfContents } from "./toc";
 
 const TABLE_OF_CONTENTS_REGEX = /table of contents/i;
@@ -11,6 +12,12 @@ const HEADING_3_REGEX = /heading 3/i;
 const LEVEL_2_REGEX = /level 2/i;
 const LEVEL_3_REGEX = /level 3/i;
 const QUOTES_AND_SYMBOLS_REGEX = /['"!@#$%^&*()]/g;
+
+const defaultItems: TocItem[] = [
+  { id: "heading-1", text: "Heading 1", level: 2 },
+  { id: "heading-2", text: "Heading 2", level: 3 },
+  { id: "heading-3", text: "Heading 3", level: 2 },
+];
 
 vi.mock("@/hooks/use-media-query/use-media-query", () => ({
   useMediaQuery: vi.fn(),
@@ -37,15 +44,10 @@ vi.mock("motion/react", () => ({
 
 describe("TableOfContents", () => {
   let intersectionCallback: IntersectionObserverCallback;
-  let mutationCallback: MutationCallback;
   /* eslint-disable  @typescript-eslint/no-explicit-any */
   let observeIntersection: any;
   /* eslint-disable  @typescript-eslint/no-explicit-any */
   let disconnectIntersection: any;
-  /* eslint-disable  @typescript-eslint/no-explicit-any */
-  let observeMutation: any;
-  /* eslint-disable  @typescript-eslint/no-explicit-any */
-  let disconnectMutation: any;
 
   beforeEach(() => {
     vi.clearAllMocks();
@@ -69,21 +71,6 @@ describe("TableOfContents", () => {
       /* eslint-disable  @typescript-eslint/no-explicit-any */
     } as any;
 
-    // Mock MutationObserver
-    mutationCallback = vi.fn();
-    observeMutation = vi.fn();
-    disconnectMutation = vi.fn();
-
-    global.MutationObserver = class {
-      constructor(callback: MutationCallback) {
-        mutationCallback = callback;
-      }
-      observe = observeMutation;
-      disconnect = disconnectMutation;
-      takeRecords = () => [];
-      /* eslint-disable  @typescript-eslint/no-explicit-any */
-    } as any;
-
     // Mock media query - default to desktop view
     vi.mocked(useMediaQuery).mockImplementation((query: string) => {
       if (query === "(min-width: 1350px)") {
@@ -92,7 +79,7 @@ describe("TableOfContents", () => {
       return false;
     });
 
-    // Setup document with headings
+    // Setup document with headings (referenced by id from items)
     document.body.innerHTML = `
       <article>
         <h2 id="heading-1">Heading 1</h2>
@@ -108,7 +95,7 @@ describe("TableOfContents", () => {
 
   describe("Rendering - Desktop View", () => {
     it("should render table of contents navigation", () => {
-      render(<TableOfContents />);
+      render(<TableOfContents tocItems={defaultItems} />);
       const nav = screen.getByRole("navigation", {
         name: TABLE_OF_CONTENTS_REGEX,
       });
@@ -116,7 +103,7 @@ describe("TableOfContents", () => {
     });
 
     it('should render "On this page" heading', async () => {
-      const { container } = render(<TableOfContents />);
+      const { container } = render(<TableOfContents tocItems={defaultItems} />);
 
       await waitFor(() => {
         const heading = container.querySelector("h2");
@@ -124,8 +111,8 @@ describe("TableOfContents", () => {
       });
     });
 
-    it("should render all headings from the document", async () => {
-      render(<TableOfContents />);
+    it("should render all headings from the items prop", async () => {
+      render(<TableOfContents tocItems={defaultItems} />);
 
       await waitFor(() => {
         expect(
@@ -141,7 +128,7 @@ describe("TableOfContents", () => {
     });
 
     it("should have correct href for each heading", async () => {
-      render(<TableOfContents />);
+      render(<TableOfContents tocItems={defaultItems} />);
 
       await waitFor(() => {
         expect(
@@ -157,7 +144,7 @@ describe("TableOfContents", () => {
     });
 
     it("should mark the first heading as active initially", async () => {
-      render(<TableOfContents />);
+      render(<TableOfContents tocItems={defaultItems} />);
 
       await waitFor(() => {
         const firstLink = screen.getByRole("link", { name: HEADING_1_REGEX });
@@ -177,7 +164,7 @@ describe("TableOfContents", () => {
     });
 
     it("should render toggle button", async () => {
-      render(<TableOfContents />);
+      render(<TableOfContents tocItems={defaultItems} />);
 
       await waitFor(() => {
         const button = screen.getByRole("button");
@@ -187,7 +174,7 @@ describe("TableOfContents", () => {
     });
 
     it("should start collapsed", async () => {
-      render(<TableOfContents />);
+      render(<TableOfContents tocItems={defaultItems} />);
 
       await waitFor(() => {
         const nav = screen.getByRole("navigation");
@@ -196,7 +183,7 @@ describe("TableOfContents", () => {
     });
 
     it("should expand when clicking toggle button", async () => {
-      render(<TableOfContents />);
+      render(<TableOfContents tocItems={defaultItems} />);
 
       await waitFor(() => {
         const button = screen.getByRole("button");
@@ -212,7 +199,7 @@ describe("TableOfContents", () => {
 
   describe("Active heading tracking", () => {
     it("should have intersection observer callback defined", async () => {
-      render(<TableOfContents />);
+      render(<TableOfContents tocItems={defaultItems} />);
 
       await waitFor(() => {
         expect(
@@ -227,12 +214,12 @@ describe("TableOfContents", () => {
 
   describe("IntersectionObserver", () => {
     it("should create IntersectionObserver", () => {
-      render(<TableOfContents />);
+      render(<TableOfContents tocItems={defaultItems} />);
       expect(intersectionCallback).toBeDefined();
     });
 
     it("should observe headings", async () => {
-      render(<TableOfContents />);
+      render(<TableOfContents tocItems={defaultItems} />);
 
       await waitFor(() => {
         expect(observeIntersection).toHaveBeenCalled();
@@ -240,43 +227,22 @@ describe("TableOfContents", () => {
     });
 
     it("should disconnect observer on unmount", () => {
-      const { unmount } = render(<TableOfContents />);
+      const { unmount } = render(<TableOfContents tocItems={defaultItems} />);
       unmount();
       expect(disconnectIntersection).toHaveBeenCalled();
     });
   });
 
-  describe("MutationObserver", () => {
-    it("should create MutationObserver", () => {
-      render(<TableOfContents />);
-      expect(mutationCallback).toBeDefined();
-    });
-
-    it("should observe article element for mutations", async () => {
-      render(<TableOfContents />);
-
-      await waitFor(() => {
-        expect(observeMutation).toHaveBeenCalled();
-      });
-    });
-
-    it("should disconnect mutation observer on unmount", () => {
-      const { unmount } = render(<TableOfContents />);
-      unmount();
-      expect(disconnectMutation).toHaveBeenCalled();
-    });
-  });
-
   describe("Accessibility", () => {
     it("should have aria-label for navigation", () => {
-      render(<TableOfContents />);
+      render(<TableOfContents tocItems={defaultItems} />);
 
       const nav = screen.getByRole("navigation");
       expect(nav).toHaveAttribute("aria-label", "Table of contents");
     });
 
     it("should have aria-current on active link", async () => {
-      render(<TableOfContents />);
+      render(<TableOfContents tocItems={defaultItems} />);
 
       await waitFor(() => {
         const activeLink = screen.getByRole("link", { name: HEADING_1_REGEX });
@@ -285,7 +251,7 @@ describe("TableOfContents", () => {
     });
 
     it("should have screen reader instructions for desktop view", async () => {
-      const { container } = render(<TableOfContents />);
+      const { container } = render(<TableOfContents tocItems={defaultItems} />);
 
       await waitFor(() => {
         const fieldset = container.querySelector("fieldset");
@@ -296,14 +262,12 @@ describe("TableOfContents", () => {
 
   describe("Heading levels", () => {
     it("should render nested headings with proper indentation", async () => {
-      document.body.innerHTML = `
-        <article>
-          <h2 id="h2-1">Level 2</h2>
-          <h3 id="h3-1">Level 3</h3>
-        </article>
-      `;
+      const items: TocItem[] = [
+        { id: "h2-1", text: "Level 2", level: 2 },
+        { id: "h3-1", text: "Level 3", level: 3 },
+      ];
 
-      render(<TableOfContents />);
+      render(<TableOfContents tocItems={items} />);
 
       await waitFor(() => {
         expect(
@@ -316,13 +280,15 @@ describe("TableOfContents", () => {
     });
 
     it("should handle headings with special characters", async () => {
-      document.body.innerHTML = `
-        <article>
-          <h2 id="special-chars">Heading with "quotes" & symbols</h2>
-        </article>
-      `;
+      const items: TocItem[] = [
+        {
+          id: "special-chars",
+          text: 'Heading with "quotes" & symbols',
+          level: 2,
+        },
+      ];
 
-      render(<TableOfContents />);
+      render(<TableOfContents tocItems={items} />);
 
       await waitFor(() => {
         const link = screen.getByRole("link", {
@@ -333,26 +299,11 @@ describe("TableOfContents", () => {
     });
   });
 
-  describe("Dynamic content updates", () => {
-    it("should have mutation observer set up to detect changes", async () => {
-      render(<TableOfContents />);
-
-      await waitFor(() => {
-        expect(screen.getAllByRole("link")).toHaveLength(3);
-      });
-
-      // Mutation observer should be observing the article element
-      expect(observeMutation).toHaveBeenCalled();
-      expect(mutationCallback).toBeDefined();
-    });
-  });
-
   describe("Empty state", () => {
-    it("should return null when document has no headings", () => {
-      document.body.innerHTML = "<article></article>";
-      render(<TableOfContents />);
+    it("should return null when no items are provided", () => {
+      render(<TableOfContents tocItems={[]} />);
 
-      // Component returns null when there are no headings
+      // Component returns null when items is empty
       const nav = screen.queryByRole("navigation");
       expect(nav).toBeNull();
     });
@@ -360,7 +311,7 @@ describe("TableOfContents", () => {
 
   describe("Snapshot", () => {
     it("should match snapshot - desktop view", async () => {
-      const { container } = render(<TableOfContents />);
+      const { container } = render(<TableOfContents tocItems={defaultItems} />);
 
       await waitFor(() => {
         expect(screen.getAllByRole("link").length).toBeGreaterThan(0);
@@ -377,7 +328,7 @@ describe("TableOfContents", () => {
         return false;
       });
 
-      const { container } = render(<TableOfContents />);
+      const { container } = render(<TableOfContents tocItems={defaultItems} />);
 
       await waitFor(() => {
         const button = screen.getByRole("button");

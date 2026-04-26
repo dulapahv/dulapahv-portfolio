@@ -10,6 +10,12 @@ interface Meta {
 }
 type MdxBody = string;
 
+export interface TocItem {
+  id: string;
+  text: string;
+  level: number;
+}
+
 // content-collections doesn't correctly infer transform output types, so we
 // declare the shape explicitly here. The `kind` field is added by each
 // transform in content-collections.ts and discriminates the union.
@@ -25,6 +31,7 @@ export interface Project {
   content: string;
   slug: string;
   readingTime: string;
+  tocItems: TocItem[];
   isOngoing: boolean;
   sortDate: Date;
   formattedStartDate: string;
@@ -43,6 +50,7 @@ export interface Blog {
   content: string;
   slug: string;
   readingTime: string;
+  tocItems: TocItem[];
   formattedDate: string;
 }
 

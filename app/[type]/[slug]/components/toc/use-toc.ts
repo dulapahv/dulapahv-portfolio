@@ -3,19 +3,12 @@
 import type { KeyboardEvent, MouseEvent } from "react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useWebHaptics } from "web-haptics/react";
+import type { TocItem as ContentTocItem } from "@/lib/content-utils/content-utils";
 
-interface TOCItem {
-  id: string;
-  text: string;
-  level: number;
-}
+export type TOCItem = ContentTocItem;
 
-export type { TOCItem };
-
-export function useToc() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [tocItems, setTocItems] = useState<TOCItem[]>([]);
-  const [activeId, setActiveId] = useState("");
+export function useToc(tocItems: TOCItem[]) {
+  const [activeId, setActiveId] = useState(() => tocItems[0]?.id ?? "");
   const [lockActiveId, setLockActiveId] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(true);
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -33,60 +26,16 @@ export function useToc() {
   }, []);
 
   useEffect(() => {
-    const updateTOC = () => {
-      const headings = Array.from(document.querySelectorAll("h2[id], h3[id]"));
-      const newTocItems = headings.map((el) => ({
-        id: el.id,
-        text: el.textContent || "",
-        level: Number.parseInt(el.tagName[1], 10),
-      }));
-      setTocItems(newTocItems);
-      setIsLoading(false);
-
-      linksRef.current = new Array(newTocItems.length).fill(null);
-
-      setActiveId((currentActiveId) => {
-        if (currentActiveId === "" && newTocItems.length > 0) {
-          const hash = window.location.hash.replace("#", "");
-          if (hash && newTocItems.some((item) => item.id === hash)) {
-            return hash;
-          }
-          return newTocItems[0].id;
-        }
-        return currentActiveId;
-      });
-    };
-
-    updateTOC();
-
-    const mdxContainer = document.querySelector("article");
-    if (!mdxContainer) {
+    if (tocItems.length === 0) {
       return;
     }
 
-    const observer = new MutationObserver((mutations) => {
-      // Only update TOC for structural changes, not button state changes
-      const isButtonChange = mutations.some((mutation) => {
-        const target = mutation.target as HTMLElement;
-        return (
-          target.closest("button") ||
-          (mutation.type === "attributes" &&
-            mutation.attributeName === "disabled") ||
-          (mutation.type === "childList" && target.querySelector("svg"))
-        );
-      });
+    linksRef.current = new Array(tocItems.length).fill(null);
 
-      if (!isButtonChange) {
-        updateTOC();
-      }
-    });
-
-    observer.observe(mdxContainer, {
-      childList: true,
-      subtree: true,
-      attributes: true,
-      attributeFilter: ["disabled"],
-    });
+    const hash = window.location.hash.replace("#", "");
+    if (hash && tocItems.some((item) => item.id === hash)) {
+      setActiveId(hash);
+    }
 
     const sectionObserver = new IntersectionObserver(
       (entries) => {
@@ -100,8 +49,11 @@ export function useToc() {
       { rootMargin: "0px 0px -80% 0px", threshold: 1 }
     );
 
-    const headings = Array.from(document.querySelectorAll("h2[id], h3[id]"));
-    for (const heading of headings) {
+    for (const item of tocItems) {
+      const heading = document.getElementById(item.id);
+      if (!heading) {
+        continue;
+      }
       if (!heading.hasAttribute("tabindex")) {
         heading.setAttribute("tabindex", "-1");
       }
@@ -109,10 +61,9 @@ export function useToc() {
     }
 
     return () => {
-      observer.disconnect();
       sectionObserver.disconnect();
     };
-  }, [lockActiveId]);
+  }, [lockActiveId, tocItems]);
 
   const scrollToElement = useCallback((id: string) => {
     const element = document.getElementById(id);
@@ -187,8 +138,6 @@ export function useToc() {
   }, [trigger]);
 
   return {
-    isLoading,
-    tocItems,
     activeId,
     showScrollTop,
     isCollapsed,

@@ -13,6 +13,9 @@ import {
   transformerRenderIndentGuides,
   transformerStyleToClass,
 } from "@shikijs/transformers";
+import GithubSlugger from "github-slugger";
+import { fromMarkdown } from "mdast-util-from-markdown";
+import { toString as mdastToString } from "mdast-util-to-string";
 import readingTime from "reading-time";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import { rehypeGithubAlerts } from "rehype-github-alerts";
@@ -24,6 +27,39 @@ import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 
 import { notificationTypes } from "@/lib/admonitions/admonitions";
+
+// biome-ignore lint/style/useConsistentTypeDefinitions: content-collections' serializability check requires a type alias, not an interface
+type TocItem = {
+  id: string;
+  text: string;
+  level: number;
+};
+
+// TOC is extracted from the raw markdown source via mdast rather than from
+// the compiled body, because content-collections caches `compileMDX` output
+// and rehype plugins don't re-run on cache hits.
+const extractTocFromMarkdown = (content: string): TocItem[] => {
+  const tree = fromMarkdown(content);
+  const slugger = new GithubSlugger();
+  const items: TocItem[] = [];
+
+  for (const node of tree.children) {
+    if (node.type !== "heading" || (node.depth !== 2 && node.depth !== 3)) {
+      continue;
+    }
+    const text = mdastToString(node).trim();
+    if (!text) {
+      continue;
+    }
+    items.push({
+      id: slugger.slug(text),
+      text,
+      level: node.depth,
+    });
+  }
+
+  return items;
+};
 
 const DATE_FORMAT_REGEX = /^\d{2}-\d{2}-\d{4}$/;
 
@@ -99,6 +135,7 @@ const baseTransform = async (
     body,
     slug: page._meta.path,
     readingTime: readingTime(page.content).text,
+    tocItems: extractTocFromMarkdown(page.content),
   };
 };
 

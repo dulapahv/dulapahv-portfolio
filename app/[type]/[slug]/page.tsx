@@ -160,7 +160,7 @@ export default async function ContentPage({
             />
           </header>
 
-          <TableOfContents />
+          <TableOfContents tocItems={page.tocItems} />
 
           {page.image ? (
             <figure

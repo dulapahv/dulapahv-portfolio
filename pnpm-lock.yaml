@@ -111,6 +111,9 @@ importers:
       babel-plugin-react-compiler:
         specifier: ^1.0.0
         version: 1.0.0
+      github-slugger:
+        specifier: ^2.0.0
+        version: 2.0.0
       husky:
         specifier: ^9.1.7
         version: 9.1.7
@@ -120,6 +123,12 @@ importers:
       lint-staged:
         specifier: ^16.4.0
         version: 16.4.0
+      mdast-util-from-markdown:
+        specifier: ^2.0.3
+        version: 2.0.3
+      mdast-util-to-string:
+        specifier: ^4.0.0
+        version: 4.0.0
       reading-time:
         specifier: ^1.5.0
         version: 1.5.0

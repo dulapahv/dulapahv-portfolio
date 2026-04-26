@@ -9,13 +9,16 @@ import { AnimatePresence } from "motion/react";
 import * as m from "motion/react-m";
 import { Link } from "@/components/link";
 import { useMediaQuery } from "@/hooks/use-media-query/use-media-query";
+import type { TocItem } from "@/lib/content-utils/content-utils";
 import { cn } from "@/lib/utils";
 import { useToc } from "./use-toc";
 
-export function TableOfContents() {
+interface TableOfContentsProps {
+  tocItems: TocItem[];
+}
+
+export function TableOfContents({ tocItems }: TableOfContentsProps) {
   const {
-    isLoading,
-    tocItems,
     activeId,
     showScrollTop,
     isCollapsed,
@@ -24,16 +27,8 @@ export function TableOfContents() {
     handleKeyDown,
     scrollToTop,
     linksRef,
-  } = useToc();
+  } = useToc(tocItems);
   const isDesktop = useMediaQuery("(min-width: 1350px)");
-
-  if (isLoading) {
-    return (
-      <div className="flex w-full items-center rounded-md border border-border bg-background-elevated/50 px-4 py-3 text-foreground-muted text-sm backdrop-blur-sm xl:hidden">
-        Loading table of contents...
-      </div>
-    );
-  }
 
   if (tocItems.length === 0) {
     return null;
