@@ -13,9 +13,9 @@ import { toISODate } from "@/lib/date";
 import { skillsData } from "@/lib/skills-data";
 import { textResponse } from "@/lib/text-response";
 
-// biome-ignore lint/suspicious/useAwait: required async signature for "use cache"
-async function buildContent(): Promise<string> {
-  "use cache";
+export const dynamic = "force-static";
+
+export function GET() {
   const currentDate = toISODate(new Date());
   const stats = getContributionStats();
 
@@ -170,9 +170,5 @@ async function buildContent(): Promise<string> {
   content += `Document generated: ${currentDate}\n`;
   content += `For the most up-to-date information, visit: ${BASE_URL}\n`;
 
-  return content;
-}
-
-export async function GET() {
-  return textResponse(await buildContent());
+  return textResponse(content);
 }

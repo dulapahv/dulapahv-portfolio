@@ -259,16 +259,19 @@ describe("json-ld schemas", () => {
       expect(schema.dateModified).toBe(endDate.toISOString());
     });
 
-    it("should fall back to startDate for dateModified when no endDate", () => {
-      const startDate = new Date("2024-01-01");
+    it("should use current date for dateModified when no endDate", () => {
+      const before = new Date();
       const schema = createProjectSchema({
         title: "My Project",
         description: "Test",
-        startDate,
+        startDate: new Date("2024-01-01"),
         slug: "my-project",
       });
+      const after = new Date();
 
-      expect(schema.dateModified).toBe(startDate.toISOString());
+      const modified = new Date(schema.dateModified as string);
+      expect(modified.getTime()).toBeGreaterThanOrEqual(before.getTime());
+      expect(modified.getTime()).toBeLessThanOrEqual(after.getTime());
     });
   });
 
