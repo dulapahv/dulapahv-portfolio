@@ -26,6 +26,14 @@ vi.mock("next/font/google", () => ({
   }),
 }));
 
+// Mock next/cache so functions using `"use cache"` + cacheLife/cacheTag
+// can run in unit tests without the full cacheComponents runtime.
+vi.mock("next/cache", () => ({
+  cacheLife: vi.fn(),
+  cacheTag: vi.fn(),
+  revalidateTag: vi.fn(),
+}));
+
 vi.mock("react-medium-image-zoom", () => ({
   default: ({ children }: PropsWithChildren) => (
     <span data-testid="zoom-wrapper">{children}</span>

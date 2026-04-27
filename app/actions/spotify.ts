@@ -1,4 +1,4 @@
-"use server";
+import { cacheLife, cacheTag } from "next/cache";
 
 export interface SpotifyArtist {
   id: string;
@@ -102,24 +102,44 @@ async function fetchSpotifyData<T>(endpoint: string): Promise<T> {
 }
 
 export async function getTopArtists(limit = 5): Promise<SpotifyArtist[]> {
+  "use cache";
+  cacheLife("spotify");
+  cacheTag("spotify:top-artists");
   try {
     const data = await fetchSpotifyData<{ items: SpotifyArtist[] }>(
       `/me/top/artists?time_range=short_term&limit=${limit}`
     );
     return data.items;
   } catch (error) {
+    if (
+      error instanceof Error &&
+      (error.name === "AbortError" ||
+        (error as { digest?: string }).digest === "HANGING_PROMISE_REJECTION")
+    ) {
+      throw error;
+    }
     console.error("Error fetching top artists:", error);
     return [];
   }
 }
 
 export async function getTopTracks(limit = 5): Promise<SpotifyTrack[]> {
+  "use cache";
+  cacheLife("spotify");
+  cacheTag("spotify:top-tracks");
   try {
     const data = await fetchSpotifyData<{ items: SpotifyTrack[] }>(
       `/me/top/tracks?time_range=short_term&limit=${limit}`
     );
     return data.items;
   } catch (error) {
+    if (
+      error instanceof Error &&
+      (error.name === "AbortError" ||
+        (error as { digest?: string }).digest === "HANGING_PROMISE_REJECTION")
+    ) {
+      throw error;
+    }
     console.error("Error fetching top tracks:", error);
     return [];
   }
@@ -152,6 +172,13 @@ export async function getCurrentlyPlaying(): Promise<CurrentlyPlaying | null> {
 
     return response.json();
   } catch (error) {
+    if (
+      error instanceof Error &&
+      (error.name === "AbortError" ||
+        (error as { digest?: string }).digest === "HANGING_PROMISE_REJECTION")
+    ) {
+      throw error;
+    }
     console.error("Error fetching currently playing:", error);
     return null;
   }

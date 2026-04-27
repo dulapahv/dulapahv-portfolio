@@ -4,6 +4,19 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: [process.env.ALLOWED_DEV_ORIGINS || "[]"],
+  cacheComponents: true,
+  cacheLife: {
+    spotify: {
+      stale: 600,
+      revalidate: 3600,
+      expire: 86_400,
+    },
+    github: {
+      stale: 600,
+      revalidate: 3600,
+      expire: 86_400,
+    },
+  },
   // Cloudflare's edge already gzip/brotli-compresses responses — skipping
   // Next's in-worker compression saves per-request CPU on CF Workers.
   compress: false,

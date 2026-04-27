@@ -28,8 +28,8 @@ import { GET } from "./route";
 const TOTAL_CONTRIBUTIONS_REGEX = /Total contributions: \d+/;
 
 describe("llms.txt route", () => {
-  it("should return a Response with text/plain content type", () => {
-    const response = GET();
+  it("should return a Response with text/plain content type", async () => {
+    const response = await GET();
 
     expect(response).toBeInstanceOf(Response);
     expect(response.headers.get("Content-Type")).toBe(
@@ -38,7 +38,7 @@ describe("llms.txt route", () => {
   });
 
   it("should contain FAQ section", async () => {
-    const response = GET();
+    const response = await GET();
     const body = await response.text();
 
     expect(body).toContain("Frequently Asked Questions");
@@ -46,7 +46,7 @@ describe("llms.txt route", () => {
   });
 
   it("should contain sitemaps section", async () => {
-    const response = GET();
+    const response = await GET();
     const body = await response.text();
 
     expect(body).toContain("## Sitemaps");
@@ -57,7 +57,7 @@ describe("llms.txt route", () => {
   });
 
   it("should contain skills listing", async () => {
-    const response = GET();
+    const response = await GET();
     const body = await response.text();
 
     expect(body).toContain("## Skills");
@@ -65,7 +65,7 @@ describe("llms.txt route", () => {
   });
 
   it("should contain contribution stats", async () => {
-    const response = GET();
+    const response = await GET();
     const body = await response.text();
 
     expect(body).toContain("## Open Source Contributions");
@@ -73,7 +73,7 @@ describe("llms.txt route", () => {
   });
 
   it("should list blog and project content", async () => {
-    const response = GET();
+    const response = await GET();
     const body = await response.text();
 
     expect(body).toContain("Test Project");

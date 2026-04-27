@@ -1,9 +1,8 @@
-"use server";
+import { cacheLife, cacheTag } from "next/cache";
 
 const GITHUB_USERNAME_REGEX = /^[a-zA-Z0-9-]+$/;
 const CONTRIBUTIONS_API_BASE =
   "https://github-contributions-api.jogruber.de/v4";
-const REVALIDATE_SECONDS = 3600;
 
 export interface ContributionDay {
   date: string;
@@ -93,6 +92,9 @@ function groupContributionsIntoWeeks(
 export async function getGitHubContributionsData(
   username: string
 ): Promise<GitHubContributionsData> {
+  "use cache";
+  cacheLife("github");
+  cacheTag(`gh-contributions:${username}`);
   try {
     if (!isValidGitHubUsername(username)) {
       throw new Error("Invalid GitHub username");
@@ -101,10 +103,7 @@ export async function getGitHubContributionsData(
     const safeUsername = encodeURIComponent(username);
 
     const response = await fetch(
-      `${CONTRIBUTIONS_API_BASE}/${safeUsername}?y=last`,
-      {
-        next: { revalidate: REVALIDATE_SECONDS },
-      }
+      `${CONTRIBUTIONS_API_BASE}/${safeUsername}?y=last`
     );
 
     if (!response.ok) {

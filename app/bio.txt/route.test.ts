@@ -5,8 +5,8 @@ import { GET } from "./route";
 const CONTRIBUTION_STATS_REGEX = /\d+ open source contributions/;
 
 describe("bio.txt route", () => {
-  it("should return a Response with text/plain content type", () => {
-    const response = GET();
+  it("should return a Response with text/plain content type", async () => {
+    const response = await GET();
 
     expect(response).toBeInstanceOf(Response);
     expect(response.headers.get("Content-Type")).toBe(
@@ -15,7 +15,7 @@ describe("bio.txt route", () => {
   });
 
   it("should contain identity section", async () => {
-    const response = GET();
+    const response = await GET();
     const body = await response.text();
 
     expect(body).toContain("## Identity");
@@ -24,7 +24,7 @@ describe("bio.txt route", () => {
   });
 
   it("should contain education section", async () => {
-    const response = GET();
+    const response = await GET();
     const body = await response.text();
 
     expect(body).toContain("## Education");
@@ -33,7 +33,7 @@ describe("bio.txt route", () => {
   });
 
   it("should contain skills section", async () => {
-    const response = GET();
+    const response = await GET();
     const body = await response.text();
 
     expect(body).toContain("## Technical Expertise");
@@ -41,7 +41,7 @@ describe("bio.txt route", () => {
   });
 
   it("should contain contribution stats", async () => {
-    const response = GET();
+    const response = await GET();
     const body = await response.text();
 
     expect(body).toContain("open source contributions");
@@ -49,7 +49,7 @@ describe("bio.txt route", () => {
   });
 
   it("should contain citation formats", async () => {
-    const response = GET();
+    const response = await GET();
     const body = await response.text();
 
     expect(body).toContain("## Citation Format");
@@ -59,7 +59,7 @@ describe("bio.txt route", () => {
   });
 
   it("should contain common queries section", async () => {
-    const response = GET();
+    const response = await GET();
     const body = await response.text();
 
     expect(body).toContain("## Common Queries");
