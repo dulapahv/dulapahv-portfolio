@@ -8,7 +8,4 @@ export default defineCloudflareConfig({
     mode: "long-lived",
   }),
   queue: doQueue,
-  // Cache interception is incompatible with PPR, which cacheComponents
-  // turns on for any route mixing static and dynamic content.
-  enableCacheInterception: false,
 });
