@@ -1,5 +1,3 @@
-"use client";
-
 import type * as MatterNS from "matter-js";
 import { useCallback, useEffect, useRef } from "react";
 

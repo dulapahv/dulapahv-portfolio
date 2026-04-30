@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import type { SpotifyTrack } from "@/app/actions/spotify";
 import { Link } from "@/components/link";
