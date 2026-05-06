@@ -72,7 +72,7 @@ export default async function TypeListingPage({
       <div className="mx-auto max-w-3xl space-y-4">
         <Breadcrumb lastLabel={title} pathname={`/${type}`} />
       </div>
-      <ViewTransition enter="slide-in-right">
+      <ViewTransition enter="fade-lift" exit="fade-lift">
         <main className="mx-auto max-w-3xl space-y-4">
           <header className="gap-0">
             <h1 className="font-medium text-lg">{title}</h1>
@@ -124,16 +124,21 @@ export default async function TypeListingPage({
                             >
                               <div className="flex gap-4">
                                 {post.image ? (
-                                  <div className="relative mt-1.5 aspect-square h-20 shrink-0 overflow-hidden rounded-md sm:aspect-video">
-                                    <Image
-                                      alt={post.title}
-                                      className="object-cover"
-                                      fill
-                                      quality={25}
-                                      sizes="150px"
-                                      src={post.image}
-                                    />
-                                  </div>
+                                  <ViewTransition
+                                    name={`cover-${type}-${post.slug}`}
+                                    share="cover-morph"
+                                  >
+                                    <div className="relative mt-1.5 aspect-square h-20 shrink-0 overflow-hidden rounded-md sm:aspect-video">
+                                      <Image
+                                        alt={post.title}
+                                        className="object-cover"
+                                        fill
+                                        quality={25}
+                                        sizes="150px"
+                                        src={post.image}
+                                      />
+                                    </div>
+                                  </ViewTransition>
                                 ) : null}
                                 <div className="flex flex-col gap-1">
                                   <h3 className="font-medium text-lg group-hover:text-mirai-red">

@@ -26,7 +26,7 @@ export default function ContactPage() {
       <div className="mx-auto max-w-3xl space-y-4">
         <Breadcrumb lastLabel={title} pathname="/contact" />
       </div>
-      <ViewTransition enter="slide-in-right">
+      <ViewTransition enter="slide-up" exit="slide-up">
         <main className="relative mx-auto flex min-h-[70vh] max-w-5xl flex-col items-center justify-center">
           <div className="relative z-10 space-y-12 px-4 py-12 text-center">
             <div className="space-y-6">

@@ -120,7 +120,7 @@ export default async function ContentPage({
       <div className="mx-auto max-w-3xl space-y-4">
         <Breadcrumb lastLabel={page.title} pathname={`/${type}/${slug}`} />
       </div>
-      <ViewTransition enter="slide-in-right">
+      <ViewTransition enter="fade-lift" exit="fade-lift">
         <main className="mx-auto max-w-3xl space-y-4">
           <header className="space-y-2">
             <div>
@@ -168,21 +168,28 @@ export default async function ContentPage({
               className="relative"
               role="img"
             >
-              <Zoom
-                classDialog='[&_[data-rmiz-modal-overlay="visible"]]:!bg-background/40 [&_[data-rmiz-modal-overlay="visible"]]:backdrop-blur-sm'
-                wrapElement="span"
-                zoomMargin={12}
+              <ViewTransition
+                name={`cover-${type}-${slug}`}
+                share="cover-morph"
               >
-                <Image
-                  alt={imageAlt}
-                  className="overflow-hidden rounded-md border border-border bg-background-muted/30"
-                  height={630}
-                  loading="eager"
-                  quality={100}
-                  src={page.image}
-                  width={1200}
-                />
-              </Zoom>
+                <div>
+                  <Zoom
+                    classDialog='[&_[data-rmiz-modal-overlay="visible"]]:!bg-background/40 [&_[data-rmiz-modal-overlay="visible"]]:backdrop-blur-sm'
+                    wrapElement="span"
+                    zoomMargin={12}
+                  >
+                    <Image
+                      alt={imageAlt}
+                      className="overflow-hidden rounded-md border border-border bg-background-muted/30"
+                      height={630}
+                      loading="eager"
+                      quality={100}
+                      src={page.image}
+                      width={1200}
+                    />
+                  </Zoom>
+                </div>
+              </ViewTransition>
               <figcaption className="sr-only" id="cover-image-caption">
                 {imageAlt}
               </figcaption>
