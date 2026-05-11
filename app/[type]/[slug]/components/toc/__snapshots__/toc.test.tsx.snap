@@ -16,7 +16,7 @@ exports[`TableOfContents > Snapshot > should match snapshot - desktop view 1`] =
       class="max-h-[calc(100vh-16rem)] overflow-y-auto border-none py-2"
     >
       <ul
-        class="space-y-1"
+        class="relative space-y-1"
       >
         <li
           class="mb-0"
@@ -29,7 +29,7 @@ exports[`TableOfContents > Snapshot > should match snapshot - desktop view 1`] =
           >
             <span
               aria-hidden="true"
-              class="absolute top-1/2 left-0 h-full w-0.5 -translate-y-1/2 transition-colors bg-mirai-red"
+              class="absolute top-1/2 left-0 h-full w-0.5 -translate-y-1/2 bg-white/80 dark:bg-neutral-300/80"
             />
             <span
               class="relative line-clamp-2"
@@ -53,7 +53,7 @@ exports[`TableOfContents > Snapshot > should match snapshot - desktop view 1`] =
           >
             <span
               aria-hidden="true"
-              class="absolute top-1/2 left-0 h-full w-0.5 -translate-y-1/2 transition-colors bg-white/80 dark:bg-neutral-300/80"
+              class="absolute top-1/2 left-0 h-full w-0.5 -translate-y-1/2 bg-white/80 dark:bg-neutral-300/80"
             />
             <span
               class="relative line-clamp-2"
@@ -71,7 +71,7 @@ exports[`TableOfContents > Snapshot > should match snapshot - desktop view 1`] =
           >
             <span
               aria-hidden="true"
-              class="absolute top-1/2 left-0 h-full w-0.5 -translate-y-1/2 transition-colors bg-white/80 dark:bg-neutral-300/80"
+              class="absolute top-1/2 left-0 h-full w-0.5 -translate-y-1/2 bg-white/80 dark:bg-neutral-300/80"
             />
             <span
               class="relative line-clamp-2"
@@ -80,6 +80,11 @@ exports[`TableOfContents > Snapshot > should match snapshot - desktop view 1`] =
             </span>
           </a>
         </li>
+        <span
+          aria-hidden="true"
+          class="pointer-events-none absolute top-0 left-0 w-0.5 bg-mirai-red"
+          style="height: 0px; transform: none;"
+        />
       </ul>
     </fieldset>
   </nav>

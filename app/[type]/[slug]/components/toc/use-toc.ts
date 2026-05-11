@@ -28,8 +28,6 @@ export function useToc(tocItems: TOCItem[]) {
       return;
     }
 
-    linksRef.current = new Array(tocItems.length).fill(null);
-
     const hash = window.location.hash.replace("#", "");
     if (hash && tocItems.some((item) => item.id === hash)) {
       setActiveId(hash);
