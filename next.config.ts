@@ -2,12 +2,9 @@ import { withContentCollections } from "@content-collections/next";
 import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
 import type { NextConfig } from "next";
 
-import { AGENT_LINK_HEADER, CONTENT_SIGNAL } from "./lib/agent-discovery";
+import { AGENT_LINK_HEADER } from "./lib/agent-discovery";
 
-const agentDiscoveryHeaders = [
-  { key: "Link", value: AGENT_LINK_HEADER },
-  { key: "Content-Signal", value: CONTENT_SIGNAL },
-];
+const agentDiscoveryHeaders = [{ key: "Link", value: AGENT_LINK_HEADER }];
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: [process.env.ALLOWED_DEV_ORIGINS || "[]"],

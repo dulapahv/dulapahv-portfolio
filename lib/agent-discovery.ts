@@ -1,5 +1,3 @@
-export const CONTENT_SIGNAL = "ai-train=no, search=yes, ai-input=yes";
-
 export const MCP_ENDPOINT = "https://chat.dulapahv.dev/mcp";
 
 export const MCP_SERVER_CARD_PATH = "/.well-known/mcp/server-card.json";
