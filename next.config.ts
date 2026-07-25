@@ -4,7 +4,12 @@ import type { NextConfig } from "next";
 
 import { AGENT_LINK_HEADER } from "./lib/agent-discovery";
 
-const agentDiscoveryHeaders = [{ key: "Link", value: AGENT_LINK_HEADER }];
+const agentDiscoveryHeaders = [
+  { key: "Link", value: AGENT_LINK_HEADER },
+  // These paths serve HTML or Markdown depending on Accept, so a cache that
+  // ignores the header would replay one representation to the wrong client.
+  { key: "Vary", value: "accept" },
+];
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: [process.env.ALLOWED_DEV_ORIGINS || "[]"],
