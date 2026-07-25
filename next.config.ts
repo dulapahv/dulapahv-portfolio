@@ -2,6 +2,13 @@ import { withContentCollections } from "@content-collections/next";
 import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
 import type { NextConfig } from "next";
 
+import { AGENT_LINK_HEADER, CONTENT_SIGNAL } from "./lib/agent-discovery";
+
+const agentDiscoveryHeaders = [
+  { key: "Link", value: AGENT_LINK_HEADER },
+  { key: "Content-Signal", value: CONTENT_SIGNAL },
+];
+
 const nextConfig: NextConfig = {
   allowedDevOrigins: [process.env.ALLOWED_DEV_ORIGINS || "[]"],
   // Cloudflare's edge already gzip/brotli-compresses responses — skipping
@@ -19,6 +26,16 @@ const nextConfig: NextConfig = {
   // Cloudflare generates/validates etags at the edge — skipping Next's
   // etag hashing saves per-request CPU on CF Workers.
   generateEtags: false,
+  // Scoped to content pages: assets under /_next would pay the extra bytes on
+  // every request for headers no agent reads there.
+  headers() {
+    return Promise.resolve([
+      { source: "/", headers: agentDiscoveryHeaders },
+      { source: "/contact", headers: agentDiscoveryHeaders },
+      { source: "/:type(blog|project)", headers: agentDiscoveryHeaders },
+      { source: "/:type(blog|project)/:slug+", headers: agentDiscoveryHeaders },
+    ]);
+  },
   poweredByHeader: false,
   reactCompiler: true,
   logging: {
