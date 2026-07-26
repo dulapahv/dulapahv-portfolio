@@ -407,7 +407,7 @@ export const createProjectSchema = (project: {
     "@id": `${BASE_URL}/#person`,
   },
   dateCreated: project.startDate.toISOString(),
-  dateModified: (project.endDate || new Date()).toISOString(),
+  dateModified: (project.endDate ?? project.startDate).toISOString(),
   image: {
     "@type": "ImageObject",
     url: buildOgUrl(project.title, project.description, { absolute: true }),

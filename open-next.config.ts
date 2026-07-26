@@ -8,5 +8,6 @@ export default defineCloudflareConfig({
     mode: "long-lived",
   }),
   queue: doQueue,
-  enableCacheInterception: true,
+  // As of now, cache interception does not work with PPR
+  enableCacheInterception: false,
 });

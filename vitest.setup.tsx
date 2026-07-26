@@ -26,6 +26,12 @@ vi.mock("next/font/google", () => ({
   }),
 }));
 
+vi.mock("next/cache", () => ({
+  cacheLife: vi.fn(),
+  cacheTag: vi.fn(),
+  revalidateTag: vi.fn(),
+}));
+
 vi.mock("react-medium-image-zoom", () => ({
   default: ({ children }: PropsWithChildren) => (
     <span data-testid="zoom-wrapper">{children}</span>

@@ -1,4 +1,4 @@
-"use server";
+import { cacheLife, cacheTag } from "next/cache";
 
 import type {
   Contribution,
@@ -82,10 +82,7 @@ async function fetchGitHubContributions(
   const searchQuery = `author:${GITHUB_USERNAME}+type:${type}`;
   const url = `${GITHUB_API_BASE}/search/issues?q=${searchQuery}&per_page=100`;
 
-  const response = await fetch(url, {
-    headers,
-    next: { revalidate: 0 },
-  });
+  const response = await fetch(url, { headers });
 
   if (!response.ok) {
     const errorBody = await response.text();
@@ -116,6 +113,9 @@ async function fetchGitHubContributions(
 }
 
 export async function getContributions(): Promise<Contribution[]> {
+  "use cache";
+  cacheLife("github");
+  cacheTag("gh-oss-contributions");
   try {
     const [prs, issues] = await Promise.all([
       fetchGitHubContributions("pr"),
@@ -124,12 +124,19 @@ export async function getContributions(): Promise<Contribution[]> {
 
     return [...prs, ...issues];
   } catch (error) {
+    if (
+      error instanceof Error &&
+      (error.name === "AbortError" ||
+        (error as { digest?: string }).digest === "HANGING_PROMISE_REJECTION")
+    ) {
+      throw error;
+    }
     console.error("Error fetching contributions:", error);
     return [];
   }
 }
 
-// biome-ignore lint/suspicious/useAwait: Server Actions must be async
+// biome-ignore lint/suspicious/useAwait: kept async for callsite ergonomics
 export async function getContributionsByYear(
   contributions: Contribution[]
 ): Promise<Record<number, Contribution[]>> {
@@ -148,7 +155,7 @@ export async function getContributionsByYear(
     );
 }
 
-// biome-ignore lint/suspicious/useAwait: Server Actions must be async
+// biome-ignore lint/suspicious/useAwait: kept async for callsite ergonomics
 export async function getContributionStats(contributions: Contribution[]) {
   return {
     total: contributions.length,
