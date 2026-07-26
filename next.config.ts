@@ -30,6 +30,7 @@ const nextConfig: NextConfig = {
     return Promise.resolve([
       { source: "/", headers: agentDiscoveryHeaders },
       { source: "/contact", headers: agentDiscoveryHeaders },
+      { source: "/security", headers: agentDiscoveryHeaders },
       { source: "/:type(blog|project)", headers: agentDiscoveryHeaders },
       { source: "/:type(blog|project)/:slug+", headers: agentDiscoveryHeaders },
     ]);
