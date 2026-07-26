@@ -31,15 +31,15 @@ vi.mock("@/lib/content-utils/content-utils", () => ({
 }));
 
 describe("sitemap", () => {
-  it("should return an array of sitemap entries", async () => {
-    const result = await sitemap();
+  it("should return an array of sitemap entries", () => {
+    const result = sitemap();
 
     expect(Array.isArray(result)).toBe(true);
     expect(result.length).toBeGreaterThan(0);
   });
 
-  it("should include static pages", async () => {
-    const result = await sitemap();
+  it("should include static pages", () => {
+    const result = sitemap();
 
     const homePage = result.find((entry) => entry.url === BASE_URL);
     const contactPage = result.find((entry) => entry.url.includes("/contact"));
@@ -58,8 +58,8 @@ describe("sitemap", () => {
     }
   });
 
-  it("should include type listing pages", async () => {
-    const result = await sitemap();
+  it("should include type listing pages", () => {
+    const result = sitemap();
 
     const projectPage = result.find((entry) => entry.url.endsWith("/project"));
     const blogPage = result.find((entry) => entry.url.endsWith("/blog"));
@@ -74,8 +74,8 @@ describe("sitemap", () => {
     }
   });
 
-  it("should include dynamic content pages", async () => {
-    const result = await sitemap();
+  it("should include dynamic content pages", () => {
+    const result = sitemap();
 
     const blogPost = result.find((entry) =>
       entry.url.includes("/blog/test-blog-post")
@@ -88,8 +88,8 @@ describe("sitemap", () => {
     expect(projectItem).toBeDefined();
   });
 
-  it("should set correct priorities for content types", async () => {
-    const result = await sitemap();
+  it("should set correct priorities for content types", () => {
+    const result = sitemap();
 
     const blogPost = result.find((entry) =>
       entry.url.includes("/blog/test-blog-post")
@@ -107,8 +107,8 @@ describe("sitemap", () => {
     }
   });
 
-  it("should use correct lastModified dates", async () => {
-    const result = await sitemap();
+  it("should use correct lastModified dates", () => {
+    const result = sitemap();
 
     const blogPost = result.find((entry) =>
       entry.url.includes("/blog/test-blog-post")
@@ -119,8 +119,8 @@ describe("sitemap", () => {
     }
   });
 
-  it("should have required properties for all entries", async () => {
-    const result = await sitemap();
+  it("should have required properties for all entries", () => {
+    const result = sitemap();
 
     for (const entry of result) {
       expect(entry.url).toBeDefined();
@@ -133,8 +133,8 @@ describe("sitemap", () => {
     }
   });
 
-  it("should match snapshot", async () => {
-    const result = await sitemap();
+  it("should match snapshot", () => {
+    const result = sitemap();
     expect(result).toMatchSnapshot();
   });
 });

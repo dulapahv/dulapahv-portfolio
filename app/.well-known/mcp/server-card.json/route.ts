@@ -1,6 +1,8 @@
 import { MCP_ENDPOINT } from "@/lib/agent-discovery";
 import { BASE_URL, NAME } from "@/lib/constants";
 
+export const dynamic = "force-static";
+
 // MCP server card (SEP-1649)
 const serverCard = {
   name: "dev.dulapahv/search-agent",

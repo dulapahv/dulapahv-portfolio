@@ -34,8 +34,8 @@ const MERGED_REGEX = /Merged: \d+/;
 const CITATION_REGEX = /citation:/;
 
 describe("llms-full.txt route", () => {
-  it("should return a Response with text/plain content type", async () => {
-    const response = await GET();
+  it("should return a Response with text/plain content type", () => {
+    const response = GET();
 
     expect(response).toBeInstanceOf(Response);
     expect(response.headers.get("Content-Type")).toBe(
@@ -44,7 +44,7 @@ describe("llms-full.txt route", () => {
   });
 
   it("should contain document metadata", async () => {
-    const response = await GET();
+    const response = GET();
     const body = await response.text();
 
     expect(body).toContain("## Document Metadata");
@@ -53,14 +53,14 @@ describe("llms-full.txt route", () => {
   });
 
   it("should contain skills section", async () => {
-    const response = await GET();
+    const response = GET();
     const body = await response.text();
 
     expect(body).toContain("SECTION: Technical Skills");
   });
 
   it("should contain contribution stats", async () => {
-    const response = await GET();
+    const response = GET();
     const body = await response.text();
 
     expect(body).toContain("SECTION: Open Source Contributions");
@@ -69,7 +69,7 @@ describe("llms-full.txt route", () => {
   });
 
   it("should contain MDX content from items", async () => {
-    const response = await GET();
+    const response = GET();
     const body = await response.text();
 
     expect(body).toContain("This is blog content.");
@@ -77,7 +77,7 @@ describe("llms-full.txt route", () => {
   });
 
   it("should contain blog post citation format", async () => {
-    const response = await GET();
+    const response = GET();
     const body = await response.text();
 
     expect(body).toContain('type: "blog"');
@@ -85,7 +85,7 @@ describe("llms-full.txt route", () => {
   });
 
   it("should contain project with dates", async () => {
-    const response = await GET();
+    const response = GET();
     const body = await response.text();
 
     expect(body).toContain('type: "project"');

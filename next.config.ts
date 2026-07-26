@@ -8,19 +8,6 @@ const agentDiscoveryHeaders = [{ key: "Link", value: AGENT_LINK_HEADER }];
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: [process.env.ALLOWED_DEV_ORIGINS || "[]"],
-  cacheComponents: true,
-  cacheLife: {
-    spotify: {
-      stale: 600,
-      revalidate: 3600,
-      expire: 86_400,
-    },
-    github: {
-      stale: 600,
-      revalidate: 3600,
-      expire: 86_400,
-    },
-  },
   experimental: {
     typedEnv: true,
     viewTransition: true,

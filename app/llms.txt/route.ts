@@ -15,9 +15,9 @@ import {
 import { skillsData } from "@/lib/skills-data";
 import { textResponse } from "@/lib/text-response";
 
-// biome-ignore lint/suspicious/useAwait: required async signature for "use cache"
-async function buildContent(): Promise<string> {
-  "use cache";
+export const dynamic = "force-static";
+
+export function GET() {
   const types: ContentType[] = ["blog", "project"];
 
   let content = "# DulapahV Portfolio\n\n";
@@ -112,9 +112,5 @@ async function buildContent(): Promise<string> {
     content += "\n";
   }
 
-  return content;
-}
-
-export async function GET() {
-  return textResponse(await buildContent());
+  return textResponse(content);
 }

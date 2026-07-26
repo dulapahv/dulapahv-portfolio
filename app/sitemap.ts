@@ -7,12 +7,7 @@ import {
   getCollection,
 } from "@/lib/content-utils/content-utils";
 
-// biome-ignore lint/suspicious/useAwait: required async signature for "use cache"
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  "use cache";
-  // Caching freezes currentDate per revalidation rather than per request, which
-  // is what `force-static` gave the other generated routes before Cache
-  // Components. Without it `new Date()` forces the whole route dynamic.
+export default function sitemap(): MetadataRoute.Sitemap {
   const currentDate = new Date();
 
   const llmPages: MetadataRoute.Sitemap = [
