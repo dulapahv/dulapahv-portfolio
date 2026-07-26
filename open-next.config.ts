@@ -8,4 +8,5 @@ export default defineCloudflareConfig({
     mode: "long-lived",
   }),
   queue: doQueue,
+  enableCacheInterception: true,
 });
