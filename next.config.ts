@@ -8,16 +8,17 @@ const agentDiscoveryHeaders = [{ key: "Link", value: AGENT_LINK_HEADER }];
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: [process.env.ALLOWED_DEV_ORIGINS || "[]"],
-  // Cloudflare's edge already gzip/brotli-compresses responses — skipping
-  // Next's in-worker compression saves per-request CPU on CF Workers.
-  compress: false,
   experimental: {
     typedEnv: true,
     viewTransition: true,
     cssChunking: "strict",
-    optimizePackageImports: ["@phosphor-icons/react"],
+    optimizePackageImports: ["@phosphor-icons/react", "motion"],
     turbopackFileSystemCacheForBuild: true,
     turbopackServerSideNestedAsyncChunking: true,
+    staleTimes: {
+      dynamic: 30,
+      static: 300,
+    },
     // inlineCss: true,
   },
   // Cloudflare generates/validates etags at the edge — skipping Next's
