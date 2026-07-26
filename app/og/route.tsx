@@ -107,6 +107,14 @@ export const GET = async (request: NextRequest) => {
     {
       width: 1200,
       height: 630,
+      // The output is fully determined by the query string, so it never needs
+      // regenerating for a given URL. Without this every crawler hit re-runs
+      // two Google Fonts fetches plus a Satori render inside the worker.
+      // Browsers get a week so a cache purge still reaches them; shared caches
+      // and social scrapers hold it for a year.
+      headers: {
+        "Cache-Control": "public, max-age=604800, s-maxage=31536000",
+      },
       fonts: [
         {
           name: "Geist",
