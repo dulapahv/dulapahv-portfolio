@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from "vitest";
 
 vi.mock("content-collections", () => ({
+  allPages: [],
   allProjects: [
     {
       slug: "test-project",

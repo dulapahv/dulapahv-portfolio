@@ -1,0 +1,336 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Security Page > should match snapshot 1`] = `
+<div>
+  <div
+    class="mx-auto max-w-3xl space-y-4"
+  >
+    <nav
+      aria-label="breadcrumb"
+    >
+      <ol
+        class="wrap-break-word flex flex-wrap items-center gap-1.5 text-foreground-muted text-sm sm:gap-2.5"
+      >
+        <li
+          class="inline-flex items-center gap-1.5"
+        >
+          <a
+            class="rounded-sm hover:text-foreground focus:text-foreground"
+            href="/"
+          >
+            Home
+          </a>
+        </li>
+        <li
+          aria-hidden="true"
+          class="[&>svg]:size-3.5"
+          role="presentation"
+        >
+          <svg
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 256 256"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"
+            />
+          </svg>
+        </li>
+        <li
+          class="inline-flex items-center gap-1.5"
+        >
+          <a
+            aria-current="page"
+            aria-disabled="true"
+            class="font-normal text-foreground max-w-48 truncate"
+            tabindex="0"
+          >
+            Security
+          </a>
+        </li>
+      </ol>
+    </nav>
+  </div>
+  <div>
+    <main
+      class="mx-auto max-w-3xl space-y-4"
+    >
+      <header
+        class="space-y-2"
+      >
+        <h1
+          class="font-semibold text-2xl"
+        >
+          Security
+        </h1>
+        <p
+          class="text-foreground-muted"
+          role="doc-subtitle"
+        >
+          How to report a security issue with this site and the subdomains I run
+        </p>
+      </header>
+      <nav
+        aria-label="Table of contents"
+        class="rounded-md border border-border bg-background-elevated/50 backdrop-blur-sm"
+      >
+        <button
+          aria-controls="toc-content"
+          aria-describedby="toc-description"
+          aria-expanded="false"
+          class="flex w-full cursor-pointer items-center justify-between rounded-md px-4 py-3 font-medium text-foreground text-sm hover:bg-background-muted/50"
+          type="button"
+        >
+          <span>
+            On this page
+          </span>
+          <div
+            aria-hidden="true"
+          >
+            <svg
+              class="size-4"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"
+              />
+            </svg>
+          </div>
+        </button>
+        <span
+          class="sr-only"
+          id="toc-description"
+        >
+          Toggle to 
+          show
+           table of contents with
+           
+          4
+           sections. Use arrow keys to navigate when expanded.
+        </span>
+      </nav>
+      <article
+        aria-label="Article content"
+        class="mx-auto max-w-none prose prose-neutral dark:prose-invert prose-headings:mt-8 prose-headings:font-semibold prose-headings:[&>a]:text-foreground prose-headings:[&>a]:no-underline prose-h1:font-bold prose-h1:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:border-border prose-h2:border-t prose-h2:pt-10 prose-h2:text-2xl prose-h3:mt-8 prose-h3:mb-3 prose-h3:text-xl prose-h4:mt-6 prose-h4:mb-2 prose-h4:text-lg prose-h5:mt-4 prose-h5:mb-1 prose-h5:text-base prose-h6:mt-2 prose-h6:mb-0 prose-h6:text-sm prose-p:my-5 prose-strong:font-semibold prose-strong:text-inherit prose-pre:border-t-border prose-pre:bg-white prose-pre:px-0! prose-pre:text-[13px]/5 prose-pre:dark:bg-[#0a0a0a] prose-pre:[&>code:not([data-line-numbers])]:px-4 prose-figure:relative prose-figure:my-4 prose-figure:rounded-md prose-figure:border prose-figure:border-border prose-figure:[figure:has(figcaption)&>pre]:rounded-t-none prose-figure:[figure:has(figcaption)&>pre]:border-t prose-figcaption:mt-0 prose-figcaption:rounded-t-md prose-figcaption:bg-[#fafafa] prose-figcaption:px-4 prose-figcaption:py-2.5 prose-figcaption:text-[13px] prose-figcaption:dark:bg-black prose-figure:[figure:has(figcaption)&>button]:top-1 prose-blockquote:!border-l! prose-blockquote:rounded-md prose-blockquote:border prose-blockquote:border-border! prose-blockquote:p-3 prose-blockquote:font-normal prose-blockquote:text-sm prose-blockquote:not-italic prose-blockquote:[&>p]:my-0 prose-blockquote:[&>p]:before:content-none prose-blockquote:[&>p]:after:content-none prose-code:bg-white prose-code:text-foreground prose-code:before:content-none prose-code:after:content-none prose-code:dark:bg-[#0a0a0a] prose-code:[&:not([data-theme])]:rounded-md prose-code:[&:not([data-theme])]:border prose-code:[&:not([data-theme])]:border-gray-500 prose-code:[&:not([data-theme])]:bg-background-muted prose-code:[&:not([data-theme])]:px-1 prose-code:[&:not([data-theme])]:py-[1.5px] prose-code:[&:not([data-theme])]:font-normal prose-code:[&:not([data-theme])]:text-[13px] prose-code:[&:not([data-theme])]:tracking-wide prose-code:[&>span>span]:brightness-90 dark:prose-code:[&>span>span]:brightness-100 [&>details>summary]:cursor-pointer [&>details>summary]:hover:underline [&>details>ul]:my-0"
+      >
+        <h2
+          class="group relative"
+          id="reporting-an-issue"
+          tabindex="-1"
+        >
+          <a
+            aria-label="Link to section: section"
+            class="absolute top-1/2 -left-6 -translate-y-1/2 opacity-0 group-hover:opacity-100 pt-10"
+            href="#reporting-an-issue"
+            tabindex="0"
+          >
+            <svg
+              aria-hidden="true"
+              class="hidden size-4.5 shrink-0 md:block"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M240,88.23a54.43,54.43,0,0,1-16,37L189.25,160a54.27,54.27,0,0,1-38.63,16h-.05A54.63,54.63,0,0,1,96,119.84a8,8,0,0,1,16,.45A38.62,38.62,0,0,0,150.58,160h0a38.39,38.39,0,0,0,27.31-11.31l34.75-34.75a38.63,38.63,0,0,0-54.63-54.63l-11,11A8,8,0,0,1,135.7,59l11-11A54.65,54.65,0,0,1,224,48,54.86,54.86,0,0,1,240,88.23ZM109,185.66l-11,11A38.41,38.41,0,0,1,70.6,208h0a38.63,38.63,0,0,1-27.29-65.94L78,107.31A38.63,38.63,0,0,1,144,135.71a8,8,0,0,0,16,.45A54.86,54.86,0,0,0,144,96a54.65,54.65,0,0,0-77.27,0L32,130.75A54.62,54.62,0,0,0,70.56,224h0a54.28,54.28,0,0,0,38.64-16l11-11A8,8,0,0,0,109,185.66Z"
+              />
+            </svg>
+          </a>
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="#reporting-an-issue"
+          >
+            Reporting an issue
+          </a>
+        </h2>
+        <p>
+          Email 
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="mailto:security@dulapahv.dev"
+          >
+            security@dulapahv.dev
+          </a>
+           with enough detail for me to reproduce the problem: the URL, the steps you took, and what you saw. A screenshot or a short recording helps. You are welcome to write in English or Thai.
+        </p>
+        <p>
+          The same contact details are published at 
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="https://dulapahv.dev/.well-known/security.txt"
+            rel="noopener"
+            target="_blank"
+          >
+            https://dulapahv.dev/.well-known/security.txt
+          </a>
+           following RFC 9116.
+        </p>
+        <h2
+          class="group relative"
+          id="scope"
+          tabindex="-1"
+        >
+          <a
+            aria-label="Link to section: section"
+            class="absolute top-1/2 -left-6 -translate-y-1/2 opacity-0 group-hover:opacity-100 pt-10"
+            href="#scope"
+            tabindex="0"
+          >
+            <svg
+              aria-hidden="true"
+              class="hidden size-4.5 shrink-0 md:block"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M240,88.23a54.43,54.43,0,0,1-16,37L189.25,160a54.27,54.27,0,0,1-38.63,16h-.05A54.63,54.63,0,0,1,96,119.84a8,8,0,0,1,16,.45A38.62,38.62,0,0,0,150.58,160h0a38.39,38.39,0,0,0,27.31-11.31l34.75-34.75a38.63,38.63,0,0,0-54.63-54.63l-11,11A8,8,0,0,1,135.7,59l11-11A54.65,54.65,0,0,1,224,48,54.86,54.86,0,0,1,240,88.23ZM109,185.66l-11,11A38.41,38.41,0,0,1,70.6,208h0a38.63,38.63,0,0,1-27.29-65.94L78,107.31A38.63,38.63,0,0,1,144,135.71a8,8,0,0,0,16,.45A54.86,54.86,0,0,0,144,96a54.65,54.65,0,0,0-77.27,0L32,130.75A54.62,54.62,0,0,0,70.56,224h0a54.28,54.28,0,0,0,38.64-16l11-11A8,8,0,0,0,109,185.66Z"
+              />
+            </svg>
+          </a>
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="#scope"
+          >
+            Scope
+          </a>
+        </h2>
+        <p>
+          <strong>
+            In scope:
+          </strong>
+           this site, the subdomains I run, and the code behind them.
+        </p>
+        <p>
+          <strong>
+            Out of scope:
+          </strong>
+        </p>
+        <ul>
+          <li>
+            Services I do not operate, such as GitHub, LinkedIn, Cloudflare, and Spotify
+          </li>
+          <li>
+            Missing headers or best-practice warnings with no demonstrated impact
+          </li>
+          <li>
+            Scanner output with no working proof of concept
+          </li>
+          <li>
+            Issues that need physical access to a device, an outdated browser, or a browser that is already compromised
+          </li>
+          <li>
+            Denial of service, load testing, spam, and social engineering
+          </li>
+        </ul>
+        <h2
+          class="group relative"
+          id="ground-rules"
+          tabindex="-1"
+        >
+          <a
+            aria-label="Link to section: section"
+            class="absolute top-1/2 -left-6 -translate-y-1/2 opacity-0 group-hover:opacity-100 pt-10"
+            href="#ground-rules"
+            tabindex="0"
+          >
+            <svg
+              aria-hidden="true"
+              class="hidden size-4.5 shrink-0 md:block"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M240,88.23a54.43,54.43,0,0,1-16,37L189.25,160a54.27,54.27,0,0,1-38.63,16h-.05A54.63,54.63,0,0,1,96,119.84a8,8,0,0,1,16,.45A38.62,38.62,0,0,0,150.58,160h0a38.39,38.39,0,0,0,27.31-11.31l34.75-34.75a38.63,38.63,0,0,0-54.63-54.63l-11,11A8,8,0,0,1,135.7,59l11-11A54.65,54.65,0,0,1,224,48,54.86,54.86,0,0,1,240,88.23ZM109,185.66l-11,11A38.41,38.41,0,0,1,70.6,208h0a38.63,38.63,0,0,1-27.29-65.94L78,107.31A38.63,38.63,0,0,1,144,135.71a8,8,0,0,0,16,.45A54.86,54.86,0,0,0,144,96a54.65,54.65,0,0,0-77.27,0L32,130.75A54.62,54.62,0,0,0,70.56,224h0a54.28,54.28,0,0,0,38.64-16l11-11A8,8,0,0,0,109,185.66Z"
+              />
+            </svg>
+          </a>
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="#ground-rules"
+          >
+            Ground rules
+          </a>
+        </h2>
+        <ul>
+          <li>
+            Keep your testing manual and low volume. Automated scanners, fuzzers, and load tests run up my bill on a metered platform and can take the site down for everyone else. Most of my code is 
+            <a
+              class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+              href="https://github.com/dulapahv"
+              rel="noopener"
+              target="_blank"
+            >
+              public on GitHub
+            </a>
+            , so point tooling at a local checkout instead and send me anything it finds.
+          </li>
+          <li>
+            Do not access, change, or keep data that is not yours.
+          </li>
+          <li>
+            Do not do anything that degrades the site for other visitors.
+          </li>
+          <li>
+            Give me a reasonable chance to fix the issue before you write about it publicly.
+          </li>
+        </ul>
+        <h2
+          class="group relative"
+          id="what-to-expect"
+          tabindex="-1"
+        >
+          <a
+            aria-label="Link to section: section"
+            class="absolute top-1/2 -left-6 -translate-y-1/2 opacity-0 group-hover:opacity-100 pt-10"
+            href="#what-to-expect"
+            tabindex="0"
+          >
+            <svg
+              aria-hidden="true"
+              class="hidden size-4.5 shrink-0 md:block"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M240,88.23a54.43,54.43,0,0,1-16,37L189.25,160a54.27,54.27,0,0,1-38.63,16h-.05A54.63,54.63,0,0,1,96,119.84a8,8,0,0,1,16,.45A38.62,38.62,0,0,0,150.58,160h0a38.39,38.39,0,0,0,27.31-11.31l34.75-34.75a38.63,38.63,0,0,0-54.63-54.63l-11,11A8,8,0,0,1,135.7,59l11-11A54.65,54.65,0,0,1,224,48,54.86,54.86,0,0,1,240,88.23ZM109,185.66l-11,11A38.41,38.41,0,0,1,70.6,208h0a38.63,38.63,0,0,1-27.29-65.94L78,107.31A38.63,38.63,0,0,1,144,135.71a8,8,0,0,0,16,.45A54.86,54.86,0,0,0,144,96a54.65,54.65,0,0,0-77.27,0L32,130.75A54.62,54.62,0,0,0,70.56,224h0a54.28,54.28,0,0,0,38.64-16l11-11A8,8,0,0,0,109,185.66Z"
+              />
+            </svg>
+          </a>
+          <a
+            class="text-mirai-red underline-offset-2 hover:underline hover:decoration-2"
+            href="#what-to-expect"
+          >
+            What to expect
+          </a>
+        </h2>
+        <p>
+          This is a personal site I run in my own time. There is no bug bounty and no payment for reports.
+        </p>
+        <p>
+          If you send me something real, I will fix it, credit you on this page (or leave you out of it if you would rather stay anonymous), and confirm the report in writing if that is useful to you.
+        </p>
+        <p>
+          I maintain this alongside a full-time job, so response times are best effort rather than guaranteed. I aim to reply within a week and to tell you what I plan to do once I have looked into it.
+        </p>
+      </article>
+    </main>
+  </div>
+</div>
+`;

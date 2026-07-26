@@ -227,10 +227,32 @@ const createBlogCollection = (name: string, directory: string) =>
     },
   });
 
+// Collection for standalone pages that have no date and no listing view
+const createPageCollection = (name: string, directory: string) =>
+  defineCollection({
+    name,
+    directory,
+    include: "*.mdx",
+    schema: (z) => ({
+      title: z.string(),
+      description: z.string(),
+    }),
+    transform: async (page, context) => {
+      const baseResult = await baseTransform(page, context);
+
+      return {
+        ...page,
+        ...baseResult,
+        kind: "page" as const,
+      };
+    },
+  });
+
 // Create collections
 const projects = createProjectCollection("projects", "content/project");
 const blogs = createBlogCollection("blogs", "content/blog");
+const pages = createPageCollection("pages", "content/page");
 
 export default defineConfig({
-  collections: [projects, blogs],
+  collections: [projects, blogs, pages],
 });

@@ -15,6 +15,7 @@ import {
 
 // Mock content-collections
 vi.mock("content-collections", () => ({
+  allPages: [],
   allProjects: [
     {
       kind: "project",

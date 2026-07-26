@@ -1,0 +1,53 @@
+---
+title: Security
+description: How to report a security issue with this site and the subdomains I run
+---
+
+## Reporting an issue
+
+Email [security@dulapahv.dev](mailto:security@dulapahv.dev) with enough detail
+for me to reproduce the problem: the URL, the steps you took, and what you saw.
+A screenshot or a short recording helps. You are welcome to write in English or
+Thai.
+
+The same contact details are published at
+[https://dulapahv.dev/.well-known/security.txt](https://dulapahv.dev/.well-known/security.txt)
+following RFC 9116.
+
+## Scope
+
+**In scope:** this site, the subdomains I run, and the code behind them.
+
+**Out of scope:**
+
+- Services I do not operate, such as GitHub, LinkedIn, Cloudflare, and Spotify
+- Missing headers or best-practice warnings with no demonstrated impact
+- Scanner output with no working proof of concept
+- Issues that need physical access to a device, an outdated browser, or a
+  browser that is already compromised
+- Denial of service, load testing, spam, and social engineering
+
+## Ground rules
+
+- Keep your testing manual and low volume. Automated scanners, fuzzers, and
+  load tests run up my bill on a metered platform and can take the site down
+  for everyone else. Most of my code is
+  [public on GitHub](https://github.com/dulapahv), so point tooling at a local
+  checkout instead and send me anything it finds.
+- Do not access, change, or keep data that is not yours.
+- Do not do anything that degrades the site for other visitors.
+- Give me a reasonable chance to fix the issue before you write about it
+  publicly.
+
+## What to expect
+
+This is a personal site I run in my own time. There is no bug bounty and no
+payment for reports.
+
+If you send me something real, I will fix it, credit you on this page (or leave
+you out of it if you would rather stay anonymous), and confirm the report in
+writing if that is useful to you.
+
+I maintain this alongside a full-time job, so response times are best effort
+rather than guaranteed. I aim to reply within a week and to tell you what I plan
+to do once I have looked into it.

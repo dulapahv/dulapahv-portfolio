@@ -1,5 +1,6 @@
 import {
   allBlogs as rawBlogs,
+  allPages as rawPages,
   allProjects as rawProjects,
 } from "content-collections";
 
@@ -54,10 +55,23 @@ export interface Blog {
   formattedDate: string;
 }
 
+export interface Page {
+  kind: "page";
+  _meta: Meta;
+  title: string;
+  description: string;
+  body: MdxBody;
+  content: string;
+  slug: string;
+  readingTime: string;
+  tocItems: TocItem[];
+}
+
 export type ContentItem = Project | Blog;
 
 export const allProjects = rawProjects as unknown as Project[];
 export const allBlogs = rawBlogs as unknown as Blog[];
+export const allPages = rawPages as unknown as Page[];
 
 export const contentConfig = {
   project: {

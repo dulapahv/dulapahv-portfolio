@@ -13,6 +13,7 @@ export const GITHUB_URL = "https://github.com/dulapahv";
 export const SPOTIFY_URL =
   "https://open.spotify.com/user/31gh2o2edagehgvasq4ov3perrtm";
 export const CONTACT_EMAIL = "contact@dulapahv.dev";
+export const SECURITY_CONTACT_EMAIL = "security@dulapahv.dev";
 
 export const NAME = "Dulapah Vibulsanti";
 export const DESCRIPTION =

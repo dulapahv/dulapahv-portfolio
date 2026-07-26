@@ -5,6 +5,7 @@ import Home from "./page";
 
 // Mock content-collections for allProjects used in page
 vi.mock("content-collections", () => ({
+  allPages: [],
   allProjects: [
     {
       kind: "project",

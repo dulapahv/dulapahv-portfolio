@@ -6,6 +6,7 @@ import Zoom from "react-medium-image-zoom";
 import Breadcrumb from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
 import { Mdx } from "@/components/mdx";
+import { TableOfContents } from "@/components/toc/toc";
 import {
   type ContentItem,
   type ContentType,
@@ -20,7 +21,6 @@ import {
 } from "@/lib/json-ld/json-ld";
 import { createMetadata } from "@/lib/metadata";
 import { ShareButtons } from "./components/share/share";
-import { TableOfContents } from "./components/toc/toc";
 
 function getContentMeta(page: ContentItem) {
   if (page.kind === "project") {
