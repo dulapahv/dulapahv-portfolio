@@ -13,6 +13,7 @@ const nextConfig: NextConfig = {
     viewTransition: true,
     cssChunking: "strict",
     optimizePackageImports: ["@phosphor-icons/react", "motion"],
+    prefetchInlining: true,
     turbopackFileSystemCacheForBuild: true,
     turbopackServerSideNestedAsyncChunking: true,
     staleTimes: {
