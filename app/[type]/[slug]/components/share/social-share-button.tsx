@@ -2,7 +2,7 @@
 
 import type { KeyboardEvent, ReactNode } from "react";
 import { useRef } from "react";
-import { useWebHaptics } from "web-haptics/react";
+import { tap } from "@/lib/haptics";
 import { cn } from "@/lib/utils";
 
 type Platform = "X" | "facebook" | "linkedin";
@@ -34,10 +34,9 @@ export function SocialShareButton({
   children,
 }: SocialShareButtonProps) {
   const popupRef = useRef<Window | null>(null);
-  const { trigger } = useWebHaptics();
 
   const openPopup = () => {
-    trigger([{ duration: 8 }], { intensity: 0.3 });
+    tap();
     const shareUrl = SHARE_URL_BUILDERS[platform](
       window.location.href,
       document.title

@@ -7,9 +7,9 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import { type KeyboardEvent, useEffect, useState } from "react";
-import { useWebHaptics } from "web-haptics/react";
 import { ThemeAwareImage } from "@/components/theme-aware-image";
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard/use-copy-to-clipboard";
+import { tap } from "@/lib/haptics";
 import { cn } from "@/lib/utils";
 import { CopyPageDropdown } from "./copy-page-dropdown";
 import { SocialShareButton } from "./social-share-button";
@@ -25,7 +25,6 @@ interface ShareButtonsProps {
 export function ShareButtons({ page }: ShareButtonsProps) {
   const [supportsNativeShare, setSupportsNativeShare] = useState(false);
   const { copied, copy } = useCopyToClipboard();
-  const { trigger } = useWebHaptics();
 
   // Check for native share support after mount (server-render mismatch otherwise)
   useEffect(() => {
@@ -40,7 +39,7 @@ export function ShareButtons({ page }: ShareButtonsProps) {
     if (!navigator.share) {
       return;
     }
-    trigger([{ duration: 8 }], { intensity: 0.3 });
+    tap();
     try {
       await navigator.share({
         title: document.title,

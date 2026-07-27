@@ -10,6 +10,7 @@ import { useEffect, useRef, useState } from "react";
 import { ThemeAwareImage } from "@/components/theme-aware-image";
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard/use-copy-to-clipboard";
 import { GITHUB_URL } from "@/lib/constants";
+import { tap } from "@/lib/haptics";
 import { cn } from "@/lib/utils";
 
 const COPIED_RESET_MS = 800;
@@ -183,12 +184,19 @@ export function CopyPageDropdown() {
   };
 
   const viewAsMarkdown = () => {
+    tap();
     window.open(`${window.location.pathname}.mdx`, "_blank");
   };
 
   const handleOpenIn = (url: string) => {
+    tap();
     window.open(url, "_blank");
     setIsDropdownOpen(false);
+  };
+
+  const toggleDropdown = () => {
+    tap();
+    setIsDropdownOpen((prev) => !prev);
   };
 
   const handleCopyKeyDown = (event: KeyboardEvent) => {
@@ -201,7 +209,7 @@ export function CopyPageDropdown() {
   const handleDropdownToggleKeyDown = (event: KeyboardEvent) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
-      setIsDropdownOpen((open) => !open);
+      toggleDropdown();
     } else if (event.key === "Escape" && isDropdownOpen) {
       setIsDropdownOpen(false);
     }
@@ -255,7 +263,7 @@ export function CopyPageDropdown() {
             "flex cursor-pointer items-center px-2 py-2",
             "hover:bg-background-subtle"
           )}
-          onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+          onClick={toggleDropdown}
           onKeyDown={handleDropdownToggleKeyDown}
           title="More options"
           type="button"

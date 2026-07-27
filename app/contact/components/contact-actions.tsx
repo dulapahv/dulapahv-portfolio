@@ -2,9 +2,10 @@
 
 import { CheckIcon, CopyIcon } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
-import { type ReactNode, useState } from "react";
+import type { ReactNode } from "react";
 import { Link } from "@/components/link";
 import { ThemeAwareImage } from "@/components/theme-aware-image";
+import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard/use-copy-to-clipboard";
 import { CONTACT_EMAIL, GITHUB_URL, LINKEDIN_URL } from "@/lib/constants";
 
 interface ContactButton {
@@ -16,16 +17,12 @@ interface ContactButton {
 }
 
 export function ContactActions() {
-  const [copiedEmail, setCopiedEmail] = useState(false);
+  const { copied: copiedEmail, copy } = useCopyToClipboard({
+    resetDelay: 2000,
+  });
 
   const handleCopyEmail = async () => {
-    try {
-      await navigator.clipboard.writeText(CONTACT_EMAIL);
-      setCopiedEmail(true);
-      setTimeout(() => setCopiedEmail(false), 2000);
-    } catch (error) {
-      console.error("Failed to copy email:", error);
-    }
+    await copy(CONTACT_EMAIL);
   };
 
   const buttons: ContactButton[] = [

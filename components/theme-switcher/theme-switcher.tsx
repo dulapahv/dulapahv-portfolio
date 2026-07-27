@@ -5,7 +5,7 @@ import { MonitorIcon, MoonIcon, SunIcon } from "@phosphor-icons/react/dist/ssr";
 import * as m from "motion/react-m";
 import { useTheme } from "next-themes";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { useWebHaptics } from "web-haptics/react";
+import { tap } from "@/lib/haptics";
 
 const themes = [
   { key: "system", icon: MonitorIcon, label: "System theme" },
@@ -16,7 +16,6 @@ const themes = [
 export function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const { trigger } = useWebHaptics();
   const buttonsRef = useRef(new Map<string, HTMLButtonElement>());
   const [indicator, setIndicator] = useState<{
     left: number;
@@ -58,7 +57,7 @@ export function ThemeSwitcher() {
   }
 
   const handleThemeChange = (newTheme: string) => {
-    trigger([{ duration: 8 }], { intensity: 0.3 });
+    tap();
     setTheme(newTheme);
   };
 

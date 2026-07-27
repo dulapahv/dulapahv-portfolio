@@ -1,7 +1,7 @@
 import type { KeyboardEvent, MouseEvent } from "react";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { useWebHaptics } from "web-haptics/react";
 import type { TocItem as ContentTocItem } from "@/lib/content-utils/content-utils";
+import { tap } from "@/lib/haptics";
 
 export type TOCItem = ContentTocItem;
 
@@ -12,8 +12,6 @@ export function useToc(tocItems: TOCItem[]) {
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   const linksRef = useRef<(HTMLAnchorElement | null)[]>([]);
-
-  const { trigger } = useWebHaptics();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -74,6 +72,7 @@ export function useToc(tocItems: TOCItem[]) {
   }, []);
 
   const scrollToTop = useCallback(() => {
+    tap();
     window.scrollTo({ top: 0, behavior: "smooth" });
     window.history.replaceState(null, "", window.location.pathname);
   }, []);
@@ -81,10 +80,10 @@ export function useToc(tocItems: TOCItem[]) {
   const handleClick = useCallback(
     (e: MouseEvent<HTMLAnchorElement>, id: string) => {
       e.preventDefault();
-      trigger([{ duration: 8 }], { intensity: 0.3 });
+      tap();
       scrollToElement(id);
     },
-    [scrollToElement, trigger]
+    [scrollToElement]
   );
 
   const handleKeyDown = useCallback(
@@ -93,6 +92,7 @@ export function useToc(tocItems: TOCItem[]) {
         case "Enter":
         case " ":
           e.preventDefault();
+          tap();
           scrollToElement(id);
           break;
         case "ArrowDown": {
@@ -129,9 +129,9 @@ export function useToc(tocItems: TOCItem[]) {
   );
 
   const toggleCollapsed = useCallback(() => {
-    trigger([{ duration: 8 }], { intensity: 0.3 });
+    tap();
     setIsCollapsed((prev) => !prev);
-  }, [trigger]);
+  }, []);
 
   return {
     activeId,

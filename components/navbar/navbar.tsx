@@ -17,9 +17,8 @@ import {
   useState,
 } from "react";
 
-import { useWebHaptics } from "web-haptics/react";
-
 import { Link } from "@/components/link";
+import { tap } from "@/lib/haptics";
 import { cn } from "@/lib/utils";
 
 const navbarItems = [
@@ -49,7 +48,6 @@ export function Navbar() {
   const pathname = usePathname();
   const navRef = useRef<HTMLElement>(null);
   const linkRefs = useRef(new Map<string, HTMLAnchorElement>());
-  const { trigger } = useWebHaptics();
   const [indicator, setIndicator] = useState<{
     left: number;
     width: number;
@@ -181,7 +179,7 @@ export function Navbar() {
                 active ? "text-mirai-red" : "hover:text-foreground-muted"
               )}
               href={item.link}
-              onClick={() => trigger([{ duration: 8 }], { intensity: 0.3 })}
+              onClick={() => tap()}
               ref={(el) => {
                 if (el) {
                   linkRefs.current.set(item.link, el);

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { useWebHaptics } from "web-haptics/react";
+import { error, tap } from "@/lib/haptics";
 
 const DEFAULT_RESET_DELAY_MS = 800;
 
@@ -24,7 +24,6 @@ export function useCopyToClipboard({
 }: UseCopyToClipboardOptions = {}): UseCopyToClipboardResult {
   const [copied, setCopied] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const { trigger } = useWebHaptics();
 
   useEffect(
     () => () => {
@@ -45,15 +44,15 @@ export function useCopyToClipboard({
 
   const copy = useCallback(
     async (text: string): Promise<boolean> => {
-      trigger([{ duration: 8 }], { intensity: 0.3 });
+      tap();
       try {
         await navigator.clipboard.writeText(text);
-        trigger([{ duration: 8 }], { intensity: 0.3 });
+        tap();
         flagCopied();
         return true;
       } catch (err) {
         console.error("Failed to copy text: ", err);
-        trigger("error");
+        error();
 
         // Legacy fallback for browsers without the Clipboard API
         const textArea = document.createElement("textarea");
@@ -73,7 +72,7 @@ export function useCopyToClipboard({
         }
       }
     },
-    [flagCopied, trigger]
+    [flagCopied]
   );
 
   return { copied, copy };

@@ -8,6 +8,7 @@ import {
   TRAVEL_LOCATIONS,
   WORK_LOCATION,
 } from "@/lib/constants";
+import { tap } from "@/lib/haptics";
 import { Card } from "../card";
 import { CardHeader } from "../card-header";
 
@@ -41,7 +42,10 @@ export function GlobeCard() {
             isPaused ? "Resume globe rotation" : "Pause globe rotation"
           }
           className="absolute right-2 bottom-2 z-10 cursor-pointer rounded-full bg-foreground/5 p-1.5 text-foreground-muted backdrop-blur-sm hover:bg-foreground/10 hover:text-foreground"
-          onClick={() => setIsPaused((prev) => !prev)}
+          onClick={() => {
+            tap();
+            setIsPaused((prev) => !prev);
+          }}
           title={isPaused ? "Resume globe rotation" : "Pause globe rotation"}
           type="button"
         >
