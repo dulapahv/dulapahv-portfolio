@@ -4,8 +4,6 @@ import createGlobe, { type COBEOptions } from "cobe";
 import { useTheme } from "next-themes";
 import { useEffect, useRef } from "react";
 
-import { tap } from "@/lib/haptics";
-
 interface GlobeProps {
   readonly width: number;
   readonly height: number;
@@ -15,8 +13,6 @@ interface GlobeProps {
 }
 
 const DRAG_LERP = 0.08;
-/** Horizontal travel between drag ticks, so spinning feels like a detent. */
-const DRAG_TICK_PX = 24;
 
 export function Globe({
   width,
@@ -31,16 +27,8 @@ export function Globe({
   const phiRef = useRef(-4);
   const rRef = useRef(0);
   const rTargetRef = useRef(0);
-  const lastTickXRef = useRef(0);
   const isPausedRef = useRef(isPaused);
   isPausedRef.current = isPaused;
-
-  const tickDrag = (clientX: number) => {
-    if (Math.abs(clientX - lastTickXRef.current) >= DRAG_TICK_PX) {
-      lastTickXRef.current = clientX;
-      tap();
-    }
-  };
 
   const { resolvedTheme } = useTheme();
 
@@ -111,14 +99,11 @@ export function Globe({
           const delta = e.clientX - pointerInteracting.current;
           pointerInteractionMovement.current = delta;
           rTargetRef.current = delta / 200;
-          tickDrag(e.clientX);
         }
       }}
       onPointerDown={(e) => {
         pointerInteracting.current =
           e.clientX - pointerInteractionMovement.current;
-        lastTickXRef.current = e.clientX;
-        tap();
         if (canvasRef.current) {
           canvasRef.current.style.cursor = "grabbing";
         }
@@ -140,7 +125,6 @@ export function Globe({
           const delta = e.touches[0].clientX - pointerInteracting.current;
           pointerInteractionMovement.current = delta;
           rTargetRef.current = delta / 100;
-          tickDrag(e.touches[0].clientX);
         }
       }}
       ref={canvasRef}

@@ -18,7 +18,6 @@ import {
 } from "react";
 
 import { Link } from "@/components/link";
-import { tap } from "@/lib/haptics";
 import { cn } from "@/lib/utils";
 
 const navbarItems = [
@@ -179,7 +178,6 @@ export function Navbar() {
                 active ? "text-mirai-red" : "hover:text-foreground-muted"
               )}
               href={item.link}
-              onClick={() => tap()}
               ref={(el) => {
                 if (el) {
                   linkRefs.current.set(item.link, el);

@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { error, tap } from "@/lib/haptics";
 
 const DEFAULT_RESET_DELAY_MS = 800;
 
@@ -17,7 +16,7 @@ interface UseCopyToClipboardResult {
 /**
  * Copies text to the clipboard with auto-resetting `copied` state. Uses the
  * Clipboard API and falls back to `document.execCommand("copy")` for browsers
- * without it. Triggers haptics for feedback.
+ * without it.
  */
 export function useCopyToClipboard({
   resetDelay = DEFAULT_RESET_DELAY_MS,
@@ -44,15 +43,12 @@ export function useCopyToClipboard({
 
   const copy = useCallback(
     async (text: string): Promise<boolean> => {
-      tap();
       try {
         await navigator.clipboard.writeText(text);
-        tap();
         flagCopied();
         return true;
       } catch (err) {
         console.error("Failed to copy text: ", err);
-        error();
 
         // Legacy fallback for browsers without the Clipboard API
         const textArea = document.createElement("textarea");

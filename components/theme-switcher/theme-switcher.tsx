@@ -5,7 +5,6 @@ import { MonitorIcon, MoonIcon, SunIcon } from "@phosphor-icons/react/dist/ssr";
 import * as m from "motion/react-m";
 import { useTheme } from "next-themes";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { tap } from "@/lib/haptics";
 
 const themes = [
   { key: "system", icon: MonitorIcon, label: "System theme" },
@@ -57,7 +56,6 @@ export function ThemeSwitcher() {
   }
 
   const handleThemeChange = (newTheme: string) => {
-    tap();
     setTheme(newTheme);
   };
 

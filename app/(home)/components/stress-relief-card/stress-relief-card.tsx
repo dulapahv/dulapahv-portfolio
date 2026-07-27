@@ -9,7 +9,6 @@ import {
 import { useCallback, useState } from "react";
 import { createPortal } from "react-dom";
 
-import { burst, rumble, tap } from "@/lib/haptics";
 import { Card } from "../card";
 import { CardHeader } from "../card-header";
 
@@ -70,25 +69,13 @@ export function StressReliefCard() {
   const { activate, reset, explode, shake } = useStressRelief();
 
   const handleEnable = useCallback(async () => {
-    tap();
     await activate();
     setIsActive(true);
   }, [activate]);
 
   const handleReset = useCallback(() => {
-    tap();
     reset(() => setIsActive(false));
   }, [reset]);
-
-  const handleExplode = useCallback(() => {
-    burst();
-    explode();
-  }, [explode]);
-
-  const handleShake = useCallback(() => {
-    rumble();
-    shake();
-  }, [shake]);
 
   return (
     <>
@@ -116,9 +103,9 @@ export function StressReliefCard() {
       </Card>
       {isActive ? (
         <StressReliefToolbar
-          onExplode={handleExplode}
+          onExplode={explode}
           onReset={handleReset}
-          onShake={handleShake}
+          onShake={shake}
         />
       ) : null}
     </>

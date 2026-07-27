@@ -7,7 +7,6 @@ import { Footer } from "@/components/footer";
 import { Link } from "@/components/link";
 import { TopBar } from "@/components/top-bar/top-bar";
 import { CONTACT_EMAIL } from "@/lib/constants";
-import { tap } from "@/lib/haptics";
 import { cn } from "@/lib/utils";
 
 export default function ErrorPage({
@@ -47,10 +46,7 @@ export default function ErrorPage({
             "active:scale-[0.98] active:transition-transform!",
             "disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:shadow-none"
           )}
-          onClick={() => {
-            tap();
-            unstable_retry();
-          }}
+          onClick={unstable_retry}
           type="button"
         >
           <ArrowsClockwiseIcon

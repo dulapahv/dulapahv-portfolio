@@ -2,7 +2,6 @@
 
 import type { KeyboardEvent, ReactNode } from "react";
 import { useRef } from "react";
-import { tap } from "@/lib/haptics";
 import { cn } from "@/lib/utils";
 
 type Platform = "X" | "facebook" | "linkedin";
@@ -36,7 +35,6 @@ export function SocialShareButton({
   const popupRef = useRef<Window | null>(null);
 
   const openPopup = () => {
-    tap();
     const shareUrl = SHARE_URL_BUILDERS[platform](
       window.location.href,
       document.title

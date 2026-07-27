@@ -32,8 +32,6 @@ vi.mock("react-medium-image-zoom", () => ({
   ),
 }));
 
-vi.mock("ios-vibrator-pro-max", () => ({}));
-
 // Mock ResizeObserver
 global.ResizeObserver = class ResizeObserver {
   observe = vi.fn();

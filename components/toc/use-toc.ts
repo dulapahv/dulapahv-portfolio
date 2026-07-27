@@ -1,7 +1,6 @@
 import type { KeyboardEvent, MouseEvent } from "react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { TocItem as ContentTocItem } from "@/lib/content-utils/content-utils";
-import { tap } from "@/lib/haptics";
 
 export type TOCItem = ContentTocItem;
 
@@ -72,7 +71,6 @@ export function useToc(tocItems: TOCItem[]) {
   }, []);
 
   const scrollToTop = useCallback(() => {
-    tap();
     window.scrollTo({ top: 0, behavior: "smooth" });
     window.history.replaceState(null, "", window.location.pathname);
   }, []);
@@ -80,7 +78,6 @@ export function useToc(tocItems: TOCItem[]) {
   const handleClick = useCallback(
     (e: MouseEvent<HTMLAnchorElement>, id: string) => {
       e.preventDefault();
-      tap();
       scrollToElement(id);
     },
     [scrollToElement]
@@ -92,7 +89,6 @@ export function useToc(tocItems: TOCItem[]) {
         case "Enter":
         case " ":
           e.preventDefault();
-          tap();
           scrollToElement(id);
           break;
         case "ArrowDown": {
@@ -129,7 +125,6 @@ export function useToc(tocItems: TOCItem[]) {
   );
 
   const toggleCollapsed = useCallback(() => {
-    tap();
     setIsCollapsed((prev) => !prev);
   }, []);
 

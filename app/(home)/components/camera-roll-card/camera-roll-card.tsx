@@ -11,7 +11,6 @@ import { useState } from "react";
 
 import Zoom from "react-medium-image-zoom";
 import { Link } from "@/components/link";
-import { tap } from "@/lib/haptics";
 import { cn } from "@/lib/utils";
 import { Card } from "../card";
 import { CardHeader } from "../card-header";
@@ -34,26 +33,18 @@ export function CameraRollCard({ images }: CameraRollCardProps) {
   };
 
   const handleBarClick = (index: number) => {
-    tap();
     setCurrentIndex(index);
     setAnimationKey((prev) => prev + 1);
   };
 
   const handlePrevious = () => {
-    tap();
     setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
     setAnimationKey((prev) => prev + 1);
   };
 
   const handleNext = () => {
-    tap();
     setCurrentIndex((prev) => (prev + 1) % images.length);
     setAnimationKey((prev) => prev + 1);
-  };
-
-  const togglePaused = () => {
-    tap();
-    setIsManuallyPaused((prev) => !prev);
   };
 
   if (images.length === 0) {
@@ -145,7 +136,7 @@ export function CameraRollCard({ images }: CameraRollCardProps) {
         <button
           aria-label={isManuallyPaused ? "Resume slideshow" : "Pause slideshow"}
           className="absolute right-2 bottom-2 z-10 cursor-pointer rounded-full bg-background-elevated/50 p-1.5 text-foreground-muted backdrop-blur-sm hover:bg-background-elevated/60 hover:text-foreground"
-          onClick={togglePaused}
+          onClick={() => setIsManuallyPaused((prev) => !prev)}
           title={isManuallyPaused ? "Resume slideshow" : "Pause slideshow"}
           type="button"
         >

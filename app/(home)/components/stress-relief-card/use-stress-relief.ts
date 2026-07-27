@@ -1,8 +1,6 @@
 import type * as MatterNS from "matter-js";
 import { useCallback, useEffect, useRef } from "react";
 
-import { impact, tap } from "@/lib/haptics";
-
 type MatterModule = typeof MatterNS;
 
 let matterModulePromise: Promise<MatterModule> | null = null;
@@ -30,11 +28,6 @@ interface ElementBody {
 const RESTITUTION = 0.4;
 const FRICTION = 0.3;
 const WALL_THICKNESS = 200;
-
-// Collisions come in bursts, so only the hardest hits buzz and only every so
-// often. Without both limits an explode turns into one continuous vibration.
-const COLLISION_COOLDOWN_MS = 150;
-const COLLISION_MIN_SPEED = 6;
 
 function enableGravity(engine: MatterNS.Engine) {
   engine.gravity.y = 1;
@@ -229,28 +222,9 @@ export function useStressRelief() {
 
     Events.on(mouseConstraint, "startdrag", () => {
       canvas.style.cursor = "grabbing";
-      impact();
     });
     Events.on(mouseConstraint, "enddrag", () => {
       canvas.style.cursor = "grab";
-      tap();
-    });
-
-    let lastCollisionHaptic = 0;
-    Events.on(engine, "collisionStart", (event) => {
-      const now = performance.now();
-      if (now - lastCollisionHaptic < COLLISION_COOLDOWN_MS) {
-        return;
-      }
-      const isHardHit = event.pairs.some(
-        (pair) =>
-          Math.max(pair.bodyA.speed, pair.bodyB.speed) >= COLLISION_MIN_SPEED
-      );
-      if (!isHardHit) {
-        return;
-      }
-      lastCollisionHaptic = now;
-      impact();
     });
 
     let lastTouchX = 0;

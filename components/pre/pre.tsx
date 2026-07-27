@@ -7,7 +7,6 @@ import {
   useRef,
   useState,
 } from "react";
-import { tap } from "@/lib/haptics";
 import { cn } from "@/lib/utils";
 
 export function Pre({
@@ -22,7 +21,6 @@ export function Pre({
 
     if (code) {
       await navigator.clipboard.writeText(code);
-      tap();
       setIsCopied(true);
 
       setTimeout(() => {

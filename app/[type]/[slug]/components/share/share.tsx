@@ -9,7 +9,6 @@ import Image from "next/image";
 import { type KeyboardEvent, useEffect, useState } from "react";
 import { ThemeAwareImage } from "@/components/theme-aware-image";
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard/use-copy-to-clipboard";
-import { tap } from "@/lib/haptics";
 import { cn } from "@/lib/utils";
 import { CopyPageDropdown } from "./copy-page-dropdown";
 import { SocialShareButton } from "./social-share-button";
@@ -39,7 +38,6 @@ export function ShareButtons({ page }: ShareButtonsProps) {
     if (!navigator.share) {
       return;
     }
-    tap();
     try {
       await navigator.share({
         title: document.title,

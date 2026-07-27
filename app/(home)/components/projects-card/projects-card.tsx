@@ -9,7 +9,6 @@ import Image from "next/image";
 import { useState } from "react";
 import { Link } from "@/components/link";
 import type { Project } from "@/lib/content-utils/content-utils";
-import { tap } from "@/lib/haptics";
 import { cn } from "@/lib/utils";
 import { Card } from "../card";
 import { CardHeader, CardHeaderIconLink } from "../card-header";
@@ -32,20 +31,13 @@ interface ProjectsCardProps {
 export function ProjectsCard({ projects }: ProjectsCardProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const goToPrevious = () => {
-    tap();
+  const goToPrevious = () =>
     setCurrentIndex((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
-  };
 
-  const goToNext = () => {
-    tap();
+  const goToNext = () =>
     setCurrentIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
-  };
 
-  const goToSlide = (index: number) => {
-    tap();
-    setCurrentIndex(index);
-  };
+  const goToSlide = (index: number) => setCurrentIndex(index);
 
   if (!projects || projects.length === 0) {
     return null;
