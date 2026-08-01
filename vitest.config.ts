@@ -36,6 +36,9 @@ export default defineConfig({
       ],
       reporter: ["text", "lcov", "cobertura", "html"],
     },
-    reporters: ["dot"],
+    reporters: ["default", "junit"],
+    outputFile: {
+      junit: "junit.xml",
+    },
   },
 });
