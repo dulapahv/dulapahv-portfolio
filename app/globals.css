@@ -814,19 +814,33 @@ body {
   isolation: auto;
 }
 
-::view-transition-old(.cover-morph),
+/* WebKit (iOS 18) does not restart an outgoing snapshot's animation when React
+ * reuses a view-transition-name across consecutive navigations: the element
+ * captured as `new(_t_1_)` on one navigation becomes `old(_t_1_)` on the next,
+ * and its fade-out never runs, leaving it pinned at opacity 1 on top of the
+ * incoming page. Both <main> snapshots are full document height, so that reads
+ * as the entire previous page overlaid on the new one. It only looks correct on
+ * the first navigation after a load, when every name is still fresh.
+ *
+ * So never depend on an outgoing snapshot animating. `!important` outranks
+ * animation declarations in the cascade, which holds even against a stale
+ * animation left behind by the previous transition. Only incoming snapshots
+ * animate; those always get a fresh name. */
+::view-transition-old(.fade-lift),
+::view-transition-old(.slide-up),
+::view-transition-old(.cover-morph) {
+  animation: none !important;
+  opacity: 0 !important;
+}
+
 ::view-transition-new(.cover-morph) {
-  animation-duration: 550ms;
-  animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  animation: none !important;
+  opacity: 1 !important;
   mix-blend-mode: normal;
 }
 
 ::view-transition-new(.fade-lift) {
-  animation: fadeLiftIn 450ms cubic-bezier(0.23, 1, 0.32, 1) 80ms both;
-}
-
-::view-transition-old(.fade-lift) {
-  animation: fadeLiftOut 220ms ease-in both;
+  animation: fadeLiftIn 380ms cubic-bezier(0.23, 1, 0.32, 1) both;
 }
 
 @keyframes fadeLiftIn {
@@ -840,21 +854,8 @@ body {
   }
 }
 
-@keyframes fadeLiftOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
 ::view-transition-new(.slide-up) {
-  animation: slideUpIn 550ms cubic-bezier(0.23, 1, 0.32, 1) 60ms both;
-}
-
-::view-transition-old(.slide-up) {
-  animation: fadeLiftOut 220ms ease-in both;
+  animation: slideUpIn 420ms cubic-bezier(0.23, 1, 0.32, 1) both;
 }
 
 @keyframes slideUpIn {
@@ -883,13 +884,17 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  /* Outgoing snapshots are already hidden unconditionally above. Dropping the
+   * incoming animation here needs the matching `opacity: 1`, because a bare
+   * `animation: none` also strips the UA's default fade-in and would leave the
+   * incoming snapshot stuck at opacity 0. */
   ::view-transition-new(.fade-lift),
-  ::view-transition-old(.fade-lift),
-  ::view-transition-new(.slide-up),
-  ::view-transition-old(.slide-up),
-  ::view-transition-group(.cover-morph),
-  ::view-transition-old(.cover-morph),
-  ::view-transition-new(.cover-morph) {
+  ::view-transition-new(.slide-up) {
+    animation: none;
+    opacity: 1;
+  }
+
+  ::view-transition-group(.cover-morph) {
     animation: none;
   }
 }
