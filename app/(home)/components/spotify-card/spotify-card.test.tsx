@@ -16,11 +16,11 @@ vi.mock("next/image", () => ({
   }) => <img alt={alt} height={40} src={src} width={40} {...props} />,
 }));
 
-vi.mock("@/components/now-playing-card", () => ({
+vi.mock("../now-playing-card/now-playing-card", () => ({
   NowPlayingCard: () => <div>Now Playing Card</div>,
 }));
 
-vi.mock("@/app/actions/Spotify", () => ({
+vi.mock("@/app/actions/spotify", () => ({
   getCurrentlyPlaying: vi.fn().mockResolvedValue(null),
   getTopArtists: vi.fn().mockResolvedValue([
     {

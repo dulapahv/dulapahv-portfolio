@@ -25,7 +25,7 @@ vi.mock("content-collections", () => ({
 
 // Mock async server components
 vi.mock(
-  "@/components/github-contributions-card/github-contributions-card",
+  "./components/github-contributions-card/github-contributions-card",
   () => ({
     GitHubContributionsCard: () => (
       <div data-testid="github-contributions-card">GitHub Contributions</div>
@@ -33,37 +33,23 @@ vi.mock(
   })
 );
 
-vi.mock("@/components/github-contributions-card/loading", () => ({
-  Loading: () => (
-    <div data-testid="github-contributions-card-skeleton">Loading...</div>
-  ),
-}));
-
-vi.mock("@/components/open-source-card/open-source-card", () => ({
+vi.mock("./components/open-source-card/open-source-card", () => ({
   OpenSourceCard: () => <div data-testid="open-source-card">Open Source</div>,
 }));
 
-vi.mock("@/components/open-source-card/loading", () => ({
-  Loading: () => <div data-testid="open-source-card-skeleton">Loading...</div>,
-}));
-
-vi.mock("@/components/spotify-card/spotify-card", () => ({
+vi.mock("./components/spotify-card/spotify-card", () => ({
   SpotifyCard: () => <div data-testid="spotify-card">Spotify</div>,
 }));
 
-vi.mock("@/components/spotify-card/loading", () => ({
-  Loading: () => <div data-testid="spotify-card-skeleton">Loading...</div>,
-}));
-
 // Mock SVG text animation to avoid jsdom SVG method errors
-vi.mock("@/components/svg-text-animation", () => ({
+vi.mock("./components/svg-text-animation", () => ({
   SvgTextAnimation: ({ children }: { children: ReactNode }) => (
     <div>{children}</div>
   ),
 }));
 
 // Mock Globe component to avoid WebGL/Canvas errors in jsdom
-vi.mock("@/components/globe", () => ({
+vi.mock("./components/globe/globe", () => ({
   Globe: () => <div data-testid="globe">Globe</div>,
 }));
 

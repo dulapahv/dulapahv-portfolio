@@ -6,7 +6,7 @@ import { GITHUB_URL } from "@/lib/constants";
 
 import { ShareButtons } from "./share";
 
-vi.mock("./theme-aware-image", () => ({
+vi.mock("@/components/theme-aware-image", () => ({
   ThemeAwareImage: () => <div data-testid="theme-aware-image">X Logo</div>,
 }));
 

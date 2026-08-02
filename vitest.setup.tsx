@@ -21,8 +21,17 @@ vi.mock("react", async () => {
 });
 
 vi.mock("next/font/google", () => ({
-  Merriweather: () => ({
-    className: "mocked-merriweather",
+  Archivo: () => ({
+    className: "mocked-archivo",
+    variable: "mocked-archivo-variable",
+  }),
+  Geist_Mono: () => ({
+    className: "mocked-geist-mono",
+    variable: "mocked-geist-mono-variable",
+  }),
+  IBM_Plex_Sans: () => ({
+    className: "mocked-ibm-plex-sans",
+    variable: "mocked-ibm-plex-sans-variable",
   }),
 }));
 

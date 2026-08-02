@@ -20,15 +20,7 @@ exports[`Home Page > should match snapshot 1`] = `
       >
         Software engineer crafting
       </span>
-      <svg
-        aria-label="Software engineering crafting animated text"
-        class="svg-anim-crafting h-auto w-full"
-        height="109.561"
-        role="img"
-        viewBox="0 0 1450 109.561"
-        width="1450"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+      <div>
         <g
           fill="none"
           fill-rule="evenodd"
@@ -158,7 +150,7 @@ exports[`Home Page > should match snapshot 1`] = `
             vector-effect="non-scaling-stroke"
           />
         </g>
-      </svg>
+      </div>
     </div>
     <div
       class="relative mb-4 max-w-3xl"
@@ -170,15 +162,7 @@ exports[`Home Page > should match snapshot 1`] = `
       >
         accessible and delightful
       </span>
-      <svg
-        aria-label="accessible and delightful animated text"
-        class="svg-anim-accessible h-auto w-full"
-        height="109.561"
-        role="img"
-        viewBox="0 0 1450 109.561"
-        width="1450"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+      <div>
         <g
           fill="none"
           fill-rule="evenodd"
@@ -303,7 +287,7 @@ exports[`Home Page > should match snapshot 1`] = `
             vector-effect="non-scaling-stroke"
           />
         </g>
-      </svg>
+      </div>
     </div>
     <div
       class="relative mb-4 max-w-3xl"
@@ -315,15 +299,7 @@ exports[`Home Page > should match snapshot 1`] = `
       >
         digital experiences
       </span>
-      <svg
-        aria-label="digital experiences animated text"
-        class="svg-anim-digital h-auto w-full"
-        height="108.6"
-        role="img"
-        viewBox="0 0 1450 109.561"
-        width="1450"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+      <div>
         <g
           fill="none"
           fill-rule="evenodd"
@@ -423,7 +399,7 @@ exports[`Home Page > should match snapshot 1`] = `
             vector-effect="non-scaling-stroke"
           />
         </g>
-      </svg>
+      </div>
     </div>
     <div
       class="mt-12 w-fit max-w-4xl"
@@ -1084,14 +1060,9 @@ exports[`Home Page > should match snapshot 1`] = `
       style="grid-area: 📊;"
     >
       <div
-        class="relative h-full rounded-xl bg-border p-px min-h-48"
+        data-testid="github-contributions-card"
       >
-        <div
-          class="relative-mouse mask-[radial-gradient(50%_50%_at_var(--mouse-x,9999px)_var(--mouse-y,9999px),rgba(0,0,0,0.5)_40%,transparent)] pointer-events-none absolute inset-0 rounded-xl bg-linear-to-br from-mirai-red via-mirai-blue to-mirai-yellow transition-opacity duration-500"
-        />
-        <div
-          class="card z-1 flex h-full flex-col rounded-xl bg-background-elevated relative overflow-hidden"
-        />
+        GitHub Contributions
       </div>
     </article>
     <article
@@ -1100,14 +1071,9 @@ exports[`Home Page > should match snapshot 1`] = `
       style="grid-area: 🌟;"
     >
       <div
-        class="relative h-full rounded-xl bg-border p-px min-h-96"
+        data-testid="open-source-card"
       >
-        <div
-          class="relative-mouse mask-[radial-gradient(50%_50%_at_var(--mouse-x,9999px)_var(--mouse-y,9999px),rgba(0,0,0,0.5)_40%,transparent)] pointer-events-none absolute inset-0 rounded-xl bg-linear-to-br from-mirai-red via-mirai-blue to-mirai-yellow transition-opacity duration-500"
-        />
-        <div
-          class="card z-1 flex h-full flex-col rounded-xl bg-background-elevated relative overflow-hidden"
-        />
+        Open Source
       </div>
     </article>
     <article
@@ -1475,14 +1441,9 @@ exports[`Home Page > should match snapshot 1`] = `
       style="grid-area: 🎵;"
     >
       <div
-        class="relative h-full rounded-xl bg-border p-px min-h-96"
+        data-testid="spotify-card"
       >
-        <div
-          class="relative-mouse mask-[radial-gradient(50%_50%_at_var(--mouse-x,9999px)_var(--mouse-y,9999px),rgba(0,0,0,0.5)_40%,transparent)] pointer-events-none absolute inset-0 rounded-xl bg-linear-to-br from-mirai-red via-mirai-blue to-mirai-yellow transition-opacity duration-500"
-        />
-        <div
-          class="card z-1 flex h-full flex-col rounded-xl bg-background-elevated relative overflow-hidden"
-        />
+        Spotify
       </div>
     </article>
     <article

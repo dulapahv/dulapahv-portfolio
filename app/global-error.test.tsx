@@ -73,21 +73,6 @@ vi.mock("next-themes", () => ({
   }),
 }));
 
-vi.mock("next/font/google", () => ({
-  Archivo: () => ({
-    variable: "archivo-variable",
-    className: "archivo",
-  }),
-  Geist_Mono: () => ({
-    variable: "geist-mono-variable",
-    className: "geist-mono",
-  }),
-  IBM_Plex_Sans: () => ({
-    className: "ibm-plex-sans-font",
-    style: { fontFamily: "IBM Plex Sans" },
-  }),
-}));
-
 describe("Global Error Page", () => {
   const mockError = {
     name: "CriticalError",
