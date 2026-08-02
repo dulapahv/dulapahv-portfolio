@@ -5,17 +5,17 @@ const CONTRIBUTIONS_API_BASE =
   "https://github-contributions-api.jogruber.de/v4";
 const REVALIDATE_SECONDS = 3600;
 
-export interface ContributionDay {
+interface ContributionDay {
   date: string;
   count: number;
   level: 0 | 1 | 2 | 3 | 4;
 }
 
-export interface ContributionWeek {
+interface ContributionWeek {
   days: (ContributionDay | null)[];
 }
 
-export interface GitHubContributionsData {
+interface GitHubContributionsData {
   weeks: ContributionWeek[];
   totalContributions: number;
   currentYear: string;

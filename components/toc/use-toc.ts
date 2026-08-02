@@ -2,7 +2,7 @@ import type { KeyboardEvent, MouseEvent } from "react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { TocItem as ContentTocItem } from "@/lib/content-utils/content-utils";
 
-export type TOCItem = ContentTocItem;
+type TOCItem = ContentTocItem;
 
 export function useToc(tocItems: TOCItem[]) {
   const [activeId, setActiveId] = useState(() => tocItems[0]?.id ?? "");

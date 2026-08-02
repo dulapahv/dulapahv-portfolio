@@ -31,7 +31,6 @@ vi.mock("motion/react", () => ({
     nav: ({ children, ...props }: HTMLProps<HTMLDivElement>) => (
       <nav {...props}>{children}</nav>
     ),
-    /* eslint-disable  @typescript-eslint/no-explicit-any */
     button: ({ children, ...props }: any) => (
       <button {...props}>{children}</button>
     ),
@@ -44,9 +43,7 @@ vi.mock("motion/react", () => ({
 
 describe("TableOfContents", () => {
   let intersectionCallback: IntersectionObserverCallback;
-  /* eslint-disable  @typescript-eslint/no-explicit-any */
   let observeIntersection: any;
-  /* eslint-disable  @typescript-eslint/no-explicit-any */
   let disconnectIntersection: any;
 
   beforeEach(() => {
@@ -68,7 +65,6 @@ describe("TableOfContents", () => {
       rootMargin = "";
       thresholds = [0.5];
       takeRecords = () => [];
-      /* eslint-disable  @typescript-eslint/no-explicit-any */
     } as any;
 
     // Mock media query - default to desktop view

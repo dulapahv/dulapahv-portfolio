@@ -1,6 +1,6 @@
 "use server";
 
-export interface SpotifyArtist {
+interface SpotifyArtist {
   id: string;
   name: string;
   images: { url: string; height: number | null; width: number | null }[];
@@ -19,7 +19,7 @@ export interface SpotifyTrack {
   external_urls: { spotify: string };
 }
 
-export interface CurrentlyPlaying {
+interface CurrentlyPlaying {
   is_playing: boolean;
   item: SpotifyTrack | null;
   progress_ms: number | null;

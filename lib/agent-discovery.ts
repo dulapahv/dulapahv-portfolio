@@ -1,6 +1,6 @@
 export const MCP_ENDPOINT = "https://chat.dulapahv.dev/mcp";
 
-export const MCP_SERVER_CARD_PATH = "/.well-known/mcp/server-card.json";
+const MCP_SERVER_CARD_PATH = "/.well-known/mcp/server-card.json";
 
 export const AGENT_LINK_HEADER = [
   '</llms.txt>; rel="describedby"; type="text/plain"; title="Portfolio summary for language models"',

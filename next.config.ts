@@ -6,8 +6,13 @@ import { AGENT_LINK_HEADER } from "./lib/agent-discovery";
 
 const agentDiscoveryHeaders = [{ key: "Link", value: AGENT_LINK_HEADER }];
 
+const allowedDevOrigins = (process.env.ALLOWED_DEV_ORIGINS ?? "")
+  .split(",")
+  .map((origin) => origin.trim())
+  .filter(Boolean);
+
 const nextConfig: NextConfig = {
-  allowedDevOrigins: [process.env.ALLOWED_DEV_ORIGINS || "[]"],
+  allowedDevOrigins,
   experimental: {
     typedEnv: true,
     viewTransition: true,

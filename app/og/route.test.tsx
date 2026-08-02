@@ -6,12 +6,7 @@ import { GET } from "./route";
 
 vi.mock("next/og", () => ({
   ImageResponse: class MockImageResponse {
-    constructor(
-      /* eslint-disable  @typescript-eslint/no-explicit-any */
-      element: any,
-      /* eslint-disable  @typescript-eslint/no-explicit-any */
-      options: any
-    ) {
+    constructor(element: any, options: any) {
       this.element = element;
       this.options = options;
     }
@@ -40,11 +35,9 @@ vi.mock("node:path", () => {
   };
 });
 
-/* eslint-disable  @typescript-eslint/no-explicit-any */
 const { __mocks__: fsMocks } = vi.mocked(
   await import("node:fs/promises")
 ) as any;
-/* eslint-disable  @typescript-eslint/no-explicit-any */
 const { __mocks__: pathMocks } = vi.mocked(await import("node:path")) as any;
 
 const mockReadFile = fsMocks.readFile;

@@ -25,9 +25,7 @@ vi.mock("@/hooks/use-media-query/use-media-query", () => ({
 
 vi.mock("motion/react", () => ({
   motion: {
-    /* eslint-disable  @typescript-eslint/no-explicit-any */
     div: ({ children, ...props }: any) => <div {...props}>{children}</div>,
-    /* eslint-disable  @typescript-eslint/no-explicit-any */
     button: ({ children, ...props }: any) => (
       <button {...props}>{children}</button>
     ),

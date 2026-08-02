@@ -1,7 +1,6 @@
 import type { COBEOptions } from "cobe";
 
 export const IS_DEV_ENV =
-  process.env.VERCEL_ENV === "development" ||
   process.env.NEXT_PUBLIC_ENV === "development" ||
   process.env.NODE_ENV === "development";
 export const BASE_URL = IS_DEV_ENV
