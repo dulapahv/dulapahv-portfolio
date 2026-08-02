@@ -8,7 +8,7 @@ describe("Content Detail Page", () => {
     const component = await ContentPage({
       params: Promise.resolve({
         type: "blog",
-        slug: "improve-user-experience-with-invisibile-captcha",
+        slug: "improve-user-experience-with-invisible-captcha",
       }),
       searchParams: Promise.resolve({}),
     });
