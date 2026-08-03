@@ -840,7 +840,7 @@ body {
 }
 
 ::view-transition-new(.fade-lift) {
-  animation: fadeLiftIn 380ms cubic-bezier(0.23, 1, 0.32, 1) both;
+  animation: fadeLiftIn 450ms cubic-bezier(0.23, 1, 0.32, 1) 80ms both;
 }
 
 @keyframes fadeLiftIn {
@@ -855,7 +855,7 @@ body {
 }
 
 ::view-transition-new(.slide-up) {
-  animation: slideUpIn 420ms cubic-bezier(0.23, 1, 0.32, 1) both;
+  animation: slideUpIn 550ms cubic-bezier(0.23, 1, 0.32, 1) 60ms both;
 }
 
 @keyframes slideUpIn {
