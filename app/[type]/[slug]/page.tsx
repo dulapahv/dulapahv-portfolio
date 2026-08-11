@@ -172,7 +172,22 @@ export default async function ContentPage({
                 name={`cover-${type}-${slug}`}
                 share="cover-morph"
               >
-                <div>
+                <div className="relative rounded-md bg-background-muted/30">
+                  {/* Deliberately mirrors the listing thumbnail's sizes and
+                   * quality so it resolves to the exact srcset candidate
+                   * /[type] already fetched. Being a cache hit, it paints on
+                   * the first frame and gives the cover-morph snapshot real
+                   * pixels to animate while the full-resolution image above
+                   * is still in flight. */}
+                  <Image
+                    alt=""
+                    aria-hidden="true"
+                    className="rounded-md object-cover"
+                    fill
+                    quality={25}
+                    sizes="150px"
+                    src={page.image}
+                  />
                   <Zoom
                     classDialog='[&_[data-rmiz-modal-overlay="visible"]]:!bg-background/40 [&_[data-rmiz-modal-overlay="visible"]]:backdrop-blur-sm'
                     wrapElement="span"
@@ -180,10 +195,11 @@ export default async function ContentPage({
                   >
                     <Image
                       alt={imageAlt}
-                      className="overflow-hidden rounded-md border border-border bg-background-muted/30"
+                      className="relative overflow-hidden rounded-md border border-border"
                       height={630}
                       loading="eager"
-                      quality={100}
+                      quality={75}
+                      sizes="(min-width: 768px) 768px, 100vw"
                       src={page.image}
                       width={1200}
                     />

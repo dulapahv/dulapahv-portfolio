@@ -49,7 +49,7 @@ const nextConfig: NextConfig = {
   images: {
     loader: "custom",
     loaderFile: "./image-loader.ts",
-    qualities: [1, 25, 75, 100],
+    qualities: [1, 25, 75],
     remotePatterns: [
       {
         protocol: "https",

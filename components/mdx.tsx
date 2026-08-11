@@ -48,7 +48,6 @@ function img(props: HTMLProps<HTMLImageElement>) {
           "overflow-hidden rounded-md border border-border bg-background-muted/30"
         )}
         height={698}
-        quality={100}
         src={props.src}
         unoptimized={props.src.startsWith("http") || props.src.endsWith(".gif")}
         width={1240}
