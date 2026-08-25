@@ -1,0 +1,33 @@
+"use client";
+
+import { useEffect } from "react";
+
+const LOGO_DATA_URI =
+  "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIG9wYWNpdHk9IjAuOTY0IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTgzLjYyNSA3Ljg3NUM4NC43NDgyIDEzLjM3NCA4Ny4wNCAxOC4zNzQgOTAuNSAyMi44NzVDOTQuNjc5IDI3LjQ0NTIgOTkuODA0IDMwLjQ0NTIgMTA1Ljg3NSAzMS44NzVDOTMuNDE3OCAzNS4xNjYgODYuMDg0NSA0My4xNjYgODMuODc1IDU1Ljg3NUM4MS42NjU1IDQzLjE2NiA3NC4zMzIyIDM1LjE2NiA2MS44NzUgMzEuODc1Qzc0LjM4MjcgMjguNjE4MiA4MS42MzI3IDIwLjYxODIgODMuNjI1IDcuODc1WiIgZmlsbD0iI0ZCNTY4QSIvPgo8cGF0aCBvcGFjaXR5PSIwLjk4MSIgZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik00Ny42MjUgMjMuODc1QzQ5LjAyNCAzMi4yNzYyIDUxLjg5OSA0MC4xOTI3IDU2LjI1IDQ3LjYyNUM2My43Njk1IDU5LjI1OTUgNzQuMzExMiA2Ni42NzYzIDg3Ljg3NSA2OS44NzVDNjguNTMwNSA3NC45Mjc3IDU1LjkwNTUgODcuMDExIDUwIDEwNi4xMjVDNDkuMDk0IDEwOS4zMzIgNDguMzg1NyAxMTIuNTgyIDQ3Ljg3NSAxMTUuODc1QzQ2LjAwNCAxMDEuMzM4IDM5LjU4NzIgODkuMjk2IDI4LjYyNSA3OS43NUMyMi40Mzg5IDc0Ljk5MSAxNS41MjIyIDcxLjY5OTIgNy44NzUgNjkuODc1QzI4LjMxODMgNjQuMzkgNDEuMTkzMiA1MS4zOSA0Ni41IDMwLjg3NUM0Ny4xMTc3IDI4LjU3OCA0Ny40OTI3IDI2LjI0NDggNDcuNjI1IDIzLjg3NVoiIGZpbGw9IiNGRkNDNDkiLz4KPHBhdGggb3BhY2l0eT0iMC45NjQiIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNOTcuNjI1IDcxLjg3NUM5OC43NDgyIDc3LjM3NCAxMDEuMDQgODIuMzc0IDEwNC41IDg2Ljg3NUMxMDguNjc5IDkxLjQ0NTIgMTEzLjgwNCA5NC40NDUyIDExOS44NzUgOTUuODc1QzEwNy40MTggOTkuMTY2IDEwMC4wODQgMTA3LjE2NiA5Ny44NzUgMTE5Ljg3NUM5NS42NjU1IDEwNy4xNjYgODguMzMyMiA5OS4xNjYgNzUuODc1IDk1Ljg3NUM4OC4zODI3IDkyLjYxODIgOTUuNjMyNyA4NC42MTgyIDk3LjYyNSA3MS44NzVaIiBmaWxsPSIjNUJCM0ZCIi8+Cjwvc3ZnPgo=";
+
+const LOGO_SIZE = 96;
+
+const logoStyle = [
+  "font-size: 1px",
+  `padding: ${LOGO_SIZE / 2}px`,
+  `background: url("${LOGO_DATA_URI}") no-repeat center`,
+  `background-size: ${LOGO_SIZE}px ${LOGO_SIZE}px`,
+  "color: transparent",
+].join("; ");
+
+// Module-level so StrictMode's double-invoked effect (and any remount)
+// doesn't print the cat twice.
+let hasGreeted = false;
+
+export function ConsoleGreeting() {
+  useEffect(() => {
+    if (hasGreeted) {
+      return;
+    }
+    hasGreeted = true;
+
+    console.log("%c+", logoStyle);
+  }, []);
+
+  return null;
+}

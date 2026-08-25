@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Archivo, Geist_Mono, IBM_Plex_Sans } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { BackgroundDecor } from "@/components/background-decor";
+import { ConsoleGreeting } from "@/components/console-greeting";
 import { LazyMotionProvider } from "@/components/lazy-motion-provider";
 import MousePositionVarsSetter from "@/components/mouse-position-setter";
 import { Navbar } from "@/components/navbar/navbar";
@@ -56,6 +57,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           scriptProps={{ "data-cfasync": "false" }}
         >
           <LazyMotionProvider>
+            <ConsoleGreeting />
             <MousePositionVarsSetter />
             <a
               className={cn(
