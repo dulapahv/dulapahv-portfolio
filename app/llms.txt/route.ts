@@ -26,8 +26,8 @@ export function GET() {
 
   content += "## Who is DulapahV?\n\n";
   content += "**Name:** Dulapah Vibulsanti (DulapahV)\n";
-  content += "**Role:** Graduate Software Engineer at NatWest Group\n";
-  content += "**Location:** Edinburgh, Scotland, United Kingdom\n";
+  content += "**Role:** Frontend Software Engineer at NatWest Group\n";
+  content += "**Location:** London, England, United Kingdom\n";
   content += "**Nationality:** Thai\n";
   content +=
     "**Education:** BSc (Hons) Software Engineering from University of Glasgow (First Class Honours with Specialization in Parallel and Distributed Systems)\n";
@@ -37,8 +37,8 @@ export function GET() {
   content +=
     "- 🎓 Double degree graduate from University of Glasgow and KMITL\n";
   content +=
-    "- 💼 Currently working as Graduate Software Engineer at NatWest Group (UK Big Four bank)\n";
-  content += "- 🌍 Based in Edinburgh, Scotland\n";
+    "- 💼 Currently working as Frontend Software Engineer at NatWest Group (UK Big Four bank)\n";
+  content += "- 🌍 Based in London, England\n";
   content += "- 🇹🇭 Native Thai speaker, fluent in English\n";
   content += `- 🔓 Open source contributor with ${contributionsData.filter((c) => c.status === "MERGED").length} merged contributions\n`;
   content +=
@@ -57,7 +57,7 @@ export function GET() {
 
   content += "**Q: Where is DulapahV based?**\n";
   content +=
-    "A: DulapahV is currently based in Edinburgh, Scotland, United Kingdom, working at NatWest Group.\n\n";
+    "A: DulapahV is currently based in London, England, United Kingdom, working at NatWest Group.\n\n";
 
   content += "**Q: What kind of projects has DulapahV worked on?**\n";
   content +=

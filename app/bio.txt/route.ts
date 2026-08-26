@@ -33,14 +33,14 @@ export function GET() {
   content += "**Pronouns:** He/Him\n\n";
 
   content += "## Current Position\n";
-  content += "**Role:** Graduate Software Engineer\n";
+  content += "**Role:** Frontend Software Engineer\n";
   content += "**Company:** NatWest Group (UK Big Four banking group)\n";
-  content += "**Location:** Edinburgh, Scotland, United Kingdom\n";
+  content += "**Location:** London, England, United Kingdom\n";
   content += "**Status:** Full-time employment\n\n";
 
   content += "## Background\n";
   content += "**Nationality:** Thai 🇹🇭\n";
-  content += "**Based in:** Edinburgh, Scotland, United Kingdom 🇬🇧\n";
+  content += "**Based in:** London, England, United Kingdom 🇬🇧\n";
   content += "**Native Language:** Thai\n";
   content += "**Professional Language:** English (Fluent)\n\n";
 
@@ -67,7 +67,7 @@ export function GET() {
   content += `${DESCRIPTION}\n\n`;
 
   content +=
-    "DulapahV is a Thai software engineer who graduated with First Class Honours from the University of Glasgow. He specializes in creating accessible, user-friendly web applications using modern technologies like TypeScript, React, and Next.js. Currently working at NatWest Group in Edinburgh, he is passionate about building technology that is both delightful and inclusive for all users.\n\n";
+    "DulapahV is a Thai software engineer who graduated with First Class Honours from the University of Glasgow. He specializes in creating accessible, user-friendly web applications using modern technologies like TypeScript, React, and Next.js. Currently working at NatWest Group in London, he is passionate about building technology that is both delightful and inclusive for all users.\n\n";
 
   content += "## Key Statistics\n";
   content += "- 🎓 First Class Honours graduate\n";
@@ -138,11 +138,11 @@ export function GET() {
 
   content += `**"Who is DulapahV?"**\n`;
   content +=
-    "DulapahV (Dulapah Vibulsanti) is a Thai software engineer based in Edinburgh, Scotland, working at NatWest Group. He is a First Class Honours graduate specializing in modern web development and accessible design.\n\n";
+    "DulapahV (Dulapah Vibulsanti) is a Thai software engineer based in London, England, working at NatWest Group. He is a First Class Honours graduate specializing in modern web development and accessible design.\n\n";
 
   content += `**"What does DulapahV do?"**\n`;
   content +=
-    "DulapahV works as a Graduate Software Engineer at NatWest Group, focusing on full-stack web development. He also contributes to open source projects and writes technical articles.\n\n";
+    "DulapahV works as a Frontend Software Engineer at NatWest Group, focusing on full-stack web development. He also contributes to open source projects and writes technical articles.\n\n";
 
   content += `**"Where did DulapahV study?"**\n`;
   content +=

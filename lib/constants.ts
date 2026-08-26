@@ -16,7 +16,7 @@ export const SECURITY_CONTACT_EMAIL = "security@dulapahv.dev";
 
 export const NAME = "Dulapah Vibulsanti";
 export const DESCRIPTION =
-  "Thai software engineer based in Edinburgh, building accessible, user-centered digital experiences.";
+  "Thai software engineer based in London, building accessible, user-centered digital experiences.";
 
 export const RELATIVE_MOUSE_CLASSNAME = "relative-mouse";
 
@@ -28,6 +28,8 @@ export const EDUCATION_LOCATION: COBEOptions["markers"] = [
 ];
 
 export const WORK_LOCATION: COBEOptions["markers"] = [
+  // NatWest Group, London, United Kingdom
+  { location: [51.5205, -0.0805], size: 0.1 },
   // NatWest Group, Edinburgh, United Kingdom
   { location: [55.944_425, -3.188_396], size: 0.1 },
   // GISTDA, Bangkok, Thailand
@@ -43,6 +45,4 @@ export const TRAVEL_LOCATIONS: COBEOptions["markers"] = [
   { location: [7.880_447, 98.392_281], size: 0.1 },
   // Nakhon Si Thammarat, Thailand
   { location: [8.432_778, 99.963_611], size: 0.1 },
-  // London, United Kingdom
-  { location: [51.5074, -0.1278], size: 0.1 },
 ];

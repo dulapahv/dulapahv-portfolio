@@ -15,12 +15,20 @@ interface WorkExperience {
 
 const works: WorkExperience[] = [
   {
+    position: "Frontend Software Engineer",
+    company: "NatWest Group",
+    location: "London, United Kingdom",
+    formattedStartDate: "Oct 2026",
+    formattedEndDate: "", // TODO: Update this to "Present" on the actual start date
+    // isPresent: true, // TODO: Update this to "true" on the actual start date
+  },
+  {
     position: "Graduate Software Engineer",
     company: "NatWest Group",
     location: "Edinburgh, United Kingdom",
     formattedStartDate: "Sep 2025",
-    formattedEndDate: "Present",
-    isPresent: true,
+    formattedEndDate: "Oct 2026",
+    isPresent: true, // TODO: Remove this on the actual start date
   },
   {
     position: "Software Engineer Intern",
@@ -30,18 +38,11 @@ const works: WorkExperience[] = [
     formattedEndDate: "Aug 2024",
   },
   {
-    position: "Front-End Developer",
+    position: "Frontend Developer",
     company: "King Mongkut's Institute of Technology Ladkrabang (KMITL)",
     location: "Bangkok, Thailand",
     formattedStartDate: "Feb 2023",
     formattedEndDate: "Jul 2024",
-  },
-  {
-    position: "Full-Stack Developer Intern",
-    company: "Geo-Informatics and Space Technology Development Agency (GISTDA)",
-    location: "Bangkok, Thailand",
-    formattedStartDate: "Jun 2023",
-    formattedEndDate: "Aug 2023",
   },
 ];
 
@@ -64,7 +65,7 @@ export function WorkCard() {
         />
 
         <ul className="flex h-full flex-1 flex-col text-sm">
-          {works.map((work, index) => (
+          {works.map((work) => (
             <li
               className="relative flex flex-col gap-1 pb-3 pl-4 first:pb-3"
               key={`work-${work.company}-${work.formattedStartDate}`}
@@ -78,7 +79,7 @@ export function WorkCard() {
                   "flex items-center gap-2 font-medium text-foreground"
                 )}
               >
-                {index === 0 && work.isPresent ? (
+                {work.isPresent ? (
                   <span className="relative inline-flex size-1.5 shrink-0">
                     <span
                       aria-hidden="true"
@@ -94,7 +95,8 @@ export function WorkCard() {
               </p>
               <p className="text-foreground-muted">{work.location}</p>
               <time className="text-foreground-muted text-xs">
-                {work.formattedStartDate}—{work.formattedEndDate}
+                {work.formattedStartDate}
+                {work.formattedEndDate ? ` — ${work.formattedEndDate}` : null}
               </time>
             </li>
           ))}

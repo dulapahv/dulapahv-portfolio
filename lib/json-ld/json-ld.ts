@@ -88,7 +88,7 @@ export const personSchema: WithContext<Person> = {
       },
     },
   ],
-  jobTitle: "Graduate Software Engineer",
+  jobTitle: "Frontend Software Engineer",
   worksFor: {
     "@type": "Organization",
     name: "NatWest Group",
@@ -99,11 +99,11 @@ export const personSchema: WithContext<Person> = {
   },
   workLocation: {
     "@type": "Place",
-    name: "Edinburgh, Scotland",
+    name: "London, England",
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Edinburgh",
-      addressRegion: "Scotland",
+      addressLocality: "London",
+      addressRegion: "England",
       addressCountry: "GB",
     },
   },
@@ -180,11 +180,11 @@ export const personSchema: WithContext<Person> = {
     occupationalCategory: "15-1252.00", // O*NET SOC Code
     occupationLocation: {
       "@type": "City",
-      name: "Edinburgh, Scotland",
+      name: "London, England",
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Edinburgh",
-        addressRegion: "Scotland",
+        addressLocality: "London",
+        addressRegion: "England",
         addressCountry: "GB",
       },
     },
@@ -350,7 +350,7 @@ export const createBlogPostingSchema = (post: {
     "@id": `${BASE_URL}/#person`,
     name: NAME,
     url: BASE_URL,
-    jobTitle: "Graduate Software Engineer",
+    jobTitle: "Frontend Software Engineer",
     worksFor: {
       "@type": "Organization",
       name: "NatWest Group",
