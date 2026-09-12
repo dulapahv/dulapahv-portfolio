@@ -88,7 +88,7 @@ export const personSchema: WithContext<Person> = {
       },
     },
   ],
-  jobTitle: "Frontend Software Engineer",
+  jobTitle: "Software Engineer",
   worksFor: {
     "@type": "Organization",
     name: "NatWest Group",
@@ -350,7 +350,7 @@ export const createBlogPostingSchema = (post: {
     "@id": `${BASE_URL}/#person`,
     name: NAME,
     url: BASE_URL,
-    jobTitle: "Frontend Software Engineer",
+    jobTitle: "Software Engineer",
     worksFor: {
       "@type": "Organization",
       name: "NatWest Group",

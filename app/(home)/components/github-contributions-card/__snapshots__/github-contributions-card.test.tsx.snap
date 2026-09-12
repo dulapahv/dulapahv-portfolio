@@ -115,11 +115,11 @@ exports[`GitHubContributionsCard > should match snapshot 1`] = `
               >
                 <div
                   class="size-2.5 rounded-sm bg-green-500"
-                  title="5 contributions on 01/01/2024"
+                  title="5 contributions on 1/1/2024"
                 />
                 <div
                   class="size-2.5 rounded-sm bg-green-300"
-                  title="3 contributions on 02/01/2024"
+                  title="3 contributions on 1/2/2024"
                 />
                 <div
                   class="size-2.5"
@@ -142,11 +142,11 @@ exports[`GitHubContributionsCard > should match snapshot 1`] = `
               >
                 <div
                   class="size-2.5 rounded-sm bg-green-600"
-                  title="8 contributions on 08/01/2024"
+                  title="8 contributions on 1/8/2024"
                 />
                 <div
                   class="size-2.5 rounded-sm bg-gray-200"
-                  title="0 contributions on 09/01/2024"
+                  title="0 contributions on 1/9/2024"
                 />
                 <div
                   class="size-2.5"

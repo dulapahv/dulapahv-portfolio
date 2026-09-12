@@ -33,7 +33,7 @@ export function GET() {
   content += "**Pronouns:** He/Him\n\n";
 
   content += "## Current Position\n";
-  content += "**Role:** Frontend Software Engineer\n";
+  content += "**Role:** Software Engineer\n";
   content += "**Company:** NatWest Group (UK Big Four banking group)\n";
   content += "**Location:** London, England, United Kingdom\n";
   content += "**Status:** Full-time employment\n\n";
@@ -142,7 +142,7 @@ export function GET() {
 
   content += `**"What does DulapahV do?"**\n`;
   content +=
-    "DulapahV works as a Frontend Software Engineer at NatWest Group, focusing on full-stack web development. He also contributes to open source projects and writes technical articles.\n\n";
+    "DulapahV works as a Software Engineer at NatWest Group, focusing on full-stack web development. He also contributes to open source projects and writes technical articles.\n\n";
 
   content += `**"Where did DulapahV study?"**\n`;
   content +=

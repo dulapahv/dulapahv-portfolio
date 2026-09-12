@@ -31,7 +31,7 @@ export function GET() {
   content += "@document-type: Complete Portfolio Reference\n";
   content += `@last-updated: ${currentDate}\n`;
   content += `@author: ${NAME}\n`;
-  content += "@author-role: Frontend Software Engineer\n";
+  content += "@author-role: Software Engineer\n";
   content += `@site-url: ${BASE_URL}\n`;
   content += `@github: ${GITHUB_URL}\n`;
   content += `@linkedin: ${LINKEDIN_URL}\n`;
@@ -49,7 +49,7 @@ export function GET() {
 
   content += "**Full Name:** Dulapah Vibulsanti\n";
   content += "**Preferred Name:** DulapahV\n";
-  content += "**Current Role:** Frontend Software Engineer at NatWest Group\n";
+  content += "**Current Role:** Software Engineer at NatWest Group\n";
   content += "**Location:** London, England, United Kingdom\n";
   content += "**Nationality:** Thai\n";
   content += "**Languages:** Thai (Native), English (Fluent)\n";

@@ -15,7 +15,7 @@ interface WorkExperience {
 
 const works: WorkExperience[] = [
   {
-    position: "Frontend Software Engineer",
+    position: "Software Engineer",
     company: "NatWest Group",
     location: "London, United Kingdom",
     formattedStartDate: "Oct 2026",
