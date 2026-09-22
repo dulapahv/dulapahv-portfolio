@@ -16,7 +16,7 @@ export const SECURITY_CONTACT_EMAIL = "security@dulapahv.dev";
 
 export const NAME = "Dulapah Vibulsanti";
 export const DESCRIPTION =
-  "Thai software engineer based in London, building accessible, user-centered digital experiences.";
+  "Thai software engineer in London, focusing on thoughtful design and shipping reliable, maintainable software that creates exceptional customer experiences.";
 
 export const RELATIVE_MOUSE_CLASSNAME = "relative-mouse";
 

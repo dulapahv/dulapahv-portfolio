@@ -35,8 +35,9 @@ export function AboutCard() {
 
       <p className="mt-4 text-foreground leading-7">
         I&apos;m a Thai Software Engineer at NatWest Group in London, UK,
-        focused on thoughtful design and building reliable, maintainable
-        software in production. I occasionally write on my{" "}
+        focusing on thoughtful design and shipping reliable, maintainable
+        software that creates exceptional customer experiences. I occasionally
+        write on my{" "}
         <Link
           className={cn(
             "text-mirai-red underline underline-offset-2",
