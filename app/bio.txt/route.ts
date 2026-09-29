@@ -51,13 +51,13 @@ export function GET() {
   content += "- Specialization: Parallel and Distributed Systems\n";
   content += "- Location: Glasgow, Scotland\n";
   content +=
-    "- Duration: 2023-2025 (Final 2 years of double degree programme)\n\n";
+    "- Duration: Sep 2023 - Jun 2025 (Final 2 years of double degree programme)\n\n";
 
   content += "**Degree 2:** BEng Software Engineering\n";
   content += `- Institution: King Mongkut's Institute of Technology Ladkrabang (KMITL)\n`;
   content += "- Location: Bangkok, Thailand\n";
   content +=
-    "- Duration: 2021-2023 (First 2 years of double degree programme)\n\n";
+    "- Duration: Aug 2021 - Jun 2025 (First 2 years of double degree programme, degree awarded Jun 2025)\n\n";
 
   content += "**High School:** Suankularb Wittayalai School\n";
   content += "- Location: Bangkok, Thailand\n";
@@ -146,7 +146,7 @@ export function GET() {
 
   content += `**"Where did DulapahV study?"**\n`;
   content +=
-    "DulapahV completed a double degree programme, studying at KMITL in Bangkok for the first two years, then transferring to the University of Glasgow where he graduated with First Class Honours in Software Engineering.\n\n";
+    "DulapahV completed a double degree programme, studying at KMITL in Bangkok for the first two years, then transferring to the University of Glasgow where he graduated with First Class Honours in Software Engineering. Both degrees were awarded in June 2025.\n\n";
 
   content += `**"What technologies does DulapahV use?"**\n`;
   content +=

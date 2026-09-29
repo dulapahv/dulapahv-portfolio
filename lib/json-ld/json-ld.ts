@@ -130,7 +130,7 @@ export const personSchema: WithContext<Person> = {
         "Double degree program with KMITL. First Class Honours with Specialization in Parallel and Distributed Systems. Final two years completed at University of Glasgow.",
       credentialCategory: "degree",
       educationalLevel: "Bachelor",
-      dateCreated: "2023-09",
+      dateCreated: "2025-06",
       recognizedBy: {
         "@type": "CollegeOrUniversity",
         name: "University of Glasgow",
@@ -145,7 +145,7 @@ export const personSchema: WithContext<Person> = {
         "Double degree programme with University of Glasgow. First two years completed at KMITL before transferring to Glasgow.",
       credentialCategory: "degree",
       educationalLevel: "Bachelor",
-      dateCreated: "2021-08",
+      dateCreated: "2025-06",
       recognizedBy: {
         "@type": "CollegeOrUniversity",
         name: "King Mongkut's Institute of Technology Ladkrabang",

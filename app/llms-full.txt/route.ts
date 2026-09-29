@@ -54,8 +54,8 @@ export function GET() {
   content += "**Nationality:** Thai\n";
   content += "**Languages:** Thai (Native), English (Fluent)\n";
   content +=
-    "**Education:** BSc (Hons) Software Engineering, University of Glasgow (First Class Honours with Specialization in Parallel and Distributed Systems)\n";
-  content += `**Previous Education:** BEng Software Engineering, King Mongkut's Institute of Technology Ladkrabang (KMITL)\n`;
+    "**Education:** BSc (Hons) Software Engineering, University of Glasgow (First Class Honours with Specialization in Parallel and Distributed Systems), Sep 2023 - Jun 2025\n";
+  content += `**Double Degree:** BEng Software Engineering, King Mongkut's Institute of Technology Ladkrabang (KMITL), Aug 2021 - Jun 2025\n`;
   content += `**Professional Summary:** ${DESCRIPTION}\n\n`;
 
   content += "**Notable Achievements:**\n";
