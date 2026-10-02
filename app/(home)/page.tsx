@@ -10,6 +10,7 @@ import { createMetadata } from "@/lib/metadata";
 import { cn } from "@/lib/utils";
 import { AboutCard } from "./components/about-card";
 import { CameraRollCard } from "./components/camera-roll-card/camera-roll-card";
+import { CardErrorBoundary } from "./components/card-error-boundary";
 import { CardSkeleton } from "./components/card-skeleton";
 import { GitHubContributionsCard } from "./components/github-contributions-card/github-contributions-card";
 import { GlobeCard } from "./components/globe/globe-card";
@@ -133,14 +134,21 @@ export default function Home() {
           <ProjectsCard projects={recentProjects} />
         </GridCell>
         <GridCell area="📊">
-          <Suspense fallback={<CardSkeleton />}>
-            <GitHubContributionsCard username="dulapahv" />
-          </Suspense>
+          <CardErrorBoundary title="GitHub Activity">
+            <Suspense fallback={<CardSkeleton />}>
+              <GitHubContributionsCard username="dulapahv" />
+            </Suspense>
+          </CardErrorBoundary>
         </GridCell>
         <GridCell area="🌟">
-          <Suspense fallback={<CardSkeleton minHeight="min-h-96" />}>
-            <OpenSourceCard />
-          </Suspense>
+          <CardErrorBoundary
+            minHeight="min-h-96"
+            title="Open Source Contributions"
+          >
+            <Suspense fallback={<CardSkeleton minHeight="min-h-96" />}>
+              <OpenSourceCard />
+            </Suspense>
+          </CardErrorBoundary>
         </GridCell>
         <GridCell area="🌏">
           <GlobeCard />
@@ -149,9 +157,11 @@ export default function Home() {
           <CameraRollCard images={[...CAMERA_IMAGES]} />
         </GridCell>
         <GridCell area="🎵">
-          <Suspense fallback={<CardSkeleton minHeight="min-h-96" />}>
-            <SpotifyCard />
-          </Suspense>
+          <CardErrorBoundary minHeight="min-h-96" title="Spotify">
+            <Suspense fallback={<CardSkeleton minHeight="min-h-96" />}>
+              <SpotifyCard />
+            </Suspense>
+          </CardErrorBoundary>
         </GridCell>
         <GridCell area="🎮">
           <StressReliefCard />

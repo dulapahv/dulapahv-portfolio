@@ -18,6 +18,7 @@ const nextConfig: NextConfig = {
     cssChunking: "graph",
     optimizePackageImports: ["@phosphor-icons/react", "motion"],
     prefetchInlining: true,
+    turbopackRustReactCompiler: true,
     turbopackFileSystemCacheForBuild: true,
     turbopackServerSideNestedAsyncChunking: true,
     staleTimes: {
