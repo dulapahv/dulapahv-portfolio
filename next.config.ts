@@ -15,8 +15,7 @@ const nextConfig: NextConfig = {
   allowedDevOrigins,
   experimental: {
     typedEnv: true,
-    viewTransition: true,
-    cssChunking: "strict",
+    cssChunking: "graph",
     optimizePackageImports: ["@phosphor-icons/react", "motion"],
     prefetchInlining: true,
     turbopackFileSystemCacheForBuild: true,

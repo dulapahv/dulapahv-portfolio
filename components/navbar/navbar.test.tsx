@@ -185,7 +185,7 @@ describe("Navbar", () => {
       const links = screen.getAllByRole("link");
 
       // Focus last link
-      links.at(-1).focus();
+      links.at(-1)?.focus();
 
       // Press ArrowRight (should wrap to first)
       nav.dispatchEvent(
@@ -202,7 +202,7 @@ describe("Navbar", () => {
       const links = screen.getAllByRole("link");
 
       // Focus last link
-      links.at(-1).focus();
+      links.at(-1)?.focus();
 
       // Press Home
       nav.dispatchEvent(

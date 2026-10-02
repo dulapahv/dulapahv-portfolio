@@ -38,36 +38,40 @@ import {
 
 describe("json-ld schemas", () => {
   describe("personSchema", () => {
+    // schema-dts models `WithContext<Person>` as a union that includes a bare
+    // string branch, so properties are not accessible off the union directly.
+    const person = personSchema as unknown as Record<string, unknown>;
+
     it("should have correct type and context", () => {
-      expect(personSchema["@context"]).toBe("https://schema.org");
-      expect(personSchema["@type"]).toBe("Person");
+      expect(person["@context"]).toBe("https://schema.org");
+      expect(person["@type"]).toBe("Person");
     });
 
     it("should have correct identity fields", () => {
-      expect(personSchema.name).toBe(NAME);
-      expect(personSchema.givenName).toBe("Dulapah");
-      expect(personSchema.familyName).toBe("Vibulsanti");
-      expect(personSchema.alternateName).toBe("DulapahV");
+      expect(person.name).toBe(NAME);
+      expect(person.givenName).toBe("Dulapah");
+      expect(person.familyName).toBe("Vibulsanti");
+      expect(person.alternateName).toBe("DulapahV");
     });
 
     it("should have alumni information", () => {
-      expect(personSchema.alumniOf).toBeInstanceOf(Array);
-      expect(personSchema.alumniOf).toHaveLength(3);
+      expect(person.alumniOf).toBeInstanceOf(Array);
+      expect(person.alumniOf).toHaveLength(3);
     });
 
     it("should have credentials", () => {
-      expect(personSchema.hasCredential).toBeInstanceOf(Array);
-      expect(personSchema.hasCredential).toHaveLength(2);
+      expect(person.hasCredential).toBeInstanceOf(Array);
+      expect(person.hasCredential).toHaveLength(2);
     });
 
     it("should have known languages", () => {
-      expect(personSchema.knowsLanguage).toBeInstanceOf(Array);
-      expect(personSchema.knowsLanguage).toHaveLength(2);
+      expect(person.knowsLanguage).toBeInstanceOf(Array);
+      expect(person.knowsLanguage).toHaveLength(2);
     });
 
     it("should have knowsAbout with skills", () => {
-      expect(personSchema.knowsAbout).toBeInstanceOf(Array);
-      const skills = personSchema.knowsAbout as string[];
+      expect(person.knowsAbout).toBeInstanceOf(Array);
+      const skills = person.knowsAbout as string[];
       expect(skills.length).toBeGreaterThan(0);
       expect(skills).toContain("Full-Stack Web Development");
     });
@@ -118,7 +122,7 @@ describe("json-ld schemas", () => {
     });
 
     it("should have breadcrumb with 2 items", () => {
-      const breadcrumb = contactPageSchema.breadcrumb as {
+      const breadcrumb = contactPageSchema.breadcrumb as unknown as {
         itemListElement: unknown[];
       };
       expect(breadcrumb.itemListElement).toHaveLength(2);
@@ -154,7 +158,10 @@ describe("json-ld schemas", () => {
         description: "Blog posts",
       });
 
-      const mainEntity = schema.mainEntity as {
+      const mainEntity = schema.mainEntity as unknown as Record<
+        string,
+        unknown
+      > & {
         numberOfItems: number;
         itemListElement: unknown[];
       };
@@ -169,7 +176,7 @@ describe("json-ld schemas", () => {
         description: "Blog posts",
       });
 
-      const breadcrumb = schema.breadcrumb as {
+      const breadcrumb = schema.breadcrumb as unknown as {
         itemListElement: unknown[];
       };
       expect(breadcrumb.itemListElement).toHaveLength(2);

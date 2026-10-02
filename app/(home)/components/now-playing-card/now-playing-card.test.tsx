@@ -19,6 +19,7 @@ vi.mock("next/image", () => ({
 }));
 
 const mockTrack = {
+  id: "track-1",
   name: "Test Song",
   artists: [
     {
@@ -29,7 +30,7 @@ const mockTrack = {
   ],
   album: {
     name: "Test Album",
-    images: [{ url: "https://example.com/album.jpg" }],
+    images: [{ url: "https://example.com/album.jpg", height: 640, width: 640 }],
     external_urls: { spotify: "https://open.spotify.com/album/1" },
   },
   external_urls: {
