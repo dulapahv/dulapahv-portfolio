@@ -673,6 +673,18 @@ exports[`Home Page > should match snapshot 1`] = `
                 <p
                   class="flex items-center gap-2 font-medium text-foreground"
                 >
+                  <span
+                    class="relative inline-flex size-1.5 shrink-0"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="absolute size-1.5 animate-ping rounded-full bg-mirai-red"
+                    />
+                    <span
+                      aria-hidden="true"
+                      class="relative size-1.5 rounded-full bg-mirai-red"
+                    />
+                  </span>
                   Software Engineer
                    at 
                   NatWest Group
@@ -686,6 +698,7 @@ exports[`Home Page > should match snapshot 1`] = `
                   class="text-foreground-muted text-xs"
                 >
                   Oct 2026
+                   — Present
                 </time>
               </li>
               <li
@@ -698,18 +711,6 @@ exports[`Home Page > should match snapshot 1`] = `
                 <p
                   class="flex items-center gap-2 font-medium text-foreground"
                 >
-                  <span
-                    class="relative inline-flex size-1.5 shrink-0"
-                  >
-                    <span
-                      aria-hidden="true"
-                      class="absolute size-1.5 animate-ping rounded-full bg-mirai-red"
-                    />
-                    <span
-                      aria-hidden="true"
-                      class="relative size-1.5 rounded-full bg-mirai-red"
-                    />
-                  </span>
                   Graduate Software Engineer
                    at 
                   NatWest Group

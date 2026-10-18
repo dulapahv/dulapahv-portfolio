@@ -19,8 +19,8 @@ const works: WorkExperience[] = [
     company: "NatWest Group",
     location: "London, United Kingdom",
     formattedStartDate: "Oct 2026",
-    formattedEndDate: "", // TODO: Update this to "Present" on the actual start date
-    // isPresent: true, // TODO: Update this to "true" on the actual start date
+    formattedEndDate: "Present",
+    isPresent: true,
   },
   {
     position: "Graduate Software Engineer",
@@ -28,7 +28,6 @@ const works: WorkExperience[] = [
     location: "Edinburgh, United Kingdom",
     formattedStartDate: "Sep 2025",
     formattedEndDate: "Oct 2026",
-    isPresent: true, // TODO: Remove this on the actual start date
   },
   {
     position: "Software Engineer Intern",
