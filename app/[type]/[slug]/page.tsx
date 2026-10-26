@@ -184,7 +184,7 @@ export default async function ContentPage({
                     aria-hidden="true"
                     className="rounded-md object-cover"
                     fill
-                    quality={25}
+                    quality={50}
                     sizes="150px"
                     src={page.image}
                   />

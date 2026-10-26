@@ -3,7 +3,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { TopBar } from "./top-bar";
 
-const GO_TO_HOME_REGEX = /go to home/i;
+const HOME_LINK_REGEX = /dulapah vibulsanti/i;
 
 describe("TopBar", () => {
   beforeEach(() => {
@@ -17,7 +17,7 @@ describe("TopBar", () => {
   it("should render top bar with logo and home link", () => {
     render(<TopBar />);
 
-    const homeLink = screen.getByRole("link", { name: GO_TO_HOME_REGEX });
+    const homeLink = screen.getByRole("link", { name: HOME_LINK_REGEX });
     expect(homeLink).toHaveAttribute("href", "/");
 
     const logo = screen.getByAltText("Mirai logo");
@@ -36,7 +36,7 @@ describe("TopBar", () => {
 
     // Component should still be in the DOM (motion handles visibility via animation)
     expect(
-      screen.getByRole("link", { name: GO_TO_HOME_REGEX })
+      screen.getByRole("link", { name: HOME_LINK_REGEX })
     ).toBeInTheDocument();
   });
 
@@ -52,7 +52,7 @@ describe("TopBar", () => {
     fireEvent.scroll(window);
 
     expect(
-      screen.getByRole("link", { name: GO_TO_HOME_REGEX })
+      screen.getByRole("link", { name: HOME_LINK_REGEX })
     ).toBeInTheDocument();
   });
 
@@ -63,7 +63,7 @@ describe("TopBar", () => {
     fireEvent.scroll(window);
 
     expect(
-      screen.getByRole("link", { name: GO_TO_HOME_REGEX })
+      screen.getByRole("link", { name: HOME_LINK_REGEX })
     ).toBeInTheDocument();
   });
 });

@@ -5,17 +5,23 @@ import { getCurrentlyPlaying, getTopArtists, getTopTracks } from "./spotify";
 const mockFetch = vi.fn();
 global.fetch = mockFetch;
 
+const mockToken = (accessToken = "cached-token") =>
+  mockFetch.mockResolvedValueOnce({
+    ok: true,
+    json: async () => ({ access_token: accessToken }),
+  });
+
 describe("Spotify API Actions", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     process.env.SPOTIFY_CLIENT_ID = "test-client-id";
     process.env.SPOTIFY_CLIENT_SECRET = "test-client-secret";
     process.env.SPOTIFY_REFRESH_TOKEN = "test-refresh-token";
-    process.env.SPOTIFY_ACCESS_TOKEN = "test-access-token";
   });
 
   describe("getTopArtists", () => {
     it("should return top artists", async () => {
+      mockToken();
       mockFetch.mockResolvedValueOnce({
         ok: true,
         json: async () => ({
@@ -43,6 +49,7 @@ describe("Spotify API Actions", () => {
     });
 
     it("should return empty array on error", async () => {
+      mockToken();
       mockFetch.mockResolvedValueOnce({
         ok: false,
         statusText: "Unauthorized",
@@ -54,6 +61,7 @@ describe("Spotify API Actions", () => {
     });
 
     it("should refresh token on 401", async () => {
+      mockToken();
       // First request fails with 401
       mockFetch.mockResolvedValueOnce({
         ok: false,
@@ -74,12 +82,39 @@ describe("Spotify API Actions", () => {
 
       await getTopArtists(5);
 
-      expect(mockFetch).toHaveBeenCalledTimes(3);
+      expect(mockFetch).toHaveBeenCalledTimes(4);
+      // The rejected token came from the cache, so the refresh must skip it
+      expect(mockFetch.mock.calls[2][1]).toMatchObject({ cache: "no-store" });
+      expect(mockFetch.mock.calls[3][1].headers).toEqual({
+        Authorization: "Bearer new-token",
+      });
+    });
+
+    it("should share one cached token so API responses can be cached", async () => {
+      mockToken();
+      mockFetch.mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({ items: [] }),
+      });
+
+      await getTopArtists(5);
+
+      const [tokenUrl, tokenInit] = mockFetch.mock.calls[0];
+      expect(tokenUrl).toBe("https://accounts.spotify.com/api/token");
+      expect(tokenInit).toMatchObject({
+        method: "POST",
+        next: { revalidate: 3000 },
+      });
+      expect(mockFetch.mock.calls[1][1]).toEqual({
+        headers: { Authorization: "Bearer cached-token" },
+        next: { revalidate: 3600 },
+      });
     });
   });
 
   describe("getTopTracks", () => {
     it("should return top tracks", async () => {
+      mockToken();
       mockFetch.mockResolvedValueOnce({
         ok: true,
         json: async () => ({
@@ -112,6 +147,7 @@ describe("Spotify API Actions", () => {
     });
 
     it("should return empty array on error", async () => {
+      mockToken();
       mockFetch.mockResolvedValueOnce({
         ok: false,
         statusText: "Forbidden",
@@ -125,6 +161,7 @@ describe("Spotify API Actions", () => {
 
   describe("getCurrentlyPlaying", () => {
     it("should return currently playing track when available", async () => {
+      mockToken();
       mockFetch.mockResolvedValueOnce({
         ok: true,
         status: 200,
@@ -159,6 +196,7 @@ describe("Spotify API Actions", () => {
     });
 
     it("should return null when nothing is playing (204)", async () => {
+      mockToken();
       mockFetch.mockResolvedValueOnce({
         ok: true,
         status: 204,
@@ -170,6 +208,7 @@ describe("Spotify API Actions", () => {
     });
 
     it("should handle API errors gracefully", async () => {
+      mockToken();
       mockFetch.mockResolvedValueOnce({
         ok: false,
         status: 500,
@@ -182,6 +221,7 @@ describe("Spotify API Actions", () => {
     });
 
     it("should refresh token on 401 and retry", async () => {
+      mockToken();
       // First request fails with 401
       mockFetch.mockResolvedValueOnce({
         ok: false,
@@ -207,11 +247,12 @@ describe("Spotify API Actions", () => {
 
       const result = await getCurrentlyPlaying();
 
-      expect(mockFetch).toHaveBeenCalledTimes(3);
+      expect(mockFetch).toHaveBeenCalledTimes(4);
       expect(result?.is_playing).toBe(false);
     });
 
     it("should return null on 403 (missing scope)", async () => {
+      mockToken();
       mockFetch.mockResolvedValueOnce({
         ok: false,
         status: 403,

@@ -4,7 +4,18 @@ import type { NextConfig } from "next";
 
 import { AGENT_LINK_HEADER } from "./lib/agent-discovery";
 
+const SPOTIFY_IMAGE_HOST = "i.scdn.co";
+
 const agentDiscoveryHeaders = [{ key: "Link", value: AGENT_LINK_HEADER }];
+
+// Cloudflare replays preconnect/preload Link entries as 103 Early Hints, so the
+// browser can open the Spotify art connection while the homepage renders.
+const homeHeaders = [
+  {
+    key: "Link",
+    value: `<https://${SPOTIFY_IMAGE_HOST}>; rel=preconnect, ${AGENT_LINK_HEADER}`,
+  },
+];
 
 const allowedDevOrigins = (process.env.ALLOWED_DEV_ORIGINS ?? "")
   .split(",")
@@ -38,13 +49,17 @@ const nextConfig: NextConfig = {
   // every request for headers no agent reads there.
   headers() {
     return Promise.resolve([
-      { source: "/", headers: agentDiscoveryHeaders },
+      { source: "/", headers: homeHeaders },
       { source: "/contact", headers: agentDiscoveryHeaders },
       { source: "/security", headers: agentDiscoveryHeaders },
       { source: "/:type(blog|project)", headers: agentDiscoveryHeaders },
       { source: "/:type(blog|project)/:slug+", headers: agentDiscoveryHeaders },
     ]);
   },
+  // OpenNext lets the Link header above replace the one React emits for font
+  // preloads on dynamic pages, dropping them. A zero budget makes React keep
+  // those preloads as <link> tags in the HTML instead.
+  reactMaxHeadersLength: 0,
   poweredByHeader: false,
   reactCompiler: true,
   logging: {
@@ -53,11 +68,11 @@ const nextConfig: NextConfig = {
   images: {
     loader: "custom",
     loaderFile: "./image-loader.ts",
-    qualities: [1, 25, 75],
+    qualities: [50, 75],
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "i.scdn.co",
+        hostname: SPOTIFY_IMAGE_HOST,
         pathname: "/image/**",
       },
     ],

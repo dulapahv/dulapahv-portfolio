@@ -34,8 +34,12 @@ interface SpotifyTokenResponse {
 
 const SPOTIFY_API_BASE = "https://api.spotify.com/v1";
 const DEFAULT_REVALIDATE = 3600;
+// Tokens live for an hour. Next keys its fetch cache on request headers, so a
+// new token per render made every cached Spotify fetch below miss; sharing one
+// keeps the Authorization header, and with it the cache key, stable.
+const TOKEN_REVALIDATE = 3000;
 
-async function refreshAccessToken(): Promise<string> {
+async function refreshAccessToken(bypassCache = false): Promise<string> {
   const clientId = process.env.SPOTIFY_CLIENT_ID;
   const clientSecret = process.env.SPOTIFY_CLIENT_SECRET;
   const refreshToken = process.env.SPOTIFY_REFRESH_TOKEN;
@@ -54,6 +58,9 @@ async function refreshAccessToken(): Promise<string> {
       grant_type: "refresh_token",
       refresh_token: refreshToken,
     }),
+    // After a 401 the cached token is the one Spotify just rejected.
+    cache: bypassCache ? "no-store" : undefined,
+    next: bypassCache ? undefined : { revalidate: TOKEN_REVALIDATE },
   });
 
   if (!response.ok) {
@@ -69,11 +76,7 @@ async function fetchWithAuth(
   url: string,
   revalidate = DEFAULT_REVALIDATE
 ): Promise<Response> {
-  let accessToken = process.env.SPOTIFY_ACCESS_TOKEN;
-
-  if (!accessToken) {
-    accessToken = await refreshAccessToken();
-  }
+  let accessToken = await refreshAccessToken();
 
   let response = await fetch(url, {
     headers: { Authorization: `Bearer ${accessToken}` },
@@ -81,7 +84,7 @@ async function fetchWithAuth(
   });
 
   if (response.status === 401) {
-    accessToken = await refreshAccessToken();
+    accessToken = await refreshAccessToken(true);
     response = await fetch(url, {
       headers: { Authorization: `Bearer ${accessToken}` },
       next: { revalidate },

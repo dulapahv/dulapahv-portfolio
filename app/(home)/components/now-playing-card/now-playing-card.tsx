@@ -1,14 +1,20 @@
 import Image from "next/image";
 import type { SpotifyTrack } from "@/app/actions/spotify";
 import { Link } from "@/components/link";
+import { pickSpotifyImage } from "@/lib/spotify-image";
 import { cn } from "@/lib/utils";
 import { Marquee } from "../marquee";
+
+// Album art renders at 64px, so ask Spotify for at least 2x that.
+const ALBUM_ART_MIN_WIDTH = 128;
 
 interface NowPlayingCardProps {
   track: SpotifyTrack;
 }
 
 export function NowPlayingCard({ track }: NowPlayingCardProps) {
+  const albumArt = pickSpotifyImage(track.album.images, ALBUM_ART_MIN_WIDTH);
+
   return (
     <div
       className={cn(
@@ -27,13 +33,13 @@ export function NowPlayingCard({ track }: NowPlayingCardProps) {
       </div>
 
       <div className="flex items-center gap-4">
-        {track.album.images[0] ? (
+        {albumArt ? (
           <Link className="shrink-0" href={track.external_urls.spotify}>
             <Image
               alt={track.album.name}
               className="rounded shadow-lg"
               height={64}
-              src={track.album.images[0].url}
+              src={albumArt.url}
               width={64}
             />
           </Link>

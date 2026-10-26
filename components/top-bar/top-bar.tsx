@@ -55,11 +55,7 @@ export function TopBar() {
       transition={{ duration: 0.3, ease: "easeInOut" }}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
-        <Link
-          aria-label="Go to home"
-          className="flex items-center gap-3 hover:opacity-80"
-          href="/"
-        >
+        <Link className="flex items-center gap-3 hover:opacity-80" href="/">
           <Image
             alt="Mirai logo"
             className="size-8"

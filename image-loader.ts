@@ -12,7 +12,7 @@ export default function cloudflareLoader({
   if (src.startsWith("http://") || src.startsWith("https://")) {
     return src;
   }
-  const params = [`width=${width}`];
+  const params = [`width=${width}`, "format=auto"];
   if (quality) {
     params.push(`quality=${quality}`);
   }

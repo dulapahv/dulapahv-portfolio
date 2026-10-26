@@ -10,11 +10,15 @@ import {
 } from "@/app/actions/spotify";
 import { Link } from "@/components/link";
 import { SPOTIFY_URL } from "@/lib/constants";
+import { pickSpotifyImage } from "@/lib/spotify-image";
 import { cn } from "@/lib/utils";
 import { Card } from "../card";
 import { CardHeader, CardHeaderIconLink } from "../card-header";
 import { Marquee } from "../marquee";
 import { NowPlayingCard } from "../now-playing-card/now-playing-card";
+
+// Thumbnails render at 40px, so ask Spotify for at least 2x that.
+const THUMBNAIL_MIN_WIDTH = 80;
 
 export async function SpotifyCard() {
   const [currentlyPlaying, topArtists, topTracks] = await Promise.all([
@@ -30,6 +34,14 @@ export async function SpotifyCard() {
   const nowPlaying = currentlyPlaying?.is_playing
     ? currentlyPlaying.item
     : null;
+  const artists = topArtists.map((artist) => ({
+    ...artist,
+    image: pickSpotifyImage(artist.images, THUMBNAIL_MIN_WIDTH),
+  }));
+  const tracks = topTracks.map((track) => ({
+    ...track,
+    image: pickSpotifyImage(track.album.images, THUMBNAIL_MIN_WIDTH),
+  }));
 
   return (
     <Card className="flex h-full flex-col p-5">
@@ -53,7 +65,7 @@ export async function SpotifyCard() {
               <span>Top Artists - Last 4 Weeks</span>
             </div>
             <div className="flex flex-col gap-2">
-              {topArtists.map((artist, index) => (
+              {artists.map((artist, index) => (
                 <Link
                   className={cn(
                     "flex items-center gap-3 rounded-lg p-2",
@@ -65,12 +77,12 @@ export async function SpotifyCard() {
                   <span className="font-medium text-foreground-muted text-sm">
                     {index + 1}
                   </span>
-                  {artist.images[0] ? (
+                  {artist.image ? (
                     <Image
                       alt={artist.name}
                       className="size-10 shrink-0 rounded-full object-cover"
                       height={40}
-                      src={artist.images[0].url}
+                      src={artist.image.url}
                       width={40}
                     />
                   ) : null}
@@ -92,7 +104,7 @@ export async function SpotifyCard() {
               <span>Top Tracks - Last 4 Weeks</span>
             </div>
             <div className="flex flex-col gap-2">
-              {topTracks.map((track, index) => (
+              {tracks.map((track, index) => (
                 <div
                   className={cn(
                     "flex items-center gap-3 rounded-lg p-2",
@@ -103,7 +115,7 @@ export async function SpotifyCard() {
                   <span className="font-medium text-foreground-muted text-sm">
                     {index + 1}
                   </span>
-                  {track.album.images[0] ? (
+                  {track.image ? (
                     <Link
                       className="shrink-0"
                       href={track.external_urls.spotify}
@@ -112,7 +124,7 @@ export async function SpotifyCard() {
                         alt={track.album.name}
                         className="rounded"
                         height={40}
-                        src={track.album.images[0].url}
+                        src={track.image.url}
                         width={40}
                       />
                     </Link>

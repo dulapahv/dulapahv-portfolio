@@ -35,7 +35,7 @@ export function RecentBlogsCard() {
                       alt={blog.title}
                       className="object-cover"
                       fill
-                      quality={1}
+                      quality={50}
                       sizes="150px"
                       src={blog.image}
                     />

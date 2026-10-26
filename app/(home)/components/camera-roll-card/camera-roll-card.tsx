@@ -90,32 +90,34 @@ export function CameraRollCard({ images }: CameraRollCardProps) {
           {images.map((image, index) => (
             <button
               aria-label={`Go to image ${index + 1}`}
-              className="relative h-0.5 flex-1 overflow-hidden rounded-full bg-white/30"
+              className="flex h-6 flex-1 flex-col"
               key={`progress-${image}`}
               onClick={() => handleBarClick(index)}
               type="button"
             >
-              <div
-                className={cn(
-                  "h-full bg-white",
-                  index === currentIndex && "animate-camera-roll-progress"
-                )}
-                key={
-                  index === currentIndex
-                    ? `active-${animationKey}`
-                    : `done-${index}`
-                }
-                onAnimationEnd={
-                  index === currentIndex ? handleSlideChange : undefined
-                }
-                style={
-                  index === currentIndex
-                    ? {
-                        animationPlayState: isPaused ? "paused" : "running",
-                      }
-                    : { width: index < currentIndex ? "100%" : "0%" }
-                }
-              />
+              <div className="relative h-0.5 overflow-hidden rounded-full bg-white/30">
+                <div
+                  className={cn(
+                    "h-full bg-white",
+                    index === currentIndex && "animate-camera-roll-progress"
+                  )}
+                  key={
+                    index === currentIndex
+                      ? `active-${animationKey}`
+                      : `done-${index}`
+                  }
+                  onAnimationEnd={
+                    index === currentIndex ? handleSlideChange : undefined
+                  }
+                  style={
+                    index === currentIndex
+                      ? {
+                          animationPlayState: isPaused ? "paused" : "running",
+                        }
+                      : { width: index < currentIndex ? "100%" : "0%" }
+                  }
+                />
+              </div>
             </button>
           ))}
         </div>

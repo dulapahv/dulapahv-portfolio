@@ -1,5 +1,8 @@
 import Image from "next/image";
 
+const BLOB_SIZES =
+  "(min-resolution: 2.5dppx) 360px, (min-resolution: 1.5dppx) 540px, 1080px";
+
 export function BackgroundDecor() {
   return (
     <>
@@ -14,6 +17,7 @@ export function BackgroundDecor() {
           fetchPriority="high"
           fill
           loading="eager"
+          sizes={BLOB_SIZES}
           src="/pinku.png"
         />
       </div>
@@ -27,6 +31,7 @@ export function BackgroundDecor() {
           className="object-contain"
           fill
           loading="eager"
+          sizes={BLOB_SIZES}
           src="/ao.png"
         />
       </div>

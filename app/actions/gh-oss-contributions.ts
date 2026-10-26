@@ -7,6 +7,9 @@ import type {
 
 const GITHUB_USERNAME = "dulapahv";
 const GITHUB_API_BASE = "https://api.github.com";
+// Search is slow (~1s) and rate limited to 30 requests/minute, and PR states
+// rarely change, so don't hit it on every homepage render.
+const REVALIDATE_SECONDS = 3600;
 
 const FILTERED_URLS: string[] = [
   "https://github.com/vercel/next.js/issues/60006",
@@ -84,7 +87,7 @@ async function fetchGitHubContributions(
 
   const response = await fetch(url, {
     headers,
-    next: { revalidate: 0 },
+    next: { revalidate: REVALIDATE_SECONDS },
   });
 
   if (!response.ok) {
