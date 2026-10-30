@@ -720,6 +720,19 @@
   }
 }
 
+.bg-blob {
+  background-image: radial-gradient(
+    closest-side,
+    var(--blob),
+    color-mix(in srgb, var(--blob) 92%, transparent) 30%,
+    color-mix(in srgb, var(--blob) 72%, transparent) 50%,
+    color-mix(in srgb, var(--blob) 46%, transparent) 65%,
+    color-mix(in srgb, var(--blob) 22%, transparent) 80%,
+    color-mix(in srgb, var(--blob) 7%, transparent) 91%,
+    transparent
+  );
+}
+
 /* Base Styles */
 * {
   box-sizing: border-box;

@@ -26,15 +26,6 @@ export default function MousePositionVarsSetter() {
         el.style.setProperty("--mouse-x", `${x}px`);
         el.style.setProperty("--mouse-y", `${y}px`);
       }
-
-      document.documentElement.style.setProperty(
-        "--global-mouse-x",
-        String(clientX / window.innerWidth)
-      );
-      document.documentElement.style.setProperty(
-        "--global-mouse-y",
-        String(clientY / window.innerHeight)
-      );
     };
     window.addEventListener("mousemove", handler, { passive: true });
     return () => {
