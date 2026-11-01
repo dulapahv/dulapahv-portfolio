@@ -40,6 +40,10 @@ export const generateStaticParams = (): { type: ContentType }[] => [
   { type: "blog" },
 ];
 
+// Anything outside generateStaticParams gets the prebuilt 404 instead of an
+// on-demand render, so scanner probes like /env.json can't burn Worker CPU.
+export const dynamicParams = false;
+
 export default async function TypeListingPage({
   params,
 }: PageProps<"/[type]">) {

@@ -94,6 +94,10 @@ export const generateStaticParams = (): { type: string; slug: string }[] => {
   );
 };
 
+// Unknown slugs (and two-segment probes like /api/info) get the prebuilt 404
+// instead of an on-demand render on the Worker.
+export const dynamicParams = false;
+
 export default async function ContentPage({
   params,
 }: PageProps<"/[type]/[slug]">) {
